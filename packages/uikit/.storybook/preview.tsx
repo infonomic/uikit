@@ -1,0 +1,74 @@
+import React from 'react'
+import type { Preview } from '@storybook/react'
+import '../src/styles/styles.css'
+import '../src/styles/typography.css'
+
+import { withThemeByClassName } from '@storybook/addon-themes'
+
+import { ThemeProvider } from '../src/theme/theme-provider'
+import { Toast as ToastPrimitive } from 'radix-ui'
+
+const globalDecorator = (StoryFn, context) => {
+  const theme = context.parameters.theme || context.globals.theme
+  return (
+    <ThemeProvider theme={theme}>
+      <ToastPrimitive.Provider swipeDirection="right">
+        <div
+          className="background"
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100vw',
+            height: '100vh',
+            padding: '12px',
+            overflow: 'auto'
+          }}
+        >
+          <div style={{ marginBottom: 'var(--spacing-8)' }}>
+            <h1
+              style={{ fontWeight: 'bold', fontSize: '1.5rem' }}
+              className="headings"
+            >{`${context.title} - ${context.story}`}</h1>
+            <hr className="text" />
+          </div>
+          <StoryFn />
+        </div>
+        <ToastPrimitive.Viewport />
+      </ToastPrimitive.Provider>
+    </ThemeProvider>
+  )
+}
+
+export const decorators = [
+  globalDecorator,
+  withThemeByClassName({
+    themes: {
+      light: 'light',
+      dark: 'dark'
+    },
+    defaultTheme: 'dark'
+    // attributeName: 'data-mode',
+  })
+]
+
+const preview: Preview = {
+  parameters: {
+    options: {
+      storySort: {
+        method: 'alphabetical',
+        order: [],
+        locales: ''
+      }
+    },
+    // actions: { argTypesRegex: '^on[A-Z].*' },
+    controls: {
+      matchers: {
+        color: /(background|color)$/i,
+        date: /Date$/
+      }
+    }
+  }
+}
+
+export default preview

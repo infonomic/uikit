@@ -1,0 +1,4 @@
+{
+  "extends": "./tsconfig.json",
+  "include": ["./src/react/index.ts", "./src/declarations.d.ts"]
+}

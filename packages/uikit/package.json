@@ -1,0 +1,95 @@
+{
+  "name": "@infonomic/uikit",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "sideEffects": false,
+  "types": "./dist/react/index.d.ts",
+  "module": "./dist/react/index.js",
+  "main": "./dist/react/index.js",
+  "files": [
+    "dist/"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/react/index.d.ts",
+      "import": "./dist/react/index.js",
+      "default": "./dist/react/index.js"
+    },
+    "./styles.css": {
+      "import": "./dist/styles/styles.css"
+    },
+    "./typography.css": {
+      "import": "./dist/styles/typography.css"
+    }
+  },
+  "scripts": {
+    "dev": "run-p dev:*",
+    "dev:css": "postcss \"src/styles/style.css\" \"src/styles/typography.css\" \"src/styles/**/*.css\" --env development --dir dist/styles --base ./src/styles --watch",
+    "dev:code": "rslib build --watch",
+    "build": "run-s build:*",
+    "build:clean": "rm -rf dist",
+    "build:code": "rslib build",
+    "build:css": "postcss \"src/styles/styles.css\" \"src/styles/typography.css\" --env production --dir dist/styles --base ./src/styles",
+    "skip:post-process-css": "node ./post-build-merge-css.js",
+    "build:minify-styles": "lightningcss --minify dist/styles/styles.css -o dist/styles/styles.css",
+    "build:minify-typography": "lightningcss --minify dist/styles/typography.css -o dist/styles/typography.css",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf node_modules dist types .turbo",
+    "lint": "eslint --ext .ts,.tsx,.js,.jsx ./src",
+    "lint:fix": "eslint --fix --ext .ts,.tsx,.js,.jsx ./src",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "test": "vitest"
+  },
+  "dependencies": {
+    "@radix-ui/react-slot": "^1.1.1",
+    "classnames": "^2.5.1",
+    "material-ripple-effects": "^2.0.1",
+    "motion": "^12.0.6",
+    "npm-run-all": "^4.1.5",
+    "prism-react-renderer": "^2.4.1",
+    "radix-ui": "^1.1.2",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "zod": "^3.24.1",
+    "zod-form-data": "^2.0.5"
+  },
+  "devDependencies": {
+    "@rsbuild/plugin-react": "^1.1.0",
+    "@rslib/core": "^0.4.0",
+    "@storybook/addon-a11y": "^8.5.3",
+    "@storybook/addon-essentials": "^8.5.3",
+    "@storybook/addon-interactions": "^8.5.3",
+    "@storybook/addon-links": "^8.5.3",
+    "@storybook/addon-themes": "^8.5.3",
+    "@storybook/blocks": "^8.5.3",
+    "@storybook/react": "^8.5.3",
+    "@storybook/react-vite": "^8.5.3",
+    "@types/lodash": "^4.17.15",
+    "@types/node": "^22.13.0",
+    "@types/react": "19.0.8",
+    "@types/react-dom": "19.0.3",
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.20",
+    "chokidar-cli": "^3.0.0",
+    "eslint-plugin-storybook": "^0.11.2",
+    "hash-css-selector": "^1.1.0",
+    "lightningcss-cli": "^1.29.1",
+    "postcss": "^8.5.1",
+    "postcss-cli": "^11.0.0",
+    "postcss-import": "^16.1.0",
+    "postcss-map-get": "^0.3.0",
+    "postcss-modules": "^6.0.1",
+    "postcss-nested": "^7.0.2",
+    "postcss-sort-media-queries": "^5.2.0",
+    "prop-types": "^15.8.1",
+    "storybook": "^8.5.3",
+    "tailwind-merge": "^3.0.1",
+    "tailwindcss": "3.4.17",
+    "typescript": "5.7.3",
+    "typescript-plugin-css-modules": "^5.1.0",
+    "vite": "^6.0.11",
+    "vitest": "^3.0.4"
+  }
+}

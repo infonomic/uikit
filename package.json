@@ -1,0 +1,29 @@
+{
+  "name": "@infonomic/uikit-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "private": false,
+  "packageManager": "pnpm@9.15.5",
+  "keywords": [],
+  "author": "",
+  "scripts": {
+    "clean": "turbo run clean && rm -rf node_modules",
+    "build": "turbo run build",
+    "start": "turbo run start",
+    "storybook": "turbo run storybook",
+    "dev": "turbo run dev --parallel",
+    "lint": "turbo run lint --continue",
+    "typecheck": "turbo run typecheck --continue",
+    "test": "turbo run test",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+  },
+  "license": "ISC",
+  "dependencies": {
+    "turbo": "^2.4.0",
+    "typescript": "5.7.3"
+  },
+  "engines": {
+    "node": "^18.20.2 || >=20.9.0"
+  }
+}
