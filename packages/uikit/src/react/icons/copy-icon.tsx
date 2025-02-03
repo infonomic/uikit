@@ -1,7 +1,6 @@
 import React from 'react'
 
 import cx from 'classnames'
-import { twMerge } from 'tailwind-merge'
 
 import { IconElement } from './icon-element.js'
 

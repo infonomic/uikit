@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from 'react'
 
 import cx from 'classnames'
-import { twMerge } from 'tailwind-merge'
 
 import { Button } from './button'
 import { CopyIcon } from '../../icons'
@@ -85,7 +84,7 @@ export function CopyButton({
           onClick={handleCopied}
           {...rest}
         >
-          <CopyIcon svgClassName={twMerge(svgColor, svgClassName)} width="18px" height="18px" />
+          <CopyIcon svgClassName={cx(svgColor, svgClassName)} width="18px" height="18px" />
         </Button>
       </Tooltip>
     </div>
