@@ -13,8 +13,7 @@ We're just not convinced it should be used in UI kits and libraries.
 
 Install packages and build once...
 
-`pnpm install`
-`pnpm build`
+`pnpm install && pnpm build`
 
 To start the Next.js 15 app in dev mode...
 
@@ -23,6 +22,7 @@ To start the Next.js 15 app in dev mode...
 To start Storybook for the ui kit.
 
 `cd packages/uikt`
+
 `pnpm storybook`
 
 ## Note
