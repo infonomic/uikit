@@ -10,22 +10,14 @@ function capitalize(str: string): string {
   return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase()
 }
 
-export default function Buttons() {
+export default function ButtonsPage() {
   return (
     <div className="min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <div className="max-w-[1024px] mx-auto">
+        <div className="w-[800px] mx-auto mb-6">
           {intent.map((i) => {
             return (
-              <div
-                key={i}
-                style={{
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(4, minmax(0, 1fr)',
-                  gap: '32px',
-                  marginBottom: '32px'
-                }}
-              >
+              <div key={i} className="grid grid-cols-4 gap-4 mb-6">
                 {variant.map((v) => {
                   return (
                     <Button
@@ -38,6 +30,11 @@ export default function Buttons() {
               </div>
             )
           })}
+        </div>
+        <div className="w-[800px] mx-auto mb-6">
+          <Button className="w-[600px] border-4 border-white border-solid">
+            Tailwind Overrides Without !
+          </Button>
         </div>
       </main>
     </div>
