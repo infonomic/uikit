@@ -1,4 +1,4 @@
-@layer infonomic-theme, infonomic-utilities, infonomic-base;
+@layer infonomic-base, infonomic-utilities, infonomic-theme, infonomic-components;
 
 @import './base/base.css';
 @import './utils/utils.css';

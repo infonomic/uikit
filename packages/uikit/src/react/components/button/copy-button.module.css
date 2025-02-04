@@ -1,27 +1,31 @@
-.copy-button-container {
-  display: inline-block;
-}
+@layer infonomic-base, infonomic-utilities, infonomic-theme, infonomic-components;
 
-.copy-button {
-  width: 32px;
-  height: 32px;
-  min-width: 32px;
-}
+@layer infonomic-components {
+  .copy-button-container {
+    display: inline-block;
+  }
 
-.copy-button-foreground {
-  fill: var(--gray-700);
-}
+  .copy-button {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+  }
 
-.copy-button-foreground-reversed {
-  fill: var(--gray-200);
-}
-
-.dark {
   .copy-button-foreground {
-    fill: var(--gray-200);
+    fill: var(--gray-700);
   }
 
   .copy-button-foreground-reversed {
-    fill: var(--gray-700);
+    fill: var(--gray-200);
+  }
+
+  .dark {
+    .copy-button-foreground {
+      fill: var(--gray-200);
+    }
+
+    .copy-button-foreground-reversed {
+      fill: var(--gray-700);
+    }
   }
 }

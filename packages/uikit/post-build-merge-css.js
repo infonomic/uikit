@@ -5,8 +5,9 @@
  * css that does not depend on the front-end framework's ability to 
  * import css within components.
  * 
- * It might also be useful in setting @layer cascade specificity
- * for the components.
+ * Also useful in setting @layer cascade specificity
+ * for components so that they can easily be overridden by
+ * Tailwind or other front-end style systems.
  */
 
 import { readdir, readFile, writeFile } from 'fs/promises'
