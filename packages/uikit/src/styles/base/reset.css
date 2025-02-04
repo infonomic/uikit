@@ -1,9 +1,8 @@
 /* 
- * Based on the Tailwind reset / preflight
+ * Based on Tailwind reset / preflight
  * If used in a tailwind project, turn preflight off.
  * Copyright (c) Tailwind Labs, Inc.
 */
-
 @layer infonomic-base {
 
   /*

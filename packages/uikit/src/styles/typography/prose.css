@@ -1,5 +1,9 @@
-/* Portions copyright (c) Tailwind Labs, Inc. */
-/* Adapted from Tailwind typography plugin */
+/* 
+ * Adapted from Tailwind typography plugin 
+ * TODO: Create a better prose typography system
+ *
+ * Portions copyright (c) Tailwind Labs, Inc.
+*/
 @layer infonomic-typography {
   .prose {
     --prose-body: #374151;

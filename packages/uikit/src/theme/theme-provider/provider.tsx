@@ -1,6 +1,7 @@
 /**
- * NOTE: Not used in production. This is only here uikit development
- * with the provider placed in .storybook/preview.tsx
+ * NOTE: Not used in production. This is only here for
+ * uikit development with the provider placed in
+ * .storybook/preview.tsx
  */
 
 import { createContext, useContext, useMemo } from 'react'
