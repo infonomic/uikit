@@ -12,9 +12,9 @@ We're just not convinced it should be used in UI kits and libraries.
 
 Here's how we'd ideally like our component library to work.
 
-1. We'd like a structure and style system that will work with any framework -[React](https://react.dev/),[Vue.js](https://vuejs.org/),[Solid](https://www.solidjs.com/),[Svelte](https://svelte.dev/) etc.
-2. We'd like to be able to easily target various front-end meta frameworks, from[Astro](https://astro.build/), to[Next.js](https://nextjs.org/) to[React Router v7](https://reactrouter.com/) (formerly Remix) - and even plain old HTML/CSS.
-3. We'd like a good developer experience, allowing us to use develop our componets in the 'kit' (via tests and Storybook), as well as withing a monorepo and development within the front-end target framework (Next.js, Vue etc.).
+1. We'd like a structure and style system that will work with any framework -[React](https://react.dev/),[Vue.js](https://vuejs.org/), [Solid](https://www.solidjs.com/), [Svelte](https://svelte.dev/) etc.
+2. We'd like to be able to easily target various front-end meta frameworks, from [Astro](https://astro.build/), to [Next.js](https://nextjs.org/) to [React Router v7](https://reactrouter.com/) (formerly Remix) - and even plain old HTML/CSS.
+3. We'd like a good developer experience, allowing us to use develop our components in the 'kit' (via tests and Storybook), as well as in a monorepo and development within the front-end target framework itself (Next.js, Vue etc.).
 4. We'd like our components' styles to be easily overridable - whether via 'style' attributes, Tailwind, regular CSS classnames and stylesheets, or any other style system being used by the front-end.
 
 ## Approach
