@@ -4,9 +4,14 @@
  *
  * Portions copyright (c) Tailwind Labs, Inc.
  *
- * Note: these are placeholder vars - without the  prefix
- * for use in a project without tailwind, although the 
- * typography styles are not complete.
+ * A simple typography style sheet that can be used
+ * in a project without tailwind, although the 
+ * typography styles quite basic.
+ *
+ * Note: You should only load one typography style sheet
+ * or plugin. If Tailwind is being used in the frontend,
+ * and you're using the Tailwind typography plugin, then 
+ * this file should NOT be loaded.
  *
 */
 @layer infonomic-typography {
@@ -19,28 +24,28 @@
     --prose-counters: #6b7280;
     --prose-bullets: #d1d5db;
     --prose-hr: #e5e7eb;
-    --prose-quotes: var(--secondary-700);
-    --prose-quote-borders: var(--secondary-900);
+    --prose-quotes: var(--accent-700);
+    --prose-quote-borders: var(--accent-700);
     --prose-captions: #6b7280;
     --prose-kbd: #111827;
     --prose-kbd-shadows: 17 24 39;
     --prose-code: #1e293b;
-    --prose-code-background: rgb(245 245 244 / 30);
+    --prose-code-background: #efefef;
     --prose-code-borders: #cccccc;
     --prose-pre-code: #e5e7eb;
     --prose-pre-bg: #1f2937;
     --prose-th-borders: #d1d5db;
     --prose-td-borders: #e5e7eb;
     --prose-invert-body: #d1d5db;
-    --prose-invert-headings: var(--theme-50);
+    --prose-invert-headings: var(--theme-300);
     --prose-invert-lead: #9ca3af;
     --prose-invert-links: var(--primary-600);
     --prose-invert-bold: #fff;
     --prose-invert-counters: #9ca3af;
     --prose-invert-bullets: #4b5563;
     --prose-invert-hr: #374151;
-    --prose-invert-quotes: var(--secondary-100);
-    --prose-invert-quote-borders: var(--secondary-100);
+    --prose-invert-quotes: var(--accent-400);
+    --prose-invert-quote-borders: var(--accent-400);
     --prose-invert-captions: #9ca3af;
     --prose-invert-kbd: #fff;
     --prose-invert-kbd-shadows: 255 255 255;
@@ -99,6 +104,13 @@
     border-width: 0;
   }
 
+  /* Overflow wrap for long non-dictionary words or urls */
+  article,
+  .editor-text,
+  .break-long-words {
+    overflow-wrap: anywhere;
+  }
+
   /* Default headings - will be overridden by prose sections below */
   h1,
   h2,
@@ -108,7 +120,7 @@
     color: var(--prose-headings);
   }
 
-  h1 {
+  .prose :where(h1):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
     font-size: 2.2rem;
     font-weight: 800;
     line-height: 2.5rem;
@@ -117,8 +129,7 @@
 
   }
 
-
-  h2 {
+  .prose :where(h2):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
     font-size: 1.75rem;
     font-weight: 700;
     line-height: 2.15rem;
@@ -126,7 +137,7 @@
     margin-bottom: 0.75rem;
   }
 
-  h3 {
+  .prose :where(h3):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
     font-size: 1.5rem;
     font-weight: 600;
     line-height: 1.85rem;
@@ -135,19 +146,12 @@
 
   }
 
-  h4 {
+  .prose :where(h4):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
     font-size: 1.3rem;
     font-weight: 600;
     line-height: 1.6rem;
     margin-top: 1rem;
     margin-bottom: 0.65rem;
-  }
-
-  /* Overflow wrap for long non-dictionary words or urls */
-  article,
-  .editor-text,
-  .break-long-words {
-    overflow-wrap: anywhere;
   }
 
   .prose :where(p):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
@@ -172,6 +176,14 @@
   .prose :where(strong):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
     color: var(--prose-bold);
     font-weight: 600;
+  }
+
+  .prose :where(a strong):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+    color: inherit;
+  }
+
+  .prose :where(blockquote strong):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+    color: inherit;
   }
 
   .prose :where(ol):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
@@ -249,14 +261,14 @@
   .prose :where(blockquote):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
     font-weight: bold;
     font-style: normal;
-    color: var(--prose-quotes);
+    color: var(--accent-600);
     border-inline-start-width: 0.25rem;
     border-inline-start-color: var(--prose-quote-borders);
     quotes: none;
     margin-top: 1.6em;
     margin-bottom: 1.6em;
     padding-inline-start: 1em;
-    border-left-color: var(--prose-quote-borders);
+    border-left-color: var(--accent-600);
     border-left-width: 3px;
     margin-right: 2rem;
     font-size: 1.5rem;
@@ -264,11 +276,11 @@
   }
 
   .prose :where(blockquote p:first-of-type):not(:where([class~="not-prose"], [class~="not-prose"] *))::before {
-    content: none;
+    content: open-quote;
   }
 
   .prose :where(blockquote p:last-of-type):not(:where([class~="not-prose"], [class~="not-prose"] *))::after {
-    content: none;
+    content: close-quote;
   }
 
 
