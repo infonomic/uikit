@@ -9,18 +9,15 @@ import type { Variant, Intent, Size } from './types/button.js'
 
 import styles from './button.module.css'
 
-// Define the ref type based on asChild prop
-type RefType = React.Ref<HTMLButtonElement> | React.Ref<HTMLElement>
+export type ButtonRefType<C extends React.ElementType> = React.ComponentPropsWithRef<C>['ref']
 
-// Your existing types...
 type AsButton = { asChild?: false } & React.ComponentPropsWithoutRef<'button'>
 
-// Or AsSlot
 interface AsSlot {
   asChild?: true
 }
 
-export type ButtonProps = {
+export type ButtonProps<C extends React.ElementType = 'button'> = {
   variant?: Variant
   size?: Size
   type?: 'submit' | 'reset' | 'button'
@@ -29,10 +26,11 @@ export type ButtonProps = {
   ripple?: boolean
   className?: string
   children: React.ReactNode
-  ref?: React.RefObject<RefType>
-} & (AsButton | AsSlot)
+  ref?: React.RefObject<ButtonRefType<C>>
+} & (AsButton | AsSlot) &
+  React.HTMLAttributes<HTMLElement>
 
-export const Button = ({
+export const Button = <C extends React.ElementType = 'button'>({
   variant = 'filled',
   size = 'md',
   type = 'button',
@@ -44,17 +42,17 @@ export const Button = ({
   asChild,
   ref,
   ...rest
-}: ButtonProps) => {
-  const Comp = asChild != null ? Slot : ('button' as React.ElementType)
+}: ButtonProps<C>) => {
+  const Comp: React.ElementType = asChild != null && asChild === true ? Slot : 'button'
 
   let onMouseDown: React.MouseEventHandler<HTMLButtonElement> | undefined
   if (ripple != null && ripple === true) {
-    const rippleEffect = ripple !== undefined && new Ripple()
-    onMouseDown = (e: any) => {
-      // @ts-expect-error: ignore
-      onMouseDown = rest?.onMouseDown
+    const rippleEffect = new Ripple()
+    onMouseDown = (e: React.MouseEvent<HTMLButtonElement>) => {
+      if (rest.onMouseDown) {
+        ;(rest.onMouseDown as React.MouseEventHandler<HTMLButtonElement>)(e)
+      }
       rippleEffect.create(e, variant === 'filled' || variant === 'gradient' ? 'light' : 'dark')
-      typeof onMouseDown === 'function' && onMouseDown(e)
     }
   }
 

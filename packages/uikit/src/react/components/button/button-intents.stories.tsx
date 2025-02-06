@@ -6,8 +6,6 @@ import { Button } from './button.js'
 import { variant } from './types/button.js'
 import { intent } from '../types/shared.js'
 
-
-
 type Story = StoryObj<typeof Button>
 
 const AllIntents = (): React.JSX.Element => {
@@ -39,7 +37,6 @@ const AllIntents = (): React.JSX.Element => {
 export const Intents: Story = {
   render: () => <AllIntents />
 }
-
 
 const meta: Meta<typeof Button> = {
   /* 👇 The title prop is optional.
