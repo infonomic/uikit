@@ -3,5 +3,6 @@
  * TS / dist output
  */
 export * from './components/button/button.js'
+export * from './components/card/card.js'
 export * from './components/button/copy-button.js'
 export * from './components/tooltip/tooltip.js'
