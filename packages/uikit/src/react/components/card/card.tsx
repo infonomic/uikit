@@ -11,43 +11,40 @@ export interface AsSlot {
   asChild?: true
 }
 
-export type CardRefType = React.Ref<HTMLDivElement | HTMLElement | null>
+export type CardRefType<C extends React.ElementType> = React.ComponentPropsWithRef<C>['ref']
 
-export type CardProps = {
+export type CardProps<C extends React.ElementType = 'div'> = {
   children: React.ReactNode
   className?: string
   hover?: boolean
-} & (AsDiv | AsSlot)
+  asChild?: boolean
+  ref?: CardRefType<C>
+} & (AsSlot | AsDiv)
 
-interface OtherProps extends React.HTMLAttributes<HTMLDivElement> {
-  ref?: React.Ref<HTMLDivElement>
-}
-
-const Card = function Card({
-  ref,
+const Card = <C extends React.ElementType = 'div'>({
   className,
   hover,
   children,
   asChild,
+  ref,
   ...rest
-}: CardProps & {
-  ref?: React.RefObject<CardRefType>
-}) {
-  const Comp = asChild != null ? Slot : 'div'
-  let hoverClasses: string | undefined
-  if (hover != null && hover) {
-    hoverClasses = styles.cardHover
-  }
+}: CardProps<C>) => {
+  const Comp: React.ElementType = asChild != null && asChild === true ? Slot : 'div'
+  const hoverClasses = hover != null && hover === true ? styles.cardHover : undefined
   const classes = cx(styles.card, hoverClasses, className)
 
   return (
-    <Comp ref={ref as any} className={classes} {...rest}>
+    <Comp ref={ref} className={classes} {...rest}>
       {children}
     </Comp>
   )
 }
 
 Card.displayName = 'Card'
+
+interface OtherProps extends React.HTMLAttributes<HTMLDivElement> {
+  ref?: React.Ref<HTMLDivElement>
+}
 
 const CardHeader = ({ className, ref, ...props }: OtherProps) => (
   <div ref={ref} className={cx(styles.cardHeader, className)} {...props} />
