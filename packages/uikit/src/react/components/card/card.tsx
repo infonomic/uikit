@@ -34,7 +34,7 @@ const Card = function Card({
   ref?: React.RefObject<CardRefType>
 }) {
   const Comp = asChild != null ? Slot : 'div'
-  let hoverClasses: string = ''
+  let hoverClasses: string | undefined
   if (hover != null && hover) {
     hoverClasses = styles.cardHover
   }

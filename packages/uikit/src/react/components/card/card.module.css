@@ -1,23 +1,24 @@
 .card {
   display: flex;
   flex-direction: column;
-  width: 100%;
   text-decoration: none;
+  width: 100%;
   max-width: 100%;
   color: var(--foreground);
-  background: var(--theme-25);
-  border: solid 1px var(--gray-50);
-  border-radius: 0.5rem;
-  box-shadow: var(--shadow-xs);
+  background: var(--gray-50);
+  border-width: var(--border-width-thin);
+  border-color: var(--border-color);
+  border-style: var(--border-style-solid);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-sm)
 }
 
 .card:is(:global(.dark) *) {
   background: var(--canvas-800);
-  border: solid 1px var(--canvas-700);
 }
 
 .cardHover {
-  transition: transform 0.2s ease-in-out;
+  transition: background 0.2s ease-in-out;
 }
 
 .cardHover:hover {

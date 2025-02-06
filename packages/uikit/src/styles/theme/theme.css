@@ -13,7 +13,7 @@
     --text-dark: var(--gray-50);
     
     --headings-light: var(--primary-800);
-    --headings-dark: var(--secondary-100);
+    --headings-dark: var(--secondary-25);
 
     --muted-light: oklch(from var(--foreground-light) calc(l * 2) c h);
     --muted-dark: oklch(from var(--foreground-dark) calc(l * 0.75) c h);
