@@ -1,17 +1,15 @@
 /* 
- * Adapted from Tailwind typography plugin 
- * TODO: Create a better prose typography system
- *
+ * Adapted from Tailwind typography plugin
  * Portions copyright (c) Tailwind Labs, Inc.
  *
- * A simple typography style sheet that can be used
- * in a project without tailwind, although the 
- * typography styles quite basic.
+ * A simple typography style sheet that can be used in a project
+ * without Tailwind, although the typography styles are quite basic.
  *
- * Note: You should only load one typography style sheet
- * or plugin. If Tailwind is being used in the frontend,
- * and you're using the Tailwind typography plugin, then 
- * this file should NOT be loaded.
+ * Note: You should only load one typography style sheet or plugin.
+ * If Tailwind is being used in the frontend, and you're using 
+ * the Tailwind typography plugin, then this style sheet should NOT
+ * be loaded (although it will cause little harm as it's 
+ * behind a cascade layer).
  *
 */
 @layer infonomic-typography {
