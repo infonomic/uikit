@@ -46,7 +46,7 @@ export const Button = <C extends React.ElementType = 'button'>({
   const Comp: React.ElementType = asChild != null && asChild === true ? Slot : 'button'
 
   let onMouseDown: React.MouseEventHandler<HTMLButtonElement> | undefined
-  if (ripple != null && ripple === true) {
+  if (ripple === true) {
     const rippleEffect = new Ripple()
     onMouseDown = (e: React.MouseEvent<HTMLButtonElement>) => {
       if (rest.onMouseDown) {

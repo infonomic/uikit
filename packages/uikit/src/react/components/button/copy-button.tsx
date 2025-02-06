@@ -53,7 +53,7 @@ export function CopyButton({
   }
 
   useEffect(() => {
-    if (copied != null && copied) {
+    if (copied === true) {
       setTimeout(() => {
         setCopied(undefined)
       }, 900)

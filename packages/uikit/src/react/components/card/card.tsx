@@ -29,7 +29,7 @@ const Card = <C extends React.ElementType = 'div'>({
   ref,
   ...rest
 }: CardProps<C>) => {
-  const Comp: React.ElementType = asChild != null && asChild === true ? Slot : 'div'
+  const Comp: React.ElementType = asChild === true ? Slot : 'div'
   const hoverClasses = hover != null && hover === true ? styles.cardHover : undefined
   const classes = cx(styles.card, hoverClasses, className)
 
