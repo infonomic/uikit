@@ -1,10 +1,4 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import React from 'react'
-
-export default {
-  title: 'Typography',
-  argTypes: {}
-}
+import type { Meta } from '@storybook/react'
 
 export const Default = (): React.JSX.Element => {
   return (
@@ -44,3 +38,14 @@ export const Default = (): React.JSX.Element => {
     </>
   )
 }
+
+const meta: Meta = {
+  /* 👇 The title prop is optional.
+   * See https://storybook.js.org/docs/react/configure/overview#configure-story-loading
+   * to learn how to generate automatic titles
+   */
+  title: 'Typography',
+  component: Default
+}
+
+export default meta

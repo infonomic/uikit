@@ -226,8 +226,8 @@ Prevent `sub` and `sup` elements from affecting the line height in all browsers.
     /* 3 */
   }
 
-  /*
-Remove the inheritance of text transform in Edge and Firefox.
+  /*  
+* Remove the inheritance of text transform in Edge and Firefox.
 */
 
   button,

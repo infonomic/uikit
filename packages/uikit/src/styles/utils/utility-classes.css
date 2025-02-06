@@ -91,6 +91,7 @@
   .border-thick { border-width: var(--border-width-thick); }
   .rounded-none { border-radius: var(--border-radius-none); }
   .rounded-sm { border-radius: var(--border-radius-sm); }
+  .rounded { border-radius: var(--border-radius-md); }
   .rounded-md { border-radius: var(--border-radius-md); }
   .rounded-lg { border-radius: var(--border-radius-lg); }
   .rounded-xl { border-radius: var(--border-radius-xl); }

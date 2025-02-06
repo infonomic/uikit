@@ -8,17 +8,6 @@ import { Button } from './button.js'
 import { variant } from './types/button.js'
 import { size } from '../types/shared.js'
 
-const meta: Meta<typeof Button> = {
-  /* 👇 The title prop is optional.
-   * See https://storybook.js.org/docs/react/configure/overview#configure-story-loading
-   * to learn how to generate automatic titles
-   */
-  title: 'Components/Button',
-  component: Button
-}
-
-export default meta
-
 type Story = StoryObj<typeof Button>
 
 const AllVariants = (): React.JSX.Element => {
@@ -54,6 +43,17 @@ const AllVariants = (): React.JSX.Element => {
   )
 }
 
-export const ButtonVariants: Story = {
+export const Variants: Story = {
   render: () => <AllVariants />
 }
+
+const meta: Meta<typeof Button> = {
+  /* 👇 The title prop is optional.
+   * See https://storybook.js.org/docs/react/configure/overview#configure-story-loading
+   * to learn how to generate automatic titles
+   */
+  title: 'Components/Button',
+  component: Button
+}
+
+export default meta

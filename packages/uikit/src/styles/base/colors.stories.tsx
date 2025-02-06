@@ -1,17 +1,4 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import React from 'react'
-
-import { type Meta } from '@storybook/react'
-
-const meta: Meta = {
-  /* 👇 The title prop is optional.
-   * See https://storybook.js.org/docs/react/configure/overview#configure-story-loading
-   * to learn how to generate automatic titles
-   */
-  title: 'Colors/Theme'
-}
-
-export default meta
+import type { Meta } from '@storybook/react'
 
 export const Colors = (): React.JSX.Element => {
   return (
@@ -35,7 +22,7 @@ export const Colors = (): React.JSX.Element => {
         .theme-test { background-color: var(--foo) }
       `}
       </style>
-      <div style={{ marginBottom: '1rem' }}>
+      <div className="mb-6">
         <table>
           <tbody>
             <tr>
@@ -415,7 +402,7 @@ export const Colors = (): React.JSX.Element => {
           </tbody>
         </table>
       </div>
-      <div style={{ marginBottom: '1rem' }}>
+      <div className="mb-6">
         <table>
           <tbody>
             <tr>
@@ -672,3 +659,14 @@ export const Colors = (): React.JSX.Element => {
     </>
   )
 }
+
+const meta: Meta = {
+  /* 👇 The title prop is optional.
+   * See https://storybook.js.org/docs/react/configure/overview#configure-story-loading
+   * to learn how to generate automatic titles
+   */
+  title: 'Theme',
+  component: Colors
+}
+
+export default meta

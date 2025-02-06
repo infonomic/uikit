@@ -1,5 +1,4 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import React from 'react'
+import type { Meta } from '@storybook/react'
 
 import { Highlight, themes } from 'prism-react-renderer'
 
@@ -39,11 +38,6 @@ function CodeDemo({ code, className, language = 'jsx' }: CodeProps): React.JSX.E
   )
 }
 
-export default {
-  title: 'Typography',
-  argTypes: {}
-}
-
 export const Code = (): React.JSX.Element => {
   return (
     <>
@@ -67,3 +61,14 @@ export const Code = (): React.JSX.Element => {
     </>
   )
 }
+
+const meta: Meta = {
+  /* 👇 The title prop is optional.
+   * See https://storybook.js.org/docs/react/configure/overview#configure-story-loading
+   * to learn how to generate automatic titles
+   */
+  title: 'Typography',
+  component: Code
+}
+
+export default meta

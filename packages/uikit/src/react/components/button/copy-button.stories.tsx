@@ -7,17 +7,6 @@ import { CopyButton } from './copy-button.js'
 import { variant } from './types/button.js'
 import { intent } from '../types/shared.js'
 
-const meta: Meta<typeof CopyButton> = {
-  /* 👇 The title prop is optional.
-   * See https://storybook.js.org/docs/react/configure/overview#configure-story-loading
-   * to learn how to generate automatic titles
-   */
-  title: 'Components/Button',
-  component: CopyButton
-}
-
-export default meta
-
 type Story = StoryObj<typeof CopyButton>
 
 const CopyDemo = (): React.JSX.Element => {
@@ -46,6 +35,17 @@ const CopyDemo = (): React.JSX.Element => {
   )
 }
 
-export const ButtonCopy: Story = {
+export const Copy: Story = {
   render: () => <CopyDemo />
 }
+
+const meta: Meta<typeof CopyButton> = {
+  /* 👇 The title prop is optional.
+   * See https://storybook.js.org/docs/react/configure/overview#configure-story-loading
+   * to learn how to generate automatic titles
+   */
+  title: 'Components/Button',
+  component: CopyButton
+}
+
+export default meta

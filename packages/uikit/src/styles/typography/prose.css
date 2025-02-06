@@ -14,11 +14,10 @@
 */
 @layer infonomic-typography {
   :root {
-    --prose-body: #374151;
-    --prose-headings: var(--primary-600);
+    --prose-body: var(--foreground);
+    --prose-headings: var(--headings);
     --prose-lead: #4b5563;
     --prose-links: var(--primary-600);
-    --prose-bold: #111827;
     --prose-counters: #6b7280;
     --prose-bullets: #d1d5db;
     --prose-hr: #e5e7eb;
@@ -32,13 +31,10 @@
     --prose-code-borders: #cccccc;
     --prose-pre-code: #e5e7eb;
     --prose-pre-bg: #1f2937;
-    --prose-th-borders: #d1d5db;
-    --prose-td-borders: #e5e7eb;
-    --prose-invert-body: #d1d5db;
-    --prose-invert-headings: var(--theme-300);
+    --prose-invert-body: var(--foreground);
+    --prose-invert-headings: var(--headings);
     --prose-invert-lead: #9ca3af;
     --prose-invert-links: var(--primary-600);
-    --prose-invert-bold: #fff;
     --prose-invert-counters: #9ca3af;
     --prose-invert-bullets: #4b5563;
     --prose-invert-hr: #374151;
@@ -61,7 +57,6 @@
     --prose-headings: var(--prose-invert-headings);
     --prose-lead: var(--prose-invert-lead);
     --prose-links: var(--prose-invert-links);
-    --prose-bold: var(--prose-invert-bold);
     --prose-counters: var(--prose-invert-counters);
     --prose-bullets: var(--prose-invert-bullets);
     --prose-hr: var(--prose-invert-hr);
@@ -75,8 +70,6 @@
     --prose-code-borders: var(--prose-invert-code-borders);
     --prose-pre-code: var(--prose-invert-pre-code);
     --prose-pre-bg: var(--prose-invert-pre-bg);
-    --prose-th-borders: var(--prose-invert-th-borders);
-    --prose-td-borders: var(--prose-invert-td-borders);
   }
 
 
@@ -110,12 +103,15 @@
   }
 
   /* Default headings - will be overridden by prose sections below */
-  h1,
-  h2,
-  h3,
-  h4,
-  h5 {
-    color: var(--prose-headings);
+  .prose {
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      color: var(--prose-headings);
+    }
   }
 
   .prose :where(h1):not(:where([class~="not-prose"], [class~="not-prose"] *)) {

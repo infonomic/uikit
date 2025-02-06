@@ -4,20 +4,22 @@
 @layer infonomic-theme {
   :root {
     --background-light: var(--canvas-25);
-    --foreground-light: var(--gray-900);
-    --text-light: var(--gray-900);
-    --heading-light: var(--primary-400);
-
     --background-dark: var(--canvas-900);
+    
+    --foreground-light: var(--gray-900);
     --foreground-dark: var(--gray-50);
+    
+    --text-light: var(--gray-900);
     --text-dark: var(--gray-50);
-    --heading-dark: var(--secondary-100);
+    
+    --headings-light: var(--primary-800);
+    --headings-dark: var(--secondary-100);
 
-    --muted: oklch(96.74% 0.0013 286.38);
-    --muted-foreground: oklch(55.17% 0.0138 285.94);
+    --muted-light: oklch(from var(--foreground-light) calc(l * 2) c h);
+    --muted-dark: oklch(from var(--foreground-dark) calc(l * 0.75) c h);
 
-    --border-light: var(--gray-300);
-    --border-dark: var(--gray-700);
+    --border-color-light: var(--gray-100);
+    --border-color-dark: var(--canvas-600);
 
     --shadow-light: var(--shadow-md);
     --shadow-dark: var(--shadow-lg);
@@ -25,23 +27,26 @@
     --background: var(--background-light);
     --foreground: var(--foreground-light);
     --text: var(--text-light);
-    --headings: var(--text-light);
-    --border: var(--border-light)
+    --headings: var(--headings-light);
+    --border-color: var(--border-color-light);
+    --shadow: var(--shadow-light);
+    --muted: var(--muted-light);
+
   }
 
-  /* 🌙 Dark via `.dark` class. We rely on the 
-   * consuming application to detect a user's preferred
-   * color scheme - either by header or cookie. and set
-   * a root html class accordingly
+  /* 🌙 Dark via `.dark` class. We rely on the consuming 
+   * application to detect a user's preferred color scheme 
+   * - either by header or cookie, and to set a root html 
+   * class accordingly
    */
   .dark {
     --background: var(--background-dark);
     --foreground: var(--foreground-dark);
     --text: var(--text-dark);
-    --headings: var(--text-dark);
-    --border: var(--border-dark);
-    --muted: var(--canvas-800);
-    --muted-foreground: var(--gray-200);
+    --headings: var(--headings-dark);
+    --border-color: var(--border-color-dark);
+    --shadow: var(--shadow-dark);
+    --muted: var(--muted-dark);
   }
 
   ::-moz-selection,
@@ -50,6 +55,40 @@
     background: var(--secondary-300);
   }
 
+  .background {
+    background-color: var(--background);
+  }
+
+  .foreground {
+    color: var(--foreground)
+  }
+
+  .text {
+    color: var(--text)
+  }
+
+  .headings {
+    color: var(--headings)
+  }
+
+  .muted {
+    font-size: 0.925rem;
+    color: var(--muted);
+  }
+
+  .shadow {
+    box-shadow: var(--shadow);
+  }
+
+  .border-color {
+    border-color: var(--border-color);
+  }
+
+  .border {
+    border-color: var(--border-color);
+    border-width: var(--border-width-thin);
+    border-style: var(--border-style-solid);
+  }
 
   /* External link */
   .external-link::after {
@@ -68,24 +107,4 @@
     background-image: url('/external-link-dark.svg');
   }
 
-  .muted {
-    background-color: var(--muted);
-    color: var(--muted-foreground);
-  }
-
-  .background {
-    background-color: var(--background);
-  }
-
-  .foreground {
-    color: var(--foreground)
-  }
-
-  .text {
-    color: var(--text)
-  }
-
-  .headings {
-    color: var(--headings)
-  }
 }
