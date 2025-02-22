@@ -666,7 +666,7 @@ const meta: Meta = {
    * to learn how to generate automatic titles
    */
   title: 'Theme',
-  component: Colors
+  component: Colors,
 }
 
 export default meta

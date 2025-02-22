@@ -24,9 +24,11 @@ function CodeDemo({ code, className, language = 'jsx' }: CodeProps): React.JSX.E
           {tokens.map((line, i) => {
             const lineProps = getLineProps({ line, key: i })
             return (
+              // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
               <div {...lineProps} key={i} style={{ lineHeight: 1.3 }}>
                 <span style={{ marginLeft: '-8px', marginRight: '12px' }}>{i + 1}</span>
                 {line.map((token, key) => (
+                  // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
                   <span key={key} {...getTokenProps({ token })} />
                 ))}
               </div>
@@ -68,7 +70,7 @@ const meta: Meta = {
    * to learn how to generate automatic titles
    */
   title: 'Typography',
-  component: Code
+  component: Code,
 }
 
 export default meta

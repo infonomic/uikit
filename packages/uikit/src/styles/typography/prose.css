@@ -14,10 +14,10 @@
 */
 @layer infonomic-typography {
   :root {
-    --prose-body: var(--foreground);
-    --prose-headings: var(--headings);
+    --prose-body: var(--gray-900);
+    --prose-headings: var(--gray-900);
     --prose-lead: #4b5563;
-    --prose-links: var(--primary-600);
+    --prose-links: var(--accent-950);
     --prose-counters: #6b7280;
     --prose-bullets: #d1d5db;
     --prose-hr: #e5e7eb;
@@ -31,10 +31,10 @@
     --prose-code-borders: #cccccc;
     --prose-pre-code: #e5e7eb;
     --prose-pre-bg: #1f2937;
-    --prose-invert-body: var(--foreground);
-    --prose-invert-headings: var(--headings);
+    --prose-invert-body: var(--gray-50);
+    --prose-invert-headings: var(--gray-300);
     --prose-invert-lead: #9ca3af;
-    --prose-invert-links: var(--primary-600);
+    --prose-invert-links: var(--accent-600);
     --prose-invert-counters: #9ca3af;
     --prose-invert-bullets: #4b5563;
     --prose-invert-hr: #374151;
@@ -72,6 +72,29 @@
     --prose-pre-bg: var(--prose-invert-pre-bg);
   }
 
+  /* Brute force our not-dark class for now until we figure out
+   * a better way to do this. Note - the following does NOT work:
+   .dark:not(:where([class~="not-dark"], [class~="not-dark"] *)) {
+   */
+  .not-dark {
+    --prose-body: var(--gray-900);
+    --prose-headings: var(--gray-900);
+    --prose-lead: #4b5563;
+    --prose-links: var(--accent-950);
+    --prose-counters: #6b7280;
+    --prose-bullets: #d1d5db;
+    --prose-hr: #e5e7eb;
+    --prose-quotes: var(--accent-700);
+    --prose-quote-borders: var(--accent-700);
+    --prose-captions: #6b7280;
+    --prose-kbd: #111827;
+    --prose-kbd-shadows: 17 24 39;
+    --prose-code: #1e293b;
+    --prose-code-background: #efefef;
+    --prose-code-borders: #cccccc;
+    --prose-pre-code: #e5e7eb;
+    --prose-pre-bg: #1f2937;
+  }
 
   /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    * Typography defaults
@@ -80,7 +103,12 @@
 
   html {
     font-size: 1rem;
-    color: var(--prose-body)
+    color: var(--prose-body);
+  }
+
+  /* Redeclared here to change the specificity and scope of --prose-body */
+  html .not-dark {
+    color: var(--prose-body);
   }
 
   .sr-only {
@@ -102,6 +130,23 @@
     overflow-wrap: anywhere;
   }
 
+  article,
+  .dynamic-text {
+    font-size: 1.25rem;
+    line-height: 1.6;
+  }
+
+  /* medium breakpoint */
+  @media screen and (min-width: 768px) {
+
+    article,
+    .dynamic-text {
+      font-size: 1.125rem;
+      line-height: 1.64;
+    }
+
+  }
+
   /* Default headings - will be overridden by prose sections below */
   .prose {
 
@@ -114,36 +159,44 @@
     }
   }
 
+  .prose-lg {
+    font-size: 1.125rem;
+    line-height: 1.64;
+  }
+
+  .prose-xl {
+    font-size: 1.25rem;
+    line-height: 1.6;
+  }
+
   .prose :where(h1):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-    font-size: 2.2rem;
-    font-weight: 800;
-    line-height: 2.5rem;
+    font-size: 2.5rem;
+    font-weight: 600;
+    line-height: 2.7rem;
     margin-top: 0;
     margin-bottom: 1rem;
-
   }
 
   .prose :where(h2):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-    font-size: 1.75rem;
-    font-weight: 700;
-    line-height: 2.15rem;
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 2.2rem;
     margin-top: 1rem;
     margin-bottom: 0.75rem;
   }
 
   .prose :where(h3):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
     font-weight: 600;
-    line-height: 1.85rem;
+    line-height: 2rem;
     margin-top: 1rem;
     margin-bottom: 0.75rem;
-
   }
 
   .prose :where(h4):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-    font-size: 1.3rem;
+    font-size: 1.55rem;
     font-weight: 600;
-    line-height: 1.6rem;
+    line-height: 1.75rem;
     margin-top: 1rem;
     margin-bottom: 0.65rem;
   }
@@ -269,14 +322,13 @@
     line-height: 1.2;
   }
 
-  .prose :where(blockquote p:first-of-type):not(:where([class~="not-prose"], [class~="not-prose"] *))::before {
+  .prose :where(blockquote p:first-of-type):not( :where([class~="not-prose"], [class~="not-prose"] *))::before {
     content: open-quote;
   }
 
-  .prose :where(blockquote p:last-of-type):not(:where([class~="not-prose"], [class~="not-prose"] *))::after {
+  .prose :where(blockquote p:last-of-type):not( :where([class~="not-prose"], [class~="not-prose"] *))::after {
     content: close-quote;
   }
-
 
   .prose :where(img):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
     margin-top: 2em;
@@ -326,7 +378,6 @@
     background-color: var(--prose-pre-bg);
     overflow-x: auto;
     font-weight: 400;
-    font-size: 0.875em;
     line-height: 1.7142857;
     margin-top: 1.7142857em;
     margin-bottom: 1.7142857em;

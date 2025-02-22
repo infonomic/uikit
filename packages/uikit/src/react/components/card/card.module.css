@@ -1,62 +1,66 @@
-.card {
-  display: flex;
-  flex-direction: column;
-  text-decoration: none;
-  width: 100%;
-  max-width: 100%;
-  color: var(--foreground);
-  background: var(--gray-50);
-  border-width: var(--border-width-thin);
-  border-color: var(--border-color);
-  border-style: var(--border-style-solid);
-  border-radius: var(--border-radius-md);
-  box-shadow: var(--shadow-sm)
-}
+@layer infonomic-base, infonomic-utilities, infonomic-theme, infonomic-typography, infonomic-components;
 
-.card:is(:global(.dark) *) {
-  background: var(--canvas-800);
-}
+@layer infonomic-components {
+  .card {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    width: 100%;
+    max-width: 100%;
+    color: var(--foreground);
+    background: var(--gray-50);
+    border-width: var(--border-width-thin);
+    border-color: var(--border-color);
+    border-style: var(--border-style-solid);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-sm)
+  }
 
-.cardHover {
-  transition: background 0.2s ease-in-out;
-}
+  .card:is(:global(.dark) *) {
+    background: var(--canvas-800);
+  }
 
-.cardHover:hover {
-  background: oklch(from var(--theme-50) 1 0.03 h);
-}
+  .cardHover {
+    transition: background 0.2s ease-in-out;
+  }
 
-.cardHover:hover:is(:global(.dark) *) {
-  background: oklch(from var(--canvas-700) 0.258 c h);
-}
+  .cardHover:hover {
+    background: oklch(from var(--theme-50) 1 0.03 h);
+  }
 
-.cardHeader {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  padding: 1rem;
-}
+  .cardHover:hover:is(:global(.dark) *) {
+    background: oklch(from var(--canvas-700) 0.258 c h);
+  }
 
-.cardTitle {
-  color: var(--headings);
-  font-size: 1.8rem;
-  font-weight: bold;
-  line-height: 1;
-  letter-spacing: -0.015em;
-}
+  .cardHeader {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem;
+  }
 
-.cardDescription {
-  font-size: 0.875rem;
-  color: var(--muted);
-}
+  .cardTitle {
+    color: var(--headings);
+    font-size: 1.8rem;
+    font-weight: bold;
+    line-height: 1;
+    letter-spacing: -0.015em;
+  }
 
-.cardContent {
-  padding: 1rem;
-  padding-top: 0;
-}
+  .cardDescription {
+    font-size: 0.875rem;
+    color: var(--muted);
+  }
 
-.cardFooter {
-  display: flex;
-  align-items: center;
-  padding: 1rem;
-  padding-top: 0;
+  .cardContent {
+    padding: 1rem;
+    padding-top: 0;
+  }
+
+  .cardFooter {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    padding-top: 0;
+  }
 }

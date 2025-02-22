@@ -1,37 +1,23 @@
-@import './autofill.css';
-@import './scrollers.css';
+@import "./autofill.css";
+@import "./scrollers.css";
 
 @layer infonomic-theme {
   :root {
-    --background-light: var(--canvas-25);
-    --background-dark: var(--canvas-900);
-    
-    --foreground-light: var(--gray-900);
-    --foreground-dark: var(--gray-50);
-    
-    --text-light: var(--gray-900);
-    --text-dark: var(--gray-50);
-    
-    --headings-light: var(--primary-800);
-    --headings-dark: var(--secondary-25);
+    --background: var(--canvas-25);
+    --foreground: var(--gray-900);
+    --text: var(--gray-900);
+    --headings: var(--primary-700);
+    --muted: oklch(from var(--foreground) calc(l * 2) c h);
+    --border-color: var(--gray-300);
+    --shadow: var(--shadow-md);
 
-    --muted-light: oklch(from var(--foreground-light) calc(l * 2) c h);
-    --muted-dark: oklch(from var(--foreground-dark) calc(l * 0.75) c h);
-
-    --border-color-light: var(--gray-100);
-    --border-color-dark: var(--canvas-600);
-
-    --shadow-light: var(--shadow-md);
-    --shadow-dark: var(--shadow-lg);
-
-    --background: var(--background-light);
-    --foreground: var(--foreground-light);
-    --text: var(--text-light);
-    --headings: var(--headings-light);
-    --border-color: var(--border-color-light);
-    --shadow: var(--shadow-light);
-    --muted: var(--muted-light);
-
+    --invert-background: var(--canvas-900);
+    --invert-foreground: var(--gray-50);
+    --invert-text: var(--gray-50);
+    --invert-headings: var(--secondary-50);
+    --invert-muted: oklch(from var(--foreground) calc(l * 0.75) c h);
+    --invert-border-color: var(--canvas-600);
+    --invert-shadow: var(--shadow-lg);
   }
 
   /* 🌙 Dark via `.dark` class. We rely on the consuming 
@@ -40,13 +26,37 @@
    * class accordingly
    */
   .dark {
-    --background: var(--background-dark);
-    --foreground: var(--foreground-dark);
-    --text: var(--text-dark);
-    --headings: var(--headings-dark);
-    --border-color: var(--border-color-dark);
-    --shadow: var(--shadow-dark);
-    --muted: var(--muted-dark);
+    --background: var(--invert-background);
+    --foreground: var(--invert-foreground);
+    --text: var(--invert-text);
+    --headings: var(--invert-headings);
+    --border-color: var(--invert-border-color);
+    --shadow: var(--invert-shadow);
+    --muted: var(--invert-muted);
+  }
+
+  /* Brute force our not-dark class for now until we figure out
+   * a better way to do this. Note - the following does NOT work:
+   .dark:not(:where([class~="not-dark"], [class~="not-dark"] *)) {
+   */
+  .not-dark {
+    --background: var(--canvas-25);
+    --foreground: var(--gray-900);
+    --text: var(--gray-900);
+    --headings: var(--primary-800);
+    --muted: oklch(from var(--foreground) calc(l * 2) c h);
+    --border-color: var(--gray-300);
+    --shadow: var(--shadow-md);
+  }
+
+  html {
+    font-size: 1rem;
+    color: var(--text);
+  }
+
+  /* Redeclared here to change the specificity and scope of --prose-body */
+  html .not-dark {
+    color: var(--text);
   }
 
   ::-moz-selection,
@@ -60,15 +70,15 @@
   }
 
   .foreground {
-    color: var(--foreground)
+    color: var(--foreground);
   }
 
   .text {
-    color: var(--text)
+    color: var(--text);
   }
 
   .headings {
-    color: var(--headings)
+    color: var(--headings);
   }
 
   .muted {
@@ -92,9 +102,9 @@
 
   /* External link */
   .external-link::after {
-    content: '';
+    content: "";
     display: inline-block;
-    background-image: url('/external-link-light.svg');
+    background-image: url("/external-link-light.svg");
     background-repeat: no-repeat;
     background-position: 20% 50%;
     background-size: 65% auto;
@@ -104,7 +114,6 @@
   }
 
   .dark .external-link::after {
-    background-image: url('/external-link-dark.svg');
+    background-image: url("/external-link-dark.svg");
   }
-
 }

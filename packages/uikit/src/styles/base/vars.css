@@ -11,7 +11,6 @@
     --breakpoint-xl: 1320px;
     --breakpoint-2xl: 1536px;
 
-
     --font-size-xs: 0.75rem;
     /* 12px */
     --font-size-sm: 0.875rem;
@@ -84,18 +83,13 @@
     --border-style-dashed: dashed;
     --border-style-dotted: dotted;
 
-
     /* ========================================
        RINGS
     ======================================== */
 
     --ring-offset-width: 2px;
-    --ring-offset-color: var(--background);
-    --ring-color: var(--foreground);
     --ring-inset: ;
     --ring-shadow: 0 0 #0000;
-    --ring-offset-shadow: var(--ring-inset) 0 0 0 var(--ring-offset-width) var(--ring-offset-color);
-
 
     /* ========================================
        SHADOWS
@@ -123,7 +117,6 @@
     --z-index-high: 1000;
     --z-index-modal: 1050;
     --z-index-toast: 1100;
-
 
     /* ========================================
        OPACITY LEVELS
@@ -172,6 +165,5 @@
     --flex-wrap: wrap;
     --flex-nowrap: nowrap;
     --flex-center: center;
-
   }
 }

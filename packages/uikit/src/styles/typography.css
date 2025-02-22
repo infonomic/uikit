@@ -1,9 +1,9 @@
-@import './typography/fonts.css';
-@import './typography/prose.css';
+@import "./typography/fonts.css";
+@import "./typography/prose.css";
 
 @layer infonomic-typography {
   html {
-    font-family: var(--font-sans)
+    font-family: var(--font-sans);
   }
 
   .font-sans {

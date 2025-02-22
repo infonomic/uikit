@@ -4,7 +4,6 @@
  * Copyright (c) Tailwind Labs, Inc.
 */
 @layer infonomic-base {
-
   /*
 1. Prevent padding and border from affecting element width. (https: //github.com/mozdevs/cssremedy/issues/4)
   2. Allow adding a border to an element by just adding a border-width. (https: //github.com/tailwindcss/tailwindcss/pull/116)
@@ -25,7 +24,7 @@
 
   ::before,
   ::after {
-    --tw-content: '';
+    --tw-content: "";
   }
 
   /*
@@ -51,7 +50,8 @@
     -o-tab-size: 4;
     tab-size: 4;
     /* 3 */
-    font-family: Inter, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: Inter, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+      "Segoe UI Symbol", "Noto Color Emoji";
     /* 4 */
     font-feature-settings: normal;
     /* 5 */
@@ -140,7 +140,8 @@ Add the correct font weight in Edge and Safari.
   kbd,
   samp,
   pre {
-    font-family: "Source Code Pro", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-family: "Source Code Pro", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+      "Liberation Mono", "Courier New", monospace;
     /* 1 */
     font-feature-settings: normal;
     /* 2 */
@@ -241,9 +242,9 @@ Prevent `sub` and `sup` elements from affecting the line height in all browsers.
 */
 
   button,
-  input:where([type='button']),
-  input:where([type='reset']),
-  input:where([type='submit']) {
+  input:where([type="button"]),
+  input:where([type="reset"]),
+  input:where([type="submit"]) {
     -webkit-appearance: button;
     /* 1 */
     background-color: transparent;
@@ -290,7 +291,7 @@ Correct the cursor style of increment and decrement buttons in Safari.
 2. Correct the outline style in Safari.
 */
 
-  [type='search'] {
+  [type="search"] {
     -webkit-appearance: textfield;
     /* 1 */
     outline-offset: -2px;
@@ -451,7 +452,6 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
 
   /* Remove all animations and transitions for people that prefer not to see them */
   @media (prefers-reduced-motion: reduce) {
-
     *,
     *::before,
     *::after {

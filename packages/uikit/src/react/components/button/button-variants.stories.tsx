@@ -1,12 +1,12 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import React from 'react'
+import type React from 'react'
 
-import { type Meta, type StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import { capitalize } from '../../utils/capitalize.js'
 
+import { size } from '../types/shared.js'
 import { Button } from './button.js'
 import { variant } from './types/button.js'
-import { size } from '../types/shared.js'
 
 type Story = StoryObj<typeof Button>
 
@@ -22,7 +22,8 @@ const AllVariants = (): React.JSX.Element => {
                 display: 'grid',
                 gridTemplateColumns: 'repeat(4, minmax(0, 1fr)',
                 gap: '32px',
-                marginBottom: '32px'
+                marginBottom: '32px',
+                alignItems: 'center',
               }}
             >
               {size.map((size: any) => {
@@ -44,7 +45,7 @@ const AllVariants = (): React.JSX.Element => {
 }
 
 export const Variants: Story = {
-  render: () => <AllVariants />
+  render: () => <AllVariants />,
 }
 
 const meta: Meta<typeof Button> = {
@@ -53,7 +54,7 @@ const meta: Meta<typeof Button> = {
    * to learn how to generate automatic titles
    */
   title: 'Components/Button',
-  component: Button
+  component: Button,
 }
 
 export default meta

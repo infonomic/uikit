@@ -44,7 +44,7 @@ const meta: Meta = {
    * to learn how to generate automatic titles
    */
   title: 'Typography',
-  component: Lists
+  component: Lists,
 }
 
 export default meta

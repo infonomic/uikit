@@ -31,7 +31,7 @@ const meta: Meta = {
    * to learn how to generate automatic titles
    */
   title: 'Typography',
-  component: Quote
+  component: Quote,
 }
 
 export default meta

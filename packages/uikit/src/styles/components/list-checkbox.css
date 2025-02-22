@@ -19,7 +19,7 @@ ul.check {
 }
 
 .component--list-item-checkbox::before {
-  content: '';
+  content: "";
   width: 16px;
   height: 16px;
   top: 8px;
@@ -44,7 +44,7 @@ ul.check {
 }
 
 .component--list-item-checkbox-checked::after {
-  content: '';
+  content: "";
   cursor: pointer;
   border-color: #fff;
   border-style: solid;

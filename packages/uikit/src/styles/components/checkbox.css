@@ -41,14 +41,14 @@
 }
 
 /* Style for the "checked" state */
-.component--checkbox-indicator[data-state='checked'] .component--checkbox-icon {
+.component--checkbox-indicator[data-state="checked"] .component--checkbox-icon {
   animation: checkBoxIn 0.3s cubic-bezier(0.25, 1.5, 0.5, 1) forwards;
   opacity: 1;
   transform: scale(1);
 }
 
 /* Style for the "unchecked" state */
-.component--checkbox-indicator[data-state='unchecked'] .component--checkbox-icon {
+.component--checkbox-indicator[data-state="unchecked"] .component--checkbox-icon {
   animation: checkBoxOut 0.2s ease-in;
   opacity: 0;
   transform: scale(0.8);
