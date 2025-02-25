@@ -34,7 +34,7 @@
     --prose-invert-body: var(--gray-50);
     --prose-invert-headings: var(--gray-300);
     --prose-invert-lead: #9ca3af;
-    --prose-invert-links: var(--accent-600);
+    --prose-invert-links: var(--accent-500);
     --prose-invert-counters: #9ca3af;
     --prose-invert-bullets: #4b5563;
     --prose-invert-hr: #374151;
@@ -111,18 +111,6 @@
     color: var(--prose-body);
   }
 
-  .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border-width: 0;
-  }
-
   /* Overflow wrap for long non-dictionary words or urls */
   article,
   .editor-text,
@@ -172,7 +160,7 @@
   .prose :where(h1):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
     font-size: 2.5rem;
     font-weight: 600;
-    line-height: 2.7rem;
+    line-height: 1.125;
     margin-top: 0;
     margin-bottom: 1rem;
   }
@@ -180,24 +168,24 @@
   .prose :where(h2):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
     font-size: 2rem;
     font-weight: 600;
-    line-height: 2.2rem;
-    margin-top: 1rem;
+    line-height: 1.2;
+    margin-top: 1.5rem;
     margin-bottom: 0.75rem;
   }
 
   .prose :where(h3):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
     font-size: 1.75rem;
     font-weight: 600;
-    line-height: 2rem;
-    margin-top: 1rem;
+    line-height: 1.1;
+    margin-top: 1.25rem;
     margin-bottom: 0.75rem;
   }
 
   .prose :where(h4):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
     font-size: 1.55rem;
     font-weight: 600;
-    line-height: 1.75rem;
-    margin-top: 1rem;
+    line-height: 1.1;
+    margin-top: 1.25rem;
     margin-bottom: 0.65rem;
   }
 
@@ -209,7 +197,7 @@
   .prose :where([class~="lead"]):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
     color: var(--prose-lead);
     font-size: 1.25em;
-    line-height: 1.6;
+    line-height: 1.4;
     margin-top: 1.2em;
     margin-bottom: 1.2em;
   }
@@ -222,7 +210,7 @@
 
   .prose :where(strong):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
     color: var(--prose-bold);
-    font-weight: 600;
+    font-weight: 500;
   }
 
   .prose :where(a strong):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
@@ -294,7 +282,7 @@
 
   .prose :where(dt):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
     color: var(--prose-headings);
-    font-weight: 600;
+    font-weight: 500;
     margin-top: 1.25em;
   }
 
@@ -308,18 +296,16 @@
   .prose :where(blockquote):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
     font-weight: bold;
     font-style: normal;
-    color: var(--accent-600);
-    border-inline-start-width: 0.25rem;
-    border-inline-start-color: var(--prose-quote-borders);
+    color: var(--prose-quotes);
     quotes: none;
     margin-top: 1.6em;
     margin-bottom: 1.6em;
-    padding-inline-start: 1em;
-    border-left-color: var(--accent-600);
-    border-left-width: 3px;
     margin-right: 2rem;
     font-size: 1.5rem;
     line-height: 1.2;
+    padding-inline-start: 1rem;
+    border-inline-start-width: 0.25rem;
+    border-inline-start-color: var(--prose-quote-borders);
   }
 
   .prose :where(blockquote p:first-of-type):not( :where([class~="not-prose"], [class~="not-prose"] *))::before {
@@ -402,5 +388,12 @@
     padding-right: 0;
     padding-top: 0;
     padding-bottom: 0;
+  }
+
+  @media (min-width: 768px) {
+    .prose :where(blockquote):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+      font-size: 1.7rem;
+      line-height: 1.2;
+    }
   }
 }

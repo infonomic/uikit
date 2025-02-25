@@ -11,30 +11,39 @@
     --breakpoint-xl: 1320px;
     --breakpoint-2xl: 1536px;
 
-    --font-size-xs: 0.75rem;
     /* 12px */
-    --font-size-sm: 0.875rem;
+    --font-size-xs: 0.75rem;
     /* 14px */
-    --font-size-base: 1rem;
+    --font-size-sm: 0.875rem;
     /* 16px */
-    --font-size-lg: 1.125rem;
+    --font-size-base: 1rem;
     /* 18px */
-    --font-size-xl: 1.25rem;
+    --font-size-lg: 1.125rem;
     /* 20px */
-    --font-size-2xl: 1.5rem;
+    --font-size-xl: 1.25rem;
     /* 24px */
-    --font-size-3xl: 1.875rem;
+    --font-size-2xl: 1.5rem;
     /* 30px */
-    --font-size-4xl: 2.25rem;
+    --font-size-3xl: 1.875rem;
     /* 36px */
-    --font-size-5xl: 3rem;
+    --font-size-4xl: 2.25rem;
+    /* 42px */
+    --font-size-5xl: 2.625rem;
     /* 48px */
+    --font-size-6xl: 3rem;
+    /* 54px */
+    --font-size-7xl: 3.375rem;
+    /* 60px */
+    --font-size-8xl: 3.75rem;
+
 
     --font-weight-light: 300;
     --font-weight-normal: 400;
     --font-weight-medium: 500;
     --font-weight-semibold: 600;
     --font-weight-bold: 700;
+    --font-weight-extrabold: 800;
+    --font-weight-ultrabold: 900;
 
     --line-height-tight: 1.1;
     --line-height-snug: 1.25;
@@ -130,7 +139,17 @@
     /* ========================================
        GRID SYSTEM
     ======================================== */
-    --grid-columns: 12;
+    --grid-columns-2: 2;
+    --grid-columns-3: 3;
+    --grid-columns-4: 4;
+    --grid-columns-5: 5;
+    --grid-columns-6: 6;
+    --grid-columns-7: 7;
+    --grid-columns-8: 8;
+    --grid-columns-9: 9;
+    --grid-columns-10: 10;
+    --grid-columns-11: 11;
+    --grid-columns-12: 12;
     --grid-gap-sm: 8px;
     --grid-gap-md: 16px;
     --grid-gap-lg: 24px;
