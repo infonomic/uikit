@@ -1,16 +1,21 @@
 import type * as React from 'react'
 
 import cx from 'classnames'
-import { twMerge } from 'tailwind-merge'
 
+import { ErrorText } from './error-text'
 import { HelpText } from './help-text'
 import { Label } from './label'
+import type { Intent, Variant } from './types/input.js'
+
+import styles from './input.module.css'
 
 export interface TextAreaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
   id: string
   name: string
   label: string
   required?: boolean
+  variant?: Variant
+  intent?: Intent
   rows: number
   placeHolder?: string
   autoComplete?: string
@@ -28,6 +33,8 @@ export const TextArea = function TextArea({
   label,
   rows = 4,
   required = false,
+  variant = 'outlined',
+  intent = 'primary',
   placeHolder = '',
   autoComplete = 'off',
   error = false,
@@ -36,20 +43,8 @@ export const TextArea = function TextArea({
   className,
   ...rest
 }: TextAreaProps): React.JSX.Element {
-  const classes = twMerge(
-    cx(
-      'block w-full py-1 px-3',
-      'rounded-md border border-primary-500 bg-gray-25/50 dark:border-primary-500 dark:bg-canvas-800/80',
-      'text-gray-900 placeholder:text-gray-500 dark:placeholder:text-gray-600 dark:text-gray-300',
-      'hover:focus:outline-none hover:border-primary-600 dark:hover:border-primary-300',
-      'focus:outline-none focus-visible:outline-none focus:border-primary-500 dark:focus:border-primary-700  focus-visible:ring-1 focus-visible:ring-offset-1 focus-visible:ring-primary-500 dark:focus-visible:ring-primary-500 dark:ring-offset-canvas-900',
-      'active:outline-none active:border-primary-500 dark:active:border-primary-700 active:ring-1 active:ring-offset-1 active:ring-primary-500 dark:ring-primary-500 dark:ring-offset-canvas-900'
-    ),
-    className
-  )
-
   return (
-    <fieldset className="mb-3">
+    <fieldset className={styles.inputWrapper}>
       <Label id={id} htmlFor={id} required={required} label={label} />
       <textarea
         ref={ref}
@@ -64,15 +59,19 @@ export const TextArea = function TextArea({
         aria-required={required}
         aria-errormessage={errorText}
         aria-describedby={error ? `error-for-${id}` : undefined}
-        className={classes}
+        className={cx(
+          styles.input,
+          styles[variant],
+          styles[intent],
+          { [styles.error]: error },
+          className
+        )}
         {...rest}
       />
       {error ? (
-        <p id={`error-for-${id}`} className="mt-1 text-sm text-red-700">
-          {errorText ?? helpText}
-        </p>
+        <ErrorText id={`error-for-${id}`} text={errorText ?? helpText} />
       ) : (
-        <HelpText text={helpText} />
+        helpText?.length > 0 && <HelpText text={helpText} />
       )}
     </fieldset>
   )

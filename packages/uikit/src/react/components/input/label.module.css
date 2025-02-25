@@ -1,0 +1,24 @@
+.label {
+  display: block;
+  font-weight: medium;
+  color: var(--gray-800)
+}
+
+.required {
+  color: var(--red-500);
+}
+
+/* 🌙 Dark via `.dark` class. We rely on the 
+  * consuming application to detect a user's preferred
+  * color scheme - either by header or cookie, and set
+  * a root html class accordingly
+  */
+:global(.dark) {
+  .label:not(:where([class~="not-dark"], [class~="not-dark"] *)) {
+    color: var(--gray-200);
+  }
+
+  .required:not(:where([class~="not-dark"], [class~="not-dark"] *)) {
+    color: var(--red-400);
+  }
+}

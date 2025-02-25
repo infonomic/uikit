@@ -3,6 +3,7 @@ import type React from 'react'
 
 import cx from 'classnames'
 
+import { ErrorText } from './error-text'
 import { HelpText } from './help-text'
 import { Label } from './label'
 import type { Intent, Size, Variant } from './types/input.js'
@@ -85,9 +86,7 @@ export const Input = <C extends React.ElementType = 'input'>({
         {endAdornment != null && <div className={styles.endAdornment}>{endAdornment}</div>}
       </div>
       {error ? (
-        <p id={`error-for-${id}`} className="mb-1 mt-1 text-sm text-red-700">
-          {errorText ?? helpText}
-        </p>
+        <ErrorText id={`error-for-${id}`} text={errorText ?? helpText} />
       ) : (
         helpText?.length > 0 && <HelpText text={helpText} />
       )}

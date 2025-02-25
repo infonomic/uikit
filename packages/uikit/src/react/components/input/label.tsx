@@ -1,6 +1,8 @@
 import type React from 'react'
 
-import { twMerge } from 'tailwind-merge'
+import cx from 'classnames'
+
+import styles from './label.module.css'
 
 interface LabelProps {
   className?: string
@@ -11,12 +13,10 @@ interface LabelProps {
 }
 
 export function Label({ className, id, htmlFor, label, required }: LabelProps): React.JSX.Element {
-  const classNames = twMerge('block font-medium text-gray-800 dark:text-gray-500', className)
-
   return (
-    <label id={`label-for-${id}`} htmlFor={htmlFor} className={classNames}>
+    <label id={`label-for-${id}`} htmlFor={htmlFor} className={cx(styles.label, className)}>
       {label}
-      {required != null && <span className="text-red-600">&nbsp;*</span>}
+      {required != null && <span className={styles.required}>&nbsp;*</span>}
     </label>
   )
 }

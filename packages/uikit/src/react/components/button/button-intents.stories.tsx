@@ -1,10 +1,10 @@
-import { type Meta, type StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 
 import { capitalize } from '../../utils/capitalize.js'
 
+import { intent } from '../types/shared.js'
 import { Button } from './button.js'
 import { variant } from './types/button.js'
-import { intent } from '../types/shared.js'
 
 type Story = StoryObj<typeof Button>
 
@@ -19,7 +19,7 @@ const AllIntents = (): React.JSX.Element => {
               display: 'grid',
               gridTemplateColumns: 'repeat(4, minmax(0, 1fr)',
               gap: '32px',
-              marginBottom: '32px'
+              marginBottom: '32px',
             }}
           >
             {variant.map((v) => {
@@ -35,7 +35,7 @@ const AllIntents = (): React.JSX.Element => {
 }
 
 export const Intents: Story = {
-  render: () => <AllIntents />
+  render: () => <AllIntents />,
 }
 
 const meta: Meta<typeof Button> = {
@@ -44,7 +44,7 @@ const meta: Meta<typeof Button> = {
    * to learn how to generate automatic titles
    */
   title: 'Components/Button',
-  component: Button
+  component: Button,
 }
 
 export default meta

@@ -1,10 +1,9 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import type React from 'react'
-import { useState } from 'react'
 
 import { capitalize } from '../../utils/capitalize.js'
 
-import { CloseIcon, SearchIcon } from '../../icons'
+import { CloseIcon, SearchIcon } from '../../icons/index.js'
+import { intent } from '../types/shared.js'
 import { size, variant } from './types/input.js'
 
 import { Input, InputAdornment } from './index'
@@ -72,7 +71,7 @@ export const Default = (): React.JSX.Element => {
 export const Variants = (): React.JSX.Element => {
   return (
     <>
-      <div className="mb-6 max-w-6xl">
+      <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
         {variant.map((variant) => {
           return (
             <div key={variant} className="grid grid-cols-4 items-center gap-12 mb-6">
@@ -111,24 +110,48 @@ export const Variants = (): React.JSX.Element => {
   )
 }
 
+export const Intents = (): React.JSX.Element => {
+  return (
+    <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+      {intent.map((i) => {
+        return (
+          <div key={i} style={{ marginBottom: '12px' }}>
+            <Input
+              key={i}
+              variant="outlined"
+              intent={i}
+              inputSize="md"
+              id={i}
+              name={i}
+              label={capitalize(i)}
+              placeHolder={capitalize(i)}
+              helpText={`Please enter your ${i}`}
+              disabled={false}
+              error={false}
+            />
+          </div>
+        )
+      })}
+    </div>
+  )
+}
+
 // biome-ignore lint/suspicious/noShadowRestrictedNames: <explanation>
 export const Error = (): React.JSX.Element => {
   return (
     <>
-      <div className="mb-6">
-        <div className="max-w-[400px]">
-          <Input
-            required
-            id="name"
-            name="name"
-            label="Name"
-            placeHolder="Name"
-            helpText="Please enter your name."
-            disabled={false}
-            error={true}
-            errorText="Please enter a valid name."
-          />
-        </div>
+      <div style={{ maxWidth: '600px', margin: '0 auto' }}>
+        <Input
+          required
+          id="name"
+          name="name"
+          label="Name"
+          placeHolder="Name"
+          helpText="Please enter your name."
+          disabled={false}
+          error={true}
+          errorText="Please enter a valid name."
+        />
       </div>
     </>
   )

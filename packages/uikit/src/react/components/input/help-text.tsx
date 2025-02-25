@@ -1,6 +1,8 @@
 import type React from 'react'
 
-import { twMerge } from 'tailwind-merge'
+import cx from 'classnames'
+
+import styles from './help-text.module.css'
 
 interface HelpTextProps {
   className?: string
@@ -8,7 +10,5 @@ interface HelpTextProps {
 }
 
 export function HelpText({ className, text }: HelpTextProps): React.JSX.Element {
-  const classNames = twMerge('mb-1 mt-1 text-sm text-gray-800 dark:text-gray-500', className)
-
-  return <p className={classNames}>{text}</p>
+  return <p className={cx(styles.text, className)}>{text}</p>
 }

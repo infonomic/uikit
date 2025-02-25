@@ -13,19 +13,17 @@ export default {
 export const Default = (): React.JSX.Element => {
   return (
     <>
-      <div className="mb-6">
-        <div className="max-w-[400px]">
-          <TextArea
-            required
-            id="message"
-            name="message"
-            rows={5}
-            label="Message"
-            helpText="Please enter a message."
-            disabled={false}
-            error={false}
-          />
-        </div>
+      <div style={{ maxWidth: '600px', margin: '0 auto' }}>
+        <TextArea
+          required
+          id="message"
+          name="message"
+          rows={5}
+          label="Message"
+          helpText="Please enter a message."
+          disabled={false}
+          error={false}
+        />
       </div>
     </>
   )
@@ -35,20 +33,18 @@ export const Default = (): React.JSX.Element => {
 export const Error = (): React.JSX.Element => {
   return (
     <>
-      <div className="mb-6">
-        <div className="max-w-[400px]">
-          <TextArea
-            required
-            id="message"
-            name="message"
-            rows={5}
-            label="Message"
-            helpText="Please enter a message."
-            disabled={false}
-            error={true}
-            errorText="Messages must be longer than 15 characers..."
-          />
-        </div>
+      <div style={{ maxWidth: '600px', margin: '0 auto' }}>
+        <TextArea
+          required
+          id="message"
+          name="message"
+          rows={5}
+          label="Message"
+          helpText="Please enter a message."
+          disabled={false}
+          error={true}
+          errorText="Messages must be longer than 15 characers..."
+        />
       </div>
     </>
   )

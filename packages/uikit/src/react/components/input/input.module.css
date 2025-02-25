@@ -34,30 +34,34 @@
     box-shadow: var(--ring-offset-shadow), var(--ring-shadow), var(--shadow, 0 0 #0000);
   }
 
+  .input:disabled,
+  .input[disabled] {
+    pointer-events: none;
+  }
+
   .label {
     font-size: 0.875rem;
     font-weight: 500;
     color: var(--label-color);
   }
 
-  .error {
-    border-color: red;
-  }
-
   /* Sizes */
   .sm {
     font-size: 0.875rem;
+    line-height: 0;
     padding: 0.25rem 0.5rem;
   }
 
   .md {
-    font-size: 1rem;
-    padding: 0.5rem 1rem;
+    font-size: 1.1rem;
+    line-height: 0;
+    padding: 0.4rem 0.5rem;
   }
 
   .lg {
-    font-size: 1.125rem;
-    padding: 0.75rem 1.25rem;
+    font-size: 1.2rem;
+    line-height: 0;
+    padding: 0.5rem 0.5rem;
   }
 
   .startAdornment,
@@ -88,15 +92,14 @@
     color: var(--help-text-color);
   }
 
-  .input:disabled,
-  .input[disabled] {
-    pointer-events: none;
-  }
-
   /* Variants */
   .outlined {
     border: 1px solid var(--input-variant-outlined-border);
-    background-color: var(--input-variant-outlined);
+    background-color: transparent;
+  }
+
+  .outlined:hover {
+    border: 1px solid var(--input-variant-outlined-hover-border);
   }
 
   .outlined:focus,
@@ -109,57 +112,168 @@
     background-color: var(--input-variant-underlined);
   }
 
+  .underlined:hover {
+    border-bottom: 1px solid var(--input-variant-underlined-hover-border);
+  }
+
   .filled {
     background-color: var(--input-variant-filled);
   }
 
+
+  /* Error classes last, so that they override all 
+    of the above */
+  .error {
+    border: 1px solid var(--red-400);
+  }
+
+  .error:hover {
+    border: 1px solid var(--red-400);
+  }
+
+  .error:focus,
+  .error:active {
+    --ring-color: var(--red-300);
+  }
+
   /* Intents */
   .primary {
-    --input-variant-outlined-border: var(--primary-500);
-    --input-variant-outline-ring-color: var(--primary-500);
-    --input-variant-underlined-border: var(--primary-500);
-    --input-variant-filled: var(--primary-100);
+    --input-variant-outlined-border: var(--primary-300);
+    --input-variant-outlined-hover-border: var(--primary-500);
+    --input-variant-outline-ring-color: var(--primary-300);
+    --input-variant-underlined-border: var(--primary-300);
+    --input-variant-underlined-hover-border: var(--primary-500);
+    --input-variant-filled: var(--gray-50);
   }
 
   .secondary {
-    --input-variant-outlined-border: var(--secondary-500);
-    --input-variant-outline-ring-color: var(--secondary-500);
-    --input-variant-underlined-border: var(--secondary-500);
-    --input-variant-filled: var(--secondary-100);
+    --input-variant-outlined-border: var(--secondary-600);
+    --input-variant-outlined-hover-border: var(--secondary-800);
+    --input-variant-outline-ring-color: var(--secondary-600);
+    --input-variant-underlined-border: var(--secondary-600);
+    --input-variant-underlined-hover-border: var(--secondary-800);
+    --input-variant-filled: var(--gray-50);
   }
 
   .noeffect {
-    --input-variant-outlined-border: var(--gray-400);
-    --input-variant-outline-ring-color: var(--gray-400);
-    --input-variant-underlined-border: var(--gray-400);
-    --input-variant-filled: var(--gray-100);
+    --input-variant-outlined-border: var(--gray-500);
+    --input-variant-outlined-hover-border: var(--gray-700);
+    --input-variant-outline-ring-color: var(--gray-700);
+    --input-variant-underlined-border: var(--gray-500);
+    --input-variant-underlined-hover-border: var(--gray-700);
+    --input-variant-filled: var(--gray-50);
   }
 
   .success {
-    --input-variant-outlined-border: var(--green-400);
-    --input-variant-outline-ring-color: var(--green-400);
-    --input-variant-underlined-border: var(--green-400);
-    --input-variant-filled: var(--green-100);
+    --input-variant-outlined-border: var(--green-300);
+    --input-variant-outlined-hover-border: var(--green-600);
+    --input-variant-outline-ring-color: var(--green-600);
+    --input-variant-underlined-border: var(--green-300);
+    --input-variant-underlined-hover-border: var(--green-600);
+    --input-variant-filled: var(--gray-50);
   }
 
   .info {
-    --input-variant-outlined-border: var(--blue-400);
-    --input-variant-outline-ring-color: var(--blue-400);
-    --input-variant-underlined-border: var(--blue-400);
-    --input-variant-filled: var(--blue-100);
+    --input-variant-outlined-border: var(--blue-300);
+    --input-variant-outlined-hover-border: var(--blue-600);
+    --input-variant-outline-ring-color: var(--blue-300);
+    --input-variant-underlined-border: var(--blue-100);
+    --input-variant-underlined-hover-border: var(--blue-400);
+    --input-variant-filled: var(--gray-50);
   }
 
   .warning {
-    --input-variant-outlined-border: var(--yellow-400);
-    --input-variant-outline-ring-color: var(--yellow-400);
-    --input-variant-underlined-border: var(--yellow-400);
-    --input-variant-filled: var(--yellow-100);
+    --input-variant-outlined-border: var(--yellow-600);
+    --input-variant-outlined-hover-border: var(--yellow-800);
+    --input-variant-outline-ring-color: var(--yellow-600);
+    --input-variant-underlined-border: var(--yellow-600);
+    --input-variant-underlined-hover-border: var(--yellow-800);
+    --input-variant-filled: var(--gray-50);
   }
 
   .danger {
-    --input-variant-outlined-border: var(--red-400);
-    --input-variant-outline-ring-color: var(--red-400);
-    --input-variant-underlined-border: var(--red-400);
-    --input-variant-filled: var(--red-100);
+    --input-variant-outlined-border: var(--red-300);
+    --input-variant-outlined-hover-border: var(--red-600);
+    --input-variant-outline-ring-color: var(--red-600);
+    --input-variant-underlined-border: var(--red-300);
+    --input-variant-underlined-hover-border: var(--red-600);
+    --input-variant-filled: var(--gray-50);
+  }
+
+  /* 🌙 Dark via `.dark` class. We rely on the 
+  * consuming application to detect a user's preferred
+  * color scheme - either by header or cookie, and set
+  * a root html class accordingly
+  */
+  :global(.dark) {
+
+    .input:focus:not(:where([class~="not-dark"], [class~="not-dark"] *)),
+    .input:active:not(:where([class~="not-dark"], [class~="not-dark"] *)) {
+      --ring-offset-color: var(--background);
+    }
+
+    /* Intents */
+    .primary:not(:where([class~="not-dark"], [class~="not-dark"] *)) {
+      --input-variant-outlined-border: var(--primary-300);
+      --input-variant-outlined-hover-border: var(--primary-200);
+      --input-variant-outline-ring-color: var(--primary-300);
+      --input-variant-underlined-border: var(--primary-300);
+      --input-variant-underlined-hover-border: var(--primary-200);
+      --input-variant-filled: var(--canvas-800);
+    }
+
+    .secondary:not(:where([class~="not-dark"], [class~="not-dark"] *)) {
+      --input-variant-outlined-border: var(--secondary-600);
+      --input-variant-outlined-hover-border: var(--secondary-400);
+      --input-variant-outline-ring-color: var(--secondary-600);
+      --input-variant-underlined-border: var(--secondary-600);
+      --input-variant-underlined-hover-border: var(--secondary-400);
+      --input-variant-filled: var(--canvas-800);
+    }
+
+    .noeffect:not(:where([class~="not-dark"], [class~="not-dark"] *)) {
+      --input-variant-outlined-border: var(--gray-500);
+      --input-variant-outlined-hover-border: var(--gray-300);
+      --input-variant-outline-ring-color: var(--gray-400);
+      --input-variant-underlined-border: var(--gray-500);
+      --input-variant-underlined-hover-border: var(--gray-300);
+      --input-variant-filled: var(--canvas-800);
+    }
+
+    .success:not(:where([class~="not-dark"], [class~="not-dark"] *)) {
+      --input-variant-outlined-border: var(--green-500);
+      --input-variant-outlined-hover-border: var(--green-300);
+      --input-variant-outline-ring-color: var(--green-400);
+      --input-variant-underlined-border: var(--green-500);
+      --input-variant-underlined-hover-border: var(--green-300);
+      --input-variant-filled: var(--canvas-800);
+    }
+
+    .info:not(:where([class~="not-dark"], [class~="not-dark"] *)) {
+      --input-variant-outlined-border: var(--blue-500);
+      --input-variant-outlined-hover-border: var(--blue-300);
+      --input-variant-outline-ring-color: var(--blue-400);
+      --input-variant-underlined-border: var(--blue-500);
+      --input-variant-underlined-hover-border: var(--blue-300);
+      --input-variant-filled: var(--canvas-800);
+    }
+
+    .warning:not(:where([class~="not-dark"], [class~="not-dark"] *)) {
+      --input-variant-outlined-border: var(--yellow-500);
+      --input-variant-outlined-hover-border: var(--yellow-300);
+      --input-variant-outline-ring-color: var(--yellow-400);
+      --input-variant-underlined-border: var(--yellow-500);
+      --input-variant-underlined-hover-border: var(--yellow-300);
+      --input-variant-filled: var(--canvas-800);
+    }
+
+    .danger:not(:where([class~="not-dark"], [class~="not-dark"] *)) {
+      --input-variant-outlined-border: var(--red-500);
+      --input-variant-outlined-hover-border: var(--red-300);
+      --input-variant-outline-ring-color: var(--red-400);
+      --input-variant-underlined-border: var(--red-500);
+      --input-variant-underlined-hover-border: var(--red-500);
+      --input-variant-filled: var(--canvas-800);
+    }
   }
 }
