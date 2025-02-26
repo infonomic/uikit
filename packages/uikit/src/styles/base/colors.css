@@ -92,7 +92,7 @@
     --canvas-500: oklch(from var(--canvas-base) 0.4 c h);
     --canvas-600: oklch(from var(--canvas-base) 0.35 c h);
     --canvas-700: oklch(from var(--canvas-base) 0.3 c h);
-    --canvas-800: oklch(from var(--canvas-base) 0.25 c h);
+    --canvas-800: oklch(from var(--canvas-base) 0.2125 c h);
     --canvas-900: oklch(from var(--canvas-base) 0.2 c h);
     --canvas-950: oklch(from var(--canvas-base) 0.175 c h);
 

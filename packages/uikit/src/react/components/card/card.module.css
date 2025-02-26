@@ -8,7 +8,7 @@
     width: 100%;
     max-width: 100%;
     color: var(--foreground);
-    background: var(--gray-50);
+    background: var(--gray-25);
     border-width: var(--border-width-thin);
     border-color: var(--border-color);
     border-style: var(--border-style-solid);
@@ -29,7 +29,7 @@
   }
 
   .cardHover:hover:is(:global(.dark) *) {
-    background: oklch(from var(--canvas-700) 0.258 c h);
+    background: oklch(from var(--canvas-800) 0.225 c h);
   }
 
   .cardHeader {

@@ -8,7 +8,7 @@
     --text: var(--gray-900);
     --headings: var(--primary-700);
     --muted: oklch(from var(--foreground) calc(l * 2) c h);
-    --border-color: var(--gray-300);
+    --border-color: var(--gray-100);
     --shadow: var(--shadow-md);
 
     --invert-background: var(--canvas-900);
@@ -16,7 +16,7 @@
     --invert-text: var(--gray-50);
     --invert-headings: var(--secondary-50);
     --invert-muted: oklch(from var(--foreground) calc(l * 0.75) c h);
-    --invert-border-color: var(--canvas-600);
+    --invert-border-color: var(--canvas-700);
     --invert-shadow: var(--shadow-lg);
   }
 
@@ -45,7 +45,7 @@
     --text: var(--gray-900);
     --headings: var(--primary-800);
     --muted: oklch(from var(--foreground) calc(l * 2) c h);
-    --border-color: var(--gray-300);
+    --border-color: var(--gray-100);
     --shadow: var(--shadow-md);
   }
 

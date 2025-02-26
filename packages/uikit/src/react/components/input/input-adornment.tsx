@@ -1,7 +1,8 @@
 import type React from 'react'
 
 import cx from 'classnames'
-import { twMerge } from 'tailwind-merge'
+
+import styles from './input-adornment.module.css'
 
 type InputAdornmentIntrinsicProps = React.JSX.IntrinsicElements['div']
 export interface InputAdornmentProps extends InputAdornmentIntrinsicProps {
@@ -18,14 +19,16 @@ export function InputAdornment({
   children,
   ...rest
 }: InputAdornmentProps): React.JSX.Element {
-  const classes = cx(
-    'flex items-center whitespace-nowrap',
-    position === 'start' ? 'ml-[4px] justify-start' : 'mr-[4px] justify-end'
-  )
-  const merged = twMerge(classes, className)
-
   return (
-    <div className={merged} {...rest}>
+    <div
+      className={cx(
+        styles.adornment,
+        { [styles.start]: position === 'start' },
+        { [styles.end]: position === 'end' },
+        className
+      )}
+      {...rest}
+    >
       {children}
     </div>
   )

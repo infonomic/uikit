@@ -7,7 +7,8 @@ import { HelpText } from './help-text'
 import { Label } from './label'
 import type { Intent, Variant } from './types/input.js'
 
-import styles from './input.module.css'
+import inputStyles from './input.module.css'
+import styles from './textarea.module.css'
 
 export interface TextAreaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
   id: string
@@ -44,7 +45,7 @@ export const TextArea = function TextArea({
   ...rest
 }: TextAreaProps): React.JSX.Element {
   return (
-    <fieldset className={styles.inputWrapper}>
+    <fieldset className={inputStyles.inputWrapper}>
       <Label id={id} htmlFor={id} required={required} label={label} />
       <textarea
         ref={ref}
@@ -60,10 +61,11 @@ export const TextArea = function TextArea({
         aria-errormessage={errorText}
         aria-describedby={error ? `error-for-${id}` : undefined}
         className={cx(
-          styles.input,
-          styles[variant],
-          styles[intent],
-          { [styles.error]: error },
+          inputStyles.input,
+          inputStyles[variant],
+          inputStyles[intent],
+          styles['text-area'],
+          { [inputStyles.error]: error },
           className
         )}
         {...rest}

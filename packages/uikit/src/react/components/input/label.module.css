@@ -1,7 +1,7 @@
 .label {
   display: block;
-  font-weight: medium;
-  color: var(--gray-800)
+  font-weight: 500;
+  color: var(--gray-900)
 }
 
 .required {

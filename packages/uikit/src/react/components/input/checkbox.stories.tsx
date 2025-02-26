@@ -13,13 +13,16 @@ export default {
 export const Default = (): React.JSX.Element => {
   const [checked, setChecked] = useState(false)
   const handleOnClick = (): void => {
+    console.log('clicked')
     setChecked(!checked)
   }
 
   return (
     <>
-      <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-        <h2 className="text-xl">Outlined</h2>
+      <div style={{ maxWidth: '800px', margin: '0 auto 2rem' }}>
+        <h2 className="text-xl" style={{ marginBottom: '1rem' }}>
+          Outlined
+        </h2>
         <div className="grid gap-4 grid-cols-3">
           <div className="control">
             <Checkbox
@@ -99,8 +102,10 @@ export const Default = (): React.JSX.Element => {
           </div>
         </div>
       </div>
-      <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-        <h2 className="text-xl">Filled</h2>
+      <div style={{ maxWidth: '800px', margin: '0 auto 2rem' }}>
+        <h2 className="text-xl" style={{ marginBottom: '1rem' }}>
+          Filled
+        </h2>
         <div className="grid gap-4 grid-cols-3">
           <div className="control">
             <Checkbox
@@ -204,6 +209,30 @@ export const Checked = (): React.JSX.Element => {
             aria-label="Foo Checkbox"
             onClick={handleOnClick}
             checked={checked}
+            id="foo"
+            name="foo"
+            label="Foo Checkbox"
+          />
+        </div>
+      </div>
+    </>
+  )
+}
+
+export const Disabled = (): React.JSX.Element => {
+  const [checked, setChecked] = useState(true)
+  const handleOnClick = (): void => {
+    setChecked(!checked)
+  }
+  return (
+    <>
+      <div className="mb-6">
+        <div className="max-w-[400px]">
+          <Checkbox
+            aria-label="Foo Checkbox"
+            onClick={handleOnClick}
+            checked={checked}
+            disabled
             id="foo"
             name="foo"
             label="Foo Checkbox"
