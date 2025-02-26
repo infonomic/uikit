@@ -1,8 +1,14 @@
 import type { Meta } from '@storybook/react'
 
 import { Button } from '../button/button.js'
-import { Card as CardComponent, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from './card.js'
-
+import {
+  Card as CardComponent,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from './card.js'
 
 export const Card = (): React.JSX.Element => {
   return (
@@ -55,7 +61,7 @@ const meta: Meta = {
    * to learn how to generate automatic titles
    */
   title: 'Components',
-  component: Card
+  component: Card,
 }
 
 export default meta

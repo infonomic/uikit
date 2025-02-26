@@ -1,9 +1,8 @@
 'use client'
 /* eslint-disable react/jsx-pascal-case */
 import type React from 'react'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
-import { Transition } from '@headlessui/react'
 import cx from 'classnames'
 
 import { DangerIcon } from '../../icons/danger-icon'
@@ -67,9 +66,11 @@ function CloseElement({
   return (
     <>
       {close != null && close && (
-        <div className={cx(styles.alertClose, className)}>
-          <CloseButton intent={intent} onClick={handleClose} />
-        </div>
+        <CloseButton
+          intent={intent}
+          onClick={handleClose}
+          className={cx(styles.alertClose, className)}
+        />
       )}
     </>
   )
@@ -86,47 +87,51 @@ export const Alert = function Alert({
   ...rest
 }: AlertProps & {
   ref?: React.RefObject<HTMLDivElement>
-}): React.JSX.Element {
+}): React.JSX.Element | null {
   const [show, setShow] = useState(true)
+  const [fade, setFade] = useState(false)
 
   const Icon = alertIcons[intent as keyof typeof alertIcons]
 
   const handleClose = (): void => {
-    setShow(false)
+    setFade(true)
+    setTimeout(() => setShow(false), 400) // Match the CSS transition duration
   }
 
+  useEffect(() => {
+    if (!show) {
+      // Perform any cleanup if necessary
+    }
+  }, [show])
+
+  if (!show) return null
+
   return (
-    <Transition
-      show={show}
-      enter={styles.transitionOpacityEnter}
-      enterFrom={styles.transitionOpacityEnterFrom}
-      enterTo={styles.transitionOpacityEnterTo}
-      leave={styles.transitionOpacityLeave}
-      leaveFrom={styles.transitionOpacityLeaveFrom}
-      leaveTo={styles.transitionOpacityLeaveTo}
+    <div
+      ref={ref}
+      className={cx(styles.alert, styles[intent], className, { [styles.fadeOut]: fade })}
+      {...rest}
     >
-      <div ref={ref} className={styles.alert} {...rest}>
-        {title != null ? (
-          <>
-            <div className={cx(styles.alertHeader)}>
-              <div className={styles.alertIcon}>
-                <IconElement showIcon={icon} Icon={Icon} />
-              </div>
-              <div className={cx(styles.alertTitle)}>{title}</div>
-              <CloseElement intent={intent} close={close} handleClose={handleClose} />
-            </div>
-            <div className={cx(styles.alertContent)}>{children}</div>
-          </>
-        ) : (
-          <>
+      {title != null ? (
+        <>
+          <div className={cx(styles.alertHeader)}>
             <div className={styles.alertIcon}>
               <IconElement showIcon={icon} Icon={Icon} />
             </div>
-            <div className={styles.alertContent}>{children}</div>
+            <div className={cx(styles.alertTitle)}>{title}</div>
             <CloseElement intent={intent} close={close} handleClose={handleClose} />
-          </>
-        )}
-      </div>
-    </Transition>
+          </div>
+          <div className={cx(styles.alertContent)}>{children}</div>
+        </>
+      ) : (
+        <>
+          <div className={styles.alertIcon}>
+            <IconElement showIcon={icon} Icon={Icon} />
+          </div>
+          <div className={styles.alertContent}>{children}</div>
+          <CloseElement intent={intent} close={close} handleClose={handleClose} />
+        </>
+      )}
+    </div>
   )
 }

@@ -5,43 +5,39 @@ import type { Meta, StoryObj } from '@storybook/react'
 
 import { intent } from '../types/shared'
 
-import { Alert } from './index'
+import { Alert as AlertComponent } from './alert.js'
 
-const meta: Meta<typeof Alert> = {
-  /* 👇 The title prop is optional.
-   * See https://storybook.js.org/docs/react/configure/overview#configure-story-loading
-   * to learn how to generate automatic titles
-   */
-  title: 'Components/Alert',
-  component: Alert,
-}
-
-export default meta
-
-type Story = StoryObj<typeof Alert>
-
-const AllVariants = (): React.JSX.Element => {
+export const Alerts = (): React.JSX.Element => {
   return (
     <>
-      <div className="mb-6 max-w-[600px]">
+      <div style={{ maxWidth: '600px', margin: '0 auto' }}>
         {intent.map((intent: string) => {
           if (intent !== 'noeffect') {
             return (
-              <Alert intent={intent} key={intent}>
-                This is a {intent} alert - with some additional text here.
-              </Alert>
+              <div style={{ marginBottom: '1rem' }} key={intent}>
+                <AlertComponent intent={intent}>
+                  This is a {intent} alert - with some additional text here.
+                </AlertComponent>
+              </div>
             )
           }
           return null
         })}
-        <Alert intent="info" title="This is a title">
+        <AlertComponent intent="info" title="This is a title">
           This is an info alert with a title and with some additional text here.
-        </Alert>
+        </AlertComponent>
       </div>
     </>
   )
 }
 
-export const All: Story = {
-  render: () => <AllVariants />,
+const meta: Meta = {
+  /* 👇 The title prop is optional.
+   * See https://storybook.js.org/docs/react/configure/overview#configure-story-loading
+   * to learn how to generate automatic titles
+   */
+  title: 'Components',
+  component: Alerts,
 }
+
+export default meta

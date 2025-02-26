@@ -1,48 +1,33 @@
-import type React from 'react'
+import cx from 'classnames'
 
 import { Cross2Icon } from '@radix-ui/react-icons'
-import cx from 'classnames'
-import { twMerge } from 'tailwind-merge'
 
-import objectsToString from '../../utils/objectsToString'
-import { closeButtonStyles } from './styles/index'
+import type React from 'react'
 
-import type { Intent } from '../types/shared'
+import { Button } from '../button'
+import type { ButtonProps } from '../button'
 
-type ButtonProps = React.JSX.IntrinsicElements['button']
-export interface CloseButtonProps extends ButtonProps {
-  intent?: Intent
-  onClick: (event: React.SyntheticEvent) => void
-}
+import styles from './close.module.css'
 
 export const CloseButton = function CloseButton({
   ref,
   intent,
   onClick,
   className,
-  children,
   ...rest
-}: CloseButtonProps & {
-  ref?: React.RefObject<HTMLButtonElement>
-}): React.JSX.Element {
-  const closeButtonStyle = objectsToString(
-    closeButtonStyles[intent as keyof typeof closeButtonStyles]
-  )
-  const classes = twMerge(
-    cx('outline-none p-1 rounded-full transition-hover duration-300', closeButtonStyle),
-    className
-  )
-
+}: Omit<ButtonProps, 'children'>): React.JSX.Element {
   return (
-    <button
+    <Button
       ref={ref}
+      intent={intent}
+      variant="filled"
       aria-label="Close"
-      className={classes}
+      className={cx(styles.close, 'not-dark', className)}
       type="button"
       onClick={onClick}
       {...rest}
     >
       <Cross2Icon />
-    </button>
+    </Button>
   )
 }

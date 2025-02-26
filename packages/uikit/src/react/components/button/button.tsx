@@ -1,11 +1,11 @@
 'use client'
-import React from 'react'
-import cx from 'classnames'
 import { Slot } from '@radix-ui/react-slot'
+import cx from 'classnames'
 // @ts-ignore
 import Ripple from 'material-ripple-effects'
+import type React from 'react'
 
-import type { Variant, Intent, Size } from './types/button.js'
+import type { Intent, Size, Variant } from './types/button.js'
 
 import styles from './button.module.css'
 

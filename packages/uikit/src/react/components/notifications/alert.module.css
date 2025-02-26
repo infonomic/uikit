@@ -1,142 +1,90 @@
-.alert {
-  display: flex;
-  width: 100%;
-  border: 1px solid rgba(209, 213, 219, 0.5);
-  gap: 1rem;
-  border-radius: 0.375rem;
-  padding: 1rem;
-  margin-bottom: 1rem;
-  font-family: inherit;
-  font-weight: normal;
-  transition: all 0.3s ease-in-out;
-}
+@layer infonomic-base, infonomic-utilities, infonomic-theme, infonomic-typography, infonomic-components;
 
+@layer infonomic-components {
+  .alert {
+    display: flex;
+    align-items: top;
+    width: 100%;
+    gap: var(--gap-2);
+    border-radius: var(--border-radius-md);
+    padding: 16px;
+    font-family: inherit;
+    font-weight: normal;
+    transition: all 0.3s ease-in-out;
+    border: 1px solid var(--alert-border);
+    background-color: var(--alert-background);
+  }
 
-.alertIcon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 2rem;
-  height: 2rem;
-  border-radius: 50%;
-  font-size: 1.5rem;
-}
+  .alertIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-.alertClose {
-  margin-left: auto;
-}
+  .alertClose {
+    margin-left: auto;
+  }
 
-.transitionOpacityEnter,
-.transitionOpacityLeave {
-  transform: opacity 0.3s ease-in-out;
-}
+  .fadeOut {
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+  }
 
-.transitionOpacityEnterFrom {
-  opacity: 0;
-}
+  .alertHeader {
+    display: flex;
+    gap: var(--gap-3);
+    align-items: start;
+    line-height: 2;
+  }
 
-.transitionOpacityEnterTo {
-  opacity: 1;
-}
+  .alertTitle {
+    font-weight: bold;
+    font-size: 1.2rem;
+    line-height: 1.5;
+  }
 
-.transitionOpacityLeaveFrom {
-  opacity: 1;
-}
+  .alertContent {
+    padding-top: 3px;
+    font-size: var(--font-size-sm);
+  }
 
-.transitionOpacityLeaveTo {
-  opacity: 0;
-}
+  .alertContent:first-of-type {
+    margin-top: 0;
+  }
 
+  /* Intents */
+  .primary {
+    --alert-border: var(--primary-300);
+    --alert-background: var(--primary-500);
+  }
 
-.alertHeader {
-  display: flex;
-  gap: var(--gap-3);
-  align-items: start;
-  line-height: 2;
-}
+  .secondary {
+    --alert-border: var(--secondary-300);
+    --alert-background: var(--secondary-500);
+  }
 
-.alertTitle {
-  font-weight: bold;
-  font-size: 1.2rem;
-  line-height: 1.5;
-}
+  .noeffect {
+    --alert-border: var(--gray-300);
+    --alert-background: var(--gray-500);
+  }
 
-.alertContent {
-  padding-right: 1rem;
-}
+  .success {
+    --alert-border: var(--green-300);
+    --alert-background: var(--green-500);
+  }
 
-.alertContent:first-of-type {
-  margin-top: 0;
-}
+  .info {
+    --alert-border: var(--blue-300);
+    --alert-background: var(--blue-500);
+  }
 
-.primaryBackground {
-  background: linear-gradient(to top right, rgba(59, 130, 246, 0.2), rgba(59, 130, 246, 0.2));
-}
+  .warning {
+    --alert-border: var(--yellow-300);
+    --alert-background: var(--yellow-500);
+  }
 
-.primaryBorder {
-  border: 1px solid rgba(59, 130, 246, 0.5);
-}
-
-.primaryColor {
-  color: #1f2937;
-}
-
-.secondaryBackground {
-  background: linear-gradient(to top right, rgba(107, 114, 128, 0.1), rgba(107, 114, 128, 0.1));
-}
-
-.secondaryBorder {
-  border: 1px solid rgba(31, 41, 55, 0.5);
-}
-
-.secondaryColor {
-  color: #1f2937;
-}
-
-.infoBackground {
-  background: linear-gradient(to top right, rgba(56, 139, 253, 0.2), rgba(56, 139, 253, 0.2));
-}
-
-.infoBorder {
-  border: 1px solid rgba(56, 139, 253, 0.5);
-}
-
-.infoColor {
-  color: #1f2937;
-}
-
-.successBackground {
-  background: linear-gradient(to top right, rgba(34, 197, 94, 0.2), rgba(34, 197, 94, 0.2));
-}
-
-.successBorder {
-  border: 1px solid rgba(34, 197, 94, 0.5);
-}
-
-.successColor {
-  color: #1f2937;
-}
-
-.warningBackground {
-  background: linear-gradient(to top right, rgba(234, 179, 8, 0.2), rgba(234, 179, 8, 0.2));
-}
-
-.warningBorder {
-  border: 1px solid rgba(234, 179, 8, 0.5);
-}
-
-.warningColor {
-  color: #1f2937;
-}
-
-.dangerBackground {
-  background: linear-gradient(to top right, rgba(239, 68, 68, 0.2), rgba(239, 68, 68, 0.2));
-}
-
-.dangerBorder {
-  border: 1px solid rgba(239, 68, 68, 0.5);
-}
-
-.dangerColor {
-  color: #1f2937;
+  .danger {
+    --alert-border: var(--red-300);
+    --alert-background: var(--red-500);
+  }
 }
