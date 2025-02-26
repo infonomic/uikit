@@ -5,7 +5,6 @@
     display: flex;
     flex-direction: column;
     gap: var(--gap-1);
-    margin-bottom: 0.25rem;
   }
 
   .inputContainer {
