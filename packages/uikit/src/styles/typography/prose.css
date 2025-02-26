@@ -147,15 +147,6 @@
     }
   }
 
-  .prose-lg {
-    font-size: 1.125rem;
-    line-height: 1.64;
-  }
-
-  .prose-xl {
-    font-size: 1.25rem;
-    line-height: 1.6;
-  }
 
   .prose :where(h1):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
     font-size: 2.5rem;
@@ -190,6 +181,20 @@
   }
 
   .prose :where(p):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+    margin-top: 1.25em;
+    margin-bottom: 1.25em;
+  }
+
+  .prose-lg :where(p):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+    font-size: 1.125rem;
+    line-height: 1.64;
+    margin-top: 1.25em;
+    margin-bottom: 1.25em;
+  }
+
+  .prose-xl :where(p):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+    font-size: 1.25rem;
+    line-height: 1.6;
     margin-top: 1.25em;
     margin-bottom: 1.25em;
   }
