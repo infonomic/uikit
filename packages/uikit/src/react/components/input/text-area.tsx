@@ -8,7 +8,7 @@ import { Label } from './label'
 import type { Intent, Variant } from './types/input.js'
 
 import inputStyles from './input.module.css'
-import styles from './textarea.module.css'
+import styles from './text-area.module.css'
 
 export interface TextAreaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
   id: string
