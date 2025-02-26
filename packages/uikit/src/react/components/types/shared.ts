@@ -14,7 +14,7 @@ export const intent = [
   'success',
   'info',
   'warning',
-  'danger'
+  'danger',
 ] as const
 
 export type Intent = (typeof intent)[number]
