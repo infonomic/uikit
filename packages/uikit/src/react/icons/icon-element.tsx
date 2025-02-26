@@ -20,6 +20,7 @@ export const IconElement = (props: IconElementProps): React.JSX.Element => {
         height,
         flex: `0 0 ${width}`,
         alignItems: 'center',
+        justifyContent: 'center',
         marginRight: menuItem != null && menuItem ? '1.2rem' : '0',
       }}
       className={cx('component--icon-element-root', className)}

@@ -1,28 +1,28 @@
 'use client'
-/* eslint-disable react/jsx-pascal-case */
 import type React from 'react'
 import { useEffect, useState } from 'react'
 
 import cx from 'classnames'
 
+import { Button } from '../button'
+
+import { CloseIcon } from '../../icons/close-icon'
 import { DangerIcon } from '../../icons/danger-icon'
 import { InfoIcon } from '../../icons/info-icon'
 import { SuccessIcon } from '../../icons/success-icon'
 import { WarningIcon } from '../../icons/warning-icon'
 
-import styles from './alert.module.css'
-import { CloseButton } from './close'
+import type { Intent } from './types/alert'
 
-import type { IconProps } from '../../icons/types/icon'
-import type { Children, ClassName, Close, Icon, Intent } from './types/alert'
+import styles from './alert.module.css'
 
 export interface AlertProps {
   intent?: Intent
-  icon?: Icon
-  close?: Close
-  className?: ClassName
+  icon?: boolean
+  close?: boolean
+  className?: string
   title?: string
-  children: Children
+  children: React.ReactNode
 }
 
 const alertIcons = {
@@ -32,48 +32,6 @@ const alertIcons = {
   info: InfoIcon,
   warning: WarningIcon,
   danger: DangerIcon,
-}
-
-function IconElement({
-  showIcon,
-  Icon,
-}: {
-  showIcon: boolean
-  Icon: React.FC<IconProps>
-}): React.JSX.Element {
-  return (
-    <>
-      {showIcon != null && showIcon && (
-        <div className={styles.alertIcon}>
-          <Icon useSprite={true} />
-        </div>
-      )}
-    </>
-  )
-}
-
-function CloseElement({
-  close,
-  className,
-  intent,
-  handleClose,
-}: {
-  close: boolean
-  className?: string
-  intent: Intent
-  handleClose: () => void
-}): React.JSX.Element {
-  return (
-    <>
-      {close != null && close && (
-        <CloseButton
-          intent={intent}
-          onClick={handleClose}
-          className={cx(styles.alertClose, className)}
-        />
-      )}
-    </>
-  )
 }
 
 export const Alert = function Alert({
@@ -93,7 +51,7 @@ export const Alert = function Alert({
 
   const Icon = alertIcons[intent as keyof typeof alertIcons]
 
-  const handleClose = (): void => {
+  const handleOnClose = (): void => {
     setFade(true)
     setTimeout(() => setShow(false), 400) // Match the CSS transition duration
   }
@@ -104,32 +62,52 @@ export const Alert = function Alert({
     }
   }, [show])
 
-  if (!show) return null
+  if (show === false) return null
 
   return (
     <div
       ref={ref}
-      className={cx(styles.alert, styles[intent], className, { [styles.fadeOut]: fade })}
+      className={cx(styles.alert, styles[intent], className, { [styles.fade]: fade })}
       {...rest}
     >
       {title != null ? (
         <>
-          <div className={cx(styles.alertHeader)}>
-            <div className={styles.alertIcon}>
-              <IconElement showIcon={icon} Icon={Icon} />
+          <div className={styles['alert-with-title']}>
+            <div className={cx(styles.header)}>
+              {icon && <Icon useSprite={true} className={styles.icon} />}
+              <div className={cx(styles.title)}>
+                <span>{title}</span>
+              </div>
+              <Button
+                intent={intent}
+                variant="filled"
+                aria-label="Close"
+                className={cx(styles.close)}
+                type="button"
+                onClick={handleOnClose}
+                {...rest}
+              >
+                <CloseIcon height="12px" width="12px" />
+              </Button>
             </div>
-            <div className={cx(styles.alertTitle)}>{title}</div>
-            <CloseElement intent={intent} close={close} handleClose={handleClose} />
+            <div className={cx(styles.content)}>{children}</div>
           </div>
-          <div className={cx(styles.alertContent)}>{children}</div>
         </>
       ) : (
         <>
-          <div className={styles.alertIcon}>
-            <IconElement showIcon={icon} Icon={Icon} />
-          </div>
-          <div className={styles.alertContent}>{children}</div>
-          <CloseElement intent={intent} close={close} handleClose={handleClose} />
+          {icon && <Icon useSprite={true} className={styles.icon} />}
+          <div className={styles.content}>{children}</div>
+          <Button
+            intent={intent}
+            variant="filled"
+            aria-label="Close"
+            className={cx(styles.close)}
+            type="button"
+            onClick={handleOnClose}
+            {...rest}
+          >
+            <CloseIcon height="12px" width="12px" />
+          </Button>
         </>
       )}
     </div>

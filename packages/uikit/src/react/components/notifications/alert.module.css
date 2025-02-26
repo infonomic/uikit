@@ -3,7 +3,7 @@
 @layer infonomic-components {
   .alert {
     display: flex;
-    align-items: top;
+    align-items: start;
     width: 100%;
     gap: var(--gap-2);
     border-radius: var(--border-radius-md);
@@ -15,76 +15,94 @@
     background-color: var(--alert-background);
   }
 
-  .alertIcon {
+  .alert-with-title {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .icon {
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
-  .alertClose {
+  .close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    min-width: 24px;
+    min-height: 24px;
+    width: 24px;
+    height: 24px;
+    border-radius: 100%;
     margin-left: auto;
+    margin-top: -2px;
   }
 
-  .fadeOut {
+  .fade {
     opacity: 0;
     transition: opacity 0.4s ease-in-out;
   }
 
-  .alertHeader {
+  .header {
     display: flex;
-    gap: var(--gap-3);
     align-items: start;
-    line-height: 2;
+    width: 100%;
+    gap: var(--gap-2);
   }
 
-  .alertTitle {
+  .title {
+    display: flex;
     font-weight: bold;
     font-size: 1.2rem;
-    line-height: 1.5;
+    line-height: 1;
+    padding-top: 1px;
   }
 
-  .alertContent {
-    padding-top: 3px;
+  .content {
+    padding-top: 1px;
     font-size: var(--font-size-sm);
   }
 
-  .alertContent:first-of-type {
+  .content:first-child {
     margin-top: 0;
   }
 
   /* Intents */
   .primary {
     --alert-border: var(--primary-300);
-    --alert-background: var(--primary-500);
+    --alert-background: oklch(from var(--primary-500) l c h / 0.1);
   }
 
   .secondary {
     --alert-border: var(--secondary-300);
-    --alert-background: var(--secondary-500);
+    --alert-background: oklch(from var(--secondary-500) l c h / 0.1);
   }
 
   .noeffect {
     --alert-border: var(--gray-300);
-    --alert-background: var(--gray-500);
+    --alert-background: oklch(from var(--gray-500) l c h / 0.1);
   }
 
   .success {
     --alert-border: var(--green-300);
-    --alert-background: var(--green-500);
+    --alert-background: oklch(from var(--green-500) l c h / 0.1);
   }
 
   .info {
     --alert-border: var(--blue-300);
-    --alert-background: var(--blue-500);
+    --alert-background: oklch(from var(--blue-500) l c h / 0.1);
   }
 
   .warning {
     --alert-border: var(--yellow-300);
-    --alert-background: var(--yellow-500);
+    --alert-background: oklch(from var(--yellow-500) l c h / 0.1);
   }
 
   .danger {
     --alert-border: var(--red-300);
-    --alert-background: var(--red-500);
+    --alert-background: oklch(from var(--red-500) l c h / 0.1);
   }
 }

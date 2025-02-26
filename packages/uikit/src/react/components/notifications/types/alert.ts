@@ -10,7 +10,3 @@ import type { Intent as t } from '../../types/shared'
 
 // typescript types
 export type Intent = 'primary' | t
-export type ClassName = string
-export type Children = ReactNode
-export type Icon = boolean
-export type Close = boolean
