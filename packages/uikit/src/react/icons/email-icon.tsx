@@ -8,26 +8,26 @@ import type { IconProps } from './types/icon'
 
 import styles from './icons.module.css'
 
-export const UserIcon = ({ className, svgClassName, ...rest }: IconProps): React.JSX.Element => {
+export const EmailIcon = ({ className, svgClassName, ...rest }: IconProps): React.JSX.Element => {
   const applied = cx(styles['stroke-gray'], svgClassName)
 
   return (
-    <IconElement className={cx('user-icon', className)} {...rest}>
+    <IconElement className={cx('email-icon', className)} {...rest}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         className={applied}
+        viewBox="0 0 24 24"
         strokeLinecap="round"
         strokeLinejoin="round"
         focusable="false"
         aria-hidden="true"
-        viewBox="0 0 24 24"
-        strokeWidth={2}
+        strokeWidth={1.5}
       >
-        <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"></path>
-        <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
+        <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z"></path>
+        <path d="M3 7l9 6l9 -6"></path>
       </svg>
     </IconElement>
   )
 }
 
-UserIcon.displayName = 'UserIcon'
+EmailIcon.displayName = 'UserIcon'

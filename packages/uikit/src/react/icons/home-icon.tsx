@@ -8,31 +8,27 @@ import type { IconProps } from './types/icon'
 
 import styles from './icons.module.css'
 
-export const DocumentIcon = ({
-  className,
-  svgClassName,
-  ...rest
-}: IconProps): React.JSX.Element => {
+export const HomeIcon = ({ className, svgClassName, ...rest }: IconProps): React.JSX.Element => {
   const applied = cx(styles['stroke-gray'], svgClassName)
 
   return (
-    <IconElement className={cx('document-icon', className)} {...rest}>
+    <IconElement className={cx('home-icon', className)} {...rest}>
       <svg
         className={applied}
         xmlns="http://www.w3.org/2000/svg"
         focusable="false"
         aria-hidden="true"
-        viewBox="0 0 24 24"
-        strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
+        viewBox="0 0 24 24"
+        strokeWidth={1.75}
       >
-        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-        <path d="M14 3v4a1 1 0 0 0 1 1h4" />
-        <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" />
+        <path d="M5 12l-2 0l9 -9l9 9l-2 0"></path>{' '}
+        <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7"></path>{' '}
+        <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6"></path>{' '}
       </svg>
     </IconElement>
   )
 }
 
-DocumentIcon.displayName = 'DocumentIcon'
+HomeIcon.displayName = 'HomeIcon'

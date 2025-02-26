@@ -1,10 +1,10 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import type React from 'react'
 
-import { DangerIcon } from './danger-icon.js'
-import { InfoIcon } from './info-icon.js'
-import { SuccessIcon } from './success-icon.js'
-import { WarningIcon } from './warning-icon.js'
+import { DangerIcon } from './danger-icon'
+import { InfoIcon } from './info-icon'
+import { SuccessIcon } from './success-icon'
+import { WarningIcon } from './warning-icon'
 
 export default {
   title: 'Icons/Sprites',

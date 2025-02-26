@@ -8,7 +8,7 @@ import type { IconProps } from './types/icon'
 
 import styles from './icons.module.css'
 
-export const SettingsSlidersIcon = ({
+export const GripperVerticalIcon = ({
   className,
   svgClassName,
   ...rest
@@ -16,7 +16,7 @@ export const SettingsSlidersIcon = ({
   const applied = cx(styles['stroke-gray'], svgClassName)
 
   return (
-    <IconElement className={cx('settings-sliders-icon', className)} {...rest}>
+    <IconElement className={cx('gripper-vertical-icon', className)} {...rest}>
       <svg
         className={applied}
         xmlns="http://www.w3.org/2000/svg"
@@ -24,20 +24,20 @@ export const SettingsSlidersIcon = ({
         aria-hidden="true"
         viewBox="0 0 24 24"
         strokeWidth="1.5"
+        fill="none"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       >
         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-        <path d="M14 6m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
-        <path d="M4 6l8 0" />
-        <path d="M16 6l4 0" />
-        <path d="M8 12m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
-        <path d="M4 12l2 0" />
-        <path d="M10 12l10 0" />
-        <path d="M17 18m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
-        <path d="M4 18l11 0" />
-        <path d="M19 18l1 0" />
+        <path d="M9 5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+        <path d="M9 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+        <path d="M9 19m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+        <path d="M15 5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+        <path d="M15 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+        <path d="M15 19m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
       </svg>
     </IconElement>
   )
 }
 
-SettingsSlidersIcon.displayName = 'SettingsSlidersIcon'
+GripperVerticalIcon.displayName = 'GripperVerticalIcon'

@@ -1,16 +1,15 @@
 import type React from 'react'
 
 import cx from 'classnames'
-import { twMerge } from 'tailwind-merge'
 
-import { IconElement } from './icon-element.js'
+import { IconElement } from './icon-element'
 
-import type { IconProps } from './types/icon.js'
+import type { IconProps } from './types/icon'
 
-const svgStylesDefault = 'fill-gray-600 dark:fill-gray-200'
+import styles from './icons.module.css'
 
 export const CloseIcon = ({ className, svgClassName, ...rest }: IconProps): React.JSX.Element => {
-  const applied = twMerge(svgStylesDefault, svgClassName)
+  const applied = cx(styles['fill-gray'], svgClassName)
 
   return (
     <IconElement className={cx('close-icon', className)} {...rest}>

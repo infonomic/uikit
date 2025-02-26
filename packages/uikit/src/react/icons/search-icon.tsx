@@ -1,16 +1,15 @@
 import type React from 'react'
 
 import cx from 'classnames'
-import { twMerge } from 'tailwind-merge'
 
-import { IconElement } from './icon-element.js'
+import { IconElement } from './icon-element'
 
-import type { IconProps } from './types/icon.js'
+import type { IconProps } from './types/icon'
 
-const svgStylesDefault = 'fill-gray-600 dark:fill-gray-200'
+import styles from './icons.module.css'
 
 export const SearchIcon = ({ className, svgClassName, ...rest }: IconProps): React.JSX.Element => {
-  const applied = twMerge(svgStylesDefault, svgClassName)
+  const applied = cx(styles['fill-gray'], svgClassName)
 
   return (
     <IconElement className={cx('search-icon', className)} {...rest}>
@@ -21,7 +20,7 @@ export const SearchIcon = ({ className, svgClassName, ...rest }: IconProps): Rea
         aria-hidden="true"
         viewBox="0 0 24 24"
       >
-        <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
+        <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
       </svg>
     </IconElement>
   )

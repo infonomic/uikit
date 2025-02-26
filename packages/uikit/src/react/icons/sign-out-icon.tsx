@@ -1,16 +1,15 @@
 import type React from 'react'
 
 import cx from 'classnames'
-import { twMerge } from 'tailwind-merge'
 
-import { IconElement } from './icon-element.js'
+import { IconElement } from './icon-element'
 
-import type { IconProps } from './types/icon.js'
+import type { IconProps } from './types/icon'
 
-const svgStylesDefault = 'fill-none stroke-gray-700 dark:stroke-gray-300'
+import styles from './icons.module.css'
 
 export const SignOutIcon = ({ className, svgClassName, ...rest }: IconProps): React.JSX.Element => {
-  const applied = twMerge(svgStylesDefault, svgClassName)
+  const applied = cx(styles['stroke-gray'], svgClassName)
 
   return (
     <IconElement className={cx('sign-out-icon', className)} {...rest}>

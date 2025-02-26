@@ -1,11 +1,10 @@
 import type React from 'react'
 
 import cx from 'classnames'
-import { twMerge } from 'tailwind-merge'
 
-import { IconElement } from './icon-element.js'
+import { IconElement } from './icon-element'
 
-import type { IconProps } from './types/icon.js'
+import type { IconProps } from './types/icon'
 
 const svgStylesDefault = ''
 

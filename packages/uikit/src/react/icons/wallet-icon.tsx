@@ -1,16 +1,15 @@
 import type React from 'react'
 
 import cx from 'classnames'
-import { twMerge } from 'tailwind-merge'
 
-import { IconElement } from './icon-element.js'
+import { IconElement } from './icon-element'
 
-import type { IconProps } from './types/icon.js'
+import type { IconProps } from './types/icon'
 
-const svgStylesDefault = 'fill-secondary-700 dark:fill-gray-200'
+import styles from './icons.module.css'
 
 export const WalletIcon = ({ className, svgClassName, ...rest }: IconProps): React.JSX.Element => {
-  const applied = twMerge(svgStylesDefault, svgClassName)
+  const applied = cx(styles['fill-gray'], svgClassName)
 
   return (
     <IconElement className={cx('wallet-icon', className)} {...rest}>
@@ -21,7 +20,7 @@ export const WalletIcon = ({ className, svgClassName, ...rest }: IconProps): Rea
         aria-hidden="true"
         viewBox="0 0 24 24"
       >
-        <path d="M21 7.28V5c0-1.1-.9-2-2-2H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-2.28c.59-.35 1-.98 1-1.72V9c0-.74-.41-1.37-1-1.72zM20 9v6h-7V9h7zM5 19V5h14v2h-6c-1.1 0-2 .9-2 2v6c0 1.1.9 2 2 2h6v2H5z" />
+        <path d="M21 7.28V5c0-1.1-.9-2-2-2H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-2.28c.59-.35 1-.98 1-1.72V9c0-.74-.41-1.37-1-1.72zM20 9v6h-7V9h7zM5 19V5h14v2h-6c-1.1 0-2 .9-2 2v6c0 1.1.9 2 2 2h6v2H5z"></path>
       </svg>
     </IconElement>
   )

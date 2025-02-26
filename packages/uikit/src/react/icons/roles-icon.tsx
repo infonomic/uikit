@@ -8,31 +8,27 @@ import type { IconProps } from './types/icon'
 
 import styles from './icons.module.css'
 
-export const DocumentIcon = ({
-  className,
-  svgClassName,
-  ...rest
-}: IconProps): React.JSX.Element => {
+export const RolesIcon = ({ className, svgClassName, ...rest }: IconProps): React.JSX.Element => {
   const applied = cx(styles['stroke-gray'], svgClassName)
 
   return (
-    <IconElement className={cx('document-icon', className)} {...rest}>
+    <IconElement className={cx('roles-icon', className)} {...rest}>
       <svg
         className={applied}
         xmlns="http://www.w3.org/2000/svg"
         focusable="false"
         aria-hidden="true"
-        viewBox="0 0 24 24"
-        strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
+        viewBox="0 0 24 24"
+        strokeWidth={1.75}
       >
-        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-        <path d="M14 3v4a1 1 0 0 0 1 1h4" />
-        <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" />
+        <path d="M12 3l-4 7h8z" />
+        <path d="M17 17m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+        <path d="M4 14m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
       </svg>
     </IconElement>
   )
 }
 
-DocumentIcon.displayName = 'DocumentIcon'
+RolesIcon.displayName = 'RolesIcon'

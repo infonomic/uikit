@@ -11,7 +11,7 @@ export interface IconSpriteProps {
 // then define an Icon component that references the
 export function IconSprite({ id, ...props }: IconSpriteProps): React.JSX.Element {
   return (
-    <svg role="presentation" {...props}>
+    <svg {...props}>
       <use href={`/sprite.svg#${id}`} />
     </svg>
   )

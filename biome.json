@@ -37,7 +37,8 @@
     "rules": {
       "recommended": true,
       "style": {
-        "noNonNullAssertion": "info"
+        "noNonNullAssertion": "info",
+        "useSelfClosingElements": "off"
       },
       "suspicious": {
         "noExplicitAny": "off",
