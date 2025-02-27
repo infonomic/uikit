@@ -9,7 +9,7 @@ import type { IconProps } from './types/icon'
 import styles from './icons.module.css'
 
 export const WalletIcon = ({ className, svgClassName, ...rest }: IconProps): React.JSX.Element => {
-  const applied = cx(styles['fill-gray'], svgClassName)
+  const applied = cx(styles['fill-contrast'], svgClassName)
 
   return (
     <IconElement className={cx('wallet-icon', className)} {...rest}>

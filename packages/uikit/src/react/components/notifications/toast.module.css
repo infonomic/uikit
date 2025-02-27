@@ -72,6 +72,11 @@
     margin-top: -2px;
   }
 
+  .close svg {
+    fill: white;
+  }
+
+
   .title {
     display: flex;
     padding: 0 12px 0 8px;

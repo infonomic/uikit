@@ -13,7 +13,7 @@ export const CalendarIcon = ({
   svgClassName,
   ...rest
 }: IconProps): React.JSX.Element => {
-  const applied = cx(styles['fill-gray'], svgClassName)
+  const applied = cx(styles['fill-contrast'], svgClassName)
 
   return (
     <IconElement className={cx('calendar-icon', className)} {...rest}>

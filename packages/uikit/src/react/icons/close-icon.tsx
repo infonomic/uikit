@@ -9,7 +9,7 @@ import type { IconProps } from './types/icon'
 import styles from './icons.module.css'
 
 export const CloseIcon = ({ className, svgClassName, ...rest }: IconProps): React.JSX.Element => {
-  const applied = cx(styles['fill-current'], svgClassName)
+  const applied = cx(styles['fill-contrast'], svgClassName)
 
   return (
     <IconElement className={cx('close-icon', className)} {...rest}>

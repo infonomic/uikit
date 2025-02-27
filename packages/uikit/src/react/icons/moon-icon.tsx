@@ -9,7 +9,7 @@ import type { IconProps } from './types/icon'
 import styles from './icons.module.css'
 
 export const MoonIcon = ({ className, svgClassName, ...rest }: IconProps): React.JSX.Element => {
-  const applied = cx(styles['fill-gray'], svgClassName)
+  const applied = cx(styles['fill-none'], styles['stroke-gray'], svgClassName)
 
   return (
     <IconElement className={cx('moon-icon', className)} {...rest}>

@@ -9,7 +9,7 @@ import type { IconProps } from './types/icon'
 import styles from './icons.module.css'
 
 export const SearchIcon = ({ className, svgClassName, ...rest }: IconProps): React.JSX.Element => {
-  const applied = cx(styles['fill-gray'], svgClassName)
+  const applied = cx(styles['fill-contrast'], styles['stroke-none'], svgClassName)
 
   return (
     <IconElement className={cx('search-icon', className)} {...rest}>

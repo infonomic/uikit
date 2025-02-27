@@ -1,4 +1,4 @@
-export interface IconProps {
+export interface IconProps extends React.ComponentProps<'div'> {
   className?: string
   svgClassName?: string
   fill?: string

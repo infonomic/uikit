@@ -41,6 +41,10 @@
     margin-top: -2px;
   }
 
+  .close svg {
+    fill: white
+  }
+
   .fade {
     opacity: 0;
     transition: opacity 0.4s ease-in-out;

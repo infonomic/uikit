@@ -13,7 +13,7 @@ export const DocumentIcon = ({
   svgClassName,
   ...rest
 }: IconProps): React.JSX.Element => {
-  const applied = cx(styles['stroke-gray'], svgClassName)
+  const applied = cx(styles['fill-none'], styles['stroke-gray'], svgClassName)
 
   return (
     <IconElement className={cx('document-icon', className)} {...rest}>
