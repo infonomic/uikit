@@ -46,8 +46,8 @@ export const ToastViewport = ToastPrimitive.Viewport
 
 export const Toast = function Toast({
   ref,
-  intent,
-  position = 'top-right',
+  intent = 'success',
+  position = 'bottom-right',
   title,
   message,
   icon = true,
@@ -88,10 +88,7 @@ export const Toast = function Toast({
       onOpenChange={onOpenChange}
     >
       <div className={styles.header}>
-        <time
-          dateTime={eventDateRef.current.toISOString()}
-          className="block pl-[4px] pt-[4px] text-sm"
-        >
+        <time dateTime={eventDateRef.current.toISOString()} className="text-sm">
           {new Intl.DateTimeFormat('default', {
             hour12: true,
             hour: 'numeric',
@@ -102,6 +99,7 @@ export const Toast = function Toast({
           <ToastPrimitive.Close aria-label="Close" asChild>
             <Button
               intent={intent}
+              tabIndex={0}
               variant="filled"
               aria-label="Close"
               className={styles.close}
@@ -113,13 +111,20 @@ export const Toast = function Toast({
           </ToastPrimitive.Close>
         )}
       </div>
-      <ToastPrimitive.Title className={styles.title}>{title}</ToastPrimitive.Title>
-      <ToastPrimitive.Description asChild>{message}</ToastPrimitive.Description>
-      <ToastPrimitive.Action className={styles.action} asChild altText="Goto schedule to undo">
-        <Button intent="primary" size="sm" variant="filled">
-          Undo
-        </Button>
-      </ToastPrimitive.Action>
+      <ToastPrimitive.Title className={styles.title}>
+        {icon != null && <Icon />}
+        {title}
+      </ToastPrimitive.Title>
+      <ToastPrimitive.Description className={styles.description}>
+        {message}
+      </ToastPrimitive.Description>
+      {/* <ToastPrimitive.Action className={styles.action} asChild altText="Goto schedule to undo">
+        <div>
+          <Button intent="primary" tabIndex={0} size="sm" variant="filled">
+            Undo
+          </Button>
+        </div>
+      </ToastPrimitive.Action> */}
     </ToastPrimitive.Root>
   )
 }

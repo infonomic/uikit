@@ -8,7 +8,7 @@ import { Button } from '../button/button.js'
 import { Toast as ToastComponent } from './toast.js'
 
 export const Toast = (): React.JSX.Element => {
-  const [toast, setToast] = React.useState(true)
+  const [toast, setToast] = React.useState(false)
 
   const handleOpenToastClick = (): void => {
     setToast(!toast)
@@ -19,9 +19,9 @@ export const Toast = (): React.JSX.Element => {
       <div className="mb-6 max-w-[600px]">
         <Button onClick={handleOpenToastClick}>Open Toast</Button>
         <ToastComponent
-          title="Notes"
+          title="Note"
           iconType="success"
-          intent="secondary"
+          intent="success"
           position="bottom-right"
           message="This is a test Toast modal that should appear when the button is clicked."
           open={toast}
