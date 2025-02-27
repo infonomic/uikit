@@ -52,7 +52,6 @@ export const Input = <C extends React.ElementType = 'input'>({
   className,
   ...rest
 }: InputProps) => {
-  console.log('startAdornment', startAdornment)
   return (
     <div className={styles.inputWrapper}>
       {label != null && <Label id={id} htmlFor={id} required={required} label={label} />}
