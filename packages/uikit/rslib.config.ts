@@ -22,7 +22,7 @@ export default defineConfig({
     },
   ],
   output: {
-    cleanDistPath: true,
+    cleanDistPath: false,
     distPath: {
       root: './dist',
     },

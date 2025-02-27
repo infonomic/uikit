@@ -170,6 +170,9 @@ importers:
       eslint-plugin-storybook:
         specifier: ^0.11.3
         version: 0.11.3(eslint@9.21.0(jiti@1.21.7))(typescript@5.7.3)
+      lightningcss:
+        specifier: ^1.29.1
+        version: 1.29.1
       lightningcss-cli:
         specifier: ^1.29.1
         version: 1.29.1
@@ -10130,7 +10133,6 @@ snapshots:
       lightningcss-linux-x64-musl: 1.29.1
       lightningcss-win32-arm64-msvc: 1.29.1
       lightningcss-win32-x64-msvc: 1.29.1
-    optional: true
 
   lilconfig@2.1.0: {}
 
