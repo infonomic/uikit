@@ -1,0 +1,15 @@
+---
+interface Props {
+  className?: string
+}
+
+import cx from "classnames"
+import styles from "./card.module.css"
+
+const { className, ...rest } = Astro.props as Props
+const classes = cx(styles.cardFooter, className)
+---
+
+<div class={classes} {...rest}>
+  <slot />
+</div>

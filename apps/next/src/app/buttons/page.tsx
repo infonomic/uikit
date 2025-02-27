@@ -1,4 +1,4 @@
-import { Button } from '@infonomic/uikit'
+import { Button } from '@infonomic/uikit/react'
 
 const variant = ['filled', 'outlined', 'gradient', 'text'] as const
 const intent = ['primary', 'secondary', 'noeffect', 'success', 'info', 'warning', 'danger'] as const

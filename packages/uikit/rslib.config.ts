@@ -1,3 +1,4 @@
+import { pluginReact } from '@rsbuild/plugin-react'
 /**
  * rslib is excellent, and offers very simple configuration,
  * including the emitting css even when NOT bundling components
@@ -8,7 +9,6 @@
  * process to correctly bundle our components.
  */
 import { defineConfig } from '@rslib/core'
-import { pluginReact } from '@rsbuild/plugin-react'
 
 export default defineConfig({
   lib: [
@@ -17,23 +17,23 @@ export default defineConfig({
       syntax: 'es2021',
       bundle: false,
       dts: {
-        distPath: './dist/react'
-      }
-    }
+        distPath: './dist',
+      },
+    },
   ],
   output: {
     cleanDistPath: true,
     distPath: {
-      root: './dist/react'
+      root: './dist',
     },
     cssModules: {},
-    emitCss: true
+    emitCss: true,
   },
   source: {
     entry: {
-      index: ['./src/react/**/!(*.stories|*.test).ts?(x)', './src/react/**/*.css']
+      index: ['./src/**/!(*.stories|*.test).ts?(x)', './src/**/*.module.css'],
     },
-    tsconfigPath: './tsconfig.build.json'
+    tsconfigPath: './tsconfig.build.json',
   },
-  plugins: [pluginReact()]
+  plugins: [pluginReact()],
 })

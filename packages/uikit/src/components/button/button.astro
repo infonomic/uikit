@@ -1,0 +1,49 @@
+---
+import type { Intent, Size, Variant } from "./types/button.js"
+
+interface Props {
+  variant?: Variant
+  size?: Size
+  type?: "submit" | "reset" | "button"
+  intent?: Intent
+  fullWidth?: boolean
+  ripple?: boolean
+  className?: string
+}
+
+import cx from "classnames"
+// import Ripple from 'material-ripple-effects' // Commented out as this is React specific
+import styles from "./button.module.css"
+
+const {
+  variant = "filled",
+  size = "md",
+  type = "button",
+  intent = "primary",
+  fullWidth = false,
+  ripple = true,
+  className,
+  ...rest
+} = Astro.props as Props
+
+const classes = cx(
+  styles.button,
+  styles[variant],
+  styles[size],
+  styles[intent],
+  { [styles.fullWidth]: fullWidth === true },
+  className,
+)
+
+// let onMouseDown: (e: MouseEvent) => void | undefined
+// if (ripple === true) {
+//   const rippleEffect = new Ripple()
+//   onMouseDown = (e: MouseEvent) => {
+//     rippleEffect.create(e, variant === 'filled' || variant === 'gradient' ? 'light' : 'dark')
+//   }
+// }
+---
+
+<button type={type} class={classes} {...rest}>
+  <slot />
+</button>

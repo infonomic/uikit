@@ -1,0 +1,17 @@
+---
+interface Props {
+  className?: string
+  hover?: boolean
+}
+
+import cx from "classnames"
+import styles from "./card.module.css"
+
+const { className, hover, ...rest } = Astro.props as Props
+const hoverClasses = hover ? styles.cardHover : undefined
+const classes = cx(styles.card, hoverClasses, className)
+---
+
+<div class={classes} {...rest}>
+  <slot />
+</div>
