@@ -69,6 +69,8 @@ export const Toast = function Toast({
     if (onOpenChange != null) onOpenChange(false)
   }
 
+  console.log('Toast', { open, onOpenChange })
+
   return (
     <ToastPrimitive.Root
       ref={mergedRef}
@@ -76,7 +78,7 @@ export const Toast = function Toast({
       open={open}
       onOpenChange={onOpenChange}
     >
-      <div className="toast-header flex justify-between gap-3 px-4 pt-2">
+      <div className={styles.header}>
         <time
           dateTime={eventDateRef.current.toISOString()}
           className="block pl-[4px] pt-[4px] text-sm"

@@ -22,32 +22,28 @@
     hsl(206 22% 7% / 35%) 0px 10px 38px -10px,
     hsl(206 22% 7% / 20%) 0px 10px 20px -15px;
   padding: 15px;
-  display: grid;
-  grid-template-areas: "title action" "description action";
-  grid-template-columns: auto max-content;
-  column-gap: 15px;
   align-items: center;
+}
 
-  &[data-state="open"] {
-    animation: slideIn 150ms cubic-bezier(0.16, 1, 0.3, 1);
-  }
+.root[data-state="open"] {
+  animation: slideIn 150ms cubic-bezier(0.16, 1, 0.3, 1);
+}
 
-  &[data-state="closed"] {
-    animation: hide 100ms ease-in;
-  }
+.root[data-state="closed"] {
+  animation: hide 100ms ease-in;
+}
 
-  &[data-swipe="move"] {
-    transform: translateX(var(--radix-toast-swipe-move-x));
-  }
+.root[data-swipe="move"] {
+  transform: translateX(var(--radix-toast-swipe-move-x));
+}
 
-  &[data-swipe="cancel"] {
-    transform: translateX(0);
-    transition: transform 200ms ease-out;
-  }
+.root[data-swipe="cancel"] {
+  transform: translateX(0);
+  transition: transform 200ms ease-out;
+}
 
-  &[data-swipe="end"] {
-    animation: swipeOut 100ms ease-out;
-  }
+.root[data-swipe="end"] {
+  animation: swipeOut 100ms ease-out;
 }
 
 @keyframes hide {
@@ -78,6 +74,14 @@
   to {
     transform: translateX(calc(100% + var(--viewport-padding)));
   }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-2);
+  padding: 12px 6px;
+  justify-content: space-between;
 }
 
 .close {
