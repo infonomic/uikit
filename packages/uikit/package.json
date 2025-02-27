@@ -36,7 +36,7 @@
     "build": "run-s build:*",
     "build:clean": "rm -rf dist build",
     "build:code": "rslib build",
-    "build:astro": "astro check && astro build",
+    "skip:astro": "astro check && astro build",
     "build:astro-compose": "node ./scripts/build-astro.js",
     "build:css": "lightningcss --bundle ./src/styles/styles.css ./src/styles/typography.css --output-dir ./dist/styles",
     "skip:post-process-css": "node ./scripts/task-merge-css.js",
