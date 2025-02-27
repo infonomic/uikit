@@ -12,7 +12,7 @@ const globalDecorator = (StoryFn, context) => {
   const theme = context.parameters.theme || context.globals.theme
   return (
     <ThemeProvider theme={theme}>
-      <ToastPrimitive.Provider swipeDirection="right">
+      <ToastPrimitive.Provider swipeDirection="right" duration={5000}>
         <div
           className="background"
           style={{
@@ -34,7 +34,7 @@ const globalDecorator = (StoryFn, context) => {
           </div>
           <StoryFn />
         </div>
-        <ToastPrimitive.Viewport />
+        <ToastPrimitive.Viewport className="toast-viewport" />
       </ToastPrimitive.Provider>
     </ThemeProvider>
   )

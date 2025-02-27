@@ -69,16 +69,16 @@ export const Toast = function Toast({
     if (onOpenChange != null) onOpenChange(false)
   }
 
-  // const handleOnChange = (open: boolean): void => {
-  //   console.log('handleOnChange', { open })
-  //   if (open) {
-  //     timerRef.current = window.setTimeout(() => {
-  //       onOpenChange(false)
-  //     }, 5000)
-  //   } else {
-  //     window.clearTimeout(timerRef.current)
-  //   }
-  // }
+  const handleOnChange = (open: boolean): void => {
+    console.log('handleOnChange', { open })
+    if (open) {
+      timerRef.current = window.setTimeout(() => {
+        onOpenChange(false)
+      }, 5000)
+    } else {
+      window.clearTimeout(timerRef.current)
+    }
+  }
 
   return (
     <ToastPrimitive.Root

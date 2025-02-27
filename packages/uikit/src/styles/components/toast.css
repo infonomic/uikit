@@ -1,56 +1,18 @@
 /* styles.css */
 
-.toast-root {
+.toast-viewport {
   --viewport-padding: 25px;
-}
-
-.toast-root[data-state="open"] {
-  animation: toastSlideIn 150ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.toast-root[data-state="closed"] {
-  animation: toastHide 100ms ease-in;
-}
-
-.toast-root[data-swipe="move"] {
-  transform: translateX(var(--radix-toast-swipe-move-x));
-}
-
-.toast-root[data-swipe="cancel"] {
-  transform: translateX(0);
-  transition: transform 200ms ease-out;
-}
-
-.toast-root[data-swipe="end"] {
-  animation: toastSwipeOut 100ms ease-out;
-}
-
-@keyframes toastHide {
-  from {
-    opacity: 1;
-  }
-
-  to {
-    opacity: 0;
-  }
-}
-
-@keyframes toastSlideIn {
-  from {
-    transform: translateX(calc(100% + var(--viewport-padding)));
-  }
-
-  to {
-    transform: translateX(0);
-  }
-}
-
-@keyframes toastSwipeOut {
-  from {
-    transform: translateX(var(--radix-toast-swipe-end-x));
-  }
-
-  to {
-    transform: translateX(calc(100% + var(--viewport-padding)));
-  }
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  padding: var(--viewport-padding);
+  gap: 10px;
+  width: 100vw;
+  max-width: 100vw;
+  margin: 0;
+  list-style: none;
+  z-index: 2147483647;
+  outline: none;
 }
