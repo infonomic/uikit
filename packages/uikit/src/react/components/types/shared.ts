@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/naming-convention */
-
 // typescript types
 
 // Arrays make available an iterator for easy storybook layout
@@ -18,6 +16,9 @@ export const intent = [
 ] as const
 
 export type Intent = (typeof intent)[number]
+
+export const icons = ['success', 'info', 'success', 'warning', 'danger'] as const
+export type Icons = (typeof icons)[number]
 
 export const position = ['top-left', 'top-right', 'bottom-left', 'bottom-right'] as const
 export type Position = (typeof position)[number]

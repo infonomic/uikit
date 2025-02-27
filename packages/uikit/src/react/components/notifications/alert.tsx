@@ -101,7 +101,7 @@ export const Alert = function Alert({
             intent={intent}
             variant="filled"
             aria-label="Close"
-            className={cx(styles.close)}
+            className={styles.close}
             type="button"
             onClick={handleOnClose}
             {...rest}
