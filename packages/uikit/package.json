@@ -11,7 +11,7 @@
     "dist/"
   ],
   "exports": {
-    ".": {
+    "./react": {
       "types": "./dist/react/index.d.ts",
       "import": "./dist/react/index.js",
       "default": "./dist/react/index.js"
@@ -25,13 +25,14 @@
   },
   "scripts": {
     "dev": "run-p dev:*",
-    "dev:css": "lightningcss --bundle ./src/styles/styles.css ./src/styles/typography.css --output-dir ./dist/styles",
+    "dev:css": "node ./task-watch-css.js",
+    "skip:css": "lightningcss --sourcemap --bundle ./src/styles/styles.css ./src/styles/typography.css --output-dir ./dist/styles",
     "dev:code": "rslib build --watch",
     "build": "run-s build:*",
     "build:clean": "rm -rf dist",
     "build:code": "rslib build",
     "build:css": "lightningcss --bundle ./src/styles/styles.css ./src/styles/typography.css --output-dir ./dist/styles",
-    "skip:post-process-css": "node ./post-build-merge-css.js",
+    "skip:post-process-css": "node ./task-merge-css.js",
     "build:minify": "lightningcss --minify ./dist/styles/styles.css ./dist/styles/typography.css --output-dir ./dist/styles",
     "typecheck": "tsc --noEmit",
     "clean": "rm -rf node_modules dist types .turbo",

@@ -2,77 +2,17 @@
  * An optional post code build utility function that will
  * gather up all processed css modules and merge them into a single
  * styles.css file. This is useful for libraries that want to provide
- * css that does not depend on the front-end framework's ability to 
+ * css that does not depend on the front-end framework's ability to
  * import css within components.
- * 
- * Also useful in setting @layer cascade specificity
- * for components so that they can easily be overridden by
- * Tailwind or other front-end style systems.
  */
 
-import { readdir, readFile, writeFile } from 'fs/promises'
-import { existsSync } from 'fs'
-import { resolve, join } from 'path'
+import { existsSync } from 'node:fs'
+import { readFile, readdir, writeFile } from 'node:fs/promises'
+import { join, resolve } from 'node:path'
 
 // Define paths
 const stylesCSSFile = resolve('./dist/styles/styles.css')
 const componentsDir = resolve('./dist/react/components')
-
-/**
- * Recursively fetches all .css files from a given directory
- * @param {string} dir - The directory to search in
- * @returns {Promise<string[]>} - A list of file paths
- */
-const getAllCSSFiles = async (dir) => {
-  if (!existsSync(dir)) {
-    console.error(`❌ Directory not found: ${dir}`)
-    return []
-  }
-
-  let cssFiles = []
-  const entries = await readdir(dir, { withFileTypes: true })
-
-  for (const entry of entries) {
-    const fullPath = join(dir, entry.name)
-    if (entry.isDirectory()) {
-      const subFiles = await getAllCSSFiles(fullPath)
-      cssFiles = cssFiles.concat(subFiles)
-    } else if (entry.isFile() && entry.name.endsWith('.css')) {
-      cssFiles.push(fullPath)
-    }
-  }
-  return cssFiles
-}
-
-/**
- * Reads, processes, minifies (in production), and outputs final uikit.css
- */
-const processCSSModules = async () => {
-  // Ensure base styles.css exists
-  if (!existsSync(stylesCSSFile)) {
-    console.error(`❌ Base styles.css not found: ${stylesCSSFile}`)
-    throw new Error('Base styles.css not found')
-  }
-
-  const stylesCSS = await readFile(stylesCSSFile, 'utf8')
-  const cssFiles = await getAllCSSFiles(componentsDir)
-  console.log(`📂 Found ${cssFiles.length} CSS module files.`)
-  console.log(cssFiles)
-
-  // Read and merge all CSS module files
-  const moduleCSS = await Promise.all(cssFiles.map((file) => readFile(file, 'utf8')))
-  const mergedModuleCSS = moduleCSS.join('\n')
-
-  try {
-    // const finalCSS = `${stylesCSS}\n@layer infonomic-components {\n${mergedModuleCSS}}`
-    const finalCSS = `${stylesCSS}\n${mergedModuleCSS}`
-    // Write final output back to styles.css
-    await writeFile(stylesCSSFile, finalCSS)
-    console.log(`✅ styles.css updated successfully: ${stylesCSSFile}`)
-  } catch (error) {
-    console.error('❌ Error processing CSS:', error)
-  }
-}
 
 /**
  * Recursively fetches all .module.js files from a given directory
@@ -127,6 +67,61 @@ const stripCSSImport = async () => {
     } catch (error) {
       console.error(`❌ Error processing ${file}:`, error)
     }
+  }
+}
+
+/**
+ * Recursively fetches all .css files from a given directory
+ * @param {string} dir - The directory to search in
+ * @returns {Promise<string[]>} - A list of file paths
+ */
+const getAllCSSFiles = async (dir) => {
+  if (!existsSync(dir)) {
+    console.error(`❌ Directory not found: ${dir}`)
+    return []
+  }
+
+  let cssFiles = []
+  const entries = await readdir(dir, { withFileTypes: true })
+
+  for (const entry of entries) {
+    const fullPath = join(dir, entry.name)
+    if (entry.isDirectory()) {
+      const subFiles = await getAllCSSFiles(fullPath)
+      cssFiles = cssFiles.concat(subFiles)
+    } else if (entry.isFile() && entry.name.endsWith('.css')) {
+      cssFiles.push(fullPath)
+    }
+  }
+  return cssFiles
+}
+
+/**
+ * Reads, processes, minifies (in production), and outputs final uikit.css
+ */
+const processCSSModules = async () => {
+  // Ensure base styles.css exists
+  if (!existsSync(stylesCSSFile)) {
+    console.error(`❌ Base styles.css not found: ${stylesCSSFile}`)
+    throw new Error('Base styles.css not found')
+  }
+
+  const stylesCSS = await readFile(stylesCSSFile, 'utf8')
+  const cssFiles = await getAllCSSFiles(componentsDir)
+  console.log(`📂 Found ${cssFiles.length} CSS module files.`)
+  console.log(cssFiles)
+
+  // Read and merge all CSS module files
+  const moduleCSS = await Promise.all(cssFiles.map((file) => readFile(file, 'utf8')))
+  const mergedModuleCSS = moduleCSS.join('\n')
+
+  try {
+    const finalCSS = `${stylesCSS}\n${mergedModuleCSS}`
+    // Write final output back to styles.css
+    await writeFile(stylesCSSFile, finalCSS)
+    console.log(`✅ styles.css updated successfully: ${stylesCSSFile}`)
+  } catch (error) {
+    console.error('❌ Error processing CSS:', error)
   }
 }
 
