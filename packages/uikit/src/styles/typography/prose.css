@@ -32,7 +32,7 @@
     --prose-pre-code: #e5e7eb;
     --prose-pre-bg: #1f2937;
     --prose-invert-body: var(--gray-50);
-    --prose-invert-headings: var(--gray-300);
+    --prose-invert-headings: var(--gray-50);
     --prose-invert-lead: #9ca3af;
     --prose-invert-links: var(--accent-500);
     --prose-invert-counters: #9ca3af;

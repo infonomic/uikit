@@ -19,10 +19,9 @@ export const Colors = (): React.JSX.Element => {
           text-align: center;
           font-size: 14px;
         }
-        .theme-test { background-color: var(--foo) }
       `}
       </style>
-      <div className="mb-6">
+      <div style={{ marginBottom: '2rem' }}>
         <table>
           <tbody>
             <tr>
@@ -402,7 +401,7 @@ export const Colors = (): React.JSX.Element => {
           </tbody>
         </table>
       </div>
-      <div className="mb-6">
+      <div style={{ marginBottom: '2rem' }}>
         <table>
           <tbody>
             <tr>
