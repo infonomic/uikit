@@ -1,12 +1,12 @@
-import React from 'react'
 import type { Preview } from '@storybook/react'
+import React from 'react'
 import '../src/styles/styles.css'
 import '../src/styles/typography.css'
 
 import { withThemeByClassName } from '@storybook/addon-themes'
 
-import { ThemeProvider } from '../src/theme/theme-provider'
 import { Toast as ToastPrimitive } from 'radix-ui'
+import { ThemeProvider } from '../src/theme/theme-provider'
 
 const globalDecorator = (StoryFn, context) => {
   const theme = context.parameters.theme || context.globals.theme
@@ -22,7 +22,7 @@ const globalDecorator = (StoryFn, context) => {
             width: '100vw',
             height: '100vh',
             padding: '12px',
-            overflow: 'auto'
+            overflow: 'auto',
           }}
         >
           <div style={{ marginBottom: 'var(--spacing-8)' }}>
@@ -45,11 +45,11 @@ export const decorators = [
   withThemeByClassName({
     themes: {
       light: 'light',
-      dark: 'dark'
+      dark: 'dark',
     },
-    defaultTheme: 'dark'
+    defaultTheme: 'dark',
     // attributeName: 'data-mode',
-  })
+  }),
 ]
 
 const preview: Preview = {
@@ -58,17 +58,17 @@ const preview: Preview = {
       storySort: {
         method: 'alphabetical',
         order: ['Theme', 'Typography', 'Components', 'Animation', 'Icons', 'Loaders', 'Widgets'],
-        locales: ''
-      }
+        locales: '',
+      },
     },
     // actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
       matchers: {
         color: /(background|color)$/i,
-        date: /Date$/
-      }
-    }
-  }
+        date: /Date$/,
+      },
+    },
+  },
 }
 
 export default preview

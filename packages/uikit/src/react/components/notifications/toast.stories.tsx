@@ -5,20 +5,9 @@ import type { Meta, StoryObj } from '@storybook/react'
 
 import { Button } from '../button/button.js'
 
-import { Toast } from './toast.js'
+import { Toast as ToastComponent } from './toast.js'
 
-const meta: Meta<typeof Toast> = {
-  /* 👇 The title prop is optional.
-   * See https://storybook.js.org/docs/react/configure/overview#configure-story-loading
-   * to learn how to generate automatic titles
-   */
-  title: 'Components/Toast',
-  component: Toast,
-}
-
-export default meta
-
-const AllVariants = (): React.JSX.Element => {
+export const Toast = (): React.JSX.Element => {
   const [toast, setToast] = React.useState(true)
 
   const handleOpenToastClick = (): void => {
@@ -29,7 +18,7 @@ const AllVariants = (): React.JSX.Element => {
     <>
       <div className="mb-6 max-w-[600px]">
         <Button onClick={handleOpenToastClick}>Open Toast</Button>
-        <Toast
+        <ToastComponent
           title="Notes"
           iconType="success"
           intent="secondary"
@@ -43,16 +32,13 @@ const AllVariants = (): React.JSX.Element => {
   )
 }
 
-type Story = StoryObj<typeof Toast>
-
-export const Default: Story = {
-  render: () => <AllVariants />,
+const meta: Meta<typeof Toast> = {
+  /* 👇 The title prop is optional.
+   * See https://storybook.js.org/docs/react/configure/overview#configure-story-loading
+   * to learn how to generate automatic titles
+   */
+  title: 'Components/Toast',
+  component: ToastComponent,
 }
 
-export const Interactive: Story = {
-  args: {
-    intent: 'secondary',
-    title: 'Interactive Toast',
-    message: 'This is an interactive toast component in Storybook.',
-  },
-}
+export default meta

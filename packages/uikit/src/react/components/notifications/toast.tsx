@@ -69,7 +69,16 @@ export const Toast = function Toast({
     if (onOpenChange != null) onOpenChange(false)
   }
 
-  console.log('Toast', { open, onOpenChange })
+  // const handleOnChange = (open: boolean): void => {
+  //   console.log('handleOnChange', { open })
+  //   if (open) {
+  //     timerRef.current = window.setTimeout(() => {
+  //       onOpenChange(false)
+  //     }, 5000)
+  //   } else {
+  //     window.clearTimeout(timerRef.current)
+  //   }
+  // }
 
   return (
     <ToastPrimitive.Root
@@ -89,7 +98,7 @@ export const Toast = function Toast({
             minute: 'numeric',
           }).format(eventDateRef.current)}
         </time>
-        {close != null && (
+        {close === true && (
           <ToastPrimitive.Close aria-label="Close" asChild>
             <Button
               intent={intent}
