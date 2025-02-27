@@ -13,7 +13,7 @@ export const InfonomicIcon = ({
   svgClassName,
   ...rest
 }: IconProps): React.JSX.Element => {
-  const applied = twMerge(svgStylesDefault, svgClassName)
+  const applied = cx(svgStylesDefault, svgClassName)
 
   return (
     <IconElement className={cx('infonomic-icon', className)} {...rest}>
