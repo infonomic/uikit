@@ -10,11 +10,19 @@
   }
 
   .stroke-gray {
-    stroke: var(--gray-900);
+    stroke: var(--gray-800);
   }
 
   .stroke-gray:is(:global(.dark) *) {
     stroke: var(--gray-300);
+  }
+
+  .stroke-contrast {
+    stroke: var(--gray-950);
+  }
+
+  .stroke-contrast:is(:global(.dark) *) {
+    stroke: var(--gray-100);
   }
 
   .stroke-primary {
