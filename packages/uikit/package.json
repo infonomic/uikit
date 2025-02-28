@@ -30,6 +30,7 @@
   },
   "scripts": {
     "dev": "run-p dev:*",
+    "dev:astro-compose": "node ./scripts/build-astro.js",
     "dev:css": "node ./scripts/task-watch-css.js",
     "skip:css": "lightningcss --sourcemap --bundle ./src/styles/styles.css ./src/styles/typography.css --output-dir ./dist/styles",
     "dev:code": "rslib build --watch",
