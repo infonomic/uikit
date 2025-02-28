@@ -13,6 +13,7 @@
     transition: all 0.3s ease-in-out;
     border: 1px solid var(--alert-border);
     background-color: var(--alert-background);
+    margin-bottom: 1rem;
   }
 
   .alert-with-title {
