@@ -8,7 +8,7 @@
   "keywords": [],
   "author": "",
   "scripts": {
-    "clean": "turbo run clean && rm -rf node_modules",
+    "clean": "turbo run clean && rm -rf node_modules .turbo",
     "build": "turbo run build",
     "start": "turbo run start",
     "storybook": "turbo run storybook",

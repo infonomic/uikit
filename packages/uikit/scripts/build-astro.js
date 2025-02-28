@@ -34,7 +34,25 @@ function copyAstroFiles(srcDir, destDir) {
   })
 }
 
+// Copy .astro files to dist
+function copyCSSModuleFiles(srcDir, destDir) {
+  if (!fs.existsSync(destDir)) {
+    fs.mkdirSync(destDir, { recursive: true })
+  }
+  const files = fs.readdirSync(srcDir)
+  // biome-ignore lint/complexity/noForEach: <explanation>
+  files.forEach(file => {
+    const srcFile = path.join(srcDir, file)
+    const destFile = path.join(destDir, file)
+    if (fs.statSync(srcFile).isDirectory()) {
+      copyCSSModuleFiles(srcFile, destFile)
+    } else if (file.endsWith('.module.css'))
+      fs.copyFileSync(srcFile, destFile)
+  })
+}
+
 copyAstroFiles(srcDir, destDir)
+copyCSSModuleFiles(srcDir, destDir)
 
 fs.writeFileSync(outputFile, buildImports('astro'))
 // fs.writeFileSync('dist/astro.d.ts', buildTypes('astro'))
