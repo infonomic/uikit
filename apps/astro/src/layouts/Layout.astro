@@ -1,16 +1,29 @@
 ---
 import '../styles/global.css'
+
+import MetaHead from '../components/MetaHead.astro'
+
+// Accept metadata properties
+export interface Props {
+  title?: string
+  description?: string
+  keywords?: string
+  ogImage?: string
+  url?: string
+}
+
+const { title, description, keywords, ogImage, url } = Astro.props
 ---
 
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Astro Basics</title>
-  </head>
+  <MetaHead
+    title={title}
+    description={description}
+    keywords={keywords}
+    ogImage={ogImage}
+    url={url}
+  />
   <body>
     <slot />
   </body>

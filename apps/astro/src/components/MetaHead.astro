@@ -1,0 +1,41 @@
+---
+// Props for dynamic metadata
+export interface Props {
+  title?: string
+  description?: string
+  keywords?: string
+  ogImage?: string
+  url?: string
+}
+
+const {
+  title = 'Default Title',
+  description = 'Default description for the website.',
+  keywords = 'astro, seo, web development',
+  ogImage = '/default-og-image.png',
+  url = 'https://yourwebsite.com'
+} = Astro.props
+---
+
+<head>
+  <title>{title} - My Site</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="generator" content={Astro.generator} />
+  <meta name="description" content={description} />
+  <meta name="keywords" content={keywords} />
+
+  <!-- Open Graph (OG) for social media -->
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:url" content={url} />
+  <meta property="og:type" content="website" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImage} />
+</head>
