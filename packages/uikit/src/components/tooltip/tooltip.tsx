@@ -1,6 +1,6 @@
 'use client'
 
-import * as React from 'react'
+import type React from 'react'
 
 import { Tooltip as TooltipPrimitive } from 'radix-ui'
 
@@ -26,7 +26,7 @@ export const Tooltip = function Tooltip({
   disableHoverableContent,
   open,
   onOpenChange,
-  children
+  children,
 }: TooltipProps & {
   ref?: React.RefObject<HTMLDivElement>
 }): React.JSX.Element {
