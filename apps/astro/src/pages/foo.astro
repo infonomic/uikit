@@ -1,4 +1,5 @@
 ---
+import { Container, Section } from '@infonomic/uikit/astro'
 import Welcome from '../components/Welcome.astro'
 import Layout from '../layouts/Layout.astro'
 
@@ -13,5 +14,15 @@ const meta = {
 ---
 
 <Layout {...meta}>
-  <Welcome />
+  <Section>
+    <Container>
+      <Welcome />
+    </Container>
+  </Section>
+  <Section>
+    <Container>
+      <h2>Foo</h2>
+      <p>This is the Foo page. It's a great page.</p>
+    </Container>
+  </Section>
 </Layout>
