@@ -11,6 +11,7 @@
     "clean": "turbo run clean && rm -rf node_modules .turbo",
     "build": "turbo run build",
     "start": "turbo run start",
+    "preview": "turbo run preview",
     "storybook": "turbo run storybook",
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint --continue",
