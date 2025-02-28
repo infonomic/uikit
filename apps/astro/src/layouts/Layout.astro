@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css'
 
+import AppBar from '../components/AppBar.astro'
 import MetaHead from '../components/MetaHead.astro'
 
 // Accept metadata properties
@@ -25,7 +26,12 @@ const { title, description, keywords, ogImage, url } = Astro.props
     url={url}
   />
   <body>
-    <slot />
+    <div class="layout-container">
+      <AppBar />
+      <main id="main-content">
+        <slot />
+      </main>
+    </div>
   </body>
 </html>
 
@@ -35,5 +41,15 @@ const { title, description, keywords, ogImage, url } = Astro.props
     margin: 0;
     width: 100%;
     height: 100%;
+  }
+  layout-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  main {
+    display:flex
+    flex-direction: column;
+    flex: 1;
   }
 </style>

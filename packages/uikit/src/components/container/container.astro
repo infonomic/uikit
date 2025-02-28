@@ -3,8 +3,8 @@ interface Props {
   className?: string
 }
 
-import cx from "classnames"
-import styles from "./container.module.css"
+import cx from 'classnames'
+import styles from './container.module.css'
 
 const { className, ...rest } = Astro.props as Props
 const mergedClassName = cx(styles.container, className)
