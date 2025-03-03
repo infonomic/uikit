@@ -11,6 +11,7 @@ interface Props extends HTMLAttributes<'button'>, Omit<HTMLAttributes<'a'>, 'typ
   ripple?: boolean
   class?: string
   as?: 'button' | 'a'
+  href?: string
 }
 
 // import Ripple from 'material-ripple-effects' // Commented out as this is React specific
@@ -25,8 +26,12 @@ const {
   ripple = true,
   class: className,
   as = 'button',
+  href,
+  target = href?.startsWith('http') ? '_blank' : undefined,
   ...rest
 } = Astro.props as Props
+
+const componentType = href ? 'a' : as
 
 // let onMouseDown: (e: MouseEvent) => void | undefined
 // if (ripple === true) {
@@ -38,7 +43,7 @@ const {
 ---
 
 {
-  as === 'button' ? (
+  componentType === 'button' ? (
     <button
       type={type}
       class:list={[
@@ -55,6 +60,8 @@ const {
     </button>
   ) : (
     <a
+      href={href}
+      target={target}
       class:list={[
         styles.button,
         styles[variant],
