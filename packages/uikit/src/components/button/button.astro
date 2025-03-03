@@ -1,39 +1,32 @@
 ---
-import type { Intent, Size, Variant } from "./types/button.js"
+import type { HTMLAttributes } from 'astro/types'
+import type { Intent, Size, Variant } from './types/button.js'
 
-interface Props {
+interface Props extends HTMLAttributes<'button'>, Omit<HTMLAttributes<'a'>, 'type'> {
   variant?: Variant
   size?: Size
-  type?: "submit" | "reset" | "button"
+  type?: 'submit' | 'reset' | 'button'
   intent?: Intent
   fullWidth?: boolean
   ripple?: boolean
-  className?: string
+  class?: string
+  as?: 'button' | 'a'
 }
 
-import cx from "classnames"
 // import Ripple from 'material-ripple-effects' // Commented out as this is React specific
-import styles from "./button.module.css"
+import styles from './button.module.css'
 
 const {
-  variant = "filled",
-  size = "md",
-  type = "button",
-  intent = "primary",
+  variant = 'filled',
+  size = 'md',
+  type = 'button',
+  intent = 'primary',
   fullWidth = false,
   ripple = true,
-  className,
+  class: className,
+  as = 'button',
   ...rest
 } = Astro.props as Props
-
-const classes = cx(
-  styles.button,
-  styles[variant],
-  styles[size],
-  styles[intent],
-  { [styles.fullWidth]: fullWidth === true },
-  className,
-)
 
 // let onMouseDown: (e: MouseEvent) => void | undefined
 // if (ripple === true) {
@@ -44,6 +37,35 @@ const classes = cx(
 // }
 ---
 
-<button type={type} class={classes} {...rest}>
-  <slot />
-</button>
+{
+  as === 'button' ? (
+    <button
+      type={type}
+      class:list={[
+        styles.button,
+        styles[variant],
+        styles[size],
+        styles[intent],
+        { [styles.fullWidth]: fullWidth },
+        className
+      ]}
+      {...rest}
+    >
+      <slot />
+    </button>
+  ) : (
+    <a
+      class:list={[
+        styles.button,
+        styles[variant],
+        styles[size],
+        styles[intent],
+        { [styles.fullWidth]: fullWidth },
+        className
+      ]}
+      {...rest}
+    >
+      <slot />
+    </a>
+  )
+}
