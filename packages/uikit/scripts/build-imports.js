@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
-const srcDir = path.join(__dirname, '..', 'src', 'components')
+const srcDir = path.join(__dirname, '..', 'src')
 
 // Convert kebab-case to PascalCase
 const toPascalCase = str => {
@@ -13,21 +13,27 @@ const toPascalCase = str => {
 }
 
 export const buildImports = extension => {
-  const components = fs.readdirSync(srcDir)
   const importStatements = []
   const exportStatements = []
 
-  for (const component of components) {
-    const componentDir = path.join(srcDir, component)
-    const files = fs.readdirSync(componentDir).filter(file => file.endsWith(`.${extension}`))
-
-    for (const file of files) {
-      const componentName = path.basename(file, `.${extension}`)
-      const pascalCaseName = toPascalCase(componentName)
-      importStatements.push(`import ${pascalCaseName}Component from './components/${component}/${file}'`)
-      exportStatements.push(`export const ${pascalCaseName} = ${pascalCaseName}Component`)
-    }
+  function processDirectory(directory) {
+    const files = fs.readdirSync(directory)
+    // biome-ignore lint/complexity/noForEach: <explanation>
+    files.forEach(file => {
+      const fullPath = path.join(directory, file)
+      if (fs.statSync(fullPath).isDirectory()) {
+        processDirectory(fullPath)
+      } else if (file.endsWith(`.${extension}`)) {
+        const relativePath = path.relative(srcDir, fullPath)
+        const componentName = path.basename(file, `.${extension}`)
+        const pascalCaseName = toPascalCase(componentName)
+        importStatements.push(`import ${pascalCaseName}Component from './${relativePath.replace(/\\/g, '/')}'`)
+        exportStatements.push(`export const ${pascalCaseName} = ${pascalCaseName}Component`)
+      }
+    })
   }
+
+  processDirectory(srcDir)
 
   // biome-ignore lint/style/useTemplate: <explanation>
   return importStatements.join('\n') + '\n\n' + exportStatements.join('\n')

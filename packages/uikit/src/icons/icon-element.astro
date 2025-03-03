@@ -1,0 +1,27 @@
+---
+import type { HTMLAttributes } from 'astro/types'
+
+interface Props extends HTMLAttributes<'div'> {
+  class?: string
+  width?: string
+  height?: string
+  menuItem?: boolean
+}
+
+const { class: className, width = '22px', height = '22px', menuItem = false, ...rest } = Astro.props
+---
+
+<div
+  style={{
+    width,
+    height,
+    flex: `0 0 ${width}`,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginRight: menuItem ? '1.2rem' : '0'
+  }}
+  class={className}
+  {...rest}
+>
+  <slot />
+</div>

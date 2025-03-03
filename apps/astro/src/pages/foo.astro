@@ -1,5 +1,15 @@
 ---
-import { Container, Section } from '@infonomic/uikit/astro'
+import {
+  Button,
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+  Container,
+  Section
+} from '@infonomic/uikit/astro'
 import Welcome from '../components/Welcome.astro'
 import Layout from '../layouts/Layout.astro'
 
@@ -16,9 +26,70 @@ const meta = {
 <Layout {...meta}>
   <Section>
     <Container className="prose">
-      <h2>Foo</h2>
+      <h1>Foo</h1>
       <p>This is the Foo page. It's a great page.</p>
       <a href="/">Go to Home</a>
     </Container>
   </Section>
+  <Section>
+    <Container className="prose">
+      <h2>Stuff</h2>
+      <div class="grid not-prose">
+        <Card>
+          <CardHeader>
+            <CardTitle>Card Title</CardTitle>
+            <CardDescription>
+              This is a card description. It's a great description.
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <p>Here is some card content here...</p>
+          </CardContent>
+          <CardFooter>
+            <Button>Click Me</Button>
+          </CardFooter>
+        </Card>
+        <Card>
+          <CardHeader>
+            <CardTitle>Card Title</CardTitle>
+            <CardDescription>
+              This is a card description. It's a great description.
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <p>Here is some card content here. And some even longer content here.</p>
+          </CardContent>
+          <CardFooter>
+            <Button>Click Me</Button>
+          </CardFooter>
+        </Card>
+        <Card>
+          <CardHeader>
+            <CardTitle>Card Title</CardTitle>
+            <CardDescription>
+              This is a card description. It's a great description.
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <p>Here is some card content here.</p>
+          </CardContent>
+          <CardFooter>
+            <Button>Click Me</Button>
+          </CardFooter>
+        </Card>
+      </div>
+    </Container>
+  </Section>
 </Layout>
+
+<style>
+  section {
+    padding: 1rem 0;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+  }
+</style>

@@ -1,37 +1,50 @@
+---
+import ThemeToggle from './ThemeToggle.astro'
+---
+
 <header>
-  <nav>
-    <ul>
-      <li><a href="/">Home</a></li>
-      <li><a href="/about">About</a></li>
-      <li><a href="/foo">Foo</a></li>
-      <li><a href="/contact">Contact</a></li>
-    </ul>
-  </nav>
+  <div class="main-menu">
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/foo">Foo</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="theme-toggle">
+    <ThemeToggle />
+  </div>
 </header>
 
 <style>
   header {
     position: sticky;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: var(--gap-4);
     top: 0;
     z-index: 20;
     width: 100%;
-    background-color: #333;
+    background-color: var(--theme-500);
     color: white;
-    padding: 1rem;
+    padding: 0 1rem;
   }
+
   nav ul {
     display: flex;
     justify-content: end;
-    gap: var(--gap-8);
+    gap: var(--gap-4);
     list-style: none;
-    padding: 0;
   }
   nav ul li {
     margin: 0;
   }
   nav ul li a {
     display: block;
-    padding: 0.5rem 1rem;
+    padding: 1rem;
     color: white;
     text-decoration: none;
   }
