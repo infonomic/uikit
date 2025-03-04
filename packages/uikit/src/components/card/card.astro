@@ -1,16 +1,18 @@
 ---
 import type { HTMLAttributes } from 'astro/types'
+
 interface Props extends HTMLAttributes<'button'>, Omit<HTMLAttributes<'a'>, 'type'> {
-  className?: string
+  class?: string
   hover?: boolean
   href?: string
+  target?: string
   as?: 'div' | 'a'
 }
 
 import styles from './card.module.css'
 
 const {
-  className,
+  class: className,
   hover,
   as = 'div',
   href,
@@ -18,7 +20,7 @@ const {
   ...rest
 } = Astro.props as Props
 
-const componentType = href ? 'a' : as
+const componentType = href != null ? 'a' : as
 ---
 
 {

@@ -378,7 +378,7 @@
   * color scheme - either by header or cookie, and set
   * a root html class accordingly
   */
-  :global(.dark) {
+  .button:global(.dark) {
 
     .button:focus:not(:where([class~="not-dark"], [class~="not-dark"] *)),
     .button:active:not(:where([class~="not-dark"], [class~="not-dark"] *)) {

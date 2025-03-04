@@ -1,15 +1,14 @@
 ---
-interface Props {
-  className?: string
+import type { HTMLAttributes } from 'astro/types'
+interface Props extends HTMLAttributes<'div'> {
+  class?: string
 }
 
-import cx from "classnames"
-import styles from "./card.module.css"
+import styles from './card.module.css'
 
-const { className, ...rest } = Astro.props as Props
-const classes = cx(styles.cardDescription, className)
+const { class: className, ...rest } = Astro.props as Props
 ---
 
-<div class={classes} {...rest}>
+<div class:list={[styles.cardDescription, className]} {...rest}>
   <slot />
 </div>
