@@ -5,7 +5,7 @@ import styles from './input-adornment.module.css'
 interface Props extends HTMLAttributes<'div'> {
   position?: 'start' | 'end'
   margins?: boolean
-  class: string
+  class?: string
 }
 
 const { position = 'start', margins = true, class: className, ...rest } = Astro.props as Props

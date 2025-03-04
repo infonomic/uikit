@@ -1,5 +1,13 @@
 ---
-import { Button, Container, Input, Section } from '../../../../packages/uikit/src/astro'
+import {
+  Button,
+  CloseIcon,
+  Container,
+  Input,
+  InputAdornment,
+  SearchIcon,
+  Section
+} from '../../../../packages/uikit/src/astro'
 
 import Layout from '../layouts/Layout.astro'
 
@@ -26,13 +34,22 @@ const meta = {
       <div class="contact-form not-prose">
         <form action="/contact" method="post">
           <Input
+            startAdornment={true}
+            endAdornment={true}
             label="Message"
             helpText="Please enter a message."
             placeHolder="Message"
             id="message"
             name="message"
             required
-          />
+          >
+            <InputAdornment position="start" slot="start-adornment">
+              <SearchIcon />
+            </InputAdornment>
+            <InputAdornment position="end" slot="end-adornment">
+              <CloseIcon height="18px" width="18px" />
+            </InputAdornment>
+          </Input>
           <div class="form-actions">
             <Button type="submit">Submit</Button>
           </div>

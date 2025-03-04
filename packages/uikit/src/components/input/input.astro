@@ -47,7 +47,13 @@ const {
 <div class={styles.inputWrapper}>
   {label != null && <Label id={id} for={id} required={required} label={label} />}
   <div class={styles.inputContainer}>
-    {startAdornment != null && <div class={styles.startAdornment}>{startAdornment}</div>}
+    {
+      startAdornment != null && (
+        <div class={styles.startAdornment}>
+          <slot name="start-adornment" />
+        </div>
+      )
+    }
     <input
       id={id}
       name={name}
@@ -71,7 +77,13 @@ const {
       ]}
       {...rest}
     />
-    {endAdornment != null && <div class={styles.endAdornment}>{endAdornment}</div>}
+    {
+      endAdornment != null && (
+        <div class={styles.endAdornment}>
+          <slot name="end-adornment" />
+        </div>
+      )
+    }
   </div>
   {
     error ? (
