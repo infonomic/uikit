@@ -9,11 +9,10 @@
   "main": "./dist/index.js",
   "files": [
     "dist/",
-    "dist/astro.d.ts",
-    "dist/astro.js"
+    "src/astro.js"
   ],
   "exports": {
-    "./astro": "./dist/astro.js",
+    "./astro": "./src/astro.ts",
     "./react": {
       "types": "./dist/react.d.ts",
       "import": "./dist/react.js",
@@ -30,7 +29,7 @@
   },
   "scripts": {
     "dev": "run-p dev:*",
-    "dev:astro-compose": "node ./scripts/build-astro.js",
+    "skip:astro-compose": "node ./scripts/build-astro.js",
     "dev:css": "node ./scripts/task-watch-css.js",
     "skip:css": "lightningcss --sourcemap --bundle ./src/styles/styles.css ./src/styles/typography.css --output-dir ./dist/styles",
     "dev:code": "rslib build --watch",
@@ -38,7 +37,7 @@
     "build:clean": "rm -rf dist build",
     "build:code": "rslib build",
     "skip:astro": "astro check && astro build",
-    "build:astro-compose": "node ./scripts/build-astro.js",
+    "skip2:astro-compose": "node ./scripts/build-astro.js",
     "build:css": "lightningcss --bundle ./src/styles/styles.css ./src/styles/typography.css --output-dir ./dist/styles",
     "skip:post-process-css": "node ./scripts/task-merge-css.js",
     "build:minify": "lightningcss --minify ./dist/styles/styles.css ./dist/styles/typography.css --output-dir ./dist/styles",

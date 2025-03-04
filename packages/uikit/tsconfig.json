@@ -27,6 +27,7 @@
   "include": ["src/**/*", "./src/declarations.d.ts"],
   "exclude": [
     "dist",
+    "src/astro.js",
     "tsup.config.ts",
     "node_modules",
     "src/**/*.test.tsx",
