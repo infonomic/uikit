@@ -1,17 +1,39 @@
 ---
-interface Props {
+import type { HTMLAttributes } from 'astro/types'
+interface Props extends HTMLAttributes<'button'>, Omit<HTMLAttributes<'a'>, 'type'> {
   className?: string
   hover?: boolean
+  href?: string
+  as?: 'div' | 'a'
 }
 
-import cx from "classnames"
-import styles from "./card.module.css"
+import styles from './card.module.css'
 
-const { className, hover, ...rest } = Astro.props as Props
-const hoverClasses = hover ? styles.cardHover : undefined
-const classes = cx(styles.card, hoverClasses, className)
+const {
+  className,
+  hover,
+  as = 'div',
+  href,
+  target = href?.startsWith('http') ? '_blank' : undefined,
+  ...rest
+} = Astro.props as Props
+
+const componentType = href ? 'a' : as
 ---
 
-<div class={classes} {...rest}>
-  <slot />
-</div>
+{
+  componentType === 'a' ? (
+    <a
+      href={href}
+      target={target}
+      class:list={[styles.card, { [styles.cardHover]: hover }, className]}
+      {...rest}
+    >
+      <slot />
+    </a>
+  ) : (
+    <div class:list={[styles.card, { [styles.cardHover]: hover }, className]} {...rest}>
+      <slot />
+    </div>
+  )
+}

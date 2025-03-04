@@ -4,28 +4,24 @@
   "private": true,
   "type": "module",
   "sideEffects": false,
-  "types": "./dist/index.d.ts",
-  "module": "./dist/index.js",
-  "main": "./dist/index.js",
   "files": [
-    "dist/",
-    "dist/astro.d.ts",
-    "dist/astro.js"
+    "src/",
+    "src/astro.ts"
   ],
   "exports": {
-    "./astro": "./dist/astro.js",
+    "./astro": "./src/astro.ts",
     "./react": {
-      "types": "./dist/react.d.ts",
-      "import": "./dist/react.js",
-      "default": "./dist/react.js"
+      "types": "./src/react.ts",
+      "import": "./src/react.ts",
+      "default": "./src/react.ts"
     },
     "./styles.css": {
-      "import": "./dist/styles/styles.css",
-      "default": "./dist/styles/styles.css"
+      "import": "./src/styles/styles.css",
+      "default": "./src/styles/styles.css"
     },
     "./typography.css": {
-      "import": "./dist/styles/typography.css",
-      "default": "./dist/styles/typography.css"
+      "import": "./src/styles/typography.css",
+      "default": "./src/styles/typography.css"
     }
   },
   "scripts": {
