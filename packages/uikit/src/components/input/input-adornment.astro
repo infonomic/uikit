@@ -1,0 +1,24 @@
+---
+import type { HTMLAttributes } from 'astro/types'
+import styles from './input-adornment.module.css'
+
+interface Props extends HTMLAttributes<'div'> {
+  position?: 'start' | 'end'
+  margins?: boolean
+  class: string
+}
+
+const { position = 'start', margins = true, class: className, ...rest } = Astro.props as Props
+---
+
+<div
+  class:list={[
+    styles.adornment,
+    position === 'start' && styles.start,
+    position === 'end' && styles.end,
+    className
+  ]}
+  {...rest}
+>
+  <slot />
+</div>

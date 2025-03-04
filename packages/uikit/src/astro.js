@@ -6,6 +6,11 @@ import CardHeaderComponent from './components/card/card-header.astro'
 import CardTitleComponent from './components/card/card-title.astro'
 import CardComponent from './components/card/card.astro'
 import ContainerComponent from './components/container/container.astro'
+import ErrorTextComponent from './components/input/error-text.astro'
+import HelpTextComponent from './components/input/help-text.astro'
+import InputAdornmentComponent from './components/input/input-adornment.astro'
+import InputComponent from './components/input/input.astro'
+import LabelComponent from './components/input/label.astro'
 import SectionComponent from './components/section/section.astro'
 import IconElementComponent from './icons/icon-element.astro'
 import LightIconComponent from './icons/light-icon.astro'
@@ -19,6 +24,11 @@ export const CardHeader = CardHeaderComponent
 export const CardTitle = CardTitleComponent
 export const Card = CardComponent
 export const Container = ContainerComponent
+export const ErrorText = ErrorTextComponent
+export const HelpText = HelpTextComponent
+export const InputAdornment = InputAdornmentComponent
+export const Input = InputComponent
+export const Label = LabelComponent
 export const Section = SectionComponent
 export const IconElement = IconElementComponent
 export const LightIcon = LightIconComponent

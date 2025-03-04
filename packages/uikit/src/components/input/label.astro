@@ -1,0 +1,19 @@
+---
+import type { HTMLAttributes } from 'astro/types'
+import styles from './label.module.css'
+
+interface Props extends HTMLAttributes<'label'> {
+  id: string
+  for: string
+  label: string
+  required?: boolean
+  class?: string
+}
+
+const { id, for: htmlFor, label, required, class: className, ...rest } = Astro.props as Props
+---
+
+<label id={`label-for-${id}`} for={htmlFor} class:list={[styles.label, className]} {...rest}>
+  {label}
+  {required != null && <span class={styles.required}>&nbsp;*</span>}
+</label>

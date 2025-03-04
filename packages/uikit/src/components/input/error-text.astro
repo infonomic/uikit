@@ -1,0 +1,14 @@
+---
+import type { HTMLAttributes } from 'astro/types'
+import styles from './error-text.module.css'
+
+interface Props extends HTMLAttributes<'p'> {
+  id: string
+  text: string
+  class?: string
+}
+
+const { id, class: className, text, ...rest } = Astro.props as Props
+---
+
+<p id={id} class:list={[styles.text, className]} {...rest}>{text}</p>

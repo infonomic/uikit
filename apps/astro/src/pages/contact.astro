@@ -1,6 +1,6 @@
 ---
-import { Container, Section } from '../../../../packages/uikit/src/astro'
-import Welcome from '../components/Welcome.astro'
+import { Button, Container, Input, Section } from '../../../../packages/uikit/src/astro'
+
 import Layout from '../layouts/Layout.astro'
 
 // Page-specific metadata
@@ -21,4 +21,35 @@ const meta = {
       <a href="/">Go to Home</a>
     </Container>
   </Section>
+  <Section>
+    <Container className="prose">
+      <div class="contact-form not-prose">
+        <form action="/contact" method="post">
+          <Input
+            label="Message"
+            helpText="Please enter a message."
+            placeHolder="Message"
+            id="message"
+            name="message"
+            required
+          />
+          <div class="form-actions">
+            <Button type="submit">Submit</Button>
+          </div>
+        </form>
+      </div>
+    </Container>
+  </Section>
+
+  <style>
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .form-actions {
+      display: flex;
+      gap: var(--gap-2);
+      margin: 1rem 0;
+    }
+  </style>
 </Layout>
