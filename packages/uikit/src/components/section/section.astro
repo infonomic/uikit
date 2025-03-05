@@ -1,15 +1,13 @@
 ---
 interface Props {
-  className?: string
+  class?: string
 }
 
-import cx from "classnames"
-import styles from "./section.module.css"
+import styles from './section.module.css'
 
-const { className, ...rest } = Astro.props as Props
-const mergedClassName = cx(styles.section, className)
+const { class: className, ...rest } = Astro.props as Props
 ---
 
-<section class={mergedClassName} {...rest}>
+<section class:list={[styles.section, className]} {...rest}>
   <slot />
 </section>

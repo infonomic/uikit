@@ -1,15 +1,13 @@
 ---
 interface Props {
-  className?: string
+  class?: string
 }
 
-import cx from 'classnames'
 import styles from './container.module.css'
 
-const { className, ...rest } = Astro.props as Props
-const mergedClassName = cx(styles.container, className)
+const { class: className, ...rest } = Astro.props as Props
 ---
 
-<div class={mergedClassName} {...rest}>
+<div class:list={[styles.container, className]} {...rest}>
   <slot />
 </div>

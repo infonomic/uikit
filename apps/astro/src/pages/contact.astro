@@ -23,33 +23,57 @@ const meta = {
 
 <Layout {...meta}>
   <Section>
-    <Container className="prose">
+    <Container class="prose">
       <h2>Contact</h2>
       <p>This is the contact page. It's a great page.</p>
       <a href="/">Go to Home</a>
     </Container>
   </Section>
   <Section>
-    <Container className="prose">
+    <Container class="prose">
       <div class="contact-form not-prose">
         <form action="/contact" method="post">
-          <Input
-            startAdornment={true}
-            endAdornment={true}
-            label="Message"
-            helpText="Please enter a message."
-            placeHolder="Message"
-            id="message"
-            name="message"
-            required
-          >
-            <InputAdornment position="start" slot="start-adornment">
-              <SearchIcon />
-            </InputAdornment>
-            <InputAdornment position="end" slot="end-adornment">
-              <CloseIcon height="18px" width="18px" />
-            </InputAdornment>
-          </Input>
+          <div class="form-control">
+            <Input
+              label="Regular Input"
+              helpText="Please enter text."
+              placeHolder="Text here..."
+              id="regular"
+              name="regular"
+              required
+            />
+          </div>
+          <div class="form-control">
+            <Input
+              startAdornment={true}
+              endAdornment={true}
+              label="Input with Adornments"
+              helpText="Please enter a text."
+              placeHolder="Text here.."
+              id="adornments"
+              name="adornments"
+              required
+            >
+              <InputAdornment position="start" slot="start-adornment">
+                <SearchIcon />
+              </InputAdornment>
+              <InputAdornment position="end" slot="end-adornment">
+                <CloseIcon height="18px" width="18px" />
+              </InputAdornment>
+            </Input>
+          </div>
+          <div class="form-control">
+            <Input
+              label="Error Input"
+              helpText="Please enter text."
+              error={true}
+              errorText="This is an error message."
+              placeHolder="Text here..."
+              id="regular"
+              name="regular"
+              required
+            />
+          </div>
           <div class="form-actions">
             <Button type="submit">Submit</Button>
           </div>
@@ -63,10 +87,15 @@ const meta = {
       max-width: 600px;
       margin: 0 auto;
     }
+
+    .form-control {
+      margin: 0.5rem 0;
+    }
+
     .form-actions {
       display: flex;
       gap: var(--gap-2);
-      margin: 1rem 0;
+      margin: 2rem 0 1rem;
     }
   </style>
 </Layout>

@@ -10,48 +10,33 @@ import {
   Container,
   Section
 } from '../../../../packages/uikit/src/astro'
-import Welcome from '../components/Welcome.astro'
+
 import Layout from '../layouts/Layout.astro'
 
 // Page-specific metadata
 const meta = {
-  title: 'Foo',
-  description: 'Description for the home page.',
+  title: 'Components',
+  description: 'Description for the components page.',
   keywords: 'home, astro, web development',
   ogImage: '/home-og-image.png',
-  url: 'https://yourwebsite.com/home'
+  url: 'https://yourwebsite.com/components'
 }
 ---
 
 <Layout {...meta}>
   <Section>
-    <Container className="prose">
-      <h1>Foo</h1>
-      <p>This is the Foo page. It's a great page.</p>
+    <Container class="prose">
+      <h1>Components</h1>
+      <p>This is the Components page. It's a great page.</p>
       <a href="/">Go to Home</a>
     </Container>
   </Section>
   <Section>
-    <Container className="prose">
-      <h2>Stuff</h2>
+    <Container class="prose">
       <div class="grid not-prose">
-        <Card href="/" hover={true}>
-          <CardHeader>
-            <CardTitle>Card Title</CardTitle>
-            <CardDescription>
-              This is a card description. It's a great description.
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <p>Here is some card content here...</p>
-          </CardContent>
-          <CardFooter>
-            <Button variant="filled">Click Home</Button>
-          </CardFooter>
-        </Card>
         <Card>
           <CardHeader>
-            <CardTitle>Card Title</CardTitle>
+            <CardTitle>Regular Card</CardTitle>
             <CardDescription>
               This is a card description. It's a great description.
             </CardDescription>
@@ -65,7 +50,7 @@ const meta = {
         </Card>
         <Card>
           <CardHeader>
-            <CardTitle>Card Title</CardTitle>
+            <CardTitle>Regular Card</CardTitle>
             <CardDescription>
               This is a card description. It's a great description.
             </CardDescription>
@@ -75,6 +60,20 @@ const meta = {
           </CardContent>
           <CardFooter>
             <Button>Click Me</Button>
+          </CardFooter>
+        </Card>
+        <Card href="/" hover={true}>
+          <CardHeader>
+            <CardTitle>Hover Card</CardTitle>
+            <CardDescription>
+              This is a card description. It's a great description.
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <p>This card is actually a hyperlink with an href and hover enabled.</p>
+          </CardContent>
+          <CardFooter>
+            <Button variant="filled">Click to Go Home</Button>
           </CardFooter>
         </Card>
       </div>
