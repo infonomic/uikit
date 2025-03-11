@@ -17,7 +17,7 @@ import { Overlay } from '../../components/overlay'
 import useMediaQuery from '../../hooks/use-media-query'
 import { getPortalRoot } from '../../utils/getPortalRoot'
 
-import { DrawerContainer, DrawerContent, DrawerWrapper } from './index.js'
+import { DrawerWrapper } from './index.js'
 
 import type { ReactNode } from 'react'
 

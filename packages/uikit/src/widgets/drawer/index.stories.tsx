@@ -26,7 +26,7 @@ export const Default = (): React.JSX.Element => {
       </Button>
       <Drawer
         id="first-drawer"
-        closeOnOverlayClick={true}
+        closeOnOverlayClick={false}
         isOpen={isOpen}
         onDismiss={() => setIsOpen(false)}
       >
