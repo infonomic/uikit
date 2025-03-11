@@ -17,7 +17,7 @@
     animation: var(--transition-normal);
   }
 
-  .tooltip:global(.dark) {
+  :global(.dark) {
     .tooltip {
       color: var(--gray-50);
       border-color: var(--canvas-700);
@@ -47,7 +47,7 @@
     fill: var(--gray-100)
   }
 
-  .tooltip:global(.dark) {
+  :global(.dark) {
     .tooltip-arrow {
       fill: var(--canvas-700);
     }

@@ -378,7 +378,7 @@
   * color scheme - either by header or cookie, and set
   * a root html class accordingly
   */
-  .button:global(.dark) {
+  :global(.dark) {
 
     .button:focus:not(:where([class~="not-dark"], [class~="not-dark"] *)),
     .button:active:not(:where([class~="not-dark"], [class~="not-dark"] *)) {
@@ -409,7 +409,7 @@
     }
 
     .noeffect:not(:where([class~="not-dark"], [class~="not-dark"] *)) {
-      --button: oklch(from var(--gray-900) calc(l * 1.1) c h);
+      --button: var(--gray-900);
       --button-ring-color: var(--gray-900);
     }
 
