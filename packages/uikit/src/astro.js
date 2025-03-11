@@ -1,4 +1,5 @@
 import ButtonComponent from './components/button/button.astro'
+import IconButtonComponent from './components/button/icon-button.astro'
 import CardContentComponent from './components/card/card-content.astro'
 import CardDescriptionComponent from './components/card/card-description.astro'
 import CardFooterComponent from './components/card/card-footer.astro'
@@ -19,6 +20,7 @@ import MoonIconComponent from './icons/moon-icon.astro'
 import SearchIconComponent from './icons/search-icon.astro'
 
 export const Button = ButtonComponent
+export const IconButton = IconButtonComponent
 export const CardContent = CardContentComponent
 export const CardDescription = CardDescriptionComponent
 export const CardFooter = CardFooterComponent

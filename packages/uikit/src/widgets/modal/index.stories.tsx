@@ -2,6 +2,7 @@
 import type React from 'react'
 
 import { Button } from '../../components/button/button.js'
+import { IconButton } from '../../components/button/icon-button.js'
 import { CloseIcon } from '../../icons/close-icon.js'
 
 import {
@@ -22,8 +23,15 @@ export default {
 export const Default = (): React.JSX.Element => {
   const { onDismiss, onOpen, isOpen, setIsOpen } = useModal()
 
+  const whiteIcon = `
+    .white-icon {
+      fill: white;  
+    }
+  `
+
   return (
     <>
+      <style>{whiteIcon}</style>
       <Button
         onClick={() => {
           setIsOpen(true)
@@ -35,16 +43,15 @@ export const Default = (): React.JSX.Element => {
         <ModalContainer className="sm:w-[500px]">
           <ModalHeader className="flex items-center justify-between mb-4">
             <h2>Modal Header</h2>
-            <Button
-              className="w-[32px] h-[32px] min-w-[32px] rounded-full"
+            <IconButton
               arial-label="Close"
               size="sm"
               onClick={() => {
                 setIsOpen(false)
               }}
             >
-              <CloseIcon width="18px" height="18px" />
-            </Button>
+              <CloseIcon width="16px" height="16px" svgClassName="white-icon" />
+            </IconButton>
           </ModalHeader>
           <ModalContent>
             <p>

@@ -1,0 +1,30 @@
+---
+import type { HTMLAttributes } from 'astro/types'
+import Button from './button.astro'
+import type { Intent, Size, Variant } from './types/button.js'
+
+import styles from './button.module.css'
+
+interface Props extends HTMLAttributes<'button'>, Omit<HTMLAttributes<'a'>, 'type'> {
+  variant?: Variant
+  size?: Size
+  type?: 'submit' | 'reset' | 'button'
+  intent?: Intent
+  fullWidth?: boolean
+  ripple?: boolean
+  class?: string
+  as?: 'button' | 'a'
+  href?: string
+  square?: boolean
+  round?: boolean
+}
+
+const { square = false, round = true, class: className, ...rest } = Astro.props as Props
+---
+
+<Button
+  class:list={[{ [styles.square]: square }, { [styles.round]: !square && round }, className]}
+  {...rest}
+>
+  <slot />
+</Button>

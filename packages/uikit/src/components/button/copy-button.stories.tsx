@@ -3,9 +3,9 @@ import React from 'react'
 
 import { type Meta, type StoryObj } from '@storybook/react'
 
+import { intent } from '../types/shared.js'
 import { CopyButton } from './copy-button.js'
 import { variant } from './types/button.js'
-import { intent } from '../types/shared.js'
 
 type Story = StoryObj<typeof CopyButton>
 
@@ -36,7 +36,7 @@ const CopyDemo = (): React.JSX.Element => {
 }
 
 export const Copy: Story = {
-  render: () => <CopyDemo />
+  render: () => <CopyDemo />,
 }
 
 const meta: Meta<typeof CopyButton> = {
@@ -45,7 +45,7 @@ const meta: Meta<typeof CopyButton> = {
    * to learn how to generate automatic titles
    */
   title: 'Components/Button',
-  component: CopyButton
+  component: CopyButton,
 }
 
 export default meta
