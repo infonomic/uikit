@@ -2,7 +2,6 @@
 import type * as React from 'react'
 
 import cx from 'classnames'
-import { twMerge } from 'tailwind-merge'
 
 import styles from './modal.module.css'
 

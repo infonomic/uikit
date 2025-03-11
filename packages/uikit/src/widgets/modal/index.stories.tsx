@@ -39,7 +39,7 @@ export const Default = (): React.JSX.Element => {
       >
         Open Modal
       </Button>
-      <Modal isOpen={isOpen} onDismiss={onDismiss} closeOnOverlayClick={true}>
+      <Modal isOpen={isOpen} onDismiss={onDismiss} closeOnOverlayClick={false}>
         <ModalContainer className="sm:w-[500px]">
           <ModalHeader className="flex items-center justify-between mb-4">
             <h2>Modal Header</h2>

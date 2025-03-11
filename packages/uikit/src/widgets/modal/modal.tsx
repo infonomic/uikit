@@ -21,6 +21,7 @@ export interface ModalProps {
   isOpen?: boolean
   onDismiss?: () => void
   closeOnOverlayClick?: boolean
+  disableOutsidePointerEvents?: boolean
   children?: React.ReactNode
 }
 
@@ -60,42 +61,41 @@ export function Modal({
   closeOnOverlayClick,
   children,
   disableOutsidePointerEvents = true,
-  ...props
-}: ModalProps & { disableOutsidePointerEvents?: boolean }): React.ReactPortal | null {
+  ...rest
+}: ModalProps): React.ReactPortal | null {
   const isMobile = useMediaQuery('(max-width: 768px)') ?? false
 
   const handleOverlayDismiss = (e: any): void => {
     e.stopPropagation()
     e.preventDefault()
-    if (closeOnOverlayClick != null) {
+    if (closeOnOverlayClick === true) {
       onDismiss?.()
     }
   }
+
   const portal = getPortalRoot()
 
-  if (portal !== false) {
-    return createPortal(
-      <ModalContext.Provider value={{ onDismiss }}>
-        <LazyMotion features={isMobile ? DomMax : DomAnimation}>
-          <AnimatePresence>
-            {isOpen != null && isOpen && (
-              <DismissableLayer
-                role="dialog"
-                disableOutsidePointerEvents={disableOutsidePointerEvents}
-                onEscapeKeyDown={handleOverlayDismiss}
-              >
-                <ModalWrapper transition={{ duration: 0.2 }} {...props}>
-                  <Overlay onClick={handleOverlayDismiss} isUnmounting={!(isOpen ?? false)} />
-                  {children}
-                </ModalWrapper>
-              </DismissableLayer>
-            )}
-          </AnimatePresence>
-        </LazyMotion>
-      </ModalContext.Provider>,
-      portal
-    )
-  }
+  if (portal === false) return null
 
-  return null
+  return createPortal(
+    <ModalContext.Provider value={{ onDismiss }}>
+      <LazyMotion features={isMobile ? DomMax : DomAnimation}>
+        <AnimatePresence>
+          {isOpen === true && (
+            <DismissableLayer
+              role="dialog"
+              disableOutsidePointerEvents={disableOutsidePointerEvents}
+              onEscapeKeyDown={handleOverlayDismiss}
+            >
+              <ModalWrapper transition={{ duration: 0.2 }} {...rest}>
+                <Overlay onClick={handleOverlayDismiss} isUnmounting={!(isOpen ?? false)} />
+                {children}
+              </ModalWrapper>
+            </DismissableLayer>
+          )}
+        </AnimatePresence>
+      </LazyMotion>
+    </ModalContext.Provider>,
+    portal
+  )
 }
