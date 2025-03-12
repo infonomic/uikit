@@ -20,7 +20,6 @@ export interface ModalProps {
   isOpen?: boolean
   onDismiss?: () => void
   closeOnOverlayClick?: boolean
-  disableOutsidePointerEvents?: boolean
   children?: React.ReactNode
 }
 
@@ -59,7 +58,6 @@ export function Modal({
   onDismiss,
   closeOnOverlayClick,
   children,
-  disableOutsidePointerEvents = true,
   ...rest
 }: ModalProps): React.ReactPortal | null {
   const isMobile = useMediaQuery('(max-width: 768px)') ?? false

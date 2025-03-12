@@ -15,8 +15,16 @@ export default {
 
 export const Default = (): React.JSX.Element => {
   const [isOpen, setIsOpen] = React.useState(false)
+
+  const whiteIcon = `
+    .white-icon {
+      fill: white;  
+    }
+  `
+
   return (
     <>
+      <style>{whiteIcon}</style>
       <Button
         onClick={() => {
           setIsOpen(true)
@@ -52,11 +60,67 @@ export const Default = (): React.JSX.Element => {
   )
 }
 
+export const Wide = (): React.JSX.Element => {
+  const [isOpen, setIsOpen] = React.useState(false)
+
+  const whiteIcon = `
+    .white-icon {
+      fill: white;  
+    }
+  `
+
+  return (
+    <>
+      <style>{whiteIcon}</style>
+      <Button
+        onClick={() => {
+          setIsOpen(true)
+        }}
+      >
+        Open Drawer
+      </Button>
+      <Drawer
+        id="first-drawer"
+        closeOnOverlayClick={true}
+        isOpen={isOpen}
+        width="wide"
+        onDismiss={() => setIsOpen(false)}
+      >
+        <DrawerContainer aria-hidden={!isOpen}>
+          <DrawerHeader className="flex items-center justify-between mb-4">
+            <h3>Drawer Actions Here</h3>
+            <IconButton
+              arial-label="Close"
+              size="sm"
+              onClick={() => {
+                setIsOpen(false)
+              }}
+            >
+              <CloseIcon width="16px" height="16px" svgClassName="white-icon" />
+            </IconButton>
+          </DrawerHeader>
+          <DrawerContent>
+            <p>Drawer content here...</p>
+          </DrawerContent>
+        </DrawerContainer>
+      </Drawer>
+    </>
+  )
+}
+
 export const Nested = (): React.JSX.Element => {
   const [isOpen1, setIsOpen1] = React.useState(false)
   const [isOpen2, setIsOpen2] = React.useState(false)
+
+  const whiteIcon = `
+    .white-icon {
+      fill: white;  
+    }
+  `
+
   return (
     <>
+      <style>{whiteIcon}</style>
       <Button
         onClick={() => {
           setIsOpen1(true)
@@ -66,6 +130,7 @@ export const Nested = (): React.JSX.Element => {
       </Button>
       <Drawer
         id="first-drawer"
+        width="wide"
         closeOnOverlayClick={true}
         isOpen={isOpen1}
         onDismiss={() => setIsOpen1(false)}
@@ -95,6 +160,7 @@ export const Nested = (): React.JSX.Element => {
               </Button>
               <Drawer
                 id="second-drawer"
+                width="wide"
                 closeOnOverlayClick={true}
                 isOpen={isOpen2}
                 onDismiss={() => setIsOpen2(false)}

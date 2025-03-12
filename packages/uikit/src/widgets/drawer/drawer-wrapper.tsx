@@ -3,6 +3,8 @@
 import type React from 'react'
 import { useEffect } from 'react'
 
+import cx from 'classnames'
+
 import { useFocusTrap } from '@mantine/hooks'
 import { m } from 'motion/react'
 
@@ -11,11 +13,13 @@ import type { HTMLMotionProps } from 'motion/react'
 import styles from './drawer.module.css'
 
 export interface DrawerWrapperProps extends HTMLMotionProps<'div'> {
+  className?: string
   children: React.ReactNode
   onEscapeKey?: (e: any) => void
 }
 
 export function DrawerWrapper({
+  className,
   children,
   onEscapeKey,
   ...rest
@@ -39,7 +43,7 @@ export function DrawerWrapper({
     <m.div
       ref={focusTrapRef}
       {...rest}
-      className={styles['drawer-wrapper']}
+      className={cx(styles['drawer-wrapper'], className)}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}

@@ -1,6 +1,8 @@
 'use client'
 import type React from 'react'
 
+import cx from 'classnames'
+
 import { AnimatePresence, type FeatureBundle, LazyMotion } from 'motion/react'
 import { useEffect } from 'react'
 import { createPortal } from 'react-dom'
@@ -13,6 +15,14 @@ import { DrawerWrapper } from './index.js'
 
 import type { ReactNode } from 'react'
 
+import styles from './drawer.module.css'
+
+type Styles = {
+  [key: string]: string
+}
+
+const typedStyles: Styles = styles
+
 const DomMax: () => Promise<FeatureBundle> = async () =>
   await import('./motionDomMax').then((mod) => mod.default)
 const DomAnimation: () => Promise<FeatureBundle> = async () =>
@@ -22,10 +32,9 @@ export interface DrawerProps {
   id: string
   isOpen: boolean
   closeOnOverlayClick?: boolean
-  disableOutsidePointerEvents?: boolean
   onDismiss: () => void
   children: ReactNode
-  width?: string
+  width?: 'narrow' | 'wide'
 }
 
 export const Drawer: React.FC<DrawerProps> = ({
@@ -33,9 +42,8 @@ export const Drawer: React.FC<DrawerProps> = ({
   isOpen,
   onDismiss,
   closeOnOverlayClick,
-  disableOutsidePointerEvents = true,
   children,
-  width = '300px',
+  width = 'narrow',
   ...rest
 }) => {
   const isMobile = useMediaQuery('(max-width: 768px)') ?? false
@@ -71,6 +79,10 @@ export const Drawer: React.FC<DrawerProps> = ({
             style={{ zIndex: 100 + depth }}
             transition={{ duration: 0.2 }}
             onEscapeKey={handleOverlayDismiss}
+            className={cx(
+              typedStyles[`drawer-${width}`],
+              typedStyles[`drawer-depth-${depth.toString()}`]
+            )}
             {...rest}
           >
             <Overlay onClick={handleOverlayDismiss} isUnmounting={!(isOpen ?? false)} />

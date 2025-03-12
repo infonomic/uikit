@@ -11,16 +11,34 @@
   opacity: 1;
 }
 
+
 .drawer-container {
   position: absolute;
   right: 0;
   height: 100%;
-  width: 400px;
   background-color: var(--gray-25);
   border-left: 1px solid var(--border-color);
   box-shadow: var(--shadow-md);
   z-index: inherit;
 }
+
+.drawer-depth-0.drawer-wide .drawer-container {
+  width: 90%;
+}
+
+.drawer-depth-1.drawer-wide .drawer-container {
+  width: 88%;
+}
+
+.drawer-depth-2.drawer-wide .drawer-container {
+  width: 86%;
+}
+
+.drawer-narrow .drawer-container {
+  width: calc(100% - 32px);
+  max-width: 400px
+}
+
 
 .drawer-container[aria-hidden="true"] {
   transform: translateX(100%);
