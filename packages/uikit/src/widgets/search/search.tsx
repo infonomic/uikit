@@ -3,7 +3,7 @@
 import type React from 'react'
 import { useEffect, useRef, useState } from 'react'
 
-import { Button } from '../../components/button'
+import { Button, IconButton } from '../../components/button/index.js'
 import { Input, InputAdornment } from '../../components/input'
 import { CloseIcon, SearchIcon } from '../../icons'
 
@@ -149,36 +149,35 @@ export function Search({
         error={false}
         startAdornment={
           <InputAdornment position="start">
-            <Button
+            <IconButton
               role="button"
-              className="flex align-self w-[28px] h-[28px] min-w-[28px] min-h-[28px] rounded-full"
-              intent="primary"
+              intent="noeffect"
               variant="text"
               ripple={false}
               arial-label={ariaLabelForSearch}
-              size="sm"
+              size="xs"
               onClick={() => {
                 handleSearch()
               }}
             >
               <SearchIcon width="20px" height="20px" />
-            </Button>
+            </IconButton>
           </InputAdornment>
         }
         endAdornment={
           <InputAdornment position="end">
-            <Button
-              className="flex align-self w-[28px] h-[28px] min-w-[28px] min-h-[28px] rounded-full"
-              intent="primary"
+            <IconButton
+              role="button"
+              intent="noeffect"
               variant="text"
               arial-label={ariaLabelForClear}
-              size="sm"
+              size="xs"
               onClick={() => {
                 handleClear()
               }}
             >
-              <CloseIcon width="18px" height="18px" svgClassName="fill-gray-500 dark:fill-white" />
-            </Button>
+              <CloseIcon width="16px" height="16px" />
+            </IconButton>
           </InputAdornment>
         }
         {...rest}

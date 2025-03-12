@@ -112,7 +112,25 @@
 
   .underlined {
     border-bottom: 1px solid var(--input-variant-underlined-border);
+    border-radius: 0;
+    gap: var(--gap-1);
     background-color: var(--input-variant-underlined);
+  }
+
+  /* Sizes */
+  .underlined.sm {
+    padding: 0.25rem 0.1rem;
+    min-height: 26px
+  }
+
+  .underlined.md {
+    padding: 0.25rem 0.1rem;
+    min-height: 30px;
+  }
+
+  .underlined.lg {
+    padding: 0 0.1rem;
+    min-height: 34px;
   }
 
   .underlined:hover {

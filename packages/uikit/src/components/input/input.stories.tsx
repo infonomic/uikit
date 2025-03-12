@@ -1,8 +1,8 @@
 import type React from 'react'
 
-import { capitalize } from '../../utils/capitalize.js'
-
 import { CloseIcon, SearchIcon } from '../../icons/index.js'
+import { capitalize } from '../../utils/capitalize.js'
+import { IconButton } from '../button/icon-button.js'
 import { intent } from '../types/shared.js'
 import { size, variant } from './types/input.js'
 
@@ -18,7 +18,15 @@ export const Default = (): React.JSX.Element => {
   return (
     <>
       <div style={{ marginBottom: '2rem' }}>
-        <div style={{ maxWidth: '600px', margin: '0 auto' }}>
+        <div
+          style={{
+            maxWidth: '600px',
+            margin: '0 auto',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '1rem',
+          }}
+        >
           <Input
             variant="outlined"
             intent="primary"
@@ -48,12 +56,16 @@ export const Default = (): React.JSX.Element => {
             label="Start and End Adornments"
             startAdornment={
               <InputAdornment>
-                <SearchIcon />
+                <IconButton role="button" intent="noeffect" variant="text" ripple={false} size="xs">
+                  <SearchIcon width="20px" height="20px" />
+                </IconButton>
               </InputAdornment>
             }
             endAdornment={
               <InputAdornment>
-                <CloseIcon />
+                <IconButton role="button" intent="noeffect" variant="text" size="xs">
+                  <CloseIcon width="16px" height="16px" />
+                </IconButton>
               </InputAdornment>
             }
             id="search"
@@ -74,7 +86,11 @@ export const Variants = (): React.JSX.Element => {
       <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
         {variant.map((variant) => {
           return (
-            <div key={variant} className="grid grid-cols-4 items-center gap-12 mb-6">
+            <div
+              key={variant}
+              style={{ marginBottom: '2rem' }}
+              className="grid grid-cols-4 items-center gap-12"
+            >
               {size.map((size) => {
                 return (
                   <Input

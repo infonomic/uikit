@@ -1,5 +1,5 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import type React from 'react'
+// biome-ignore lint/style/useImportType: <explanation>
+import React from 'react'
 
 import { Button } from '../../components/button/button.js'
 import { IconButton } from '../../components/button/icon-button.js'

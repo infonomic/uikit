@@ -1,5 +1,5 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import type React from 'react'
+// biome-ignore lint/style/useImportType: <explanation>
+import React from 'react'
 
 import { Search } from './search.js'
 
@@ -11,7 +11,7 @@ export default {
 
 export const Default = (): React.JSX.Element => {
   return (
-    <div className="max-w-[400px]">
+    <div style={{ maxWidth: '600px', margin: '0 auto' }}>
       <Search variant="underlined" />
     </div>
   )
