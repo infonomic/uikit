@@ -4,7 +4,6 @@ import type React from 'react'
 import { createContext, useCallback, useState } from 'react'
 import { createPortal } from 'react-dom'
 
-import { DismissableLayer } from '@radix-ui/react-dismissable-layer'
 import { AnimatePresence, type FeatureBundle, LazyMotion } from 'motion/react'
 
 import { Overlay } from '../../components/overlay'
@@ -82,16 +81,14 @@ export function Modal({
       <LazyMotion features={isMobile ? DomMax : DomAnimation}>
         <AnimatePresence>
           {isOpen === true && (
-            <DismissableLayer
-              role="dialog"
-              disableOutsidePointerEvents={disableOutsidePointerEvents}
-              onEscapeKeyDown={handleOverlayDismiss}
+            <ModalWrapper
+              transition={{ duration: 0.2 }}
+              onEscapeKey={handleOverlayDismiss}
+              {...rest}
             >
-              <ModalWrapper transition={{ duration: 0.2 }} {...rest}>
-                <Overlay onClick={handleOverlayDismiss} isUnmounting={!(isOpen ?? false)} />
-                {children}
-              </ModalWrapper>
-            </DismissableLayer>
+              <Overlay onClick={handleOverlayDismiss} isUnmounting={!(isOpen ?? false)} />
+              {children}
+            </ModalWrapper>
           )}
         </AnimatePresence>
       </LazyMotion>

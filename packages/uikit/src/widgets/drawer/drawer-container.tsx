@@ -19,7 +19,7 @@ export function DrawerContainer({
   ref?: React.RefObject<HTMLDivElement>
 }) {
   return (
-    <div ref={ref} className={cx(styles['drawer-container'], className)} {...rest}>
+    <div ref={ref} role="dialog" className={cx(styles['drawer-container'], className)} {...rest}>
       {children}
     </div>
   )

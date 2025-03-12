@@ -1,7 +1,6 @@
 'use client'
 import type React from 'react'
 
-import { DismissableLayer } from '@radix-ui/react-dismissable-layer'
 import { AnimatePresence, type FeatureBundle, LazyMotion } from 'motion/react'
 import {
   Dispatch,
@@ -117,16 +116,14 @@ export const Drawer: React.FC<DrawerProps> = ({
     <LazyMotion features={isMobile ? DomMax : DomAnimation}>
       <AnimatePresence>
         {isOpen === true && (
-          <DismissableLayer
-            role="dialog"
-            disableOutsidePointerEvents={disableOutsidePointerEvents}
-            onEscapeKeyDown={handleOverlayDismiss}
+          <DrawerWrapper
+            transition={{ duration: 0.2 }}
+            onEscapeKey={handleOverlayDismiss}
+            {...rest}
           >
-            <DrawerWrapper transition={{ duration: 0.2 }} {...rest}>
-              <Overlay onClick={handleOverlayDismiss} isUnmounting={!(isOpen ?? false)} />
-              {children}
-            </DrawerWrapper>
-          </DismissableLayer>
+            <Overlay onClick={handleOverlayDismiss} isUnmounting={!(isOpen ?? false)} />
+            {children}
+          </DrawerWrapper>
         )}
       </AnimatePresence>
     </LazyMotion>,
