@@ -51,3 +51,76 @@ export const Default = (): React.JSX.Element => {
     </>
   )
 }
+
+export const Nested = (): React.JSX.Element => {
+  const [isOpen1, setIsOpen1] = React.useState(false)
+  const [isOpen2, setIsOpen2] = React.useState(false)
+  return (
+    <>
+      <Button
+        onClick={() => {
+          setIsOpen1(true)
+        }}
+      >
+        Open Drawer 1
+      </Button>
+      <Drawer
+        id="first-drawer"
+        closeOnOverlayClick={true}
+        isOpen={isOpen1}
+        onDismiss={() => setIsOpen1(false)}
+      >
+        <DrawerContainer aria-hidden={!isOpen1}>
+          <DrawerHeader className="flex items-center justify-between mb-4">
+            <h3>Drawer 1</h3>
+            <IconButton
+              arial-label="Close"
+              size="sm"
+              onClick={() => {
+                setIsOpen1(false)
+              }}
+            >
+              <CloseIcon width="16px" height="16px" svgClassName="white-icon" />
+            </IconButton>
+          </DrawerHeader>
+          <DrawerContent>
+            <>
+              <p>Drawer 1 actions here...</p>
+              <Button
+                onClick={() => {
+                  setIsOpen2(true)
+                }}
+              >
+                Open Drawer 2
+              </Button>
+              <Drawer
+                id="second-drawer"
+                closeOnOverlayClick={true}
+                isOpen={isOpen2}
+                onDismiss={() => setIsOpen2(false)}
+              >
+                <DrawerContainer aria-hidden={!isOpen2}>
+                  <DrawerHeader className="flex items-center justify-between mb-4">
+                    <h3>Drawer 2</h3>
+                    <IconButton
+                      arial-label="Close"
+                      size="sm"
+                      onClick={() => {
+                        setIsOpen2(false)
+                      }}
+                    >
+                      <CloseIcon width="16px" height="16px" svgClassName="white-icon" />
+                    </IconButton>
+                  </DrawerHeader>
+                  <DrawerContent>
+                    <p>Drawer content here...</p>
+                  </DrawerContent>
+                </DrawerContainer>
+              </Drawer>
+            </>
+          </DrawerContent>
+        </DrawerContainer>
+      </Drawer>
+    </>
+  )
+}

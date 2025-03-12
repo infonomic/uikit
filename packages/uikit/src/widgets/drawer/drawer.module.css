@@ -19,7 +19,7 @@
   background-color: var(--gray-25);
   border-left: 1px solid var(--border-color);
   box-shadow: var(--shadow-md);
-  z-index: 20;
+  z-index: inherit;
 }
 
 .drawer-container[aria-hidden="true"] {

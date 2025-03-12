@@ -7,7 +7,7 @@ import { withThemeByClassName } from '@storybook/addon-themes'
 
 import { Toast as ToastPrimitive } from 'radix-ui'
 import { ThemeProvider } from '../src/theme/theme-provider'
-import { DrawerProvider } from '../src/widgets/drawer/drawer'
+import { DrawerProvider } from '../src/widgets/drawer/drawer-context'
 
 const globalDecorator = (StoryFn, context) => {
   const theme = context.parameters.theme || context.globals.theme

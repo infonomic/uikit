@@ -2,19 +2,12 @@
 import type React from 'react'
 
 import { AnimatePresence, type FeatureBundle, LazyMotion } from 'motion/react'
-import {
-  Dispatch,
-  SetStateAction,
-  createContext,
-  useCallback,
-  useContext,
-  useEffect,
-  useState,
-} from 'react'
+import { useEffect } from 'react'
 import { createPortal } from 'react-dom'
 import { Overlay } from '../../components/overlay'
 import useMediaQuery from '../../hooks/use-media-query'
 import { getPortalRoot } from '../../utils/getPortalRoot'
+import { useDrawer } from './drawer-context'
 
 import { DrawerWrapper } from './index.js'
 
@@ -24,48 +17,6 @@ const DomMax: () => Promise<FeatureBundle> = async () =>
   await import('./motionDomMax').then((mod) => mod.default)
 const DomAnimation: () => Promise<FeatureBundle> = async () =>
   await import('./motionDomAnimation').then((mod) => mod.default)
-
-interface DrawerContextType {
-  drawers: string[]
-  addDrawer: (id: string) => void
-  removeDrawer: (id: string) => void
-}
-
-const DrawerContext = createContext<DrawerContextType>({
-  drawers: [],
-  addDrawer: () => {},
-  removeDrawer: () => {},
-})
-
-interface DrawerProviderProps {
-  children: ReactNode
-}
-
-export const DrawerProvider: React.FC<DrawerProviderProps> = ({ children }) => {
-  const [drawers, setDrawers] = useState<string[]>([])
-
-  const addDrawer = useCallback((id: string) => {
-    setDrawers((prev) => [...prev, id])
-  }, [])
-
-  const removeDrawer = useCallback((id: string) => {
-    setDrawers((prev) => prev.filter((drawerId) => drawerId !== id))
-  }, [])
-
-  return (
-    <DrawerContext.Provider value={{ drawers, addDrawer, removeDrawer }}>
-      {children}
-    </DrawerContext.Provider>
-  )
-}
-
-export function useDrawer(): DrawerContextType {
-  const context = useContext(DrawerContext)
-  if (context === undefined) {
-    throw new Error('useDrawer must be used within a DrawerProvider')
-  }
-  return context
-}
 
 export interface DrawerProps {
   id: string
@@ -117,6 +68,7 @@ export const Drawer: React.FC<DrawerProps> = ({
       <AnimatePresence>
         {isOpen === true && (
           <DrawerWrapper
+            style={{ zIndex: 100 + depth }}
             transition={{ duration: 0.2 }}
             onEscapeKey={handleOverlayDismiss}
             {...rest}
