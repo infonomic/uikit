@@ -56,7 +56,9 @@ export const Input = <C extends React.ElementType = 'input'>({
     <div className={styles.inputWrapper}>
       {label != null && <Label id={id} htmlFor={id} required={required} label={label} />}
       <div className={styles.inputContainer}>
-        {startAdornment != null && <div className={styles.startAdornment}>{startAdornment}</div>}
+        {startAdornment != null && (
+          <div className={cx(styles.startAdornment, styles[variant])}>{startAdornment}</div>
+        )}
         <input
           ref={ref}
           id={id}
@@ -82,7 +84,9 @@ export const Input = <C extends React.ElementType = 'input'>({
           )}
           {...rest}
         />
-        {endAdornment != null && <div className={styles.endAdornment}>{endAdornment}</div>}
+        {endAdornment != null && (
+          <div className={cx(styles.endAdornment, styles[variant])}>{endAdornment}</div>
+        )}
       </div>
       {error ? (
         <ErrorText id={`error-for-${id}`} text={errorText ?? helpText} />

@@ -82,14 +82,6 @@
     right: 5px;
   }
 
-  .startAdornmentPadding {
-    padding-left: 2rem;
-  }
-
-  .endAdornmentPadding {
-    padding-right: 2rem;
-  }
-
   .helpText {
     font-size: 0.75rem;
     color: var(--help-text-color);
@@ -155,6 +147,24 @@
   .error:focus,
   .error:active {
     --ring-color: var(--red-300);
+  }
+
+  .underlined.startAdornmentPadding,
+  .startAdornmentPadding {
+    padding-left: 2rem;
+  }
+
+  .underlined.endAdornmentPadding,
+  .endAdornmentPadding {
+    padding-right: 2rem;
+  }
+
+  .underlined.startAdornment {
+    left: 0;
+  }
+
+  .underlined.endAdornment {
+    right: 0;
   }
 
   /* Intents */
