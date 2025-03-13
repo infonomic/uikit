@@ -49,7 +49,7 @@ const {
   <div class={styles.inputContainer}>
     {
       startAdornment != null && (
-        <div class={styles.startAdornment}>
+        <div class:list={[styles.startAdornment, styles[variant]]}>
           <slot name="start-adornment" />
         </div>
       )
@@ -79,7 +79,7 @@ const {
     />
     {
       endAdornment != null && (
-        <div class={styles.endAdornment}>
+        <div class:list={[styles.endAdornment, styles[variant]]}>
           <slot name="end-adornment" />
         </div>
       )
