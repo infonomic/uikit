@@ -6,7 +6,7 @@
     flex-direction: column;
     align-items: center;
     justify-items: center;
-    gap: var(--gap-1);
+    gap: var(--gap-2);
   }
 
   @media screen and (min-width: 640px) {
