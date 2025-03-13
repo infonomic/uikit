@@ -397,6 +397,17 @@
       --ring-offset-color: var(--background);
     }
 
+    .primary:not(:where([class~="not-dark"], [class~="not-dark"] *)) {
+      --button: var(--primary-600);
+      --button-ring-color: var(--button);
+    }
+
+    .primary.filled:not(:where([class~="not-dark"], [class~="not-dark"] *)) {
+      --button-variant-filled: var(--button);
+      --button-variant-filled-foreground: white;
+      --button-variant-filled-hover: oklch(from var(--button) calc(l * 0.9) c h);
+    }
+
     .primary.outlined:not(:where([class~="not-dark"], [class~="not-dark"] *)) {
       --button-variant-outlined-foreground: var(--primary-500);
       --button-variant-outlined-hover: oklch(from var(--button) calc(l * 0.4) calc(c * 0.1) h);
