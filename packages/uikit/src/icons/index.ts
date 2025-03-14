@@ -1,5 +1,3 @@
-import exp from 'constants'
-
 export * from './danger-icon.js'
 export * from './icon-element.js'
 export * from './info-icon.js'
@@ -37,3 +35,4 @@ export * from './delete-icon.js'
 export * from './activity-icon.js'
 export * from './github-icon.js'
 export * from './google-icon.js'
+export * from './dashboard-icon.js'

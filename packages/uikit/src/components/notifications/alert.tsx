@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 
 import cx from 'classnames'
 
-import { Button } from '../button/index.js'
+import { Button } from '../button/button.js'
 
 import { CloseIcon } from '../../icons/close-icon'
 import { DangerIcon } from '../../icons/danger-icon'

@@ -69,6 +69,7 @@ export * from './icons/email-icon.js'
 export * from './icons/activity-icon.js'
 export * from './icons/github-icon.js'
 export * from './icons/google-icon.js'
+export * from './icons/dashboard-icon.js'
 
 export * from './loaders/ellipses.js'
 export * from './loaders/spinner.js'
