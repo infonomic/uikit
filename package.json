@@ -21,8 +21,8 @@
   },
   "license": "ISC",
   "dependencies": {
-    "turbo": "^2.4.2",
-    "typescript": "5.7.3"
+    "turbo": "^2.4.4",
+    "typescript": "5.8.2"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4"
