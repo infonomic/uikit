@@ -13,7 +13,7 @@ export const GripperVerticalIcon = ({
   svgClassName,
   ...rest
 }: IconProps): React.JSX.Element => {
-  const applied = cx(styles['fill-none'], styles['stroke-gray'], svgClassName)
+  const applied = cx(styles['fill-none'], styles['stroke-contrast'], svgClassName)
 
   return (
     <IconElement className={cx('gripper-vertical-icon', className)} {...rest}>

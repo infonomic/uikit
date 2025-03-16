@@ -22,23 +22,39 @@
   z-index: inherit;
 }
 
+.drawer-depth-0.drawer-medium .drawer-container,
 .drawer-depth-0.drawer-wide .drawer-container {
   width: 90%;
 }
 
+.drawer-depth-1.drawer-medium .drawer-container,
 .drawer-depth-1.drawer-wide .drawer-container {
   width: 88%;
 }
 
+.drawer-depth-2.drawer- .drawer-container,
 .drawer-depth-2.drawer-wide .drawer-container {
   width: 86%;
+}
+
+@media (min-width: 768px) {
+  .drawer-depth-0.drawer-medium .drawer-container {
+    width: 60%;
+  }
+
+  .drawer-depth-1.drawer-medium .drawer-container {
+    width: 58%;
+  }
+
+  .drawer-depth-2.drawer- .drawer-container {
+    width: 56%;
+  }
 }
 
 .drawer-narrow .drawer-container {
   width: calc(100% - 32px);
   max-width: 400px
 }
-
 
 .drawer-container[aria-hidden="true"] {
   transform: translateX(100%);

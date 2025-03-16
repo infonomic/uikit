@@ -34,7 +34,7 @@ export interface DrawerProps {
   closeOnOverlayClick?: boolean
   onDismiss: () => void
   children: ReactNode
-  width?: 'narrow' | 'wide'
+  width?: 'narrow' | 'medium' | 'wide'
 }
 
 export const Drawer: React.FC<DrawerProps> = ({
