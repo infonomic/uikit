@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "clean": "rm -rf node_modules .next build dist .turbo",
+    "clean": "rimraf node_modules .next build dist .turbo",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
