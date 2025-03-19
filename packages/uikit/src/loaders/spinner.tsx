@@ -18,7 +18,7 @@ export function LoaderSpinner({
       <div key={index}>
         <div
           className={classNames('div-after')}
-          style={{ backgroundColor: `var(--loader-ring-color, ${color})` }}
+          style={{ backgroundColor: `var(--loader-color, ${color})` }}
         />
       </div>
     )

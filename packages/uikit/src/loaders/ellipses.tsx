@@ -16,7 +16,7 @@ export function LoaderEllipsis({
 
   const circles = [...Array(4)].map((_, index) => (
     // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
-    <div key={index} style={{ backgroundColor: `var(--loader-ring-color, ${color})` }} />
+    <div key={index} style={{ backgroundColor: `var(--loader-color, ${color})` }} />
   ))
 
   return (

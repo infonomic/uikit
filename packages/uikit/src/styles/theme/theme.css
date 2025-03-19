@@ -10,7 +10,7 @@
     --muted: oklch(from var(--foreground) calc(l * 2) c h);
     --border-color: var(--gray-100);
     --shadow: var(--shadow-md);
-    --loader-ring-color: var(--primary-500);
+    --loader-color: var(--primary-500);
 
     --invert-background: var(--canvas-900);
     --invert-foreground: var(--gray-50);
@@ -19,7 +19,7 @@
     --invert-muted: oklch(from var(--foreground) calc(l * 0.75) c h);
     --invert-border-color: var(--canvas-700);
     --invert-shadow: var(--shadow-lg);
-    --invert-loader-ring-color: var(--primary-500);
+    --invert-loader-color: var(--gray-50);
   }
 
   /* 🌙 Dark via `.dark` class. We rely on the consuming 
@@ -35,7 +35,7 @@
     --border-color: var(--invert-border-color);
     --shadow: var(--invert-shadow);
     --muted: var(--invert-muted);
-    --loader-ring-color: var(--invert-loader-ring-color);
+    --loader-color: var(--invert-loader-color);
   }
 
   /* Brute force our not-dark class for now until we figure out
@@ -50,7 +50,7 @@
     --muted: oklch(from var(--foreground) calc(l * 2) c h);
     --border-color: var(--gray-100);
     --shadow: var(--shadow-md);
-    --loader-ring-color: var(--primary-500);
+    --loader-color: var(--primary-500);
   }
 
   html {

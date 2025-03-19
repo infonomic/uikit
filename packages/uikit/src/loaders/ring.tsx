@@ -17,7 +17,7 @@ export function LoaderRing({
         // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
         key={index}
         style={{
-          borderColor: `var(--loader-ring-color, ${color}) transparent transparent transparent`,
+          borderColor: `var(--loader-color, ${color}) transparent transparent transparent`,
           width: size * 0.8,
           height: size * 0.8,
           margin: size * 0.1,

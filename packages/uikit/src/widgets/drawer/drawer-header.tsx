@@ -18,7 +18,7 @@ export const DrawerHeader = function DrawerHeader({
 }: DrawerHeaderProps & {
   ref?: React.RefObject<HTMLDivElement>
 }) {
-  const classes = cx(styles['drawer-header'], 'prose', className)
+  const classes = cx(styles['drawer-header'], className)
   return (
     <div style={{ overflowWrap: 'anywhere' }} ref={ref} {...rest} className={classes}>
       {children}
