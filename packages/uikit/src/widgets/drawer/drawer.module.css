@@ -39,15 +39,15 @@
 
 @media (min-width: 768px) {
   .drawer-depth-0.drawer-medium .drawer-container {
-    width: 60%;
+    width: 600px;
   }
 
   .drawer-depth-1.drawer-medium .drawer-container {
-    width: 58%;
+    width: 580px;
   }
 
   .drawer-depth-2.drawer- .drawer-container {
-    width: 56%;
+    width: 560px;
   }
 }
 

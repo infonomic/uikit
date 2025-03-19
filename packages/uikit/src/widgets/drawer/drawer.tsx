@@ -35,6 +35,7 @@ export interface DrawerProps {
   onDismiss: () => void
   children: ReactNode
   width?: 'narrow' | 'medium' | 'wide'
+  topOffset?: string
 }
 
 export const Drawer: React.FC<DrawerProps> = ({
@@ -44,6 +45,7 @@ export const Drawer: React.FC<DrawerProps> = ({
   closeOnOverlayClick,
   children,
   width = 'narrow',
+  topOffset = '0',
   ...rest
 }) => {
   const isMobile = useMediaQuery('(max-width: 768px)') ?? false
@@ -76,7 +78,7 @@ export const Drawer: React.FC<DrawerProps> = ({
       <AnimatePresence>
         {isOpen === true && (
           <DrawerWrapper
-            style={{ zIndex: 100 + depth }}
+            style={{ zIndex: 20 + depth, top: topOffset }}
             transition={{ duration: 0.2 }}
             onEscapeKey={handleOverlayDismiss}
             className={cx(
@@ -85,7 +87,11 @@ export const Drawer: React.FC<DrawerProps> = ({
             )}
             {...rest}
           >
-            <Overlay onClick={handleOverlayDismiss} isUnmounting={!(isOpen ?? false)} />
+            <Overlay
+              onClick={handleOverlayDismiss}
+              style={{ top: topOffset }}
+              isUnmounting={!(isOpen ?? false)}
+            />
             {children}
           </DrawerWrapper>
         )}
