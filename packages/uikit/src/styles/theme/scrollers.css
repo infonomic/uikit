@@ -1,13 +1,13 @@
 @layer infonomic-theme {
   :root {
-    --scroll-bar-thumb: rgb(232, 164, 149);
-    --scroll-bar-track: rgb(237, 94, 61);
+    --scroll-bar-thumb: rgb(206, 208, 216);
+    --scroll-bar-track: rgb(219, 219, 228);
   }
 
   /* rgb(44, 47, 86) = theme secondary 900  */
   :root.dark {
-    --scroll-bar-thumb: rgb(62, 54, 49);
-    --scroll-bar-track: rgb(44, 41, 38);
+    --scroll-bar-thumb: rgb(56, 57, 61);
+    --scroll-bar-track: rgb(47, 47, 52);
   }
 
   /* For Google Chrome */
