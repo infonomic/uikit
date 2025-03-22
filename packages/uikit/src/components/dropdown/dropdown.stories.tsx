@@ -4,9 +4,9 @@ import type React from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import cx from 'classnames'
 
-import { SignOutIcon } from '../icons/sign-out-icon.js'
-import { UserIcon } from '../icons/user-icon.js'
-import { Button } from './button/button.js'
+import { SignOutIcon } from '../../icons/sign-out-icon.js'
+import { UserIcon } from '../../icons/user-icon.js'
+import { Button } from '../button/button.js'
 import { Dropdown } from './dropdown.js'
 
 const meta: Meta<typeof Dropdown> = {
