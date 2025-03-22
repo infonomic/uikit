@@ -1,12 +1,13 @@
 'use client'
 
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-// @ts-nocheck
 import type React from 'react'
 
+import { ChevronDownIcon } from '@radix-ui/react-icons'
 import { Accordion } from 'radix-ui'
 
 import cx from 'classnames'
+
+import styles from './accordion.module.css'
 
 export type AccordionRootElement = React.ComponentRef<'div'>
 
@@ -21,7 +22,7 @@ export const AccordionRoot = ({
   ref?: React.RefObject<AccordionRootElement>
 } & (Accordion.AccordionSingleProps | Accordion.AccordionMultipleProps)) => {
   return (
-    <Accordion.Root ref={ref} className={className} {...props}>
+    <Accordion.Root ref={ref} className={cx(styles.root, className)} {...props}>
       {children}
     </Accordion.Root>
   )
@@ -37,7 +38,7 @@ export const AccordionItem = function AccordionItem({
   ref?: React.RefObject<AccordionItemElement>
 }) {
   return (
-    <Accordion.Item className={className} {...props} ref={ref}>
+    <Accordion.Item className={cx(styles.item, className)} {...props} ref={ref}>
       {children}
     </Accordion.Item>
   )
@@ -53,7 +54,7 @@ export const AccordionHeader = function AccordionHeader({
   ref?: React.RefObject<AccordionHeaderElement>
 }) {
   return (
-    <Accordion.Header className="toc-header flex m-0" {...props} ref={ref}>
+    <Accordion.Header className={cx(styles.header, className)} {...props} ref={ref}>
       {children}
     </Accordion.Header>
   )
@@ -69,12 +70,9 @@ export const AccordionTrigger = function AccordionTrigger({
   ref?: React.RefObject<AccordionTriggerElement>
 }) {
   return (
-    <Accordion.Trigger
-      ref={ref}
-      className={cx('toc-trigger group flex items-center w-full cursor-pointer', className)}
-      {...props}
-    >
+    <Accordion.Trigger ref={ref} className={cx(styles.trigger, className)} {...props}>
       {children}
+      <ChevronDownIcon className={styles.chevron} aria-hidden />
     </Accordion.Trigger>
   )
 }
@@ -89,16 +87,8 @@ export const AccordionContent = function AccordionContent({
   ref?: React.RefObject<AccordionContentElement>
 }) {
   return (
-    <Accordion.Content
-      className={cx(
-        'toc-content',
-        'data-[state=open]:animate-slideDown data-[state=closed]:animate-slideUp overflow-hidden text-[15px]',
-        className
-      )}
-      {...props}
-      ref={ref}
-    >
-      {children}
+    <Accordion.Content className={cx(styles.content, className)} {...props} ref={ref}>
+      <div className={styles['content-text']}>{children}</div>
     </Accordion.Content>
   )
 }
