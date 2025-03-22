@@ -2,6 +2,7 @@
  * NOTE: We put a .js ending on imports here to satisfy
  * TS / dist output
  */
+export * from './components/accordion/accordion.js'
 export * from './components/animation/fade-in-lift.js'
 export * from './components/button/button.js'
 export * from './components/button/button-group.js'
@@ -12,6 +13,10 @@ export * from './components/card/card.js'
 export * from './components/container/container.js'
 export * from './components/section/section.js'
 export * from './components/tooltip/tooltip.js'
+export * from './components/scroll-to-top/scroll-to-top.js'
+export * from './components/hamburger/hamburger.js'
+export * from './components/dropdown/dropdown.js'
+export * from './components/timeline/timeline.js'
 
 export * from './components/input/input.js'
 export * from './components/input/input-adornment.js'
@@ -24,6 +29,16 @@ export * from './components/input/select.js'
 export * from './components/input/label.js'
 export * from './components/input/help-text.js'
 export * from './components/input/error-text.js'
+
+export * from './components/table/table-container.js'
+export * from './components/table/table.js'
+export * from './components/table/thead.js'
+export * from './components/table/tbody.js'
+export * from './components/table/tfoot.js'
+export * from './components/table/tr.js'
+export * from './components/table/th.js'
+export * from './components/table/td.js'
+export * from './components/table/table-pager.js'
 
 export * from './components/notifications/index.js'
 
@@ -70,6 +85,7 @@ export * from './icons/activity-icon.js'
 export * from './icons/github-icon.js'
 export * from './icons/google-icon.js'
 export * from './icons/dashboard-icon.js'
+export * from './icons/stopwatch-icon.js'
 
 export * from './loaders/ellipses.js'
 export * from './loaders/spinner.js'
