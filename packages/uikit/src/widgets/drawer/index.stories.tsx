@@ -20,6 +20,10 @@ export const Default = (): React.JSX.Element => {
     .white-icon {
       fill: white;  
     }
+
+    .dark .white-icon {
+      fill: black;
+    }
   `
 
   return (
@@ -60,14 +64,18 @@ export const Default = (): React.JSX.Element => {
   )
 }
 
+const whiteIcon = `
+.white-icon {
+  fill: white;  
+}
+
+.dark .white-icon {
+  fill: black;
+}
+`
+
 export const Wide = (): React.JSX.Element => {
   const [isOpen, setIsOpen] = React.useState(false)
-
-  const whiteIcon = `
-    .white-icon {
-      fill: white;  
-    }
-  `
 
   return (
     <>
@@ -116,6 +124,10 @@ export const Nested = (): React.JSX.Element => {
     .white-icon {
       fill: white;  
     }
+
+    .dark .white-icon {
+      fill: black;
+    }
   `
 
   return (
@@ -130,7 +142,7 @@ export const Nested = (): React.JSX.Element => {
       </Button>
       <Drawer
         id="first-drawer"
-        width="medium"
+        width="wide"
         closeOnOverlayClick={true}
         isOpen={isOpen1}
         onDismiss={() => setIsOpen1(false)}
@@ -160,7 +172,7 @@ export const Nested = (): React.JSX.Element => {
               </Button>
               <Drawer
                 id="second-drawer"
-                width="medium"
+                width="wide"
                 closeOnOverlayClick={true}
                 isOpen={isOpen2}
                 onDismiss={() => setIsOpen2(false)}
