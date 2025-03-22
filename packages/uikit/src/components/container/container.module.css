@@ -10,13 +10,13 @@
 
   @media (min-width: 1100px) {
     .container {
-      max-width: 1024px;
+      max-width: 1050px;
     }
   }
 
-  @media (min-width: 1320px) {
+  @media (min-width: 1300px) {
     .container {
-      max-width: 1250px;
+      max-width: 1200px;
     }
   }
 
