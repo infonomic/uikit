@@ -46,7 +46,7 @@ export const LastButton = ({
         )}
         disabled={disabled}
         title="Last"
-        data-testid="last-page-button"
+        data-testid="pager-last"
         {...aria}
         {...rest}
       >

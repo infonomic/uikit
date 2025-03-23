@@ -41,7 +41,7 @@ export const FirstButton = ({
           className
         )}
         disabled={disabled}
-        data-testid="pager-first-button"
+        data-testid="pager-first"
         title="First"
         {...aria}
         {...rest}

@@ -41,7 +41,7 @@ export const PreviousButton = ({
         )}
         disabled={disabled}
         title="Previous"
-        data-testid="prev-page-button"
+        data-testid="pager-previous"
         {...aria}
         {...rest}
       >

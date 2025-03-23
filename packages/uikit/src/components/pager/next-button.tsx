@@ -45,7 +45,7 @@ export const NextButton = ({
         )}
         disabled={disabled}
         title="Next"
-        data-testid="next-page-button"
+        data-testid="pager-next"
         {...aria}
         {...rest}
       >
