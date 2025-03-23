@@ -6,6 +6,8 @@ import cx from 'classnames'
 
 import { DropdownMenu as DropdownMenuPrimitive } from 'radix-ui'
 
+import styles from './dropdown.module.css'
+
 function Root({ children, ...rest }: DropdownMenuPrimitive.DropdownMenuProps): React.JSX.Element {
   return <DropdownMenuPrimitive.Root {...rest}>{children}</DropdownMenuPrimitive.Root>
 }
@@ -48,7 +50,7 @@ const Content = ({
   return (
     <DropdownMenuPrimitive.Content
       ref={ref}
-      className={cx('dropdown-menu-content', className)}
+      className={cx('dropdown-menu-content', styles['dropdown-content'], className)}
       {...rest}
     >
       {children}
@@ -86,7 +88,11 @@ const Item = ({
   ref?: React.RefObject<React.ComponentRef<'div'>>
 }): React.JSX.Element => {
   return (
-    <DropdownMenuPrimitive.Item ref={ref} className={cx('dropdown-menu-item', className)} {...rest}>
+    <DropdownMenuPrimitive.Item
+      ref={ref}
+      className={cx('dropdown-menu-item', styles['dropdown-item'], className)}
+      {...rest}
+    >
       {children}
     </DropdownMenuPrimitive.Item>
   )

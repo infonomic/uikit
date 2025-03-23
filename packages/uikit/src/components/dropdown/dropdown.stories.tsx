@@ -25,37 +25,25 @@ export const Dropdown: Story = {
     modal: false,
   },
   render: (args) => {
-    const menuItemClasses = cx(
-      'flex gap-1 w-full rounded px-[2px] py-[5px] md:text-sm',
-      'hover:bg-canvas-50/30 dark:hover:bg-canvas-900',
-      'cursor-default select-none items-center outline-none',
-      'text-gray-600 focus:bg-canvas-50/30 dark:text-gray-300 dark:focus:bg-canvas-900'
-    )
-
     return (
-      <div className="mb-6 p-6 max-w-[600px] flex flex-col gap-12 items-center justify-center">
+      <div
+        style={{
+          maxWidth: '400px',
+          marginBottom: '24px',
+          display: 'flex',
+          justifyContent: 'center',
+        }}
+      >
         <DropdownComponent.Root {...args}>
           <DropdownComponent.Trigger asChild>
-            <Button
-              size="sm"
-              variant="filled"
-              className="p-0 mt-1 min-w-[32px] min-h-[32px] border"
-            >
+            <Button size="sm" variant="filled">
               +
             </Button>
           </DropdownComponent.Trigger>
 
           <DropdownComponent.Portal>
-            <DropdownComponent.Content
-              align="end"
-              sideOffset={10}
-              className={cx(
-                'z-40 rounded radix-side-bottom:animate-slide-down radix-side-top:animate-slide-up',
-                'w-[160px] px-1.5 py-1 shadow-md',
-                'bg-white dark:bg-canvas-800 border dark:border-canvas-700 shadow'
-              )}
-            >
-              <DropdownComponent.Item className={menuItemClasses}>
+            <DropdownComponent.Content align="end" sideOffset={10}>
+              <DropdownComponent.Item>
                 <div className="flex items-center">
                   <span className="inline-block w-[28px]">
                     <UserIcon width="22px" height="22px" />
@@ -65,7 +53,7 @@ export const Dropdown: Story = {
                   </span>
                 </div>
               </DropdownComponent.Item>
-              <DropdownComponent.Item className={menuItemClasses}>
+              <DropdownComponent.Item>
                 <div className="flex items-center">
                   <span className="inline-block w-[28px]" />
                   <span className="text-left inline-block leading-none w-full flex-1 text-black dark:text-gray-300">
@@ -74,7 +62,7 @@ export const Dropdown: Story = {
                 </div>
               </DropdownComponent.Item>
               <DropdownComponent.Separator className="my-1 border-t border-t-gray-300 dark:border-t-gray-700 w-[90%] mx-auto" />
-              <DropdownComponent.Item className={menuItemClasses}>
+              <DropdownComponent.Item>
                 <div className="flex items-center">
                   <span className="inline-block w-[28px]">
                     <SignOutIcon />
