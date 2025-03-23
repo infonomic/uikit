@@ -8,7 +8,7 @@ const ControlsDemo = (): React.JSX.Element => {
   return (
     <>
       <div className="ml-12 mb-6">
-        <h2>Small</h2>
+        <h2 style={{ fontSize: '1.2rem', margin: '1rem 0' }}>Small</h2>
         <div className="flex items-center gap-4 mb-6">
           <DirectionalButton direction="left" size="sm" />
           <StopButton size="sm" />
@@ -19,7 +19,7 @@ const ControlsDemo = (): React.JSX.Element => {
         </div>
       </div>
       <div className="ml-12 mb-6">
-        <h2>Medium</h2>
+        <h2 style={{ fontSize: '1.2rem', margin: '1rem 0' }}>Medium</h2>
         <div className="flex items-center gap-4 mb-6">
           <DirectionalButton direction="left" size="md" />
           <StopButton size="md" />
@@ -30,7 +30,7 @@ const ControlsDemo = (): React.JSX.Element => {
         </div>
       </div>
       <div className="ml-12 mb-6">
-        <h2>Large</h2>
+        <h2 style={{ fontSize: '1.2rem', margin: '1rem 0' }}>Large</h2>
         <div className="flex items-center gap-4 mb-6">
           <DirectionalButton direction="left" size="lg" />
           <StopButton size="lg" />
