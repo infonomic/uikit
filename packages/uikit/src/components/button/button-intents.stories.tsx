@@ -2,9 +2,9 @@ import type { Meta, StoryObj } from '@storybook/react'
 
 import { capitalize } from '../../utils/capitalize.js'
 
-import { intent } from '../types/shared.js'
+import { intent } from '../@types/shared.js'
+import { variant } from './@types/button.js'
 import { Button } from './button.js'
-import { variant } from './types/button.js'
 
 type Story = StoryObj<typeof Button>
 

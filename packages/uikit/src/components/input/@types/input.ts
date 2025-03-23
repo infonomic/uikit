@@ -2,7 +2,7 @@
 import type { ReactNode } from 'react'
 
 // generic types
-import type { Intent as t } from '../../types/shared.js'
+import type { Intent as t } from '../../@types/shared.js'
 
 /**
  * This file contains the types and prop-types for Button and IconButton component.

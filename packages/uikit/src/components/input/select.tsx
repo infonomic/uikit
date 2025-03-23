@@ -11,8 +11,8 @@ import { Select as SelectPrimitive } from 'radix-ui'
 import { Button } from '../button/button.js'
 import { HelpText } from './help-text.js'
 
-import type { Size, Variant } from '../button/types/button.js'
-import type { Intent } from '../types/shared.js'
+import type { Intent } from '../@types/shared.js'
+import type { Size, Variant } from '../button/@types/button.js'
 
 import styles from './select.module.css'
 

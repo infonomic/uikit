@@ -1,10 +1,10 @@
 ---
 import type { HTMLAttributes } from 'astro/types'
+import type { Intent, Size, Variant } from './@types/input.js'
 import ErrorText from './error-text.astro'
 import HelpText from './help-text.astro'
 import styles from './input.module.css'
 import Label from './label.astro'
-import type { Intent, Size, Variant } from './types/input.js'
 
 interface Props extends HTMLAttributes<'input'> {
   id: string

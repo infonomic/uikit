@@ -4,9 +4,9 @@ import type React from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import { UserIcon } from '../../icons/user-icon.js'
 
-import { size } from '../types/shared.js'
+import { size } from '../@types/shared.js'
+import { variant } from './@types/button.js'
 import { IconButton } from './icon-button.js'
-import { variant } from './types/button.js'
 
 const getUserIconSize = (size: string) => {
   switch (size) {

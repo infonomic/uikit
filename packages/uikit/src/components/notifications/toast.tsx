@@ -17,7 +17,7 @@ import { Button } from '../button/button.js'
 import styles from './toast.module.css'
 
 import { CloseIcon } from '../../icons/close-icon'
-import type { IconType, Intent, OnOpenChange, Position } from './types/toast.js'
+import type { IconType, Intent, OnOpenChange, Position } from './@types/toast.js'
 
 const toastIcons = {
   success: SuccessIcon,

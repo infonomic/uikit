@@ -12,7 +12,7 @@ import { InfoIcon } from '../../icons/info-icon'
 import { SuccessIcon } from '../../icons/success-icon'
 import { WarningIcon } from '../../icons/warning-icon'
 
-import type { Intent } from './types/alert.js'
+import type { Intent } from './@types/alert.js'
 
 import styles from './alert.module.css'
 

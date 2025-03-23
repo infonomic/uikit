@@ -1,6 +1,6 @@
 ---
 import type { HTMLAttributes } from 'astro/types'
-import type { Intent, Size, Variant } from './types/button.js'
+import type { Intent, Size, Variant } from './@types/button.js'
 
 interface Props extends HTMLAttributes<'button'>, Omit<HTMLAttributes<'a'>, 'type'> {
   variant?: Variant

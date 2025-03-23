@@ -5,8 +5,8 @@ import React, { type Ref, type ComponentPropsWithoutRef, useState } from 'react'
 
 import cx from 'classnames'
 
+import type { EnableRipple, Intent, Size, Variant } from './@types/button'
 import { Button } from './button'
-import type { EnableRipple, Intent, Size, Variant } from './types/button'
 
 import styles from './button-group.module.css'
 

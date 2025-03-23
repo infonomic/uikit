@@ -5,7 +5,7 @@ import cx from 'classnames'
 import Ripple from 'material-ripple-effects'
 import type React from 'react'
 
-import type { Intent, Size, Variant } from './types/button.js'
+import type { Intent, Size, Variant } from './@types/button.js'
 
 import styles from './button.module.css'
 

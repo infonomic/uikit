@@ -16,7 +16,96 @@ const meta: Meta<typeof EventPager> = {
 
 export default meta
 
-const Pagers = (): React.JSX.Element => {
+const DefaultPager = (): React.JSX.Element => {
+  const [page, setPage] = React.useState(1)
+
+  const handlePageChange = (event: any, number: number): void => {
+    setPage(number)
+  }
+
+  return (
+    <>
+      <div className="mb-6 max-w-[600px]">
+        <p className="prose dark:prose-invert">Stateful Pagers: Current page: {page}</p>
+        <EventPager
+          className="py-4"
+          page={page}
+          count={24}
+          onChange={handlePageChange}
+          showFirstButton
+          showLastButton
+          componentName="pager1"
+          aria-label="Pager 1"
+        />
+        <EventPager
+          page={page}
+          count={24}
+          onChange={handlePageChange}
+          componentName="pager2"
+          aria-label="Pager 2"
+        />
+        <EventPager
+          className="py-4"
+          page={page}
+          count={24}
+          onChange={handlePageChange}
+          componentName="pager3"
+          hideNextButton
+          hidePrevButton
+          aria-label="Pager 3"
+        />
+      </div>
+    </>
+  )
+}
+
+const ClassicPager = (): React.JSX.Element => {
+  const [page, setPage] = React.useState(1)
+
+  const handlePageChange = (event: any, number: number): void => {
+    setPage(number)
+  }
+
+  return (
+    <>
+      <div className="mb-6 max-w-[600px]">
+        <p className="prose dark:prose-invert">Stateful Pagers: Current page: {page}</p>
+        <EventPager
+          variant="classic"
+          className="py-4"
+          page={page}
+          count={24}
+          onChange={handlePageChange}
+          showFirstButton
+          showLastButton
+          componentName="pager1"
+          aria-label="Pager 1"
+        />
+        <EventPager
+          variant="classic"
+          page={page}
+          count={24}
+          onChange={handlePageChange}
+          componentName="pager2"
+          aria-label="Pager 2"
+        />
+        <EventPager
+          variant="classic"
+          className="py-4"
+          page={page}
+          count={24}
+          onChange={handlePageChange}
+          componentName="pager3"
+          hideNextButton
+          hidePrevButton
+          aria-label="Pager 3"
+        />
+      </div>
+    </>
+  )
+}
+
+const DashboardPager = (): React.JSX.Element => {
   const [page, setPage] = React.useState(1)
 
   const handlePageChange = (event: any, number: number): void => {
@@ -62,5 +151,13 @@ const Pagers = (): React.JSX.Element => {
 type Story = StoryObj<typeof EventPager>
 
 export const Default: Story = {
-  render: () => <Pagers />,
+  render: () => <DefaultPager />,
+}
+
+export const Classic: Story = {
+  render: () => <ClassicPager />,
+}
+
+export const Dashboard: Story = {
+  render: () => <DashboardPager />,
 }

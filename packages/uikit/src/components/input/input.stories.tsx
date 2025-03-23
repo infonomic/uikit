@@ -2,9 +2,9 @@ import type React from 'react'
 
 import { CloseIcon, SearchIcon } from '../../icons/index.js'
 import { capitalize } from '../../utils/capitalize.js'
+import { intent } from '../@types/shared.js'
 import { IconButton } from '../button/icon-button.js'
-import { intent } from '../types/shared.js'
-import { size, variant } from './types/input.js'
+import { size, variant } from './@types/input.js'
 
 import { Input, InputAdornment } from './index.js'
 

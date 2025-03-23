@@ -4,7 +4,7 @@ import type React from 'react'
 
 import styles from './control-buttons.module.css'
 
-import type { Size } from './types/button.js'
+import type { Size } from './@types/button.js'
 
 type ButtonType = React.JSX.IntrinsicElements['button']
 

@@ -1,23 +1,22 @@
 'use client'
-/* eslint-disable @typescript-eslint/strict-boolean-expressions */
-
-import React from 'react'
+import type React from 'react'
 
 import { Slot } from '@radix-ui/react-slot'
 import cx from 'classnames'
-import { twMerge } from 'tailwind-merge'
 
-import { PagerContext } from '../../pagination'
+import { usePager } from './pagination'
 
-import type { PagerButtonProps, RefType } from '../../pagination'
+import type { PagerButtonProps, RefType } from './pagination'
 
-export type PageNumberButtonProps = PagerButtonProps & {
+import styles from './pagination.module.css'
+
+export type NumberButtonProps = PagerButtonProps & {
   page: number | null
   activeClassName?: string
   selected?: boolean
 }
 
-export const PageNumberButton = ({
+export const NumberButton = ({
   ref,
   page,
   className,
@@ -26,12 +25,19 @@ export const PageNumberButton = ({
   asChild,
   children,
   ...rest
-}: PageNumberButtonProps & {
+}: NumberButtonProps & {
   ref?: React.RefObject<RefType>
 }) => {
   const Comp = asChild != null ? Slot : ('button' as React.ElementType)
-  const { currentPage, count, showFirstButton, showLastButton, hideNextButton, hidePrevButton } =
-    React.useContext(PagerContext)
+  const {
+    variant,
+    currentPage,
+    count,
+    showFirstButton,
+    showLastButton,
+    hideNextButton,
+    hidePrevButton,
+  } = usePager()
 
   const active = page === currentPage
 
@@ -58,15 +64,13 @@ export const PageNumberButton = ({
     activeClassName
   )
 
-  const classes = twMerge(
-    cx(
-      'flex items-center justify-center min-w-[42px] h-[32px] leading-tight text-center border border-primary-500 select-none dark:border-canvas-600',
-      { 'cursor-default': disabled },
-      roundedFirstClasses,
-      roundedLastClasses,
-      { [defaultBackground]: !active },
-      { [activeBackground]: active }
-    ),
+  const classes = cx(
+    'flex items-center justify-center min-w-[42px] h-[32px] leading-tight text-center border border-primary-500 select-none dark:border-canvas-600',
+    { 'cursor-default': disabled },
+    roundedFirstClasses,
+    roundedLastClasses,
+    { [defaultBackground]: !active },
+    { [activeBackground]: active },
     className
   )
 
@@ -74,7 +78,21 @@ export const PageNumberButton = ({
     <li className="flex">
       <Comp
         ref={ref}
-        className={classes}
+        className={cx(
+          styles['number-button'],
+          [styles[variant]],
+          { [styles.active]: active === true },
+          {
+            [styles['rounded-left']]:
+              page === 1 && !(showFirstButton ?? false) && (hidePrevButton ?? false),
+          },
+          {
+            [styles['rounded-right']]:
+              page === count && !(showLastButton ?? false) && (hideNextButton ?? false),
+          },
+          'pager-number',
+          className
+        )}
         data-testid={
           cx({
             'active-page-button': currentPage === page,
@@ -92,4 +110,4 @@ export const PageNumberButton = ({
   )
 }
 
-PageNumberButton.displayName = 'PageNumberButton'
+NumberButton.displayName = 'NumberButton'

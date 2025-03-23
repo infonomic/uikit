@@ -7,7 +7,7 @@ import { Button, IconButton } from '../../components/button/index.js'
 import { Input, InputAdornment } from '../../components/input'
 import { CloseIcon, SearchIcon } from '../../icons'
 
-import type { ClassName, Intent, Size, Variant } from '../../components/input/types/input'
+import type { ClassName, Intent, Size, Variant } from '../../components/input/@types/input.js'
 
 export interface SearchProps extends React.InputHTMLAttributes<HTMLInputElement> {
   variant?: Variant

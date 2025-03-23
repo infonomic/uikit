@@ -1,16 +1,16 @@
 'use client'
-/* eslint-disable @typescript-eslint/strict-boolean-expressions */
 
-import React from 'react'
+import type React from 'react'
 
 import { ChevronRightIcon } from '@radix-ui/react-icons'
 import { Slot } from '@radix-ui/react-slot'
 import cx from 'classnames'
-import { twMerge } from 'tailwind-merge'
 
-import { PagerContext } from '../../pagination'
+import { usePager } from './pagination'
 
-import type { PagerButtonProps, RefType } from '../../pagination'
+import type { PagerButtonProps, RefType } from './pagination'
+
+import styles from './pagination.module.css'
 
 export type NextButtonProps = PagerButtonProps & {
   page: number | null
@@ -28,22 +28,7 @@ export const NextButton = ({
   ref?: React.RefObject<RefType>
 }) => {
   const Comp = asChild != null ? Slot : ('button' as React.ElementType)
-  const { showLastButton } = React.useContext(PagerContext)
-
-  const hoverClasses =
-    'hover:bg-primary-800 hover:text-white dark:hover:bg-canvas-700 dark:hover:text-white'
-
-  const classes = twMerge(
-    cx(
-      'previous flex items-center justify-center h-[32px] w-[32px] leading-tight border',
-      'bg-gray-100 text-gray-700 text-sm',
-      'dark:border-canvas-700 dark:bg-canvas-800 dark:text-gray-400',
-      { 'cursor-default': disabled },
-      { [hoverClasses]: !disabled },
-      { 'rounded-r-md': !(showLastButton ?? false) }
-    ),
-    className
-  )
+  const { variant, showLastButton } = usePager()
 
   const aria = disabled ? { 'aria-disabled': true } : { 'aria-label': 'Next' }
 
@@ -51,7 +36,13 @@ export const NextButton = ({
     <li className="hidden sm:flex">
       <Comp
         ref={ref}
-        className={classes}
+        className={cx(
+          styles['next-button'],
+          [styles[variant]],
+          { [styles['rounded-right']]: showLastButton == null || showLastButton === false },
+          'pager-next',
+          className
+        )}
         disabled={disabled}
         title="Next"
         data-testid="next-page-button"

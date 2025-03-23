@@ -7,9 +7,9 @@ import cx from 'classnames'
 import { Checkbox as CheckboxPrimitive } from 'radix-ui'
 import { Label as LabelPrimitive } from 'radix-ui'
 
+import type { Intent, Size, Variant } from './@types/checkbox.js'
 import { ErrorText } from './error-text.js'
 import { HelpText } from './help-text.js'
-import type { Intent, Size, Variant } from './types/checkbox.js'
 
 import styles from './checkbox.module.css'
 

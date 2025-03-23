@@ -1,11 +1,10 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import React from 'react'
+import type React from 'react'
 
-import { type Meta, type StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 
-import { intent } from '../types/shared.js'
+import { intent } from '../@types/shared.js'
+import { variant } from './@types/button.js'
 import { CopyButton } from './copy-button.js'
-import { variant } from './types/button.js'
 
 type Story = StoryObj<typeof CopyButton>
 

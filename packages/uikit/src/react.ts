@@ -34,7 +34,7 @@ export * from './components/table/table.js'
 
 export * from './components/notifications/index.js'
 
-export * from './components/types/shared.js'
+export * from './components/@types/shared.js'
 
 export * from './icons/danger-icon.js'
 export * from './icons/icon-element.js'

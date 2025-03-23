@@ -1,33 +1,32 @@
 'use client'
-/* eslint-disable @typescript-eslint/promise-function-async */
-// Initial styling adapted from https://flowbite.com/docs/components/pagination/
-// https://github.com/themesberg/flowbite/blob/main/LICENSE.md
 // usePagination hook from...
 // https://github.com/mui/material-ui/blob/master/packages/mui-material/src/usePagination/usePagination.js
 // https://github.com/mui/material-ui/blob/master/LICENSE
 /* eslint-disable react/jsx-pascal-case */
-import * as React from 'react'
+import React, { useContext } from 'react'
 
 import cx from 'classnames'
 
 import { usePagination } from './hooks/usePagination'
-import {
-  Ellipses,
-  FirstButton,
-  LastButton,
-  NextButton,
-  PageNumberButton,
-  PreviousButton,
-} from './variants/default'
 
+import { Ellipses } from './ellipses.js'
+import { FirstButton } from './first-button'
+import { LastButton } from './last-button'
+import { NextButton } from './next-button'
+import { NumberButton } from './number-button'
+import { PreviousButton } from './previous-button'
+
+import type { Variant } from './@types'
 import type { UsePaginationItem, UsePaginationProps } from './hooks/types/usePagination'
-import type { Variant } from './types'
+
+import styles from './pagination.module.css'
 
 const PAGINATION_NAME = 'Pagination'
 const ROOT_NAME = 'Root'
 const PAGER_NAME = 'Pager'
 
 export interface PagerContextType {
+  variant: Variant
   count: number
   currentPage: number
   hideNextButton?: boolean
@@ -39,6 +38,7 @@ export interface PagerContextType {
 }
 
 export const PagerContext = React.createContext<PagerContextType>({
+  variant: 'default',
   count: 1,
   currentPage: 1,
   hideNextButton: false,
@@ -58,10 +58,15 @@ export const PagerContext = React.createContext<PagerContextType>({
 export interface PaginationProps extends UsePaginationProps {
   className?: string
   'aria-label'?: string
+  variant?: Variant
   children?: React.ReactNode
 }
 
-export const Pagination = ({ children, ...rest }: PaginationProps): React.JSX.Element => {
+export const Pagination = ({
+  children,
+  variant = 'default',
+  ...rest
+}: PaginationProps): React.JSX.Element => {
   const { items } = usePagination({
     ...rest,
   })
@@ -80,6 +85,7 @@ export const Pagination = ({ children, ...rest }: PaginationProps): React.JSX.El
 
   const context = React.useMemo(() => {
     return {
+      variant,
       items,
       count,
       currentPage,
@@ -90,6 +96,7 @@ export const Pagination = ({ children, ...rest }: PaginationProps): React.JSX.El
       eventsEnabled,
     }
   }, [
+    variant,
     items,
     count,
     currentPage,
@@ -100,10 +107,19 @@ export const Pagination = ({ children, ...rest }: PaginationProps): React.JSX.El
     eventsEnabled,
   ])
 
-  return <PagerContext.Provider value={context}>{children}</PagerContext.Provider>
+  return <PagerContext value={context}>{children}</PagerContext>
 }
 
 Pagination.displayName = PAGINATION_NAME
+
+// Hook helper usePager
+export function usePager(): PagerContextType {
+  const context = useContext(PagerContext)
+  if (context === undefined) {
+    throw new Error('usePager must be used within a PagerContext')
+  }
+  return context
+}
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // First, Previous, Next, Last and Page number buttons
@@ -112,7 +128,7 @@ Pagination.displayName = PAGINATION_NAME
 export type RefType = React.Ref<HTMLButtonElement> | React.Ref<HTMLElement>
 
 // Your existing types...
-type AsButton = { asChild?: false } & React.ElementRef<'button'>
+type AsButton = { asChild?: false } & React.ComponentRef<'button'>
 
 // Or AsSlot
 interface AsSlot {
@@ -146,7 +162,7 @@ const Pager = ({
     <Pagination.Previous key={key} disabled={item.disabled} onClick={item.onClick} />
   ),
   renderPageNumber = (key, item) => (
-    <Pagination.PageNumber
+    <Pagination.Number
       key={key}
       page={item.page}
       disabled={item.disabled}
@@ -199,7 +215,6 @@ export type RootElement = React.ComponentRef<'nav'>
 type PrimitiveRootProps = React.ComponentPropsWithoutRef<'nav'>
 
 export interface RootProps extends PrimitiveRootProps {
-  variant?: Variant
   className?: string
   itemsClassName?: string
   dataTestId?: string
@@ -209,7 +224,6 @@ export interface RootProps extends PrimitiveRootProps {
 
 const Root = ({
   ref,
-  variant,
   className,
   itemsClassName,
   children,
@@ -219,35 +233,30 @@ const Root = ({
 }: RootProps & {
   ref?: React.RefObject<RootElement>
 }) => {
-  variant = variant ?? 'default'
-  const classes = cx('flex items-center p-0', className)
-  const listClasses = cx(
-    'flex items-center',
-    { '-space-x-px': variant === 'default' },
-    { 'gap-1': variant === 'classic' },
-    itemsClassName
-  )
+  const { variant } = usePager()
 
   return (
     <nav
       data-testid={dataTestId}
       ref={ref}
-      className={classes}
+      className={cx(styles['pagination-root'], 'pagination-root', className)}
       {...rest}
       aria-label={ariaLabel ?? 'Pager navigation'}
     >
-      <ul className={listClasses}>{children}</ul>
+      <ul className={cx(styles['pagination-items'], styles[variant], itemsClassName)}>
+        {children}
+      </ul>
     </nav>
   )
 }
 
 Root.displayName = ROOT_NAME
 
-Pagination.Root = Root
 Pagination.Pager = Pager
+Pagination.Root = Root
 Pagination.First = FirstButton
 Pagination.Previous = PreviousButton
-Pagination.PageNumber = PageNumberButton
+Pagination.Number = NumberButton
 Pagination.Next = NextButton
 Pagination.Last = LastButton
 Pagination.Ellipses = Ellipses

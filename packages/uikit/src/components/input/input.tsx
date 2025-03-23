@@ -3,10 +3,10 @@ import type React from 'react'
 
 import cx from 'classnames'
 
+import type { Intent, Size, Variant } from './@types/input.js'
 import { ErrorText } from './error-text.js'
 import { HelpText } from './help-text.js'
 import { Label } from './label.js'
-import type { Intent, Size, Variant } from './types/input.js'
 
 import type { InputAdornmentProps } from './input-adornment.js'
 
