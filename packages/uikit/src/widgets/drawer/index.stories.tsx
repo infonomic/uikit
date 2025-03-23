@@ -142,7 +142,7 @@ export const Nested = (): React.JSX.Element => {
       </Button>
       <Drawer
         id="first-drawer"
-        width="wide"
+        width="medium"
         closeOnOverlayClick={true}
         isOpen={isOpen1}
         onDismiss={() => setIsOpen1(false)}
@@ -172,7 +172,7 @@ export const Nested = (): React.JSX.Element => {
               </Button>
               <Drawer
                 id="second-drawer"
-                width="wide"
+                width="medium"
                 closeOnOverlayClick={true}
                 isOpen={isOpen2}
                 onDismiss={() => setIsOpen2(false)}

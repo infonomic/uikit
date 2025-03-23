@@ -32,6 +32,8 @@ export * from './components/input/error-text.js'
 
 export * from './components/table/table.js'
 
+export * from './components/pager/pagination.js'
+
 export * from './components/notifications/index.js'
 
 export * from './components/@types/shared.js'

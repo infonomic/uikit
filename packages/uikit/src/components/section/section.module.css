@@ -3,6 +3,5 @@
 @layer infonomic-components {
   .section {
     position: relative;
-    overflow: hidden
   }
 }
