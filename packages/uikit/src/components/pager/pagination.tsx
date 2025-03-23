@@ -1,0 +1,253 @@
+'use client'
+/* eslint-disable @typescript-eslint/promise-function-async */
+// Initial styling adapted from https://flowbite.com/docs/components/pagination/
+// https://github.com/themesberg/flowbite/blob/main/LICENSE.md
+// usePagination hook from...
+// https://github.com/mui/material-ui/blob/master/packages/mui-material/src/usePagination/usePagination.js
+// https://github.com/mui/material-ui/blob/master/LICENSE
+/* eslint-disable react/jsx-pascal-case */
+import * as React from 'react'
+
+import cx from 'classnames'
+
+import { usePagination } from './hooks/usePagination'
+import {
+  Ellipses,
+  FirstButton,
+  LastButton,
+  NextButton,
+  PageNumberButton,
+  PreviousButton,
+} from './variants/default'
+
+import type { UsePaginationItem, UsePaginationProps } from './hooks/types/usePagination'
+import type { Variant } from './types'
+
+const PAGINATION_NAME = 'Pagination'
+const ROOT_NAME = 'Root'
+const PAGER_NAME = 'Pager'
+
+export interface PagerContextType {
+  count: number
+  currentPage: number
+  hideNextButton?: boolean
+  hidePrevButton?: boolean
+  items: UsePaginationItem[]
+  showFirstButton?: boolean
+  showLastButton?: boolean
+  eventsEnabled?: boolean
+}
+
+export const PagerContext = React.createContext<PagerContextType>({
+  count: 1,
+  currentPage: 1,
+  hideNextButton: false,
+  hidePrevButton: false,
+  items: [],
+  showFirstButton: false,
+  showLastButton: false,
+  eventsEnabled: false,
+})
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// Pagination
+
+/**
+ * See ./hooks/types/usePagination.ts
+ */
+export interface PaginationProps extends UsePaginationProps {
+  className?: string
+  'aria-label'?: string
+  children?: React.ReactNode
+}
+
+export const Pagination = ({ children, ...rest }: PaginationProps): React.JSX.Element => {
+  const { items } = usePagination({
+    ...rest,
+  })
+
+  const {
+    count,
+    page: currentPage,
+    hideNextButton,
+    hidePrevButton,
+    showFirstButton,
+    showLastButton,
+    onChange,
+  } = rest
+
+  const eventsEnabled = onChange != null
+
+  const context = React.useMemo(() => {
+    return {
+      items,
+      count,
+      currentPage,
+      hideNextButton,
+      hidePrevButton,
+      showFirstButton,
+      showLastButton,
+      eventsEnabled,
+    }
+  }, [
+    items,
+    count,
+    currentPage,
+    hideNextButton,
+    hidePrevButton,
+    showFirstButton,
+    showLastButton,
+    eventsEnabled,
+  ])
+
+  return <PagerContext.Provider value={context}>{children}</PagerContext.Provider>
+}
+
+Pagination.displayName = PAGINATION_NAME
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// First, Previous, Next, Last and Page number buttons
+
+// Define the ref type based on asChild prop
+export type RefType = React.Ref<HTMLButtonElement> | React.Ref<HTMLElement>
+
+// Your existing types...
+type AsButton = { asChild?: false } & React.ElementRef<'button'>
+
+// Or AsSlot
+interface AsSlot {
+  asChild?: true
+}
+
+export type PagerButtonProps = {
+  className?: string
+  disabled?: boolean
+  children?: React.ReactNode
+  onClick?: React.ReactEventHandler<Element> | undefined
+} & (AsButton | AsSlot)
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// Pager container component
+export interface PagerProps {
+  children?: React.ReactNode
+  renderFirst?: (key: string, item: UsePaginationItem) => React.ReactNode
+  renderPrevious?: (key: string, item: UsePaginationItem) => React.ReactNode
+  renderPageNumber?: (key: string, item: UsePaginationItem) => React.ReactNode
+  renderNext?: (key: string, item: UsePaginationItem) => React.ReactNode
+  renderLast?: (key: string, item: UsePaginationItem, count: number) => React.ReactNode
+  renderEllipses?: (key: string) => React.ReactNode
+}
+
+const Pager = ({
+  renderFirst = (key, item) => (
+    <Pagination.First key={key} disabled={item.disabled} onClick={item.onClick} />
+  ),
+  renderPrevious = (key, item) => (
+    <Pagination.Previous key={key} disabled={item.disabled} onClick={item.onClick} />
+  ),
+  renderPageNumber = (key, item) => (
+    <Pagination.PageNumber
+      key={key}
+      page={item.page}
+      disabled={item.disabled}
+      selected={item.selected}
+      activeClassName="active"
+      onClick={item.onClick}
+    />
+  ),
+  renderNext = (key, item) => (
+    <Pagination.Next key={key} page={item.page} disabled={item.disabled} onClick={item.onClick} />
+  ),
+  renderLast = (key, item, count) => (
+    <Pagination.Last key={key} disabled={item.disabled} count={count} onClick={item.onClick} />
+  ),
+  renderEllipses = (key) => <Ellipses key={key} />,
+}: PagerProps): React.JSX.Element => {
+  const { items, count } = React.useContext(PagerContext)
+
+  return (
+    <>
+      {items.map((item, index) => {
+        const key = `${item.page}-${index}`
+        switch (item.type) {
+          case 'start-ellipsis':
+          case 'end-ellipsis':
+            return renderEllipses(key)
+          case 'first':
+            return renderFirst(key, item)
+          case 'previous':
+            return renderPrevious(key, item)
+          case 'page':
+            return renderPageNumber(key, item)
+          case 'next':
+            return renderNext(key, item)
+          case 'last':
+            return renderLast(key, item, count)
+          default:
+            return null
+        }
+      })}
+    </>
+  )
+}
+
+Pager.displayName = PAGER_NAME
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// Root
+export type RootElement = React.ComponentRef<'nav'>
+type PrimitiveRootProps = React.ComponentPropsWithoutRef<'nav'>
+
+export interface RootProps extends PrimitiveRootProps {
+  variant?: Variant
+  className?: string
+  itemsClassName?: string
+  dataTestId?: string
+  ariaLabel?: string
+  children?: React.ReactNode
+}
+
+const Root = ({
+  ref,
+  variant,
+  className,
+  itemsClassName,
+  children,
+  ariaLabel,
+  dataTestId,
+  ...rest
+}: RootProps & {
+  ref?: React.RefObject<RootElement>
+}) => {
+  variant = variant ?? 'default'
+  const classes = cx('flex items-center p-0', className)
+  const listClasses = cx(
+    'flex items-center',
+    { '-space-x-px': variant === 'default' },
+    { 'gap-1': variant === 'classic' },
+    itemsClassName
+  )
+
+  return (
+    <nav
+      data-testid={dataTestId}
+      ref={ref}
+      className={classes}
+      {...rest}
+      aria-label={ariaLabel ?? 'Pager navigation'}
+    >
+      <ul className={listClasses}>{children}</ul>
+    </nav>
+  )
+}
+
+Root.displayName = ROOT_NAME
+
+Pagination.Root = Root
+Pagination.Pager = Pager
+Pagination.First = FirstButton
+Pagination.Previous = PreviousButton
+Pagination.PageNumber = PageNumberButton
+Pagination.Next = NextButton
+Pagination.Last = LastButton
+Pagination.Ellipses = Ellipses
