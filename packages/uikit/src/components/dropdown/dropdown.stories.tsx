@@ -1,39 +1,41 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import type React from 'react'
-
 import type { Meta, StoryObj } from '@storybook/react'
+
 import cx from 'classnames'
 
 import { SignOutIcon } from '../../icons/sign-out-icon.js'
 import { UserIcon } from '../../icons/user-icon.js'
 import { Button } from '../button/button.js'
-import { Dropdown } from './dropdown.js'
+import { Dropdown as DropdownComponent } from './dropdown.js'
 
-const meta: Meta<typeof Dropdown> = {
+const meta: Meta = {
   /* 👇 The title prop is optional.
    * See https://storybook.js.org/docs/react/configure/overview#configure-story-loading
    * to learn how to generate automatic titles
    */
   title: 'Components/Dropdown',
+  component: DropdownComponent.Root,
 }
 
 export default meta
 
-type Story = StoryObj<typeof Dropdown>
+type Story = StoryObj<typeof DropdownComponent.Root>
 
-const Demo = (): React.JSX.Element => {
-  const menuItemClasses = cx(
-    'flex gap-1 w-full rounded px-[2px] py-[5px] md:text-sm',
-    'hover:bg-canvas-50/30 dark:hover:bg-canvas-900',
-    'cursor-default select-none items-center outline-none',
-    'text-gray-600 focus:bg-canvas-50/30 dark:text-gray-300 dark:focus:bg-canvas-900'
-  )
+export const Dropdown: Story = {
+  args: {
+    modal: false,
+  },
+  render: (args) => {
+    const menuItemClasses = cx(
+      'flex gap-1 w-full rounded px-[2px] py-[5px] md:text-sm',
+      'hover:bg-canvas-50/30 dark:hover:bg-canvas-900',
+      'cursor-default select-none items-center outline-none',
+      'text-gray-600 focus:bg-canvas-50/30 dark:text-gray-300 dark:focus:bg-canvas-900'
+    )
 
-  return (
-    <>
+    return (
       <div className="mb-6 p-6 max-w-[600px] flex flex-col gap-12 items-center justify-center">
-        <Dropdown.Root modal={false}>
-          <Dropdown.Trigger asChild>
+        <DropdownComponent.Root {...args}>
+          <DropdownComponent.Trigger asChild>
             <Button
               size="sm"
               variant="filled"
@@ -41,10 +43,10 @@ const Demo = (): React.JSX.Element => {
             >
               +
             </Button>
-          </Dropdown.Trigger>
+          </DropdownComponent.Trigger>
 
-          <Dropdown.Portal>
-            <Dropdown.Content
+          <DropdownComponent.Portal>
+            <DropdownComponent.Content
               align="end"
               sideOffset={10}
               className={cx(
@@ -53,7 +55,7 @@ const Demo = (): React.JSX.Element => {
                 'bg-white dark:bg-canvas-800 border dark:border-canvas-700 shadow'
               )}
             >
-              <Dropdown.Item className={menuItemClasses}>
+              <DropdownComponent.Item className={menuItemClasses}>
                 <div className="flex items-center">
                   <span className="inline-block w-[28px]">
                     <UserIcon width="22px" height="22px" />
@@ -62,17 +64,17 @@ const Demo = (): React.JSX.Element => {
                     Account
                   </span>
                 </div>
-              </Dropdown.Item>
-              <Dropdown.Item className={menuItemClasses}>
+              </DropdownComponent.Item>
+              <DropdownComponent.Item className={menuItemClasses}>
                 <div className="flex items-center">
                   <span className="inline-block w-[28px]" />
                   <span className="text-left inline-block leading-none w-full flex-1 text-black dark:text-gray-300">
                     Menu Item 2
                   </span>
                 </div>
-              </Dropdown.Item>
-              <Dropdown.Separator className="my-1 border-t border-t-gray-300 dark:border-t-gray-700 w-[90%] mx-auto" />
-              <Dropdown.Item className={menuItemClasses}>
+              </DropdownComponent.Item>
+              <DropdownComponent.Separator className="my-1 border-t border-t-gray-300 dark:border-t-gray-700 w-[90%] mx-auto" />
+              <DropdownComponent.Item className={menuItemClasses}>
                 <div className="flex items-center">
                   <span className="inline-block w-[28px]">
                     <SignOutIcon />
@@ -85,15 +87,11 @@ const Demo = (): React.JSX.Element => {
                     Sign Out
                   </button>
                 </div>
-              </Dropdown.Item>
-            </Dropdown.Content>
-          </Dropdown.Portal>
-        </Dropdown.Root>
+              </DropdownComponent.Item>
+            </DropdownComponent.Content>
+          </DropdownComponent.Portal>
+        </DropdownComponent.Root>
       </div>
-    </>
-  )
-}
-
-export const All: Story = {
-  render: () => <Demo />,
+    )
+  },
 }

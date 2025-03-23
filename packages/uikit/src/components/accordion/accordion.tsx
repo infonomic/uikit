@@ -1,9 +1,13 @@
 'use client'
+/**
+ * NOTE: An accordion can be used in a variety of ways, including
+ * simple FAQs, complex navigation, and more. As such, we minimally
+ * style the accordion here in order to provide a base for customization.
+ */
 
 import type React from 'react'
 
-import { ChevronDownIcon } from '@radix-ui/react-icons'
-import { Accordion } from 'radix-ui'
+import { Accordion as AccordionPrimitive } from 'radix-ui'
 
 import cx from 'classnames'
 
@@ -11,7 +15,7 @@ import styles from './accordion.module.css'
 
 export type AccordionRootElement = React.ComponentRef<'div'>
 
-export const AccordionRoot = ({
+const Root = ({
   children,
   className,
   ref,
@@ -20,75 +24,82 @@ export const AccordionRoot = ({
   children: React.ReactNode
   className?: string
   ref?: React.RefObject<AccordionRootElement>
-} & (Accordion.AccordionSingleProps | Accordion.AccordionMultipleProps)) => {
+} & (AccordionPrimitive.AccordionSingleProps | AccordionPrimitive.AccordionMultipleProps)) => {
   return (
-    <Accordion.Root ref={ref} className={cx(styles.root, className)} {...props}>
+    <AccordionPrimitive.Root ref={ref} className={className} {...props}>
       {children}
-    </Accordion.Root>
+    </AccordionPrimitive.Root>
   )
 }
 
 export type AccordionItemElement = React.ComponentRef<'div'>
-export const AccordionItem = function AccordionItem({
+const Item = function AccordionItem({
   ref,
   children,
   className,
   ...props
-}: Accordion.AccordionItemProps & {
+}: AccordionPrimitive.AccordionItemProps & {
   ref?: React.RefObject<AccordionItemElement>
 }) {
   return (
-    <Accordion.Item className={cx(styles.item, className)} {...props} ref={ref}>
+    <AccordionPrimitive.Item className={className} {...props} ref={ref}>
       {children}
-    </Accordion.Item>
+    </AccordionPrimitive.Item>
   )
 }
 
 export type AccordionHeaderElement = React.ComponentRef<'h2'>
-export const AccordionHeader = function AccordionHeader({
+const Header = function AccordionHeader({
   ref,
   children,
   className,
   ...props
-}: Accordion.AccordionHeaderProps & {
+}: AccordionPrimitive.AccordionHeaderProps & {
   ref?: React.RefObject<AccordionHeaderElement>
 }) {
   return (
-    <Accordion.Header className={cx(styles.header, className)} {...props} ref={ref}>
+    <AccordionPrimitive.Header className={cx(styles.header, className)} {...props} ref={ref}>
       {children}
-    </Accordion.Header>
+    </AccordionPrimitive.Header>
   )
 }
 
 export type AccordionTriggerElement = React.ComponentRef<'button'>
-export const AccordionTrigger = function AccordionTrigger({
+const Trigger = function AccordionTrigger({
   ref,
   children,
   className,
   ...props
-}: Accordion.AccordionTriggerProps & {
+}: AccordionPrimitive.AccordionTriggerProps & {
   ref?: React.RefObject<AccordionTriggerElement>
 }) {
   return (
-    <Accordion.Trigger ref={ref} className={cx(styles.trigger, className)} {...props}>
+    <AccordionPrimitive.Trigger ref={ref} className={cx(styles.trigger, className)} {...props}>
       {children}
-      <ChevronDownIcon className={styles.chevron} aria-hidden />
-    </Accordion.Trigger>
+    </AccordionPrimitive.Trigger>
   )
 }
 
 export type AccordionContentElement = React.ComponentRef<'div'>
-export const AccordionContent = function AccordionContent({
+const Content = function AccordionContent({
   ref,
   children,
   className,
   ...props
-}: Accordion.AccordionContentProps & {
+}: AccordionPrimitive.AccordionContentProps & {
   ref?: React.RefObject<AccordionContentElement>
 }) {
   return (
-    <Accordion.Content className={cx(styles.content, className)} {...props} ref={ref}>
-      <div className={styles['content-text']}>{children}</div>
-    </Accordion.Content>
+    <AccordionPrimitive.Content className={cx(styles.content, className)} {...props} ref={ref}>
+      {children}
+    </AccordionPrimitive.Content>
   )
+}
+
+export const Accordion = {
+  Root,
+  Item,
+  Header,
+  Trigger,
+  Content,
 }

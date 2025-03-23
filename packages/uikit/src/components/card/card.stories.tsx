@@ -1,59 +1,8 @@
 import type { Meta } from '@storybook/react'
 
 import { Button } from '../button/button.js'
-import {
-  Card as CardComponent,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from './card.js'
 
-export const Card = (): React.JSX.Element => {
-  return (
-    <>
-      <div style={{ marginBottom: '48px' }} className="mb-6">
-        <div style={{ maxWidth: '400px', marginBottom: '24px' }}>
-          <CardComponent>
-            <CardHeader>
-              <CardTitle>
-                <h2>Normal Card</h2>
-              </CardTitle>
-              <CardDescription>
-                <p>Card description here.</p>
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <p>Card body with some text here.</p>
-            </CardContent>
-            <CardFooter>
-              <Button size="sm">A Button</Button>
-            </CardFooter>
-          </CardComponent>
-        </div>
-        <div style={{ maxWidth: '400px', marginBottom: '24px' }}>
-          <CardComponent hover={true}>
-            <CardHeader>
-              <CardTitle>
-                <h2>Card Hover</h2>
-              </CardTitle>
-              <CardDescription>
-                <p>Card description here.</p>
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <p>Card body with some text here.</p>
-            </CardContent>
-            <CardFooter>
-              <Button size="sm">A Button</Button>
-            </CardFooter>
-          </CardComponent>
-        </div>
-      </div>
-    </>
-  )
-}
+import { Card as CardComponent } from './card.js'
 
 const meta: Meta = {
   /* 👇 The title prop is optional.
@@ -61,7 +10,52 @@ const meta: Meta = {
    * to learn how to generate automatic titles
    */
   title: 'Components',
-  component: Card,
+  component: CardComponent,
 }
 
 export default meta
+
+export const Card = (): React.JSX.Element => {
+  return (
+    <>
+      <div style={{ marginBottom: '48px' }} className="mb-6">
+        <div style={{ maxWidth: '400px', marginBottom: '24px' }}>
+          <CardComponent>
+            <CardComponent.Header>
+              <CardComponent.Title>
+                <h2>Normal Card</h2>
+              </CardComponent.Title>
+              <CardComponent.Description>
+                <p>Card description here.</p>
+              </CardComponent.Description>
+            </CardComponent.Header>
+            <CardComponent.Content>
+              <p>Card body with some text here.</p>
+            </CardComponent.Content>
+            <CardComponent.Footer>
+              <Button size="sm">A Button</Button>
+            </CardComponent.Footer>
+          </CardComponent>
+        </div>
+        <div style={{ maxWidth: '400px', marginBottom: '24px' }}>
+          <CardComponent hover={true}>
+            <CardComponent.Header>
+              <CardComponent.Title>
+                <h2>Card Hover</h2>
+              </CardComponent.Title>
+              <CardComponent.Description>
+                <p>Card description here.</p>
+              </CardComponent.Description>
+            </CardComponent.Header>
+            <CardComponent.Content>
+              <p>Card body with some text here.</p>
+            </CardComponent.Content>
+            <CardComponent.Footer>
+              <Button size="sm">A Button</Button>
+            </CardComponent.Footer>
+          </CardComponent>
+        </div>
+      </div>
+    </>
+  )
+}

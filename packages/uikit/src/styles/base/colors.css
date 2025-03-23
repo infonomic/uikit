@@ -76,9 +76,9 @@
     --gray-500: oklch(from var(--gray-base) 0.7 c h);
     --gray-600: oklch(from var(--gray-base) 0.6 c h);
     --gray-700: oklch(from var(--gray-base) 0.5 c h);
-    --gray-800: oklch(from var(--gray-base) 0.5 c h);
-    --gray-900: oklch(from var(--gray-base) 0.3 c h);
-    --gray-950: oklch(from var(--gray-base) 0.3 c h);
+    --gray-800: oklch(from var(--gray-base) 0.4 c h);
+    --gray-900: oklch(from var(--gray-base) 0.25 c h);
+    --gray-950: oklch(from var(--gray-base) 0.178 c h);
 
     /* Canvas base */
     --canvas-base: oklch(0.4502 0.0037 308.34);

@@ -1,6 +1,8 @@
+import type React from 'react'
+
 import { Slot } from '@radix-ui/react-slot'
 import cx from 'classnames'
-import * as React from 'react'
+
 import styles from './card.module.css'
 
 export type AsDiv = {
@@ -46,34 +48,40 @@ interface OtherProps extends React.HTMLAttributes<HTMLDivElement> {
   ref?: React.Ref<HTMLDivElement>
 }
 
-const CardHeader = ({ className, ref, ...props }: OtherProps) => (
+const Header = ({ className, ref, ...props }: OtherProps) => (
   <div ref={ref} className={cx(styles.cardHeader, className)} {...props} />
 )
 
-CardHeader.displayName = 'CardHeader'
+Header.displayName = 'CardHeader'
 
-const CardTitle = ({ className, ref, ...props }: OtherProps) => (
+const Title = ({ className, ref, ...props }: OtherProps) => (
   <div
     ref={ref as React.Ref<HTMLDivElement>}
     className={cx(styles.cardTitle, className)}
     {...props}
   />
 )
-CardTitle.displayName = 'CardTitle'
+Title.displayName = 'CardTitle'
 
-const CardDescription = ({ className, ref, ...props }: OtherProps) => (
+const Description = ({ className, ref, ...props }: OtherProps) => (
   <div ref={ref} className={cx(styles.cardDescription, className)} {...props} />
 )
-CardDescription.displayName = 'CardDescription'
+Description.displayName = 'CardDescription'
 
-const CardContent = ({ className, ref, ...props }: OtherProps) => (
+const Content = ({ className, ref, ...props }: OtherProps) => (
   <div ref={ref} className={cx(styles.cardContent, className)} {...props} />
 )
-CardContent.displayName = 'CardContent'
+Content.displayName = 'CardContent'
 
-const CardFooter = ({ className, ref, ...props }: OtherProps) => (
+const Footer = ({ className, ref, ...props }: OtherProps) => (
   <div ref={ref} className={cx(styles.cardFooter, className)} {...props} />
 )
-CardFooter.displayName = 'CardFooter'
+Footer.displayName = 'CardFooter'
 
-export { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent }
+Card.Header = Header
+Card.Title = Title
+Card.Description = Description
+Card.Content = Content
+Card.Footer = Footer
+
+export { Card }
