@@ -30,15 +30,7 @@ export * from './components/input/label.js'
 export * from './components/input/help-text.js'
 export * from './components/input/error-text.js'
 
-export * from './components/table/table-container.js'
 export * from './components/table/table.js'
-export * from './components/table/thead.js'
-export * from './components/table/tbody.js'
-export * from './components/table/tfoot.js'
-export * from './components/table/tr.js'
-export * from './components/table/th.js'
-export * from './components/table/td.js'
-export * from './components/table/table-pager.js'
 
 export * from './components/notifications/index.js'
 

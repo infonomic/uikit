@@ -52,6 +52,16 @@
     background-color: var(--gray-50);
   }
 
+  .dropdown-separator {
+    margin: 0 auto;
+    width: 90%;
+    background-color: var(--border-color);
+    margin: var(--spacing-1) 0;
+    border-top-width: var(--border-width-thin);
+    border-top-color: var(--border-color);
+    border-top-style: var(--border-style-solid);
+  }
+
   /* 🌙 Dark via `.dark` class. We rely on the 
   * consuming application to detect a user's preferred
   * color scheme - either by header or cookie, and set
@@ -59,17 +69,13 @@
   */
   :global(.dark) {
 
-    .dropdown-content,
-    .dropdown-subcontent {
+    .dropdown-content:not(:where([class~="not-dark"], [class~="not-dark"] *)),
+    .dropdown-subcontent:not(:where([class~="not-dark"], [class~="not-dark"] *)) {
       background-color: var(--canvas-800);
     }
 
-    .dropdown-item {
-      color: var(--gray-300);
-    }
-
-    .dropdown-item:hover,
-    .dropdown-item:focus {
+    .dropdown-item:hover:not(:where([class~="not-dark"], [class~="not-dark"] *)),
+    .dropdown-item:focus:not(:where([class~="not-dark"], [class~="not-dark"] *)) {
       background-color: var(--canvas-700);
     }
   }

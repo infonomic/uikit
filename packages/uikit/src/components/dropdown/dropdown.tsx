@@ -129,7 +129,7 @@ const Separator = ({
   return (
     <DropdownMenuPrimitive.Separator
       ref={ref}
-      className={cx('dropdown-menu-separator', className)}
+      className={cx('dropdown-menu-separator', styles['dropdown-separator'], className)}
       {...props}
     />
   )

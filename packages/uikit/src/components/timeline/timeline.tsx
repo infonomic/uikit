@@ -4,6 +4,8 @@ import type React from 'react'
 
 import cx from 'classnames'
 
+import styles from './timeline.module.css'
+
 // Timeline Container
 export interface TimelineProps {
   id?: string
@@ -18,9 +20,8 @@ export const Timeline = ({
   children,
   ...rest
 }: TimelineProps): React.JSX.Element => {
-  const classes = cx('ml-[8px] sm:ml-8', className)
   return (
-    <div id={id} className={classes} {...rest}>
+    <div id={id} className={cx(styles.timeline, 'timeline', className)} {...rest}>
       {children}
     </div>
   )
@@ -40,10 +41,7 @@ const Root = function TimelineRoot({
 }: RootProps & {
   ref?: React.RefObject<RootElement>
 }) {
-  const classes = cx(
-    'list-none list-inside ml-2 pl-[32px] relative border-l border-gray-600 dark:border-gray-700',
-    className
-  )
+  const classes = cx(styles['timeline-root'], 'timeline-root', className)
   return (
     <ol ref={ref} {...props} className={classes}>
       {children}
@@ -65,9 +63,8 @@ const Item = function TimelineItem({
 }: ItemProps & {
   ref?: React.RefObject<ItemElement>
 }) {
-  const classes = cx('m-0 mb-8 p-0', className)
   return (
-    <li ref={ref} {...props} className={classes}>
+    <li ref={ref} {...props} className={cx(styles['timeline-item'], 'timeline-item', className)}>
       {children}
     </li>
   )
@@ -87,14 +84,9 @@ const Icon = function TimelineIcon({
 }: IconProps & {
   ref?: React.RefObject<IconElement>
 }) {
-  const classes = cx(
-    'absolute block flex items-center justify-center w-[36px] h-[36px] rounded-full -mt-[3px] sm:mt-0 -left-[18px] border-[6px] bg-secondary-600 dark:bg-secondary-900 border-gray-50 dark:border-canvas-600',
-    className
-  )
   return (
-    <span ref={ref} {...props} className={classes}>
+    <span ref={ref} {...props} className={cx(styles['timeline-icon'], 'time-line-icon', className)}>
       <svg
-        className="block w-[60%] text-white"
         aria-hidden="true"
         xmlns="http://www.w3.org/2000/svg"
         fill="currentColor"
@@ -120,9 +112,12 @@ const Heading = function TimelineHeading({
 }: HeadingProps & {
   ref?: React.RefObject<HeadingElement>
 }) {
-  const classes = cx('text-[1.5rem] sm:text-[1.57rem] leading-[1.2] !m-0 font-semibold', className)
   return (
-    <h3 ref={ref} {...props} className={classes}>
+    <h3
+      ref={ref}
+      {...props}
+      className={cx(styles['timeline-heading'], 'timeline-heading', className)}
+    >
       {children}
     </h3>
   )
@@ -142,12 +137,8 @@ const DateItem = function TimelineDate({
 }: DateProps & {
   ref?: React.RefObject<DateElement>
 }) {
-  const classes = cx(
-    'block mt-2 mb-2 text-[0.9em] font-medium leading-none text-gray-900 dark:text-gray-100',
-    className
-  )
   return (
-    <time ref={ref} {...props} className={classes}>
+    <time ref={ref} {...props} className={cx(styles['timeline-date'], 'timeline-date', className)}>
       {children}
     </time>
   )
@@ -167,12 +158,12 @@ const Content = function TimelineContent({
 }: ContentProps & {
   ref?: React.RefObject<ContentElement>
 }) {
-  const classes = cx(
-    '[&_p]:m-0 [&_p]:mb-4 [&_p]:sm:m-0 [&_p]:sm:mb-4 text-lg font-normal text-gray-900 dark:text-gray-300',
-    className
-  )
   return (
-    <div ref={ref} {...props} className={classes}>
+    <div
+      ref={ref}
+      {...props}
+      className={cx(styles['timeline-content'], 'timeline-content', className)}
+    >
       {children}
     </div>
   )
