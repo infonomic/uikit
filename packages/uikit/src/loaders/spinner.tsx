@@ -7,18 +7,14 @@ import type { LoaderProps } from './types/index.js'
 
 type SpinnerProps = Omit<LoaderProps, 'size'>
 
-export function LoaderSpinner({
-  color = '#CCCCCC',
-  className,
-  style,
-}: SpinnerProps): React.JSX.Element {
+export function LoaderSpinner({ color, className, style }: SpinnerProps): React.JSX.Element {
   const circles = [...Array(12)].map((_, index) => {
     return (
       // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
       <div key={index}>
         <div
           className={classNames('div-after')}
-          style={{ backgroundColor: `var(--loader-color, ${color})` }}
+          style={{ backgroundColor: color ? color : 'var(--loader-color)' }}
         />
       </div>
     )

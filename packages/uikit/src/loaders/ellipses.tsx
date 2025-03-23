@@ -6,7 +6,7 @@ import classNames from 'classnames'
 import type { LoaderProps } from './types/index.js'
 
 export function LoaderEllipsis({
-  color = '#CCCCCC',
+  color,
   size = 80,
   className,
   style,
@@ -15,8 +15,13 @@ export function LoaderEllipsis({
   const height = size * 0.5
 
   const circles = [...Array(4)].map((_, index) => (
-    // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
-    <div key={index} style={{ backgroundColor: `var(--loader-color, ${color})` }} />
+    <div
+      // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+      key={index}
+      style={{
+        backgroundColor: color ? color : 'var(--loader-color)',
+      }}
+    />
   ))
 
   return (
