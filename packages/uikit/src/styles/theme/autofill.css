@@ -47,10 +47,10 @@ select:-webkit-autofill:focus, select:autofill:focus {
   .dark select:autofill,
   .dark select:autofill:hover,
   .dark select:autofill:focus {
-    border: 1px solid #253341 !important;
+    border: 1px solid var(--theme-600) !important;
     -webkit-text-fill-color: white !important;
-    -webkit-box-shadow: 0 0 0px 1000px #253341 inset !important;
-    box-shadow: 0 0 0px 1000px #253341 inset !important;
+    -webkit-box-shadow: 0 0 0px 1000px var(--theme-600) inset !important;
+    box-shadow: 0 0 0px 1000px var(--theme-600) inset !important;
     transition: background-color 5000s ease-in-out 0s !important;
     color: white !important;
     background-color: rgba(100, 100, 100, 0.5) !important;
