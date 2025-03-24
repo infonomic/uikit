@@ -29,7 +29,7 @@
   }
 
   .cardHover:hover:is(:global(.dark) *) {
-    background: oklch(from var(--canvas-800) 0.225 c h);
+    background: oklch(from var(--canvas-800) 0.2 c h);
   }
 
   .cardHeader {

@@ -245,11 +245,11 @@
 
     /* Intents */
     .primary:not(:where([class~="not-dark"], [class~="not-dark"] *)) {
-      --input-variant-outlined-border: var(--primary-300);
-      --input-variant-outlined-hover-border: var(--primary-200);
-      --input-variant-outline-ring-color: var(--primary-300);
-      --input-variant-underlined-border: var(--primary-300);
-      --input-variant-underlined-hover-border: var(--primary-200);
+      --input-variant-outlined-border: var(--primary-200);
+      --input-variant-outlined-hover-border: var(--primary-100);
+      --input-variant-outline-ring-color: var(--primary-200);
+      --input-variant-underlined-border: var(--primary-200);
+      --input-variant-underlined-hover-border: var(--primary-100);
       --input-variant-filled: var(--canvas-800);
     }
 

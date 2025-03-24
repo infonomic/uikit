@@ -183,7 +183,7 @@
   .primary.text {
     --button-variant-text: transparent;
     --button-variant-text-foreground: oklch(from var(--button) calc(l * 0.7) c h);
-    --button-variant-text-hover: oklch(from var(--canvas-50) calc(l * 1.06) c h);
+    --button-variant-text-hover: oklch(from var(--canvas-50) calc(l * 0.995) c h);
   }
 
   .primary.gradient {
@@ -214,7 +214,7 @@
   .secondary.text {
     --button-variant-text: transparent;
     --button-variant-text-foreground: oklch(from var(--button) calc(l * 0.7) c h);
-    --button-variant-text-hover: oklch(from var(--canvas-50) calc(l * 1.06) c h);
+    --button-variant-text-hover: oklch(from var(--canvas-50) calc(l * 0.995) c h);
   }
 
   .secondary.gradient {
@@ -225,8 +225,8 @@
   }
 
   .noeffect {
-    --button: var(--gray-400);
-    --button-ring-color: var(--gray-400);
+    --button: var(--gray-100);
+    --button-ring-color: var(--gray-200);
   }
 
   .noeffect.filled {
@@ -245,7 +245,7 @@
   .noeffect.text {
     --button-variant-text: transparent;
     --button-variant-text-foreground: oklch(from var(--button) calc(l * 0.7) c h);
-    --button-variant-text-hover: oklch(from var(--canvas-50) calc(l * 1.06) c h);
+    --button-variant-text-hover: oklch(from var(--canvas-50) calc(l * 0.995) c h);
   }
 
   .noeffect.gradient {
@@ -276,7 +276,7 @@
   .success.text {
     --button-variant-text: transparent;
     --button-variant-text-foreground: oklch(from var(--button) calc(l * 0.7) c h);
-    --button-variant-text-hover: oklch(from var (--canvas-50) calc(l * 1.06) c h);
+    --button-variant-text-hover: oklch(from var(--canvas-50) calc(l * 0.995) c h);
   }
 
   .success.gradient {
@@ -307,7 +307,7 @@
   .info.text {
     --button-variant-text: transparent;
     --button-variant-text-foreground: oklch(from var(--button) calc(l * 0.7) c h);
-    --button-variant-text-hover: oklch(from var(--canvas-50) calc(l * 1.06) c h);
+    --button-variant-text-hover: oklch(from var(--canvas-50) calc(l * 0.995) c h);
   }
 
   .info.gradient {
@@ -338,7 +338,7 @@
   .warning.text {
     --button-variant-text: transparent;
     --button-variant-text-foreground: oklch(from var(--button) calc(l * 0.6) c h);
-    --button-variant-text-hover: oklch(from var(--canvas-50) calc(l * 1.06) c h);
+    --button-variant-text-hover: oklch(from var(--canvas-50) calc(l * 0.995) c h);
   }
 
   .warning.gradient {
@@ -369,7 +369,7 @@
   .danger.text {
     --button-variant-text: transparent;
     --button-variant-text-foreground: oklch(from var(--button) calc(l * 0.7) c h);
-    --button-variant-text-hover: oklch(from var(--canvas-50) calc(l * 1.06) c h);
+    --button-variant-text-hover: oklch(from var(--canvas-50) calc(l * 0.995) c h);
   }
 
   .danger.gradient {

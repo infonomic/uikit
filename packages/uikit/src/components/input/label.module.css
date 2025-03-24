@@ -18,7 +18,7 @@
   */
   :global(.dark) {
     .label:not(:where([class~="not-dark"], [class~="not-dark"] *)) {
-      color: var(--gray-200);
+      color: var(--gray-50);
     }
 
     .required:not(:where([class~="not-dark"], [class~="not-dark"] *)) {
