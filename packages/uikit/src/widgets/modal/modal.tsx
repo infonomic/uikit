@@ -9,6 +9,11 @@ import { AnimatePresence, type FeatureBundle, LazyMotion } from 'motion/react'
 import { Overlay } from '../../components/overlay'
 import useMediaQuery from '../../hooks/use-media-query'
 import { getPortalRoot } from '../../utils/getPortalRoot'
+
+import { ModalActions } from './modal-actions'
+import { ModalContainer } from './modal-container'
+import { ModalContent } from './modal-content'
+import { ModalHeader } from './modal-header'
 import { ModalWrapper } from './modal-wrapper'
 
 const DomMax: () => Promise<FeatureBundle> = async () =>
@@ -53,7 +58,7 @@ export function useModal(): {
   }
 }
 
-export function Modal({
+function Modal({
   isOpen,
   onDismiss,
   closeOnOverlayClick,
@@ -94,3 +99,12 @@ export function Modal({
     portal
   )
 }
+
+Modal.displayName = 'Modal'
+
+Modal.Container = ModalContainer
+Modal.Header = ModalHeader
+Modal.Content = ModalContent
+Modal.Actions = ModalActions
+
+export { Modal }

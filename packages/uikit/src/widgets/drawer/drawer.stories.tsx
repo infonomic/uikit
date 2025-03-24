@@ -5,7 +5,7 @@ import { Button } from '../../components/button/button.js'
 import { IconButton } from '../../components/button/icon-button.js'
 import { CloseIcon } from '../../icons/close-icon.js'
 
-import { Drawer, DrawerContainer, DrawerContent, DrawerHeader } from './index.js'
+import { Drawer } from './drawer.js'
 
 export default {
   title: 'Widgets/Drawer',
@@ -42,23 +42,28 @@ export const Default = (): React.JSX.Element => {
         isOpen={isOpen}
         onDismiss={() => setIsOpen(false)}
       >
-        <DrawerContainer aria-hidden={!isOpen}>
-          <DrawerHeader className="flex items-center justify-between mb-4">
-            <h3>Drawer Actions Here</h3>
+        <Drawer.Container aria-hidden={!isOpen}>
+          <Drawer.TopActions>
+            <button type="button" tabIndex={0} className="sr-only">
+              no action
+            </button>
             <IconButton
               arial-label="Close"
-              size="sm"
+              size="xs"
               onClick={() => {
                 setIsOpen(false)
               }}
             >
-              <CloseIcon width="16px" height="16px" svgClassName="white-icon" />
+              <CloseIcon width="14px" height="14px" svgClassName="white-icon" />
             </IconButton>
-          </DrawerHeader>
-          <DrawerContent>
+          </Drawer.TopActions>
+          <Drawer.Header className="flex items-center justify-between mb-4">
+            <h2>Drawer Actions Here</h2>
+          </Drawer.Header>
+          <Drawer.Content>
             <p>Drawer content here...</p>
-          </DrawerContent>
-        </DrawerContainer>
+          </Drawer.Content>
+        </Drawer.Container>
       </Drawer>
     </>
   )
@@ -94,23 +99,28 @@ export const Wide = (): React.JSX.Element => {
         width="wide"
         onDismiss={() => setIsOpen(false)}
       >
-        <DrawerContainer aria-hidden={!isOpen}>
-          <DrawerHeader className="flex items-center justify-between mb-4">
-            <h3>Drawer Actions Here</h3>
+        <Drawer.Container aria-hidden={!isOpen}>
+          <Drawer.TopActions>
+            <button type="button" tabIndex={0} className="sr-only">
+              no action
+            </button>
             <IconButton
               arial-label="Close"
-              size="sm"
+              size="xs"
               onClick={() => {
                 setIsOpen(false)
               }}
             >
-              <CloseIcon width="16px" height="16px" svgClassName="white-icon" />
+              <CloseIcon width="14px" height="14px" svgClassName="white-icon" />
             </IconButton>
-          </DrawerHeader>
-          <DrawerContent>
+          </Drawer.TopActions>
+          <Drawer.Header className="flex items-center justify-between mb-4">
+            <h2>Drawer Actions Here</h2>
+          </Drawer.Header>
+          <Drawer.Content>
             <p>Drawer content here...</p>
-          </DrawerContent>
-        </DrawerContainer>
+          </Drawer.Content>
+        </Drawer.Container>
       </Drawer>
     </>
   )
@@ -147,20 +157,25 @@ export const Nested = (): React.JSX.Element => {
         isOpen={isOpen1}
         onDismiss={() => setIsOpen1(false)}
       >
-        <DrawerContainer aria-hidden={!isOpen1}>
-          <DrawerHeader className="flex items-center justify-between mb-4">
-            <h3>Drawer 1</h3>
+        <Drawer.Container aria-hidden={!isOpen1}>
+          <Drawer.TopActions>
+            <button type="button" tabIndex={0} className="sr-only">
+              no action
+            </button>
             <IconButton
               arial-label="Close"
-              size="sm"
+              size="xs"
               onClick={() => {
                 setIsOpen1(false)
               }}
             >
-              <CloseIcon width="16px" height="16px" svgClassName="white-icon" />
+              <CloseIcon width="14px" height="14px" svgClassName="white-icon" />
             </IconButton>
-          </DrawerHeader>
-          <DrawerContent>
+          </Drawer.TopActions>
+          <Drawer.Header className="flex items-center justify-between mb-4">
+            <h2>Drawer 1</h2>
+          </Drawer.Header>
+          <Drawer.Content>
             <>
               <p>Drawer 1 actions here...</p>
               <Button
@@ -177,27 +192,32 @@ export const Nested = (): React.JSX.Element => {
                 isOpen={isOpen2}
                 onDismiss={() => setIsOpen2(false)}
               >
-                <DrawerContainer aria-hidden={!isOpen2}>
-                  <DrawerHeader className="flex items-center justify-between mb-4">
-                    <h3>Drawer 2</h3>
+                <Drawer.Container aria-hidden={!isOpen2}>
+                  <Drawer.TopActions>
+                    <button type="button" tabIndex={0} className="sr-only">
+                      no action
+                    </button>
                     <IconButton
                       arial-label="Close"
-                      size="sm"
+                      size="xs"
                       onClick={() => {
                         setIsOpen2(false)
                       }}
                     >
-                      <CloseIcon width="16px" height="16px" svgClassName="white-icon" />
+                      <CloseIcon width="14px" height="14px" svgClassName="white-icon" />
                     </IconButton>
-                  </DrawerHeader>
-                  <DrawerContent>
+                  </Drawer.TopActions>
+                  <Drawer.Header className="flex items-center justify-between mb-4">
+                    <h2>Drawer 2</h2>
+                  </Drawer.Header>
+                  <Drawer.Content>
                     <p>Drawer content here...</p>
-                  </DrawerContent>
-                </DrawerContainer>
+                  </Drawer.Content>
+                </Drawer.Container>
               </Drawer>
             </>
-          </DrawerContent>
-        </DrawerContainer>
+          </Drawer.Content>
+        </Drawer.Container>
       </Drawer>
     </>
   )

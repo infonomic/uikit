@@ -11,7 +11,11 @@ import useMediaQuery from '../../hooks/use-media-query'
 import { getPortalRoot } from '../../utils/getPortalRoot'
 import { useDrawer } from './drawer-context'
 
-import { DrawerWrapper } from './index.js'
+import { DrawerContainer } from './drawer-container'
+import { DrawerContent } from './drawer-content'
+import { DrawerHeader } from './drawer-header'
+import { DrawerTopActions } from './drawer-top-actions'
+import { DrawerWrapper } from './drawer-wrapper'
 
 import type { ReactNode } from 'react'
 
@@ -38,7 +42,7 @@ export interface DrawerProps {
   topOffset?: string
 }
 
-export const Drawer: React.FC<DrawerProps> = ({
+const Drawer = ({
   id,
   isOpen,
   onDismiss,
@@ -47,7 +51,7 @@ export const Drawer: React.FC<DrawerProps> = ({
   width = 'narrow',
   topOffset = '0',
   ...rest
-}) => {
+}: DrawerProps) => {
   const isMobile = useMediaQuery('(max-width: 768px)') ?? false
   const { addDrawer, removeDrawer, drawers } = useDrawer()
   const depth = drawers.indexOf(id)
@@ -100,3 +104,12 @@ export const Drawer: React.FC<DrawerProps> = ({
     portal
   )
 }
+
+Drawer.displayName = 'Drawer'
+
+Drawer.Container = DrawerContainer
+Drawer.Content = DrawerContent
+Drawer.Header = DrawerHeader
+Drawer.TopActions = DrawerTopActions
+
+export { Drawer }

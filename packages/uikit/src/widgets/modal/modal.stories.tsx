@@ -5,14 +5,7 @@ import { Button } from '../../components/button/button.js'
 import { IconButton } from '../../components/button/icon-button.js'
 import { CloseIcon } from '../../icons/close-icon.js'
 
-import {
-  Modal,
-  ModalActions,
-  ModalContainer,
-  ModalContent,
-  ModalHeader,
-  useModal,
-} from './index.js'
+import { Modal, useModal } from './modal.js'
 
 export default {
   title: 'Widgets/Modal',
@@ -40,8 +33,8 @@ export const Default = (): React.JSX.Element => {
         Open Modal
       </Button>
       <Modal isOpen={isOpen} onDismiss={onDismiss} closeOnOverlayClick={true}>
-        <ModalContainer className="sm:w-[500px]">
-          <ModalHeader className="flex items-center justify-between mb-4">
+        <Modal.Container className="sm:w-[500px]">
+          <Modal.Header className="flex items-center justify-between mb-4">
             <h2>Modal Header</h2>
             <IconButton
               arial-label="Close"
@@ -52,14 +45,14 @@ export const Default = (): React.JSX.Element => {
             >
               <CloseIcon width="16px" height="16px" svgClassName="white-icon" />
             </IconButton>
-          </ModalHeader>
-          <ModalContent>
+          </Modal.Header>
+          <Modal.Content>
             <p>
               Modal content with some text here that should run a little longer. And longer here.
               And the current theme is.
             </p>
-          </ModalContent>
-          <ModalActions>
+          </Modal.Content>
+          <Modal.Actions>
             <Button
               size="sm"
               intent="noeffect"
@@ -70,8 +63,8 @@ export const Default = (): React.JSX.Element => {
             >
               Close
             </Button>
-          </ModalActions>
-        </ModalContainer>
+          </Modal.Actions>
+        </Modal.Container>
       </Modal>
     </>
   )
