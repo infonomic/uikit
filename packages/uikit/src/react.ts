@@ -2,7 +2,10 @@
  * NOTE: We put a .js ending on imports here to satisfy
  * TS / dist output
  */
+export * from './components/@types/shared.js'
+
 export * from './components/accordion/accordion.js'
+export * from './components/avatar/avatar.js'
 export * from './components/animation/fade-in-lift.js'
 export * from './components/button/button.js'
 export * from './components/button/button-group.js'
@@ -30,13 +33,11 @@ export * from './components/input/label.js'
 export * from './components/input/help-text.js'
 export * from './components/input/error-text.js'
 
+export * from './components/tabs/tabs.js'
 export * from './components/table/table.js'
-
 export * from './components/pager/pagination.js'
-
-export * from './components/notifications/index.js'
-
-export * from './components/@types/shared.js'
+export * from './components/notifications/alert.js'
+export * from './components/notifications/toast.js'
 
 export * from './icons/danger-icon.js'
 export * from './icons/icon-element.js'
