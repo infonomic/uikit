@@ -8,6 +8,8 @@ import { usePager } from './pagination'
 
 import type { PagerButtonProps, RefType } from './pagination'
 
+import { useMediaQuery } from '../../hooks/use-media-query'
+
 import styles from './pagination.module.css'
 
 export type NumberButtonProps = PagerButtonProps & {
@@ -28,7 +30,7 @@ export const NumberButton = ({
 }: NumberButtonProps & {
   ref?: React.RefObject<RefType>
 }) => {
-  const Comp = asChild != null ? Slot : ('button' as React.ElementType)
+  const mobile = useMediaQuery('(max-width: 640px)')
   const {
     variant,
     currentPage,
@@ -38,6 +40,8 @@ export const NumberButton = ({
     hideNextButton,
     hidePrevButton,
   } = usePager()
+
+  const Comp = asChild != null ? Slot : ('button' as React.ElementType)
 
   const active = page === currentPage
 
@@ -51,11 +55,12 @@ export const NumberButton = ({
           { [styles.active]: active === true },
           {
             [styles['rounded-left']]:
-              page === 1 && !(showFirstButton ?? false) && (hidePrevButton ?? false),
+              page === 1 && ((!(showFirstButton ?? false) && (hidePrevButton ?? false)) || mobile),
           },
           {
             [styles['rounded-right']]:
-              page === count && !(showLastButton ?? false) && (hideNextButton ?? false),
+              page === count &&
+              ((!(showLastButton ?? false) && (hideNextButton ?? false)) || mobile),
           },
           'pager-number',
           className

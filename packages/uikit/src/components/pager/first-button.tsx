@@ -30,7 +30,7 @@ export const FirstButton = ({
   const aria = disabled ? { 'aria-disabled': true } : { 'aria-label': 'First' }
 
   return (
-    <li className="hidden sm:flex">
+    <li className={styles['mobile-toggle']}>
       <Comp
         ref={ref}
         className={cx(

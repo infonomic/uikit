@@ -34,7 +34,7 @@ export const LastButton = ({
   const aria = disabled ? { 'aria-disabled': true } : { 'aria-label': 'Last' }
 
   return (
-    <li className="hidden sm:flex">
+    <li className={styles['mobile-toggle']}>
       <Comp
         ref={ref}
         className={cx(

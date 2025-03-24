@@ -111,6 +111,19 @@
     color: white;
   }
 
+
+  /* Opinionated mobile */
+  .mobile-toggle {
+    display: none;
+  }
+
+  @media(min-width: 640px) {
+
+    .mobile-toggle {
+      display: flex;
+    }
+  }
+
   /* 🌙 Dark via `.dark` class. We rely on the 
   * consuming application to detect a user's preferred
   * color scheme - either by header or cookie, and set
