@@ -1,4 +1,11 @@
 packages:
-  - 'packages/**'
-  - 'apps/**'
+  - packages/**
+  - apps/**
   - '!apps/next/.next/**'
+onlyBuiltDependencies:
+  - '@biomejs/biome'
+  - '@parcel/watcher'
+  - core-js
+  - esbuild
+  - lightningcss-cli
+  - sharp

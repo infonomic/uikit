@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "private": false,
-  "packageManager": "pnpm@9.15.5",
+  "packageManager": "pnpm@10.6.5",
   "keywords": [],
   "author": "",
   "scripts": {
