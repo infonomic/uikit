@@ -36,9 +36,13 @@
   .number-button.dashboard.rounded-left,
   .number-button.default.rounded-left,
   .first-button.dashboard.rounded-left,
-  .previous-button.dashboard.rounded-left,
   .first-button.default.rounded-left,
-  .previous-button.default.rounded-left {
+  .previous-button.dashboard.rounded-left,
+  .previous-button.default.rounded-left,
+  .last-button.dashboard.rounded-left,
+  .last-button.default.rounded-left,
+  .next-button.dashboard.rounded-left,
+  .next-button.default.rounded-left {
     border-top-left-radius: 0.375rem;
     border-bottom-left-radius: 0.375rem;
   }
@@ -46,8 +50,12 @@
   .number-button.dashboard.rounded-right,
   .number-button.default.rounded-right,
   .first-button.dashboard.rounded-right,
+  .first-button.default.rounded-right,
   .previous-button.dashboard.rounded-right,
+  .previous-button.default.rounded-right,
+  .last-button.dashboard.rounded-right,
   .last-button.default.rounded-right,
+  .next-button.dashboard.rounded-right,
   .next-button.default.rounded-right {
     border-top-right-radius: 0.375rem;
     border-bottom-right-radius: 0.375rem;

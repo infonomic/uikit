@@ -88,4 +88,5 @@ export * from './loaders/ring.js'
 
 export * from './widgets/modal/modal.js'
 export * from './widgets/drawer/drawer.js'
+export * from './widgets/drawer/drawer-context.js'
 export * from './widgets/search/search.js'
