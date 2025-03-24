@@ -8,7 +8,7 @@
     width: 100%;
     max-width: 100%;
     color: var(--foreground);
-    background: var(--gray-25);
+    background: var(--canvas-25);
     border-width: var(--border-width-thin);
     border-color: var(--border-color);
     border-style: var(--border-style-solid);

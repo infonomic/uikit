@@ -81,20 +81,20 @@
     --gray-950: oklch(from var(--gray-base) calc(l * 0.3) c h);
 
     /* Canvas base */
-    --canvas-base: oklch(0.4502 0.0037 275.34);
+    --canvas-base: oklch(0.542 0.0037 275.34);
 
-    --canvas-25: oklch(from var(--canvas-base) calc(l * 2.17) c h);
-    --canvas-50: oklch(from var(--canvas-base) calc(l * 2.13) c h);
-    --canvas-100: oklch(from var(--canvas-base) calc(l * 1.5) c h);
-    --canvas-200: oklch(from var(--canvas-base) calc(l * 1.25) c h);
-    --canvas-300: oklch(from var(--canvas-base) calc(l * 1.1) c h);
+    --canvas-25: oklch(from var(--canvas-base) calc(l * 1.9) c h);
+    --canvas-50: oklch(from var(--canvas-base) calc(l * 1.8) c h);
+    --canvas-100: oklch(from var(--canvas-base) calc(l * 1.6) c h);
+    --canvas-200: oklch(from var(--canvas-base) calc(l * 1.4) c h);
+    --canvas-300: oklch(from var(--canvas-base) calc(l * 1.2) c h);
     --canvas-400: var(--canvas-base);
     --canvas-500: oklch(from var(--canvas-base) calc(l * 0.9) c h);
     --canvas-600: oklch(from var(--canvas-base) calc(l * 0.7) c h);
     --canvas-700: oklch(from var(--canvas-base) calc(l * 0.5) c h);
-    --canvas-800: oklch(from var(--canvas-base) calc(l * 0.425) c h);
-    --canvas-900: oklch(from var(--canvas-base) calc(l * 0.4) c h);
-    --canvas-950: oklch(from var(--canvas-base) calc(l * 0.375) c h);
+    --canvas-800: oklch(from var(--canvas-base) calc(l * 0.335) c h);
+    --canvas-900: oklch(from var(--canvas-base) calc(l * 0.3) c h);
+    --canvas-950: oklch(from var(--canvas-base) calc(l * 0.225) c h);
 
     /* Red base */
     --red-base: oklch(54.27% 0.18 31.76);

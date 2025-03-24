@@ -9,7 +9,7 @@
     overflow: hidden;
     word-break: normal;
     position: relative;
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--shadow-sm);
     border-radius: var(--border-radius-md);
     border: 1px solid var(--border-color);
   }
