@@ -7,7 +7,7 @@ import { createPortal } from 'react-dom'
 import { AnimatePresence, type FeatureBundle, LazyMotion } from 'motion/react'
 
 import { Overlay } from '../../components/overlay'
-import useMediaQuery from '../../hooks/use-media-query'
+import { useMediaQuery } from '../../hooks/use-media-query'
 import { getPortalRoot } from '../../utils/getPortalRoot'
 
 import { ModalActions } from './modal-actions'

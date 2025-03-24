@@ -7,7 +7,7 @@ import { AnimatePresence, type FeatureBundle, LazyMotion } from 'motion/react'
 import { useEffect } from 'react'
 import { createPortal } from 'react-dom'
 import { Overlay } from '../../components/overlay'
-import useMediaQuery from '../../hooks/use-media-query'
+import { useMediaQuery } from '../../hooks/use-media-query'
 import { getPortalRoot } from '../../utils/getPortalRoot'
 import { useDrawer } from './drawer-context'
 
