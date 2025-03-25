@@ -1,14 +1,12 @@
-'use client'
 import type * as React from 'react'
 
 import cx from 'classnames'
 
-import { style } from 'motion/react-client'
 import styles from './table.module.css'
 
 export type TableProps = React.JSX.IntrinsicElements['table']
 
-export const Table = function Table({
+function Table({
   ref,
   className,
   children,
@@ -27,7 +25,7 @@ export const Table = function Table({
 
 export type TableContainerProps = React.JSX.IntrinsicElements['div']
 
-const Container = function TableContainer({
+function Container({
   ref,
   className,
   children,
@@ -45,7 +43,7 @@ const Container = function TableContainer({
 
 export type TableBodyProps = React.JSX.IntrinsicElements['tbody']
 
-const Body = function TableBody({
+function Body({
   ref,
   className,
   children,
@@ -62,7 +60,7 @@ const Body = function TableBody({
 
 export type TableHeaderProps = React.JSX.IntrinsicElements['thead']
 
-const Header = function TableHeader({
+function Header({
   ref,
   className,
   children,
@@ -81,7 +79,7 @@ const Header = function TableHeader({
 
 export type TableRowProps = React.JSX.IntrinsicElements['tr']
 
-const Row = function TableRow({
+function Row({
   ref,
   className,
   children,
@@ -100,7 +98,7 @@ const Row = function TableRow({
 
 export type TableHeadingCellProps = React.JSX.IntrinsicElements['th']
 
-export const HeadingCell = function TableHeadingCell({
+function HeadingCell({
   ref,
   className,
   children,
@@ -118,7 +116,7 @@ export const HeadingCell = function TableHeadingCell({
 
 export type TableCellProps = React.JSX.IntrinsicElements['td']
 
-const Cell = function TableCell({
+function Cell({
   ref,
   className,
   children,
@@ -137,7 +135,7 @@ const Cell = function TableCell({
 
 export type TableFooterProps = React.JSX.IntrinsicElements['tfoot']
 
-const Footer = function TableFooter({
+function Footer({
   ref,
   className,
   children,
@@ -164,3 +162,5 @@ Table.Row = Row
 Table.HeadingCell = HeadingCell
 Table.Cell = Cell
 Table.Footer = Footer
+
+export { Table }

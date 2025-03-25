@@ -52,7 +52,7 @@ export const NumberButton = ({
         className={cx(
           styles['number-button'],
           [styles[variant]],
-          { [styles.active]: active === true },
+          { [styles.active]: active === true, active: active === true },
           {
             [styles['rounded-left']]:
               page === 1 && ((!(showFirstButton ?? false) && (hidePrevButton ?? false)) || mobile),

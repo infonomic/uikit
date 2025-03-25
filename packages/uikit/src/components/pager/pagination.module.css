@@ -5,7 +5,6 @@
     display: flex;
     padding: 0;
     align-items: center;
-    margin-top: 1rem;
   }
 
   .pagination-items {
@@ -43,8 +42,8 @@
   .last-button.default.rounded-left,
   .next-button.dashboard.rounded-left,
   .next-button.default.rounded-left {
-    border-top-left-radius: 0.375rem;
-    border-bottom-left-radius: 0.375rem;
+    border-top-left-radius: var(--border-radius-sm);
+    border-bottom-left-radius: var(--border-radius-sm);
   }
 
   .number-button.dashboard.rounded-right,
@@ -57,8 +56,8 @@
   .last-button.default.rounded-right,
   .next-button.dashboard.rounded-right,
   .next-button.default.rounded-right {
-    border-top-right-radius: 0.375rem;
-    border-bottom-right-radius: 0.375rem;
+    border-top-right-radius: var(--border-radius-sm);
+    border-bottom-right-radius: var(--border-radius-sm);
   }
 
   .ellipses,
@@ -145,8 +144,8 @@
     .last-button,
     .previous-button,
     .first-button {
-      border-color: var(--canvas-600);
-      background-color: var(--canvas-700);
+      border-color: var(--canvas-700);
+      background-color: var(--canvas-800);
       color: var(--gray-200);
     }
 
@@ -155,11 +154,11 @@
     .last-button:hover,
     .previous-button:hover,
     .first-button:hover {
-      background-color: var(--canvas-600);
+      background-color: var(--canvas-700);
     }
 
     .number-button.active {
-      background-color: var(--primary-600);
+      background-color: var(--primary-500);
       color: white;
     }
   }

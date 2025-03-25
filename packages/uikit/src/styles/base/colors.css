@@ -84,7 +84,7 @@
     --canvas-base: oklch(0.542 0.0037 275.34);
 
     --canvas-25: oklch(from var(--canvas-base) calc(l * 1.9) c h);
-    --canvas-50: oklch(from var(--canvas-base) calc(l * 1.8) c h);
+    --canvas-50: oklch(from var(--canvas-base) calc(l * 1.75) c h);
     --canvas-100: oklch(from var(--canvas-base) calc(l * 1.6) c h);
     --canvas-200: oklch(from var(--canvas-base) calc(l * 1.4) c h);
     --canvas-300: oklch(from var(--canvas-base) calc(l * 1.2) c h);
