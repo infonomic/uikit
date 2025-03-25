@@ -68,10 +68,10 @@
     --gray-base: oklch(0.5984 0 0);
 
     --gray-25: oklch(from var(--gray-base) calc(l * 1.625) c h);
-    --gray-50: oklch(from var(--gray-base) calc(l * 1.475) c h);
-    --gray-100: oklch(from var(--gray-base) calc(l * 1.3) c h);
-    --gray-200: oklch(from var(--gray-base) calc(l * 1.2) c h);
-    --gray-300: oklch(from var(--gray-base) calc(l * 1.05) c h);
+    --gray-50: oklch(from var(--gray-base) calc(l * 1.575) c h);
+    --gray-100: oklch(from var(--gray-base) calc(l * 1.475) c h);
+    --gray-200: oklch(from var(--gray-base) calc(l * 1.35) c h);
+    --gray-300: oklch(from var(--gray-base) calc(l * 1.175) c h);
     --gray-400: var(--gray-base);
     --gray-500: oklch(from var(--gray-base) calc(l * 0.85) c h);
     --gray-600: oklch(from var(--gray-base) calc(l * 0.725) c h);

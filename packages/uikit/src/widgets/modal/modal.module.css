@@ -23,7 +23,7 @@
   max-height: 88vh;
   width: 100%;
   bottom: 0;
-  background-color: var(--gray-25);
+  background-color: var(--canvas-25);
   border: 1px solid var(--border-color);
   margin-left: var(--spacing-2);
   margin-right: var(--spacing-2);
