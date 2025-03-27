@@ -102,6 +102,7 @@
     border-color: var(--border-color);
     border-width: var(--border-width-thin);
     border-style: var(--border-style-solid);
+    border-radius: var(--border-radius-sm);
   }
 
   /* External link */

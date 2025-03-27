@@ -25,12 +25,19 @@ const DefaultPager = (): React.JSX.Element => {
 
   return (
     <>
-      <div className="mb-6 max-w-[600px]">
-        <p className="prose dark:prose-invert">Stateful Pagers: Current page: {page}</p>
+      <style>
+        {`
+        .event-pager {
+          margin-bottom: 1rem;
+        }
+      `}
+      </style>
+      <div style={{ marginBottom: '2rem', maxWidth: '600px' }}>
+        <p style={{ marginBottom: '1rem' }}>Stateful Pagers: Current page: {page}</p>
         <EventPager
-          className="py-4"
           page={page}
           count={24}
+          className="event-pager"
           onChange={handlePageChange}
           showFirstButton
           showLastButton
@@ -40,14 +47,15 @@ const DefaultPager = (): React.JSX.Element => {
         <EventPager
           page={page}
           count={24}
+          className="event-pager"
           onChange={handlePageChange}
           componentName="pager2"
           aria-label="Pager 2"
         />
         <EventPager
-          className="py-4"
           page={page}
           count={24}
+          className="event-pager"
           onChange={handlePageChange}
           componentName="pager3"
           hideNextButton
@@ -68,11 +76,18 @@ const ClassicPager = (): React.JSX.Element => {
 
   return (
     <>
-      <div className="mb-6 max-w-[600px]">
-        <p className="prose dark:prose-invert">Stateful Pagers: Current page: {page}</p>
+      <style>
+        {`
+        .event-pager {
+          margin-bottom: 1rem;
+        }
+      `}
+      </style>
+      <div style={{ marginBottom: '2rem', maxWidth: '600px' }}>
+        <p style={{ marginBottom: '1rem' }}>Stateful Pagers: Current page: {page}</p>
         <EventPager
           variant="classic"
-          className="py-4"
+          className="event-pager"
           page={page}
           count={24}
           onChange={handlePageChange}
@@ -83,6 +98,7 @@ const ClassicPager = (): React.JSX.Element => {
         />
         <EventPager
           variant="classic"
+          className="event-pager"
           page={page}
           count={24}
           onChange={handlePageChange}
@@ -91,7 +107,7 @@ const ClassicPager = (): React.JSX.Element => {
         />
         <EventPager
           variant="classic"
-          className="py-4"
+          className="event-pager"
           page={page}
           count={24}
           onChange={handlePageChange}
@@ -114,10 +130,18 @@ const DashboardPager = (): React.JSX.Element => {
 
   return (
     <>
-      <div className="mb-6 max-w-[600px]">
-        <p className="prose dark:prose-invert">Stateful Pagers: Current page: {page}</p>
+      <style>
+        {`
+        .event-pager {
+          margin-bottom: 1rem;
+        }
+      `}
+      </style>
+      <div style={{ marginBottom: '2rem', maxWidth: '600px' }}>
+        <p style={{ marginBottom: '1rem' }}>Stateful Pagers: Current page: {page}</p>
         <EventPager
-          className="py-4"
+          variant="dashboard"
+          className="event-pager"
           page={page}
           count={24}
           onChange={handlePageChange}
@@ -127,6 +151,8 @@ const DashboardPager = (): React.JSX.Element => {
           aria-label="Pager 1"
         />
         <EventPager
+          variant="dashboard"
+          className="event-pager"
           page={page}
           count={24}
           onChange={handlePageChange}
@@ -134,7 +160,8 @@ const DashboardPager = (): React.JSX.Element => {
           aria-label="Pager 2"
         />
         <EventPager
-          className="py-4"
+          variant="dashboard"
+          className="event-pager"
           page={page}
           count={24}
           onChange={handlePageChange}
