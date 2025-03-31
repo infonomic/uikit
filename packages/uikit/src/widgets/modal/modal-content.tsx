@@ -19,7 +19,7 @@ export const ModalContent = function ModalContent({
   ref?: React.RefObject<HTMLDivElement>
 }) {
   return (
-    <div ref={ref} {...rest} className={cx(styles['modal-content'], 'prose', className)}>
+    <div ref={ref} {...rest} className={cx(styles['modal-content'], className)}>
       {children}
     </div>
   )
