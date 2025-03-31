@@ -63,10 +63,16 @@
     color: var(--text);
   }
 
-  ::-moz-selection,
+  /* Default (light mode) */
   ::selection {
-    color: #222222;
-    background: var(--secondary-300);
+    background-color: var(--theme-600);
+    color: white;
+  }
+
+  /* Dark mode */
+  .dark ::selection {
+    background-color: var(--theme-200);
+    color: var(--gray-900);
   }
 
   .background {
