@@ -1,15 +1,8 @@
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 
-/**
- * Core uikit styles including var system for breakpoints,
- * colors, scales, utils  etc., which can be optionally
- * integrated with Tailwind (colors, breakpoints etc.) via
- * Tailwind theme configuration.
- */
-import '@infonomic/uikit/styles.css'
-
-import './globals.css'
+// Global styles
+import '../ui/styles/global.css'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',

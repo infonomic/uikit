@@ -1,7 +1,8 @@
 {
   "name": "@infonomic/astro",
   "type": "module",
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "private": true,
   "scripts": {
     "clean": "rimraf .astro dist node_modules .turbo",
     "dev": "astro dev --host 0.0.0.0 --port 3001",

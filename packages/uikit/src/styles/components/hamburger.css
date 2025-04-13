@@ -27,8 +27,7 @@
 .component--hamburger:active,
 .component--hamburger:focus {
   outline: none !important;
-  /* prettier-ignore */
-  @apply border-white;
+  border-color: white;
   border-width: 0.5px;
   border-style: dashed;
   /* border: dashed 0.5px #ffffff; */
