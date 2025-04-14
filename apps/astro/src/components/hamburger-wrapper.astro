@@ -13,19 +13,19 @@ const { class: className } = Astro.props as HamburgerWrapperProps
 <script>
   import { $mobileMenuIsOpen } from '../store/index.js'
 
-  const handleClick = (event: MouseEvent) => {
+  const handleOnClick = () => {
     $mobileMenuIsOpen.set(!$mobileMenuIsOpen.get())
   }
 
-  const handleEscapeKey = (event: KeyboardEvent) => {
+  const handleOnEscapeKey = (event: KeyboardEvent) => {
     if (event.key === 'Escape' && $mobileMenuIsOpen.get() === true) {
       $mobileMenuIsOpen.set(false)
     }
   }
 
   const hamburgerButton = document.getElementById('component--hamburger')
-  if (hamburgerButton) {
-    hamburgerButton.addEventListener('click', handleClick)
+  if (hamburgerButton != null) {
+    hamburgerButton.addEventListener('click', handleOnClick)
 
     $mobileMenuIsOpen.subscribe((open) => {
       if (open) {
@@ -37,6 +37,6 @@ const { class: className } = Astro.props as HamburgerWrapperProps
   }
 
   if (typeof window !== 'undefined') {
-    window.addEventListener('keydown', handleEscapeKey)
+    window.addEventListener('keydown', handleOnEscapeKey)
   }
 </script>
