@@ -9,7 +9,8 @@
     "ignoreUnknown": false,
     "ignore": [
       "(payload)",
-      "_payload"
+      "_payload",
+      "tailwind.css"
     ]
   },
   "formatter": {
