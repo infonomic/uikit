@@ -1,0 +1,42 @@
+---
+import { Hamburger } from '../../../../packages/uikit/src/astro'
+
+interface HamburgerWrapperProps {
+  class?: string
+}
+
+const { class: className } = Astro.props as HamburgerWrapperProps
+---
+
+<Hamburger class={className} tabindex="0" ariaLabel="Open mobile menu" ariaControls="mobile-menu" />
+
+<script>
+  import { mobileMenuIsOpen } from '../store/index.js'
+
+  const handleClick = (event: MouseEvent) => {
+    mobileMenuIsOpen.set(!mobileMenuIsOpen.get())
+  }
+
+  const handleEscapeKey = (event: KeyboardEvent) => {
+    if (event.key === 'Escape' && mobileMenuIsOpen.get() === true) {
+      mobileMenuIsOpen.set(false)
+    }
+  }
+
+  const hamburgerButton = document.getElementById('component--hamburger')
+  if (hamburgerButton) {
+    hamburgerButton.addEventListener('click', handleClick)
+
+    mobileMenuIsOpen.subscribe((open) => {
+      if (open) {
+        hamburgerButton.classList.add('is_active')
+      } else {
+        hamburgerButton.classList.remove('is_active')
+      }
+    })
+  }
+
+  if (typeof window !== 'undefined') {
+    window.addEventListener('keydown', handleEscapeKey)
+  }
+</script>

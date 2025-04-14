@@ -1,0 +1,5 @@
+.component--hamburger .inner,
+.component--hamburger .inner::before,
+.component--hamburger .inner::after {
+  background-color: white;
+}

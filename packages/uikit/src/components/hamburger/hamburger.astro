@@ -1,67 +1,30 @@
 ---
+// SEE: uikit/src/styles/components/hamburger.css
+
+// NOTE: we don't use open or color props in Astro.
+// Instead we set open / closed state via nanostores.
+// and then apply global classes according.
+// Class overrides for inner span colors are set in
+// Astro app.css
+
 interface HamburgerProps {
-  className?: string
-  color?: string
-  activeBorderColor?: string
-  open: boolean
-  onChange: (event: MouseEvent | null) => void
+  class?: string
+  ariaLabel?: string
+  ariaControls?: string
 }
 
-const {
-  className,
-  color = 'bg-white before:bg-white after:bg-white',
-  activeBorderColor,
-  open,
-  onChange
-} = Astro.props as HamburgerProps
+const { class: className, ariaLabel, ariaControls } = Astro.props as HamburgerProps
 ---
 
-<style>
-  .component--hamburger .box .inner {
-    background-color: white;
-  }
-
-  .component--hamburger .box .inner::before,
-  .component--hamburger .box .inner::after {
-    background-color: white;
-  }
-</style>
-
 <button
-  id="hamburger-button"
-  data-open={open}
-  class={`component--hamburger ${open ? 'is_active' : ''} ${className || ''}`}
+  id="component--hamburger"
+  class:list={['component--hamburger', className]}
   tabindex="0"
-  aria-label="Open main menu"
-  aria-controls="main-menu"
+  aria-label={ariaLabel}
+  aria-controls={ariaControls}
   aria-haspopup="true"
 >
   <span class="box" aria-hidden="true">
-    <span class={`inner ${color}`}></span>
+    <span class="inner"></span>
   </span>
 </button>
-
-<script>
-  let isOpen = open
-
-  const handleClick = (event: MouseEvent) => {
-    // isOpen = !isOpen
-    // onChange(event)
-  }
-
-  const handleEscapeKey = (event: KeyboardEvent) => {
-    // if (event.key === 'Escape' && isOpen) {
-    //   isOpen = false
-    //   onChange(null)
-    // }
-  }
-
-  const hamburgerButton = document.getElementById('hamburger-button')
-  if (hamburgerButton) {
-    hamburgerButton.addEventListener('click', handleClick)
-  }
-
-  if (typeof window !== 'undefined') {
-    window.addEventListener('keydown', handleEscapeKey)
-  }
-</script>

@@ -1,5 +1,5 @@
 ---
-import { Hamburger } from '../../../../packages/uikit/src/astro'
+import HamburgerWrapper from './hamburger-wrapper.astro'
 
 import ThemeToggle from './theme-toggle.astro'
 ---
@@ -18,7 +18,7 @@ import ThemeToggle from './theme-toggle.astro'
   <div class="theme-toggle">
     <ThemeToggle />
   </div>
-  <Hamburger open={false} />
+  <HamburgerWrapper />
 </header>
 
 <style>
