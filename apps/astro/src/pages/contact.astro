@@ -9,7 +9,7 @@ import {
   Section
 } from '../../../../packages/uikit/src/astro'
 
-import Layout from '../layouts/Layout.astro'
+import Layout from '../layouts/layout.astro'
 
 // Page-specific metadata
 const meta = {
@@ -24,7 +24,7 @@ const meta = {
 <Layout {...meta}>
   <Section>
     <Container class="prose">
-      <h2>Contact</h2>
+      <h1>Contact</h1>
       <p>This is the contact page. It's a great page.</p>
       <a href="/">Go to Home</a>
     </Container>
@@ -83,6 +83,10 @@ const meta = {
   </Section>
 
   <style>
+    section {
+      padding: 1rem 0;
+    }
+
     .contact-form {
       max-width: 600px;
       margin: 0 auto;

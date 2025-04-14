@@ -1,7 +1,6 @@
 ---
 import { Container, Section } from '../../../../packages/uikit/src/astro'
-import Welcome from '../components/Welcome.astro'
-import Layout from '../layouts/Layout.astro'
+import Layout from '../layouts/layout.astro'
 
 // Page-specific metadata
 const meta = {
@@ -16,9 +15,15 @@ const meta = {
 <Layout {...meta}>
   <Section>
     <Container class="prose">
-      <h2>About</h2>
+      <h1>About</h1>
       <p>This is the about page. It's a great page.</p>
       <a href="/">Go to Home</a>
     </Container>
   </Section>
 </Layout>
+
+<style>
+  section {
+    padding: 1rem 0;
+  }
+</style>

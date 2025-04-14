@@ -6,6 +6,8 @@
  */
 @import '@infonomic/uikit/styles.css';
 
+@import '@infonomic/uikit/typography.css';
+
 @import './tailwind.css';
 
-@import './app.css'
+@import './app.css';
