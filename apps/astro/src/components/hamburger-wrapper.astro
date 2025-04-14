@@ -11,15 +11,15 @@ const { class: className } = Astro.props as HamburgerWrapperProps
 <Hamburger class={className} tabindex="0" ariaLabel="Open mobile menu" ariaControls="mobile-menu" />
 
 <script>
-  import { mobileMenuIsOpen } from '../store/index.js'
+  import { $mobileMenuIsOpen } from '../store/index.js'
 
   const handleClick = (event: MouseEvent) => {
-    mobileMenuIsOpen.set(!mobileMenuIsOpen.get())
+    $mobileMenuIsOpen.set(!$mobileMenuIsOpen.get())
   }
 
   const handleEscapeKey = (event: KeyboardEvent) => {
-    if (event.key === 'Escape' && mobileMenuIsOpen.get() === true) {
-      mobileMenuIsOpen.set(false)
+    if (event.key === 'Escape' && $mobileMenuIsOpen.get() === true) {
+      $mobileMenuIsOpen.set(false)
     }
   }
 
@@ -27,7 +27,7 @@ const { class: className } = Astro.props as HamburgerWrapperProps
   if (hamburgerButton) {
     hamburgerButton.addEventListener('click', handleClick)
 
-    mobileMenuIsOpen.subscribe((open) => {
+    $mobileMenuIsOpen.subscribe((open) => {
       if (open) {
         hamburgerButton.classList.add('is_active')
       } else {
