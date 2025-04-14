@@ -7,6 +7,7 @@ import CardHeaderComponent from './components/card/card-header.astro'
 import CardTitleComponent from './components/card/card-title.astro'
 import CardComponent from './components/card/card.astro'
 import ContainerComponent from './components/container/container.astro'
+import HamburgerComponent from './components/hamburger/hamburger.astro'
 import ErrorTextComponent from './components/input/error-text.astro'
 import HelpTextComponent from './components/input/help-text.astro'
 import InputAdornmentComponent from './components/input/input-adornment.astro'
@@ -20,6 +21,7 @@ import MoonIconComponent from './icons/moon-icon.astro'
 import SearchIconComponent from './icons/search-icon.astro'
 
 export const Button = ButtonComponent
+export const Hamburger = HamburgerComponent
 export const IconButton = IconButtonComponent
 export const CardContent = CardContentComponent
 export const CardDescription = CardDescriptionComponent
