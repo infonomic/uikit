@@ -81,6 +81,7 @@ export * from './icons/github-icon.js'
 export * from './icons/google-icon.js'
 export * from './icons/dashboard-icon.js'
 export * from './icons/stopwatch-icon.js'
+export * from './icons/chevron-down-icon.js'
 
 export * from './loaders/ellipses.js'
 export * from './loaders/spinner.js'

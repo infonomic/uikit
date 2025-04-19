@@ -78,17 +78,19 @@ export const Alert = function Alert({
               <div className={cx(styles.title)}>
                 <span>{title}</span>
               </div>
-              <Button
-                intent={intent}
-                variant="filled"
-                aria-label="Close"
-                className={cx(styles.close)}
-                type="button"
-                onClick={handleOnClose}
-                {...rest}
-              >
-                <CloseIcon height="12px" width="12px" />
-              </Button>
+              {close === true && (
+                <Button
+                  intent={intent}
+                  variant="filled"
+                  aria-label="Close"
+                  className={cx(styles.close)}
+                  type="button"
+                  onClick={handleOnClose}
+                  {...rest}
+                >
+                  <CloseIcon height="12px" width="12px" />
+                </Button>
+              )}
             </div>
             <div className={cx(styles.content)}>{children}</div>
           </div>
@@ -97,17 +99,19 @@ export const Alert = function Alert({
         <>
           {icon && <Icon useSprite={true} className={styles.icon} />}
           <div className={styles.content}>{children}</div>
-          <Button
-            intent={intent}
-            variant="filled"
-            aria-label="Close"
-            className={styles.close}
-            type="button"
-            onClick={handleOnClose}
-            {...rest}
-          >
-            <CloseIcon height="12px" width="12px" />
-          </Button>
+          {close === true && (
+            <Button
+              intent={intent}
+              variant="filled"
+              aria-label="Close"
+              className={styles.close}
+              type="button"
+              onClick={handleOnClose}
+              {...rest}
+            >
+              <CloseIcon height="12px" width="12px" />
+            </Button>
+          )}
         </>
       )}
     </div>
