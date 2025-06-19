@@ -1,7 +1,5 @@
-import Image from 'next/image'
-import Link from 'next/link'
-
 import { Container, Section } from '@infonomic/uikit/react'
+import Link from 'next/link'
 
 export default function Home() {
   return (

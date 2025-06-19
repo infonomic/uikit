@@ -1,27 +1,24 @@
+import { createRequire } from "node:module";
+import { dirname, join } from "node:path";
 import type { StorybookConfig } from '@storybook/react-vite'
+const require = createRequire(import.meta.url);
 const config: StorybookConfig = {
   framework: {
-    name: '@storybook/react-vite',
+    name: getAbsolutePath("@storybook/react-vite"),
     options: {}
   },
+
   stories: ['../src/**/*.stories.@(js|jsx|ts|tsx)'],
-  addons: [
-    '@storybook/addon-links',
-    '@storybook/addon-essentials',
-    '@storybook/addon-interactions',
-    '@storybook/addon-a11y',
-    {
-      name: '@storybook/addon-themes',
-      options: {
-        // Check out https://github.com/storybookjs/addon-styling/blob/main/docs/api.md
-        // For more details on this addon's options.
-        // postCss: true,
-      }
+
+  addons: [getAbsolutePath("@storybook/addon-links"), getAbsolutePath("@storybook/addon-a11y"), {
+    name: getAbsolutePath("@storybook/addon-themes"),
+    options: {
+      // Check out https://github.com/storybookjs/addon-styling/blob/main/docs/api.md
+      // For more details on this addon's options.
+      // postCss: true,
     }
-  ],
-  docs: {
-    autodocs: 'tag'
-  },
+  }, getAbsolutePath("@storybook/addon-docs")],
+
   // viteFinal: async (config) => {
   //   config.css = {
   //     modules: {
@@ -31,6 +28,11 @@ const config: StorybookConfig = {
 
   //   return config
   // },
-  staticDirs: ['../public'] //👈 Configures the static asset folder in Storybook
+  //👈 Configures the static asset folder in Storybook
+  staticDirs: ['../public']
 }
 export default config
+
+function getAbsolutePath(value: string): any {
+  return dirname(require.resolve(join(value, "package.json")));
+}

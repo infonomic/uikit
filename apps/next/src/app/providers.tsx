@@ -1,11 +1,11 @@
-'use client'
+"use client";
 
-import { ProgressBarProvider } from '@/context/progress-bar-provider'
+import { ProgressBarProvider } from "@/context/progress-bar-provider";
 
 export interface ProvidersProps {
-  children: React.ReactNode
+	children: React.ReactNode;
 }
 
 export function Providers({ children }: ProvidersProps) {
-  return <ProgressBarProvider>{children}</ProgressBarProvider>
+	return <ProgressBarProvider>{children}</ProgressBarProvider>;
 }

@@ -1,10 +1,9 @@
 'use client'
 
-import { forwardRef, useEffect, useState } from 'react'
-
-import { Button, Hamburger } from '@infonomic/uikit/react'
+import { Hamburger } from '@infonomic/uikit/react'
 import cx from 'classnames'
 import { usePathname } from 'next/navigation'
+import { forwardRef, useEffect, useState } from 'react'
 
 import { ProgressBar } from '@/context/progress-bar-provider'
 import { BrandingDefault } from './app-bar-components/branding-default'
@@ -17,11 +16,6 @@ export type Ref = HTMLDivElement
 export const AppBar = forwardRef<Ref, AppBarProps>(function AppBar({ className, ...other }, ref) {
   const pathName = usePathname()
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [hasScrolled, setHasScrolled] = useState(false)
-  const [lastScrollY, setLastScrollY] = useState(0)
-  const [hasScrolledDown, setHasScrolledDown] = useState(false)
-
-  const SCROLL_THRESHOLD = 50 // Minimum distance to trigger show/hide logic
 
   const handleToggleMobileMenu = (event: React.MouseEvent<HTMLButtonElement> | null): void => {
     if (event != null) event.stopPropagation()
@@ -29,73 +23,23 @@ export const AppBar = forwardRef<Ref, AppBarProps>(function AppBar({ className, 
     setMobileMenuOpen(!mobileMenuOpen)
   }
 
-  const handleMobileMenuClose = (): void => {
-    setMobileMenuOpen(false)
-  }
+  // const handleMobileMenuClose = (): void => {
+  //   setMobileMenuOpen(false)
+  // }
 
   const handleWindowClick = (): void => {
     setMobileMenuOpen(false)
   }
 
-  const handleScroll = (): void => {
-    const currentScrollY = window.scrollY
-    // Check if scroll distance exceeds the threshold
-    if (Math.abs(currentScrollY - lastScrollY) > SCROLL_THRESHOLD) {
-      if (currentScrollY > lastScrollY && currentScrollY > 0) {
-        // User scrolled down
-        setHasScrolledDown(true)
-      } else {
-        // User scrolled up
-        setHasScrolledDown(false)
-      }
-      setLastScrollY(currentScrollY) // Update lastScrollY after logic
-    }
-
-    // TODO - refine for correct locale detection
-    // For now home / and anything with a two character path
-    if (pathName.length <= 3) {
-      const position = window.scrollY
-      if (position > 100) {
-        setHasScrolled(true)
-      } else {
-        setHasScrolled(false)
-      }
-    }
-  }
-
   useEffect(() => {
     window.addEventListener('click', handleWindowClick)
-    window.addEventListener('scroll', handleScroll, { passive: true })
+
     return () => {
       window.removeEventListener('click', handleWindowClick)
-      window.removeEventListener('scroll', handleScroll)
     }
   })
 
-  const appBarBackground =
-    // hasScrolled || pathName.length > 3 ? 'bg-white shadow dark:bg-canvas-800' : 'bg-transparent'
-    hasScrolled || pathName.length > 3
-      ? 'bg-white shadow dark:bg-canvas-800'
-      : 'bg-white shadow dark:bg-canvas-800'
-
-  const appBarTextColor =
-    // hasScrolled || pathName.length > 3
-    //   ? 'text-black fill-black dark:text-white dark:fill-white'
-    //   : 'text-white fill-white'
-    hasScrolled || pathName.length > 3
-      ? 'text-black fill-black dark:text-white dark:fill-white'
-      : 'text-black fill-black dark:text-white dark:fill-white'
-
-  const hamburgerColor =
-    // hasScrolled || pathName.length > 3
-    //   ? 'bg-black before:bg-black after:bg-black dark:bg-white dark:before:bg-white dark:after:bg-white'
-    //   : 'bg-white before:bg-white after:bg-white'
-    hasScrolled || pathName.length > 3
-      ? 'bg-black before:bg-black after:bg-black dark:bg-white dark:before:bg-white dark:after:bg-white'
-      : 'bg-black before:bg-black after:bg-black dark:bg-white dark:before:bg-white dark:after:bg-white'
-
-  const hamburgerColorMobileMenuOpen =
-    'bg-black before:bg-black after:bg-black dark:bg-white dark:before:bg-white dark:after:bg-white'
+  const appBarBackground = 'bg-white shadow dark:bg-canvas-800'
 
   return (
     <>
@@ -119,7 +63,7 @@ export const AppBar = forwardRef<Ref, AppBarProps>(function AppBar({ className, 
             )}
           >
             <div className="lg:flex-initial mr-auto">
-              <BrandingDefault hasScrolled={hasScrolled} pathName={pathName} />
+              <BrandingDefault hasScrolled={false} pathName={pathName} />
             </div>
             <Hamburger open={mobileMenuOpen} onChange={handleToggleMobileMenu} />
           </div>

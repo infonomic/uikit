@@ -1,6 +1,6 @@
 import type React from 'react'
 
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { intent } from '../@types/shared.js'
 import { variant } from './@types/button.js'

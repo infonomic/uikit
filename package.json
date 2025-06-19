@@ -21,11 +21,11 @@
   },
   "license": "ISC",
   "dependencies": {
-    "turbo": "^2.5.0",
+    "turbo": "^2.5.4",
     "typescript": "5.8.3"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.9.4"
+    "@biomejs/biome": "2.0.0"
   },
   "engines": {
     "node": "^18.20.2 || >=20.9.0"

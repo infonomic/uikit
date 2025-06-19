@@ -1,7 +1,6 @@
 'use client'
-import { LazyMotion, domAnimation, m, useMotionTemplate, useSpring } from 'motion/react'
-import React from 'react'
-import { type ReactNode, createContext, useContext, useEffect, useOptimistic, useRef } from 'react'
+import { domAnimation, LazyMotion, m, useMotionTemplate, useSpring } from 'motion/react'
+import { createContext, type ReactNode, useContext, useEffect, useOptimistic, useRef } from 'react'
 
 /**
  * Internal context for the progress bar.
@@ -36,8 +35,7 @@ function getDiff(
   /** The current number used to calculate the difference. */
   current: number
 ): number {
-  // biome-ignore lint/suspicious/noImplicitAnyLet: <explanation>
-  let diff
+  let diff: number
   if (current === 0) {
     diff = 15
   } else if (current < 50) {
@@ -142,7 +140,6 @@ export function ProgressBar({ className }: { className: string }) {
 
   return (
     <LazyMotion features={domAnimation}>
-      {/* @ts-ignore className on m.div. */}
       {progress.loading && <m.div style={{ width }} exit={{ opacity: 0 }} className={className} />}
     </LazyMotion>
   )
