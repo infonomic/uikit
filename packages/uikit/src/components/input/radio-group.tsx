@@ -1,3 +1,4 @@
+'use client'
 import cx from 'classnames'
 import { RadioGroup as RadioGroupPrimitive } from 'radix-ui'
 import type React from 'react'

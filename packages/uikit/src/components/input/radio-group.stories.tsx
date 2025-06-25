@@ -1,14 +1,18 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import type React from 'react'
+import type { Meta } from '@storybook/react-vite'
 
 import type { RadioGroupValue } from './radio-group.js'
-import { RadioGroup, RadioGroupItem } from './radio-group.js'
+import { RadioGroup as RadioGroupComponent, RadioGroupItem } from './radio-group.js'
 
-export default {
+const meta: Meta = {
+  /* 👇 The title prop is optional.
+   * See https://storybook.js.org/docs/react/configure/overview#configure-story-loading
+   * to learn how to generate automatic titles
+   */
   title: 'Components/RadioGroup',
-  component: RadioGroup,
-  argTypes: {},
+  component: RadioGroupComponent,
 }
+
+export default meta
 
 const values1: RadioGroupValue[] = [
   { id: 'rg1', label: 'One', value: '1' },
@@ -23,23 +27,23 @@ const values2: RadioGroupValue[] = [
 ]
 
 const values3: RadioGroupValue[] = [
-  { id: 'rg4', label: 'One', value: '1' },
-  { id: 'rg5', label: 'Two', value: '2' },
-  { id: 'rg6', label: 'Three', value: '3' },
+  { id: 'rg7', label: 'One', value: '1' },
+  { id: 'rg8', label: 'Two', value: '2' },
+  { id: 'rg9', label: 'Three', value: '3' },
 ]
 
-export const Default = (): React.JSX.Element => {
+export const RadioGroup = (): React.JSX.Element => {
   return (
     <>
       <div style={{ maxWidth: '600px', margin: '2rem auto' }}>
-        <RadioGroup direction="row">
+        <RadioGroupComponent direction="row" defaultValue="1">
           {values1.map((value) => (
             <RadioGroupItem key={value.id} value={value.value} id={value.id} label={value.label} />
           ))}
-        </RadioGroup>
+        </RadioGroupComponent>
       </div>
       <div style={{ maxWidth: '600px', margin: '2rem auto' }}>
-        <RadioGroup direction="row">
+        <RadioGroupComponent direction="row" defaultValue="2">
           {values2.map((value) => (
             <RadioGroupItem
               intent="secondary"
@@ -49,10 +53,10 @@ export const Default = (): React.JSX.Element => {
               label={value.label}
             />
           ))}
-        </RadioGroup>
+        </RadioGroupComponent>
       </div>
       <div style={{ maxWidth: '600px', margin: '2rem auto' }}>
-        <RadioGroup direction="column">
+        <RadioGroupComponent direction="column" defaultValue="3">
           {values3.map((value) => (
             <RadioGroupItem
               intent="success"
@@ -62,7 +66,7 @@ export const Default = (): React.JSX.Element => {
               label={value.label}
             />
           ))}
-        </RadioGroup>
+        </RadioGroupComponent>
       </div>
     </>
   )
