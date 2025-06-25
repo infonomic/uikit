@@ -33,8 +33,8 @@ export const Default = (): React.JSX.Element => {
         Open Modal
       </Button>
       <Modal isOpen={isOpen} onDismiss={onDismiss} closeOnOverlayClick={true}>
-        <Modal.Container className="sm:w-[500px]">
-          <Modal.Header className="flex items-center justify-between mb-4">
+        <Modal.Container style={{ maxWidth: '600px' }}>
+          <Modal.Header>
             <h2>Modal Header</h2>
             <IconButton
               arial-label="Close"
@@ -47,7 +47,7 @@ export const Default = (): React.JSX.Element => {
             </IconButton>
           </Modal.Header>
           <Modal.Content>
-            <p>
+            <p style={{ paddingTop: '1rem' }}>
               Modal content with some text here that should run a little longer. And longer here.
               And the current theme is.
             </p>
