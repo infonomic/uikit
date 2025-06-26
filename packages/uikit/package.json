@@ -59,6 +59,7 @@
     "prism-react-renderer": "^2.4.1",
     "radix-ui": "^1.4.2",
     "react": "19.1.0",
+    "react-day-picker": "^9.7.0",
     "react-dom": "19.1.0",
     "zod": "^3.25.67",
     "zod-form-data": "^3.0.0"
