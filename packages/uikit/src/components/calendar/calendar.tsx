@@ -11,6 +11,7 @@ import cx from 'classnames'
 import { Select as SelectPrimitive } from 'radix-ui'
 import * as React from 'react'
 import { DayPicker, type Dropdown as DropDownDayPicker } from 'react-day-picker'
+import { ChevronsUpDown } from '../../icons/chevrons-up-down.js'
 import { Button } from '../button/button.js'
 import { ScrollArea } from '../scroll-area/scroll-area.js'
 
@@ -98,9 +99,10 @@ function Calendar({
               className={cx(styles['select-trigger'], props.selectTriggerClassName)}
             >
               <SelectPrimitive.Value>{selected?.label}</SelectPrimitive.Value>
+              <ChevronsUpDown height="18px" width="18px" svgClassName={styles['select-chevrons']} />
             </Button>
           </SelectPrimitive.Trigger>
-          <SelectPrimitive.Content position="popper" align="center">
+          <SelectPrimitive.Content position="popper" sideOffset={8} align="center">
             <ScrollArea className={cx(styles['scroll-area'])}>
               {options?.map(({ value, label, disabled }, id) => (
                 <SelectPrimitive.Item

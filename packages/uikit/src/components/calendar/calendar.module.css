@@ -52,6 +52,10 @@
   color: var(--foreground);
 }
 
+.select-chevrons {
+  stroke: currentColor
+}
+
 .scroll-area {
   border: 1px solid var(--border-color);
   height: 240px;
