@@ -1,16 +1,15 @@
 'use client'
-import type React from 'react'
 
 import cx from 'classnames'
+import type React from 'react'
 
 import type { Intent, Size, Variant } from './@types/input.js'
 import { ErrorText } from './error-text.js'
 import { HelpText } from './help-text.js'
-import { Label } from './label.js'
+import styles from './input.module.css'
 
 import type { InputAdornmentProps } from './input-adornment.js'
-
-import styles from './input.module.css'
+import { Label } from './label.js'
 
 export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   id: string
@@ -29,6 +28,7 @@ export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> 
   helpText?: string
   errorText?: string
   className?: string
+  inputWrapperClassName?: string
   ref?: React.RefCallback<HTMLInputElement | null> | React.RefObject<HTMLInputElement | null>
 }
 
@@ -49,11 +49,12 @@ export const Input = <C extends React.ElementType = 'input'>({
   error = false,
   helpText = '',
   errorText = '',
+  inputWrapperClassName,
   className,
   ...rest
 }: InputProps) => {
   return (
-    <div className={styles.inputWrapper}>
+    <div className={cx(styles.inputWrapper, inputWrapperClassName)}>
       {label != null && <Label id={id} htmlFor={id} required={required} label={label} />}
       <div className={styles.inputContainer}>
         {startAdornment != null && (
