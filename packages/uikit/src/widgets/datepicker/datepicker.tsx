@@ -74,7 +74,7 @@ export function DatePicker({
 }: DatePickerProps): React.JSX.Element {
   const [isOpen, setIsOpen] = useState(false)
   const [time, setTime] = useState<string>('05:00')
-  const [date, setDate] = useState<Date | undefined>(new Date()) // Default button height
+  const [date, setDate] = useState<Date | undefined>(new Date())
   const [value, setValue] = useState<string | undefined>(undefined)
 
   const calendarRef = useRef<HTMLDivElement | null>(null)
@@ -173,7 +173,7 @@ export function DatePicker({
                       setDate(selectedDate)
                     }
                   }}
-                  onDayClick={() => setIsOpen(false)}
+                  // onDayClick={() => setIsOpen(false)}
                   fromYear={2000}
                   toYear={new Date().getFullYear()}
                   disabled={(date) =>
@@ -204,7 +204,7 @@ export function DatePicker({
                               newDate.setHours(Number.parseInt(hour), Number.parseInt(minute))
                               setDate(newDate)
                             }
-                            setIsOpen(false)
+                            // setIsOpen(false)
                           }}
                         >
                           {timeValue}
@@ -216,7 +216,17 @@ export function DatePicker({
               </div>
             </div>
             <div className={styles['content-actions']}>
-              <Button size="sm" intent="noeffect" className={styles['content-actions-button']}>
+              <Button
+                size="sm"
+                intent="noeffect"
+                className={styles['content-actions-button']}
+                onClick={() => {
+                  setIsOpen(false)
+                  // if (date && onDateChange) {
+                  //   onDateChange(date)
+                  // }
+                }}
+              >
                 Cancel
               </Button>
               <Button
