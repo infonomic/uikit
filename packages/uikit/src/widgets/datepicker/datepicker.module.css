@@ -6,9 +6,7 @@
   }
 
   .content {
-    display: flex;
     width: 100%;
-    gap: var(--spacing-2);
     border-radius: 4px;
     padding-top: var(--spacing-4);
     padding-bottom: var(--spacing-2);
@@ -44,6 +42,25 @@
 
   .content:is(:global(.dark) *) {
     background: var(--canvas-800);
+  }
+
+  .content-components {
+    display: flex;
+    width: 100%;
+    gap: var(--spacing-2);
+  }
+
+  .content-actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding-right: var(--spacing-6);
+    gap: var(--spacing-2);
+    width: 100%;
+  }
+
+  .content-actions-button {
+    min-width: 100px;
   }
 
   .arrow {

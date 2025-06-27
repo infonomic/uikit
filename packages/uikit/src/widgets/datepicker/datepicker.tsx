@@ -158,64 +158,81 @@ export function DatePicker({
           </IconButton>
         </Popover.Trigger>
         <Popover.Portal>
-          <Popover.Content className={styles.content} sideOffset={5}>
-            <div ref={calendarRef}>
-              <Calendar
-                mode="single"
-                captionLayout="dropdown"
-                selected={date}
-                onSelect={(selectedDate) => {
-                  if (selectedDate) {
-                    const [hours, minutes] = time.split(':')
-                    selectedDate.setHours(Number.parseInt(hours), Number.parseInt(minutes))
-                    setDate(selectedDate)
-                  }
-                }}
-                onDayClick={() => setIsOpen(false)}
-                fromYear={2000}
-                toYear={new Date().getFullYear()}
-                disabled={(date) =>
-                  Number(date) < Date.now() - 1000 * 60 * 60 * 24 ||
-                  Number(date) > Date.now() + 1000 * 60 * 60 * 24 * 30
-                }
-              />
-            </div>
-            <div className={styles['time-picker-container']}>
-              <ScrollArea className={styles['time-picker-scroll-area']}>
-                <div className={styles['time-picker']}>
-                  {Array.from({ length: 96 }).map((_, i) => {
-                    const hour = Math.floor(i / 4)
-                      .toString()
-                      .padStart(2, '0')
-                    const minute = ((i % 4) * 15).toString().padStart(2, '0')
-                    const timeValue = `${hour}:${minute}`
-                    return (
-                      <Button
-                        key={i}
-                        size="sm"
-                        className={styles['time-picker-button']}
-                        variant="outlined"
-                        onClick={() => {
-                          setTime(timeValue)
-                          if (date) {
-                            const newDate = new Date(date.getTime())
-                            newDate.setHours(Number.parseInt(hour), Number.parseInt(minute))
-                            setDate(newDate)
-                          }
-                          setIsOpen(false)
-                        }}
-                      >
-                        {timeValue}
-                      </Button>
-                    )
-                  })}
-                </div>
-              </ScrollArea>
-            </div>
-            {/* <Popover.Close className={styles.close} aria-label="Close">
-              <CloseIcon width="16px" height="16px" />
-            </Popover.Close> */}
+          <Popover.Content sideOffset={5} className={styles.content}>
             <Popover.Arrow className={styles.arrow} />
+            <div className={styles['content-components']}>
+              <div ref={calendarRef}>
+                <Calendar
+                  mode="single"
+                  captionLayout="dropdown"
+                  selected={date}
+                  onSelect={(selectedDate) => {
+                    if (selectedDate) {
+                      const [hours, minutes] = time.split(':')
+                      selectedDate.setHours(Number.parseInt(hours), Number.parseInt(minutes))
+                      setDate(selectedDate)
+                    }
+                  }}
+                  onDayClick={() => setIsOpen(false)}
+                  fromYear={2000}
+                  toYear={new Date().getFullYear()}
+                  disabled={(date) =>
+                    Number(date) < Date.now() - 1000 * 60 * 60 * 24 ||
+                    Number(date) > Date.now() + 1000 * 60 * 60 * 24 * 30
+                  }
+                />
+              </div>
+              <div className={styles['time-picker-container']}>
+                <ScrollArea className={styles['time-picker-scroll-area']}>
+                  <div className={styles['time-picker']}>
+                    {Array.from({ length: 96 }).map((_, i) => {
+                      const hour = Math.floor(i / 4)
+                        .toString()
+                        .padStart(2, '0')
+                      const minute = ((i % 4) * 15).toString().padStart(2, '0')
+                      const timeValue = `${hour}:${minute}`
+                      return (
+                        <Button
+                          key={i}
+                          size="sm"
+                          className={styles['time-picker-button']}
+                          variant="outlined"
+                          onClick={() => {
+                            setTime(timeValue)
+                            if (date) {
+                              const newDate = new Date(date.getTime())
+                              newDate.setHours(Number.parseInt(hour), Number.parseInt(minute))
+                              setDate(newDate)
+                            }
+                            setIsOpen(false)
+                          }}
+                        >
+                          {timeValue}
+                        </Button>
+                      )
+                    })}
+                  </div>
+                </ScrollArea>
+              </div>
+            </div>
+            <div className={styles['content-actions']}>
+              <Button size="sm" intent="noeffect" className={styles['content-actions-button']}>
+                Cancel
+              </Button>
+              <Button
+                variant="outlined"
+                size="sm"
+                className={styles['content-actions-button']}
+                onClick={() => {
+                  setIsOpen(false)
+                  // if (date && onDateChange) {
+                  //   onDateChange(date)
+                  // }
+                }}
+              >
+                Select
+              </Button>
+            </div>
           </Popover.Content>
         </Popover.Portal>
       </Popover.Root>
