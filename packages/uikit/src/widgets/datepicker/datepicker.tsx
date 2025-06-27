@@ -1,12 +1,12 @@
 'use client'
 
 import cx from 'classnames'
+import { format } from 'date-fns'
 import { Popover } from 'radix-ui'
 import type React from 'react'
 import { useEffect, useRef, useState } from 'react'
-import { DayPicker } from 'react-day-picker'
-import classNames from 'react-day-picker/style.module.css'
-import { IconButton } from '../../components/button/index.js'
+import { Button, IconButton } from '../../components/button/index.js'
+import { Calendar } from '../../components/calendar/calendar.js'
 import { Input, InputAdornment } from '../../components/input'
 import type { Intent, Size, Variant } from '../../components/input/@types/input.js'
 import { ScrollArea } from '../../components/scroll-area/scroll-area.js'
@@ -36,6 +36,7 @@ export interface DatePickerProps extends React.InputHTMLAttributes<HTMLInputElem
   name: string
   variant?: Variant
   inputSize?: Size
+  inputWrapperClassName?: string
   inputClassName?: string
   intent?: Intent
   containerClassName?: string
@@ -58,6 +59,7 @@ export function DatePicker({
   variant,
   inputSize,
   inputClassName,
+  inputWrapperClassName,
   intent,
   containerClassName,
   onClear,
@@ -70,16 +72,17 @@ export function DatePicker({
   ariaLabelForClear = 'clear',
   ...rest
 }: DatePickerProps): React.JSX.Element {
-  const [open, setOpen] = useState(false)
-  const [date, setDate] = useState<Date | undefined>(new Date(Date.now()))
-  const [month, setMonth] = useState<Date | undefined>(date)
-  const [value, setValue] = useState(formatDate(date))
+  const [isOpen, setIsOpen] = useState(false)
+  const [time, setTime] = useState<string>('05:00')
+  const [date, setDate] = useState<Date | undefined>(new Date()) // Default button height
+  const [value, setValue] = useState<string | undefined>(undefined)
+
+  const calendarRef = useRef<HTMLDivElement | null>(null)
   const inputRef = useRef<HTMLInputElement>(null)
 
   const handleClear = (): void => {
     setDate(undefined)
-    setMonth(undefined)
-    setValue('')
+    setValue(undefined)
     if (onClear != null) {
       onClear()
     }
@@ -93,7 +96,6 @@ export function DatePicker({
     setValue(e.target.value)
     if (isValidDate(date)) {
       setDate(date)
-      setMonth(date)
     }
     if (onChange != null && onChange instanceof Function) {
       // onChange(new Date(event.target.value))
@@ -103,7 +105,7 @@ export function DatePicker({
   const handleOnKeyDown = (e: React.KeyboardEvent<HTMLInputElement>): void => {
     if (e.key === 'ArrowDown') {
       e.preventDefault()
-      setOpen(true)
+      setIsOpen(true)
     }
   }
 
@@ -118,13 +120,15 @@ export function DatePicker({
         inputSize={inputSize}
         ref={inputRef}
         className={inputClassName}
+        inputWrapperClassName={inputWrapperClassName}
         onChange={handleOnChange}
         onKeyDown={handleOnKeyDown}
         onClick={(e) => {
           e.preventDefault()
           e.stopPropagation()
+          setIsOpen(true)
         }}
-        value={value}
+        value={value ? `${format(value, 'PPP')}, ${time}` : 'Pick a date'}
         placeHolder={placeHolderText}
         helpText={helpText}
         disabled={false}
@@ -147,7 +151,7 @@ export function DatePicker({
         }
         {...rest}
       />
-      <Popover.Root open={open} onOpenChange={setOpen}>
+      <Popover.Root open={isOpen} onOpenChange={setIsOpen}>
         <Popover.Trigger asChild>
           <IconButton id="date-picker" intent="noeffect" variant="text">
             D<span className="sr-only">Select date</span>
@@ -155,22 +159,62 @@ export function DatePicker({
         </Popover.Trigger>
         <Popover.Portal>
           <Popover.Content className={styles.content} sideOffset={5}>
-            <DayPicker
-              classNames={classNames}
-              mode="single"
-              selected={date}
-              captionLayout="dropdown"
-              month={month}
-              onMonthChange={setMonth}
-              onSelect={(date) => {
-                setDate(date)
-                setValue(formatDate(date))
-                setOpen(false)
-              }}
-            />
-            <Popover.Close className={styles.close} aria-label="Close">
+            <div ref={calendarRef}>
+              <Calendar
+                mode="single"
+                captionLayout="dropdown"
+                selected={date}
+                onSelect={(selectedDate) => {
+                  if (selectedDate) {
+                    const [hours, minutes] = time.split(':')
+                    selectedDate.setHours(Number.parseInt(hours), Number.parseInt(minutes))
+                    setDate(selectedDate)
+                  }
+                }}
+                onDayClick={() => setIsOpen(false)}
+                fromYear={2000}
+                toYear={new Date().getFullYear()}
+                disabled={(date) =>
+                  Number(date) < Date.now() - 1000 * 60 * 60 * 24 ||
+                  Number(date) > Date.now() + 1000 * 60 * 60 * 24 * 30
+                }
+              />
+            </div>
+            <div className={styles['time-picker-container']}>
+              <ScrollArea className={styles['time-picker-scroll-area']}>
+                <div className={styles['time-picker']}>
+                  {Array.from({ length: 96 }).map((_, i) => {
+                    const hour = Math.floor(i / 4)
+                      .toString()
+                      .padStart(2, '0')
+                    const minute = ((i % 4) * 15).toString().padStart(2, '0')
+                    const timeValue = `${hour}:${minute}`
+                    return (
+                      <Button
+                        key={i}
+                        size="sm"
+                        className={styles['time-picker-button']}
+                        variant="outlined"
+                        onClick={() => {
+                          setTime(timeValue)
+                          if (date) {
+                            const newDate = new Date(date.getTime())
+                            newDate.setHours(Number.parseInt(hour), Number.parseInt(minute))
+                            setDate(newDate)
+                          }
+                          setIsOpen(false)
+                        }}
+                      >
+                        {timeValue}
+                      </Button>
+                    )
+                  })}
+                </div>
+              </ScrollArea>
+            </div>
+            {/* <Popover.Close className={styles.close} aria-label="Close">
               <CloseIcon width="16px" height="16px" />
-            </Popover.Close>
+            </Popover.Close> */}
             <Popover.Arrow className={styles.arrow} />
           </Popover.Content>
         </Popover.Portal>

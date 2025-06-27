@@ -2,8 +2,6 @@
 
 @layer infonomic-components {
   .root {
-    width: 200px;
-    height: 225px;
     border-radius: 4px;
     overflow: hidden;
     background-color: inherit;

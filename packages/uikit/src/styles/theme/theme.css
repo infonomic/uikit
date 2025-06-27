@@ -8,7 +8,7 @@
     --text: var(--gray-900);
     --headings: var(--primary-700);
     --muted: oklch(from var(--foreground) calc(l * 2) c h);
-    --border-color: var(--gray-50);
+    --border-color: var(--gray-100);
     --shadow: var(--shadow-md);
     --loader-color: var(--primary-500);
 
@@ -48,7 +48,7 @@
     --text: var(--gray-900);
     --headings: var(--primary-800);
     --muted: oklch(from var(--foreground) calc(l * 2) c h);
-    --border-color: var(--gray-50);
+    --border-color: var(--gray-100);
     --shadow: var(--shadow-md);
     --loader-color: var(--primary-500);
   }

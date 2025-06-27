@@ -41,7 +41,7 @@ export type CalendarProps = React.ComponentProps<typeof DayPicker> & {
   selectTriggerClassName?: string
 }
 
-function Calendar({
+export function Calendar({
   className,
   classNames,
   hideNavigation,
@@ -102,7 +102,12 @@ function Calendar({
               <ChevronsUpDown height="18px" width="18px" svgClassName={styles['select-chevrons']} />
             </Button>
           </SelectPrimitive.Trigger>
-          <SelectPrimitive.Content position="popper" sideOffset={8} align="center">
+          <SelectPrimitive.Content
+            className={styles['select-content']}
+            position="popper"
+            sideOffset={4}
+            align="center"
+          >
             <ScrollArea className={cx(styles['scroll-area'])}>
               {options?.map(({ value, label, disabled }, id) => (
                 <SelectPrimitive.Item
@@ -160,5 +165,3 @@ function Calendar({
   )
 }
 Calendar.displayName = 'Calendar'
-
-export { Calendar }
