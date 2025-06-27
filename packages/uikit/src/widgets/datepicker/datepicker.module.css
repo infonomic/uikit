@@ -50,6 +50,25 @@
     gap: var(--spacing-2);
   }
 
+
+  .status-and-actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .content-status {
+    display: flex;
+    align-items: center;
+    padding-left: var(--spacing-4);
+    padding-right: var(--spacing-2);
+    font-size: var(--font-size-sm);
+    color: var(--foreground);
+    width: 100%;
+  }
+
   .content-actions {
     display: flex;
     flex-direction: row;
@@ -60,7 +79,8 @@
   }
 
   .content-actions-button {
-    min-width: 100px;
+    /* min-width: 100px; */
+    --ring-color: var(--violet-7);
   }
 
   .arrow {
@@ -106,6 +126,8 @@
 
   .time-picker {
     display: flex;
+    padding-left: var(--spacing-1);
+    padding-right: var(--spacing-1);
     flex-direction: column;
     gap: 0.5rem;
   }

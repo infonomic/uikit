@@ -75,14 +75,12 @@ export function DatePicker({
   const [isOpen, setIsOpen] = useState(false)
   const [time, setTime] = useState<string>('05:00')
   const [date, setDate] = useState<Date | undefined>(new Date())
-  const [value, setValue] = useState<string | undefined>(undefined)
 
   const calendarRef = useRef<HTMLDivElement | null>(null)
   const inputRef = useRef<HTMLInputElement>(null)
 
   const handleClear = (): void => {
     setDate(undefined)
-    setValue(undefined)
     if (onClear != null) {
       onClear()
     }
@@ -93,7 +91,6 @@ export function DatePicker({
 
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const date = new Date(e.target.value)
-    setValue(e.target.value)
     if (isValidDate(date)) {
       setDate(date)
     }
@@ -128,7 +125,7 @@ export function DatePicker({
           e.stopPropagation()
           setIsOpen(true)
         }}
-        value={value ? `${format(value, 'PPP')}, ${time}` : 'Pick a date'}
+        value={date ? `${format(date, 'PPP')}, ${time}` : 'Pick a date'}
         placeHolder={placeHolderText}
         helpText={helpText}
         disabled={false}
@@ -174,12 +171,12 @@ export function DatePicker({
                     }
                   }}
                   // onDayClick={() => setIsOpen(false)}
-                  fromYear={2000}
-                  toYear={new Date().getFullYear()}
-                  disabled={(date) =>
-                    Number(date) < Date.now() - 1000 * 60 * 60 * 24 ||
-                    Number(date) > Date.now() + 1000 * 60 * 60 * 24 * 30
-                  }
+                  // fromYear={2000}
+                  // toYear={new Date().getFullYear()}
+                  // disabled={(date) =>
+                  //   Number(date) < Date.now() - 1000 * 60 * 60 * 24 ||
+                  //   Number(date) > Date.now() + 1000 * 60 * 60 * 24 * 30
+                  // }
                 />
               </div>
               <div className={styles['time-picker-container']}>
@@ -215,33 +212,38 @@ export function DatePicker({
                 </ScrollArea>
               </div>
             </div>
-            <div className={styles['content-actions']}>
-              <Button
-                size="sm"
-                intent="noeffect"
-                className={styles['content-actions-button']}
-                onClick={() => {
-                  setIsOpen(false)
-                  // if (date && onDateChange) {
-                  //   onDateChange(date)
-                  // }
-                }}
-              >
-                Cancel
-              </Button>
-              <Button
-                variant="outlined"
-                size="sm"
-                className={styles['content-actions-button']}
-                onClick={() => {
-                  setIsOpen(false)
-                  // if (date && onDateChange) {
-                  //   onDateChange(date)
-                  // }
-                }}
-              >
-                Select
-              </Button>
+            <div className={styles['status-and-actions']}>
+              <div className={styles['content-status']}>
+                {date ? `${format(date, 'PPP')}, ${time}` : 'No date selected'}
+              </div>
+              <div className={styles['content-actions']}>
+                <Button
+                  size="sm"
+                  intent="noeffect"
+                  className={styles['content-actions-button']}
+                  onClick={() => {
+                    setIsOpen(false)
+                    // if (date && onDateChange) {
+                    //   onDateChange(date)
+                    // }
+                  }}
+                >
+                  Cancel
+                </Button>
+                <Button
+                  variant="outlined"
+                  size="sm"
+                  className={styles['content-actions-button']}
+                  onClick={() => {
+                    setIsOpen(false)
+                    // if (date && onDateChange) {
+                    //   onDateChange(date)
+                    // }
+                  }}
+                >
+                  Select
+                </Button>
+              </div>
             </div>
           </Popover.Content>
         </Popover.Portal>
