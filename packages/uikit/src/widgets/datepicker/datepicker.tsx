@@ -4,7 +4,7 @@ import cx from 'classnames'
 import { format } from 'date-fns'
 import { Popover } from 'radix-ui'
 import type React from 'react'
-import { useEffect, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import { Button, IconButton } from '../../components/button/index.js'
 import { Calendar } from '../../components/calendar/calendar.js'
 import { Input, InputAdornment } from '../../components/input'
@@ -12,17 +12,6 @@ import type { Intent, Size, Variant } from '../../components/input/@types/input.
 import { ScrollArea } from '../../components/scroll-area/scroll-area.js'
 import { CloseIcon } from '../../icons'
 import styles from './datepicker.module.css'
-
-function formatDate(date: Date | undefined) {
-  if (date == null) {
-    return ''
-  }
-  return date.toLocaleDateString('en-US', {
-    day: '2-digit',
-    month: 'long',
-    year: 'numeric',
-  })
-}
 
 function isValidDate(date: Date | undefined) {
   if (date == null) {
@@ -34,6 +23,9 @@ function isValidDate(date: Date | undefined) {
 export interface DatePickerProps extends React.InputHTMLAttributes<HTMLInputElement> {
   id: string
   name: string
+  initialValue?: Date
+  yearsInFuture?: number
+  yearsInPast?: number
   variant?: Variant
   inputSize?: Size
   inputWrapperClassName?: string
@@ -56,14 +48,18 @@ export interface DatePickerProps extends React.InputHTMLAttributes<HTMLInputElem
 export function DatePicker({
   id,
   name,
+  initialValue,
+  yearsInFuture = 1,
+  yearsInPast = 10,
   variant,
+  intent,
   inputSize,
   inputClassName,
   inputWrapperClassName,
-  intent,
   containerClassName,
   onClear,
   onChange,
+  onDateChange,
   validatorFn,
   helpText,
   errorText,
@@ -74,8 +70,7 @@ export function DatePicker({
 }: DatePickerProps): React.JSX.Element {
   const [isOpen, setIsOpen] = useState(false)
   const [time, setTime] = useState<string>('05:00')
-  const [date, setDate] = useState<Date | undefined>(new Date())
-
+  const [date, setDate] = useState<Date | undefined>(initialValue ?? new Date())
   const calendarRef = useRef<HTMLDivElement | null>(null)
   const inputRef = useRef<HTMLInputElement>(null)
 
@@ -92,10 +87,9 @@ export function DatePicker({
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const date = new Date(e.target.value)
     if (isValidDate(date)) {
-      setDate(date)
-    }
-    if (onChange != null && onChange instanceof Function) {
-      // onChange(new Date(event.target.value))
+      if (onDateChange != null && onDateChange instanceof Function) {
+        onDateChange(date)
+      }
     }
   }
 
@@ -125,7 +119,7 @@ export function DatePicker({
           e.stopPropagation()
           setIsOpen(true)
         }}
-        value={date ? `${format(date, 'PPP')}, ${time}` : 'Pick a date'}
+        value={date ? `${format(date, 'PPPpp')}` : 'Pick a date'}
         placeHolder={placeHolderText}
         helpText={helpText}
         disabled={false}
@@ -171,8 +165,8 @@ export function DatePicker({
                     }
                   }}
                   // onDayClick={() => setIsOpen(false)}
-                  // fromYear={2000}
-                  // toYear={new Date().getFullYear()}
+                  startMonth={new Date(new Date().getFullYear() - yearsInPast, 0)}
+                  endMonth={new Date(new Date().getFullYear() + yearsInFuture, 0)}
                   // disabled={(date) =>
                   //   Number(date) < Date.now() - 1000 * 60 * 60 * 24 ||
                   //   Number(date) > Date.now() + 1000 * 60 * 60 * 24 * 30
@@ -198,7 +192,7 @@ export function DatePicker({
                             setTime(timeValue)
                             if (date) {
                               const newDate = new Date(date.getTime())
-                              newDate.setHours(Number.parseInt(hour), Number.parseInt(minute))
+                              newDate.setHours(Number.parseInt(hour), Number.parseInt(minute), 0)
                               setDate(newDate)
                             }
                             // setIsOpen(false)
@@ -214,7 +208,7 @@ export function DatePicker({
             </div>
             <div className={styles['status-and-actions']}>
               <div className={styles['content-status']}>
-                {date ? `${format(date, 'PPP')}, ${time}` : 'No date selected'}
+                {date ? `${format(date, 'PPPp')}` : 'No date selected'}
               </div>
               <div className={styles['content-actions']}>
                 <Button
@@ -223,9 +217,6 @@ export function DatePicker({
                   className={styles['content-actions-button']}
                   onClick={() => {
                     setIsOpen(false)
-                    // if (date && onDateChange) {
-                    //   onDateChange(date)
-                    // }
                   }}
                 >
                   Cancel
@@ -236,9 +227,9 @@ export function DatePicker({
                   className={styles['content-actions-button']}
                   onClick={() => {
                     setIsOpen(false)
-                    // if (date && onDateChange) {
-                    //   onDateChange(date)
-                    // }
+                    if (date && onDateChange) {
+                      onDateChange(date)
+                    }
                   }}
                 >
                   Select
