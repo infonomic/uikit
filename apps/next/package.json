@@ -13,23 +13,23 @@
   "dependencies": {
     "@infonomic/uikit": "workspace:*",
     "classnames": "^2.5.1",
-    "motion": "^12.18.1",
+    "motion": "^12.19.2",
     "next": "15.3.4",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.0.0",
+    "@biomejs/biome": "2.0.6",
     "@eslint/eslintrc": "^3.3.1",
-    "@tailwindcss/postcss": "^4.1.10",
-    "@types/node": "^24.0.3",
+    "@tailwindcss/postcss": "^4.1.11",
+    "@types/node": "^24.0.7",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
-    "eslint": "^9.29.0",
+    "eslint": "^9.30.0",
     "eslint-config-next": "15.3.4",
     "postcss": "^8.5.6",
     "tailwind-merge": "^3.3.1",
-    "tailwindcss": "4.1.10",
+    "tailwindcss": "4.1.11",
     "typescript": "^5.8.3"
   }
 }
