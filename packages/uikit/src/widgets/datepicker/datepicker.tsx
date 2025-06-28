@@ -11,6 +11,7 @@ import { format } from 'date-fns'
 import { Popover } from 'radix-ui'
 import type React from 'react'
 import { useRef, useState } from 'react'
+import type { Mode } from 'react-day-picker'
 import { Button, IconButton } from '../../components/button/index.js'
 import { Calendar } from '../../components/calendar/calendar.js'
 import { Input, InputAdornment } from '../../components/input'
@@ -24,6 +25,7 @@ export interface DatePickerProps extends React.InputHTMLAttributes<HTMLInputElem
   id: string
   name: string
   initialValue?: Date
+  mode?: 'date' | 'datetime'
   yearsInFuture?: number
   yearsInPast?: number
   variant?: Variant
@@ -49,6 +51,7 @@ export function DatePicker({
   id,
   name,
   initialValue,
+  mode = 'datetime',
   yearsInFuture = 1,
   yearsInPast = 10,
   variant,
@@ -164,11 +167,12 @@ export function DatePicker({
               <div ref={calendarRef}>
                 <Calendar
                   mode="single"
+                  required
                   captionLayout="dropdown"
                   selected={date}
                   month={month}
                   onMonthChange={setMonth}
-                  onSelect={(selectedDate) => {
+                  onSelect={(selectedDate: Date) => {
                     if (selectedDate) {
                       const [hours, minutes] = time.split(':')
                       selectedDate.setHours(Number.parseInt(hours), Number.parseInt(minutes))
@@ -186,38 +190,40 @@ export function DatePicker({
                   // }
                 />
               </div>
-              <div className={styles['time-picker-container']}>
-                <ScrollArea className={styles['time-picker-scroll-area']}>
-                  <div className={styles['time-picker']}>
-                    {Array.from({ length: 96 }).map((_, i) => {
-                      const hour = Math.floor(i / 4)
-                        .toString()
-                        .padStart(2, '0')
-                      const minute = ((i % 4) * 15).toString().padStart(2, '0')
-                      const timeValue = `${hour}:${minute}`
-                      return (
-                        <Button
-                          key={i}
-                          size="sm"
-                          className={styles['time-picker-button']}
-                          variant="outlined"
-                          onClick={() => {
-                            setTime(timeValue)
-                            if (date) {
-                              const newDate = new Date(date.getTime())
-                              newDate.setHours(Number.parseInt(hour), Number.parseInt(minute), 0)
-                              setDate(newDate)
-                              handleOnDateChange(newDate)
-                            }
-                          }}
-                        >
-                          {timeValue}
-                        </Button>
-                      )
-                    })}
-                  </div>
-                </ScrollArea>
-              </div>
+              {mode === 'datetime' && (
+                <div className={styles['time-picker-container']}>
+                  <ScrollArea className={styles['time-picker-scroll-area']}>
+                    <div className={styles['time-picker']}>
+                      {Array.from({ length: 96 }).map((_, i) => {
+                        const hour = Math.floor(i / 4)
+                          .toString()
+                          .padStart(2, '0')
+                        const minute = ((i % 4) * 15).toString().padStart(2, '0')
+                        const timeValue = `${hour}:${minute}`
+                        return (
+                          <Button
+                            key={i}
+                            size="sm"
+                            className={styles['time-picker-button']}
+                            variant="outlined"
+                            onClick={() => {
+                              setTime(timeValue)
+                              if (date) {
+                                const newDate = new Date(date.getTime())
+                                newDate.setHours(Number.parseInt(hour), Number.parseInt(minute), 0)
+                                setDate(newDate)
+                                handleOnDateChange(newDate)
+                              }
+                            }}
+                          >
+                            {timeValue}
+                          </Button>
+                        )
+                      })}
+                    </div>
+                  </ScrollArea>
+                </div>
+              )}
             </div>
             <div className={styles['status-and-actions']}>
               <div className={styles['content-status']}>
