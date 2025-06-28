@@ -10,14 +10,19 @@
 import cx from 'classnames'
 import { Select as SelectPrimitive } from 'radix-ui'
 import * as React from 'react'
-import { DayPicker, type Dropdown as DropDownDayPicker } from 'react-day-picker'
+import {
+  DayPicker,
+  type DayPickerProps,
+  type Dropdown as DropDownDayPicker,
+} from 'react-day-picker'
 import { ChevronsUpDown } from '../../icons/chevrons-up-down.js'
 import { Button } from '../button/button.js'
 import { ScrollArea } from '../scroll-area/scroll-area.js'
 
 import styles from './calendar.module.css'
 
-export type CalendarProps = React.ComponentProps<typeof DayPicker> & {
+export type CalendarProps = DayPickerProps & {
+  ref?: React.RefObject<HTMLDivElement>
   captionLabelClassName?: string
   dayClassName?: string
   dayButtonClassName?: string
@@ -42,6 +47,7 @@ export type CalendarProps = React.ComponentProps<typeof DayPicker> & {
 }
 
 export function Calendar({
+  ref,
   className,
   classNames,
   hideNavigation,

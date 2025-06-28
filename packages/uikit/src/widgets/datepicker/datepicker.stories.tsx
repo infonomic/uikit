@@ -7,9 +7,14 @@ export default {
 }
 
 export const Default = (): React.JSX.Element => {
+  const handleDateChange = (value: Date | undefined): void => {
+    console.log('Selected date:', value)
+  }
+
   return (
-    <div style={{ maxWidth: '600px', margin: '0 auto' }}>
+    <div style={{ maxWidth: '270px', margin: '0 auto' }}>
       <DatePicker
+        onDateChange={handleDateChange}
         id="published_on"
         name="published_on"
         variant="outlined"

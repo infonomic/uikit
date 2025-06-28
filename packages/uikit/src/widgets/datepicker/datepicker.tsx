@@ -1,4 +1,10 @@
 'use client'
+/**
+ * @file DatePicker component using react-day-picker and radix-ui
+ * Portions copyright (c) 2023 Maliksidk19 licensed under the MIT
+ * license found in the LICENSE file in the root directory of this source tree.
+ * of https://github.com/Maliksidk19/shadcn-datetime-picker/
+ */
 
 import cx from 'classnames'
 import { format } from 'date-fns'
@@ -10,15 +16,9 @@ import { Calendar } from '../../components/calendar/calendar.js'
 import { Input, InputAdornment } from '../../components/input'
 import type { Intent, Size, Variant } from '../../components/input/@types/input.js'
 import { ScrollArea } from '../../components/scroll-area/scroll-area.js'
-import { CloseIcon } from '../../icons'
+import { CalendarIcon } from '../../icons/calendar-icon.js'
+import { CloseIcon } from '../../icons/close-icon.js'
 import styles from './datepicker.module.css'
-
-function isValidDate(date: Date | undefined) {
-  if (date == null) {
-    return false
-  }
-  return Number.isNaN(date.getTime()) === true
-}
 
 export interface DatePickerProps extends React.InputHTMLAttributes<HTMLInputElement> {
   id: string
@@ -37,10 +37,10 @@ export interface DatePickerProps extends React.InputHTMLAttributes<HTMLInputElem
   ariaLabelForSearch?: string
   ariaLabelForClear?: string
   onClear?: () => void
-  onDateChange?: (value: Date) => void
+  onDateChange?: (value: Date | undefined) => void
   validatorFn?: (value: Date) => {
     valid: boolean
-    value: any
+    value: Date
   }
   placeHolderText?: string
 }
@@ -57,9 +57,8 @@ export function DatePicker({
   inputClassName,
   inputWrapperClassName,
   containerClassName,
-  onClear,
-  onChange,
-  onDateChange,
+  onClear = () => {},
+  onDateChange = () => {},
   validatorFn,
   helpText,
   errorText,
@@ -69,27 +68,24 @@ export function DatePicker({
   ...rest
 }: DatePickerProps): React.JSX.Element {
   const [isOpen, setIsOpen] = useState(false)
-  const [time, setTime] = useState<string>('05:00')
+  const [time, setTime] = useState<string>('08:00')
   const [date, setDate] = useState<Date | undefined>(initialValue ?? new Date())
+  const [month, setMonth] = useState<Date | undefined>(date)
   const calendarRef = useRef<HTMLDivElement | null>(null)
   const inputRef = useRef<HTMLInputElement>(null)
 
   const handleClear = (): void => {
     setDate(undefined)
-    if (onClear != null) {
-      onClear()
-    }
     if (inputRef?.current != null) {
       inputRef.current.value = ''
     }
+    onClear()
+    onDateChange(undefined)
   }
 
-  const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    const date = new Date(e.target.value)
-    if (isValidDate(date)) {
-      if (onDateChange != null && onDateChange instanceof Function) {
-        onDateChange(date)
-      }
+  const handleOnDateChange = (value: Date | undefined): void => {
+    if (onDateChange != null && typeof onDateChange === 'function') {
+      onDateChange(value)
     }
   }
 
@@ -102,71 +98,88 @@ export function DatePicker({
 
   return (
     <div className={cx(styles.container, containerClassName)}>
-      <Input
-        id={id}
-        readOnly
-        name={name}
-        variant={variant}
-        intent={intent}
-        inputSize={inputSize}
-        ref={inputRef}
-        className={inputClassName}
-        inputWrapperClassName={inputWrapperClassName}
-        onChange={handleOnChange}
-        onKeyDown={handleOnKeyDown}
-        onClick={(e) => {
-          e.preventDefault()
-          e.stopPropagation()
-          setIsOpen(true)
-        }}
-        value={date ? `${format(date, 'PPPpp')}` : 'Pick a date'}
-        placeHolder={placeHolderText}
-        helpText={helpText}
-        disabled={false}
-        error={false}
-        endAdornment={
-          <InputAdornment position="end">
-            <IconButton
-              role="button"
-              intent="noeffect"
-              variant="text"
-              arial-label={ariaLabelForClear}
-              size="xs"
-              onClick={() => {
-                handleClear()
-              }}
-            >
-              <CloseIcon width="16px" height="16px" />
-            </IconButton>
-          </InputAdornment>
-        }
-        {...rest}
-      />
+      <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-2)' }}>
+        <Input
+          id={id}
+          readOnly
+          name={name}
+          variant={variant}
+          intent={intent}
+          inputSize={inputSize}
+          ref={inputRef}
+          className={cx(styles.input, inputClassName)}
+          inputWrapperClassName={cx(styles['input-wrapper'], inputWrapperClassName)}
+          onKeyDown={handleOnKeyDown}
+          onClick={(e) => {
+            e.preventDefault()
+            e.stopPropagation()
+            setIsOpen(true)
+          }}
+          value={date ? `${format(date, 'PP HH:mm')}` : 'Pick a date'}
+          placeHolder={placeHolderText}
+          helpText={helpText}
+          disabled={false}
+          error={false}
+          endAdornment={
+            <InputAdornment position="end">
+              <IconButton
+                role="button"
+                intent="noeffect"
+                variant="text"
+                arial-label={ariaLabelForClear}
+                size="xs"
+                onClick={() => {
+                  handleClear()
+                }}
+              >
+                <CloseIcon width="14px" height="14px" />
+              </IconButton>
+              <IconButton
+                role="button"
+                intent="noeffect"
+                variant="text"
+                arial-label={ariaLabelForClear}
+                size="xs"
+                onClick={() => {
+                  setIsOpen(true)
+                }}
+              >
+                <CalendarIcon width="18px" height="18px" />
+              </IconButton>
+            </InputAdornment>
+          }
+          {...rest}
+        />
+      </div>
+
       <Popover.Root open={isOpen} onOpenChange={setIsOpen}>
         <Popover.Trigger asChild>
-          <IconButton id="date-picker" intent="noeffect" variant="text">
-            D<span className="sr-only">Select date</span>
-          </IconButton>
+          <div style={{ position: 'relative', height: '1px' }}>
+            <span className="sr-only">Select date</span>
+          </div>
         </Popover.Trigger>
         <Popover.Portal>
           <Popover.Content sideOffset={5} className={styles.content}>
-            <Popover.Arrow className={styles.arrow} />
             <div className={styles['content-components']}>
               <div ref={calendarRef}>
                 <Calendar
                   mode="single"
                   captionLayout="dropdown"
                   selected={date}
+                  month={month}
+                  onMonthChange={setMonth}
                   onSelect={(selectedDate) => {
                     if (selectedDate) {
                       const [hours, minutes] = time.split(':')
                       selectedDate.setHours(Number.parseInt(hours), Number.parseInt(minutes))
                       setDate(selectedDate)
+                      setMonth(selectedDate)
+                      handleOnDateChange(selectedDate)
                     }
                   }}
-                  // onDayClick={() => setIsOpen(false)}
                   startMonth={new Date(new Date().getFullYear() - yearsInPast, 0)}
                   endMonth={new Date(new Date().getFullYear() + yearsInFuture, 0)}
+                  // TODO: add props
                   // disabled={(date) =>
                   //   Number(date) < Date.now() - 1000 * 60 * 60 * 24 ||
                   //   Number(date) > Date.now() + 1000 * 60 * 60 * 24 * 30
@@ -194,8 +207,8 @@ export function DatePicker({
                               const newDate = new Date(date.getTime())
                               newDate.setHours(Number.parseInt(hour), Number.parseInt(minute), 0)
                               setDate(newDate)
+                              handleOnDateChange(newDate)
                             }
-                            // setIsOpen(false)
                           }}
                         >
                           {timeValue}
@@ -211,29 +224,44 @@ export function DatePicker({
                 {date ? `${format(date, 'PPPp')}` : 'No date selected'}
               </div>
               <div className={styles['content-actions']}>
-                <Button
-                  size="sm"
-                  intent="noeffect"
-                  className={styles['content-actions-button']}
-                  onClick={() => {
-                    setIsOpen(false)
-                  }}
-                >
-                  Cancel
-                </Button>
-                <Button
-                  variant="outlined"
-                  size="sm"
-                  className={styles['content-actions-button']}
-                  onClick={() => {
-                    setIsOpen(false)
-                    if (date && onDateChange) {
-                      onDateChange(date)
-                    }
-                  }}
-                >
-                  Select
-                </Button>
+                <div>
+                  <Button
+                    variant="outlined"
+                    size="sm"
+                    className={styles['content-actions-button']}
+                    onClick={() => {
+                      const today = new Date()
+                      setDate(today)
+                      setMonth(today)
+                      handleOnDateChange(today)
+                    }}
+                  >
+                    Today
+                  </Button>
+                </div>
+                <div style={{ display: 'flex', gap: 'var(--spacing-3)' }}>
+                  <Button
+                    size="sm"
+                    intent="noeffect"
+                    className={styles['content-actions-button']}
+                    onClick={() => {
+                      setIsOpen(false)
+                    }}
+                  >
+                    Cancel
+                  </Button>
+                  <Button
+                    variant="outlined"
+                    size="sm"
+                    className={styles['content-actions-button']}
+                    onClick={() => {
+                      setIsOpen(false)
+                      handleOnDateChange(date)
+                    }}
+                  >
+                    Select
+                  </Button>
+                </div>
               </div>
             </div>
           </Popover.Content>

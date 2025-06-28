@@ -1,6 +1,8 @@
 import type { Meta } from '@storybook/react-vite'
+import { format } from 'date-fns'
 import { useRef, useState } from 'react'
 import type { DateRange } from 'react-day-picker'
+import { Button } from '../button/button.js'
 import { Calendar as CalendarComponent } from './calendar.js'
 
 const meta: Meta<typeof CalendarComponent> = {
@@ -17,7 +19,8 @@ export default meta
 export const Calendar = (): React.JSX.Element => {
   const [isOpen, setIsOpen] = useState(false)
   const [time, setTime] = useState<string>('05:00')
-  const [date, setDate] = useState<Date | undefined>(new Date())
+  const [date, setDate] = useState<Date>(new Date())
+  const [month, setMonth] = useState<Date>(date)
 
   const calendarRef = useRef<HTMLDivElement | null>(null)
 
@@ -29,11 +32,14 @@ export const Calendar = (): React.JSX.Element => {
           mode="single"
           captionLayout="dropdown"
           selected={date}
+          month={month}
+          onMonthChange={setMonth}
           onSelect={(selectedDate: Date) => {
             if (selectedDate) {
               const [hours, minutes] = time.split(':')
               selectedDate.setHours(Number.parseInt(hours), Number.parseInt(minutes))
               setDate(selectedDate)
+              setMonth(selectedDate)
             }
           }}
           onDayClick={() => setIsOpen(false)}
@@ -44,6 +50,23 @@ export const Calendar = (): React.JSX.Element => {
           //   Number(date) > Date.now() + 1000 * 60 * 60 * 24 * 30
           // }
         />
+        <div style={{ paddingLeft: '1rem', paddingTop: '1rem' }}>
+          {date ? `${format(date, 'PPPp')}` : 'No date selected'}
+        </div>
+        <div style={{ paddingLeft: '1rem', paddingTop: '1rem' }}>
+          <Button
+            size="sm"
+            intent="noeffect"
+            className="mt-2"
+            onClick={() => {
+              const today = new Date()
+              setDate(today)
+              setMonth(today)
+            }}
+          >
+            Today
+          </Button>
+        </div>
       </div>
     </div>
   )

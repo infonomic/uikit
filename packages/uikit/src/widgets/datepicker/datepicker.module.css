@@ -5,6 +5,11 @@
     position: relative;
   }
 
+  .input,
+  .input-wrapper {
+    width: 100%;
+  }
+
   .content {
     width: 100%;
     border-radius: 4px;
@@ -53,7 +58,7 @@
 
   .status-and-actions {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
     width: 100%;
@@ -72,7 +77,9 @@
   .content-actions {
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: space-between;
+    margin-top: var(--spacing-3);
+    padding-left: var(--spacing-4);
     padding-right: var(--spacing-6);
     gap: var(--spacing-2);
     width: 100%;
