@@ -10,9 +10,9 @@ import cx from 'classnames'
 import { format } from 'date-fns'
 import { Popover } from 'radix-ui'
 import type React from 'react'
-import { useRef, useState } from 'react'
-import type { Mode } from 'react-day-picker'
-import { Button, IconButton } from '../../components/button/index.js'
+import { useEffect, useRef, useState } from 'react'
+import { Button } from '../../components/button/button.js'
+import { IconButton } from '../../components/button/icon-button.js'
 import { Calendar } from '../../components/calendar/calendar.js'
 import { Input, InputAdornment } from '../../components/input'
 import type { Intent, Size, Variant } from '../../components/input/@types/input.js'
@@ -24,7 +24,9 @@ import styles from './datepicker.module.css'
 export interface DatePickerProps extends React.InputHTMLAttributes<HTMLInputElement> {
   id: string
   name: string
-  initialValue?: Date
+  label?: string
+  required?: boolean
+  initialValue?: Date | null
   mode?: 'date' | 'datetime'
   yearsInFuture?: number
   yearsInPast?: number
@@ -39,7 +41,7 @@ export interface DatePickerProps extends React.InputHTMLAttributes<HTMLInputElem
   ariaLabelForSearch?: string
   ariaLabelForClear?: string
   onClear?: () => void
-  onDateChange?: (value: Date | undefined) => void
+  onDateChange?: (value: Date | null) => void
   validatorFn?: (value: Date) => {
     valid: boolean
     value: Date
@@ -50,6 +52,8 @@ export interface DatePickerProps extends React.InputHTMLAttributes<HTMLInputElem
 export function DatePicker({
   id,
   name,
+  label,
+  required,
   initialValue,
   mode = 'datetime',
   yearsInFuture = 1,
@@ -65,28 +69,37 @@ export function DatePicker({
   validatorFn,
   helpText,
   errorText,
-  placeHolderText = 'Date',
+  placeHolderText = '',
   ariaLabelForSearch = 'date',
   ariaLabelForClear = 'clear',
   ...rest
 }: DatePickerProps): React.JSX.Element {
   const [isOpen, setIsOpen] = useState(false)
   const [time, setTime] = useState<string>('08:00')
-  const [date, setDate] = useState<Date | undefined>(initialValue ?? new Date())
-  const [month, setMonth] = useState<Date | undefined>(date)
+  const [date, setDate] = useState<Date | null>(() => {
+    if (initialValue) {
+      return initialValue
+    }
+    if (initialValue == null && required === true) {
+      return new Date()
+    }
+    return null
+  })
+  const [month, setMonth] = useState<Date | null>(date)
   const calendarRef = useRef<HTMLDivElement | null>(null)
   const inputRef = useRef<HTMLInputElement>(null)
+  const hasInitialized = useRef(false)
 
   const handleClear = (): void => {
-    setDate(undefined)
     if (inputRef?.current != null) {
       inputRef.current.value = ''
     }
+    setDate(null)
+    onDateChange(null)
     onClear()
-    onDateChange(undefined)
   }
 
-  const handleOnDateChange = (value: Date | undefined): void => {
+  const handleOnDateChange = (value: Date | null): void => {
     if (onDateChange != null && typeof onDateChange === 'function') {
       onDateChange(value)
     }
@@ -99,12 +112,31 @@ export function DatePicker({
     }
   }
 
+  // This is to handle cases where the date picker is used in a form and the initial
+  // value is not set, but the field is required. In such cases, we want
+  // to trigger the onDateChange callback with the current date to ensure that
+  // the form is valid and the date picker is initialized with a value.
+  // Runs only once on mount
+  useEffect(() => {
+    if (
+      initialValue == null &&
+      date != null &&
+      required === true &&
+      hasInitialized.current === false
+    ) {
+      hasInitialized.current = true
+      onDateChange(date)
+    }
+  })
+
   return (
     <div className={cx(styles.container, containerClassName)}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-2)' }}>
         <Input
           id={id}
+          label={label}
           readOnly
+          required={required}
           name={name}
           variant={variant}
           intent={intent}
@@ -118,7 +150,7 @@ export function DatePicker({
             e.stopPropagation()
             setIsOpen(true)
           }}
-          value={date ? `${format(date, 'PP HH:mm')}` : 'Pick a date'}
+          value={date ? `${format(date, 'PP HH:mm')}` : ''}
           placeHolder={placeHolderText}
           helpText={helpText}
           disabled={false}
@@ -169,8 +201,8 @@ export function DatePicker({
                   mode="single"
                   required
                   captionLayout="dropdown"
-                  selected={date}
-                  month={month}
+                  selected={date ?? undefined}
+                  month={month ?? undefined}
                   onMonthChange={setMonth}
                   onSelect={(selectedDate: Date) => {
                     if (selectedDate) {
