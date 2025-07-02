@@ -1,5 +1,4 @@
 {
-  "extends": "../../tsconfig.json",
   "compilerOptions": {
     "plugins": [{ "name": "typescript-plugin-css-modules" }],
     "target": "ES2017",
