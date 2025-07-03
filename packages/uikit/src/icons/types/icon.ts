@@ -5,5 +5,4 @@ export interface IconProps extends React.ComponentProps<'div'> {
   stroke?: string
   width?: string
   height?: string
-  useSprite?: boolean
 }

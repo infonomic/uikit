@@ -2,22 +2,17 @@
 
 import { useFocusTrap, useMergedRef } from '@mantine/hooks'
 import cx from 'classnames'
-import React from 'react'
-
 import { Toast as ToastPrimitive } from 'radix-ui'
-
+import React from 'react'
+import { CloseIcon } from '../../icons/close-icon'
 import { DangerIcon } from '../../icons/danger-icon'
 import { InfoIcon } from '../../icons/info-icon'
 import { PrimaryIcon } from '../../icons/primary-icon'
 import { SuccessIcon } from '../../icons/success-icon'
 import { WarningIcon } from '../../icons/warning-icon'
-
 import { Button } from '../button/button.js'
-
-import styles from './toast.module.css'
-
-import { CloseIcon } from '../../icons/close-icon'
 import type { IconType, Intent, OnOpenChange, Position } from './@types/toast.js'
+import styles from './toast.module.css'
 
 const toastIcons = {
   success: SuccessIcon,
