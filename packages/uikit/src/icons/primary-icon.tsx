@@ -1,6 +1,5 @@
-import type React from 'react'
-
 import cx from 'classnames'
+import type React from 'react'
 
 import { IconElement } from './icon-element.jsx'
 
@@ -10,12 +9,7 @@ const svgStylesDefault = 'fill-gray-800 dark:fill-white'
 
 import styles from './icons.module.css'
 
-export const PrimaryIcon = ({
-  className,
-  svgClassName,
-  useSprite,
-  ...rest
-}: IconProps): React.JSX.Element => {
+export const PrimaryIcon = ({ className, svgClassName, ...rest }: IconProps): React.JSX.Element => {
   const applied = cx(styles['fill-primary'], svgClassName)
 
   return (
