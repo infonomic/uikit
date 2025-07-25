@@ -19,20 +19,19 @@ We built this with the following goals in mind:
 
 ## Getting Started
 
-Install packages and build once...
+Install packages
 
-`pnpm install && pnpm build`
+`npm install @infonomic/uikit`
 
-To start the Next.js 15 and Astro apps in dev mode...
+or...
 
-`pnpm dev`
+`pnpm add @infonomic/uikit`
 
-To start Storybook for the ui kit.
+And then in your application...
 
-`cd packages/uikt`
+```ts
+import { Button, Card, Container, Section } from '@infonomic/uikit/react
 
-`pnpm storybook`
+```
 
-## Note
-
-UI kit vars / colors have been registered with Tailwind in Next.js
+At the moment docs are in the main repo and stories are available via Storybook.
