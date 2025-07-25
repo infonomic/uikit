@@ -3,6 +3,7 @@
   "private": false,
   "license": "MIT",
   "version": "1.0.2",
+  "type": "module",
   "description": "Infonomic UI kit is a collection of reusable UI components and utilities for React and Astro.",
   "keywords": [
     "uikit",
@@ -22,7 +23,7 @@
   "module": "./dist/react.js",
   "main": "./dist/react.js",
   "files": [
-    "dist/",
+    "dist",
     "src/astro.js"
   ],
   "exports": {
@@ -107,6 +108,27 @@
     "vitest": "^3.2.4"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "files": [
+      "dist/",
+      "src/astro.js"
+    ],
+    "exports": {
+      "./astro": "./src/astro.ts",
+      "./react": {
+        "types": "./dist/react.d.ts",
+        "import": "./dist/react.js",
+        "main": "./dist/react.js",
+        "default": "./dist/react.js"
+      },
+      "./styles.css": {
+        "import": "./dist/styles/styles.css",
+        "default": "./dist/styles/styles.css"
+      },
+      "./typography.css": {
+        "import": "./dist/styles/typography.css",
+        "default": "./dist/styles/typography.css"
+      }
+    }
   }
 }
