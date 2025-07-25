@@ -123,10 +123,6 @@
   }
 
   .time-picker-scroll-area {
-    height: 18rem;
-  }
-
-  .time-picker-scroll-area {
     height: 280px;
     padding-right: var(--spacing-4)
   }

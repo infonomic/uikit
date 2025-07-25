@@ -1,8 +1,22 @@
 {
   "name": "@infonomic/uikit",
+  "private": false,
+  "license": "MIT",
   "version": "1.0.0",
-  "private": true,
-  "type": "module",
+  "description": "Infonomic UI kit is a collection of reusable UI components and utilities for React and Astro.",
+  "keywords": [
+    "uikit",
+    "design system"
+  ],
+  "homepage": "https://github.com/infonomic/uikit",
+  "bugs": {
+    "url": "https://github.com/infonomic/uikit/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/infonomic/uikit.git",
+    "directory": "packages/uikit"
+  },
   "sideEffects": false,
   "types": "./dist/react.d.ts",
   "module": "./dist/react.js",
@@ -91,5 +105,8 @@
     "typescript-plugin-css-modules": "^5.1.0",
     "vite": "^7.0.0",
     "vitest": "^3.2.4"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

@@ -1,6 +1,5 @@
-import type React from 'react'
-
 import type { Meta } from '@storybook/react-vite'
+import type React from 'react'
 
 import { Avatar as AvatarComponent } from './avatar.js'
 
@@ -24,6 +23,6 @@ export const Avatar = (): React.JSX.Element => (
       justifyContent: 'center',
     }}
   >
-    <AvatarComponent />
+    <AvatarComponent initials="AB" />
   </div>
 )

@@ -49,7 +49,7 @@
   .thumb {
     flex: 1;
     background: var(--primary-100);
-    border-radius: var(--scrollbar-size);
+    border-radius: var(--border-radius-sm);
     position: relative;
 
     /* increase target size for touch devices https://www.w3.org/WAI/WCAG21/Understanding/target-size.html */

@@ -7,7 +7,7 @@ export default {
 }
 
 export const Default = (): React.JSX.Element => {
-  const handleDateChange = (value: Date | undefined): void => {
+  const handleDateChange = (value: Date | null): void => {
     console.log('Selected date:', value)
   }
 

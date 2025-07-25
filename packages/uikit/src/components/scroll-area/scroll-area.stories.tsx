@@ -18,7 +18,9 @@ const TAGS = Array.from({ length: 50 }).map((_, i, a) => `v1.2.0-beta.${a.length
 export const ScrollArea = (): React.JSX.Element => {
   return (
     <div style={{ height: '100vh' }}>
-      <ScrollAreaComponent style={{ width: '200px' }}>
+      <ScrollAreaComponent
+        style={{ width: '200px', height: '300px', margin: '0 auto', border: '1px solid #ccc' }}
+      >
         <div style={{ padding: '15px 20px' }}>
           <div>Tags</div>
           {TAGS.map((tag) => (
