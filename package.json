@@ -17,7 +17,9 @@
     "lint": "turbo run lint --continue",
     "typecheck": "turbo run typecheck --continue",
     "test": "turbo run test",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "version-packages": "changeset version",
+    "release": "turbo run build --filter=@infonomic/uikit && changeset publish",
+    "publish:npm": "pnpm release"
   },
   "license": "ISC",
   "dependencies": {
@@ -25,7 +27,8 @@
     "typescript": "5.8.3"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.1.2"
+    "@biomejs/biome": "2.1.2",
+    "@changesets/cli": "^2.29.5"
   },
   "engines": {
     "node": "^18.20.2 || >=20.9.0"
