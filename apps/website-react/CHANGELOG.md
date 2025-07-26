@@ -1,5 +1,13 @@
 # @infonomic/website-react
 
+## 1.1.1
+
+### Patch Changes
+
+- 8edee19: Test patch for github workflow
+- Updated dependencies [8edee19]
+  - @infonomic/uikit@1.1.1
+
 ## 1.1.0
 
 ### Minor Changes
