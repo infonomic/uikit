@@ -1,0 +1,46 @@
+{
+  "name": "Infonomic",
+  "short_name": "Infonomic",
+  "display": "standalone",
+  "start_url": "/?utm_medium=PWA&utm_source=launcher",
+  "orientation": "any",
+  "theme_color": "#000855",
+  "background_color": "#000855",
+  "description": "Prepare for Liftoff! Infonomic builds applications that help individuals and organizations to thrive.",
+  "icons": [
+    {
+      "src": "/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/logo-icon-196.png",
+      "sizes": "196x196",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/logo-icon-196.png",
+      "sizes": "196x196",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/logo-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/logo-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+import { createRootRoute, Outlet } from '@tanstack/react-router'
+import { TanStackRouterDevtools } from '@tanstack/react-router-devtools'
+import { AppBar } from '@/ui/components/app-bar.tsx'
+import { SiteFooter } from '@/ui/components/site-footer.tsx'
+
+import '@/ui/styles/global.css'
+
+export const Route = createRootRoute({
+  component: () => {
+    return (
+      <>
+        <div className="layout-container flex flex-col w-full max-w-full min-h-screen h-full selection:text-white selection:bg-primary-400">
+          <AppBar lng="en" />
+          <main id="main-content" className="flex flex-1 flex-col">
+            <Outlet />
+          </main>
+          <SiteFooter />
+        </div>
+        <TanStackRouterDevtools />
+      </>
+    )
+  },
+})

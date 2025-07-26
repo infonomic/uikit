@@ -1,0 +1,23 @@
+{
+  "name": "@infonomic/website-astro",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "clean": "rimraf .astro dist node_modules .turbo",
+    "dev": "astro dev --host 0.0.0.0 --port 3001",
+    "build": "astro build",
+    "preview": "astro preview --host 0.0.0.0 --port 3001",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/node": "^9.3.0",
+    "@infonomic/uikit": "workspace:*",
+    "astro": "^5.12.3",
+    "nanostores": "^1.0.1",
+    "sharp": "^0.34.3"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.1.2"
+  }
+}

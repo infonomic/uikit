@@ -1,0 +1,7 @@
+body {
+  background-color: white;
+}
+
+.dark body {
+  background-color: var(--canvas-900);
+}
