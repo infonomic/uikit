@@ -13,7 +13,11 @@ Write a summary for the change set.
 
 4. Accept the PR - the github action will then publish to npm.
 
+NOTE: the auto-flow GitHub action will also create a Releases entry in the repo as well as attach the zipped binaries.
+
 ## II Manual flow:
+
+NOTE: you'll need to log in to NPM on the command line before starting: `npm login`
 
 1. `pnpm changeset`
 
