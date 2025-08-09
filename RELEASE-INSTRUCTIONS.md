@@ -17,6 +17,8 @@ Write a summary for the change set.
 
 NOTE: the auto-flow GitHub action will also create a Releases entry in the repo as well as attach the zipped binaries.
 
+IMPORTANT: It's important that everyone then git fetches, git pulls the latest from the main branch of the repo, and merges / rebases their local branches to bring them up to date with the release.
+
 ## II Manual flow:
 
 NOTE: you'll need to log in to NPM on the command line before starting: `npm login`
