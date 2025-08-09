@@ -1,17 +1,14 @@
 'use client'
 
-import type * as React from 'react'
-
 import { CheckIcon } from '@radix-ui/react-icons'
 import cx from 'classnames'
-import { Checkbox as CheckboxPrimitive } from 'radix-ui'
-import { Label as LabelPrimitive } from 'radix-ui'
+import { Checkbox as CheckboxPrimitive, Label as LabelPrimitive } from 'radix-ui'
+import type * as React from 'react'
 
 import type { Intent, Size, Variant } from './@types/checkbox.js'
+import styles from './checkbox.module.css'
 import { ErrorText } from './error-text.js'
 import { HelpText } from './help-text.js'
-
-import styles from './checkbox.module.css'
 
 export interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   id: string
@@ -22,8 +19,9 @@ export interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   intent?: Intent
   reverse?: boolean
   checked?: boolean
-  className?: string
+  checkBoxClasses?: string
   containerClasses?: string
+  componentClasses?: string
   labelClasses?: string
   error?: boolean
   helpText?: string
@@ -40,8 +38,9 @@ export const Checkbox = function Checkbox({
   size = 'md',
   intent = 'primary',
   reverse = false,
-  className,
+  checkBoxClasses,
   containerClasses,
+  componentClasses,
   labelClasses,
   error = false,
   helpText = '',
@@ -51,13 +50,19 @@ export const Checkbox = function Checkbox({
   ref?: React.RefObject<HTMLButtonElement>
 }): React.JSX.Element {
   return (
-    <div>
-      <div className={cx(styles.container, containerClasses, { [styles.reverse]: reverse })}>
+    <div className={containerClasses}>
+      <div className={cx(styles.container, componentClasses, { [styles.reverse]: reverse })}>
         <CheckboxPrimitive.Root
           ref={ref}
           id={id}
           name={name}
-          className={cx(styles.checkbox, styles[variant], styles[size], styles[intent], className)}
+          className={cx(
+            styles.checkbox,
+            styles[variant],
+            styles[size],
+            styles[intent],
+            checkBoxClasses
+          )}
           {...rest}
         >
           <CheckboxPrimitive.Indicator forceMount className={styles.indicator}>
