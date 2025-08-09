@@ -21,8 +21,7 @@
     "typecheck": "turbo run typecheck --continue",
     "test": "turbo run test",
     "version-packages": "changeset version",
-    "release": "turbo run build --filter=@infonomic/uikit && changeset publish",
-    "publish:npm": "pnpm release"
+    "publish:npm": "turbo run build --filter=@infonomic/uikit && changeset publish"
   },
   "license": "ISC",
   "dependencies": {

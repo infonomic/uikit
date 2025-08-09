@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 1.3.0
+
+### Minor Changes
+
+- Updated classname slots for checkbox
+
 ## 1.2.0
 
 ### Minor Changes

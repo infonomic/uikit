@@ -1,5 +1,16 @@
 # @infonomic/website-react
 
+## 1.3.0
+
+### Minor Changes
+
+- Updated classname slots for checkbox
+
+### Patch Changes
+
+- Updated dependencies
+  - @infonomic/uikit@1.3.0
+
 ## 1.2.0
 
 ### Minor Changes
