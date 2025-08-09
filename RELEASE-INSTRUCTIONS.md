@@ -13,9 +13,9 @@ Write a summary for the change set.
 
 3. The github action will create a pull request for the changeset
 
-4. Accept the PR - the github action will then publish to npm.
+4. Manually review and accept the PR - the github action will then publish to npm.
 
-NOTE: the auto-flow GitHub action will also create a Releases entry in the repo as well as attach the zipped binaries.
+NOTE: the auto-flow GitHub action will also create a Releases entry in the repo as well as attach zipped binaries.
 
 IMPORTANT: It's important that everyone then git fetches, git pulls the latest from the main branch of the repo, and merges / rebases their local branches to bring them up to date with the release.
 
@@ -34,4 +34,6 @@ This will call changeset version, updating all package.json versions and updatin
 
 3. `pnpm publish:npm`
 
-This will build the uikit package, and then call changeset publish. NOTE: If published via the Infonomic2 account, it will require an OTP entered into the command line.
+This will build the uikit package, and then call changeset publish. It will publish to npm via whatever account you've authenticated locally with via `npm login`.
+
+NOTE: The manual flow will not create a Releases entry in the repo (and therefore not create any attached zip binaries).
