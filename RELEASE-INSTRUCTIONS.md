@@ -32,7 +32,7 @@ Write a summary for the change set.
 
 This will call changeset version, updating all package.json versions and updating release notes. It will also clear / remove the pending changeset from the .changeset directory.
 
-3. `pnpm publish:npm`
+3. `pnpm release:npm`
 
 This will build the uikit package, and then call changeset publish. It will publish to npm via whatever account you've authenticated locally with via `npm login`.
 

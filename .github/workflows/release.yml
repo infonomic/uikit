@@ -37,7 +37,7 @@ jobs:
         uses: changesets/action@v1
         with:
           # This will run `pnpm changeset publish` if a new version is released.
-          publish: pnpm run publish:npm
+          publish: pnpm run release:npm
           commit: "chore: update package versions"
           title: "chore: update package versions"
         env:
