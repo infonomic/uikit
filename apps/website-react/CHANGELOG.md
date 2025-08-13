@@ -1,5 +1,16 @@
 # @infonomic/website-react
 
+## 1.5.0
+
+### Minor Changes
+
+- 96d8115: "Updated uikit package.json sideEffects": ["**/*.css"]
+
+### Patch Changes
+
+- Updated dependencies [96d8115]
+  - @infonomic/uikit@1.5.0
+
 ## 1.4.0
 
 ### Minor Changes
