@@ -18,7 +18,9 @@
     "url": "git+https://github.com/infonomic/uikit.git",
     "directory": "packages/uikit"
   },
-  "sideEffects": false,
+  "sideEffects": [
+    "**/*.css"
+  ],
   "types": "./dist/react.d.ts",
   "module": "./dist/react.js",
   "main": "./dist/react.js",
