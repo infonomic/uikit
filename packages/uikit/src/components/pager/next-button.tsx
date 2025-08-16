@@ -1,14 +1,11 @@
 'use client'
 
-import type React from 'react'
-
 import { ChevronRightIcon } from '@radix-ui/react-icons'
 import { Slot } from '@radix-ui/react-slot'
 import cx from 'classnames'
-
-import { usePager } from './pagination'
-
+import type React from 'react'
 import type { PagerButtonProps, RefType } from './pagination'
+import { usePager } from './pagination'
 
 import styles from './pagination.module.css'
 
@@ -40,12 +37,12 @@ export const NextButton = ({
           styles['next-button'],
           [styles[variant]],
           { [styles['rounded-right']]: showLastButton == null || showLastButton === false },
-          'pager-next',
+          'pagination-next',
           className
         )}
         disabled={disabled}
         title="Next"
-        data-testid="pager-next"
+        data-testid="pagination-next"
         {...aria}
         {...rest}
       >

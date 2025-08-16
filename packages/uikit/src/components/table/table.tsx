@@ -1,6 +1,5 @@
-import type * as React from 'react'
-
 import cx from 'classnames'
+import type * as React from 'react'
 
 import styles from './table.module.css'
 
@@ -36,7 +35,7 @@ function Container({
   const classes = cx(styles['table-container'], 'table-container', className)
   return (
     <div ref={ref} className={classes} {...rest}>
-      <div className={cx('table--scroller', styles['table-scroller'])}>{children}</div>
+      <div className={cx('table-scroller', styles['table-scroller'])}>{children}</div>
     </div>
   )
 }
@@ -52,7 +51,7 @@ function Body({
   ref?: React.RefObject<HTMLTableSectionElement>
 }): React.JSX.Element {
   return (
-    <tbody ref={ref} className={className} {...rest}>
+    <tbody ref={ref} className={cx('table-body', className)} {...rest}>
       {children}
     </tbody>
   )

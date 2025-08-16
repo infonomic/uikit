@@ -1,7 +1,7 @@
 'use client'
-import type React from 'react'
 
 import cx from 'classnames'
+import type React from 'react'
 
 import { usePager } from './pagination'
 
@@ -12,7 +12,7 @@ export function Ellipses(): React.JSX.Element {
   return (
     // TODO - extract ellipses component
     <li className="flex">
-      <div className={cx(styles.ellipses, 'pager-ellipses')}>...</div>
+      <div className={cx(styles.ellipses, 'pagination-ellipses')}>...</div>
     </li>
   )
 }

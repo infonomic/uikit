@@ -1,14 +1,13 @@
 'use client'
+
+import cx from 'classnames'
 import type React from 'react'
 import { useEffect, useState } from 'react'
 
-import cx from 'classnames'
-
 import { CopyIcon } from '../../icons'
 import { Tooltip } from '../tooltip/tooltip.js'
-import { Button } from './button.js'
-
 import type { ButtonProps } from './button.js'
+import { Button } from './button.js'
 
 import styles from './copy-button.module.css'
 
@@ -81,7 +80,7 @@ export function CopyButton({
           intent={intent}
           fullWidth={fullWidth}
           ripple={ripple}
-          className={cx(styles['copy-button'], className)}
+          className={cx('copy-button', variant, size, intent, styles['copy-button'], className)}
           onClick={handleCopied}
           {...rest}
         >

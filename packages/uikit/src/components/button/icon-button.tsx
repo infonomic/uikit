@@ -1,7 +1,7 @@
 'use client'
-import type React from 'react'
 
 import cx from 'classnames'
+import type React from 'react'
 import { Button } from './button'
 import type { ButtonProps } from './button.js'
 
@@ -27,7 +27,15 @@ export const IconButton = <C extends React.ElementType = 'button'>({
       variant={variant}
       size={size}
       intent={intent}
-      className={cx({ [styles.square]: square }, { [styles.round]: !square && round }, className)}
+      className={cx(
+        'icon-button',
+        variant,
+        size,
+        intent,
+        { [styles.square]: square },
+        { [styles.round]: !square && round },
+        className
+      )}
       {...rest}
     >
       {children}

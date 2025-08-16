@@ -11,4 +11,4 @@ interface Props extends HTMLAttributes<'p'> {
 const { id, class: className, text, ...rest } = Astro.props as Props
 ---
 
-<p id={id} class:list={[styles.text, className]} {...rest}>{text}</p>
+<p id={id} class:list={['error-text', styles.text, className]} {...rest}>{text}</p>

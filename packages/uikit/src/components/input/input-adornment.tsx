@@ -1,6 +1,5 @@
-import type React from 'react'
-
 import cx from 'classnames'
+import type React from 'react'
 
 import styles from './input-adornment.module.css'
 
@@ -22,6 +21,8 @@ export function InputAdornment({
   return (
     <div
       className={cx(
+        'input-adornment',
+        position,
         styles.adornment,
         { [styles.start]: position === 'start' },
         { [styles.end]: position === 'end' },

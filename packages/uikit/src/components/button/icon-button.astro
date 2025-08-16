@@ -19,11 +19,28 @@ interface Props extends HTMLAttributes<'button'>, Omit<HTMLAttributes<'a'>, 'typ
   round?: boolean
 }
 
-const { square = false, round = true, class: className, ...rest } = Astro.props as Props
+const {
+  square = false,
+  round = true,
+  variant,
+  size,
+  type,
+  intent,
+  class: className,
+  ...rest
+} = Astro.props as Props
 ---
 
 <Button
-  class:list={[{ [styles.square]: square }, { [styles.round]: !square && round }, className]}
+  class:list={[
+    'icon-button',
+    variant,
+    size,
+    intent,
+    { [styles.square]: square },
+    { [styles.round]: !square && round },
+    className
+  ]}
   {...rest}
 >
   <slot />

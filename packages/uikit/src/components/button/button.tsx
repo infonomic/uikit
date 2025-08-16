@@ -61,6 +61,10 @@ export const Button = <C extends React.ElementType = 'button'>({
       ref={ref}
       type={type}
       className={cx(
+        'button',
+        intent,
+        variant,
+        size,
         styles.button,
         styles[variant],
         styles[size],

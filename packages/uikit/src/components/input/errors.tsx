@@ -5,7 +5,7 @@
 
 import type { ZodType, z } from 'zod'
 
-type FormattedErrors = z.inferFormattedError<ZodType<any, any, any>>
+type FormattedErrors = z.ZodFormattedError<ZodType<any, any, any>>
 
 // biome-ignore lint/suspicious/noShadowRestrictedNames: <explanation>
 export function Error(props: React.JSX.IntrinsicElements['div']): React.JSX.Element {
