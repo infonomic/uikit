@@ -1,5 +1,16 @@
 # @infonomic/website-react
 
+## 2.0.0
+
+### Major Changes
+
+- 3b819e3: Class names for overrides
+
+### Patch Changes
+
+- Updated dependencies [3b819e3]
+  - @infonomic/uikit@2.0.0
+
 ## 1.5.0
 
 ### Minor Changes
