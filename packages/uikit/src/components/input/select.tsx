@@ -1,18 +1,14 @@
 'use client'
 
+import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from '@radix-ui/react-icons'
+import cx from 'classnames'
+import { Select as SelectPrimitive } from 'radix-ui'
 import type React from 'react'
 import type { ComponentPropsWithoutRef } from 'react'
-
-import cx from 'classnames'
-
-import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from '@radix-ui/react-icons'
-import { Select as SelectPrimitive } from 'radix-ui'
-
-import { Button } from '../button/button.js'
-import { HelpText } from './help-text.js'
-
 import type { Intent } from '../@types/shared.js'
 import type { Size, Variant } from '../button/@types/button.js'
+import { Button } from '../button/button.js'
+import { HelpText } from './help-text.js'
 
 import styles from './select.module.css'
 
@@ -53,7 +49,7 @@ export function Select({
   ...rest
 }: SelectProps): React.JSX.Element {
   return (
-    <div className={cx(containerClassName)}>
+    <div className={cx('select-container', containerClassName)}>
       <SelectPrimitive.Root {...rest}>
         <SelectPrimitive.Trigger asChild aria-label={ariaLabel ?? 'Select'}>
           <Button
@@ -104,7 +100,7 @@ export const SelectItem = ({
 }) => {
   return (
     <SelectPrimitive.Item
-      className={cx(styles['select-item'], className)}
+      className={cx('select-item', styles['select-item'], className)}
       {...props}
       ref={forwardedRef}
     >

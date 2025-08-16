@@ -1,10 +1,8 @@
 'use client'
 
-import type React from 'react'
-
 import cx from 'classnames'
-
 import { DropdownMenu as DropdownMenuPrimitive } from 'radix-ui'
+import type React from 'react'
 
 import styles from './dropdown.module.css'
 

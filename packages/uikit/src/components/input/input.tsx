@@ -54,9 +54,9 @@ export const Input = <C extends React.ElementType = 'input'>({
   ...rest
 }: InputProps) => {
   return (
-    <div className={cx(styles.inputWrapper, inputWrapperClassName)}>
+    <div className={cx('input-wrapper', styles.inputWrapper, inputWrapperClassName)}>
       {label != null && <Label id={id} htmlFor={id} required={required} label={label} />}
-      <div className={styles.inputContainer}>
+      <div className={cx('input-container', styles.inputContainer)}>
         {startAdornment != null && (
           <div className={cx(styles.startAdornment, styles[variant])}>{startAdornment}</div>
         )}
@@ -74,6 +74,10 @@ export const Input = <C extends React.ElementType = 'input'>({
           aria-errormessage={errorText}
           aria-describedby={error ? `error-for-${id}` : undefined}
           className={cx(
+            'input',
+            variant,
+            inputSize,
+            intent,
             styles.input,
             styles[variant],
             styles[inputSize],

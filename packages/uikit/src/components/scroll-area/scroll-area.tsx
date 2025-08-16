@@ -7,7 +7,7 @@ import styles from './scroll-area.module.css'
 interface ScrollAreaProps extends React.ComponentPropsWithoutRef<typeof ScrollAreaPrimitive.Root> {}
 
 export const ScrollArea = ({ children, style, className }: ScrollAreaProps) => (
-  <ScrollAreaPrimitive.Root style={style} className={cx(styles.root, className)}>
+  <ScrollAreaPrimitive.Root style={style} className={cx('scroll-area', styles.root, className)}>
     <ScrollAreaPrimitive.Viewport className={styles.viewport}>
       {children}
     </ScrollAreaPrimitive.Viewport>

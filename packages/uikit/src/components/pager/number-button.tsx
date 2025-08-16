@@ -1,14 +1,12 @@
 'use client'
-import type React from 'react'
 
 import { Slot } from '@radix-ui/react-slot'
 import cx from 'classnames'
-
-import { usePager } from './pagination'
+import type React from 'react'
+import { useMediaQuery } from '../../hooks/use-media-query'
 
 import type { PagerButtonProps, RefType } from './pagination'
-
-import { useMediaQuery } from '../../hooks/use-media-query'
+import { usePager } from './pagination'
 
 import styles from './pagination.module.css'
 
@@ -62,7 +60,7 @@ export const NumberButton = ({
               page === count &&
               ((!(showLastButton ?? false) && (hideNextButton ?? false)) || mobile),
           },
-          'pager-number',
+          'pagination-number',
           className
         )}
         data-testid={

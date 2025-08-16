@@ -1,6 +1,5 @@
-import type React from 'react'
-
 import cx from 'classnames'
+import type React from 'react'
 
 import styles from './label.module.css'
 
@@ -14,7 +13,11 @@ interface LabelProps {
 
 export function Label({ className, id, htmlFor, label, required }: LabelProps): React.JSX.Element {
   return (
-    <label id={`label-for-${id}`} htmlFor={htmlFor} className={cx(styles.label, className)}>
+    <label
+      id={`label-for-${id}`}
+      htmlFor={htmlFor}
+      className={cx('label', styles.label, className)}
+    >
       {label}
       {required != null && <span className={styles.required}>&nbsp;*</span>}
     </label>

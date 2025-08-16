@@ -1,10 +1,8 @@
 'use client'
 import cx from 'classnames'
 import type React from 'react'
-
-import styles from './control-buttons.module.css'
-
 import type { Size } from './@types/button.js'
+import styles from './control-buttons.module.css'
 
 type ButtonType = React.JSX.IntrinsicElements['button']
 
@@ -40,7 +38,15 @@ export const DirectionalButton = ({
       onClick={handleClick}
       type="button"
       aria-label={direction}
-      className={cx(styles['directional-button'], styles[direction], styles[size], className)}
+      className={cx(
+        'control-button',
+        direction,
+        size,
+        styles['directional-button'],
+        styles[direction],
+        styles[size],
+        className
+      )}
     >
       <span>
         <svg className="icon" focusable="false" aria-hidden="true" viewBox="0 0 51 32">
@@ -74,7 +80,7 @@ export const PlayButton = ({
       onClick={handleClick}
       type="button"
       aria-label="play"
-      className={cx(styles['play-button'], styles[size], className)}
+      className={cx('control-button', 'play', size, styles['play-button'], styles[size], className)}
     >
       <span>
         <svg className="icon" focusable="false" aria-hidden="true" viewBox="0 0 32 32">
@@ -111,7 +117,7 @@ export const StopButton = ({
       onClick={handleClick}
       type="button"
       aria-label="stop"
-      className={cx(styles['stop-button'], styles[size], className)}
+      className={cx('control-button', 'stop', size, styles['stop-button'], styles[size], className)}
     >
       <span>
         <svg className="icon" focusable="false" aria-hidden="true" viewBox="0 0 32 32">

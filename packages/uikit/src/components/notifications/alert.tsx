@@ -65,11 +65,13 @@ export const Alert = function Alert({
   return (
     <div
       ref={ref}
-      className={cx(styles.alert, styles[intent], className, { [styles.fade]: fade })}
+      className={cx('alert', intent, styles.alert, styles[intent], className, {
+        [styles.fade]: fade,
+      })}
       {...rest}
     >
       {title != null ? (
-        <div className={styles['alert-with-title']}>
+        <div className={cx('alert-with-title', styles['alert-with-title'])}>
           <div className={cx(styles.header)}>
             {icon && <Icon className={styles.icon} />}
             <div className={cx(styles.title)}>

@@ -1,15 +1,13 @@
 'use client'
-/* eslint-disable @typescript-eslint/strict-boolean-expressions */
 
-import type React from 'react'
+/* eslint-disable @typescript-eslint/strict-boolean-expressions */
 
 import { DoubleArrowLeftIcon } from '@radix-ui/react-icons'
 import { Slot } from '@radix-ui/react-slot'
 import cx from 'classnames'
-
-import { usePager } from './pagination'
-
+import type React from 'react'
 import type { PagerButtonProps, RefType } from './pagination'
+import { usePager } from './pagination'
 
 import styles from './pagination.module.css'
 
@@ -37,11 +35,11 @@ export const FirstButton = ({
           styles['first-button'],
           styles[variant],
           styles['rounded-left'],
-          'pager-first',
+          'pagination-first',
           className
         )}
         disabled={disabled}
-        data-testid="pager-first"
+        data-testid="pagination-first"
         title="First"
         {...aria}
         {...rest}

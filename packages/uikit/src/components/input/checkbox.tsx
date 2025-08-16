@@ -50,13 +50,21 @@ export const Checkbox = function Checkbox({
   ref?: React.RefObject<HTMLButtonElement>
 }): React.JSX.Element {
   return (
-    <div className={containerClasses}>
-      <div className={cx(styles.container, componentClasses, { [styles.reverse]: reverse })}>
+    <div className={cx('checkbox-container', containerClasses)}>
+      <div
+        className={cx('checkbox-component', styles.container, componentClasses, {
+          [styles.reverse]: reverse,
+        })}
+      >
         <CheckboxPrimitive.Root
           ref={ref}
           id={id}
           name={name}
           className={cx(
+            'checkbox',
+            variant,
+            size,
+            intent,
             styles.checkbox,
             styles[variant],
             styles[size],
@@ -65,7 +73,10 @@ export const Checkbox = function Checkbox({
           )}
           {...rest}
         >
-          <CheckboxPrimitive.Indicator forceMount className={styles.indicator}>
+          <CheckboxPrimitive.Indicator
+            forceMount
+            className={cx('checkbox-indicator', styles.indicator)}
+          >
             <CheckIcon className={styles.icon} />
           </CheckboxPrimitive.Indicator>
         </CheckboxPrimitive.Root>

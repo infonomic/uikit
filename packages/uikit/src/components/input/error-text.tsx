@@ -1,6 +1,5 @@
-import type React from 'react'
-
 import cx from 'classnames'
+import type React from 'react'
 
 import styles from './error-text.module.css'
 
@@ -12,7 +11,7 @@ interface ErrorTextProps {
 
 export function ErrorText({ id, className, text }: ErrorTextProps): React.JSX.Element {
   return (
-    <p id={id} className={cx(styles.text, className)}>
+    <p id={id} className={cx('error-text', styles.text, className)}>
       {text}
     </p>
   )
