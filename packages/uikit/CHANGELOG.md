@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 1.5.0
+
+### Minor Changes
+
+- 96d8115: "Updated uikit package.json sideEffects": ["**/*.css"]
+
 ## 1.4.0
 
 ### Minor Changes
