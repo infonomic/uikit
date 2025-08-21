@@ -1,6 +1,16 @@
-@import '@infonomic/uikit/styles.css';
-@import '@infonomic/uikit/typography.css';
+/**
+ * Core uikit styles including var system for breakpoints,
+ * colors, scales, utils  etc., which can be optionally
+ * integrated with Tailwind (colors, breakpoints etc.) via
+ * Tailwind theme configuration.
+ */
+@import "@infonomic/uikit/styles.css";
 
-@import './fonts.css';
+/**
+ * Optional uikit typography including prose and fonts
+ */
+@import "@infonomic/uikit/typography.css";
 
-@import './app.css';
+@import "./fonts.css";
+
+@import "./app.css";
