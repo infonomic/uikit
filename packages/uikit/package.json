@@ -25,14 +25,19 @@
   "module": "./dist/react.js",
   "main": "./dist/react.js",
   "files": [
-    "dist",
-    "src/astro.js"
+    "dist/",
+    "src/"
   ],
   "exports": {
-    "./astro": "./src/astro.ts",
+    "./astro": {
+      "types": "./src/astro.d.ts",
+      "import": "./src/astro.js",
+      "default": "./src/astro.js"
+    },
     "./react": {
       "types": "./dist/react.d.ts",
       "import": "./dist/react.js",
+      "main": "./dist/react.js",
       "default": "./dist/react.js"
     },
     "./styles.css": {
@@ -114,24 +119,7 @@
     "access": "public",
     "files": [
       "dist/",
-      "src/astro.js"
-    ],
-    "exports": {
-      "./astro": "./src/astro.ts",
-      "./react": {
-        "types": "./dist/react.d.ts",
-        "import": "./dist/react.js",
-        "main": "./dist/react.js",
-        "default": "./dist/react.js"
-      },
-      "./styles.css": {
-        "import": "./dist/styles/styles.css",
-        "default": "./dist/styles/styles.css"
-      },
-      "./typography.css": {
-        "import": "./dist/styles/typography.css",
-        "default": "./dist/styles/typography.css"
-      }
-    }
+      "src/"
+    ]
   }
 }

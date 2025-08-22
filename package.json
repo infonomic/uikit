@@ -3,7 +3,7 @@
   "description": "",
   "main": "index.js",
   "private": true,
-  "packageManager": "pnpm@10.13.1",
+  "packageManager": "pnpm@10.15.0",
   "workspaces": [
     "apps/*",
     "packages/*"

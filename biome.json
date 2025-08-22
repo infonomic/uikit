@@ -1,18 +1,13 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.0.0/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.1.2/schema.json",
   "vcs": {
     "enabled": true,
     "clientKind": "git",
     "useIgnoreFile": true
   },
   "files": {
-    "ignoreUnknown": false,
-    "includes": [
-      "**",
-      "!**/(payload)",
-      "!**/_payload",
-      "!**/tailwind.css"
-    ]
+    "ignoreUnknown": true,
+    "includes": ["**", "!**/(payload)", "!**/_payload", "!**/*.astro", "!**/tailwind.css"]
   },
   "formatter": {
     "enabled": true,
@@ -24,13 +19,7 @@
     "lineWidth": 100,
     "attributePosition": "auto",
     "bracketSpacing": true,
-    "includes": [
-      "**",
-      "!**/dist",
-      "!**/build",
-      "!**/node_modules",
-      "!**/.cache"
-    ]
+    "includes": ["**", "!**/dist", "!**/build", "!**/node_modules", "!**/.cache"]
   },
   "assist": {
     "actions": {

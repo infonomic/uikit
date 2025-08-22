@@ -1,4 +1,6 @@
 ---
+// import Button from '@infonomic/uikit/astro/button'
+
 import {
   Button,
   Card,
@@ -9,7 +11,7 @@ import {
   CardTitle,
   Container,
   Section
-} from '../../../../packages/uikit/src/astro'
+} from '@infonomic/uikit/astro'
 
 import Layout from '../layouts/layout.astro'
 
@@ -29,6 +31,7 @@ const meta = {
       <h1>Components</h1>
       <p>This is the Components page. It's a great page.</p>
       <a href="/">Go to Home</a>
+      <Button>Button Here</Button>
     </Container>
   </Section>
   <Section>
@@ -73,7 +76,7 @@ const meta = {
             <p>This card is actually a hyperlink with an href and hover enabled.</p>
           </CardContent>
           <CardFooter>
-            <Button variant="filled">Click to Go Home</Button>
+            <Button variant="outlined">Click to Go Home</Button>
           </CardFooter>
         </Card>
       </div>

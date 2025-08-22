@@ -1,7 +1,6 @@
-import type React from 'react'
-
 import { Slot } from '@radix-ui/react-slot'
 import cx from 'classnames'
+import type React from 'react'
 
 import styles from './card.module.css'
 
