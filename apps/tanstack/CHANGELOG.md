@@ -1,5 +1,16 @@
 # @infonomic/website-react
 
+## 2.1.0
+
+### Minor Changes
+
+- b84395f: Correct exports of astro components and types
+
+### Patch Changes
+
+- Updated dependencies [b84395f]
+  - @infonomic/uikit@2.1.0
+
 ## 2.0.0
 
 ### Major Changes
