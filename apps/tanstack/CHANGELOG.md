@@ -1,5 +1,13 @@
 # @infonomic/website-react
 
+## 2.1.1
+
+### Patch Changes
+
+- cfe9fd1: chore: updated deps
+- Updated dependencies [cfe9fd1]
+  - @infonomic/uikit@2.1.1
+
 ## 2.1.0
 
 ### Minor Changes

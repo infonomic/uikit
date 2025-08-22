@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 2.1.1
+
+### Patch Changes
+
+- cfe9fd1: chore: updated deps
+
 ## 2.1.0
 
 ### Minor Changes
