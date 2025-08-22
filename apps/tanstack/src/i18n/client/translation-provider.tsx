@@ -25,7 +25,7 @@ import type React from 'react'
 import { createContext, useContext, useEffect, useState } from 'react'
 
 import type { Translations } from '@/i18n/server/index'
-import type { Locale } from '../i18n-config'
+import type { Locale } from '../i18n-config.js'
 
 type TranslationsContextType = {
   locale: Locale

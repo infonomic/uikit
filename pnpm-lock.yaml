@@ -22,7 +22,7 @@ importers:
         specifier: ^2.29.5
         version: 2.29.5
 
-  apps/website-astro:
+  apps/astro:
     dependencies:
       '@astrojs/node':
         specifier: ^9.3.0
@@ -44,7 +44,7 @@ importers:
         specifier: 2.1.2
         version: 2.1.2
 
-  apps/website-react:
+  apps/tanstack:
     dependencies:
       '@infonomic/uikit':
         specifier: workspace:*
