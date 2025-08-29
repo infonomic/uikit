@@ -71,7 +71,8 @@ export const Checkbox = function Checkbox({
             styles[variant],
             styles[size],
             styles[intent],
-            checkBoxClasses
+            checkBoxClasses,
+            className
           )}
           {...rest}
         >
