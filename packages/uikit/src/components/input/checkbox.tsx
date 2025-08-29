@@ -19,6 +19,7 @@ export interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   intent?: Intent
   reverse?: boolean
   checked?: boolean
+  className?: string,
   checkBoxClasses?: string
   containerClasses?: string
   componentClasses?: string
@@ -38,6 +39,7 @@ export const Checkbox = function Checkbox({
   size = 'md',
   intent = 'primary',
   reverse = false,
+  className,
   checkBoxClasses,
   containerClasses,
   componentClasses,
