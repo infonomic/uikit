@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 2.3.0
+
+### Minor Changes
+
+- 6015e81: correctly apply checkbox className to class list
+
 ## 2.2.0
 
 ### Minor Changes
