@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 2.2.0
+
+### Minor Changes
+
+- b0cf8c6: updated meta head astro, and guard for className in checkbox
+
 ## 2.1.1
 
 ### Patch Changes
