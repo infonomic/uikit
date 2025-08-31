@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 2.4.0
+
+### Minor Changes
+
+- 82024fc: feat: additional case (fix) dropdown.item on [data-highlighted]
+
 ## 2.3.0
 
 ### Minor Changes
