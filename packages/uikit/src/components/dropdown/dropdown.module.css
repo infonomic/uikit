@@ -47,8 +47,10 @@
     border-radius: var(--border-radius-sm);
   }
 
+  /* Updated to also cover data-highlighted presence */
   .dropdown-item:hover,
-  .dropdown-item:focus {
+  .dropdown-item:focus,
+  .dropdown-item[data-highlighted] {
     background-color: var(--canvas-50);
   }
 
@@ -74,8 +76,10 @@
       background-color: var(--canvas-800);
     }
 
+    /* Updated to also cover data-highlighted presence */
     .dropdown-item:hover:not(:where([class~="not-dark"], [class~="not-dark"] *)),
-    .dropdown-item:focus:not(:where([class~="not-dark"], [class~="not-dark"] *)) {
+    .dropdown-item:focus:not(:where([class~="not-dark"], [class~="not-dark"] *)),
+    .dropdown-item[data-highlighted]:not(:where([class~="not-dark"], [class~="not-dark"] *)) {
       background-color: var(--canvas-700);
     }
   }
