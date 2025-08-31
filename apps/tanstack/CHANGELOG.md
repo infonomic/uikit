@@ -1,5 +1,16 @@
 # @infonomic/website-react
 
+## 2.3.0
+
+### Minor Changes
+
+- 6015e81: correctly apply checkbox className to class list
+
+### Patch Changes
+
+- Updated dependencies [6015e81]
+  - @infonomic/uikit@2.3.0
+
 ## 2.2.0
 
 ### Minor Changes
