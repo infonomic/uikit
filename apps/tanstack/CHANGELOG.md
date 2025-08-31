@@ -1,5 +1,16 @@
 # @infonomic/website-react
 
+## 2.4.0
+
+### Minor Changes
+
+- 82024fc: feat: additional case (fix) dropdown.item on [data-highlighted]
+
+### Patch Changes
+
+- Updated dependencies [82024fc]
+  - @infonomic/uikit@2.4.0
+
 ## 2.3.0
 
 ### Minor Changes
