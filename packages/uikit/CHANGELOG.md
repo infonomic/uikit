@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 2.5.0
+
+### Minor Changes
+
+- 460d33d: removed uppercase from table headings, and table header cell font size
+
 ## 2.4.0
 
 ### Minor Changes
