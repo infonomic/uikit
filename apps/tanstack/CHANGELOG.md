@@ -1,5 +1,16 @@
 # @infonomic/website-react
 
+## 2.5.0
+
+### Minor Changes
+
+- 460d33d: removed uppercase from table headings, and table header cell font size
+
+### Patch Changes
+
+- Updated dependencies [460d33d]
+  - @infonomic/uikit@2.5.0
+
 ## 2.4.0
 
 ### Minor Changes
