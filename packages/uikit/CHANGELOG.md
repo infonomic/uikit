@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 2.6.0
+
+### Minor Changes
+
+- fa44cb2: expandable avatar
+
 ## 2.5.0
 
 ### Minor Changes

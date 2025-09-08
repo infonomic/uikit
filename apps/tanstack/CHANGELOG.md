@@ -1,5 +1,16 @@
 # @infonomic/website-react
 
+## 2.6.0
+
+### Minor Changes
+
+- fa44cb2: expandable avatar
+
+### Patch Changes
+
+- Updated dependencies [fa44cb2]
+  - @infonomic/uikit@2.6.0
+
 ## 2.5.0
 
 ### Minor Changes
