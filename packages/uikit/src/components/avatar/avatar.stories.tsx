@@ -20,9 +20,19 @@ export const Avatar = (): React.JSX.Element => (
       maxWidth: '300px',
       marginBottom: '24px',
       display: 'flex',
+      gap: '24px',
+      alignItems: 'center',
       justifyContent: 'center',
     }}
   >
-    <AvatarComponent initials="AB" />
+    <div style={{ height: '28px', width: '28px' }}>
+      <AvatarComponent initials="AB" />
+    </div>
+    <div style={{ height: '34px', width: '34px' }}>
+      <AvatarComponent initials="AB" />
+    </div>
+    <div style={{ height: '40px', width: '40px' }}>
+      <AvatarComponent initials="AB" />
+    </div>
   </div>
 )
