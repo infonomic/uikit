@@ -16,24 +16,32 @@ export interface OverlayProps extends OverlayIntrinsicProps {
 const BodyLock = (): null => {
   useEffect(() => {
     // a one off mediaMedia here is fine - no need to listen to events
-    const mediaMatch = window.matchMedia('(min-width: 960px)')
+    const mediaMatch = window.matchMedia('(min-width: 768px)')
     let appBar: HTMLElement | null
-    if (mediaMatch.matches) {
-      document.body.style.cssText = 'overflow: hidden; padding-right: 9px;'
-      document.body.style.overflow = 'hidden'
-      appBar = document.getElementById('app-bar')
-      if (appBar != null) appBar.style.cssText = 'padding-right: 9px'
+    const classList = document.body.classList
+    appBar = document.getElementById('app-bar')
+    classList.add('overlay-shown')
+    if(appBar != null) appBar.classList.add('app-bar-overlay-shown')
+    if (mediaMatch.matches) {  
+      classList.add('overlay-shown--desktop')
+      if (appBar != null) {
+        appBar.classList.add('app-bar-overlay-shown--desktop')
+      } 
     } else {
-      document.body.style.cssText = 'overflow: hidden;'
-      document.body.style.overflow = 'hidden'
+      classList.add('overlay-shown--mobile')
+      if (appBar != null) {
+         appBar.classList.add('app-bar-overlay-shown--mobile')
+      }
     }
     return () => {
-      document.body.style.cssText = `
-        overflow: visible;
-        overflow: overlay;
-      `
+      classList.remove('overlay-shown')
+      if(appBar != null) appBar.classList.remove('app-bar-overlay-shown')
       if (mediaMatch.matches) {
-        if (appBar != null) appBar.style.cssText = 'padding-right: 18px'
+        classList.remove('overlay-shown--desktop')
+        if (appBar != null) appBar.classList.remove('app-bar-overlay-shown app-bar-overlay-shown--desktop')
+      } else {
+        classList.remove('overlay-shown--mobile')
+        if (appBar != null) appBar.classList.remove('app-bar-overlay-shown--mobile')
       }
     }
   }, [])
