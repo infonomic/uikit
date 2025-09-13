@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 2.7.0
+
+### Minor Changes
+
+- 3727a1d: correct overlay body class attribute helpers
+
 ## 2.6.0
 
 ### Minor Changes
