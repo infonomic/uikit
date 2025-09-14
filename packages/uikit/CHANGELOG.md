@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 2.9.0
+
+### Minor Changes
+
+- 15a879a: badge component
+
 ## 2.8.0
 
 ### Minor Changes
