@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 2.10.0
+
+### Minor Changes
+
+- 9d1004d: complete implementation of badge component
+
 ## 2.9.0
 
 ### Minor Changes
