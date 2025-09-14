@@ -1,5 +1,27 @@
 # @infonomic/website-astro
 
+## 2.8.0
+
+### Minor Changes
+
+- 2ab62d0: fix for responsive svg elements inside icon-element
+
+### Patch Changes
+
+- Updated dependencies [2ab62d0]
+  - @infonomic/uikit@2.8.0
+
+## 2.7.0
+
+### Minor Changes
+
+- 3727a1d: correct overlay body class attribute helpers
+
+### Patch Changes
+
+- Updated dependencies [3727a1d]
+  - @infonomic/uikit@2.7.0
+
 ## 2.6.0
 
 ### Minor Changes

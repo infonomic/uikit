@@ -1,5 +1,17 @@
 # @infonomic/uikit
 
+## 2.8.0
+
+### Minor Changes
+
+- 2ab62d0: fix for responsive svg elements inside icon-element
+
+## 2.7.0
+
+### Minor Changes
+
+- 3727a1d: correct overlay body class attribute helpers
+
 ## 2.6.0
 
 ### Minor Changes
