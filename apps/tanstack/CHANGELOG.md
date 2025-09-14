@@ -1,5 +1,16 @@
 # @infonomic/website-react
 
+## 2.9.0
+
+### Minor Changes
+
+- 15a879a: badge component
+
+### Patch Changes
+
+- Updated dependencies [15a879a]
+  - @infonomic/uikit@2.9.0
+
 ## 2.8.0
 
 ### Minor Changes
