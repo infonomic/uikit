@@ -1,5 +1,16 @@
 # @infonomic/website-react
 
+## 2.11.0
+
+### Minor Changes
+
+- 49135aa: complete implementation of badge component
+
+### Patch Changes
+
+- Updated dependencies [49135aa]
+  - @infonomic/uikit@2.11.0
+
 ## 2.10.0
 
 ### Minor Changes
