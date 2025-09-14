@@ -4,11 +4,11 @@ import type React from 'react'
 
 import styles from './card.module.css'
 
-export type AsDiv = {
+type AsDiv = {
   asChild?: false
 } & React.ComponentPropsWithoutRef<'div'>
 
-export interface AsSlot {
+interface AsSlot {
   asChild?: true
 }
 
