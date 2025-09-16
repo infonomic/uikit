@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 2.12.0
+
+### Minor Changes
+
+- 596cafb: removed deprecated motion()
+
 ## 2.11.0
 
 ### Minor Changes
