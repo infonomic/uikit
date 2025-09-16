@@ -1,5 +1,16 @@
 # @infonomic/website-react
 
+## 2.12.0
+
+### Minor Changes
+
+- 596cafb: removed deprecated motion()
+
+### Patch Changes
+
+- Updated dependencies [596cafb]
+  - @infonomic/uikit@2.12.0
+
 ## 2.11.0
 
 ### Minor Changes
