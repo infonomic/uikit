@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 2.13.0
+
+### Minor Changes
+
+- 199943b: Classnames for container and section
+
 ## 2.12.0
 
 ### Minor Changes

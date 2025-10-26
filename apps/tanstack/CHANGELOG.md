@@ -1,5 +1,16 @@
 # @infonomic/website-react
 
+## 2.13.0
+
+### Minor Changes
+
+- 199943b: Classnames for container and section
+
+### Patch Changes
+
+- Updated dependencies [199943b]
+  - @infonomic/uikit@2.13.0
+
 ## 2.12.0
 
 ### Minor Changes
