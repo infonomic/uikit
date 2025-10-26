@@ -16,7 +16,7 @@ export const Section = function Section({
   ref?: React.RefObject<HTMLElement>
 }): React.JSX.Element {
   return (
-    <section className={cx(styles.section, className)} ref={ref} {...rest}>
+    <section className={cx('section', styles.section, className)} ref={ref} {...rest}>
       {children}
     </section>
   )
