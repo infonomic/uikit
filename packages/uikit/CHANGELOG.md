@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 2.14.0
+
+### Minor Changes
+
+- 1128407: Updated breakpoints in vars and container css
+
 ## 2.13.0
 
 ### Minor Changes

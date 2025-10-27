@@ -1,5 +1,16 @@
 # @infonomic/website-astro
 
+## 2.14.0
+
+### Minor Changes
+
+- 1128407: Updated breakpoints in vars and container css
+
+### Patch Changes
+
+- Updated dependencies [1128407]
+  - @infonomic/uikit@2.14.0
+
 ## 2.13.0
 
 ### Minor Changes
