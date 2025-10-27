@@ -6,10 +6,10 @@
     --breakpoint-xs: 480px;
     --breakpoint-sm: 640px;
     --breakpoint-md: 768px;
-    --breakpoint-lg: 1024px;
+    --breakpoint-lg: 1050px;
     /* our container component will set max width to common screen size */
-    --breakpoint-xl: 1320px;
-    --breakpoint-2xl: 1536px;
+    --breakpoint-xl: 1230px;
+    --breakpoint-2xl: 1500px;
 
     /* 12px */
     --font-size-xs: 0.75rem;
