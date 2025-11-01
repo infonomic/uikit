@@ -1,5 +1,16 @@
 # @infonomic/website-astro
 
+## 2.15.0
+
+### Minor Changes
+
+- 4c2407f: Fixed overlay.tsx css remove tokens
+
+### Patch Changes
+
+- Updated dependencies [4c2407f]
+  - @infonomic/uikit@2.15.0
+
 ## 2.14.0
 
 ### Minor Changes
