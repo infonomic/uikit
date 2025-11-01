@@ -38,7 +38,7 @@ const BodyLock = (): null => {
       if(appBar != null) appBar.classList.remove('app-bar-overlay-shown')
       if (mediaMatch.matches) {
         classList.remove('overlay-shown--desktop')
-        if (appBar != null) appBar.classList.remove('app-bar-overlay-shown app-bar-overlay-shown--desktop')
+        if (appBar != null) appBar.classList.remove('app-bar-overlay-shown', 'app-bar-overlay-shown--desktop')
       } else {
         classList.remove('overlay-shown--mobile')
         if (appBar != null) appBar.classList.remove('app-bar-overlay-shown--mobile')
