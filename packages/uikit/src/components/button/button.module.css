@@ -91,8 +91,8 @@
 
   .filled:disabled,
   .filled[disabled] {
-    background-color: oklch(from var(--button-variant-filled) calc(l * 1.1) calc(c * 0.85) h);
-    color: oklch(from var(--button-variant-filled-foreground) calc(l * 0.9) calc(c * 0.85) h);
+    background-color: var(--button-variant-filled-disabled, oklch(from var(--button-variant-filled) calc(l * 1.1) calc(c * 0.85) h));
+    color: var(--button-variant-filled-foreground-disabled, oklch(from var(--button-variant-filled-foreground) calc(l * 0.9) calc(c * 0.85) h));
   }
 
   .outlined {
@@ -103,8 +103,8 @@
 
   .outlined:disabled,
   .outlined[disabled] {
-    border-color: oklch(from var(--button-variant-outlined-border) calc(l * 1.5) calc(c * 0.8) h);
-    color: oklch(from var(--button-variant-outlined-foreground) calc(l * 1.1) calc(c * 0.7) h);
+    border-color: var(--button-variant-outlined-border-disabled, oklch(from var(--button-variant-outlined-border) calc(l * 1.5) calc(c * 0.8) h));
+    color: var(--button-variant-outlined-foreground-disabled, oklch(from var(--button-variant-outlined-foreground) calc(l * 1.1) calc(c * 0.7) h));
   }
 
   .outlined:hover {
@@ -126,8 +126,8 @@
   .gradient:disabled,
   .gradient[disabled] {
     background: unset;
-    background-color: oklch(from var(--button-variant-gradient-end) calc(l * 1.2) calc(c * 0.85) h);
-    color: oklch(from var(--button-variant-gradient-foreground) calc(l * 0.9) calc(c * 0.85) h);
+    background-color: var(--button-variant-gradient-disabled, oklch(from var(--button-variant-gradient-end) calc(l * 1.2) calc(c * 0.85) h));
+    color: var(--button-variant-gradient-foreground-disabled, oklch(from var(--button-variant-gradient-foreground) calc(l * 0.9) calc(c * 0.85) h));
   }
 
   .gradient:hover {
@@ -163,34 +163,39 @@
 
   /* Intents */
   .primary {
-    --button: var(--primary-600);
-    --button-ring-color: var(--button);
+    --button-ring-color: var(--ring-primary);
   }
 
   .primary.filled {
-    --button-variant-filled: var(--button);
-    --button-variant-filled-foreground: white;
-    --button-variant-filled-hover: oklch(from var(--button) calc(l * 0.9) c h);
+    --button-variant-filled: var(--fill-primary-strong);
+    --button-variant-filled-foreground: var(--text-on-primary);
+    --button-variant-filled-hover: var(--fill-primary-strong-hover);
+    --button-variant-filled-disabled: var(--fill-primary-strong-disabled);
+    --button-variant-filled-foreground-disabled: var(--text-on-primary-disabled);
   }
 
   .primary.outlined {
     --button-variant-outlined: transparent;
-    --button-variant-outlined-foreground: var(--primary-700);
-    --button-variant-outlined-hover: oklch(from var(--button) calc(l * 2.15) calc(c * 0.2) h);
-    --button-variant-outlined-border: var(--primary-700);
+    --button-variant-outlined-foreground: var(--text-primary-strong);
+    --button-variant-outlined-hover: var(--fill-primary-weak);
+    --button-variant-outlined-border: var(--stroke-primary);
+    --button-variant-outlined-border-disabled: var(--stroke-primary-disabled);
+    --button-variant-outlined-foreground-disabled: var(--text-primary-disabled);
   }
 
   .primary.text {
     --button-variant-text: transparent;
-    --button-variant-text-foreground: oklch(from var(--button) calc(l * 0.7) c h);
-    --button-variant-text-hover: oklch(from var(--canvas-50) calc(l * 0.995) c h);
+    --button-variant-text-foreground: var(--text-primary-weak);
+    --button-variant-text-hover: var(--fill-primary-weak-hover);
   }
 
   .primary.gradient {
-    --button-variant-gradient-start: var(--primary-500);
-    --button-variant-gradient-end: var(--primary-700);
-    --button-variant-gradient-foreground: white;
+    --button-variant-gradient-start: var(--gradient-primary-start);
+    --button-variant-gradient-end: var(--gradient-primary-end);
+    --button-variant-gradient-foreground: var(--gradient-primary-foreground);
     --button-variant-gradient-hover: var(--gray-900);
+    --button-variant-gradient-disabled: var(--gradient-primary-disabled);
+    --button-variant-gradient-foreground-disabled: var(--text-on-primary-disabled);
   }
 
   .secondary {
@@ -397,28 +402,8 @@
       --ring-offset-color: var(--background);
     }
 
-    .primary:not(:where([class~="not-dark"], [class~="not-dark"] *)) {
-      --button: var(--primary-600);
-      --button-ring-color: var(--button);
-    }
-
-    .primary.filled:not(:where([class~="not-dark"], [class~="not-dark"] *)) {
-      --button-variant-filled: var(--button);
-      --button-variant-filled-foreground: white;
-      --button-variant-filled-hover: oklch(from var(--button) calc(l * 0.9) c h);
-    }
-
-    .primary.outlined:not(:where([class~="not-dark"], [class~="not-dark"] *)) {
-      --button-variant-outlined-foreground: var(--primary-100);
-      --button-variant-outlined-hover: oklch(from var(--button) calc(l * 0.45) calc(c * 0.1) h);
-      --button-variant-outlined-border: var(--primary-500);
-    }
-
-    .primary.text:not(:where([class~="not-dark"], [class~="not-dark"] *)) {
-      --button-variant-text: transparent;
-      --button-variant-text-foreground: var(--button);
-      --button-variant-text-hover: var(--canvas-800);
-    }
+    /* PRIMARY INTENT - Now handled by semantic tokens in theme layer */
+    /* No overrides needed! Tokens automatically switch in .dark and respect .not-dark */
 
     .secondary.outlined:not(:where([class~="not-dark"], [class~="not-dark"] *)) {
       --button-variant-outlined-foreground: var(--secondary-500);

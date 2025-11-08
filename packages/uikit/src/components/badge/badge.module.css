@@ -14,8 +14,8 @@
   }
 
   .primary {
-    color: white;
-    background-color: var(--primary-500);
+    color: var(--text-on-primary);
+    background-color: var(--fill-primary-strong);
   }
 
   .secondary {
@@ -49,10 +49,8 @@
   }
 
   :global(.dark) {
-    .primary:not(:where([class~="not-dark"], [class~="not-dark"] *)) {
-      color: white;
-      background-color: var(--primary-400);
-    }
+    /* PRIMARY INTENT - Now handled by semantic tokens in theme layer */
+    /* No overrides needed! Tokens automatically switch in .dark and respect .not-dark */
 
     .secondary:not(:where([class~="not-dark"], [class~="not-dark"] *)) {
       color: black;;

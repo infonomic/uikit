@@ -73,9 +73,9 @@ Every CSS module MUST include the layer preamble at the top:
 ```
 
 **Layer Specificity Order** (lowest to highest):
-1. `infonomic-base` - Reset/normalize styles
+1. `infonomic-base` - Reset/normalize styles, primitive tokens (colors, spacing)
 2. `infonomic-utilities` - Utility classes
-3. `infonomic-theme` - Theme variables and colors
+3. `infonomic-theme` - **Semantic tokens** and theme variables
 4. `infonomic-typography` - Typography styles
 5. `infonomic-components` - Component styles
 6. (unlayered) - Consumer app styles automatically win
@@ -85,10 +85,22 @@ Every CSS module MUST include the layer preamble at the top:
 - Consuming apps can override ANY style without `!important`
 - Internal hierarchy lets theme variables override base, components override theme, etc.
 
+**Semantic Token System** (NEW):
+- **Primitive tokens**: `src/styles/base/colors.css` - Base colors like `--primary-600`, `--red-500`
+- **Semantic tokens**: `src/styles/theme/tokens.css` - Intent-based tokens like `--fill-primary-strong`, `--text-on-primary`
+- **Token naming**: `element-intent-emphasis-state` (e.g., `--fill-primary-strong-hover`)
+  - `element`: `fill`, `text`, `stroke`, `ring`
+  - `intent`: `primary`, `secondary`, `noeffect`, `success`, `info`, `warning`, `danger`
+  - `emphasis`: `strong`, `weak`, `weaker` (optional)
+  - `state`: `hover`, `press`, `focus`, `disabled` (optional)
+- **Components reference semantic tokens**, not primitives (e.g., use `--fill-primary-strong` instead of `--primary-600`)
+
 **Theme System**:
 - Theme variables in `src/styles/theme/theme.css`: `--background`, `--foreground`, `--text`, `--headings`
-- `.dark` class on root element toggles to dark theme
-- **`.not-dark` override**: Force light mode on dark backgrounds (see below)
+- Semantic tokens in `src/styles/theme/tokens.css` automatically switch between light/dark modes
+- `.dark` class on root element toggles theme
+- **`.not-dark` override**: Forces light mode tokens regardless of parent `.dark` class
+- **Key benefit**: No need for `:not(:where([class~="not-dark"]...))` in component CSS when using semantic tokens
 
 **Build**: LightningCSS bundles `styles.css` and `typography.css` separately
 
@@ -106,27 +118,43 @@ Every CSS module MUST include the layer preamble at the top:
    ```
    This ensures correct cascade behavior when CSS is bundled. Wrap component styles in `@layer infonomic-components { }`.
 
-2. **Dark Mode Override Pattern**: Use `:not(:where([class~="not-dark"], [class~="not-dark"] *))` to allow component-level theme override:
+2. **Semantic Token Usage**: Components should reference semantic tokens from `tokens.css`, not primitive colors:
+   ```css
+   /* GOOD - Uses semantic tokens */
+   .primary {
+     background-color: var(--fill-primary-strong);
+     color: var(--text-on-primary);
+   }
+   
+   /* AVOID - Direct primitive usage */
+   .primary {
+     background-color: var(--primary-600);
+     color: white;
+   }
+   ```
+   **Why**: Semantic tokens automatically handle light/dark/`.not-dark` switching at theme layer, eliminating verbose `:not(:where([class~="not-dark"]...))` selectors in component CSS.
+
+3. **Legacy Dark Mode Override Pattern** (for non-token components): Use `:not(:where([class~="not-dark"], [class~="not-dark"] *))` when NOT using semantic tokens:
    ```css
    :global(.dark) {
-     .primary:not(:where([class~="not-dark"], [class~="not-dark"] *)) {
+     .element:not(:where([class~="not-dark"], [class~="not-dark"] *)) {
        background-color: var(--primary-400);
      }
    }
    ```
-   **Why**: Enables components to ignore parent theme (e.g., light component on dark background). Critical for focus rings and shadows that need correct background colors.
+   **Note**: This pattern is only needed for intents that haven't been migrated to semantic tokens yet.
 
-3. **Component Props**: Use `asChild` pattern with `@radix-ui/react-slot` for composition flexibility
+4. **Component Props**: Use `asChild` pattern with `@radix-ui/react-slot` for composition flexibility
 
-4. **Type Safety**: Separate `@types` folders for shared interfaces; use `.js` extensions in imports per TS config
+5. **Type Safety**: Separate `@types` folders for shared interfaces; use `.js` extensions in imports per TS config
 
-5. **Client Components**: Mark interactive React components with `'use client'` directive
+6. **Client Components**: Mark interactive React components with `'use client'` directive
 
-6. **Exports**: Update both `src/react.ts` and `src/astro.js` when adding components
+7. **Exports**: Update both `src/react.ts` and `src/astro.js` when adding components
 
-7. **CSS Modules**: Enable `cssModules: true` in `biome.json` CSS parser config
+8. **CSS Modules**: Enable `cssModules: true` in `biome.json` CSS parser config
 
-8. **Stories**: Write `.stories.tsx` files for each component variant pattern
+9. **Stories**: Write `.stories.tsx` files for each component variant pattern
 
 ## Common Gotchas
 
@@ -144,5 +172,7 @@ Every CSS module MUST include the layer preamble at the top:
 - Export structure: `packages/uikit/src/react.ts`, `packages/uikit/src/astro.js`
 - Build config: `packages/uikit/rslib.config.ts`
 - CSS layers: `packages/uikit/src/styles/styles.css`
+- Primitive tokens: `packages/uikit/src/styles/base/colors.css`, `packages/uikit/src/styles/base/vars.css`
+- Semantic tokens: `packages/uikit/src/styles/theme/tokens.css`
 - Theme system: `packages/uikit/src/styles/theme/theme.css`
 - Monorepo tasks: `turbo.json`
