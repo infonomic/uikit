@@ -109,125 +109,62 @@
 
   /* Intents */
   .primary {
-    --checkbox-variant-outlined-border: var(--primary-400);
-    --checkbox-variant-outlined: var(--primary-400);
-    --checkbox-variant-outlined-hover-border: var(--primary-500);
-    --checkbox-variant-outline-ring-color: var(--primary-400);
-    --checkbox-variant-filled: var(--primary-400);
+    --checkbox-variant-outlined-border: var(--fill-primary-strong);
+    --checkbox-variant-outlined: var(--fill-primary-strong);
+    --checkbox-variant-outlined-hover-border: var(--fill-primary-strong-hover);
+    --checkbox-variant-outline-ring-color: var(--ring-primary);
+    --checkbox-variant-filled: var(--fill-primary-strong);
   }
 
   .secondary {
-    --checkbox-variant-outlined-border: var(--secondary-500);
-    --checkbox-variant-outlined: var(--secondary-500);
-    --checkbox-variant-outlined-hover-border: var(--secondary-500);
-    --checkbox-variant-outline-ring-color: var(--secondary-500);
-    --checkbox-variant-filled: var(--secondary-500);
+    --checkbox-variant-outlined-border: var(--fill-secondary-strong);
+    --checkbox-variant-outlined: var(--fill-secondary-strong);
+    --checkbox-variant-outlined-hover-border: var(--fill-secondary-strong-hover);
+    --checkbox-variant-outline-ring-color: var(--ring-secondary);
+    --checkbox-variant-filled: var(--fill-secondary-strong);
   }
 
   .noeffect {
-    --checkbox-variant-outlined-border: var(--gray-400);
-    --checkbox-variant-outlined: var(--gray-400);
-    --checkbox-variant-outlined-hover-border: var(--gray-400);
-    --checkbox-variant-outline-ring-color: var(--gray-400);
-    --checkbox-variant-filled: var(--gray-400);
+    --checkbox-variant-outlined-border: var(--fill-noeffect-strong);
+    --checkbox-variant-outlined: var(--fill-noeffect-strong);
+    --checkbox-variant-outlined-hover-border: var(--fill-noeffect-strong-hover);
+    --checkbox-variant-outline-ring-color: var(--ring-noeffect);
+    --checkbox-variant-filled: var(--fill-noeffect-strong);
   }
 
   .success {
-    --checkbox-variant-outlined-border: var(--green-400);
-    --checkbox-variant-outlined: var(--green-400);
-    --checkbox-variant-outlined-hover-border: var(--green-400);
-    --checkbox-variant-outline-ring-color: var(--green-400);
-    --checkbox-variant-filled: var(--green-400);
+    --checkbox-variant-outlined-border: var(--fill-success-strong);
+    --checkbox-variant-outlined: var(--fill-success-strong);
+    --checkbox-variant-outlined-hover-border: var(--fill-success-strong-hover);
+    --checkbox-variant-outline-ring-color: var(--ring-success);
+    --checkbox-variant-filled: var(--fill-success-strong);
   }
 
   .info {
-    --checkbox-variant-outlined-border: var(--blue-400);
-    --checkbox-variant-outlined: var(--blue-400);
-    --checkbox-variant-outlined-hover-border: var(--blue-400);
-    --checkbox-variant-outline-ring-color: var(--blue-400);
-    --checkbox-variant-filled: var(--blue-400);
+    --checkbox-variant-outlined-border: var(--fill-info-strong);
+    --checkbox-variant-outlined: var(--fill-info-strong);
+    --checkbox-variant-outlined-hover-border: var(--fill-info-strong-hover);
+    --checkbox-variant-outline-ring-color: var(--ring-info);
+    --checkbox-variant-filled: var(--fill-info-strong);
   }
 
   .warning {
-    --checkbox-variant-outlined-border: var(--yellow-400);
-    --checkbox-variant-outlined: var(--yellow-400);
-    --checkbox-variant-outlined-hover-border: var(--yellow-400);
-    --checkbox-variant-outline-ring-color: var(--yellow-400);
-    --checkbox-variant-filled: var(--yellow-400);
+    --checkbox-variant-outlined-border: var(--fill-warning-strong);
+    --checkbox-variant-outlined: var(--fill-warning-strong);
+    --checkbox-variant-outlined-hover-border: var(--fill-warning-strong-hover);
+    --checkbox-variant-outline-ring-color: var(--ring-warning);
+    --checkbox-variant-filled: var(--fill-warning-strong);
   }
 
   .danger {
-    --checkbox-variant-outlined-border: var(--red-400);
-    --checkbox-variant-outlined: var(--red-400);
-    --checkbox-variant-outlined-hover-border: var(--red-400);
-    --checkbox-variant-outline-ring-color: var(--red-400);
-    --checkbox-variant-filled: var(--red-400);
+    --checkbox-variant-outlined-border: var(--fill-danger-strong);
+    --checkbox-variant-outlined: var(--fill-danger-strong);
+    --checkbox-variant-outlined-hover-border: var(--fill-danger-strong-hover);
+    --checkbox-variant-outline-ring-color: var(--ring-danger);
+    --checkbox-variant-filled: var(--fill-danger-strong);
   }
 
-  /* 🌙 Dark via `.dark` class. We rely on the 
-  * consuming application to detect a user's preferred
-  * color scheme - either by header or cookie, and set
-  * a root html class accordingly
-  */
-  :global(.dark) {
-
-    /* Intents */
-    .primary:not(:where([class~="not-dark"], [class~="not-dark"] *)) {
-      --checkbox-variant-outlined-border: var(--primary-300);
-      --checkbox-variant-outlined: var(--primary-300);
-      --checkbox-variant-outlined-hover-border: var(--primary-500);
-      --checkbox-variant-outline-ring-color: var(--primary-300);
-      --checkbox-variant-filled: var(--primary-500);
-    }
-
-    .secondary:not(:where([class~="not-dark"], [class~="not-dark"] *)) {
-      --checkbox-variant-outlined-border: var(--secondary-500);
-      --checkbox-variant-outlined: var(--secondary-500);
-      --checkbox-variant-outlined-hover-border: var(--secondary-500);
-      --checkbox-variant-outline-ring-color: var(--secondary-500);
-      --checkbox-variant-filled: var(--secondary-500);
-    }
-
-    .noeffect:not(:where([class~="not-dark"], [class~="not-dark"] *)) {
-      --checkbox-variant-outlined-border: var(--gray-400);
-      --checkbox-variant-outlined: var(--gray-400);
-      --checkbox-variant-outlined-hover-border: var(--gray-400);
-      --checkbox-variant-outline-ring-color: var(--gray-400);
-      --checkbox-variant-filled: var(--gray-400);
-    }
-
-    .success:not(:where([class~="not-dark"], [class~="not-dark"] *)) {
-      --checkbox-variant-outlined-border: var(--green-400);
-      --checkbox-variant-outlined: var(--green-400);
-      --checkbox-variant-outlined-hover-border: var(--green-400);
-      --checkbox-variant-outline-ring-color: var(--green-400);
-      --checkbox-variant-filled: var(--green-400);
-    }
-
-    .info:not(:where([class~="not-dark"], [class~="not-dark"] *)) {
-      --checkbox-variant-outlined-border: var(--blue-400);
-      --checkbox-variant-outlined: var(--blue-400);
-      --checkbox-variant-outlined-hover-border: var(--blue-400);
-      --checkbox-variant-outline-ring-color: var(--blue-400);
-      --checkbox-variant-filled: var(--blue-400);
-    }
-
-    .warning:not(:where([class~="not-dark"], [class~="not-dark"] *)) {
-      --checkbox-variant-outlined-border: var(--yellow-400);
-      --checkbox-variant-outlined: var(--yellow-400);
-      --checkbox-variant-outlined-hover-border: var(--yellow-400);
-      --checkbox-variant-outline-ring-color: var(--yellow-400);
-      --checkbox-variant-filled: var(--yellow-400);
-    }
-
-    .danger:not(:where([class~="not-dark"], [class~="not-dark"] *)) {
-      --checkbox-variant-outlined-border: var(--red-400);
-      --checkbox-variant-outlined: var(--red-400);
-      --checkbox-variant-outlined-hover-border: var(--red-400);
-      --checkbox-variant-outline-ring-color: var(--red-400);
-      --checkbox-variant-filled: var(--red-400);
-    }
-  }
+  /* Dark mode handled by semantic tokens in theme layer */
 
   @keyframes checkBoxIn {
     0% {

@@ -89,97 +89,41 @@
 
   /* Intents */
   .primary {
-    --radio-border: var(--primary-400);
-    /* --ring-color: var(--primary-400); */
-    --radio-indicator-color: var(--primary-400);
+    --radio-border: var(--fill-primary-strong);
+    --radio-indicator-color: var(--fill-primary-strong);
   }
 
   .secondary {
-    --radio-border: var(--secondary-400);
-    /* --ring-color: var(--secondary-400); */
-    --radio-indicator-color: var(--secondary-400);
+    --radio-border: var(--fill-secondary-strong);
+    --radio-indicator-color: var(--fill-secondary-strong);
   }
 
   .noeffect {
-    --radio-border: var(--gray-400);
-    /* --ring-color: var(--secondary-400); */
-    --radio-indicator-color: var(--gray-400);
+    --radio-border: var(--fill-noeffect-strong);
+    --radio-indicator-color: var(--fill-noeffect-strong);
   }
 
   .success {
-    --radio-border: var(--green-400);
-    /* --ring-color: var(--secondary-400); */
-    --radio-indicator-color: var(--green-400);
+    --radio-border: var(--fill-success-strong);
+    --radio-indicator-color: var(--fill-success-strong);
   }
 
   .info {
-    --radio-border: var(--blue-400);
-    /* --ring-color: var(--secondary-400); */
-    --radio-indicator-color: var(--blue-400);
+    --radio-border: var(--fill-info-strong);
+    --radio-indicator-color: var(--fill-info-strong);
   }
 
   .warning {
-    --radio-border: var(--yellow-400);
-    /* --ring-color: var(--secondary-400); */
-    --radio-indicator-color: var(--yellow-400);
+    --radio-border: var(--fill-warning-strong);
+    --radio-indicator-color: var(--fill-warning-strong);
   }
 
   .danger {
-    --radio-border: var(--red-400);
-    /* --ring-color: var(--secondary-400); */
-    --radio-indicator-color: var(--red-400);
+    --radio-border: var(--fill-danger-strong);
+    --radio-indicator-color: var(--fill-danger-strong);
   }
 
-  /* 🌙 Dark via `.dark` class. We rely on the 
-  * consuming application to detect a user's preferred
-  * color scheme - either by header or cookie, and set
-  * a root html class accordingly
-  */
-  :global(.dark) {
-
-    /* Intents */
-    .primary:not(:where([class~="not-dark"], [class~="not-dark"] *)) {
-      --radio-border: var(--primary-300);
-      /* --ring-color: var(--primary-400); */
-      --radio-indicator-color: var(--primary-300);
-    }
-
-    .secondary:not(:where([class~="not-dark"], [class~="not-dark"] *)) {
-      --radio-border: var(--secondary-500);
-      /* --ring-color: var(--secondary-400); */
-      --radio-indicator-color: var(--secondary-500);
-    }
-
-    .noeffect:not(:where([class~="not-dark"], [class~="not-dark"] *)) {
-      ---radio-border: var(--gray-400);
-      /* --ring-color: var(--secondary-400); */
-      --radio-indicator-color: var(--gray-400);
-    }
-
-    .success:not(:where([class~="not-dark"], [class~="not-dark"] *)) {
-      --radio-border: var(--green-400);
-      /* --ring-color: var(--secondary-400); */
-      --radio-indicator-color: var(--green-400);
-    }
-
-    .info:not(:where([class~="not-dark"], [class~="not-dark"] *)) {
-      --radio-border: var(--blue-400);
-      /* --ring-color: var(--secondary-400); */
-      --radio-indicator-color: var(--blue-400);
-    }
-
-    .warning:not(:where([class~="not-dark"], [class~="not-dark"] *)) {
-      --radio-border: var(--yellow-400);
-      /* --ring-color: var(--secondary-400); */
-      --radio-indicator-color: var(--yellow-400);
-    }
-
-    .danger:not(:where([class~="not-dark"], [class~="not-dark"] *)) {
-      --radio-border: var(--red-400);
-      /* --ring-color: var(--secondary-400); */
-      --radio-indicator-color: var(--red-400);
-    }
-  }
+  /* Dark mode handled by semantic tokens in theme layer */
 
   @keyframes radioIn {
     0% {
