@@ -1,83 +1,87 @@
-.badge {
-  display: inline-block;
-  padding: 0.25em 0.4em;
-  font-size: var(--font-size-sm);
-  font-weight: 400;
-  line-height: 1;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: baseline;
-  border-radius: var(--border-radius-sm);
-}
+@layer infonomic-base, infonomic-utilities, infonomic-theme, infonomic-typography, infonomic-components;
 
-.primary {
-  color: white;
-  background-color: var(--primary-500);
-}
+@layer infonomic-components {
+  .badge {
+    display: inline-block;
+    padding: 0.25em 0.4em;
+    font-size: var(--font-size-sm);
+    font-weight: 400;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: var(--border-radius-sm);
+  }
 
-.secondary {
-  color: black;
-  background-color: var(--secondary-500);
-}
-
-.noeffect {
- color: black;
-  background-color: var(--gray-100);
-}
-
-.success {
-  color: white;
-  background-color: var(--green-500);
-}
-
-.info {
- color: white;
-  background-color: var(--blue-300);
-}
-
-.warning {
-  color: var(--foreground);
-  background-color: var(--yellow-300);
-}
-
-.danger {
-  color: white;
-  background-color: var(--red-500);
-}
-
-:global(.dark) {
-  .primary:not(:where([class~="not-dark"], [class~="not-dark"] *)) {
+  .primary {
     color: white;
-    background-color: var(--primary-400);
+    background-color: var(--primary-500);
   }
 
-  .secondary:not(:where([class~="not-dark"], [class~="not-dark"] *)) {
-    color: black;;
-    background-color: var(--secondary-400);
-  }
-
-  .noeffect:not(:where([class~="not-dark"], [class~="not-dark"] *)) {
-   color: white;
-    background-color: var(--gray-700);
-  }
-
-  .success:not(:where([class~="not-dark"], [class~="not-dark"] *)) {
-   color: white;
-    background-color: var(--green-400);
-  }
-
-  .info:not(:where([class~="not-dark"], [class~="not-dark"] *)) {
-   color: white;
-    background-color: var(--blue-400);
-  }
-
-  .warning:not(:where([class~="not-dark"], [class~="not-dark"] *)) {
+  .secondary {
     color: black;
-    background-color: var(--yellow-400);
+    background-color: var(--secondary-500);
   }
 
-  .danger:not(:where([class~="not-dark"], [class~="not-dark"] *)) {
+  .noeffect {
+  color: black;
+    background-color: var(--gray-100);
+  }
+
+  .success {
     color: white;
-    background-color: var(--red-400);
+    background-color: var(--green-500);
+  }
+
+  .info {
+  color: white;
+    background-color: var(--blue-300);
+  }
+
+  .warning {
+    color: var(--foreground);
+    background-color: var(--yellow-300);
+  }
+
+  .danger {
+    color: white;
+    background-color: var(--red-500);
+  }
+
+  :global(.dark) {
+    .primary:not(:where([class~="not-dark"], [class~="not-dark"] *)) {
+      color: white;
+      background-color: var(--primary-400);
+    }
+
+    .secondary:not(:where([class~="not-dark"], [class~="not-dark"] *)) {
+      color: black;;
+      background-color: var(--secondary-400);
+    }
+
+    .noeffect:not(:where([class~="not-dark"], [class~="not-dark"] *)) {
+    color: white;
+      background-color: var(--gray-700);
+    }
+
+    .success:not(:where([class~="not-dark"], [class~="not-dark"] *)) {
+    color: white;
+      background-color: var(--green-400);
+    }
+
+    .info:not(:where([class~="not-dark"], [class~="not-dark"] *)) {
+    color: white;
+      background-color: var(--blue-400);
+    }
+
+    .warning:not(:where([class~="not-dark"], [class~="not-dark"] *)) {
+      color: black;
+      background-color: var(--yellow-400);
+    }
+
+    .danger:not(:where([class~="not-dark"], [class~="not-dark"] *)) {
+      color: white;
+      background-color: var(--red-400);
+    }
   }
 }

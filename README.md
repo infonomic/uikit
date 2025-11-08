@@ -1,6 +1,6 @@
-# UI Kit Prototype
+# Infonomic UI Kit
 
-A UI kit prototype that relies on CSS Modules for component styling, while playing nicely with front-end frameworks that use [Tailwind CSS](https://tailwindcss.com/).
+A UI kit that relies on CSS Modules for component styling, while playing nicely with front-end frameworks that use [Tailwind CSS](https://tailwindcss.com/).
 
 ![image](https://github.com/user-attachments/assets/5f6ec314-7467-4c33-926d-0c382d9d2831)
 
@@ -16,6 +16,16 @@ We built this with the following goals in mind:
 2. We'd like to be able to easily target various front-end meta frameworks, from [Astro](https://astro.build/), to [Next.js](https://nextjs.org/) to [React Router v7](https://reactrouter.com/) (formerly Remix) - and even plain old HTML/CSS.
 3. We'd like a good developer experience (DX), allowing us to develop our components in the 'kit' via tests and Storybook, as well as in a monorepo within the front-end target framework itself (Next.js, Vue etc.).
 4. We'd like our components' styles to be easily overridable - whether via 'style' attributes, Tailwind, regular CSS classnames and stylesheets, or any other style system being used by the front-end. We'd especially like to be able to override a component's styles without having to use CSS !important.
+
+### Other key points:
+
+We use CSS Cascade layers via the @layer statement at-rule for named layers. This is what allows all of our CSS to be easily overwritten by any consuming client application - since CSS outside any layer, automatically has a higher specificity that CSS within a layer. We also carefully order our layers to create our own specificity hierarchy - for example - @layer infonomic-base, infonomic-utilities, infonomic-theme, infonomic-typography, infonomic-components;
+
+For our CSS module - this means ensuring that the the layer specificity order appears at the top of each CSS module. It acts as sort of a 'preamble' - and it means that the component's bundled CSS will behave correctly when used within the overall UI kit.
+
+The use of CSS modules will also allow us to eventually export individual components separately, to help reduce the import and bundle size of the consuming client. A client would import the main style.css file, and then only the individual components needed.
+
+Lastly - we highly value the option to 'tell' components to ignore or override a top-level theme decision of light or dark using  `:not(:where([class~="not-dark"], [class~="not-dark"] *))` class selectors. Since we're using a shadows to create ring offsets (which we desire for focus, active modes etc.) and since CSS shadows need a background color - being able to use `:not(:where([class~="not-dark"], [class~="not-dark"] *))`  means that we can override components that need to be in 'dark mode' on an otherwise 'light theme', or that need to be in .not-dark mode, on an otherwise 'dark theme'. This allows us to use the correct ring, background and component colors for components that might be placed on special dark or light background panels or sections - irrespective of the currently selected theme
 
 ## Getting Started
 
