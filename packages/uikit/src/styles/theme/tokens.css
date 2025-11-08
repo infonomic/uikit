@@ -46,11 +46,156 @@
     /* Ring tokens - for focus states */
     --ring-primary: var(--primary-600);
     
-    /* Gradient tokens - for gradient variant */
+    /* Gradient tokens */
     --gradient-primary-start: var(--primary-500);
     --gradient-primary-end: var(--primary-700);
     --gradient-primary-foreground: white;
     --gradient-primary-disabled: oklch(from var(--primary-700) calc(l * 1.2) calc(c * 0.85) h);
+
+    /* SECONDARY INTENT TOKENS
+       ----------------------------------------------------------------- */
+    --fill-secondary-strong: var(--secondary-500);
+    --fill-secondary-strong-hover: oklch(from var(--secondary-500) calc(l * 0.95) c h);
+    --fill-secondary-strong-disabled: oklch(from var(--secondary-500) calc(l * 1.1) calc(c * 0.85) h);
+    --fill-secondary-weak: oklch(from var(--secondary-500) calc(l * 1.6) calc(c * 0.2) h);
+    --fill-secondary-weak-hover: oklch(from var(--canvas-50) calc(l * 0.995) c h);
+    
+    --text-on-secondary: black;
+    --text-on-secondary-disabled: oklch(from black calc(l * 0.9) calc(c * 0.85) h);
+    --text-secondary-strong: var(--secondary-950);
+    --text-secondary-weak: oklch(from var(--secondary-500) calc(l * 0.7) c h);
+    --text-secondary-disabled: oklch(from var(--secondary-950) calc(l * 1.5) calc(c * 0.5) h);
+    
+    --stroke-secondary: var(--secondary-700);
+    --stroke-secondary-disabled: oklch(from var(--secondary-700) calc(l * 1.5) calc(c * 0.8) h);
+    
+    --ring-secondary: var(--secondary-500);
+    
+    --gradient-secondary-start: var(--secondary-500);
+    --gradient-secondary-end: var(--secondary-700);
+    --gradient-secondary-foreground: black;
+    --gradient-secondary-disabled: oklch(from var(--secondary-700) calc(l * 1.2) calc(c * 0.85) h);
+
+    /* NOEFFECT INTENT TOKENS (neutral/gray)
+       ----------------------------------------------------------------- */
+    --fill-noeffect-strong: var(--gray-100);
+    --fill-noeffect-strong-hover: oklch(from var(--gray-100) calc(l * 0.95) c h);
+    --fill-noeffect-strong-disabled: oklch(from var(--gray-100) calc(l * 1.1) calc(c * 0.85) h);
+    --fill-noeffect-weak: oklch(from var(--gray-100) calc(l * 2.9) calc(c * 0.2) h);
+    --fill-noeffect-weak-hover: oklch(from var(--canvas-50) calc(l * 0.995) c h);
+    
+    --text-on-noeffect: black;
+    --text-on-noeffect-disabled: oklch(from black calc(l * 0.9) calc(c * 0.85) h);
+    --text-noeffect-strong: var(--gray-800);
+    --text-noeffect-weak: oklch(from var(--gray-100) calc(l * 0.5) c h);
+    --text-noeffect-disabled: oklch(from var(--gray-800) calc(l * 1.5) calc(c * 0.5) h);
+    
+    --stroke-noeffect: var(--gray-500);
+    --stroke-noeffect-disabled: oklch(from var(--gray-500) calc(l * 1.5) calc(c * 0.8) h);
+    
+    --ring-noeffect: var(--gray-200);
+    
+    --gradient-noeffect-start: var(--gray-100);
+    --gradient-noeffect-end: var(--gray-200);
+    --gradient-noeffect-foreground: black;
+    --gradient-noeffect-hover: var(--gray-400);
+    --gradient-noeffect-disabled: oklch(from var(--gray-200) calc(l * 1.2) calc(c * 0.85) h);
+
+    /* SUCCESS INTENT TOKENS
+       ----------------------------------------------------------------- */
+    --fill-success-strong: var(--green-400);
+    --fill-success-strong-hover: oklch(from var(--green-400) calc(l * 0.9) c h);
+    --fill-success-strong-disabled: oklch(from var(--green-400) calc(l * 1.1) calc(c * 0.85) h);
+    --fill-success-weak: oklch(from var(--green-400) calc(l * 1.6) calc(c * 0.2) h);
+    --fill-success-weak-hover: oklch(from var(--canvas-50) calc(l * 0.995) c h);
+    
+    --text-on-success: white;
+    --text-on-success-disabled: oklch(from white calc(l * 0.9) calc(c * 0.85) h);
+    --text-success-strong: var(--green-600);
+    --text-success-weak: oklch(from var(--green-400) calc(l * 0.7) c h);
+    --text-success-disabled: oklch(from var(--green-600) calc(l * 1.5) calc(c * 0.5) h);
+    
+    --stroke-success: var(--green-600);
+    --stroke-success-disabled: oklch(from var(--green-600) calc(l * 1.5) calc(c * 0.8) h);
+    
+    --ring-success: var(--green-400);
+    
+    --gradient-success-start: var(--green-500);
+    --gradient-success-end: var(--green-700);
+    --gradient-success-foreground: white;
+    --gradient-success-disabled: oklch(from var(--green-700) calc(l * 1.2) calc(c * 0.85) h);
+
+    /* INFO INTENT TOKENS
+       ----------------------------------------------------------------- */
+    --fill-info-strong: var(--blue-400);
+    --fill-info-strong-hover: oklch(from var(--blue-400) calc(l * 0.9) c h);
+    --fill-info-strong-disabled: oklch(from var(--blue-400) calc(l * 1.1) calc(c * 0.85) h);
+    --fill-info-weak: oklch(from var(--blue-400) calc(l * 1.9) calc(c * 0.2) h);
+    --fill-info-weak-hover: oklch(from var(--canvas-50) calc(l * 0.995) c h);
+    
+    --text-on-info: white;
+    --text-on-info-disabled: oklch(from white calc(l * 0.9) calc(c * 0.85) h);
+    --text-info-strong: var(--blue-300);
+    --text-info-weak: oklch(from var(--blue-400) calc(l * 0.7) c h);
+    --text-info-disabled: oklch(from var(--blue-300) calc(l * 1.5) calc(c * 0.5) h);
+    
+    --stroke-info: var(--blue-500);
+    --stroke-info-disabled: oklch(from var(--blue-500) calc(l * 1.5) calc(c * 0.8) h);
+    
+    --ring-info: var(--blue-400);
+    
+    --gradient-info-start: var(--blue-500);
+    --gradient-info-end: var(--blue-700);
+    --gradient-info-foreground: white;
+    --gradient-info-disabled: oklch(from var(--blue-700) calc(l * 1.2) calc(c * 0.85) h);
+
+    /* WARNING INTENT TOKENS
+       ----------------------------------------------------------------- */
+    --fill-warning-strong: var(--yellow-300);
+    --fill-warning-strong-hover: oklch(from var(--yellow-300) calc(l * 0.95) c h);
+    --fill-warning-strong-disabled: oklch(from var(--yellow-300) calc(l * 1.1) calc(c * 0.85) h);
+    --fill-warning-weak: oklch(from var(--yellow-300) calc(l * 1.9) calc(c * 0.2) h);
+    --fill-warning-weak-hover: oklch(from var(--canvas-50) calc(l * 0.995) c h);
+    
+    --text-on-warning: black;
+    --text-on-warning-disabled: oklch(from black calc(l * 0.9) calc(c * 0.85) h);
+    --text-warning-strong: var(--yellow-700);
+    --text-warning-weak: oklch(from var(--yellow-300) calc(l * 0.6) c h);
+    --text-warning-disabled: oklch(from var(--yellow-700) calc(l * 1.5) calc(c * 0.5) h);
+    
+    --stroke-warning: var(--yellow-500);
+    --stroke-warning-disabled: oklch(from var(--yellow-500) calc(l * 1.5) calc(c * 0.8) h);
+    
+    --ring-warning: var(--yellow-300);
+    
+    --gradient-warning-start: var(--yellow-300);
+    --gradient-warning-end: var(--yellow-400);
+    --gradient-warning-foreground: black;
+    --gradient-warning-disabled: oklch(from var(--yellow-400) calc(l * 1.2) calc(c * 0.85) h);
+
+    /* DANGER INTENT TOKENS
+       ----------------------------------------------------------------- */
+    --fill-danger-strong: var(--red-400);
+    --fill-danger-strong-hover: oklch(from var(--red-400) calc(l * 0.9) c h);
+    --fill-danger-strong-disabled: oklch(from var(--red-400) calc(l * 1.1) calc(c * 0.85) h);
+    --fill-danger-weak: oklch(from var(--red-400) calc(l * 1.8) calc(c * 0.3) h);
+    --fill-danger-weak-hover: oklch(from var(--canvas-50) calc(l * 0.995) c h);
+    
+    --text-on-danger: white;
+    --text-on-danger-disabled: oklch(from white calc(l * 0.9) calc(c * 0.85) h);
+    --text-danger-strong: var(--red-500);
+    --text-danger-weak: oklch(from var(--red-400) calc(l * 0.7) c h);
+    --text-danger-disabled: oklch(from var(--red-500) calc(l * 1.5) calc(c * 0.5) h);
+    
+    --stroke-danger: var(--red-500);
+    --stroke-danger-disabled: oklch(from var(--red-500) calc(l * 1.5) calc(c * 0.8) h);
+    
+    --ring-danger: var(--red-400);
+    
+    --gradient-danger-start: var(--red-500);
+    --gradient-danger-end: var(--red-700);
+    --gradient-danger-foreground: white;
+    --gradient-danger-disabled: oklch(from var(--red-700) calc(l * 1.2) calc(c * 0.85) h);
   }
 
   /* ===================================================================
@@ -88,8 +233,159 @@
     --gradient-primary-end: var(--primary-700);
     --gradient-primary-foreground: white;
     --gradient-primary-disabled: oklch(from var(--primary-700) calc(l * 0.85) calc(c * 0.85) h);
+
+    /* SECONDARY INTENT TOKENS (Dark Mode)
+       ----------------------------------------------------------------- */
+    --fill-secondary-strong: var(--secondary-500);
+    --fill-secondary-strong-hover: oklch(from var(--secondary-500) calc(l * 0.95) c h);
+    --fill-secondary-strong-disabled: oklch(from var(--secondary-500) calc(l * 0.85) calc(c * 0.85) h);
+    --fill-secondary-weak: oklch(from var(--secondary-500) calc(l * 0.3) calc(c * 0.1) h);
+    --fill-secondary-weak-hover: var(--canvas-800);
+    
+    --text-on-secondary: black;
+    --text-on-secondary-disabled: oklch(from black calc(l * 0.85) calc(c * 0.85) h);
+    --text-secondary-strong: var(--secondary-500);
+    --text-secondary-weak: var(--secondary-500);
+    --text-secondary-disabled: oklch(from var(--secondary-500) calc(l * 0.8) calc(c * 0.8) h);
+    
+    --stroke-secondary: var(--secondary-500);
+    --stroke-secondary-disabled: oklch(from var(--secondary-500) calc(l * 0.8) calc(c * 0.8) h);
+    
+    --ring-secondary: var(--secondary-500);
+    
+    --gradient-secondary-start: var(--secondary-500);
+    --gradient-secondary-end: var(--secondary-700);
+    --gradient-secondary-foreground: black;
+    --gradient-secondary-disabled: oklch(from var(--secondary-700) calc(l * 0.85) calc(c * 0.85) h);
+
+    /* NOEFFECT INTENT TOKENS (Dark Mode)
+       ----------------------------------------------------------------- */
+    --fill-noeffect-strong: var(--gray-900);
+    --fill-noeffect-strong-hover: oklch(from var(--gray-900) calc(l * 0.95) c h);
+    --fill-noeffect-strong-disabled: oklch(from var(--gray-900) calc(l * 0.85) calc(c * 0.85) h);
+    --fill-noeffect-weak: oklch(from var(--gray-900) calc(l * 0.75) calc(c * 0.2) h);
+    --fill-noeffect-weak-hover: var(--canvas-800);
+    
+    --text-on-noeffect: white;
+    --text-on-noeffect-disabled: oklch(from white calc(l * 0.85) calc(c * 0.85) h);
+    --text-noeffect-strong: var(--gray-300);
+    --text-noeffect-weak: var(--gray-300);
+    --text-noeffect-disabled: oklch(from var(--gray-300) calc(l * 0.85) calc(c * 0.85) h);
+    
+    --stroke-noeffect: var(--gray-500);
+    --stroke-noeffect-disabled: oklch(from var(--gray-500) calc(l * 0.8) calc(c * 0.8) h);
+    
+    --ring-noeffect: var(--gray-900);
+    
+    --gradient-noeffect-start: var(--gray-950);
+    --gradient-noeffect-end: var(--gray-900);
+    --gradient-noeffect-foreground: white;
+    --gradient-noeffect-hover: var(--gray-900);
+    --gradient-noeffect-disabled: oklch(from var(--gray-900) calc(l * 0.85) calc(c * 0.85) h);
+
+    /* SUCCESS INTENT TOKENS (Dark Mode)
+       ----------------------------------------------------------------- */
+    --fill-success-strong: var(--green-400);
+    --fill-success-strong-hover: oklch(from var(--green-400) calc(l * 0.9) c h);
+    --fill-success-strong-disabled: oklch(from var(--green-400) calc(l * 0.85) calc(c * 0.85) h);
+    --fill-success-weak: oklch(from var(--green-400) calc(l * 0.35) calc(c * 0.1) h);
+    --fill-success-weak-hover: var(--canvas-800);
+    
+    --text-on-success: white;
+    --text-on-success-disabled: oklch(from white calc(l * 0.85) calc(c * 0.85) h);
+    --text-success-strong: var(--green-500);
+    --text-success-weak: var(--green-400);
+    --text-success-disabled: oklch(from var(--green-500) calc(l * 0.8) calc(c * 0.8) h);
+    
+    --stroke-success: var(--green-500);
+    --stroke-success-disabled: oklch(from var(--green-500) calc(l * 0.8) calc(c * 0.8) h);
+    
+    --ring-success: var(--green-400);
+    
+    --gradient-success-start: var(--green-500);
+    --gradient-success-end: var(--green-700);
+    --gradient-success-foreground: white;
+    --gradient-success-disabled: oklch(from var(--green-700) calc(l * 0.85) calc(c * 0.85) h);
+
+    /* INFO INTENT TOKENS (Dark Mode)
+       ----------------------------------------------------------------- */
+    --fill-info-strong: var(--blue-400);
+    --fill-info-strong-hover: oklch(from var(--blue-400) calc(l * 0.9) c h);
+    --fill-info-strong-disabled: oklch(from var(--blue-400) calc(l * 0.85) calc(c * 0.85) h);
+    --fill-info-weak: oklch(from var(--blue-400) calc(l * 0.43) calc(c * 0.1) h);
+    --fill-info-weak-hover: var(--canvas-800);
+    
+    --text-on-info: white;
+    --text-on-info-disabled: oklch(from white calc(l * 0.85) calc(c * 0.85) h);
+    --text-info-strong: var(--blue-300);
+    --text-info-weak: var(--blue-400);
+    --text-info-disabled: oklch(from var(--blue-300) calc(l * 0.8) calc(c * 0.8) h);
+    
+    --stroke-info: var(--blue-500);
+    --stroke-info-disabled: oklch(from var(--blue-500) calc(l * 0.8) calc(c * 0.8) h);
+    
+    --ring-info: var(--blue-400);
+    
+    --gradient-info-start: var(--blue-500);
+    --gradient-info-end: var(--blue-700);
+    --gradient-info-foreground: white;
+    --gradient-info-disabled: oklch(from var(--blue-700) calc(l * 0.85) calc(c * 0.85) h);
+
+    /* WARNING INTENT TOKENS (Dark Mode)
+       ----------------------------------------------------------------- */
+    --fill-warning-strong: var(--yellow-300);
+    --fill-warning-strong-hover: oklch(from var(--yellow-300) calc(l * 0.95) c h);
+    --fill-warning-strong-disabled: oklch(from var(--yellow-300) calc(l * 0.85) calc(c * 0.85) h);
+    --fill-warning-weak: oklch(from var(--yellow-300) calc(l * 0.31) calc(c * 0.1) h);
+    --fill-warning-weak-hover: var(--canvas-800);
+    
+    --text-on-warning: black;
+    --text-on-warning-disabled: oklch(from black calc(l * 0.85) calc(c * 0.85) h);
+    --text-warning-strong: var(--yellow-500);
+    --text-warning-weak: var(--yellow-300);
+    --text-warning-disabled: oklch(from var(--yellow-500) calc(l * 0.8) calc(c * 0.8) h);
+    
+    --stroke-warning: var(--yellow-500);
+    --stroke-warning-disabled: oklch(from var(--yellow-500) calc(l * 0.8) calc(c * 0.8) h);
+    
+    --ring-warning: var(--yellow-300);
+    
+    --gradient-warning-start: var(--yellow-300);
+    --gradient-warning-end: var(--yellow-400);
+    --gradient-warning-foreground: black;
+    --gradient-warning-disabled: oklch(from var(--yellow-400) calc(l * 0.85) calc(c * 0.85) h);
+
+    /* DANGER INTENT TOKENS (Dark Mode)
+       ----------------------------------------------------------------- */
+    --fill-danger-strong: var(--red-400);
+    --fill-danger-strong-hover: oklch(from var(--red-400) calc(l * 0.9) c h);
+    --fill-danger-strong-disabled: oklch(from var(--red-400) calc(l * 0.85) calc(c * 0.85) h);
+    --fill-danger-weak: oklch(from var(--red-400) calc(l * 0.4) calc(c * 0.1) h);
+    --fill-danger-weak-hover: var(--canvas-800);
+    
+    --text-on-danger: white;
+    --text-on-danger-disabled: oklch(from white calc(l * 0.85) calc(c * 0.85) h);
+    --text-danger-strong: var(--red-500);
+    --text-danger-weak: var(--red-400);
+    --text-danger-disabled: oklch(from var(--red-500) calc(l * 0.8) calc(c * 0.8) h);
+    
+    --stroke-danger: var(--red-500);
+    --stroke-danger-disabled: oklch(from var(--red-500) calc(l * 0.8) calc(c * 0.8) h);
+    
+    --ring-danger: var(--red-400);
+    
+    --gradient-danger-start: var(--red-500);
+    --gradient-danger-end: var(--red-700);
+    --gradient-danger-foreground: white;
+    --gradient-danger-disabled: oklch(from var(--red-700) calc(l * 0.85) calc(c * 0.85) h);
   }
 
+  /* .not-dark override: Forces light mode tokens by re-declaring :root values.
+  * This duplication is intentional - it ensures .not-dark always wins over .dark
+  * regardless of DOM order, without needing complex :not() selectors.
+  * Alternative approaches (revert-layer, :not() patterns) would be more fragile.
+  */
+  
   /* ===================================================================
      .NOT-DARK OVERRIDE
      Forces light mode tokens regardless of parent .dark class
@@ -125,5 +421,150 @@
     --gradient-primary-end: var(--primary-700);
     --gradient-primary-foreground: white;
     --gradient-primary-disabled: oklch(from var(--primary-700) calc(l * 1.2) calc(c * 0.85) h);
+
+    /* SECONDARY INTENT TOKENS (Force Light Mode)
+       ----------------------------------------------------------------- */
+    --fill-secondary-strong: var(--secondary-500);
+    --fill-secondary-strong-hover: oklch(from var(--secondary-500) calc(l * 0.95) c h);
+    --fill-secondary-strong-disabled: oklch(from var(--secondary-500) calc(l * 1.1) calc(c * 0.85) h);
+    --fill-secondary-weak: oklch(from var(--secondary-500) calc(l * 1.6) calc(c * 0.2) h);
+    --fill-secondary-weak-hover: oklch(from var(--canvas-50) calc(l * 0.995) c h);
+    
+    --text-on-secondary: black;
+    --text-on-secondary-disabled: oklch(from black calc(l * 0.9) calc(c * 0.85) h);
+    --text-secondary-strong: var(--secondary-950);
+    --text-secondary-weak: oklch(from var(--secondary-500) calc(l * 0.7) c h);
+    --text-secondary-disabled: oklch(from var(--secondary-950) calc(l * 1.5) calc(c * 0.5) h);
+    
+    --stroke-secondary: var(--secondary-700);
+    --stroke-secondary-disabled: oklch(from var(--secondary-700) calc(l * 1.5) calc(c * 0.8) h);
+    
+    --ring-secondary: var(--secondary-500);
+    
+    --gradient-secondary-start: var(--secondary-500);
+    --gradient-secondary-end: var(--secondary-700);
+    --gradient-secondary-foreground: black;
+    --gradient-secondary-disabled: oklch(from var(--secondary-700) calc(l * 1.2) calc(c * 0.85) h);
+
+    /* NOEFFECT INTENT TOKENS (Force Light Mode)
+       ----------------------------------------------------------------- */
+    --fill-noeffect-strong: var(--gray-100);
+    --fill-noeffect-strong-hover: oklch(from var(--gray-100) calc(l * 0.95) c h);
+    --fill-noeffect-strong-disabled: oklch(from var(--gray-100) calc(l * 1.1) calc(c * 0.85) h);
+    --fill-noeffect-weak: oklch(from var(--gray-100) calc(l * 2.9) calc(c * 0.2) h);
+    --fill-noeffect-weak-hover: oklch(from var(--canvas-50) calc(l * 0.995) c h);
+    
+    --text-on-noeffect: black;
+    --text-on-noeffect-disabled: oklch(from black calc(l * 0.9) calc(c * 0.85) h);
+    --text-noeffect-strong: var(--gray-800);
+    --text-noeffect-weak: oklch(from var(--gray-100) calc(l * 0.5) c h);
+    --text-noeffect-disabled: oklch(from var(--gray-800) calc(l * 1.5) calc(c * 0.5) h);
+    
+    --stroke-noeffect: var(--gray-500);
+    --stroke-noeffect-disabled: oklch(from var(--gray-500) calc(l * 1.5) calc(c * 0.8) h);
+    
+    --ring-noeffect: var(--gray-200);
+    
+    --gradient-noeffect-start: var(--gray-100);
+    --gradient-noeffect-end: var(--gray-200);
+    --gradient-noeffect-foreground: black;
+    --gradient-noeffect-hover: var(--gray-400);
+    --gradient-noeffect-disabled: oklch(from var(--gray-200) calc(l * 1.2) calc(c * 0.85) h);
+
+    /* SUCCESS INTENT TOKENS (Force Light Mode)
+       ----------------------------------------------------------------- */
+    --fill-success-strong: var(--green-400);
+    --fill-success-strong-hover: oklch(from var(--green-400) calc(l * 0.9) c h);
+    --fill-success-strong-disabled: oklch(from var(--green-400) calc(l * 1.1) calc(c * 0.85) h);
+    --fill-success-weak: oklch(from var(--green-400) calc(l * 1.6) calc(c * 0.2) h);
+    --fill-success-weak-hover: oklch(from var(--canvas-50) calc(l * 0.995) c h);
+    
+    --text-on-success: white;
+    --text-on-success-disabled: oklch(from white calc(l * 0.9) calc(c * 0.85) h);
+    --text-success-strong: var(--green-600);
+    --text-success-weak: oklch(from var(--green-400) calc(l * 0.7) c h);
+    --text-success-disabled: oklch(from var(--green-600) calc(l * 1.5) calc(c * 0.5) h);
+    
+    --stroke-success: var(--green-600);
+    --stroke-success-disabled: oklch(from var(--green-600) calc(l * 1.5) calc(c * 0.8) h);
+    
+    --ring-success: var(--green-400);
+    
+    --gradient-success-start: var(--green-500);
+    --gradient-success-end: var(--green-700);
+    --gradient-success-foreground: white;
+    --gradient-success-disabled: oklch(from var(--green-700) calc(l * 1.2) calc(c * 0.85) h);
+
+    /* INFO INTENT TOKENS (Force Light Mode)
+       ----------------------------------------------------------------- */
+    --fill-info-strong: var(--blue-400);
+    --fill-info-strong-hover: oklch(from var(--blue-400) calc(l * 0.9) c h);
+    --fill-info-strong-disabled: oklch(from var(--blue-400) calc(l * 1.1) calc(c * 0.85) h);
+    --fill-info-weak: oklch(from var(--blue-400) calc(l * 1.9) calc(c * 0.2) h);
+    --fill-info-weak-hover: oklch(from var(--canvas-50) calc(l * 0.995) c h);
+    
+    --text-on-info: white;
+    --text-on-info-disabled: oklch(from white calc(l * 0.9) calc(c * 0.85) h);
+    --text-info-strong: var(--blue-300);
+    --text-info-weak: oklch(from var(--blue-400) calc(l * 0.7) c h);
+    --text-info-disabled: oklch(from var(--blue-300) calc(l * 1.5) calc(c * 0.5) h);
+    
+    --stroke-info: var(--blue-500);
+    --stroke-info-disabled: oklch(from var(--blue-500) calc(l * 1.5) calc(c * 0.8) h);
+    
+    --ring-info: var(--blue-400);
+    
+    --gradient-info-start: var(--blue-500);
+    --gradient-info-end: var(--blue-700);
+    --gradient-info-foreground: white;
+    --gradient-info-disabled: oklch(from var(--blue-700) calc(l * 1.2) calc(c * 0.85) h);
+
+    /* WARNING INTENT TOKENS (Force Light Mode)
+       ----------------------------------------------------------------- */
+    --fill-warning-strong: var(--yellow-300);
+    --fill-warning-strong-hover: oklch(from var(--yellow-300) calc(l * 0.95) c h);
+    --fill-warning-strong-disabled: oklch(from var(--yellow-300) calc(l * 1.1) calc(c * 0.85) h);
+    --fill-warning-weak: oklch(from var(--yellow-300) calc(l * 1.9) calc(c * 0.2) h);
+    --fill-warning-weak-hover: oklch(from var(--canvas-50) calc(l * 0.995) c h);
+    
+    --text-on-warning: black;
+    --text-on-warning-disabled: oklch(from black calc(l * 0.9) calc(c * 0.85) h);
+    --text-warning-strong: var(--yellow-700);
+    --text-warning-weak: oklch(from var(--yellow-300) calc(l * 0.6) c h);
+    --text-warning-disabled: oklch(from var(--yellow-700) calc(l * 1.5) calc(c * 0.5) h);
+    
+    --stroke-warning: var(--yellow-500);
+    --stroke-warning-disabled: oklch(from var(--yellow-500) calc(l * 1.5) calc(c * 0.8) h);
+    
+    --ring-warning: var(--yellow-300);
+    
+    --gradient-warning-start: var(--yellow-300);
+    --gradient-warning-end: var(--yellow-400);
+    --gradient-warning-foreground: black;
+    --gradient-warning-disabled: oklch(from var(--yellow-400) calc(l * 1.2) calc(c * 0.85) h);
+
+    /* DANGER INTENT TOKENS (Force Light Mode)
+       ----------------------------------------------------------------- */
+    --fill-danger-strong: var(--red-400);
+    --fill-danger-strong-hover: oklch(from var(--red-400) calc(l * 0.9) c h);
+    --fill-danger-strong-disabled: oklch(from var(--red-400) calc(l * 1.1) calc(c * 0.85) h);
+    --fill-danger-weak: oklch(from var(--red-400) calc(l * 1.8) calc(c * 0.3) h);
+    --fill-danger-weak-hover: oklch(from var(--canvas-50) calc(l * 0.995) c h);
+    
+    --text-on-danger: white;
+    --text-on-danger-disabled: oklch(from white calc(l * 0.9) calc(c * 0.85) h);
+    --text-danger-strong: var(--red-500);
+    --text-danger-weak: oklch(from var(--red-400) calc(l * 0.7) c h);
+    --text-danger-disabled: oklch(from var(--red-500) calc(l * 1.5) calc(c * 0.5) h);
+    
+    --stroke-danger: var(--red-500);
+    --stroke-danger-disabled: oklch(from var(--red-500) calc(l * 1.5) calc(c * 0.8) h);
+    
+    --ring-danger: var(--red-400);
+    
+    --gradient-danger-start: var(--red-500);
+    --gradient-danger-end: var(--red-700);
+    --gradient-danger-foreground: white;
+    --gradient-danger-disabled: oklch(from var(--red-700) calc(l * 1.2) calc(c * 0.85) h);
   }
 }

@@ -39,10 +39,11 @@
     --loader-color: var(--invert-loader-color);
   }
 
-  /* Brute force our not-dark class for now until we figure out
-   * a better way to do this. Note - the following does NOT work:
-   .dark:not(:where([class~="not-dark"], [class~="not-dark"] *)) {
-   */
+  /* .not-dark override: Forces light mode tokens by re-declaring :root values.
+  * This duplication is intentional - it ensures .not-dark always wins over .dark
+  * regardless of DOM order, without needing complex :not() selectors.
+  * Alternative approaches (revert-layer, :not() patterns) would be more fragile.
+  */
   .not-dark {
     --background: var(--canvas-25);
     --foreground: var(--gray-900);

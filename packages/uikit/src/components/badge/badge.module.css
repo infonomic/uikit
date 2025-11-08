@@ -19,67 +19,35 @@
   }
 
   .secondary {
-    color: black;
-    background-color: var(--secondary-500);
+    color: var(--text-on-secondary);
+    background-color: var(--fill-secondary-strong);
   }
 
   .noeffect {
-  color: black;
-    background-color: var(--gray-100);
+    color: var(--text-on-noeffect);
+    background-color: var(--fill-noeffect-strong);
   }
 
   .success {
-    color: white;
-    background-color: var(--green-500);
+    color: var(--text-on-success);
+    background-color: var(--fill-success-strong);
   }
 
   .info {
-  color: white;
-    background-color: var(--blue-300);
+    color: var(--text-on-info);
+    background-color: var(--fill-info-strong);
   }
 
   .warning {
-    color: var(--foreground);
-    background-color: var(--yellow-300);
+    color: var(--text-on-warning);
+    background-color: var(--fill-warning-strong);
   }
 
   .danger {
-    color: white;
-    background-color: var(--red-500);
+    color: var(--text-on-danger);
+    background-color: var(--fill-danger-strong);
   }
 
-  :global(.dark) {
-    /* PRIMARY INTENT - Now handled by semantic tokens in theme layer */
-    /* No overrides needed! Tokens automatically switch in .dark and respect .not-dark */
-
-    .secondary:not(:where([class~="not-dark"], [class~="not-dark"] *)) {
-      color: black;;
-      background-color: var(--secondary-400);
-    }
-
-    .noeffect:not(:where([class~="not-dark"], [class~="not-dark"] *)) {
-    color: white;
-      background-color: var(--gray-700);
-    }
-
-    .success:not(:where([class~="not-dark"], [class~="not-dark"] *)) {
-    color: white;
-      background-color: var(--green-400);
-    }
-
-    .info:not(:where([class~="not-dark"], [class~="not-dark"] *)) {
-    color: white;
-      background-color: var(--blue-400);
-    }
-
-    .warning:not(:where([class~="not-dark"], [class~="not-dark"] *)) {
-      color: black;
-      background-color: var(--yellow-400);
-    }
-
-    .danger:not(:where([class~="not-dark"], [class~="not-dark"] *)) {
-      color: white;
-      background-color: var(--red-400);
-    }
-  }
+  /* Dark mode - All intents now handled by semantic tokens in theme layer */
+  /* No overrides needed! Tokens automatically switch in .dark and respect .not-dark */
 }
