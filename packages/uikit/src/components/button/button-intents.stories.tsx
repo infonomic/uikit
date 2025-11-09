@@ -34,7 +34,7 @@ const AllIntents = (): React.JSX.Element => {
   )
 }
 
-export const Intents: Story = {
+export const ButtonIntents: Story = {
   render: () => <AllIntents />,
 }
 

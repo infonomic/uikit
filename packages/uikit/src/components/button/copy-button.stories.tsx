@@ -4,9 +4,9 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { intent } from '../@types/shared.js'
 import { variant } from './@types/button.js'
-import { CopyButton } from './copy-button.js'
+import { CopyButton as CopyButtonComponent } from './copy-button.js'
 
-type Story = StoryObj<typeof CopyButton>
+type Story = StoryObj<typeof CopyButtonComponent>
 
 const CopyDemo = (): React.JSX.Element => {
   return (
@@ -19,7 +19,7 @@ const CopyDemo = (): React.JSX.Element => {
           >
             {variant.map((v) => {
               return (
-                <CopyButton
+                <CopyButtonComponent
                   text="I should be in your clipboard."
                   key={`${i}-${v}`}
                   intent={i}
@@ -34,17 +34,17 @@ const CopyDemo = (): React.JSX.Element => {
   )
 }
 
-export const Copy: Story = {
+export const CopyButtons: Story = {
   render: () => <CopyDemo />,
 }
 
-const meta: Meta<typeof CopyButton> = {
+const meta: Meta<typeof CopyButtonComponent> = {
   /* 👇 The title prop is optional.
    * See https://storybook.js.org/docs/react/configure/overview#configure-story-loading
    * to learn how to generate automatic titles
    */
   title: 'Components/Button',
-  component: CopyButton,
+  component: CopyButtonComponent,
 }
 
 export default meta

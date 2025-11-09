@@ -27,7 +27,7 @@ const AllOverrides = (): React.JSX.Element => {
   )
 }
 
-export const Overrides: Story = {
+export const ButtonOverrides: Story = {
   render: () => <AllOverrides />,
 }
 

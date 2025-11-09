@@ -44,7 +44,7 @@ const ControlsDemo = (): React.JSX.Element => {
   )
 }
 
-export const Controls: Story = {
+export const ControlButtons: Story = {
   render: () => <ControlsDemo />,
 }
 

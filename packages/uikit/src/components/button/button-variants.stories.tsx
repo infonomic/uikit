@@ -44,7 +44,7 @@ const AllVariants = (): React.JSX.Element => {
   )
 }
 
-export const Variants: Story = {
+export const ButtonVariants: Story = {
   render: () => <AllVariants />,
 }
 
