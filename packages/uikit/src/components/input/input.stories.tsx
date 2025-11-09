@@ -9,7 +9,7 @@ import { size, variant } from './@types/input.js'
 import { Input, InputAdornment } from './index.js'
 
 export default {
-  title: 'Components/Input/TextInput',
+  title: 'Components/Input',
   component: Input,
   argTypes: {},
 }
