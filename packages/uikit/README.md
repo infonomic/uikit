@@ -18,7 +18,7 @@ We built this with the following goals in mind:
 
 4. We'd like our components' styles to be easily overridable - whether via 'style' attributes, Tailwind, regular CSS classnames and stylesheets, or any other style system being used by the front-end. We'd especially like to be able to override a component's styles without having to use CSS !important.
 
-5. We have a very opinionated definition of variants and intents. Variants in our kit refer to major component style variations - such as `outlined`, `gradient`, or `filled` buttons, or `outlined`, `filled`, and `underlined` text input components. They are obviously very different components. Our intents system is composed of `primary`, `secondary`, `noeffect`, `info`, `warning`, `success` and `danger`. Many of our components support both variant and intent properties. 
+5. We have a very opinionated definition of variants and intents. Variants in our kit refer to overall style variations - meaning they may differ in terms of shape, form, borders, etc. For example, `outlined`, `gradient`, or `filled` buttons, or `outlined`, `filled`, and `underlined` text input components. Our intents system, as the name suggests, signals semantic intent and is composed of `primary`, `secondary`, `noeffect`, `info`, `warning`, `success` and `danger`. Many of our components support both variant and intent properties. 
 
 ### Other key points:
 
