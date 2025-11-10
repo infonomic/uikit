@@ -10,7 +10,7 @@ const meta: Meta<typeof CalendarComponent> = {
    * See https://storybook.js.org/docs/react/configure/overview#configure-story-loading
    * to learn how to generate automatic titles
    */
-  title: 'Components/Calendar',
+  title: 'Components/Input/Calendar',
   component: CalendarComponent,
 }
 
