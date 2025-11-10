@@ -26,14 +26,10 @@
     max-height: 88vh;
     width: 100%;
     bottom: 0;
-    background-color: var(--canvas-25);
+    background-color: var(--surface-panel);
     border: 1px solid var(--border-color);
     margin-left: var(--spacing-2);
     margin-right: var(--spacing-2);
-  }
-
-  .modal-container:is(:global(.dark) *) {
-    background: var(--canvas-800);
   }
 
   @media screen and (min-width: 640px) {
