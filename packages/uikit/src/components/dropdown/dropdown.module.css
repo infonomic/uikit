@@ -5,13 +5,13 @@
   .dropdown-content,
   .dropdown-subcontent {
     z-index: 20;
-    background-color: var(--canvas-25);
+    background-color: var(--surface-panel-elevated);
     padding: 4px;
     animation-duration: 400ms;
     animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
     will-change: transform, opacity;
     border-width: var(--border-width-thin);
-    border-color: var(--border-color);
+    border-color: var(--surface-panel-border);
     border-style: var(--border-style-solid);
     border-radius: var(--border-radius-md);
     box-shadow: var(--shadow-sm);
@@ -41,6 +41,8 @@
     width: 100%;
     padding: 5px 2px;
     font-size: var(--font-size-sm);
+    color: var(--surface-item-text);
+    background-color: var(--surface-item);
     transition: background-color 0.2s;
     cursor: default;
     outline: none;
@@ -51,38 +53,21 @@
   .dropdown-item:hover,
   .dropdown-item:focus,
   .dropdown-item[data-highlighted] {
-    background-color: var(--canvas-50);
+    background-color: var(--surface-item-hover);
+    color: var(--surface-item-text-hover);
   }
 
   .dropdown-separator {
     margin: 0 auto;
     width: 90%;
-    background-color: var(--border-color);
+    background-color: var(--surface-panel-border);
     margin: var(--spacing-1) 0;
     border-top-width: var(--border-width-thin);
-    border-top-color: var(--border-color);
+    border-top-color: var(--surface-panel-border);
     border-top-style: var(--border-style-solid);
   }
 
-  /* 🌙 Dark via `.dark` class. We rely on the 
-  * consuming application to detect a user's preferred
-  * color scheme - either by header or cookie, and set
-  * a root html class accordingly
-  */
-  :global(.dark) {
-
-    .dropdown-content:not(:where([class~="not-dark"], [class~="not-dark"] *)),
-    .dropdown-subcontent:not(:where([class~="not-dark"], [class~="not-dark"] *)) {
-      background-color: var(--canvas-800);
-    }
-
-    /* Updated to also cover data-highlighted presence */
-    .dropdown-item:hover:not(:where([class~="not-dark"], [class~="not-dark"] *)),
-    .dropdown-item:focus:not(:where([class~="not-dark"], [class~="not-dark"] *)),
-    .dropdown-item[data-highlighted]:not(:where([class~="not-dark"], [class~="not-dark"] *)) {
-      background-color: var(--canvas-700);
-    }
-  }
+  /* Dark mode handled by surface tokens in theme layer */
 
   @keyframes slideUpAndFade {
     from {

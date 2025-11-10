@@ -208,6 +208,30 @@
     --gradient-danger-end: var(--red-700);
     --gradient-danger-foreground: white;
     --gradient-danger-disabled: oklch(from var(--red-700) calc(l * 1.2) calc(c * 0.85) h);
+
+    /* SURFACE TOKENS (for panels, dropdowns, menus, lists)
+       ----------------------------------------------------------------- */
+    
+    /* Panel/container backgrounds */
+    --surface-panel: var(--canvas-25);
+    --surface-panel-elevated: white; /* For dropdowns/popovers with shadow */
+    --surface-panel-border: var(--border-color);
+    
+    /* Item backgrounds (default transparent, inherits panel) */
+    --surface-item: transparent;
+    --surface-item-hover: var(--canvas-50);
+    --surface-item-active: var(--canvas-100);
+    
+    /* Item text colors */
+    --surface-item-text: var(--text);
+    --surface-item-text-hover: var(--text);
+    --surface-item-text-active: var(--text);
+    --surface-item-text-disabled: var(--gray-400);
+
+    /* Panel scrollers */
+    --surface-panel-scrollbar: var(--gray-50);
+    --surface-panel-scrollbar-thumb: var(--primary-100);
+    
   }
 
   /* ===================================================================
@@ -397,6 +421,29 @@
     --gradient-danger-end: var(--red-700);
     --gradient-danger-foreground: white;
     --gradient-danger-disabled: oklch(from var(--red-700) calc(l * 0.85) calc(c * 0.85) h);
+
+    /* SURFACE TOKENS (Dark Mode)
+       ----------------------------------------------------------------- */
+    
+    /* Panel/container backgrounds - slightly elevated from canvas-900 base */
+    --surface-panel: var(--canvas-800);
+    --surface-panel-elevated: var(--canvas-800);
+    --surface-panel-border: var(--border-color);
+    
+    /* Item backgrounds - lighter than panel for hover/active */
+    --surface-item: transparent;
+    --surface-item-hover: var(--canvas-700);
+    --surface-item-active: var(--canvas-600);
+    
+    /* Item text colors */
+    --surface-item-text: var(--text);
+    --surface-item-text-hover: var(--text);
+    --surface-item-text-active: var(--text);
+    --surface-item-text-disabled: var(--gray-500);
+
+    /* Panel scrollers */
+    --surface-panel-scrollbar: var(--canvas-700);
+    --surface-panel-scrollbar-thumb: var(--primary-400);
   }
 
   /* ===================================================================
@@ -596,5 +643,28 @@
     --gradient-danger-end: var(--red-700);
     --gradient-danger-foreground: white;
     --gradient-danger-disabled: oklch(from var(--red-700) calc(l * 1.2) calc(c * 0.85) h);
+
+    /* SURFACE TOKENS (Force Light Mode)
+       ----------------------------------------------------------------- */
+    
+    /* Panel/container backgrounds - identical to :root */
+    --surface-panel: var(--canvas-25);
+    --surface-panel-elevated: white;
+    --surface-panel-border: var(--border-color);
+    
+    /* Item backgrounds */
+    --surface-item: transparent;
+    --surface-item-hover: var(--canvas-50);
+    --surface-item-active: var(--canvas-100);
+    
+    /* Item text colors */
+    --surface-item-text: var(--text);
+    --surface-item-text-hover: var(--text);
+    --surface-item-text-active: var(--text);
+    --surface-item-text-disabled: var(--gray-400);
+
+    /* Panel scrollers */
+    --surface-panel-scrollbar: var(--gray-50);
+    --surface-panel-scrollbar-thumb: var(--primary-100);
   }
 }

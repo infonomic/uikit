@@ -21,11 +21,11 @@
     /* disable browser handling of all panning and zooming gestures on touch devices */
     touch-action: none;
     padding: 2px;
-    background: var(--gray-50);
+    background: var(--surface-panel-scrollbar);
     transition: background 160ms ease-out;
 
     &:hover {
-      background: var(--gray-50);
+      background: var(--surface-panel-scrollbar);
     }
 
     &[data-orientation="vertical"] {
@@ -38,17 +38,9 @@
     }
   }
 
-  .scrollbar:is(:global(.dark) *) {
-    background: var(--canvas-700);
-
-    &:hover {
-      background: var(--canvas-700);
-    }
-  }
-
   .thumb {
     flex: 1;
-    background: var(--primary-100);
+    background: var(--surface-panel-scrollbar-thumb);
     border-radius: var(--border-radius-sm);
     position: relative;
 
@@ -66,15 +58,7 @@
     }
   }
 
-  .thumb:is(:global(.dark) *) {
-    background: var(--primary-400);
-  }
-
   .corner {
-    background: var(--gray-50);
-  }
-
-  .corner:is(:global(.dark) *) {
-    background: var(--canvas-700);
+    background: var(--surface-panel-scrollbar);
   }
 }

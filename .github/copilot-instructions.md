@@ -87,13 +87,29 @@ Every CSS module MUST include the layer preamble at the top:
 
 **Semantic Token System** (NEW):
 - **Primitive tokens**: `src/styles/base/colors.css` - Base colors like `--primary-600`, `--red-500`
-- **Semantic tokens**: `src/styles/theme/tokens.css` - Intent-based tokens like `--fill-primary-strong`, `--text-on-primary`
-- **Token naming**: `element-intent-emphasis-state` (e.g., `--fill-primary-strong-hover`)
-  - `element`: `fill`, `text`, `stroke`, `ring`
+- **Semantic tokens**: `src/styles/theme/tokens.css` - Intent-based and surface tokens
+
+**Intent Token Naming**: `element-intent-emphasis-state` (e.g., `--fill-primary-strong-hover`)
+  - `element`: `fill` (backgrounds), `text` (foreground), `stroke` (borders), `ring` (focus), `gradient`
   - `intent`: `primary`, `secondary`, `noeffect`, `success`, `info`, `warning`, `danger`
   - `emphasis`: `strong`, `weak`, `weaker` (optional)
   - `state`: `hover`, `press`, `focus`, `disabled` (optional)
+
+**Surface Token Naming**: `surface-type-state` (e.g., `--surface-item-hover`)
+  - Used for: Dropdowns, selects, menus, tooltips, popovers, dialogs, command palettes
+  - `surface-panel`: Container/viewport background (e.g., dropdown menu background)
+  - `surface-panel-elevated`: Elevated panels with shadows (white in light, slightly lighter in dark)
+  - `surface-panel-border`: Panel border color
+  - `surface-item`: Individual item background (default transparent)
+  - `surface-item-hover`: Item hover state background
+  - `surface-item-active`: Item selected/active background
+  - `surface-item-text`: Item text color (normal)
+  - `surface-item-text-hover`: Item text color (hover)
+  - `surface-item-text-active`: Item text color (active)
+  - `surface-item-text-disabled`: Item text color (disabled)
+
 - **Components reference semantic tokens**, not primitives (e.g., use `--fill-primary-strong` instead of `--primary-600`)
+- **Use surface tokens** for any list-based interactive UI (dropdowns, menus, selects, command palettes)
 
 **Theme System**:
 - Theme variables in `src/styles/theme/theme.css`: `--background`, `--foreground`, `--text`, `--headings`
