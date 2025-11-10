@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 3.0.0
+
+### Major Changes
+
+- a3d7cab: Initial refactor to semantic tokens in tokens.css
+
 ## 2.15.0
 
 ### Minor Changes
