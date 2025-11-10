@@ -23,7 +23,7 @@ export function CopyButton({
   hoverText = 'Copy',
   copiedText = 'Copied!',
   variant,
-  size = 'xs',
+  size = 'sm',
   intent,
   fullWidth,
   ripple,

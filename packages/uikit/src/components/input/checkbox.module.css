@@ -114,6 +114,7 @@
     --checkbox-variant-outlined-hover-border: var(--fill-primary-strong-hover);
     --checkbox-variant-outline-ring-color: var(--ring-primary);
     --checkbox-variant-filled: var(--fill-primary-strong);
+    --checkbox-icon-color: var(--text-on-primary);
   }
 
   .secondary {
@@ -122,6 +123,7 @@
     --checkbox-variant-outlined-hover-border: var(--fill-secondary-strong-hover);
     --checkbox-variant-outline-ring-color: var(--ring-secondary);
     --checkbox-variant-filled: var(--fill-secondary-strong);
+    --checkbox-icon-color: var(--text-on-secondary);
   }
 
   .noeffect {
@@ -130,6 +132,7 @@
     --checkbox-variant-outlined-hover-border: var(--fill-noeffect-strong-hover);
     --checkbox-variant-outline-ring-color: var(--ring-noeffect);
     --checkbox-variant-filled: var(--fill-noeffect-strong);
+    --checkbox-icon-color: var(--text-on-noeffect);
   }
 
   .success {
@@ -138,6 +141,7 @@
     --checkbox-variant-outlined-hover-border: var(--fill-success-strong-hover);
     --checkbox-variant-outline-ring-color: var(--ring-success);
     --checkbox-variant-filled: var(--fill-success-strong);
+    --checkbox-icon-color: var(--text-on-success);
   }
 
   .info {
@@ -146,6 +150,7 @@
     --checkbox-variant-outlined-hover-border: var(--fill-info-strong-hover);
     --checkbox-variant-outline-ring-color: var(--ring-info);
     --checkbox-variant-filled: var(--fill-info-strong);
+    --checkbox-icon-color: var(--text-on-info);
   }
 
   .warning {
@@ -154,6 +159,7 @@
     --checkbox-variant-outlined-hover-border: var(--fill-warning-strong-hover);
     --checkbox-variant-outline-ring-color: var(--ring-warning);
     --checkbox-variant-filled: var(--fill-warning-strong);
+    --checkbox-icon-color: var(--text-on-warning);
   }
 
   .danger {
@@ -162,6 +168,7 @@
     --checkbox-variant-outlined-hover-border: var(--fill-danger-strong-hover);
     --checkbox-variant-outline-ring-color: var(--ring-danger);
     --checkbox-variant-filled: var(--fill-danger-strong);
+    --checkbox-icon-color: var(--text-on-danger);
   }
 
   /* Dark mode handled by semantic tokens in theme layer */
