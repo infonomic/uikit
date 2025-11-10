@@ -72,9 +72,9 @@
     justify-content: center;
     height: 32px;
     line-height: 1;
-    border: 1px solid var(--primary-500);
-    background-color: white;
-    color: var(--gray-900);
+    border: 1px solid var(--stroke-primary);
+    background-color: var(--background);
+    color: var(--foreground);
     font-size: var(--font-size-sm);
   }
 
@@ -96,8 +96,8 @@
   .number-button:hover,
   .previous-button:hover,
   .first-button:hover {
-    color: white;
-    background-color: var(--primary-600);
+    color: var(--text-on-primary);
+    background-color: var(--fill-primary-strong);
   }
 
   .last-button:disabled,
@@ -114,8 +114,8 @@
   }
 
   .number-button.active {
-    background-color: var(--primary-600);
-    color: white;
+    color: var(--text-on-primary);
+    background-color: var(--fill-primary-strong);
   }
 
 
@@ -137,7 +137,6 @@
   * a root html class accordingly
   */
   :global(.dark) {
-
     .ellipses,
     .number-button,
     .next-button,
@@ -145,21 +144,6 @@
     .previous-button,
     .first-button {
       border-color: var(--canvas-700);
-      background-color: var(--canvas-800);
-      color: var(--gray-200);
-    }
-
-    .number-button:hover,
-    .next-button:hover,
-    .last-button:hover,
-    .previous-button:hover,
-    .first-button:hover {
-      background-color: var(--canvas-700);
-    }
-
-    .number-button.active {
-      background-color: var(--primary-500);
-      color: white;
     }
   }
 }
