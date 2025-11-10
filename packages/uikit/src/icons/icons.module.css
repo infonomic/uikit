@@ -1,6 +1,7 @@
 @layer infonomic-base, infonomic-utilities, infonomic-theme, infonomic-components;
 
 @layer infonomic-components {
+
   .stroke-none {
     stroke: none;
   }

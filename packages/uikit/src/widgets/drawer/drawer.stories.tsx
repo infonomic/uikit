@@ -16,19 +16,8 @@ export default {
 export const Default = (): React.JSX.Element => {
   const [isOpen, setIsOpen] = React.useState(false)
 
-  const whiteIcon = `
-    .white-icon {
-      fill: white;  
-    }
-
-    .dark .white-icon {
-      fill: black;
-    }
-  `
-
   return (
     <>
-      <style>{whiteIcon}</style>
       <Button
         onClick={() => {
           setIsOpen(true)
@@ -54,7 +43,7 @@ export const Default = (): React.JSX.Element => {
                 setIsOpen(false)
               }}
             >
-              <CloseIcon width="14px" height="14px" svgClassName="white-icon" />
+              <CloseIcon width="14px" height="14px" />
             </IconButton>
           </Drawer.TopActions>
           <Drawer.Header className="flex items-center justify-between mb-4">
@@ -69,22 +58,11 @@ export const Default = (): React.JSX.Element => {
   )
 }
 
-const whiteIcon = `
-.white-icon {
-  fill: white;  
-}
-
-.dark .white-icon {
-  fill: black;
-}
-`
-
 export const Wide = (): React.JSX.Element => {
   const [isOpen, setIsOpen] = React.useState(false)
 
   return (
     <>
-      <style>{whiteIcon}</style>
       <Button
         onClick={() => {
           setIsOpen(true)
@@ -130,19 +108,8 @@ export const Nested = (): React.JSX.Element => {
   const [isOpen1, setIsOpen1] = React.useState(false)
   const [isOpen2, setIsOpen2] = React.useState(false)
 
-  const whiteIcon = `
-    .white-icon {
-      fill: white;  
-    }
-
-    .dark .white-icon {
-      fill: black;
-    }
-  `
-
   return (
     <>
-      <style>{whiteIcon}</style>
       <Button
         onClick={() => {
           setIsOpen1(true)
