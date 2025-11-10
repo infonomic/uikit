@@ -4,11 +4,13 @@ A UI kit that relies on CSS Modules for component styling, while playing nicely 
 
 ![image](https://github.com/user-attachments/assets/5f6ec314-7467-4c33-926d-0c382d9d2831)
 
-We created this project because while we appreciate Tailwind CSS for front-end development of PoC and smaller applications, we don't feel it belongs in a component library. Tailwind CSS as a [&#39;programmatic&#39; atomic CSS system](https://css-tricks.com/lets-define-exactly-atomic-css/#aa-programmatic) - is brilliant at what it does in preventing CSS rot and gradual CSS bloat - as well as making it clear how a layout or front-end component has been styled. It's also the ulitmate expression of what [Thierry Koblentz](https://www.smashingmagazine.com/author/thierry-koblentz/) was talking about in his 2103 article, [Challenging CSS Best Practices](https://www.smashingmagazine.com/2013/10/challenging-css-best-practices-atomic-approach/).
+We created this project because while we appreciate Tailwind CSS for front-end development of PoC and smaller applications, we don't feel it belongs in a component library. Tailwind CSS as a [&#39;programmatic&#39; atomic CSS system](https://css-tricks.com/lets-define-exactly-atomic-css/#aa-programmatic) - is brilliant at what it does in preventing CSS rot and gradual CSS bloat - as well as making it clear how a layout or front-end component has been styled. It's also the ultimate expression of what [Thierry Koblentz](https://www.smashingmagazine.com/author/thierry-koblentz/) was talking about in his 2103 article, [Challenging CSS Best Practices](https://www.smashingmagazine.com/2013/10/challenging-css-best-practices-atomic-approach/).
 
 It just doesn't belong in UI kits and libraries.
 
 ## Design Goals
+
+TODO: Rationale behind adopting and 'folding in' best-in-class components, like the ones in well-known 'à la carte' component libraries such as [Base UI](https://base-ui.com/), [Radix](https://www.radix-ui.com/), and others.
 
 We built this with the following goals in mind:
 
@@ -40,7 +42,34 @@ or...
 
 `pnpm add @infonomic/uikit`
 
-And then in your application...
+And then in your application in a global.css or other root css file...
+
+```css
+/**
+ * Core uikit styles including var system for breakpoints,
+ * colors, scales, utils  etc., which can be optionally
+ * integrated with Tailwind (colors, breakpoints etc.) via
+ * Tailwind theme configuration.
+ */
+@import '@infonomic/uikit/styles.css';
+
+/**
+  * Optional uikit typography including prose and fonts
+  */
+@import '@infonomic/uikit/typography.css';
+
+/**
+  * Tailwind (optional) - should come after the above.
+  */
+@import './tailwind.css';
+
+/**
+  * Application styles
+  */
+@import './app.css';
+```
+
+Followed by the below in any of your components or routes that want to import a component...
 
 ```ts
 import { Button, Card, Container, Section } from '@infonomic/uikit/react
