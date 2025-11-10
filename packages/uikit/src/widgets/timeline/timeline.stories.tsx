@@ -9,13 +9,13 @@ const meta: Meta = {
    * See https://storybook.js.org/docs/react/configure/overview#configure-story-loading
    * to learn how to generate automatic titles
    */
-  title: 'Components',
+  title: 'Widgets/Timeline',
   component: TimelineComponent,
 }
 
 export default meta
 
-export const Timeline = (): React.JSX.Element => (
+export const Default = (): React.JSX.Element => (
   <div
     style={{
       maxWidth: '400px',
