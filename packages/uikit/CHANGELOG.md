@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 3.1.0
+
+### Minor Changes
+
+- f46790b: Completed main refactor to CSS tokens
+
 ## 3.0.0
 
 ### Major Changes

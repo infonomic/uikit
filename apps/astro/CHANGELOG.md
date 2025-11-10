@@ -1,5 +1,16 @@
 # @infonomic/website-astro
 
+## 3.1.0
+
+### Minor Changes
+
+- f46790b: Completed main refactor to CSS tokens
+
+### Patch Changes
+
+- Updated dependencies [f46790b]
+  - @infonomic/uikit@3.1.0
+
 ## 3.0.0
 
 ### Major Changes
