@@ -6,7 +6,7 @@ import styles from './icons.module.css'
 import type { IconProps } from './types/icon.js'
 
 export const GithubIcon = ({ className, svgClassName, ...rest }: IconProps): React.JSX.Element => {
-  const applied = cx(styles['fill-contrast'], svgClassName)
+  const applied = cx(styles['fill-current'], svgClassName)
 
   return (
     <IconElement className={cx('github-icon', className)} {...rest}>

@@ -13,7 +13,7 @@ export const StopwatchIcon = ({
   svgClassName,
   ...rest
 }: IconProps): React.JSX.Element => {
-  const applied = cx(styles['fill-contrast'], styles['stroke-none'], svgClassName)
+  const applied = cx(styles['fill-current'], styles['stroke-none'], svgClassName)
 
   return (
     <IconElement className={cx('stopwatch-icon', className)} {...rest}>

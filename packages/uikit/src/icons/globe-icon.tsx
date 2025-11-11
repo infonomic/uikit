@@ -9,7 +9,7 @@ import type { IconProps } from './types/icon.js'
 import styles from './icons.module.css'
 
 export const GlobeIcon = ({ className, svgClassName, ...rest }: IconProps): React.JSX.Element => {
-  const applied = cx(styles['fill-contrast'], styles['stroke-none'], svgClassName)
+  const applied = cx(styles['fill-current'], styles['stroke-none'], svgClassName)
 
   return (
     <IconElement className={cx('globe-icon flex items-center justify-center', className)} {...rest}>

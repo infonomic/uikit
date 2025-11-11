@@ -13,7 +13,7 @@ export const EllipsisIcon = ({
   svgClassName,
   ...rest
 }: IconProps): React.JSX.Element => {
-  const applied = cx(styles['fill-none'], styles['stroke-contrast'], svgClassName)
+  const applied = cx(styles['fill-none'], styles['stroke-current'], svgClassName)
 
   return (
     <IconElement className={cx('ellipsis-icon', className)} {...rest}>

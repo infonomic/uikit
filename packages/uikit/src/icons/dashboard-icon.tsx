@@ -13,7 +13,7 @@ export const DashboardIcon = ({
   svgClassName,
   ...rest
 }: IconProps): React.JSX.Element => {
-  const applied = cx(styles['fill-none'], styles['stroke-contrast'], svgClassName)
+  const applied = cx(styles['fill-none'], styles['stroke-current'], svgClassName)
 
   return (
     <IconElement className={cx('dashboard-icon', className)} {...rest}>

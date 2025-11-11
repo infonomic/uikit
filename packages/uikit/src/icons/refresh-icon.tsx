@@ -9,7 +9,7 @@ import type { IconProps } from './types/icon.js'
 import styles from './icons.module.css'
 
 export const RefreshIcon = ({ className, svgClassName, ...rest }: IconProps): React.JSX.Element => {
-  const applied = cx(styles['fill-none'], styles['stroke-contrast'], svgClassName)
+  const applied = cx(styles['fill-none'], styles['stroke-current'], svgClassName)
 
   return (
     <IconElement className={cx('refresh-icon', className)} {...rest}>

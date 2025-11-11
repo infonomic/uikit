@@ -9,7 +9,7 @@ import type { IconProps } from './types/icon.js'
 import styles from './icons.module.css'
 
 export const CheckIcon = ({ className, svgClassName, ...rest }: IconProps): React.JSX.Element => {
-  const applied = cx(styles['fill-contrast'], svgClassName)
+  const applied = cx(styles['fill-current'], svgClassName)
 
   return (
     <IconElement className={cx('check-icon', className)} {...rest}>

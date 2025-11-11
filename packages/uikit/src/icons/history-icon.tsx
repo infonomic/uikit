@@ -6,7 +6,7 @@ import styles from './icons.module.css'
 import type { IconProps } from './types/icon.js'
 
 export const HistoryIcon = ({ className, svgClassName, ...rest }: IconProps): React.JSX.Element => {
-  const applied = cx(styles['stroke-contrast'], svgClassName)
+  const applied = cx(styles['stroke-current'], svgClassName)
 
   return (
     <IconElement className={cx('history-icon', className)} {...rest}>

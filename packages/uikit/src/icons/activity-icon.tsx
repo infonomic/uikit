@@ -10,7 +10,7 @@ export const ActivityIcon = ({
   svgClassName,
   ...rest
 }: IconProps): React.JSX.Element => {
-  const applied = cx(styles['fill-none'], styles['stroke-contrast'], svgClassName)
+  const applied = cx(styles['fill-none'], styles['stroke-current'], svgClassName)
 
   return (
     <IconElement className={cx('activity-icon', className)} {...rest}>

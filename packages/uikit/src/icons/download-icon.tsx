@@ -13,7 +13,7 @@ export const DownloadIcon = ({
   svgClassName,
   ...rest
 }: IconProps): React.JSX.Element => {
-  const applied = cx(styles['fill-contrast'], svgClassName)
+  const applied = cx(styles['fill-current'], svgClassName)
 
   return (
     <IconElement className={cx('download-icon', className)} {...rest}>

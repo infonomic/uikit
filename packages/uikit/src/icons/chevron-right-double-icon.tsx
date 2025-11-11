@@ -31,7 +31,7 @@ export const ChevronRightDoubleIcon = ({
   svgClassName,
   ...rest
 }: IconProps): React.JSX.Element => {
-  const applied = cx(styles['fill-contrast'], svgClassName)
+  const applied = cx(styles['fill-current'], svgClassName)
 
   return (
     <IconElement className={cx('chevron-right-double-icon', className)} {...rest}>
