@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 3.2.0
+
+### Minor Changes
+
+- 1194825: Continued refactor to tokens, forms, and icons current color.
+
 ## 3.1.0
 
 ### Minor Changes

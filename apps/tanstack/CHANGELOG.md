@@ -1,5 +1,16 @@
 # @infonomic/website-react
 
+## 3.2.0
+
+### Minor Changes
+
+- 1194825: Continued refactor to tokens, forms, and icons current color.
+
+### Patch Changes
+
+- Updated dependencies [1194825]
+  - @infonomic/uikit@3.2.0
+
 ## 3.1.0
 
 ### Minor Changes
