@@ -8,11 +8,17 @@ We created this project because while we appreciate Tailwind CSS for front-end d
 
 It just doesn't belong in UI kits and libraries.
 
+## Rationale
+
+In addition to our thoughts above, this kit is built around the philosophy of adopting or 'folding in' best-in-class components, like the ones in well-known 'à la carte' headless component libraries such as [Base UI](https://base-ui.com/), [Radix UI](https://www.radix-ui.com/), and [React Aria](https://react-spectrum.adobe.com/react-aria/index.html) as well as individually well-known components such as [React Day Picker](https://github.com/gpbl/react-day-picker) and more. 
+
+Having lived through a full generation of 'all-in-one' and difficult to override themed UI kits like Bootstrap and Material UI, the trend towards composable headless (unstyled) component libraries is a welcome one - and one that forms the basis of this kit. 
+
+Many of the current components are built on Radix UI. The great thing about wrapping these components in a client-consumable interface and library, is that in theory at least, the consumer of our kit's components won't have to worry about implementation details, or migration from Radix UI to Base UI or other. The 'contract' and core styling semantics will never change.
+
 ## Design Goals
 
-TODO: Rationale behind adopting and 'folding in' best-in-class components, like the ones in well-known 'à la carte' component libraries such as [Base UI](https://base-ui.com/), [Radix](https://www.radix-ui.com/), and others.
-
-We built this with the following goals in mind:
+We built this with the following design goals in mind:
 
 1. We'd like a structure and style system that will work with any component framework - [Astro](https://astro.build/), [React](https://react.dev/), [Vue.js](https://vuejs.org/), [Solid](https://www.solidjs.com/), [Svelte](https://svelte.dev/) etc.
 2. We'd like to be able to easily target various front-end meta frameworks, from [Astro](https://astro.build/), to [Next.js](https://nextjs.org/) to [React Router v7](https://reactrouter.com/) (formerly Remix) - and even plain old HTML/CSS.
@@ -76,4 +82,161 @@ import { Button, Card, Container, Section } from '@infonomic/uikit/react
 
 ```
 
-At the moment docs are in the main repo and stories are available via Storybook.
+## Tailwind CSS Integration
+
+Here's an example Tailwind CSS integration. Note that we have our own reset, and optional typography system and so the order of our imports are a little different from the usual 'Tailwind first' approach. The example below does NOT use the Tailwind CSS rest.
+
+```css
+@layer theme, base, components, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+/* @import "tailwindcss/preflight.css" layer(base); */
+@import "tailwindcss/utilities.css" layer(utilities);
+
+@custom-variant dark (&:is(.dark *));
+
+/* 
+   Set the utility class in Tailwind to match our own, as for now
+   at least, we add the 'container' class attribute to our container
+   component - which conflicts with Tailwind's own container utility.
+*/
+@utility container {
+  width: 100%;
+  padding: 0 16px;
+  margin: 0 auto;
+  max-width: 960px;
+
+  /* Large */
+  @media (min-width: 1050px) {
+    max-width: 1024px;
+  }
+
+  /* X-Large */
+  @media (min-width: 1230px) {
+    max-width: 1190px;
+  }
+
+  /* 2X-Large */
+  @media (min-width: 1500px) {
+    max-width: 1400px;
+  }
+}
+
+@theme {
+  --breakpoint-*: initial;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1050px;
+  --breakpoint-xl: 1230px;
+  --breakpoint-2xl: 1500px;
+
+  --font-*: initial;
+  --font-sans:
+    'Inter', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-serif: Merriweather, Georgia, Cambria, 'Times New Roman', Times, serif;
+  --font-display:
+    Roboto, ui-sans-serif, system-ui, sans-serif, Apple Color Emoji,
+    Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  --font-mono:
+    'Source Code Pro', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    'Liberation Mono', 'Courier New', monospace;
+
+  --color-theme-25: var(--theme-25);
+  --color-theme-50: var(--theme-50);
+  --color-theme-100: var(--theme-100);
+  --color-theme-200: var(--theme-200);
+  --color-theme-300: var(--theme-300);
+  --color-theme-400: var(--theme-400);
+  --color-theme-500: var(--theme-500);
+  --color-theme-600: var(--theme-600);
+  --color-theme-700: var(--theme-700);
+  --color-theme-800: var(--theme-800);
+  --color-theme-900: var(--theme-900);
+  --color-theme-950: var(--theme-950);
+  --color-primary-25: var(--primary-25);
+  --color-primary-50: var(--primary-50);
+  --color-primary-100: var(--primary-100);
+  --color-primary-200: var(--primary-200);
+  --color-primary-300: var(--primary-300);
+  --color-primary-400: var(--primary-400);
+  --color-primary-500: var(--primary-500);
+  --color-primary-600: var(--primary-600);
+  --color-primary-700: var(--primary-700);
+  --color-primary-800: var(--primary-800);
+  --color-primary-900: var(--primary-900);
+  --color-primary-950: var(--primary-950);
+  --color-secondary-25: var(--secondary-25);
+  --color-secondary-50: var(--secondary-50);
+  --color-secondary-100: var(--secondary-100);
+  --color-secondary-200: var(--secondary-200);
+  --color-secondary-300: var(--secondary-300);
+  --color-secondary-400: var(--secondary-400);
+  --color-secondary-500: var(--secondary-500);
+  --color-secondary-600: var(--secondary-600);
+  --color-secondary-700: var(--secondary-700);
+  --color-secondary-800: var(--secondary-800);
+  --color-secondary-900: var(--secondary-900);
+  --color-secondary-950: var(--secondary-950);
+  --color-accent-25: var(--accent-25);
+  --color-accent-50: var(--accent-50);
+  --color-accent-100: var(--accent-100);
+  --color-accent-200: var(--accent-200);
+  --color-accent-300: var(--accent-300);
+  --color-accent-400: var(--accent-400);
+  --color-accent-500: var(--accent-500);
+  --color-accent-600: var(--accent-600);
+  --color-accent-700: var(--accent-700);
+  --color-accent-800: var(--accent-800);
+  --color-accent-900: var(--accent-900);
+  --color-accent-950: var(--accent-950);
+  --color-gray-25: var(--gray-25);
+  --color-gray-50: var(--gray-50);
+  --color-gray-100: var(--gray-100);
+  --color-gray-200: var(--gray-200);
+  --color-gray-300: var(--gray-300);
+  --color-gray-400: var(--gray-400);
+  --color-gray-500: var(--gray-500);
+  --color-gray-600: var(--gray-600);
+  --color-gray-700: var(--gray-700);
+  --color-gray-800: var(--gray-800);
+  --color-gray-900: var(--gray-900);
+  --color-gray-950: var(--gray-950);
+  --color-canvas-25: var(--canvas-25);
+  --color-canvas-50: var(--canvas-50);
+  --color-canvas-100: var(--canvas-100);
+  --color-canvas-200: var(--canvas-200);
+  --color-canvas-300: var(--canvas-300);
+  --color-canvas-400: var(--canvas-400);
+  --color-canvas-500: var(--canvas-500);
+  --color-canvas-600: var(--canvas-600);
+  --color-canvas-700: var(--canvas-700);
+  --color-canvas-800: var(--canvas-800);
+  --color-canvas-900: var(--canvas-900);
+  --color-canvas-950: var(--canvas-950);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --grid-template-columns-auto-fit-240: repeat(auto-fit, minmax(240px, 1fr));
+  --grid-template-columns-auto-fit-280: repeat(auto-fit, minmax(280px, 1fr));
+  --grid-template-columns-auto-fit-320: repeat(auto-fit, minmax(320px, 1fr));
+  --grid-template-columns-auto-fit-480: repeat(auto-fit, minmax(480px, 1fr));
+
+  --shadow-slider: 0 0 0 5px rgba(0, 0, 0, 0.3);
+}
+```
+
+## Questions or Comments?
+
+Feel free to get in touch by reaching out to us at https://infonomic.io, or by posting questions, issues, or PRs to our github repo at https://github.com/infonomic/uikit
+
+## License
+
+Infonomic UI Kit is free software licensed under the MIT license.
+For full details, please refer to the [LICENSE](LICENSE) and [COPYRIGHT](COPYRIGHT) files in this repository.
+
+Copyright © 2025 Anthony Bouch and contributors.
+
+### Major Contributors
+
+* Anthony Bouch https://www.linkedin.com/in/anthonybouch/ anthony@infonomic.io 
+* David Lipsky https://www.linkedin.com/in/david-lipsky-4391862a8/ david@infonomic.io 
