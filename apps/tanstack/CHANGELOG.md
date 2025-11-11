@@ -1,5 +1,16 @@
 # @infonomic/website-react
 
+## 3.3.0
+
+### Minor Changes
+
+- a5d4198: Updated README
+
+### Patch Changes
+
+- Updated dependencies [a5d4198]
+  - @infonomic/uikit@3.3.0
+
 ## 3.2.0
 
 ### Minor Changes
