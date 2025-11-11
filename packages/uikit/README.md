@@ -34,7 +34,7 @@ We use CSS Cascade layers via the @layer statement at-rule for named layers. Thi
 
 For component CSS modules - this means ensuring that the layer specificity order appears at the top of each CSS module. It acts as sort of a 'preamble' - and it means that the component's bundled CSS will behave correctly when used within the overall UI kit.
 
-The use of CSS modules will also allow us to support exporting individual components separately, to help reduce the import and bundle size of the consuming client. A client would import the main style.css file, and then only the individual components needed.
+The use of CSS modules will also allow us to support exporting individual components separately (we export a single bundle for import at the moment) helping reduce the import and bundle size of the consuming client. Once we've enabled single component imports, a client can then import the main style.css file followed by the individual components needed. We'll be revisiting this soon.
 
 Lastly - we highly value the option to 'tell' components to ignore or override a top-level theme decision of light or dark. There is an intentionally duplicated `.not-dark` class selector in our tokens.css file. Since we're using shadows to create ring offsets (which we desire for focus, active modes etc.) and since CSS shadows need a background color - being able to use `.not-dark`  means that we can override components that need to be in 'dark mode' on an otherwise 'light theme', or that need to be in .not-dark mode, on an otherwise 'dark theme'. This allows us to use the correct ring, background and component colors for components that might be placed on fixed dark or light background panels or sections - irrespective of the currently selected theme
 
@@ -48,7 +48,7 @@ or...
 
 `pnpm add @infonomic/uikit`
 
-And then in your application in a global.css or other root css file...
+And then in your application in a global.css or other root CSS file...
 
 ```css
 /**
@@ -84,11 +84,11 @@ import { Button, Card, Container, Section } from '@infonomic/uikit/react
 
 ## Documentation
 
-At the moment self-documented component examples are all based on [Storybook](https://storybook.js.org/). For now at least, in order to view our Storybook stories, you'll need to clone this repo, install all dependencies, then change into the packages/ui directory and start Storybook with `pnpm storybook` or `npm run storybook`.
+At the moment self-documented component examples are all based on [Storybook](https://storybook.js.org/). For now at least, in order to view our Storybook stories you'll need to clone this repo, install all dependencies, then change into the packages/ui directory and start Storybook with `pnpm storybook` or `npm run storybook`.
 
 ## Tailwind CSS Integration
 
-Here's an example Tailwind CSS integration. Note that we have our own reset, and optional typography system and so the order of our imports are a little different from the usual 'Tailwind first' approach. The example below does NOT use the Tailwind CSS rest.
+Here's an example Tailwind CSS integration. Note that we have our own reset, and optional typography system and so the order of our imports are a little different from the usual 'Tailwind first' approach. The example below does NOT use the Tailwind CSS reset.
 
 ```css
 @layer theme, base, components, utilities;
