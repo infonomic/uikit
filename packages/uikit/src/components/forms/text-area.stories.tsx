@@ -5,7 +5,7 @@ import { useState } from 'react'
 import { TextArea } from './index.js'
 
 export default {
-  title: 'Components/Input/TextArea',
+  title: 'Components/Forms/TextArea',
   component: TextArea,
   argTypes: {},
 }

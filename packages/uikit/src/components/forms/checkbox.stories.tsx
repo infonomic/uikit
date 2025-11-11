@@ -5,7 +5,7 @@ import { useState } from 'react'
 import { Checkbox } from './checkbox.js'
 
 export default {
-  title: 'Components/Input/Checkbox',
+  title: 'Components/Forms/Checkbox',
   component: Checkbox,
   argTypes: {},
 }

@@ -8,7 +8,7 @@ const meta: Meta = {
    * See https://storybook.js.org/docs/react/configure/overview#configure-story-loading
    * to learn how to generate automatic titles
    */
-  title: 'Components/Input',
+  title: 'Components/Forms/RadioGroup',
   component: RadioGroupComponent,
 }
 
@@ -32,7 +32,7 @@ const values3: RadioGroupValue[] = [
   { id: 'rg9', label: 'Three', value: '3' },
 ]
 
-export const RadioGroup = (): React.JSX.Element => {
+export const Default = (): React.JSX.Element => {
   return (
     <>
       <div style={{ maxWidth: '600px', margin: '2rem auto' }}>

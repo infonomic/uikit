@@ -1,6 +1,6 @@
-import type { ZodType, z } from 'zod'
+import type { z } from 'zod'
 
-type FormattedErrors = z.inferFormattedError<ZodType<any, any, any>>
+type FormattedErrors = z.ZodFormattedError<any>
 
 export function hasErrors(name: string, clientErrors: any, serverErrors: any): boolean {
   return Boolean(serverErrors?.[name as keyof typeof serverErrors] ?? clientErrors[name])

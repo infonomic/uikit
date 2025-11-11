@@ -4,7 +4,7 @@ import type React from 'react'
 import { Select, SelectItem, type SelectValue } from './select.js'
 
 export default {
-  title: 'Components/Input/Select',
+  title: 'Components/Forms/Select',
   component: Select,
   argTypes: {},
 }
