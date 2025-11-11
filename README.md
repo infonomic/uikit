@@ -75,12 +75,16 @@ And then in your application in a global.css or other root css file...
 @import './app.css';
 ```
 
-Followed by the below in any of your components or routes that want to import a component...
+Followed by the below in any of your components or routes where you'd like to import a component...
 
 ```ts
 import { Button, Card, Container, Section } from '@infonomic/uikit/react
 
 ```
+
+## Documentation
+
+At the moment self-documented component examples are all based on [Storybook](https://storybook.js.org/). For now at least, in order to view our Storybook stories, you'll need to clone this repo, install all dependencies, then change into the packages/ui directory and start Storybook with `pnpm storybook` or `npm run storybook`.
 
 ## Tailwind CSS Integration
 
