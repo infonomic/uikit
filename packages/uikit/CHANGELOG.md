@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 3.4.0
+
+### Minor Changes
+
+- b5df50f: Chore: Updated depenencies.
+
 ## 3.3.0
 
 ### Minor Changes

@@ -1,5 +1,16 @@
 # @infonomic/website-astro
 
+## 3.4.0
+
+### Minor Changes
+
+- b5df50f: Chore: Updated depenencies.
+
+### Patch Changes
+
+- Updated dependencies [b5df50f]
+  - @infonomic/uikit@3.4.0
+
 ## 3.3.0
 
 ### Minor Changes
