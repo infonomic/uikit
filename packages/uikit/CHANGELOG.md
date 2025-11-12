@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 3.6.0
+
+### Minor Changes
+
+- bcba54f: Updated README
+
 ## 3.5.0
 
 ### Minor Changes
