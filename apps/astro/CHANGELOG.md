@@ -1,5 +1,16 @@
 # @infonomic/website-astro
 
+## 3.6.0
+
+### Minor Changes
+
+- bcba54f: Updated README
+
+### Patch Changes
+
+- Updated dependencies [bcba54f]
+  - @infonomic/uikit@3.6.0
+
 ## 3.5.0
 
 ### Minor Changes
