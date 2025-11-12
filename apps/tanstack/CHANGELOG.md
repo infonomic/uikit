@@ -1,5 +1,16 @@
 # @infonomic/website-react
 
+## 3.5.0
+
+### Minor Changes
+
+- da3b24a: Updated README and Docs.
+
+### Patch Changes
+
+- Updated dependencies [da3b24a]
+  - @infonomic/uikit@3.5.0
+
 ## 3.4.0
 
 ### Minor Changes
