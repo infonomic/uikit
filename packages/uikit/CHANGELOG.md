@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 3.8.0
+
+### Minor Changes
+
+- f246a29: Refactored base files and breakpoints to rem.
+
 ## 3.7.0
 
 ### Minor Changes
