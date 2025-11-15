@@ -17,6 +17,54 @@
   }
 
   /* ========================================
+     THEME UTILITIES
+  ======================================== */
+
+  .foreground {
+    color: var(--foreground);
+  }
+
+  .text {
+    color: var(--text);
+  }
+
+  .primary {
+    background-color: var(--primary-500);
+    color: white;
+  }
+
+  .secondary {
+    background-color: var(--secondary-500);
+    color: black;
+  }
+
+  .accent {
+    background-color: var(--accent-500);
+    color: white;
+  }
+
+  .info {
+    background-color: var(--blue-500);
+    color: white;
+  }
+
+  .success {
+    background-color: var(--green-500);
+    color: white;
+  }
+
+  .warning {
+    background-color: var(--yellow-500);
+    color: black;
+  }
+
+  .danger {
+    background-color: var(--red-500);
+    color: white;
+  }
+
+
+  /* ========================================
      TYPOGRAPHY UTILITIES
   ======================================== */
   .text-xs {
