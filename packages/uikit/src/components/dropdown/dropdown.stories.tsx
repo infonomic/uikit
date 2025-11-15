@@ -62,7 +62,7 @@ export const Dropdown: Story = {
             </DropdownComponent.Trigger>
 
             <DropdownComponent.Portal>
-              <DropdownComponent.Content align="end" sideOffset={10}>
+              <DropdownComponent.Content align="end" data-side="top" sideOffset={10}>
                 <DropdownComponent.Item>
                   <div className="dropdown-item-content">
                     <span className="dropdown-item-content-icon">

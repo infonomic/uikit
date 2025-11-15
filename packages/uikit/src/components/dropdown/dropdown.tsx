@@ -149,7 +149,7 @@ const SubContent = ({
   return (
     <DropdownMenuPrimitive.SubContent
       ref={ref}
-      className={cx('dropdown-menu-subcontent', className)}
+      className={cx('dropdown-menu-subcontent', styles['dropdown-subcontent'], className)}
       {...rest}
     >
       {children}

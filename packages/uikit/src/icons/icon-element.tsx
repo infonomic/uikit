@@ -1,6 +1,8 @@
 import type { ReactNode } from 'react'
 import type React from 'react'
 
+import styles from './icons.module.css'
+
 import cx from 'classnames'
 
 export interface IconElementProps extends React.ComponentProps<'div'> {
@@ -23,7 +25,7 @@ export const IconElement = (props: IconElementProps): React.JSX.Element => {
         justifyContent: 'center',
         marginRight: menuItem != null && menuItem ? '1.2rem' : '0',
       }}
-      className={cx('component--icon-element-root', className)}
+      className={cx(styles['element-root'], className)}
       {...rest}
     >
       {children}
