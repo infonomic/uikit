@@ -1,6 +1,6 @@
 @import "./autofill.css";
 @import "./scrollers.css";
-@import "./tokens.css";
+@import "./typography.css";
 
 @layer infonomic-theme {
   :root {

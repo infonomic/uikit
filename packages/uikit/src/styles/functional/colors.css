@@ -1,5 +1,7 @@
 /**
- * SEMANTIC TOKEN LAYER
+ * SEMANTIC / FUNCTIONAL TOKEN LAYER FOR COLORS
+ *
+ * TODO: Refactor into separate file per token category (e.g., buttons, alerts)
  * 
  * This layer provides intent-based semantic tokens that automatically switch
  * between light and dark modes. By defining tokens here (in infonomic-theme layer),
@@ -15,7 +17,7 @@
  * Example: --fill-primary-strong-hover
  */
 
-@layer infonomic-theme {
+@layer infonomic-functional {
   /* ===================================================================
      LIGHT MODE (default)
      =================================================================== */

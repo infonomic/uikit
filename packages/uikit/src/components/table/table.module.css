@@ -1,4 +1,4 @@
-@layer infonomic-base, infonomic-utilities, infonomic-theme, infonomic-typography, infonomic-components;
+@layer infonomic-base, infonomic-functional, infonomic-utilities, infonomic-theme, infonomic-typography, infonomic-components;
 
 /* 'border-collapse w-full text-sm text-left text-gray-700 dark:text-gray-400 m-0', */
 @layer infonomic-components {

@@ -1,4 +1,5 @@
-@layer infonomic-base {
+/* Simple headings spec if the optional typography layer is not imported */
+@layer infonomic-theme {
   h1 {
     font-size: 1.75rem;
     font-weight: 600;
