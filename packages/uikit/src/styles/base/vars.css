@@ -1,3 +1,4 @@
+/* TODO: refactor to separate files for size, border, shadows, etc. */
 @layer infonomic-base {
   :root {
     /* ========================================

@@ -1,6 +1,6 @@
 import type { Meta } from '@storybook/react-vite'
 
-export const Base = (): React.JSX.Element => {
+export const Default = (): React.JSX.Element => {
   return (
     <>
       <div style={{ marginBottom: '48px' }}>
@@ -27,7 +27,7 @@ const meta: Meta = {
    * to learn how to generate automatic titles
    */
   title: 'Theme',
-  component: Base,
+  component: Default,
 }
 
 export default meta

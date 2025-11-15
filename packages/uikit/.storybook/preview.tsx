@@ -60,7 +60,7 @@ const preview: Preview = {
     options: {
       storySort: {
         method: 'alphabetical',
-        order: ['Theme', 'Typography', 'Components', 'Animation', 'Icons', 'Loaders', 'Widgets'],
+        order: ['Base', 'Theme', 'Typography', 'Components', 'Animation', 'Icons', 'Loaders', 'Widgets'],
         locales: '',
       },
     },
