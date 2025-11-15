@@ -1,4 +1,13 @@
 @import "./reset.css";
-@import "./colors.css";
-@import "./vars.css";
+
 @import "./animations.css";
+@import "./borders.css";
+@import "./breakpoints.css";
+@import "./colors.css";
+@import "./opacity.css";
+@import "./shadows.css";
+@import "./spacing.css";
+@import "./transitions.css";
+@import "./typography.css";
+@import "./z-index.css";
+
