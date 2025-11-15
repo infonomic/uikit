@@ -1,5 +1,16 @@
 # @infonomic/website-astro
 
+## 3.8.0
+
+### Minor Changes
+
+- f246a29: Refactored base files and breakpoints to rem.
+
+### Patch Changes
+
+- Updated dependencies [f246a29]
+  - @infonomic/uikit@3.8.0
+
 ## 3.7.0
 
 ### Minor Changes
