@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 3.7.0
+
+### Minor Changes
+
+- 6cebdfa: Initial refactor to functional tokens
+
 ## 3.6.0
 
 ### Minor Changes
