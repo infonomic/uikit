@@ -234,7 +234,7 @@
     color: var(--foreground);
   }
 
-  @media (min-width: 640px) {
+  @media (min-width: 40rem) {
     .months {
       flex-direction: row;
     }

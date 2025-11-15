@@ -127,7 +127,7 @@
     letter-spacing: var(--letter-spacing-wide);
   }
 
-  @media (min-width: 640px) {
+  @media (min-width: 40rem) {
     .sm\:text-xs {
       font-size: var(--font-size-xs);
     }
@@ -237,7 +237,7 @@
     }
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 48rem) {
     .md\:text-xs {
       font-size: var(--font-size-xs);
     }
@@ -450,7 +450,7 @@
     padding: var(--spacing-32);
   }
 
-  @media (min-width: 640px) {
+  @media (min-width: 40rem) {
     .sm\:m-0 {
       margin: var(--spacing-0);
     }
@@ -552,7 +552,7 @@
     }
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 48rem) {
     .md\:m-0 {
       margin: var(--spacing-0);
     }
@@ -685,7 +685,7 @@
     justify-content: var(--flex-center);
   }
 
-  @media (min-width: 640px) {
+  @media (min-width: 40rem) {
     .sm\:flex {
       display: flex;
     }
@@ -715,7 +715,7 @@
     }
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 48rem) {
     .md\:flex {
       display: flex;
     }
@@ -853,7 +853,7 @@
     gap: var(--gap-32);
   }
 
-  @media (min-width: 640px) {
+  @media (min-width: 40rem) {
     .sm\:grid {
       display: grid;
     }
@@ -923,7 +923,7 @@
     }
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 48rem) {
 
     .md\:grid {
       display: grid;
@@ -1042,7 +1042,7 @@
     border-radius: var(--border-radius-full);
   }
 
-  @media (min-width: 640px) {
+  @media (min-width: 40rem) {
     .sm\:border {
       border-width: var(--border-width-normal);
       border-style: var(--border-style-solid);
@@ -1089,7 +1089,7 @@
     }
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 48rem) {
     .md\:border {
       border-width: var(--border-width-normal);
       border-style: var(--border-style-solid);
@@ -1163,7 +1163,7 @@
     box-shadow: var(--shadow-xl);
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 48rem) {
     .md\:shadow {
       box-shadow: var(--shadow);
     }
@@ -1213,7 +1213,7 @@
     opacity: var(--opacity-100);
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 48rem) {
     .md\:opacity-0 {
       opacity: var(--opacity-0);
     }

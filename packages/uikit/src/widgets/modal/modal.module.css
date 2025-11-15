@@ -32,7 +32,7 @@
     margin-right: var(--spacing-2);
   }
 
-  @media screen and (min-width: 640px) {
+  @media screen and (min-width: 40rem) {
     .modal-container {
       max-height: calc(100vh - 24px);
       min-height: auto;

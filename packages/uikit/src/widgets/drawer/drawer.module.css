@@ -43,7 +43,7 @@
     width: 86%;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 48rem) {
     .drawer-depth-0.drawer-medium .drawer-container {
       width: 600px;
     }

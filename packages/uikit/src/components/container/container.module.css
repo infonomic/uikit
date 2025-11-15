@@ -3,29 +3,30 @@
 @layer infonomic-components {
   .container {
     width: 100%;
-    padding: 0 16px;
+    padding: 0 1rem;
     margin: 0 auto;
-    max-width: 960px;
+    max-width: 60rem;
   }
 
+  /* Shy edges */
   /* Large */
-  @media (min-width: 1050px) {
+  @media (min-width: 66rem) {
     .container {
-      max-width: 1024px;
+      max-width: 64rem;
     }
   }
 
   /* X-Large */
-  @media (min-width: 1230px) {
+  @media (min-width: 77rem) {
     .container {
-      max-width: 1190px;
+      max-width: 74.375rem;
     }
   }
 
   /* 2X-Large */
-  @media (min-width: 1500px) {
+  @media (min-width: 94rem) {
     .container {
-      max-width: 1400px;
+      max-width: 87.5rem;
     }
   }
 }

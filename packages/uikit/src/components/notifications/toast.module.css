@@ -127,7 +127,7 @@
     left: 16px;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 48rem) {
 
     .root.top-right[data-state="open"],
     .root.bottom-right[data-state="open"] {

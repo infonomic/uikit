@@ -125,7 +125,7 @@
   }
 
   /* medium breakpoint */
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 48rem) {
 
     article,
     .dynamic-text {
@@ -395,7 +395,7 @@
     padding-bottom: 0;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 48rem) {
     .prose :where(blockquote):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
       font-size: 1.7rem;
       line-height: 1.2;
