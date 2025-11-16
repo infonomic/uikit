@@ -61,7 +61,7 @@
     margin: 0 auto;
     width: 90%;
     background-color: var(--surface-panel-border);
-    margin: var(--spacing-1) 0;
+    margin: var(--spacing-4) 0;
     border-top-width: var(--border-width-thin);
     border-top-color: var(--surface-panel-border);
     border-top-style: var(--border-style-solid);

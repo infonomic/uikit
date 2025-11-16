@@ -2,13 +2,13 @@
 
 @layer infonomic-components {
   .timeline {
-    margin-left: var(--spacing-2);
+    margin-left: var(--spacing-8);
   }
 
   .timeline-root {
     position: relative;
     list-style: none;
-    margin-left: var(--spacing-2);
+    margin-left: var(--spacing-8);
     padding-left: var(--spacing-8);
     border-left-width: var(--border-width-thin);
     border-left-color: var(--border-color);
@@ -16,7 +16,7 @@
   }
 
   .timeline-item {
-    margin: 0 0 var(--spacing-6) 0;
+    margin: 0 0 var(--spacing-16) var(--spacing-20);
   }
 
   /* 'absolute block flex items-center justify-center w-[36px] h-[36px] rounded-full -mt-[3px] sm:mt-0 -left-[18px] border-[6px] bg-secondary-600 dark:bg-secondary-900 border-gray-50 dark:border-canvas-600', */
@@ -53,8 +53,8 @@
   /* 'block mt-2 mb-2 text-[0.9em] font-medium leading-none text-gray-900 dark:text-gray-100' */
   .timeline-date {
     display: block;
-    margin-top: var(--spacing-2);
-    margin-bottom: var(--spacing-2);
+    margin-top: var(--spacing-8);
+    margin-bottom: var(--spacing-8);
     font-size: 0.9em;
     font-weight: var(--font-weight-medium);
     line-height: 0;
@@ -64,13 +64,13 @@
   /* '[&_p]:m-0 [&_p]:mb-4 [&_p]:sm:m-0 [&_p]:sm:mb-4 text-lg font-normal text-gray-900 dark:text-gray-300' */
   .timeline-content {
     margin: 0;
-    margin-bottom: var(--spacing-4);
+    margin-bottom: var(--spacing-16);
     font-size: 1.125rem;
     font-weight: var(--font-weight-normal);
 
     & p {
       margin: 0;
-      margin-bottom: var(--spacing-4);
+      margin-bottom: var(--spacing-16);
     }
   }
 

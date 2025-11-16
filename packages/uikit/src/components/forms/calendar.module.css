@@ -2,7 +2,7 @@
 
 @layer infonomic-components {
   .day-picker {
-    padding: var(--spacing-3)
+    padding: var(--spacing-12)
   }
 
   /* relative flex flex-col gap-4 sm:flex-row */
@@ -10,7 +10,7 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-4);
+    gap: var(--spacing-16);
   }
 
   /* 'relative flex h-7 items-center justify-center', */
@@ -28,7 +28,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: var(--spacing-2);
+    gap: var(--spacing-8);
     width: 100%;
   }
 
@@ -103,7 +103,7 @@
 
   /* 'pt-3 text-sm' */
   .footer {
-    padding-top: var(--spacing-3);
+    padding-top: var(--spacing-12);
     font-size: 0.875rem;
     /* 14px */
   }
@@ -136,12 +136,12 @@
   .month-grid {
     margin-left: auto;
     margin-right: auto;
-    margin-top: var(--spacing-4);
+    margin-top: var(--spacing-16);
   }
 
   /* 'mt-2 flex w-max items-start' */
   .week {
-    margin-top: var(--spacing-2);
+    margin-top: var(--spacing-8);
     display: flex;
     width: max-content;
     align-items: flex-start;

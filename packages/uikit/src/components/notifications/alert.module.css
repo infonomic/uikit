@@ -51,7 +51,7 @@
     display: flex;
     align-items: start;
     width: 100%;
-    margin-bottom: var(--spacing-2);
+    margin-bottom: var(--spacing-8);
     gap: var(--gap-2);
   }
 

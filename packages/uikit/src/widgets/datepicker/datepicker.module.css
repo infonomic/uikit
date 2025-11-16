@@ -13,10 +13,10 @@
   .content {
     width: 100%;
     border-radius: 4px;
-    padding-top: var(--spacing-4);
-    padding-bottom: var(--spacing-2);
-    padding-left: var(--spacing-2);
-    padding-right: var(--spacing-1);
+    padding-top: var(--spacing-16);
+    padding-bottom: var(--spacing-8);
+    padding-left: var(--spacing-8);
+    padding-right: var(--spacing-4);
     background-color: var(--background);
     border: 1px solid var(--border-color);
     box-shadow: var(--shadow-md);
@@ -52,7 +52,7 @@
   .content-components {
     display: flex;
     width: 100%;
-    gap: var(--spacing-2);
+    gap: var(--spacing-8);
   }
 
 
@@ -67,8 +67,8 @@
   .content-status {
     display: flex;
     align-items: center;
-    padding-left: var(--spacing-4);
-    padding-right: var(--spacing-2);
+    padding-left: var(--spacing-16);
+    padding-right: var(--spacing-8);
     font-size: var(--font-size-sm);
     color: var(--foreground);
     width: 100%;
@@ -78,10 +78,10 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-top: var(--spacing-3);
-    padding-left: var(--spacing-4);
+    margin-top: var(--spacing-12);
+    padding-left: var(--spacing-16);
     padding-right: var(--spacing-6);
-    gap: var(--spacing-2);
+    gap: var(--spacing-8);
     width: 100%;
   }
 
@@ -124,13 +124,13 @@
 
   .time-picker-scroll-area {
     height: 280px;
-    padding-right: var(--spacing-4)
+    padding-right: var(--spacing-16)
   }
 
   .time-picker {
     display: flex;
-    padding-left: var(--spacing-1);
-    padding-right: var(--spacing-1);
+    padding-left: var(--spacing-4);
+    padding-right: var(--spacing-4);
     flex-direction: column;
     gap: 0.5rem;
   }

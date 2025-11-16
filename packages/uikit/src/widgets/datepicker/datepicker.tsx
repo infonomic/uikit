@@ -132,7 +132,7 @@ export function DatePicker({
 
   return (
     <div className={cx(styles.container, containerClassName)}>
-      <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-2)' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-8)' }}>
         <Input
           id={id}
           label={label}
@@ -278,7 +278,7 @@ export function DatePicker({
                     Today
                   </Button>
                 </div>
-                <div style={{ display: 'flex', gap: 'var(--spacing-3)' }}>
+                <div style={{ display: 'flex', gap: 'var(--spacing-12)' }}>
                   <Button
                     size="sm"
                     intent="noeffect"

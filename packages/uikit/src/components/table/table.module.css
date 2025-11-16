@@ -47,7 +47,7 @@
   /* 'whitespace-nowrap px-2 py-4 text-sm text-gray-700 uppercase bg-canvas-100/50 dark:bg-canvas-800/50 dark:text-gray-200', */
   .table-heading-cell {
     white-space: nowrap;
-    padding: var(--spacing-2) var(--spacing-2);
+    padding: var(--spacing-8) var(--spacing-8);
     font-size: 0.975rem; /* 15.6px */
     /* text-transform: uppercase; */
     background-color: var(--canvas-50);
@@ -55,7 +55,7 @@
 
   /* not-prose px-2 py-2 text-sm [&_a]:underline */
   .table-cell {
-    padding: var(--spacing-2);
+    padding: var(--spacing-8);
     font-size: var(--font-size-sm);
 
     & a {
