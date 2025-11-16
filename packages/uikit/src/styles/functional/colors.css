@@ -236,10 +236,18 @@
     
   }
 
-  /* ===================================================================
-     DARK MODE
-     =================================================================== */
-  .dark {
+  
+  /* 🌙 Dark via `.dark` class or [data-theme="dark"] attribute. 
+   * We rely on the consuming application to detect a user's 
+   * preferred color scheme - either by header or cookie, and to set 
+   * a root html class accordingly (for now), which unfortunately means
+   * relying on either a server-side render or JS to set the theme
+   * on initial load.
+   */
+  .dark
+  [data-theme="dark"],
+  [data-theme="dark"] ::backdrop
+  {
     /* PRIMARY INTENT TOKENS (Dark Mode)
        ----------------------------------------------------------------- */
     
