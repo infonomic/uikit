@@ -12,7 +12,7 @@
 */
 @utility container {
   width: 100%;
-  padding: 0 16px;
+  padding: 0 1rem;
   margin: 0 auto;
   max-width: 60rem;
 
