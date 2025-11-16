@@ -1,0 +1,23 @@
+/**
+ * BORDER FUNCTIONAL TOKENS
+ * 
+ * Semantic tokens for borders, including colors and potentially
+ * widths, styles, and radii in the future.
+ */
+
+@layer infonomic-functional {
+  :root {
+    --border-color: var(--gray-100);
+  }
+
+  /* Dark mode */
+  .dark,
+  [data-theme="dark"] {
+    --border-color: var(--canvas-700);
+  }
+
+  /* Force light mode (local override) */
+  .not-dark {
+    --border-color: var(--gray-100);
+  }
+}

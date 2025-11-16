@@ -244,7 +244,7 @@
    * relying on either a server-side render or JS to set the theme
    * on initial load.
    */
-  .dark
+  .dark,
   [data-theme="dark"],
   [data-theme="dark"] ::backdrop
   {

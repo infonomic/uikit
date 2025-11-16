@@ -32,10 +32,10 @@ select:-webkit-autofill:focus, select:autofill:focus {
     background-color: rgb(250, 217, 167) !important;
   }
 
-  /* 🌙 Dark via `.dark` class. We rely on the 
-   * consuming application to detect a user's preferred
-   * color scheme - either by header or cookie. and set
-   * a root html class accordingly
+  /* 🌙 Dark via `.dark` class or [data-theme="dark"] attribute. 
+   * We rely on the consuming application to detect a user's preferred
+   * color scheme - either by header or cookie, and set a root html
+   * class or data attribute accordingly.
    */
 
   .dark input:autofill,
@@ -46,7 +46,16 @@ select:-webkit-autofill:focus, select:autofill:focus {
   .dark textarea:autofill:focus,
   .dark select:autofill,
   .dark select:autofill:hover,
-  .dark select:autofill:focus {
+  .dark select:autofill:focus,
+  [data-theme="dark"] input:autofill,
+  [data-theme="dark"] input:autofill:hover,
+  [data-theme="dark"] input:autofill:focus,
+  [data-theme="dark"] textarea:autofill,
+  [data-theme="dark"] textarea:autofill:hover,
+  [data-theme="dark"] textarea:autofill:focus,
+  [data-theme="dark"] select:autofill,
+  [data-theme="dark"] select:autofill:hover,
+  [data-theme="dark"] select:autofill:focus {
     border: 1px solid var(--theme-600) !important;
     -webkit-text-fill-color: white !important;
     -webkit-box-shadow: 0 0 0px 1000px var(--theme-600) inset !important;

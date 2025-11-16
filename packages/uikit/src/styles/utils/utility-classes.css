@@ -1,4 +1,7 @@
-/* A simple utility class collection. NOT designed as a 
+/**
+ * UTILITY CLASSES
+ * 
+ * A simple utility class collection. NOT designed as a 
  * replacement for Tailwind - but useful for small or simple 
  * projects as well as uikit development.
  */
@@ -19,6 +22,10 @@
   /* ========================================
      THEME UTILITIES
   ======================================== */
+
+  .background {
+    background-color: var(--background);
+  }
 
   .foreground {
     color: var(--foreground);
