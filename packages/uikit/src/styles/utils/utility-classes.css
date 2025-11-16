@@ -34,6 +34,40 @@
   .text {
     color: var(--text);
   }
+  
+  .headings {
+    color: var(--headings);
+  }
+
+  .muted {
+    font-size: 0.925rem;
+    color: var(--muted);
+  }
+
+  .border {
+    border-color: var(--border-color);
+    border-width: var(--border-width-thin);
+    border-style: var(--border-style-solid);
+    border-radius: var(--border-radius-sm);
+  }
+
+  /* External link */
+  .external-link::after {
+    content: "";
+    display: inline-block;
+    background-image: url("/external-link-light.svg");
+    background-repeat: no-repeat;
+    background-position: 20% 50%;
+    background-size: 65% auto;
+    width: 1.1rem;
+    height: 1.1rem;
+    margin-right: -5px;
+  }
+
+  .dark .external-link::after,
+   [data-theme="dark"] .external-link::after {
+    background-image: url("/external-link-dark.svg");
+  }
 
   .primary {
     background-color: var(--primary-500);
