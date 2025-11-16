@@ -5,7 +5,7 @@ export const Default = (): React.JSX.Element => {
     <>
       <div style={{ marginBottom: '48px' }}>
         <div style={{ maxWidth: '700px', margin: 'auto' }}>
-          <div className="shadow p-3 border rounded">
+          <div className="p-5 shadow border-thin rounded">
             <h2>Heading 2</h2>
             <span className="muted">Muted text here.</span>
             <p>

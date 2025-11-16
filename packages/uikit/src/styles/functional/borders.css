@@ -13,7 +13,7 @@
   /* Dark mode */
   .dark,
   [data-theme="dark"] {
-    --border-color: var(--canvas-700);
+    --border-color: var(--canvas-600);
   }
 
   /* Force light mode (local override) */
