@@ -11,7 +11,7 @@ export default {
 
 export const Default = (): React.JSX.Element => {
   return (
-    <div style={{ maxWidth: '600px', margin: '0 auto' }}>
+    <div style={{ maxWidth: '600px', margin: '2rem auto' }}>
       <Search variant="underlined" />
     </div>
   )

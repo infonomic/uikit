@@ -15,7 +15,7 @@ export const Toast = (): React.JSX.Element => {
   }
 
   return (
-    <div className="mb-6 max-w-[600px]">
+    <div style={{ maxWidth: '600px', margin: '2rem 0' }}>
       <Button onClick={handleOpenToastClick}>Open Toast</Button>
       <ToastComponent
         title="Note"

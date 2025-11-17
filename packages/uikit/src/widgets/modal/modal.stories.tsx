@@ -16,15 +16,8 @@ export default {
 export const Default = (): React.JSX.Element => {
   const { onDismiss, onOpen, isOpen, setIsOpen } = useModal()
 
-  const whiteIcon = `
-    .white-icon {
-      fill: white;  
-    }
-  `
-
   return (
-    <>
-      <style>{whiteIcon}</style>
+    <div style={{ margin: '2rem 0' }}>
       <Button
         onClick={() => {
           setIsOpen(true)
@@ -66,6 +59,6 @@ export const Default = (): React.JSX.Element => {
           </Modal.Actions>
         </Modal.Container>
       </Modal>
-    </>
+    </div>
   )
 }

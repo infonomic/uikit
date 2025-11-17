@@ -19,7 +19,7 @@ export const Default = (): React.JSX.Element => {
 
   return (
     <>
-      <div style={{ maxWidth: '800px', margin: '0 auto 2rem' }}>
+      <div style={{ maxWidth: '800px', margin: '2rem auto 2rem' }}>
         <h2 className="text-xl" style={{ marginBottom: '1rem' }}>
           Outlined
         </h2>

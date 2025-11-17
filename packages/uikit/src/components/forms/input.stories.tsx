@@ -17,7 +17,7 @@ export default {
 export const Default = (): React.JSX.Element => {
   return (
     <>
-      <div style={{ marginBottom: '2rem' }}>
+      <div style={{ margin: '2rem 0' }}>
         <div
           style={{
             maxWidth: '600px',

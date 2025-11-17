@@ -49,7 +49,7 @@ export const Dropdown: Story = {
         <div
           style={{
             maxWidth: '400px',
-            marginBottom: '24px',
+            margin: '2rem 0 24px',
             display: 'flex',
             justifyContent: 'center',
           }}

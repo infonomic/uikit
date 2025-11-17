@@ -19,7 +19,7 @@ export default meta
 
 export const Container = (): React.JSX.Element => {
   return (
-    <Section style={{ height: '100vh' }}>
+    <Section style={{ height: '100vh', margin: '2rem auto' }}>
       <ContainerComponent
         className="primary-strong"
         style={{
@@ -29,7 +29,7 @@ export const Container = (): React.JSX.Element => {
           justifyContent: 'center',
         }}
       >
-        <p>I'm in a container</p>
+        <p>I'm in a container with shy edges.</p>
       </ContainerComponent>
     </Section>
   )

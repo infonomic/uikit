@@ -25,7 +25,7 @@ export const Calendar = (): React.JSX.Element => {
   const calendarRef = useRef<HTMLDivElement | null>(null)
 
   return (
-    <div style={{ height: '100vh' }}>
+    <div style={{ height: '100vh', margin: '2rem 0' }}>
       <div ref={calendarRef} style={{ position: 'relative', width: 'fit-content', margin: 'auto' }}>
         <CalendarComponent
           required
@@ -79,7 +79,7 @@ export const Multiple = (): React.JSX.Element => {
   const calendarRef = useRef<HTMLDivElement | null>(null)
 
   return (
-    <div style={{ height: '100vh' }}>
+    <div style={{ height: '100vh', margin: '2rem 0' }}>
       <div ref={calendarRef} style={{ position: 'relative', width: 'fit-content', margin: 'auto' }}>
         <CalendarComponent
           required
@@ -112,7 +112,7 @@ export const Range = (): React.JSX.Element => {
   const calendarRef = useRef<HTMLDivElement | null>(null)
 
   return (
-    <div style={{ height: '100vh' }}>
+    <div style={{ height: '100vh', margin: '2rem 0' }}>
       <div ref={calendarRef} style={{ position: 'relative', width: 'fit-content', margin: 'auto' }}>
         <CalendarComponent
           required

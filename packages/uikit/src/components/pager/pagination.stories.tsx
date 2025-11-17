@@ -32,7 +32,7 @@ const DefaultPager = (): React.JSX.Element => {
         }
       `}
       </style>
-      <div style={{ marginBottom: '2rem', maxWidth: '600px' }}>
+      <div style={{ margin: '2rem 0', maxWidth: '600px' }}>
         <p style={{ marginBottom: '1rem' }}>Stateful Pagers: Current page: {page}</p>
         <EventPager
           page={page}
@@ -83,7 +83,7 @@ const ClassicPager = (): React.JSX.Element => {
         }
       `}
       </style>
-      <div style={{ marginBottom: '2rem', maxWidth: '600px' }}>
+      <div style={{ margin: '2rem 0', maxWidth: '600px' }}>
         <p style={{ marginBottom: '1rem' }}>Stateful Pagers: Current page: {page}</p>
         <EventPager
           variant="classic"
@@ -137,7 +137,7 @@ const DashboardPager = (): React.JSX.Element => {
         }
       `}
       </style>
-      <div style={{ marginBottom: '2rem', maxWidth: '600px' }}>
+      <div style={{ margin: '2rem 0', maxWidth: '600px' }}>
         <p style={{ marginBottom: '1rem' }}>Stateful Pagers: Current page: {page}</p>
         <EventPager
           variant="dashboard"

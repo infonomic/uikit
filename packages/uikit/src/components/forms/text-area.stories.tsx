@@ -13,7 +13,7 @@ export default {
 export const Default = (): React.JSX.Element => {
   return (
     <>
-      <div style={{ maxWidth: '600px', margin: '0 auto' }}>
+      <div style={{ maxWidth: '600px', margin: '2rem auto' }}>
         <TextArea
           required
           id="message"
@@ -33,7 +33,7 @@ export const Default = (): React.JSX.Element => {
 export const Error = (): React.JSX.Element => {
   return (
     <>
-      <div style={{ maxWidth: '600px', margin: '0 auto' }}>
+      <div style={{ maxWidth: '600px', margin: '2rem auto' }}>
         <TextArea
           required
           id="message"

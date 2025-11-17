@@ -12,7 +12,7 @@ export const Default = (): React.JSX.Element => {
   }
 
   return (
-    <div style={{ maxWidth: '270px', margin: '0 auto' }}>
+    <div style={{ maxWidth: '270px', margin: '2rem auto' }}>
       <DatePicker
         onDateChange={handleDateChange}
         id="published_on"
