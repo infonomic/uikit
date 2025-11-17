@@ -1,5 +1,16 @@
 # @infonomic/website-react
 
+## 3.9.0
+
+### Minor Changes
+
+- 8dea16d: Utility class fixups and continued migration to functional tokens
+
+### Patch Changes
+
+- Updated dependencies [8dea16d]
+  - @infonomic/uikit@3.9.0
+
 ## 3.8.0
 
 ### Minor Changes
