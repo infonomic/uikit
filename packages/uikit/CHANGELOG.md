@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 3.10.0
+
+### Minor Changes
+
+- 9adaa58: More functional style refactoring. Primary buttons 500. Storybook clean up.
+
 ## 3.9.0
 
 ### Minor Changes

@@ -1,5 +1,16 @@
 # @infonomic/website-react
 
+## 3.10.0
+
+### Minor Changes
+
+- 9adaa58: More functional style refactoring. Primary buttons 500. Storybook clean up.
+
+### Patch Changes
+
+- Updated dependencies [9adaa58]
+  - @infonomic/uikit@3.10.0
+
 ## 3.9.0
 
 ### Minor Changes
