@@ -21,7 +21,7 @@ export const Container = (): React.JSX.Element => {
   return (
     <Section style={{ height: '100vh' }}>
       <ContainerComponent
-        className="primary"
+        className="primary-strong"
         style={{
           height: '400px',
           display: 'flex',

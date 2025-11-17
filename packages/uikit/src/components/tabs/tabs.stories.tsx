@@ -20,7 +20,7 @@ export const Tabs = (): React.JSX.Element => (
   <div
     style={{
       maxWidth: '700px',
-      marginBottom: '24px',
+      margin: '2rem auto',
       display: 'flex',
       justifyContent: 'center',
     }}

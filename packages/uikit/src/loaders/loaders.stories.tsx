@@ -1,8 +1,8 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import type React from 'react'
 
-import { LoaderEllipsis } from './ellipses.js'
 import { LoaderRing } from './ring.js'
+import { LoaderEllipsis } from './ellipses.js'
 import { LoaderSpinner } from './spinner.js'
 
 interface LoaderProps {

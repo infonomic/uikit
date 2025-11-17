@@ -17,7 +17,7 @@ export default meta
 
 export const Card = (): React.JSX.Element => {
   return (
-    <>
+    <div style={{ maxWidth: '600px', margin: '2rem auto' }}>
       <div style={{ marginBottom: '48px' }} className="mb-6">
         <div style={{ maxWidth: '400px', marginBottom: '24px' }}>
           <CardComponent>
@@ -56,6 +56,6 @@ export const Card = (): React.JSX.Element => {
           </CardComponent>
         </div>
       </div>
-    </>
+    </div>
   )
 }

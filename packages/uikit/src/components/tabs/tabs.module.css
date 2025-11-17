@@ -40,7 +40,9 @@
 
     &:focus {
       position: relative;
-      box-shadow: 0 0 0 2px black;
+      /* NOTE: will override ring shadows for buttons */
+      /* Will revisit as we're going to rewrite our uikit tabs component */
+      /* box-shadow: 0 0 0 2px black; */
     }
   }
 

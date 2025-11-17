@@ -18,7 +18,7 @@ export const Avatar = (): React.JSX.Element => (
   <div
     style={{
       maxWidth: '300px',
-      marginBottom: '24px',
+      margin: '2rem auto',
       display: 'flex',
       gap: '24px',
       alignItems: 'center',

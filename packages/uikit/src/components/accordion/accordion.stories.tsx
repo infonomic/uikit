@@ -26,7 +26,7 @@ export const Accordion: Story = {
     className: 'accordion-root border',
   },
   render: (args) => (
-    <>
+    <div style={{ maxWidth: '600px', margin: '2rem auto' }}>
       <style>
         {`
       .accordion-root {
@@ -112,6 +112,6 @@ export const Accordion: Story = {
           </AccordionComponent.Item>
         </nav>
       </AccordionComponent.Root>
-    </>
+    </div>
   ),
 }

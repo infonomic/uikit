@@ -31,7 +31,7 @@
     --fill-primary-strong-disabled: oklch(from var(--primary-500) calc(l * 1.1) calc(c * 0.85) h);
     
     /* Weak fill - for subtle backgrounds (outlined hover states) */
-    --fill-primary-weak: oklch(from var(--primary-500) calc(l * 2.15) calc(c * 0.2) h);
+    --fill-primary-weak: oklch(from var(--primary-500) calc(l * 2.04) calc(c * 0.2) h);
     --fill-primary-weak-hover: oklch(from var(--canvas-50) calc(l * 0.995) c h);
     
     /* Text tokens - for foreground colors */
@@ -428,7 +428,7 @@
     --fill-primary-strong-disabled: oklch(from var(--primary-500) calc(l * 1.1) calc(c * 0.85) h);
     
     /* Weak fill - for subtle backgrounds (outlined hover states) */
-    --fill-primary-weak: oklch(from var(--primary-500) calc(l * 2.15) calc(c * 0.2) h);
+    --fill-primary-weak: oklch(from var(--primary-500) calc(l * 2.04) calc(c * 0.2) h);
     --fill-primary-weak-hover: oklch(from var(--canvas-50) calc(l * 0.995) c h);
     
     /* Text tokens - for foreground colors */

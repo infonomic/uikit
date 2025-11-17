@@ -170,13 +170,13 @@
   /* '[&>button]:bg-accent [&>button]:text-accent-foreground', */
   .today>button {
     /* background-color: var(--gray-50); */
-    border: solid 1px var(--primary-300);
+    border: solid 1px var(--stroke-primary);
     color: var(--foreground);
   }
 
   .day>button:hover,
   .day-selected>button {
-    background-color: var(--primary-400);
+    background-color: var(--fill-primary-strong);
     color: white;
   }
 
@@ -198,17 +198,17 @@
 
   /* 'bg-accent [&>button]:bg-primary [&>button]:text-primary-foreground [&>button]:hover:bg-primary [&>button]:hover:text-primary-foreground' */
   .button-range {
-    background-color: var(--gray-100);
+    background-color: var(--fill-primary-weak);
     color: var(--foreground);
   }
 
   .button-range>button {
-    background-color: var(--primary-400);
+    background-color: var(--fill-primary-strong);
     color: white;
   }
 
   .button-range>button:hover {
-    background-color: var(--primary-400);
+    background-color: var(--fill-primary-strong);
     color: var(--foreground);
   }
 
@@ -224,7 +224,7 @@
 
   /* 'bg-accent !text-foreground [&>button]:bg-transparent [&>button]:!text-foreground [&>button]:hover:bg-transparent [&>button]:hover:!text-foreground', */
   .range-middle {
-    background-color: var(--gray-50);
+    background-color: var(--fill-primary-weak);
     color: var(--foreground);
   }
 
@@ -264,52 +264,6 @@
     .select-chevrons {
       stroke: var(--primary-200);
       opacity: 0.7;
-    }
-
-    .footer {
-      color: var(--muted);
-    }
-
-    .day>button {
-      color: var(--foreground);
-    }
-
-    .day>button:hover,
-    .day-selected>button {
-      background-color: var(--primary-400);
-      color: var(--foreground);
-    }
-
-    /* '[&>button]:bg-accent [&>button]:text-accent-foreground', */
-    .today>button {
-      /* background-color: var(--canvas-700); */
-      border: solid 1px var(--primary-300);
-      color: var(--foreground);
-    }
-
-    .button-range {
-      background-color: var(--canvas-700);
-      color: var(--foreground);
-    }
-
-    .button-range>button {
-      background-color: var(--primary-400);
-      color: var(--foreground);
-    }
-
-    .button-range>button:hover {
-      background-color: var(--primary-400);
-      color: var(--foreground);
-    }
-
-    .range-middle {
-      background-color: var(--canvas-700);
-      color: var(--foreground);
-    }
-
-    .range-middle>button {
-      background-color: var(--canvas-700);
-      color: var(--foreground);
     }
   }
 }

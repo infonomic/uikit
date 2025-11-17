@@ -7,7 +7,7 @@ import { Alert as AlertComponent } from './alert.js'
 
 export const Alerts = (): React.JSX.Element => {
   return (
-    <div style={{ maxWidth: '600px', margin: '0 auto' }}>
+    <div style={{ maxWidth: '600px', margin: '2rem auto' }}>
       {intent.map((intent: Intent) => {
         if (intent !== 'noeffect') {
           return (

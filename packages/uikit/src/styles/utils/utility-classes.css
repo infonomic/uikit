@@ -62,39 +62,74 @@
     background-image: url("/external-link-dark.svg");
   }
 
-  .primary {
-    background-color: var(--primary-500);
-    color: white;
+  .primary-strong {
+    background-color: var(--fill-primary-strong);
+    color: var(--text-on-primary);
   }
 
-  .secondary {
-    background-color: var(--secondary-500);
-    color: black;
+  .primary-weak {
+    background-color: var(--fill-primary-weak);
+    color: var(--text-on-primary);
   }
 
-  .accent {
-    background-color: var(--accent-500);
-    color: white;
+  .secondary-strong {
+    background-color: var(--fill-secondary-strong);
+    color: var(--text-on-secondary);
   }
 
-  .info {
-    background-color: var(--blue-500);
-    color: white;
+  .secondary-weak {
+    background-color: var(--fill-secondary-weak);
+    color: var(--text-on-secondary);
   }
 
-  .success {
-    background-color: var(--green-500);
-    color: white;
+  .accent-strong {
+    background-color: var(--fill-accent-strong);
+    color: var(--text-on-accent);
   }
 
-  .warning {
-    background-color: var(--yellow-500);
-    color: black;
+  .accent-weak {
+    background-color: var(--fill-accent-weak);
+    color: var(--text-on-accent);
   }
 
-  .danger {
-    background-color: var(--red-500);
-    color: white;
+  .info-strong {
+    background-color: var(--fill-info-strong);
+    color: var(--text-on-info);
+  }
+
+  .info-weak {
+    background-color: var(--fill-info-weak);
+    color: var(--text-on-info);
+  }
+
+  .success-strong {
+    background-color: var(--fill-success-strong);
+    color: var(--text-on-success);
+  }
+
+  .success-weak {
+    background-color: var(--fill-success-weak);
+    color: var(--text-on-success);
+  }
+
+  .warning-strong {
+    background-color: var(--fill-warning-strong);
+    color: var(--text-on-warning);
+  }
+
+  .warning-weak {
+    background-color: var(--fill-warning-weak);
+    color: var(--text-on-warning);
+  }
+
+  .danger-strong {
+    background-color: var(--fill-danger-strong);
+    color: var(--text-on-danger);
+  }
+
+  .danger-weak {
+    background-color: var(--fill-danger-weak);
+    color: var(--text-on-danger);
   }
 
 
