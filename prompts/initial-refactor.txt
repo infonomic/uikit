@@ -16,7 +16,7 @@ For example:
 
 element will be - stroke - fill - icon - background 
 
-tone or intent will be - brand (typically maps to theme) - primary - secondary - noeffect - success - info - warning - danger 
+tone or intent (purpose) will be - brand (typically maps to theme) - primary - secondary - noeffect - success - info - warning - danger 
 
 emphasis will be - strong - weak - weaker state will be - hover - press - focus - disabled - selected
 
@@ -28,7 +28,7 @@ class="button.filled.primary.lg" etc....
 
 ... which is not exactly like a BEM-like class attribute system - which would be more like class="button button--filled button--primary button--lg" etc.
 
-Perhaps that's a weakness of our current system. We're not sure - although it's very easy for us to apply our React component props this way, which match the CSS module.css class selectors.
+Perhaps that's a weakness of our current system. We're not sure - although it's very easy for us to apply our React component props this way, which match the CSS module.CSS class selectors.
 
 Note that Tokens Studio encourages a separation between primitive (base) tokens and semantic (alias) tokens, with aliases referencing primitives and switching per theme/mode.
 
