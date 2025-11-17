@@ -12,7 +12,7 @@ export const Quote = (): React.JSX.Element => {
             paragraph of text that we&apos;ll use for our typography storybook page. This is a
             paragraph of text that we&apos;ll use for our typography storybook page.
           </p>
-          <blockquote>This is some text inside a blockquote.</blockquote>
+          <blockquote>This is some text inside a blockquote. We&apos;ll make this a little longer to see how it looks when it wraps.</blockquote>
           <p>
             This is a paragraph of text that we&apos;ll use for our typography storybook page. This
             is a paragraph of text that we&apos;ll use for our typography storybook page. This is a

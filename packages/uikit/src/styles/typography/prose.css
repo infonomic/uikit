@@ -299,18 +299,27 @@
   }
 
   .prose :where(blockquote):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-    font-weight: bold;
+    font-weight: 600;
     font-style: normal;
     color: var(--prose-quotes);
     quotes: none;
-    margin-top: 1.6em;
-    margin-bottom: 1.6em;
+    margin-top: 1.3rem;
+    margin-bottom: 1.3rem;
     margin-right: 2rem;
-    font-size: 1.5rem;
-    line-height: 1.2;
+    /* Font size must be em - so that it changes in articles or text that has dynamic font sizes on smaller screens */
+    font-size: 1.2em; 
+    line-height: 1.3;
     padding-inline-start: 1rem;
     border-inline-start-width: 0.25rem;
     border-inline-start-color: var(--prose-quote-borders);
+  }
+
+  /* The same as above - for the moment */
+  @media (min-width: 48rem) {
+    .prose :where(blockquote):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+      font-size: 1.2em;
+      line-height: 1.3;
+    }
   }
 
   .prose :where(blockquote p:first-of-type):not( :where([class~="not-prose"], [class~="not-prose"] *))::before {
@@ -393,12 +402,5 @@
     padding-right: 0;
     padding-top: 0;
     padding-bottom: 0;
-  }
-
-  @media (min-width: 48rem) {
-    .prose :where(blockquote):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-      font-size: 1.7rem;
-      line-height: 1.2;
-    }
   }
 }
