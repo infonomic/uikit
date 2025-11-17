@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 3.11.0
+
+### Minor Changes
+
+- a9ab1f1: Improved typography of default blockquote and article story.
+
 ## 3.10.0
 
 ### Minor Changes

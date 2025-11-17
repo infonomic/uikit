@@ -1,5 +1,16 @@
 # @infonomic/website-react
 
+## 3.11.0
+
+### Minor Changes
+
+- a9ab1f1: Improved typography of default blockquote and article story.
+
+### Patch Changes
+
+- Updated dependencies [a9ab1f1]
+  - @infonomic/uikit@3.11.0
+
 ## 3.10.0
 
 ### Minor Changes
