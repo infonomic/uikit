@@ -26,28 +26,28 @@
        ----------------------------------------------------------------- */
     
     /* Fill tokens - for solid backgrounds (filled variant) */
-    --fill-primary-strong: var(--primary-600);
-    --fill-primary-strong-hover: oklch(from var(--primary-600) calc(l * 0.9) c h);
-    --fill-primary-strong-disabled: oklch(from var(--primary-600) calc(l * 1.1) calc(c * 0.85) h);
+    --fill-primary-strong: var(--primary-500);
+    --fill-primary-strong-hover: oklch(from var(--primary-500) calc(l * 0.9) c h);
+    --fill-primary-strong-disabled: oklch(from var(--primary-500) calc(l * 1.1) calc(c * 0.85) h);
     
     /* Weak fill - for subtle backgrounds (outlined hover states) */
-    --fill-primary-weak: oklch(from var(--primary-600) calc(l * 2.15) calc(c * 0.2) h);
+    --fill-primary-weak: oklch(from var(--primary-500) calc(l * 2.15) calc(c * 0.2) h);
     --fill-primary-weak-hover: oklch(from var(--canvas-50) calc(l * 0.995) c h);
     
     /* Text tokens - for foreground colors */
     --text-on-primary: white; /* Text on primary fill */
     --text-on-primary-disabled: oklch(from white calc(l * 0.9) calc(c * 0.85) h);
-    --text-primary-strong: var(--primary-700); /* Primary-colored text (outlined, text variants) */
-    --text-primary-weak: oklch(from var(--primary-600) calc(l * 0.7) c h); /* Muted primary text */
-    --text-primary-disabled: oklch(from var(--primary-700) calc(l * 1.5) calc(c * 0.5) h);
+    --text-primary-strong: var(--primary-600); /* Primary-colored text (outlined, text variants) */
+    --text-primary-weak: oklch(from var(--primary-500) calc(l * 0.7) c h); /* Muted primary text */
+    --text-primary-disabled: oklch(from var(--primary-600) calc(l * 1.5) calc(c * 0.5) h);
     
     /* Stroke tokens - for borders */
-    --stroke-primary: var(--primary-700);
-    --stroke-primary-hover: oklch(from var(--primary-700) calc(l * 0.85) c h);
-    --stroke-primary-disabled: oklch(from var(--primary-700) calc(l * 1.5) calc(c * 0.8) h);
+    --stroke-primary: var(--primary-600);
+    --stroke-primary-hover: oklch(from var(--primary-600) calc(l * 0.85) c h);
+    --stroke-primary-disabled: oklch(from var(--primary-600) calc(l * 1.5) calc(c * 0.8) h);
     
     /* Ring tokens - for focus states */
-    --ring-primary: var(--primary-600);
+    --ring-primary: var(--primary-500);
     
     /* Gradient tokens */
     --gradient-primary-start: var(--primary-500);
@@ -210,29 +210,6 @@
     --gradient-danger-end: var(--red-700);
     --gradient-danger-foreground: white;
     --gradient-danger-disabled: oklch(from var(--red-700) calc(l * 1.2) calc(c * 0.85) h);
-
-    /* SURFACE TOKENS (for panels, dropdowns, menus, lists)
-       ----------------------------------------------------------------- */
-    
-    /* Panel/container backgrounds */
-    --surface-panel: var(--canvas-25);
-    --surface-panel-elevated: white; /* For dropdowns/popovers with shadow */
-    --surface-panel-border: var(--border-color);
-    
-    /* Item backgrounds (default transparent, inherits panel) */
-    --surface-item: transparent;
-    --surface-item-hover: var(--canvas-50);
-    --surface-item-active: var(--canvas-100);
-    
-    /* Item text colors */
-    --surface-item-text: var(--text);
-    --surface-item-text-hover: var(--text);
-    --surface-item-text-active: var(--text);
-    --surface-item-text-disabled: var(--gray-400);
-
-    /* Panel scrollers */
-    --surface-panel-scrollbar: var(--gray-50);
-    --surface-panel-scrollbar-thumb: var(--primary-100);
     
   }
 
@@ -252,19 +229,19 @@
        ----------------------------------------------------------------- */
     
     /* Fill tokens */
-    --fill-primary-strong: var(--primary-600);
-    --fill-primary-strong-hover: oklch(from var(--primary-600) calc(l * 0.9) c h);
-    --fill-primary-strong-disabled: oklch(from var(--primary-600) calc(l * 0.85) calc(c * 0.85) h);
+    --fill-primary-strong: var(--primary-500);
+    --fill-primary-strong-hover: oklch(from var(--primary-500) calc(l * 0.9) c h);
+    --fill-primary-strong-disabled: oklch(from var(--primary-500) calc(l * 0.85) calc(c * 0.85) h);
     
     /* Weak fill - adjusted for dark backgrounds */
-    --fill-primary-weak: oklch(from var(--primary-600) calc(l * 0.45) calc(c * 0.1) h);
+    --fill-primary-weak: oklch(from var(--primary-500) calc(l * 0.45) calc(c * 0.1) h);
     --fill-primary-weak-hover: var(--canvas-800);
     
     /* Text tokens */
     --text-on-primary: white; /* Same as light mode */
     --text-on-primary-disabled: oklch(from white calc(l * 0.85) calc(c * 0.85) h);
     --text-primary-strong: var(--primary-100); /* Lighter for dark backgrounds */
-    --text-primary-weak: var(--primary-600); /* Used for text variant */
+    --text-primary-weak: var(--primary-500); /* Used for text variant */
     --text-primary-disabled: oklch(from var(--primary-100) calc(l * 0.8) calc(c * 0.8) h);
     
     /* Stroke tokens */
@@ -273,7 +250,7 @@
     --stroke-primary-disabled: oklch(from var(--primary-500) calc(l * 0.8) calc(c * 0.8) h);
     
     /* Ring tokens */
-    --ring-primary: var(--primary-600);
+    --ring-primary: var(--primary-500);
     
     /* Gradient tokens */
     --gradient-primary-start: var(--primary-500);
@@ -432,70 +409,42 @@
     --gradient-danger-foreground: white;
     --gradient-danger-disabled: oklch(from var(--red-700) calc(l * 0.85) calc(c * 0.85) h);
 
-    /* SURFACE TOKENS (Dark Mode)
-       ----------------------------------------------------------------- */
-    
-    /* Panel/container backgrounds - slightly elevated from canvas-900 base */
-    --surface-panel: var(--canvas-800);
-    --surface-panel-elevated: var(--canvas-800);
-    --surface-panel-border: var(--border-color);
-    
-    /* Item backgrounds - lighter than panel for hover/active */
-    --surface-item: transparent;
-    --surface-item-hover: var(--canvas-700);
-    --surface-item-active: var(--canvas-600);
-    
-    /* Item text colors */
-    --surface-item-text: var(--text);
-    --surface-item-text-hover: var(--text);
-    --surface-item-text-active: var(--text);
-    --surface-item-text-disabled: var(--gray-500);
-
-    /* Panel scrollers */
-    --surface-panel-scrollbar: var(--canvas-700);
-    --surface-panel-scrollbar-thumb: var(--primary-400);
   }
 
   /* ===================================================================
-     .NOT-DARK OVERRIDE
-  }
-
-  /* .not-dark override: Forces light mode tokens by re-declaring :root values.
-  * This duplication is intentional - it ensures .not-dark always wins over .dark
-  * regardless of DOM order, without needing complex :not() selectors.
-  * Alternative approaches (revert-layer, :not() patterns) would be more fragile.
+   * .NOT-DARK OVERRIDE
+   * .not-dark override: Forces light mode tokens by re-declaring :root values.
+   * This duplication is intentional - it ensures .not-dark always wins over .dark
+   * regardless of DOM order, without needing complex :not() selectors.
+   * Alternative approaches (revert-layer, :not() patterns) would be more fragile.
   */
-
-  /* ===================================================================
-     .NOT-DARK OVERRIDE
-     Forces light mode tokens regardless of parent .dark class
-     =================================================================== */
   .not-dark {
     /* PRIMARY INTENT TOKENS (Force Light Mode)
        ----------------------------------------------------------------- */
     
-    /* Fill tokens - identical to :root light mode */
-    --fill-primary-strong: var(--primary-600);
-    --fill-primary-strong-hover: oklch(from var(--primary-600) calc(l * 0.9) c h);
-    --fill-primary-strong-disabled: oklch(from var(--primary-600) calc(l * 1.1) calc(c * 0.85) h);
+    /* Fill tokens - for solid backgrounds (filled variant) */
+    --fill-primary-strong: var(--primary-500);
+    --fill-primary-strong-hover: oklch(from var(--primary-500) calc(l * 0.9) c h);
+    --fill-primary-strong-disabled: oklch(from var(--primary-500) calc(l * 1.1) calc(c * 0.85) h);
     
-    --fill-primary-weak: oklch(from var(--primary-600) calc(l * 2.15) calc(c * 0.2) h);
+    /* Weak fill - for subtle backgrounds (outlined hover states) */
+    --fill-primary-weak: oklch(from var(--primary-500) calc(l * 2.15) calc(c * 0.2) h);
     --fill-primary-weak-hover: oklch(from var(--canvas-50) calc(l * 0.995) c h);
     
-    /* Text tokens */
-    --text-on-primary: white;
+    /* Text tokens - for foreground colors */
+    --text-on-primary: white; /* Text on primary fill */
     --text-on-primary-disabled: oklch(from white calc(l * 0.9) calc(c * 0.85) h);
-    --text-primary-strong: var(--primary-700);
-    --text-primary-weak: oklch(from var(--primary-600) calc(l * 0.7) c h);
-    --text-primary-disabled: oklch(from var(--primary-700) calc(l * 1.5) calc(c * 0.5) h);
+    --text-primary-strong: var(--primary-600); /* Primary-colored text (outlined, text variants) */
+    --text-primary-weak: oklch(from var(--primary-500) calc(l * 0.7) c h); /* Muted primary text */
+    --text-primary-disabled: oklch(from var(--primary-600) calc(l * 1.5) calc(c * 0.5) h);
     
-    /* Stroke tokens */
-    --stroke-primary: var(--primary-700);
-    --stroke-primary-hover: oklch(from var(--primary-700) calc(l * 0.85) c h);
-    --stroke-primary-disabled: oklch(from var(--primary-700) calc(l * 1.5) calc(c * 0.8) h);
+    /* Stroke tokens - for borders */
+    --stroke-primary: var(--primary-600);
+    --stroke-primary-hover: oklch(from var(--primary-600) calc(l * 0.85) c h);
+    --stroke-primary-disabled: oklch(from var(--primary-600) calc(l * 1.5) calc(c * 0.8) h);
     
-    /* Ring tokens */
-    --ring-primary: var(--primary-600);
+    /* Ring tokens - for focus states */
+    --ring-primary: var(--primary-500);
     
     /* Gradient tokens */
     --gradient-primary-start: var(--primary-500);

@@ -28,7 +28,7 @@ const getUserIconSize = (size: string) => {
 export const IconButtonsRound = (): React.JSX.Element => {
   return (
     <>
-      <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+      <div style={{ maxWidth: '800px', margin: '2rem auto' }}>
         {variant.map((variant: any) => {
           return (
             <div
@@ -82,7 +82,7 @@ export const IconButtonsRound = (): React.JSX.Element => {
 export const IconButtonsSquare = (): React.JSX.Element => {
   return (
     <>
-      <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+      <div style={{ maxWidth: '800px', margin: '2rem auto' }}>
         {variant.map((variant: any) => {
           return (
             <div

@@ -10,7 +10,7 @@ type Story = StoryObj<typeof Button>
 
 const AllIntents = (): React.JSX.Element => {
   return (
-    <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+    <div style={{ maxWidth: '800px', margin: '2rem auto' }}>
       {intent.map((i) => {
         return (
           <div
