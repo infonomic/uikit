@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 3.9.0
+
+### Minor Changes
+
+- 8dea16d: Utility class fixups and continued migration to functional tokens
+
 ## 3.8.0
 
 ### Minor Changes
