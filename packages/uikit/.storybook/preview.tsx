@@ -1,6 +1,10 @@
 import type { Preview } from '@storybook/react-vite'
 import React from 'react'
+// Self-hosted fonts for Storybook
+import '../src/styles/local-fonts.css'
+// UI kit styles
 import '../src/styles/styles.css'
+// Optional typography styles
 import '../src/styles/typography.css'
 
 import { withThemeByClassName } from '@storybook/addon-themes'

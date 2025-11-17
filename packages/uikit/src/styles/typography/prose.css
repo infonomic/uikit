@@ -30,7 +30,7 @@
     --prose-code-background: #efefef;
     --prose-code-borders: #cccccc;
     --prose-pre-code: #e5e7eb;
-    --prose-pre-bg: #1f2937;
+    --prose-pre-background: #1f2937;
     --prose-invert-body: var(--gray-50);
     --prose-invert-headings: var(--gray-50);
     --prose-invert-lead: #9ca3af;
@@ -47,7 +47,7 @@
     --prose-invert-code-background: #222222;
     --prose-invert-code-borders: #333333;
     --prose-invert-pre-code: #d1d5db;
-    --prose-invert-pre-bg: rgb(0 0 0 / 50%);
+    --prose-invert-pre-background: #161d27;
     --prose-invert-th-borders: #4b5563;
     --prose-invert-td-borders: #374151;
   }
@@ -69,7 +69,7 @@
     --prose-code-background: var(--prose-invert-code-background);
     --prose-code-borders: var(--prose-invert-code-borders);
     --prose-pre-code: var(--prose-invert-pre-code);
-    --prose-pre-bg: var(--prose-invert-pre-bg);
+    --prose-pre-background: var(--prose-invert-pre-background);
   }
 
   /* Brute force our not-dark class for now until we figure out
@@ -93,7 +93,7 @@
     --prose-code-background: #efefef;
     --prose-code-borders: #cccccc;
     --prose-pre-code: #e5e7eb;
-    --prose-pre-bg: #1f2937;
+    --prose-pre-background: #1f2937;
   }
 
   /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -124,20 +124,20 @@
     line-height: 1.6;
   }
 
-  /* medium breakpoint */
+  /* 
+    NOTE: Increase font size for smaller screens to improve readability 
+    at medium breakpoint (consider large breakpoint as well?) 
+  */
   @media screen and (min-width: 48rem) {
-
     article,
     .dynamic-text {
       font-size: 1.125rem;
       line-height: 1.64;
     }
-
   }
 
   /* Default headings - will be overridden by prose sections below */
   .prose {
-
     h1,
     h2,
     h3,
@@ -366,7 +366,7 @@
 
   .prose :where(pre):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
     color: var(--prose-pre-code);
-    background-color: var(--prose-pre-bg);
+    background-color: var(--prose-pre-background);
     overflow-x: auto;
     font-weight: 400;
     line-height: 1.7142857;

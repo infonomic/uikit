@@ -4,7 +4,7 @@ export const Lists = (): React.JSX.Element => {
   return (
     <>
       <div style={{ marginBottom: '48px' }}>
-        <div style={{ maxWidth: '700px', margin: 'auto' }} className="prose">
+        <div style={{ maxWidth: '700px', margin: '2rem auto' }} className="prose">
           <h1>Lists</h1>
           <p>
             This is a paragraph of text that we&apos;ll use for our typography storybook page. This
