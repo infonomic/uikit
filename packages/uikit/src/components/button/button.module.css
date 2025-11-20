@@ -193,7 +193,6 @@
     --button-variant-gradient-start: var(--gradient-primary-start);
     --button-variant-gradient-end: var(--gradient-primary-end);
     --button-variant-gradient-foreground: var(--gradient-primary-foreground);
-    --button-variant-gradient-hover: var(--gray-900);
     --button-variant-gradient-disabled: var(--gradient-primary-disabled);
     --button-variant-gradient-foreground-disabled: var(--text-on-primary-disabled);
   }
@@ -229,7 +228,6 @@
     --button-variant-gradient-start: var(--gradient-secondary-start);
     --button-variant-gradient-end: var(--gradient-secondary-end);
     --button-variant-gradient-foreground: var(--gradient-secondary-foreground);
-    --button-variant-gradient-hover: var(--gray-900);
     --button-variant-gradient-disabled: var(--gradient-secondary-disabled);
     --button-variant-gradient-foreground-disabled: var(--text-on-secondary-disabled);
   }
@@ -265,7 +263,6 @@
     --button-variant-gradient-start: var(--gradient-noeffect-start);
     --button-variant-gradient-end: var(--gradient-noeffect-end);
     --button-variant-gradient-foreground: var(--gradient-noeffect-foreground);
-    --button-variant-gradient-hover: var(--gradient-noeffect-hover);
     --button-variant-gradient-disabled: var(--gradient-noeffect-disabled);
     --button-variant-gradient-foreground-disabled: var(--text-on-noeffect-disabled);
   }
@@ -301,7 +298,6 @@
     --button-variant-gradient-start: var(--gradient-success-start);
     --button-variant-gradient-end: var(--gradient-success-end);
     --button-variant-gradient-foreground: var(--gradient-success-foreground);
-    --button-variant-gradient-hover: var(--gray-900);
     --button-variant-gradient-disabled: var(--gradient-success-disabled);
     --button-variant-gradient-foreground-disabled: var(--text-on-success-disabled);
   }
@@ -337,7 +333,6 @@
     --button-variant-gradient-start: var(--gradient-info-start);
     --button-variant-gradient-end: var(--gradient-info-end);
     --button-variant-gradient-foreground: var(--gradient-info-foreground);
-    --button-variant-gradient-hover: var(--gray-900);
     --button-variant-gradient-disabled: var(--gradient-info-disabled);
     --button-variant-gradient-foreground-disabled: var(--text-on-info-disabled);
   }
@@ -373,7 +368,6 @@
     --button-variant-gradient-start: var(--gradient-warning-start);
     --button-variant-gradient-end: var(--gradient-warning-end);
     --button-variant-gradient-foreground: var(--gradient-warning-foreground);
-    --button-variant-gradient-hover: var(--gray-900);
     --button-variant-gradient-disabled: var(--gradient-warning-disabled);
     --button-variant-gradient-foreground-disabled: var(--text-on-warning-disabled);
   }
@@ -409,7 +403,6 @@
     --button-variant-gradient-start: var(--gradient-danger-start);
     --button-variant-gradient-end: var(--gradient-danger-end);
     --button-variant-gradient-foreground: var(--gradient-danger-foreground);
-    --button-variant-gradient-hover: var(--gray-900);
     --button-variant-gradient-disabled: var(--gradient-danger-disabled);
     --button-variant-gradient-foreground-disabled: var(--text-on-danger-disabled);
   }
