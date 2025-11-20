@@ -1,7 +1,8 @@
 @layer infonomic-base, infonomic-functional, infonomic-utilities, infonomic-theme, infonomic-typography, infonomic-components;
 
 @layer infonomic-components {
-  .button {
+  .button,
+  :global(.button) {
     border: none;
     cursor: pointer;
     font-weight: normal;
@@ -19,104 +20,128 @@
   }
 
   .button:disabled,
-  .button[disabled] {
+  .button[disabled],
+  :global(.button):disabled,
+  :global(.button)[disabled] {
     pointer-events: none;
   }
 
   .button:focus,
-  .button:active {
+  .button:active,
+  :global(.button):focus,
+  :global(.button):active {
     --ring-offset-color: var(--background);
     --ring-offset-shadow: var(--ring-inset) 0 0 0 var(--ring-offset-width) var(--ring-offset-color);
     --ring-shadow: var(--ring-inset) 0 0 0 calc(1px + var(--ring-offset-width)) var(--ring-color);
     box-shadow: var(--ring-offset-shadow), var(--ring-shadow), var(--shadow, 0 0 #0000);
   }
 
-  .button.square {
+  .button.square,
+  :global(.button-square) {
     aspect-ratio: 1 / 1;
     padding: 0;
     border-radius: var(--border-radius-sm);
   }
 
-  .button.round {
+  .button.round,
+  :global(.button-round) {
     aspect-ratio: 1 / 1;
     padding: 0;
     border-radius: var(--border-radius-full);
   }
 
   /* Sizes */
-  .xs {
+  .xs,
+  :global(.button-xs) {
     min-height: 26px;
     font-size: 0.7rem;
     padding: 0.2rem 0.4rem;
   }
 
-  .sm {
+  .sm,
+  :global(.button-sm) {
     min-height: 32px;
     font-size: 0.775rem;
     padding: 0.25rem 0.5rem;
   }
 
-  .md {
+  .md,
+  :global(.button-md) {
     min-height: 38px;
     font-size: 0.95rem;
     padding: 0.625rem 1.25rem;
   }
 
-  .lg {
+  .lg,
+  :global(.button-lg) {
     min-height: 46px;
     font-size: 1.1rem;
     padding: 0.75rem 1.5rem;
   }
 
-  .xl {
+  .xl,
+  :global(.button-xl) {
     min-height: 54px;
     font-size: 1.2rem;
     padding: 0.75rem 1.5rem;
   }
 
-  /* Variants */
-  .filled {
+  /* Variants - Consuming Variables */
+  .filled,
+  :global(.button-filled) {
     color: var(--button-variant-filled-foreground);
     background-color: var(--button-variant-filled);
   }
 
-  .filled:hover {
+  .filled:hover,
+  :global(.button-filled):hover {
     background-color: var(--button-variant-filled-hover);
   }
 
   .filled:focus,
-  .filled:active {
+  .filled:active,
+  :global(.button-filled):focus,
+  :global(.button-filled):active {
     --ring-color: var(--button-ring-color);
   }
 
   .filled:disabled,
-  .filled[disabled] {
+  .filled[disabled],
+  :global(.button-filled):disabled,
+  :global(.button-filled)[disabled] {
     background-color: var(--button-variant-filled-disabled, oklch(from var(--button-variant-filled) calc(l * 1.1) calc(c * 0.85) h));
     color: var(--button-variant-filled-foreground-disabled, oklch(from var(--button-variant-filled-foreground) calc(l * 0.9) calc(c * 0.85) h));
   }
 
-  .outlined {
+  .outlined,
+  :global(.button-outlined) {
     border: 1px solid var(--button-variant-outlined-border);
     color: var(--button-variant-outlined-foreground);
     background-color: var(--button-variant-outlined);
   }
 
   .outlined:disabled,
-  .outlined[disabled] {
+  .outlined[disabled],
+  :global(.button-outlined):disabled,
+  :global(.button-outlined)[disabled] {
     border-color: var(--button-variant-outlined-border-disabled, oklch(from var(--button-variant-outlined-border) calc(l * 1.5) calc(c * 0.8) h));
     color: var(--button-variant-outlined-foreground-disabled, oklch(from var(--button-variant-outlined-foreground) calc(l * 1.1) calc(c * 0.7) h));
   }
 
-  .outlined:hover {
+  .outlined:hover,
+  :global(.button-outlined):hover {
     background-color: var(--button-variant-outlined-hover);
   }
 
   .outlined:focus,
-  .outlined:active {
+  .outlined:active,
+  :global(.button-outlined):focus,
+  :global(.button-outlined):active {
     --ring-color: var(--button-ring-color);
   }
 
-  .gradient {
+  .gradient,
+  :global(.button-gradient) {
     color: var(--button-variant-gradient-foreground);
     background: linear-gradient(45deg,
         var(--button-variant-gradient-start),
@@ -124,13 +149,16 @@
   }
 
   .gradient:disabled,
-  .gradient[disabled] {
+  .gradient[disabled],
+  :global(.button-gradient):disabled,
+  :global(.button-gradient)[disabled] {
     background: unset;
     background-color: var(--button-variant-gradient-disabled, oklch(from var(--button-variant-gradient-end) calc(l * 1.2) calc(c * 0.85) h));
     color: var(--button-variant-gradient-foreground-disabled, oklch(from var(--button-variant-gradient-foreground) calc(l * 0.9) calc(c * 0.85) h));
   }
 
-  .gradient:hover {
+  .gradient:hover,
+  :global(.button-gradient):hover {
     color: var(--button-variant-gradient-foreground);
     background: linear-gradient(45deg,
         var(--button-variant-gradient-start),
@@ -138,58 +166,63 @@
   }
 
   .gradient:focus,
-  .gradient:active {
+  .gradient:active,
+  :global(.button-gradient):focus,
+  :global(.button-gradient):active {
     --ring-color: var(--button-ring-color);
   }
 
-  .text {
+  .text,
+  :global(.button-text) {
     background-color: var(--button-variant-text);
     color: var(--button-variant-text-foreground);
   }
 
   .text:disabled,
-  .text[disabled] {
+  .text[disabled],
+  :global(.button-text):disabled,
+  :global(.button-text)[disabled] {
     color: oklch(from var(--button-variant-text-foreground) calc(l * 1.5) calc(c * 0.5) h);
   }
 
-  .text:hover {
+  .text:hover,
+  :global(.button-text):hover {
     background-color: var(--button-variant-text-hover);
   }
 
   .text:focus,
-  .text:active {
+  .text:active,
+  :global(.button-text):focus,
+  :global(.button-text):active {
     --ring-color: var(--button-ring-color);
   }
 
-  /* Intents */
-  .primary {
+  /* Intents - Defining Variables */
+  .primary,
+  :global(.button-primary) {
     --button-ring-color: var(--ring-primary);
-  }
-
-  .primary.filled {
+    
+    /* Filled */
     --button-variant-filled: var(--fill-primary-strong);
     --button-variant-filled-foreground: var(--text-on-primary);
     --button-variant-filled-hover: var(--fill-primary-strong-hover);
     --button-variant-filled-disabled: var(--fill-primary-strong-disabled);
     --button-variant-filled-foreground-disabled: var(--text-on-primary-disabled);
-  }
-
-  .primary.outlined {
+    
+    /* Outlined */
     --button-variant-outlined: transparent;
     --button-variant-outlined-foreground: var(--text-primary-strong);
     --button-variant-outlined-hover: var(--fill-primary-weak);
     --button-variant-outlined-border: var(--stroke-primary);
     --button-variant-outlined-border-disabled: var(--stroke-primary-disabled);
     --button-variant-outlined-foreground-disabled: var(--text-primary-disabled);
-  }
-
-  .primary.text {
+    
+    /* Text */
     --button-variant-text: transparent;
     --button-variant-text-foreground: var(--text-primary-weak);
     --button-variant-text-hover: var(--fill-primary-weak-hover);
-  }
-
-  .primary.gradient {
+    
+    /* Gradient */
     --button-variant-gradient-start: var(--gradient-primary-start);
     --button-variant-gradient-end: var(--gradient-primary-end);
     --button-variant-gradient-foreground: var(--gradient-primary-foreground);
@@ -197,34 +230,31 @@
     --button-variant-gradient-foreground-disabled: var(--text-on-primary-disabled);
   }
 
-  .secondary {
+  .secondary,
+  :global(.button-secondary) {
     --button-ring-color: var(--ring-secondary);
-  }
-
-  .secondary.filled {
+    
+    /* Filled */
     --button-variant-filled: var(--fill-secondary-strong);
     --button-variant-filled-foreground: var(--text-on-secondary);
     --button-variant-filled-hover: var(--fill-secondary-strong-hover);
     --button-variant-filled-disabled: var(--fill-secondary-strong-disabled);
     --button-variant-filled-foreground-disabled: var(--text-on-secondary-disabled);
-  }
-
-  .secondary.outlined {
+    
+    /* Outlined */
     --button-variant-outlined: transparent;
     --button-variant-outlined-foreground: var(--text-secondary-strong);
     --button-variant-outlined-hover: var(--fill-secondary-weak);
     --button-variant-outlined-border: var(--stroke-secondary);
     --button-variant-outlined-border-disabled: var(--stroke-secondary-disabled);
     --button-variant-outlined-foreground-disabled: var(--text-secondary-disabled);
-  }
-
-  .secondary.text {
+    
+    /* Text */
     --button-variant-text: transparent;
     --button-variant-text-foreground: var(--text-secondary-weak);
     --button-variant-text-hover: var(--fill-secondary-weak-hover);
-  }
-
-  .secondary.gradient {
+    
+    /* Gradient */
     --button-variant-gradient-start: var(--gradient-secondary-start);
     --button-variant-gradient-end: var(--gradient-secondary-end);
     --button-variant-gradient-foreground: var(--gradient-secondary-foreground);
@@ -232,34 +262,31 @@
     --button-variant-gradient-foreground-disabled: var(--text-on-secondary-disabled);
   }
 
-  .noeffect {
+  .noeffect,
+  :global(.button-noeffect) {
     --button-ring-color: var(--ring-noeffect);
-  }
-
-  .noeffect.filled {
+    
+    /* Filled */
     --button-variant-filled: var(--fill-noeffect-strong);
     --button-variant-filled-foreground: var(--text-on-noeffect);
     --button-variant-filled-hover: var(--fill-noeffect-strong-hover);
     --button-variant-filled-disabled: var(--fill-noeffect-strong-disabled);
     --button-variant-filled-foreground-disabled: var(--text-on-noeffect-disabled);
-  }
-
-  .noeffect.outlined {
+    
+    /* Outlined */
     --button-variant-outlined: transparent;
     --button-variant-outlined-foreground: var(--text-noeffect-strong);
     --button-variant-outlined-hover: var(--fill-noeffect-weak);
     --button-variant-outlined-border: var(--stroke-noeffect);
     --button-variant-outlined-border-disabled: var(--stroke-noeffect-disabled);
     --button-variant-outlined-foreground-disabled: var(--text-noeffect-disabled);
-  }
-
-  .noeffect.text {
+    
+    /* Text */
     --button-variant-text: transparent;
     --button-variant-text-foreground: var(--text-noeffect-weak);
     --button-variant-text-hover: var(--fill-noeffect-weak-hover);
-  }
-
-  .noeffect.gradient {
+    
+    /* Gradient */
     --button-variant-gradient-start: var(--gradient-noeffect-start);
     --button-variant-gradient-end: var(--gradient-noeffect-end);
     --button-variant-gradient-foreground: var(--gradient-noeffect-foreground);
@@ -267,34 +294,31 @@
     --button-variant-gradient-foreground-disabled: var(--text-on-noeffect-disabled);
   }
 
-  .success {
+  .success,
+  :global(.button-success) {
     --button-ring-color: var(--ring-success);
-  }
-
-  .success.filled {
+    
+    /* Filled */
     --button-variant-filled: var(--fill-success-strong);
     --button-variant-filled-foreground: var(--text-on-success);
     --button-variant-filled-hover: var(--fill-success-strong-hover);
     --button-variant-filled-disabled: var(--fill-success-strong-disabled);
     --button-variant-filled-foreground-disabled: var(--text-on-success-disabled);
-  }
-
-  .success.outlined {
+    
+    /* Outlined */
     --button-variant-outlined: transparent;
     --button-variant-outlined-foreground: var(--text-success-strong);
     --button-variant-outlined-hover: var(--fill-success-weak);
     --button-variant-outlined-border: var(--stroke-success);
     --button-variant-outlined-border-disabled: var(--stroke-success-disabled);
     --button-variant-outlined-foreground-disabled: var(--text-success-disabled);
-  }
-
-  .success.text {
+    
+    /* Text */
     --button-variant-text: transparent;
     --button-variant-text-foreground: var(--text-success-weak);
     --button-variant-text-hover: var(--fill-success-weak-hover);
-  }
-
-  .success.gradient {
+    
+    /* Gradient */
     --button-variant-gradient-start: var(--gradient-success-start);
     --button-variant-gradient-end: var(--gradient-success-end);
     --button-variant-gradient-foreground: var(--gradient-success-foreground);
@@ -302,34 +326,31 @@
     --button-variant-gradient-foreground-disabled: var(--text-on-success-disabled);
   }
 
-  .info {
+  .info,
+  :global(.button-info) {
     --button-ring-color: var(--ring-info);
-  }
-
-  .info.filled {
+    
+    /* Filled */
     --button-variant-filled: var(--fill-info-strong);
     --button-variant-filled-foreground: var(--text-on-info);
     --button-variant-filled-hover: var(--fill-info-strong-hover);
     --button-variant-filled-disabled: var(--fill-info-strong-disabled);
     --button-variant-filled-foreground-disabled: var(--text-on-info-disabled);
-  }
-
-  .info.outlined {
+    
+    /* Outlined */
     --button-variant-outlined: transparent;
     --button-variant-outlined-foreground: var(--text-info-strong);
     --button-variant-outlined-hover: var(--fill-info-weak);
     --button-variant-outlined-border: var(--stroke-info);
     --button-variant-outlined-border-disabled: var(--stroke-info-disabled);
     --button-variant-outlined-foreground-disabled: var(--text-info-disabled);
-  }
-
-  .info.text {
+    
+    /* Text */
     --button-variant-text: transparent;
     --button-variant-text-foreground: var(--text-info-weak);
     --button-variant-text-hover: var(--fill-info-weak-hover);
-  }
-
-  .info.gradient {
+    
+    /* Gradient */
     --button-variant-gradient-start: var(--gradient-info-start);
     --button-variant-gradient-end: var(--gradient-info-end);
     --button-variant-gradient-foreground: var(--gradient-info-foreground);
@@ -337,34 +358,31 @@
     --button-variant-gradient-foreground-disabled: var(--text-on-info-disabled);
   }
 
-  .warning {
+  .warning,
+  :global(.button-warning) {
     --button-ring-color: var(--ring-warning);
-  }
-
-  .warning.filled {
+    
+    /* Filled */
     --button-variant-filled: var(--fill-warning-strong);
     --button-variant-filled-foreground: var(--text-on-warning);
     --button-variant-filled-hover: var(--fill-warning-strong-hover);
     --button-variant-filled-disabled: var(--fill-warning-strong-disabled);
     --button-variant-filled-foreground-disabled: var(--text-on-warning-disabled);
-  }
-
-  .warning.outlined {
+    
+    /* Outlined */
     --button-variant-outlined: transparent;
     --button-variant-outlined-foreground: var(--text-warning-strong);
     --button-variant-outlined-hover: var(--fill-warning-weak);
     --button-variant-outlined-border: var(--stroke-warning);
     --button-variant-outlined-border-disabled: var(--stroke-warning-disabled);
     --button-variant-outlined-foreground-disabled: var(--text-warning-disabled);
-  }
-
-  .warning.text {
+    
+    /* Text */
     --button-variant-text: transparent;
     --button-variant-text-foreground: var(--text-warning-weak);
     --button-variant-text-hover: var(--fill-warning-weak-hover);
-  }
-
-  .warning.gradient {
+    
+    /* Gradient */
     --button-variant-gradient-start: var(--gradient-warning-start);
     --button-variant-gradient-end: var(--gradient-warning-end);
     --button-variant-gradient-foreground: var(--gradient-warning-foreground);
@@ -372,34 +390,31 @@
     --button-variant-gradient-foreground-disabled: var(--text-on-warning-disabled);
   }
 
-  .danger {
+  .danger,
+  :global(.button-danger) {
     --button-ring-color: var(--ring-danger);
-  }
-
-  .danger.filled {
+    
+    /* Filled */
     --button-variant-filled: var(--fill-danger-strong);
     --button-variant-filled-foreground: var(--text-on-danger);
     --button-variant-filled-hover: var(--fill-danger-strong-hover);
     --button-variant-filled-disabled: var(--fill-danger-strong-disabled);
     --button-variant-filled-foreground-disabled: var(--text-on-danger-disabled);
-  }
-
-  .danger.outlined {
+    
+    /* Outlined */
     --button-variant-outlined: transparent;
     --button-variant-outlined-foreground: var(--text-danger-strong);
     --button-variant-outlined-hover: var(--fill-danger-weak);
     --button-variant-outlined-border: var(--stroke-danger);
     --button-variant-outlined-border-disabled: var(--stroke-danger-disabled);
     --button-variant-outlined-foreground-disabled: var(--text-danger-disabled);
-  }
-
-  .danger.text {
+    
+    /* Text */
     --button-variant-text: transparent;
     --button-variant-text-foreground: var(--text-danger-weak);
     --button-variant-text-hover: var(--fill-danger-weak-hover);
-  }
-
-  .danger.gradient {
+    
+    /* Gradient */
     --button-variant-gradient-start: var(--gradient-danger-start);
     --button-variant-gradient-end: var(--gradient-danger-end);
     --button-variant-gradient-foreground: var(--gradient-danger-foreground);
@@ -408,7 +423,8 @@
   }
 
   /* Full width */
-  .fullWidth {
+  .fullWidth,
+  :global(.button-full-width) {
     width: 100%;
     display: flex;
   }
