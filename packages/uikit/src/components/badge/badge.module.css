@@ -1,7 +1,8 @@
 @layer infonomic-base, infonomic-functional, infonomic-utilities, infonomic-theme, infonomic-typography, infonomic-components;
 
 @layer infonomic-components {
-  .badge {
+  .badge,
+  :global(.badge) {
     display: inline-block;
     padding: 0.25em 0.4em;
     font-size: var(--font-size-sm);
@@ -13,37 +14,44 @@
     border-radius: var(--border-radius-sm);
   }
 
-  .primary {
+  .primary,
+  :global(.badge-primary) {
     color: var(--text-on-primary);
     background-color: var(--fill-primary-strong);
   }
 
-  .secondary {
+  .secondary,
+  :global(.badge-secondary) {
     color: var(--text-on-secondary);
     background-color: var(--fill-secondary-strong);
   }
 
-  .noeffect {
+  .noeffect,
+  :global(.badge-noeffect) {
     color: var(--text-on-noeffect);
     background-color: var(--fill-noeffect-strong);
   }
 
-  .success {
+  .success,
+  :global(.badge-success) {
     color: var(--text-on-success);
     background-color: var(--fill-success-strong);
   }
 
-  .info {
+  .info,
+  :global(.badge-info) {
     color: var(--text-on-info);
     background-color: var(--fill-info-strong);
   }
 
-  .warning {
+  .warning,
+  :global(.badge-warning) {
     color: var(--text-on-warning);
     background-color: var(--fill-warning-strong);
   }
 
-  .danger {
+  .danger,
+  :global(.badge-danger) {
     color: var(--text-on-danger);
     background-color: var(--fill-danger-strong);
   }
