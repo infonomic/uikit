@@ -419,20 +419,4 @@
     width: 100%;
     display: flex;
   }
-
-  /* 🌙 Dark via `.dark` class. We rely on the 
-  * consuming application to detect a user's preferred
-  * color scheme - either by header or cookie, and set
-  * a root html class accordingly
-  */
-  :global(.dark) {
-
-    .button:focus:not(:where([class~="not-dark"], [class~="not-dark"] *)),
-    .button:active:not(:where([class~="not-dark"], [class~="not-dark"] *)) {
-      --ring-offset-color: var(--background);
-    }
-
-    /* ALL INTENTS - Now handled by semantic tokens in theme layer */
-    /* No overrides needed! Tokens automatically switch in .dark and respect .not-dark */
-  }
 }
