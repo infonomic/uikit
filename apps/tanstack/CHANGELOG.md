@@ -1,5 +1,16 @@
 # @infonomic/website-react
 
+## 5.0.0
+
+### Major Changes
+
+- a5f9c05: Added width 100% to section component. Added HTML/CSS demo app.
+
+### Patch Changes
+
+- Updated dependencies [a5f9c05]
+  - @infonomic/uikit@5.0.0
+
 ## 4.0.0
 
 ### Major Changes

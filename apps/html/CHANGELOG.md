@@ -1,5 +1,16 @@
 # @modulus-learning/agent-demo-vanilla
 
+## 5.0.0
+
+### Major Changes
+
+- a5f9c05: Added width 100% to section component. Added HTML/CSS demo app.
+
+### Patch Changes
+
+- Updated dependencies [a5f9c05]
+  - @infonomic/uikit@5.0.0
+
 ## 0.9.0
 
 ### Minor Changes
