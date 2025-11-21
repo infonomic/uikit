@@ -10,6 +10,9 @@ export default defineConfig(({ mode }) => ({
     cssMinify: 'lightningcss',
   },
   server: {
-    port: 5175
+    port: 5176
+  },
+  preview: {
+    port: 4176
   },
 }))
