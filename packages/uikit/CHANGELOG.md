@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 5.1.0
+
+### Minor Changes
+
+- 2c71b1e: Accidental major bump below. YOLO changeset and commit ;-).
+
 ## 5.0.0
 
 ### Major Changes
