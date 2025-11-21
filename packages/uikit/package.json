@@ -47,6 +47,10 @@
     "./typography.css": {
       "import": "./dist/styles/typography.css",
       "default": "./dist/styles/typography.css"
+    },
+     "./components.css": {
+      "import": "./dist/styles/components-vanilla.css",
+      "default": "./dist/styles/components-vanilla.css"
     }
   },
   "scripts": {
@@ -58,11 +62,9 @@
     "build": "run-s build:*",
     "build:clean": "rimraf dist build",
     "build:code": "rslib build",
-    "skip:astro": "astro check && astro build",
-    "skip2:astro-compose": "node ./scripts/build-astro.js",
     "build:css": "lightningcss --bundle ./src/styles/styles.css ./src/styles/typography.css --output-dir ./dist/styles",
-    "skip:post-process-css": "node ./scripts/task-merge-css.js",
     "build:minify": "lightningcss --minify ./dist/styles/styles.css ./dist/styles/typography.css --output-dir ./dist/styles",
+    "build:vanilla-components-css": "node ./scripts/task-merge-vanilla-components-css.js",
     "typecheck": "tsc --noEmit",
     "clean": "rimraf node_modules dist build types .turbo",
     "lint": "biome check . --diagnostic-level=warn",
