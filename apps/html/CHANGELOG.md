@@ -1,5 +1,16 @@
 # @modulus-learning/agent-demo-vanilla
 
+## 5.1.0
+
+### Minor Changes
+
+- 2c71b1e: Accidental major bump below. YOLO changeset and commit ;-).
+
+### Patch Changes
+
+- Updated dependencies [2c71b1e]
+  - @infonomic/uikit@5.1.0
+
 ## 5.0.0
 
 ### Major Changes
