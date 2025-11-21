@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 4.0.0
+
+### Major Changes
+
+- 8619efd: Refactored selected component CSS files to include global selectors for vanilla HTML / CSS support.
+
 ## 3.11.0
 
 ### Minor Changes
