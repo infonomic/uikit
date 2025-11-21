@@ -54,11 +54,11 @@ export const Input = <C extends React.ElementType = 'input'>({
   ...rest
 }: InputProps) => {
   return (
-    <div className={cx('input-wrapper', styles.inputWrapper, inputWrapperClassName)}>
+    <div className={cx('input-wrapper', styles['input-wrapper'], inputWrapperClassName)}>
       {label != null && <Label id={id} htmlFor={id} required={required} label={label} />}
-      <div className={cx('input-container', styles.inputContainer)}>
+      <div className={cx('input-container', styles['input-container'])}>
         {startAdornment != null && (
-          <div className={cx(styles.startAdornment, styles[variant])}>{startAdornment}</div>
+          <div className={cx(styles['start-adornment'], styles[variant])}>{startAdornment}</div>
         )}
         <input
           ref={ref}
@@ -82,15 +82,15 @@ export const Input = <C extends React.ElementType = 'input'>({
             styles[variant],
             styles[inputSize],
             styles[intent],
-            { [styles.startAdornmentPadding]: startAdornment != null },
-            { [styles.endAdornmentPadding]: endAdornment != null },
+            { [styles['start-adornment-padding']]: startAdornment != null },
+            { [styles['end-adornment-padding']]: endAdornment != null },
             { [styles.error]: error },
             className
           )}
           {...rest}
         />
         {endAdornment != null && (
-          <div className={cx(styles.endAdornment, styles[variant])}>{endAdornment}</div>
+          <div className={cx(styles['end-adornment'], styles[variant])}>{endAdornment}</div>
         )}
       </div>
       {error ? (

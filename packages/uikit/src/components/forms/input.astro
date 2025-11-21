@@ -44,12 +44,12 @@ const {
 } = Astro.props as Props
 ---
 
-<div class:list={['input-wrapper', styles.inputWrapper]}>
+<div class:list={['input-wrapper', styles['input-wrapper']]}>
   {label != null && <Label id={id} for={id} required={required} label={label} />}
-  <div class:list={['input-container', styles.inputContainer]}>
+  <div class:list={['input-container', styles['input-container']]}>
     {
       startAdornment != null && (
-        <div class:list={[styles.startAdornment, styles[variant]]}>
+        <div class:list={[styles['start-adornment'], styles[variant]]}>
           <slot name="start-adornment" />
         </div>
       )
@@ -74,8 +74,8 @@ const {
         styles[variant],
         styles[inputSize],
         styles[intent],
-        startAdornment != null && styles.startAdornmentPadding,
-        endAdornment != null && styles.endAdornmentPadding,
+        startAdornment != null && styles['start-adornment-padding'],
+        endAdornment != null && styles['end-adornment-padding'],
         error && styles.error,
         className
       ]}
@@ -83,7 +83,7 @@ const {
     />
     {
       endAdornment != null && (
-        <div class:list={[styles.endAdornment, styles[variant]]}>
+        <div class:list={[styles['end-adornment'], styles[variant]]}>
           <slot name="end-adornment" />
         </div>
       )

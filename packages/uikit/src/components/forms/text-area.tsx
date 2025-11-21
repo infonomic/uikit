@@ -43,7 +43,7 @@ export const TextArea = function TextArea({
   ...rest
 }: TextAreaProps): React.JSX.Element {
   return (
-    <fieldset className={cx('text-area-wrapper', inputStyles.inputWrapper)}>
+    <fieldset className={cx('text-area-wrapper', inputStyles['input-wrapper'])}>
       <Label id={id} htmlFor={id} required={required} label={label} />
       <textarea
         ref={ref}

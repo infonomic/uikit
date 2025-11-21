@@ -1,18 +1,21 @@
 @layer infonomic-base, infonomic-functional, infonomic-utilities, infonomic-theme, infonomic-typography, infonomic-components;
 
 @layer infonomic-components {
-  .adornment {
+  .adornment,
+  :global(.input-adornment) {
     display: flex;
     align-items: center;
     line-height: 0;
     white-space: nowrap;
   }
 
-  .start {
+  .start,
+  :global(.input-adornment-start) {
     justify-content: flex-start;
   }
 
-  .end {
+  .end,
+  :global(.input-adornment-end) {
     justify-content: flex-end;
   }
 }

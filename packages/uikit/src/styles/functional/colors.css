@@ -602,28 +602,5 @@
     --gradient-danger-end: var(--red-700);
     --gradient-danger-foreground: white;
     --gradient-danger-disabled: oklch(from var(--red-700) calc(l * 1.2) calc(c * 0.85) h);
-
-    /* SURFACE TOKENS (Force Light Mode)
-       ----------------------------------------------------------------- */
-    
-    /* Panel/container backgrounds - identical to :root */
-    --surface-panel: var(--canvas-25);
-    --surface-panel-elevated: white;
-    --surface-panel-border: var(--border-color);
-    
-    /* Item backgrounds */
-    --surface-item: transparent;
-    --surface-item-hover: var(--canvas-50);
-    --surface-item-active: var(--canvas-100);
-    
-    /* Item text colors */
-    --surface-item-text: var(--text);
-    --surface-item-text-hover: var(--text);
-    --surface-item-text-active: var(--text);
-    --surface-item-text-disabled: var(--gray-400);
-
-    /* Panel scrollers */
-    --surface-panel-scrollbar: var(--gray-50);
-    --surface-panel-scrollbar-thumb: var(--primary-100);
   }
 }

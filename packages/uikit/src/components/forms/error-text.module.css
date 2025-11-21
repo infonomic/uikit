@@ -1,19 +1,9 @@
 @layer infonomic-base, infonomic-functional, infonomic-utilities, infonomic-theme, infonomic-typography, infonomic-components;
 
 @layer infonomic-components {
-  .text {
+  .text,
+  :global(.error-text) {
     font-size: 0.875rem;
-    color: var(--red-500)
-  }
-
-  /* 🌙 Dark via `.dark` class. We rely on the 
-  * consuming application to detect a user's preferred
-  * color scheme - either by header or cookie, and set
-  * a root html class accordingly
-  */
-  :global(.dark) {
-    .text:not(:where([class~="not-dark"], [class~="not-dark"] *)) {
-      color: var(--red-400);
-    }
+    color: var(--error)
   }
 }

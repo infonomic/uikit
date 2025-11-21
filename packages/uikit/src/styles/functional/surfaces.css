@@ -89,15 +89,15 @@
     --shadow: var(--shadow-md);
     --loader-color: var(--fill-primary-strong);
 
-    /* SURFACE TOKENS (for panels, dropdowns, menus, lists)
+    /* SURFACE TOKENS (Force Light Mode)
        ----------------------------------------------------------------- */
     
-    /* Panel/container backgrounds */
+    /* Panel/container backgrounds - identical to :root */
     --surface-panel: var(--canvas-25);
-    --surface-panel-elevated: white; /* For dropdowns/popovers with shadow */
+    --surface-panel-elevated: white;
     --surface-panel-border: var(--border-color);
     
-    /* Item backgrounds (default transparent, inherits panel) */
+    /* Item backgrounds */
     --surface-item: transparent;
     --surface-item-hover: var(--canvas-50);
     --surface-item-active: var(--canvas-100);

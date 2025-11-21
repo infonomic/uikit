@@ -1,7 +1,8 @@
 @layer infonomic-base, infonomic-functional, infonomic-utilities, infonomic-theme, infonomic-typography, infonomic-components;
 
 @layer infonomic-components {
-  .text {
+  .text,
+  :global(.help-text) {
     font-size: 0.875rem;
     color: var(--muted)
   }
