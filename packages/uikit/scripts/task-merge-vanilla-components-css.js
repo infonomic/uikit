@@ -19,7 +19,7 @@ const outputFile = join(distDir, 'styles/components-vanilla.css')
 // List of component CSS files to include in the vanilla bundle
 const componentSources = [
   join(distDir, 'components/card/card_module.css'),
-  join(distDir, 'components/section/section_module.css'),
+  join(distDir, 'components/container/container_module.css'),
   join(distDir, 'components/badge/badge_module.css'),
   join(distDir, 'components/button/button_module.css'),
   join(distDir, 'components/button/button-group_module.css'),
@@ -30,7 +30,8 @@ const componentSources = [
   join(distDir, 'components/forms/label_module.css'),
   join(distDir, 'components/forms/error-text_module.css'),
   join(distDir, 'components/forms/help-text_module.css'),
-  join(distDir, 'components/container/container_module.css')
+  join(distDir, 'components/section/section_module.css')
+  
 ]
 
 async function bundleVanillaCssComponents() {
