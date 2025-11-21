@@ -9,6 +9,6 @@ import styles from './card.module.css'
 const { class: className, ...rest } = Astro.props as Props
 ---
 
-<div class:list={[styles.cardContent, className]} {...rest}>
+<div class:list={[styles['card-content'], className]} {...rest}>
   <slot />
 </div>

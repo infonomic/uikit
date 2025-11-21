@@ -1,7 +1,8 @@
 @layer infonomic-base, infonomic-functional, infonomic-utilities, infonomic-theme, infonomic-typography, infonomic-components;
 
 @layer infonomic-components {
-  .card {
+  .card,
+  :global(.card) {
     display: flex;
     flex-direction: column;
     text-decoration: none;
@@ -16,30 +17,36 @@
     box-shadow: var(--shadow-sm)
   }
 
-  .card:is(:global(.dark) *) {
+  .card:is(:global(.dark) *),
+  :global(.card):is(:global(.dark) *) {
     background: var(--canvas-800);
   }
 
-  .cardHover {
+  .card-hover,
+  :global(.card-hover) {
     transition: background 0.2s ease-in-out;
   }
 
-  .cardHover:hover {
+  .card-hover:hover,
+  :global(.card-hover):hover {
     background: oklch(from var(--theme-50) 1 0.03 h);
   }
 
-  .cardHover:hover:is(:global(.dark) *) {
+  .card-hover:hover:is(:global(.dark) *),
+  :global(.card-hover):hover:is(:global(.dark) *) {
     background: oklch(from var(--canvas-800) 0.2 c h);
   }
 
-  .cardHeader {
+  .card-header,
+  :global(.card-header) {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
     padding: 1rem;
   }
 
-  .cardTitle {
+  .card-title,
+  :global(.card-title) {
     color: var(--headings);
     font-size: 1.8rem;
     font-weight: bold;
@@ -47,18 +54,21 @@
     letter-spacing: -0.015em;
   }
 
-  .cardDescription {
+  .card-description,
+  :global(.card-description) {
     font-size: 0.875rem;
     color: var(--muted);
   }
 
-  .cardContent {
+  .card-content,
+  :global(.card-content) {
     flex: 1;
     padding: 1rem;
     padding-top: 0;
   }
 
-  .cardFooter {
+  .card-footer,
+  :global(.card-footer) {
     display: flex;
     align-items: center;
     padding: 1rem;

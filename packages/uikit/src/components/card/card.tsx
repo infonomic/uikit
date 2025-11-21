@@ -31,7 +31,7 @@ const Card = <C extends React.ElementType = 'div'>({
   ...rest
 }: CardProps<C>) => {
   const Comp: React.ElementType = asChild === true ? Slot : 'div'
-  const hoverClasses = hover != null && hover === true ? styles.cardHover : undefined
+  const hoverClasses = hover != null && hover === true ? styles['card-hover'] : undefined
   const classes = cx(styles.card, hoverClasses, className)
 
   return (
@@ -48,7 +48,7 @@ interface OtherProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const Header = ({ className, ref, ...props }: OtherProps) => (
-  <div ref={ref} className={cx(styles.cardHeader, className)} {...props} />
+  <div ref={ref} className={cx(styles['card-header'], className)} {...props} />
 )
 
 Header.displayName = 'CardHeader'
@@ -56,24 +56,24 @@ Header.displayName = 'CardHeader'
 const Title = ({ className, ref, ...props }: OtherProps) => (
   <div
     ref={ref as React.Ref<HTMLDivElement>}
-    className={cx(styles.cardTitle, className)}
+    className={cx(styles['card-title'], className)}
     {...props}
   />
 )
 Title.displayName = 'CardTitle'
 
 const Description = ({ className, ref, ...props }: OtherProps) => (
-  <div ref={ref} className={cx(styles.cardDescription, className)} {...props} />
+  <div ref={ref} className={cx(styles['card-description'], className)} {...props} />
 )
 Description.displayName = 'CardDescription'
 
 const Content = ({ className, ref, ...props }: OtherProps) => (
-  <div ref={ref} className={cx(styles.cardContent, className)} {...props} />
+  <div ref={ref} className={cx(styles['card-content'], className)} {...props} />
 )
 Content.displayName = 'CardContent'
 
 const Footer = ({ className, ref, ...props }: OtherProps) => (
-  <div ref={ref} className={cx(styles.cardFooter, className)} {...props} />
+  <div ref={ref} className={cx(styles['card-footer'], className)} {...props} />
 )
 Footer.displayName = 'CardFooter'
 

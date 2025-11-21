@@ -28,13 +28,13 @@ const componentType = href != null ? 'a' : as
     <a
       href={href}
       target={target}
-      class:list={[styles.card, { [styles.cardHover]: hover }, className]}
+      class:list={[styles.card, { [styles['card-hover']]: hover }, className]}
       {...rest}
     >
       <slot />
     </a>
   ) : (
-    <div class:list={[styles.card, { [styles.cardHover]: hover }, className]} {...rest}>
+    <div class:list={[styles.card, { [styles['card-hover']]: hover }, className]} {...rest}>
       <slot />
     </div>
   )
