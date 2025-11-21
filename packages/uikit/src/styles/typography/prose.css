@@ -12,6 +12,7 @@
  * behind a cascade layer).
  *
 */
+
 @layer infonomic-typography {
   :root {
     --prose-body: var(--gray-900);

@@ -3,6 +3,7 @@
 @layer infonomic-components {
   .section,
   :global(.section) {
+    width: 100%;
     position: relative;
   }
 }
