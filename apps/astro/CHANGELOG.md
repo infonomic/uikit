@@ -1,5 +1,16 @@
 # @infonomic/website-astro
 
+## 5.2.0
+
+### Minor Changes
+
+- f1064a2: Migrated scroll-to-top component to our dual CSS Module system.
+
+### Patch Changes
+
+- Updated dependencies [f1064a2]
+  - @infonomic/uikit@5.2.0
+
 ## 5.1.0
 
 ### Minor Changes
