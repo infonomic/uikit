@@ -30,7 +30,8 @@ const componentSources = [
   join(distDir, 'components/forms/label_module.css'),
   join(distDir, 'components/forms/error-text_module.css'),
   join(distDir, 'components/forms/help-text_module.css'),
-  join(distDir, 'components/section/section_module.css')
+  join(distDir, 'components/section/section_module.css'),
+  join(distDir, 'components/scroll-to-top/scroll-to-top_module.css')
   
 ]
 
