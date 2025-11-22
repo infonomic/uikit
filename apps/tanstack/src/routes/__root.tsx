@@ -4,6 +4,7 @@ import { AppBar } from '@/ui/components/app-bar.tsx'
 import { SiteFooter } from '@/ui/components/site-footer.tsx'
 
 import '@/ui/styles/global.css'
+import { ScrollToTop } from '@infonomic/uikit/react'
 
 export const Route = createRootRoute({
   component: () => {
@@ -15,6 +16,7 @@ export const Route = createRootRoute({
             <Outlet />
           </main>
           <SiteFooter />
+          <ScrollToTop />
         </div>
         <TanStackRouterDevtools />
       </>
