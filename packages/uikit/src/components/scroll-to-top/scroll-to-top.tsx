@@ -7,19 +7,17 @@ import { useEffect, useState } from 'react'
 import style from './scroll-to-top.module.css'
 
 type ScrollToTopIntrinsicProps = React.JSX.IntrinsicElements['button']
-interface ScrollToTopProps extends ScrollToTopIntrinsicProps {
-  offset?: number
+
+export interface ScrollToTopProps extends ScrollToTopIntrinsicProps {
+  offset?: number,
+  ref?: React.RefObject<HTMLButtonElement>
 }
 
-export type { ScrollToTopProps }
-
-export const ScrollToTop = function ScrollToTop({
+export function ScrollToTop({
   ref,
   offset = -65,
   ...rest
-}: ScrollToTopProps & {
-  ref?: React.RefObject<HTMLButtonElement>
-}) {
+}: ScrollToTopProps }) {
   const [show, setShow] = useState(false)
 
   const handleOnClick = (): void => {
