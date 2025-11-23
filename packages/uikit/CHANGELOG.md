@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 5.2.1
+
+### Patch Changes
+
+- 9803e52: Removed console output in scroll-to-top component.
+
 ## 5.2.0
 
 ### Minor Changes

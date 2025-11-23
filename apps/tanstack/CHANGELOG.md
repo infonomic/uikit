@@ -1,5 +1,13 @@
 # @infonomic/website-react
 
+## 5.2.1
+
+### Patch Changes
+
+- 9803e52: Removed console output in scroll-to-top component.
+- Updated dependencies [9803e52]
+  - @infonomic/uikit@5.2.1
+
 ## 5.2.0
 
 ### Minor Changes
