@@ -1,5 +1,16 @@
 # @infonomic/website-react
 
+## 5.3.0
+
+### Minor Changes
+
+- 5f4a079: Astro scroll-to-top component.
+
+### Patch Changes
+
+- Updated dependencies [5f4a079]
+  - @infonomic/uikit@5.3.0
+
 ## 5.2.1
 
 ### Patch Changes
