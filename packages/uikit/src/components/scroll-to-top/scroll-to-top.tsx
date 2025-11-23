@@ -34,7 +34,6 @@ export const ScrollToTop = function ScrollToTop({
       } else {
         setShow(false)
       }
-      console.log('scrollTop', scrollTop)
     }
     if (typeof window !== 'undefined') {
       window.addEventListener('scroll', handleOnScroll)
