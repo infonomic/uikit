@@ -3,7 +3,7 @@
 import cx from 'classnames'
 import { type ComponentProps, useEffect, useState } from 'react'
 
-import style from './scroll-to-top.module.css'
+import styles from './scroll-to-top.module.css'
 
 export interface ScrollToTopProps extends ComponentProps<'button'> {
   /**
@@ -60,10 +60,10 @@ export function ScrollToTop({
       onClick={handleOnClick}
       className={cx(
         'scroll-to-top',
-        style['scroll-to-top'],
+        styles['scroll-to-top'],
         {
           'scroll-to-top-shown': show,
-          [style['scroll-to-top-shown']]: show,
+          [styles['scroll-to-top-shown']]: show,
         },
         className
       )}

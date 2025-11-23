@@ -14,11 +14,13 @@ import InputComponent from './components/forms/input.astro'
 import InputAdornmentComponent from './components/forms/input-adornment.astro'
 import LabelComponent from './components/forms/label.astro'
 import SectionComponent from './components/section/section.astro'
+import ScrollToTopComponent from './components/scroll-to-top/scroll-to-top.astro'
 import CloseIconComponent from './icons/close-icon.astro'
 import IconElementComponent from './icons/icon-element.astro'
 import LightIconComponent from './icons/light-icon.astro'
 import MoonIconComponent from './icons/moon-icon.astro'
 import SearchIconComponent from './icons/search-icon.astro'
+
 
 export const Button = ButtonComponent
 export const Hamburger = HamburgerComponent
@@ -36,6 +38,7 @@ export const InputAdornment = InputAdornmentComponent
 export const Input = InputComponent
 export const Label = LabelComponent
 export const Section = SectionComponent
+export const ScrollToTop = ScrollToTopComponent
 export const IconElement = IconElementComponent
 export const LightIcon = LightIconComponent
 export const MoonIcon = MoonIconComponent

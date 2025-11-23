@@ -14,6 +14,7 @@ import type InputComponent from './components/forms/input.astro'
 import type InputAdornmentComponent from './components/forms/input-adornment.astro'
 import type LabelComponent from './components/forms/label.astro'
 import type SectionComponent from './components/section/section.astro'
+import type ScrollToTopComponent from './components/scroll-to-top/scroll-to-top.astro'
 import type CloseIconComponent from './icons/close-icon.astro'
 import type IconElementComponent from './icons/icon-element.astro'
 import type LightIconComponent from './icons/light-icon.astro'
@@ -41,3 +42,4 @@ export declare const LightIcon: typeof LightIconComponent
 export declare const MoonIcon: typeof MoonIconComponent
 export declare const SearchIcon: typeof SearchIconComponent
 export declare const Section: typeof SectionComponent
+export declare const ScrollToTop: typeof ScrollToTopComponent
