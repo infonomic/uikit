@@ -17,7 +17,7 @@ export function ScrollToTop({
   ref,
   offset = -65,
   ...rest
-}: ScrollToTopProps }) {
+}: ScrollToTopProps) {
   const [show, setShow] = useState(false)
 
   const handleOnClick = (): void => {
