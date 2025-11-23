@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 5.3.0
+
+### Minor Changes
+
+- 5f4a079: Astro scroll-to-top component.
+
 ## 5.2.1
 
 ### Patch Changes
