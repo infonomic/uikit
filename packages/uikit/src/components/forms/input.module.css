@@ -1,23 +1,20 @@
 @layer infonomic-base, infonomic-functional, infonomic-utilities, infonomic-theme, infonomic-typography, infonomic-components;
 
 @layer infonomic-components {
-  .input-wrapper,
-  :global(.input-wrapper) {
+  .input-wrapper {
     display: flex;
     flex-direction: column;
     gap: var(--gap-1);
   }
 
-  .input-container,
-  :global(.input-container) {
+  .input-container {
     position: relative;
     display: flex;
     align-items: center;
     gap: var(--gap-2);
   }
 
-  .input,
-  :global(.input) {
+  .input {
     border: none;
     outline: none;
     font-weight: normal;
@@ -30,9 +27,7 @@
   }
 
   .input:focus,
-  .input:active,
-  :global(.input):focus,
-  :global(.input):active {
+  .input:active {
     --ring-offset-color: var(--background);
     --ring-offset-shadow: var(--ring-inset) 0 0 0 var(--ring-offset-width) var(--ring-offset-color);
     --ring-shadow: var(--ring-inset) 0 0 0 calc(1px + var(--ring-offset-width)) var(--ring-color);
@@ -40,38 +35,32 @@
   }
 
   .input:disabled,
-  .input[disabled],
-  :global(.input):disabled,
-  :global(.input)[disabled] {
+  .input[disabled] {
     pointer-events: none;
   }
 
-  .label,
-  :global(.input-label) {
+  .label {
     font-size: 0.875rem;
     font-weight: 500;
     color: var(--label-color);
   }
 
   /* Sizes */
-  .sm,
-  :global(.input-sm) {
+  .sm {
     min-height: 32px;
     font-size: 0.875rem;
     line-height: 0;
     padding: 0.25rem 0.5rem;
   }
 
-  .md,
-  :global(.input-md) {
+  .md {
     min-height: 38px;
     font-size: 1.1rem;
     line-height: 0;
     padding: 0.4rem 0.5rem;
   }
 
-  .lg,
-  :global(.input-lg) {
+  .lg {
     min-height: 46px;
     font-size: 1.2rem;
     line-height: 0;
@@ -79,51 +68,41 @@
   }
 
   .start-adornment,
-  .end-adornment,
-  :global(.input-start-adornment),
-  :global(.input-end-adornment) {
+  .end-adornment {
     position: absolute;
     display: flex;
     align-items: center;
   }
 
-  .start-adornment,
-  :global(.input-start-adornment) {
+  .start-adornment {
     left: 5px;
   }
 
-  .end-adornment,
-  :global(.input-end-adornment) {
+  .end-adornment {
     right: 5px;
   }
 
-  .help-text,
-  :global(.input-help-text) {
+  .help-text {
     font-size: 0.75rem;
     color: var(--help-text-color);
   }
 
   /* Variants */
-  .outlined,
-  :global(.input-outlined) {
+  .outlined {
     border: 1px solid var(--input-variant-outlined-border);
     background-color: transparent;
   }
 
-  .outlined:hover,
-  :global(.input-outlined):hover {
+  .outlined:hover {
     border: 1px solid var(--input-variant-outlined-hover-border);
   }
 
   .outlined:focus,
-  .outlined:active,
-  :global(.input-outlined):focus,
-  :global(.input-outlined):active {
+  .outlined:active {
     --ring-color: var(--input-variant-outline-ring-color);
   }
 
-  .underlined,
-  :global(.input-underlined) {
+  .underlined {
     border-bottom: 1px solid var(--input-variant-underlined-border);
     border-radius: 0;
     gap: var(--gap-1);
@@ -131,81 +110,65 @@
   }
 
   /* Sizes */
-  .underlined.sm,
-  :global(.input-underlined.input-sm) {
+  .underlined.sm {
     padding: 0.25rem 0.1rem;
     min-height: 26px
   }
 
-  .underlined.md,
-  :global(.input-underlined.input-md) {
+  .underlined.md {
     padding: 0.25rem 0.1rem;
     min-height: 30px;
   }
 
-  .underlined.lg,
-  :global(.input-underlined.input-lg) {
+  .underlined.lg {
     padding: 0 0.1rem;
     min-height: 34px;
   }
 
-  .underlined:hover,
-  :global(.input-underlined):hover {
+  .underlined:hover {
     border-bottom: 1px solid var(--input-variant-underlined-hover-border);
   }
 
-  .filled,
-  :global(.input-filled) {
+  .filled {
     background-color: var(--input-variant-filled);
   }
 
 
   /* Error classes last, so that they override all 
     of the above */
-  .error,
-  :global(.input-error) {
+  .error {
     border: 1px solid var(--red-400);
   }
 
-  .error:hover,
-  :global(.input-error):hover {
+  .error:hover {
     border: 1px solid var(--red-400);
   }
 
   .error:focus,
-  .error:active,
-  :global(.input-error):focus,
-  :global(.input-error):active {
+  .error:active {
     --ring-color: var(--red-300);
   }
 
   .underlined.start-adornment-padding,
-  .start-adornment-padding,
-  :global(.input-underlined.input-start-adornment-padding),
-  :global(.input-start-adornment-padding) {
+  .start-adornment-padding {
     padding-left: 2rem;
   }
 
   .underlined.end-adornment-padding,
-  .end-adornment-padding,
-  :global(.input-underlined.input-end-adornment-padding),
-  :global(.input-end-adornment-padding) {
+  .end-adornment-padding {
     padding-right: 2rem;
   }
 
-  .underlined.start-adornment,
-  :global(.input-underlined.input-start-adornment) {
+  .underlined.start-adornment {
     left: 0;
   }
 
-  .underlined.end-adornment,
-  :global(.input-underlined.input-end-adornment) {
+  .underlined.end-adornment {
     right: 0;
   }
 
   /* Intents */
-  .primary,
-  :global(.input-primary) {
+  .primary {
     --input-variant-outlined-border: var(--stroke-primary);
     --input-variant-outlined-hover-border: var(--stroke-primary-hover);
     --input-variant-outline-ring-color: var(--ring-primary);
@@ -214,8 +177,7 @@
     --input-variant-filled: var(--fill-primary-weak);
   }
 
-  .secondary,
-  :global(.input-secondary) {
+  .secondary {
     --input-variant-outlined-border: var(--stroke-secondary);
     --input-variant-outlined-hover-border: var(--stroke-secondary-hover);
     --input-variant-outline-ring-color: var(--ring-secondary);
@@ -224,8 +186,7 @@
     --input-variant-filled: var(--fill-secondary-weak);
   }
 
-  .noeffect,
-  :global(.input-noeffect) {
+  .noeffect {
     --input-variant-outlined-border: var(--stroke-noeffect);
     --input-variant-outlined-hover-border: var(--stroke-noeffect-hover);
     --input-variant-outline-ring-color: var(--ring-noeffect);
@@ -234,8 +195,7 @@
     --input-variant-filled: var(--fill-noeffect-weak);
   }
 
-  .success,
-  :global(.input-success) {
+  .success {
     --input-variant-outlined-border: var(--stroke-success);
     --input-variant-outlined-hover-border: var(--stroke-success-hover);
     --input-variant-outline-ring-color: var(--ring-success);
@@ -244,8 +204,7 @@
     --input-variant-filled: var(--fill-success-weak);
   }
 
-  .info,
-  :global(.input-info) {
+  .info {
     --input-variant-outlined-border: var(--stroke-info);
     --input-variant-outlined-hover-border: var(--stroke-info-hover);
     --input-variant-outline-ring-color: var(--ring-info);
@@ -254,8 +213,7 @@
     --input-variant-filled: var(--fill-info-weak);
   }
 
-  .warning,
-  :global(.input-warning) {
+  .warning {
     --input-variant-outlined-border: var(--stroke-warning);
     --input-variant-outlined-hover-border: var(--stroke-warning-hover);
     --input-variant-outline-ring-color: var(--ring-warning);
@@ -264,8 +222,7 @@
     --input-variant-filled: var(--fill-warning-weak);
   }
 
-  .danger,
-  :global(.input-danger) {
+  .danger {
     --input-variant-outlined-border: var(--stroke-danger);
     --input-variant-outlined-hover-border: var(--stroke-danger-hover);
     --input-variant-outline-ring-color: var(--ring-danger);

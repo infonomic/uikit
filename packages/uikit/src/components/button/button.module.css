@@ -1,8 +1,7 @@
 @layer infonomic-base, infonomic-functional, infonomic-utilities, infonomic-theme, infonomic-typography, infonomic-components;
 
 @layer infonomic-components {
-  .button,
-  :global(.button) {
+  .button {
     border: none;
     cursor: pointer;
     font-weight: normal;
@@ -20,128 +19,104 @@
   }
 
   .button:disabled,
-  .button[disabled],
-  :global(.button):disabled,
-  :global(.button)[disabled] {
+  .button[disabled] {
     pointer-events: none;
   }
 
   .button:focus,
-  .button:active,
-  :global(.button):focus,
-  :global(.button):active {
+  .button:active {
     --ring-offset-color: var(--background);
     --ring-offset-shadow: var(--ring-inset) 0 0 0 var(--ring-offset-width) var(--ring-offset-color);
     --ring-shadow: var(--ring-inset) 0 0 0 calc(1px + var(--ring-offset-width)) var(--ring-color);
     box-shadow: var(--ring-offset-shadow), var(--ring-shadow), var(--shadow, 0 0 #0000);
   }
 
-  .button.square,
-  :global(.button-square) {
+  .button.square {
     aspect-ratio: 1 / 1;
     padding: 0;
     border-radius: var(--border-radius-sm);
   }
 
-  .button.round,
-  :global(.button-round) {
+  .button.round {
     aspect-ratio: 1 / 1;
     padding: 0;
     border-radius: var(--border-radius-full);
   }
 
   /* Sizes */
-  .xs,
-  :global(.button-xs) {
+  .xs {
     min-height: 26px;
     font-size: 0.7rem;
     padding: 0.2rem 0.4rem;
   }
 
-  .sm,
-  :global(.button-sm) {
+  .sm {
     min-height: 32px;
     font-size: 0.775rem;
     padding: 0.25rem 0.5rem;
   }
 
-  .md,
-  :global(.button-md) {
+  .md {
     min-height: 38px;
     font-size: 0.95rem;
     padding: 0.625rem 1.25rem;
   }
 
-  .lg,
-  :global(.button-lg) {
+  .lg {
     min-height: 46px;
     font-size: 1.1rem;
     padding: 0.75rem 1.5rem;
   }
 
-  .xl,
-  :global(.button-xl) {
+  .xl {
     min-height: 54px;
     font-size: 1.2rem;
     padding: 0.75rem 1.5rem;
   }
 
   /* Variants - Consuming Variables */
-  .filled,
-  :global(.button-filled) {
+  .filled {
     color: var(--button-variant-filled-foreground);
     background-color: var(--button-variant-filled);
   }
 
-  .filled:hover,
-  :global(.button-filled):hover {
+  .filled:hover {
     background-color: var(--button-variant-filled-hover);
   }
 
   .filled:focus,
-  .filled:active,
-  :global(.button-filled):focus,
-  :global(.button-filled):active {
+  .filled:active {
     --ring-color: var(--button-ring-color);
   }
 
   .filled:disabled,
-  .filled[disabled],
-  :global(.button-filled):disabled,
-  :global(.button-filled)[disabled] {
+  .filled[disabled] {
     background-color: var(--button-variant-filled-disabled, oklch(from var(--button-variant-filled) calc(l * 1.1) calc(c * 0.85) h));
     color: var(--button-variant-filled-foreground-disabled, oklch(from var(--button-variant-filled-foreground) calc(l * 0.9) calc(c * 0.85) h));
   }
 
-  .outlined,
-  :global(.button-outlined) {
+  .outlined {
     border: 1px solid var(--button-variant-outlined-border);
     color: var(--button-variant-outlined-foreground);
     background-color: var(--button-variant-outlined);
   }
 
   .outlined:disabled,
-  .outlined[disabled],
-  :global(.button-outlined):disabled,
-  :global(.button-outlined)[disabled] {
+  .outlined[disabled] {
     border-color: var(--button-variant-outlined-border-disabled, oklch(from var(--button-variant-outlined-border) calc(l * 1.5) calc(c * 0.8) h));
     color: var(--button-variant-outlined-foreground-disabled, oklch(from var(--button-variant-outlined-foreground) calc(l * 1.1) calc(c * 0.7) h));
   }
 
-  .outlined:hover,
-  :global(.button-outlined):hover {
+  .outlined:hover {
     background-color: var(--button-variant-outlined-hover);
   }
 
   .outlined:focus,
-  .outlined:active,
-  :global(.button-outlined):focus,
-  :global(.button-outlined):active {
+  .outlined:active {
     --ring-color: var(--button-ring-color);
   }
 
-  .gradient,
-  :global(.button-gradient) {
+  .gradient {
     color: var(--button-variant-gradient-foreground);
     background: linear-gradient(45deg,
         var(--button-variant-gradient-start),
@@ -149,16 +124,13 @@
   }
 
   .gradient:disabled,
-  .gradient[disabled],
-  :global(.button-gradient):disabled,
-  :global(.button-gradient)[disabled] {
+  .gradient[disabled] {
     background: unset;
     background-color: var(--button-variant-gradient-disabled, oklch(from var(--button-variant-gradient-end) calc(l * 1.2) calc(c * 0.85) h));
     color: var(--button-variant-gradient-foreground-disabled, oklch(from var(--button-variant-gradient-foreground) calc(l * 0.9) calc(c * 0.85) h));
   }
 
-  .gradient:hover,
-  :global(.button-gradient):hover {
+  .gradient:hover {
     color: var(--button-variant-gradient-foreground);
     background: linear-gradient(45deg,
         var(--button-variant-gradient-start),
@@ -166,40 +138,31 @@
   }
 
   .gradient:focus,
-  .gradient:active,
-  :global(.button-gradient):focus,
-  :global(.button-gradient):active {
+  .gradient:active {
     --ring-color: var(--button-ring-color);
   }
 
-  .text,
-  :global(.button-text) {
+  .text {
     background-color: var(--button-variant-text);
     color: var(--button-variant-text-foreground);
   }
 
   .text:disabled,
-  .text[disabled],
-  :global(.button-text):disabled,
-  :global(.button-text)[disabled] {
+  .text[disabled] {
     color: oklch(from var(--button-variant-text-foreground) calc(l * 1.5) calc(c * 0.5) h);
   }
 
-  .text:hover,
-  :global(.button-text):hover {
+  .text:hover {
     background-color: var(--button-variant-text-hover);
   }
 
   .text:focus,
-  .text:active,
-  :global(.button-text):focus,
-  :global(.button-text):active {
+  .text:active {
     --ring-color: var(--button-ring-color);
   }
 
   /* Intents - Defining Variables */
-  .primary,
-  :global(.button-primary) {
+  .primary {
     --button-ring-color: var(--ring-primary);
     
     /* Filled */
@@ -230,8 +193,7 @@
     --button-variant-gradient-foreground-disabled: var(--text-on-primary-disabled);
   }
 
-  .secondary,
-  :global(.button-secondary) {
+  .secondary {
     --button-ring-color: var(--ring-secondary);
     
     /* Filled */
@@ -262,8 +224,7 @@
     --button-variant-gradient-foreground-disabled: var(--text-on-secondary-disabled);
   }
 
-  .noeffect,
-  :global(.button-noeffect) {
+  .noeffect {
     --button-ring-color: var(--ring-noeffect);
     
     /* Filled */
@@ -294,8 +255,7 @@
     --button-variant-gradient-foreground-disabled: var(--text-on-noeffect-disabled);
   }
 
-  .success,
-  :global(.button-success) {
+  .success {
     --button-ring-color: var(--ring-success);
     
     /* Filled */
@@ -326,8 +286,7 @@
     --button-variant-gradient-foreground-disabled: var(--text-on-success-disabled);
   }
 
-  .info,
-  :global(.button-info) {
+  .info {
     --button-ring-color: var(--ring-info);
     
     /* Filled */
@@ -358,8 +317,7 @@
     --button-variant-gradient-foreground-disabled: var(--text-on-info-disabled);
   }
 
-  .warning,
-  :global(.button-warning) {
+  .warning {
     --button-ring-color: var(--ring-warning);
     
     /* Filled */
@@ -390,8 +348,7 @@
     --button-variant-gradient-foreground-disabled: var(--text-on-warning-disabled);
   }
 
-  .danger,
-  :global(.button-danger) {
+  .danger {
     --button-ring-color: var(--ring-danger);
     
     /* Filled */
@@ -423,8 +380,7 @@
   }
 
   /* Full width */
-  .fullWidth,
-  :global(.button-full-width) {
+  .fullWidth {
     width: 100%;
     display: flex;
   }

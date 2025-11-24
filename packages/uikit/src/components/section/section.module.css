@@ -1,8 +1,7 @@
 @layer infonomic-base, infonomic-functional, infonomic-utilities, infonomic-theme, infonomic-typography, infonomic-components;
 
 @layer infonomic-components {
-  .section,
-  :global(.section) {
+  .section {
     width: 100%;
     position: relative;
   }

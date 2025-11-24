@@ -1,15 +1,13 @@
 @layer infonomic-base, infonomic-functional, infonomic-utilities, infonomic-theme, infonomic-typography, infonomic-components;
 
 @layer infonomic-components {
-  .label,
-  :global(.label) {
+  .label {
     display: block;
     font-weight: 500;
     color: var(--text)
   }
 
-  .required,
-  :global(.label-required) {
+  .required {
     color: var(--error);
   }
 }

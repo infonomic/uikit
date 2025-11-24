@@ -13,25 +13,26 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
 // Define paths relative to this script (in scripts/ folder)
-const distDir = resolve(__dirname, '../dist')
+const srcDir = resolve(__dirname, '../src/')
+const distDir = resolve(__dirname, '../dist/')
 const outputFile = join(distDir, 'styles/components-vanilla.css')
 
 // List of component CSS files to include in the vanilla bundle
 const componentSources = [
-  join(distDir, 'components/card/card_module.css'),
-  join(distDir, 'components/container/container_module.css'),
-  join(distDir, 'components/badge/badge_module.css'),
-  join(distDir, 'components/button/button_module.css'),
-  join(distDir, 'components/button/button-group_module.css'),
-  join(distDir, 'components/button/copy-button_module.css'),
-  join(distDir, 'components/forms/input_module.css'),
-  join(distDir, 'components/forms/input-adornment_module.css'),
-  join(distDir, 'components/forms/text-area_module.css'),
-  join(distDir, 'components/forms/label_module.css'),
-  join(distDir, 'components/forms/error-text_module.css'),
-  join(distDir, 'components/forms/help-text_module.css'),
-  join(distDir, 'components/section/section_module.css'),
-  join(distDir, 'components/scroll-to-top/scroll-to-top_module.css')
+  join(srcDir, 'components/card/card.module.css'),
+  join(srcDir, 'components/container/container.module.css'),
+  join(srcDir, 'components/badge/badge.module.css'),
+  join(srcDir, 'components/button/button.module.css'),
+  join(srcDir, 'components/button/button-group.module.css'),
+  join(srcDir, 'components/button/copy-button.module.css'),
+  join(srcDir, 'components/forms/input.module.css'),
+  join(srcDir, 'components/forms/input-adornment.module.css'),
+  join(srcDir, 'components/forms/text-area.module.css'),
+  join(srcDir, 'components/forms/label.module.css'),
+  join(srcDir, 'components/forms/error-text.module.css'),
+  join(srcDir, 'components/forms/help-text.module.css'),
+  join(srcDir, 'components/section/section.module.css'),
+  join(srcDir, 'components/scroll-to-top/scroll-to-top.module.css')
   
 ]
 
@@ -68,7 +69,8 @@ async function bundleVanillaCssComponents() {
       filename: 'components-vanilla.css',
       code: Buffer.from(concatenatedCss),
       minify: true,
-      sourceMap: false
+      sourceMap: false,
+      cssModules: false,
     })
 
     await writeFile(outputFile, code)
