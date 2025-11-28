@@ -39,3 +39,29 @@ export const buildImports = extension => {
   return importStatements.join('\n') + '\n\n' + exportStatements.join('\n')
 }
 
+export const buildTypes = extension => {
+  const importStatements = []
+  const exportStatements = []
+
+  function processDirectory(directory) {
+    const files = fs.readdirSync(directory)
+    // biome-ignore lint/complexity/noForEach: <explanation>
+    files.forEach(file => {
+      const fullPath = path.join(directory, file)
+      if (fs.statSync(fullPath).isDirectory()) {
+        processDirectory(fullPath)
+      } else if (file.endsWith(`.${extension}`)) {
+        const relativePath = path.relative(srcDir, fullPath)
+        const componentName = path.basename(file, `.${extension}`)
+        const pascalCaseName = toPascalCase(componentName)
+        importStatements.push(`import type ${pascalCaseName}Component from './${relativePath.replace(/\\/g, '/')}'`)
+        exportStatements.push(`export declare const ${pascalCaseName}: typeof ${pascalCaseName}Component`)
+      }
+    })
+  }
+
+  processDirectory(srcDir)
+
+  return importStatements.join('\n') + '\n\n' + exportStatements.join('\n')
+}
+

@@ -18,6 +18,26 @@
     "url": "git+https://github.com/infonomic/uikit.git",
     "directory": "packages/uikit"
   },
+  "scripts": {
+    "dev": "run-p dev:*",
+    "skip:astro-compose": "node ./scripts/build-astro.js",
+    "dev:css": "node ./scripts/task-watch-css.js",
+    "skip:css": "lightningcss --sourcemap --bundle ./src/styles/styles.css ./src/styles/typography.css --output-dir ./dist/styles",
+    "dev:code": "rslib build --watch",
+    "build": "run-s build:*",
+    "build:clean": "rimraf dist build",
+    "build:code": "rslib build",
+    "build:astro": "node ./scripts/build-astro.js",
+    "build:css": "lightningcss --bundle ./src/styles/styles.css ./src/styles/typography.css --output-dir ./dist/styles",
+    "build:minify": "lightningcss --minify ./dist/styles/styles.css ./dist/styles/typography.css --output-dir ./dist/styles",
+    "build:vanilla-components-css": "node ./scripts/task-merge-vanilla-components-css.js",
+    "typecheck": "tsc --noEmit",
+    "clean": "rimraf node_modules dist build types .turbo",
+    "lint": "biome check . --diagnostic-level=warn",
+    "storybook": "storybook dev -p 6007",
+    "build-storybook": "storybook build",
+    "test": "vitest"
+  },
   "sideEffects": [
     "**/*.css"
   ],
@@ -30,9 +50,9 @@
   ],
   "exports": {
     "./astro": {
-      "types": "./src/astro.d.ts",
-      "import": "./src/astro.js",
-      "default": "./src/astro.js"
+      "types": "./dist/astro.d.ts",
+      "import": "./dist/astro.js",
+      "default": "./dist/astro.js"
     },
     "./react": {
       "types": "./dist/react.d.ts",
@@ -52,25 +72,6 @@
       "import": "./dist/styles/components-vanilla.css",
       "default": "./dist/styles/components-vanilla.css"
     }
-  },
-  "scripts": {
-    "dev": "run-p dev:*",
-    "skip:astro-compose": "node ./scripts/build-astro.js",
-    "dev:css": "node ./scripts/task-watch-css.js",
-    "skip:css": "lightningcss --sourcemap --bundle ./src/styles/styles.css ./src/styles/typography.css --output-dir ./dist/styles",
-    "dev:code": "rslib build --watch",
-    "build": "run-s build:*",
-    "build:clean": "rimraf dist build",
-    "build:code": "rslib build",
-    "build:css": "lightningcss --bundle ./src/styles/styles.css ./src/styles/typography.css --output-dir ./dist/styles",
-    "build:minify": "lightningcss --minify ./dist/styles/styles.css ./dist/styles/typography.css --output-dir ./dist/styles",
-    "build:vanilla-components-css": "node ./scripts/task-merge-vanilla-components-css.js",
-    "typecheck": "tsc --noEmit",
-    "clean": "rimraf node_modules dist build types .turbo",
-    "lint": "biome check . --diagnostic-level=warn",
-    "storybook": "storybook dev -p 6007",
-    "build-storybook": "storybook build",
-    "test": "vitest"
   },
   "dependencies": {
     "@mantine/hooks": "^8.3.8",
