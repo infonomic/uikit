@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 5.4.0
+
+### Minor Changes
+
+- 59900b7: Modified build scripts to place astro components in dist dir.
+
 ## 5.3.0
 
 ### Minor Changes

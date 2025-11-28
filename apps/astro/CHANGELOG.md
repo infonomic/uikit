@@ -1,5 +1,16 @@
 # @infonomic/website-astro
 
+## 5.4.0
+
+### Minor Changes
+
+- 59900b7: Modified build scripts to place astro components in dist dir.
+
+### Patch Changes
+
+- Updated dependencies [59900b7]
+  - @infonomic/uikit@5.4.0
+
 ## 5.3.0
 
 ### Minor Changes
