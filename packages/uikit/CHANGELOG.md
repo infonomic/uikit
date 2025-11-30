@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 5.7.0
+
+### Minor Changes
+
+- 6955625: Correct container / wrapper classes styles.
+
 ## 5.6.0
 
 ### Minor Changes
