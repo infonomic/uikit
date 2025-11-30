@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 5.6.0
+
+### Minor Changes
+
+- 0849a88: Fixups for control wrapper and container widths.
+
 ## 5.5.0
 
 ### Minor Changes

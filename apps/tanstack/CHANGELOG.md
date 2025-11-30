@@ -1,5 +1,16 @@
 # @infonomic/website-react
 
+## 5.6.0
+
+### Minor Changes
+
+- 0849a88: Fixups for control wrapper and container widths.
+
+### Patch Changes
+
+- Updated dependencies [0849a88]
+  - @infonomic/uikit@5.6.0
+
 ## 5.5.0
 
 ### Minor Changes
