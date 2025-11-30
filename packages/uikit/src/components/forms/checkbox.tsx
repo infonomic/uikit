@@ -1,6 +1,6 @@
 'use client'
 
-import { CheckIcon } from '@radix-ui/react-icons'
+import { CheckIcon } from '../../icons/check-icon'
 import cx from 'classnames'
 import { Checkbox as CheckboxPrimitive, Label as LabelPrimitive } from 'radix-ui'
 import type * as React from 'react'
