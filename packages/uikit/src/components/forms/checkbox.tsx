@@ -52,9 +52,9 @@ export const Checkbox = function Checkbox({
   ref?: React.RefObject<HTMLButtonElement>
 }): React.JSX.Element {
   return (
-    <div className={cx('checkbox-container', containerClasses)}>
+    <div className={cx('checkbox-container', styles.container, containerClasses)}>
       <div
-        className={cx('checkbox-component', styles.container, componentClasses, {
+        className={cx('checkbox-component', styles.component, componentClasses, {
           [styles.reverse]: reverse,
         })}
       >

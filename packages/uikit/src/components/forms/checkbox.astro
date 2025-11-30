@@ -46,11 +46,11 @@ const {
 } = Astro.props
 ---
 
-<div class:list={['checkbox-container', containerClasses]}>
+<div class:list={['checkbox-container', styles.container, containerClasses]}>
   <div
     class:list={[
       'checkbox-component',
-      styles.container,
+      styles.component,
       componentClasses,
       { [styles.reverse]: reverse }
     ]}
