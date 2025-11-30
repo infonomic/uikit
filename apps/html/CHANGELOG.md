@@ -1,5 +1,16 @@
 # @modulus-learning/agent-demo-vanilla
 
+## 5.5.0
+
+### Minor Changes
+
+- 9164ba5: Added text area and checkbox astro components.
+
+### Patch Changes
+
+- Updated dependencies [9164ba5]
+  - @infonomic/uikit@5.5.0
+
 ## 5.4.0
 
 ### Minor Changes
