@@ -1,0 +1,8 @@
+---
+'@infonomic/uikit': minor
+'@infonomic/astro': minor
+'@infonomic/html': minor
+'@infonomic/tanstack': minor
+---
+
+Added text area and checkbox astro components.
