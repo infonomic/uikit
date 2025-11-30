@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 5.5.0
+
+### Minor Changes
+
+- 9164ba5: Added text area and checkbox astro components.
+
 ## 5.4.0
 
 ### Minor Changes
