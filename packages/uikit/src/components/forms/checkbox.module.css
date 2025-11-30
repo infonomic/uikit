@@ -3,6 +3,7 @@
 @layer infonomic-components {
   .container {
     display: flex;
+    width: 100%;
     align-items: center;
     gap: var(--gap-2);
   }

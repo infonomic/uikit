@@ -66,6 +66,7 @@ export const TextArea = function TextArea({
           inputStyles[variant],
           inputStyles[intent],
           styles['text-area'],
+          styles[variant],
           { [inputStyles.error]: error },
           className
         )}

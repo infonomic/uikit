@@ -1,6 +1,7 @@
 @layer infonomic-base, infonomic-functional, infonomic-utilities, infonomic-theme, infonomic-typography, infonomic-components;
 
 @layer infonomic-components {
+
   .input-wrapper,
   :global(.input-wrapper) {
     display: flex;
@@ -11,6 +12,7 @@
   .input-container,
   :global(.input-container) {
     position: relative;
+    width: 100%;
     display: flex;
     align-items: center;
     gap: var(--gap-2);
