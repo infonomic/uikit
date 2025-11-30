@@ -1,5 +1,16 @@
 # @infonomic/website-astro
 
+## 5.7.0
+
+### Minor Changes
+
+- 6955625: Correct container / wrapper classes styles.
+
+### Patch Changes
+
+- Updated dependencies [6955625]
+  - @infonomic/uikit@5.7.0
+
 ## 5.6.0
 
 ### Minor Changes
