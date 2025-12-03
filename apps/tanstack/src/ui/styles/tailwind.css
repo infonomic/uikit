@@ -32,15 +32,53 @@
   }
 }
 
+@layer utilities {
+
+  /* Override default Tailwind container styles */
+  [class*="container"] {
+    margin-inline: auto;
+    padding-inline: 0;
+  }
+
+  .container {
+    width: 100%;
+    padding: 0 1rem;
+    margin: 0 auto;
+    max-width: 60rem;
+
+    /* Large */
+    @media (min-width: 66rem) {
+      max-width: 64rem;
+    }
+
+    /* X-Large */
+    @media (min-width: 77rem) {
+      max-width: 74.375rem;
+    }
+
+    /* 2X-Large */
+    @media (min-width: 94rem) {
+      max-width: 87.5rem;
+    }
+  }
+}
+
 @theme {
   --breakpoint-*: initial;
-  --breakpoint-xs: 30rem; /* 480px */
-  --breakpoint-sm: 40rem; /* 640px */
-  --breakpoint-md: 48rem; /* 768px */
-  --breakpoint-lg: 66rem; /* 1056px */
-    /* our container component will set max width to common screen size */
-  --breakpoint-xl: 77rem; /* 1232px */
-  --breakpoint-2xl: 94rem; /* 1504px */
+  /* 480px */
+  --breakpoint-xs: 30rem;
+  /* 640px */
+  --breakpoint-sm: 40rem;
+  /* 768px */
+  --breakpoint-md: 48rem;
+  /* 1056px */
+  --breakpoint-lg: 66rem;
+  /* our container component will set max width to common screen size */
+  /* 1232px */
+  --breakpoint-xl: 77rem;
+  /* 1504px */
+  --breakpoint-2xl: 94rem;
+
 
   --font-*: initial;
   --font-sans:
@@ -134,5 +172,4 @@
   --grid-template-columns-auto-fit-320: repeat(auto-fit, minmax(320px, 1fr));
   --grid-template-columns-auto-fit-480: repeat(auto-fit, minmax(480px, 1fr));
 
-  --shadow-slider: 0 0 0 5px rgba(0, 0, 0, 0.3);
 }
