@@ -26,12 +26,12 @@
   },
   "license": "ISC",
   "dependencies": {
-    "turbo": "^2.6.1",
+    "turbo": "^2.6.3",
     "typescript": "5.9.3"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.3.6",
-    "@changesets/cli": "^2.29.7"
+    "@biomejs/biome": "2.3.8",
+    "@changesets/cli": "^2.29.8"
   },
   "engines": {
     "node": "^18.20.2 || >=20.9.0"
