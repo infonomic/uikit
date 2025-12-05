@@ -1,5 +1,16 @@
 # @modulus-learning/agent-demo-vanilla
 
+## 5.8.0
+
+### Minor Changes
+
+- 972c400: Updated deps.
+
+### Patch Changes
+
+- Updated dependencies [972c400]
+  - @infonomic/uikit@5.8.0
+
 ## 5.7.0
 
 ### Minor Changes
