@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 5.9.0
+
+### Minor Changes
+
+- 3a0f5fc: Made label optional for text area.
+
 ## 5.8.0
 
 ### Minor Changes
