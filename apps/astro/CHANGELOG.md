@@ -1,5 +1,16 @@
 # @infonomic/website-astro
 
+## 5.9.0
+
+### Minor Changes
+
+- 3a0f5fc: Made label optional for text area.
+
+### Patch Changes
+
+- Updated dependencies [3a0f5fc]
+  - @infonomic/uikit@5.9.0
+
 ## 5.8.0
 
 ### Minor Changes
