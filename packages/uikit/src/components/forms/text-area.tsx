@@ -11,7 +11,7 @@ import styles from './text-area.module.css'
 export interface TextAreaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
   id: string
   name: string
-  label: string
+  label?: string
   required?: boolean
   variant?: Variant
   intent?: Intent
@@ -44,7 +44,7 @@ export const TextArea = function TextArea({
 }: TextAreaProps): React.JSX.Element {
   return (
     <fieldset className={cx('text-area-wrapper', inputStyles['input-wrapper'])}>
-      <Label id={id} htmlFor={id} required={required} label={label} />
+      {label != null && <Label id={id} htmlFor={id} required={required} label={label} />}
       <textarea
         ref={ref}
         id={id}
