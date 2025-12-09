@@ -1,0 +1,326 @@
+@layer infonomic-base, infonomic-functional, infonomic-utilities, infonomic-theme, infonomic-typography, infonomic-components;
+
+@layer infonomic-components {
+
+  .chip,
+  :global(.chip) {
+    --chip-bg: var(--surface-item);
+    --chip-bg-hover: var(--surface-item-hover);
+    --chip-bg-active: var(--surface-item-active);
+    --chip-bg-selected: var(--fill-primary-weak);
+    --chip-bg-selected-hover: var(--fill-primary-weak-hover);
+    --chip-bg-selected-disabled: var(--chip-bg-selected);
+    --chip-bg-disabled: var(--chip-bg);
+
+    --chip-border: var(--surface-panel-border);
+    --chip-border-hover: var(--surface-panel-border);
+    --chip-border-active: var(--surface-panel-border);
+    --chip-border-selected: var(--stroke-primary);
+    --chip-border-selected-disabled: var(--chip-border-selected);
+    --chip-border-disabled: var(--chip-border);
+
+    --chip-text: var(--surface-item-text);
+    --chip-text-selected: var(--text-primary-strong);
+    --chip-text-disabled: var(--surface-item-text-disabled);
+
+    --chip-icon: currentColor;
+    --chip-icon-selected: var(--chip-text-selected);
+    --chip-ring-color: var(--ring-primary);
+    --chip-remove-hover-bg: var(--chip-bg-hover);
+    --chip-remove-active-bg: var(--chip-bg-active);
+
+    --chip-font-size: 0.9rem;
+    --chip-height: 34px;
+    --chip-padding-y: 0.35rem;
+    --chip-padding-x: 0.75rem;
+
+    appearance: none;
+    border: 1px solid var(--chip-border);
+    background-color: var(--chip-bg);
+    color: var(--chip-text);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--gap-2);
+    border-radius: var(--border-radius-full);
+    cursor: pointer;
+    line-height: 1.1;
+    font-weight: 500;
+    text-decoration: none;
+    min-height: var(--chip-height);
+    padding: var(--chip-padding-y) var(--chip-padding-x);
+    font-size: var(--chip-font-size);
+    transition: background-color var(--transition-normal), color var(--transition-normal),
+      border-color var(--transition-normal), box-shadow var(--transition-normal);
+  }
+
+  .chip:hover:not(.disabled),
+  :global(.chip):hover:not(.disabled) {
+    background-color: var(--chip-bg-hover);
+    border-color: var(--chip-border-hover);
+  }
+
+  .chip:active:not(.disabled),
+  :global(.chip):active:not(.disabled) {
+    background-color: var(--chip-bg-active);
+    border-color: var(--chip-border-active);
+  }
+
+  .chip:focus-visible,
+  :global(.chip):focus-visible {
+    --ring-color: var(--chip-ring-color);
+    --ring-offset-color: var(--background);
+    --ring-offset-shadow: var(--ring-inset) 0 0 0 var(--ring-offset-width) var(--ring-offset-color);
+    --ring-shadow: var(--ring-inset) 0 0 0 calc(1px + var(--ring-offset-width)) var(--ring-color);
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    box-shadow: var(--ring-offset-shadow), var(--ring-shadow), var(--shadow, 0 0 #0000);
+  }
+
+  .chip.selected,
+  :global(.chip.selected) {
+    background-color: var(--chip-bg-selected);
+    border-color: var(--chip-border-selected);
+    color: var(--chip-text-selected);
+  }
+
+  .chip.selected:hover:not(.disabled),
+  :global(.chip.selected):hover:not(.disabled) {
+    background-color: var(--chip-bg-selected-hover);
+    border-color: var(--chip-border-selected);
+  }
+
+  .chip.disabled,
+  :global(.chip.disabled),
+  .chip[disabled],
+  :global(.chip[disabled]) {
+    cursor: not-allowed;
+    color: var(--chip-text-disabled);
+    background-color: var(--chip-bg-disabled);
+    border-color: var(--chip-border-disabled);
+    box-shadow: none;
+  }
+
+  .chip.disabled.selected,
+  :global(.chip.disabled.selected),
+  .chip[disabled].selected,
+  :global(.chip[disabled].selected) {
+    background-color: var(--chip-bg-selected-disabled);
+    border-color: var(--chip-border-selected-disabled);
+    color: var(--chip-text-disabled);
+  }
+
+  .chip.disabled *,
+  :global(.chip.disabled *) {
+    pointer-events: none;
+  }
+
+  .label {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+  }
+
+  .icon {
+    color: var(--chip-icon);
+    width: 1em;
+    height: 1em;
+  }
+
+  .selected .icon,
+  :global(.chip.selected) .icon {
+    color: var(--chip-icon-selected);
+  }
+
+  .iconWrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 0;
+  }
+
+  .startIcon {
+    margin-left: calc(var(--chip-padding-x) * -0.15);
+  }
+
+  .endIcon {
+    margin-right: calc(var(--chip-padding-x) * -0.1);
+  }
+
+  .removable {
+    padding-right: calc(var(--chip-padding-x) * 0.6);
+  }
+
+  .remove {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.75em;
+    height: 1.75em;
+    border-radius: var(--border-radius-full);
+    background-color: transparent;
+    color: inherit;
+    transition: background-color var(--transition-fast), color var(--transition-fast);
+  }
+
+  .remove:hover:not(.disabled) {
+    background-color: var(--chip-remove-hover-bg);
+  }
+
+  .remove:active:not(.disabled) {
+    background-color: var(--chip-remove-active-bg);
+  }
+
+  .remove:focus-visible {
+    --ring-color: var(--chip-ring-color);
+    --ring-offset-color: var(--background);
+    --ring-offset-shadow: var(--ring-inset) 0 0 0 var(--ring-offset-width) var(--ring-offset-color);
+    --ring-shadow: var(--ring-inset) 0 0 0 calc(1px + var(--ring-offset-width)) var(--ring-color);
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    box-shadow: var(--ring-offset-shadow), var(--ring-shadow), var(--shadow, 0 0 #0000);
+  }
+
+  /* Variants -------------------------------------------------------- */
+  .assist,
+  :global(.chip-assist) {
+    --chip-bg: var(--fill-noeffect-weak);
+    --chip-bg-hover: var(--fill-noeffect-weak-hover);
+    --chip-bg-active: var(--surface-item-active);
+    --chip-border: var(--stroke-noeffect);
+    --chip-border-hover: var(--stroke-noeffect-hover);
+  }
+
+  .filter,
+  :global(.chip-filter) {
+    --chip-bg: var(--surface-item);
+    --chip-bg-hover: var(--surface-item-hover);
+    --chip-bg-active: var(--surface-item-active);
+  }
+
+  .input,
+  :global(.chip-input) {
+    --chip-bg: var(--surface-item);
+    --chip-border: var(--surface-panel-border);
+    --chip-border-hover: var(--surface-panel-border);
+    --chip-bg-hover: var(--surface-item-hover);
+  }
+
+  .suggestion,
+  :global(.chip-suggestion) {
+    --chip-bg: var(--surface-item);
+    --chip-bg-hover: var(--surface-item-hover);
+  }
+
+  /* Intents --------------------------------------------------------- */
+  .primary,
+  :global(.chip-primary) {
+    --chip-ring-color: var(--ring-primary);
+    --chip-bg-selected: var(--fill-primary-weak);
+    --chip-bg-selected-hover: var(--fill-primary-weak-hover);
+    --chip-border-selected: var(--stroke-primary);
+    --chip-icon-selected: var(--text-primary-strong);
+    --chip-text-selected: var(--text-primary-strong);
+  }
+
+  .secondary,
+  :global(.chip-secondary) {
+    --chip-ring-color: var(--ring-secondary);
+    --chip-bg-selected: var(--fill-secondary-weak);
+    --chip-bg-selected-hover: var(--fill-secondary-weak-hover);
+    --chip-border-selected: var(--stroke-secondary);
+    --chip-icon-selected: var(--text-secondary-strong);
+    --chip-text-selected: var(--text-secondary-strong);
+  }
+
+  .noeffect,
+  :global(.chip-noeffect) {
+    --chip-ring-color: var(--ring-noeffect);
+    --chip-bg-selected: var(--fill-noeffect-weak);
+    --chip-bg-selected-hover: var(--fill-noeffect-weak-hover);
+    --chip-border-selected: var(--stroke-noeffect);
+    --chip-icon-selected: var(--text-noeffect-strong);
+    --chip-text-selected: var(--text-noeffect-strong);
+  }
+
+  .success,
+  :global(.chip-success) {
+    --chip-ring-color: var(--ring-success);
+    --chip-bg-selected: var(--fill-success-weak);
+    --chip-bg-selected-hover: var(--fill-success-weak-hover);
+    --chip-border-selected: var(--stroke-success);
+    --chip-icon-selected: var(--text-success-strong);
+    --chip-text-selected: var(--text-success-strong);
+  }
+
+  .info,
+  :global(.chip-info) {
+    --chip-ring-color: var(--ring-info);
+    --chip-bg-selected: var(--fill-info-weak);
+    --chip-bg-selected-hover: var(--fill-info-weak-hover);
+    --chip-border-selected: var(--stroke-info);
+    --chip-icon-selected: var(--text-info-strong);
+    --chip-text-selected: var(--text-info-strong);
+  }
+
+  .warning,
+  :global(.chip-warning) {
+    --chip-ring-color: var(--ring-warning);
+    --chip-bg-selected: var(--fill-warning-weak);
+    --chip-bg-selected-hover: var(--fill-warning-weak-hover);
+    --chip-border-selected: var(--stroke-warning);
+    --chip-icon-selected: var(--text-warning-strong);
+    --chip-text-selected: var(--text-warning-strong);
+  }
+
+  .danger,
+  :global(.chip-danger) {
+    --chip-ring-color: var(--ring-danger);
+    --chip-bg-selected: var(--fill-danger-weak);
+    --chip-bg-selected-hover: var(--fill-danger-weak-hover);
+    --chip-border-selected: var(--stroke-danger);
+    --chip-icon-selected: var(--text-danger-strong);
+    --chip-text-selected: var(--text-danger-strong);
+  }
+
+  /* Sizes ----------------------------------------------------------- */
+  .xs,
+  :global(.chip-xs) {
+    --chip-height: 24px;
+    --chip-padding-y: 0.15rem;
+    --chip-padding-x: 0.5rem;
+    --chip-font-size: 0.75rem;
+    gap: var(--gap-1);
+  }
+
+  .sm,
+  :global(.chip-sm) {
+    --chip-height: 28px;
+    --chip-padding-y: 0.2rem;
+    --chip-padding-x: 0.6rem;
+    --chip-font-size: 0.82rem;
+  }
+
+  .md,
+  :global(.chip-md) {
+    --chip-height: 34px;
+    --chip-padding-y: 0.35rem;
+    --chip-padding-x: 0.75rem;
+    --chip-font-size: 0.9rem;
+  }
+
+  .lg,
+  :global(.chip-lg) {
+    --chip-height: 40px;
+    --chip-padding-y: 0.45rem;
+    --chip-padding-x: 0.9rem;
+    --chip-font-size: 0.98rem;
+  }
+
+  .xl,
+  :global(.chip-xl) {
+    --chip-height: 46px;
+    --chip-padding-y: 0.55rem;
+    --chip-padding-x: 1.05rem;
+    --chip-font-size: 1.05rem;
+  }
+}
