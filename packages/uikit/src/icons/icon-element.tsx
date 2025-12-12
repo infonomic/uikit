@@ -14,15 +14,12 @@ export interface IconElementProps extends React.ComponentProps<'div'> {
 }
 
 export const IconElement = (props: IconElementProps): React.JSX.Element => {
-  const { className, children, width = '22px', height = '22px', menuItem = false, ...rest } = props
+  const { className, children, width, height, menuItem = false, ...rest } = props
   return (
     <div
       style={{
         width,
         height,
-        flex: `0 0 ${width}`,
-        alignItems: 'center',
-        justifyContent: 'center',
         marginRight: menuItem != null && menuItem ? '1.2rem' : '0',
       }}
       className={cx(styles['element-root'], className)}

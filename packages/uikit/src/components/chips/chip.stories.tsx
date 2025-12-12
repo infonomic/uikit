@@ -20,8 +20,8 @@ export const Intents: Story = {
         {intent.map((i) => (
           <Row key={i}>
             <Chip intent={i}>{capitalize(i)} chip</Chip>
-            <Chip intent={i} variant="filter" selected>
-              {capitalize(i)} filter
+            <Chip intent={i} variant="selectable" selected>
+              {capitalize(i)} selectable
             </Chip>
           </Row>
         ))}
@@ -49,10 +49,12 @@ export const Variants: Story = {
         {chipVariant.map((variant) => (
           <Row key={variant}>
             <Chip variant={variant}>{capitalize(variant)} chip</Chip>
-            <Chip variant={variant} intent="success" startIcon={<CheckIcon />}>{`${capitalize(variant)} with icon`}</Chip>
-            <Chip variant={variant} intent="info" removable onRemove={() => {}}>
-              {`${capitalize(variant)} removable`}
-            </Chip>
+            <Chip variant={variant} selected={true} intent="success">{`${capitalize(variant)} with icon`}</Chip>
+            {(variant === 'removable' || variant === 'selectable-removable') && (
+              <Chip variant={variant} intent="info" onRemove={() => {}}>
+                {`${capitalize(variant)} with remove`}
+              </Chip>
+            )}
           </Row>
         ))}
       </div>
@@ -60,17 +62,17 @@ export const Variants: Story = {
   ),
 }
 
-export const FilterSelectable: Story = {
+export const SelectableControlled: Story = {
   render: () => {
     const [selected, setSelected] = useState(false)
     return (
       <div style={{ maxWidth: '800px', margin: '2rem auto' }}>
         <Row>
           <Chip
-            variant="filter"
+            variant="selectable"
             intent="primary"
             selected={selected}
-            onToggle={(next) => setSelected(next)}
+            onToggle={(next: boolean) => setSelected(next)}
             startIcon={<CheckIcon />}
           >
             Toggle me
@@ -81,18 +83,17 @@ export const FilterSelectable: Story = {
   },
 }
 
-export const InputRemovable: Story = {
+export const Removable: Story = {
   render: () => (
      <div style={{ maxWidth: '800px', margin: '2rem auto' }}>
       <Row>
         <Chip
-          variant="input"
+          variant="removable"
           intent="noeffect"
           startIcon={<CheckIcon />}
-          removable
           onRemove={() => {}}
         >
-          Removable input chip
+          Removable chip
         </Chip>
       </Row>
     </div>

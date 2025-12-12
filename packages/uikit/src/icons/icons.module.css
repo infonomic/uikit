@@ -2,6 +2,14 @@
 
 @layer infonomic-components {
 
+  .element-root {
+    width: 1.375rem;
+    height: 1.375rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   .element-root svg {
     display: block;
     margin: auto;

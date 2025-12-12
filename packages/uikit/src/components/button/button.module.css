@@ -1,6 +1,7 @@
 @layer infonomic-base, infonomic-functional, infonomic-utilities, infonomic-theme, infonomic-typography, infonomic-components;
 
 @layer infonomic-components {
+
   .button,
   :global(.button) {
     border: none;
@@ -201,14 +202,14 @@
   .primary,
   :global(.button-primary) {
     --button-ring-color: var(--ring-primary);
-    
+
     /* Filled */
     --button-variant-filled: var(--fill-primary-strong);
     --button-variant-filled-foreground: var(--text-on-primary);
     --button-variant-filled-hover: var(--fill-primary-strong-hover);
     --button-variant-filled-disabled: var(--fill-primary-strong-disabled);
     --button-variant-filled-foreground-disabled: var(--text-on-primary-disabled);
-    
+
     /* Outlined */
     --button-variant-outlined: transparent;
     --button-variant-outlined-foreground: var(--text-primary-strong);
@@ -216,12 +217,12 @@
     --button-variant-outlined-border: var(--stroke-primary);
     --button-variant-outlined-border-disabled: var(--stroke-primary-disabled);
     --button-variant-outlined-foreground-disabled: var(--text-primary-disabled);
-    
+
     /* Text */
     --button-variant-text: transparent;
     --button-variant-text-foreground: var(--text-primary-weak);
     --button-variant-text-hover: var(--fill-primary-weak-hover);
-    
+
     /* Gradient */
     --button-variant-gradient-start: var(--gradient-primary-start);
     --button-variant-gradient-end: var(--gradient-primary-end);
@@ -233,14 +234,14 @@
   .secondary,
   :global(.button-secondary) {
     --button-ring-color: var(--ring-secondary);
-    
+
     /* Filled */
     --button-variant-filled: var(--fill-secondary-strong);
     --button-variant-filled-foreground: var(--text-on-secondary);
     --button-variant-filled-hover: var(--fill-secondary-strong-hover);
     --button-variant-filled-disabled: var(--fill-secondary-strong-disabled);
     --button-variant-filled-foreground-disabled: var(--text-on-secondary-disabled);
-    
+
     /* Outlined */
     --button-variant-outlined: transparent;
     --button-variant-outlined-foreground: var(--text-secondary-strong);
@@ -248,12 +249,12 @@
     --button-variant-outlined-border: var(--stroke-secondary);
     --button-variant-outlined-border-disabled: var(--stroke-secondary-disabled);
     --button-variant-outlined-foreground-disabled: var(--text-secondary-disabled);
-    
+
     /* Text */
     --button-variant-text: transparent;
     --button-variant-text-foreground: var(--text-secondary-weak);
     --button-variant-text-hover: var(--fill-secondary-weak-hover);
-    
+
     /* Gradient */
     --button-variant-gradient-start: var(--gradient-secondary-start);
     --button-variant-gradient-end: var(--gradient-secondary-end);
@@ -265,14 +266,14 @@
   .noeffect,
   :global(.button-noeffect) {
     --button-ring-color: var(--ring-noeffect);
-    
+
     /* Filled */
     --button-variant-filled: var(--fill-noeffect-strong);
     --button-variant-filled-foreground: var(--text-on-noeffect);
     --button-variant-filled-hover: var(--fill-noeffect-strong-hover);
     --button-variant-filled-disabled: var(--fill-noeffect-strong-disabled);
     --button-variant-filled-foreground-disabled: var(--text-on-noeffect-disabled);
-    
+
     /* Outlined */
     --button-variant-outlined: transparent;
     --button-variant-outlined-foreground: var(--text-noeffect-strong);
@@ -280,12 +281,12 @@
     --button-variant-outlined-border: var(--stroke-noeffect);
     --button-variant-outlined-border-disabled: var(--stroke-noeffect-disabled);
     --button-variant-outlined-foreground-disabled: var(--text-noeffect-disabled);
-    
+
     /* Text */
     --button-variant-text: transparent;
     --button-variant-text-foreground: var(--text-noeffect-weak);
     --button-variant-text-hover: var(--fill-noeffect-weak-hover);
-    
+
     /* Gradient */
     --button-variant-gradient-start: var(--gradient-noeffect-start);
     --button-variant-gradient-end: var(--gradient-noeffect-end);
@@ -297,14 +298,14 @@
   .success,
   :global(.button-success) {
     --button-ring-color: var(--ring-success);
-    
+
     /* Filled */
     --button-variant-filled: var(--fill-success-strong);
     --button-variant-filled-foreground: var(--text-on-success);
     --button-variant-filled-hover: var(--fill-success-strong-hover);
     --button-variant-filled-disabled: var(--fill-success-strong-disabled);
     --button-variant-filled-foreground-disabled: var(--text-on-success-disabled);
-    
+
     /* Outlined */
     --button-variant-outlined: transparent;
     --button-variant-outlined-foreground: var(--text-success-strong);
@@ -312,12 +313,12 @@
     --button-variant-outlined-border: var(--stroke-success);
     --button-variant-outlined-border-disabled: var(--stroke-success-disabled);
     --button-variant-outlined-foreground-disabled: var(--text-success-disabled);
-    
+
     /* Text */
     --button-variant-text: transparent;
     --button-variant-text-foreground: var(--text-success-weak);
     --button-variant-text-hover: var(--fill-success-weak-hover);
-    
+
     /* Gradient */
     --button-variant-gradient-start: var(--gradient-success-start);
     --button-variant-gradient-end: var(--gradient-success-end);
@@ -329,14 +330,14 @@
   .info,
   :global(.button-info) {
     --button-ring-color: var(--ring-info);
-    
+
     /* Filled */
     --button-variant-filled: var(--fill-info-strong);
     --button-variant-filled-foreground: var(--text-on-info);
     --button-variant-filled-hover: var(--fill-info-strong-hover);
     --button-variant-filled-disabled: var(--fill-info-strong-disabled);
     --button-variant-filled-foreground-disabled: var(--text-on-info-disabled);
-    
+
     /* Outlined */
     --button-variant-outlined: transparent;
     --button-variant-outlined-foreground: var(--text-info-strong);
@@ -344,12 +345,12 @@
     --button-variant-outlined-border: var(--stroke-info);
     --button-variant-outlined-border-disabled: var(--stroke-info-disabled);
     --button-variant-outlined-foreground-disabled: var(--text-info-disabled);
-    
+
     /* Text */
     --button-variant-text: transparent;
     --button-variant-text-foreground: var(--text-info-weak);
     --button-variant-text-hover: var(--fill-info-weak-hover);
-    
+
     /* Gradient */
     --button-variant-gradient-start: var(--gradient-info-start);
     --button-variant-gradient-end: var(--gradient-info-end);
@@ -361,14 +362,14 @@
   .warning,
   :global(.button-warning) {
     --button-ring-color: var(--ring-warning);
-    
+
     /* Filled */
     --button-variant-filled: var(--fill-warning-strong);
     --button-variant-filled-foreground: var(--text-on-warning);
     --button-variant-filled-hover: var(--fill-warning-strong-hover);
     --button-variant-filled-disabled: var(--fill-warning-strong-disabled);
     --button-variant-filled-foreground-disabled: var(--text-on-warning-disabled);
-    
+
     /* Outlined */
     --button-variant-outlined: transparent;
     --button-variant-outlined-foreground: var(--text-warning-strong);
@@ -376,12 +377,12 @@
     --button-variant-outlined-border: var(--stroke-warning);
     --button-variant-outlined-border-disabled: var(--stroke-warning-disabled);
     --button-variant-outlined-foreground-disabled: var(--text-warning-disabled);
-    
+
     /* Text */
     --button-variant-text: transparent;
     --button-variant-text-foreground: var(--text-warning-weak);
     --button-variant-text-hover: var(--fill-warning-weak-hover);
-    
+
     /* Gradient */
     --button-variant-gradient-start: var(--gradient-warning-start);
     --button-variant-gradient-end: var(--gradient-warning-end);
@@ -393,14 +394,14 @@
   .danger,
   :global(.button-danger) {
     --button-ring-color: var(--ring-danger);
-    
+
     /* Filled */
     --button-variant-filled: var(--fill-danger-strong);
     --button-variant-filled-foreground: var(--text-on-danger);
     --button-variant-filled-hover: var(--fill-danger-strong-hover);
     --button-variant-filled-disabled: var(--fill-danger-strong-disabled);
     --button-variant-filled-foreground-disabled: var(--text-on-danger-disabled);
-    
+
     /* Outlined */
     --button-variant-outlined: transparent;
     --button-variant-outlined-foreground: var(--text-danger-strong);
@@ -408,12 +409,12 @@
     --button-variant-outlined-border: var(--stroke-danger);
     --button-variant-outlined-border-disabled: var(--stroke-danger-disabled);
     --button-variant-outlined-foreground-disabled: var(--text-danger-disabled);
-    
+
     /* Text */
     --button-variant-text: transparent;
     --button-variant-text-foreground: var(--text-danger-weak);
     --button-variant-text-hover: var(--fill-danger-weak-hover);
-    
+
     /* Gradient */
     --button-variant-gradient-start: var(--gradient-danger-start);
     --button-variant-gradient-end: var(--gradient-danger-end);

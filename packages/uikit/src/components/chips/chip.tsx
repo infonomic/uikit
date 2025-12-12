@@ -29,14 +29,13 @@ export type ChipProps<C extends React.ElementType = 'button'> = {
 	startIcon?: React.ReactNode
 	endIcon?: React.ReactNode
 	selectedIcon?: React.ReactNode
-	removable?: boolean
 	removeLabel?: string
 	onToggle?: (selected: boolean, event: ToggleEvent) => void
 	onRemove?: (event: RemoveEvent) => void
 	className?: string
 	ref?: ChipRefType<C>
 } & (AsButton | AsSlot) &
-	React.HTMLAttributes<HTMLElement>
+	Omit<React.HTMLAttributes<HTMLElement>, 'onToggle'>
 
 export const Chip = <C extends React.ElementType = 'button'>({
 	variant = 'assist',
@@ -47,7 +46,6 @@ export const Chip = <C extends React.ElementType = 'button'>({
 	startIcon,
 	endIcon,
 	selectedIcon,
-	removable = false,
 	removeLabel = 'Remove chip',
 	onToggle,
 	onRemove,
@@ -59,7 +57,8 @@ export const Chip = <C extends React.ElementType = 'button'>({
 }: ChipProps<C>) => {
 	const { onClick, onKeyDown, role, tabIndex, ...restProps } = rest
 	const Comp: React.ElementType = asChild === true ? Slot : 'button'
-	const isToggleable = variant === 'filter'
+	const isSelectable = variant === 'selectable' || variant === 'selectable-removable'
+	const isRemovable = variant === 'removable' || variant === 'selectable-removable'
 	const isSelected = Boolean(selected)
 
 	const handleClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -72,7 +71,7 @@ export const Chip = <C extends React.ElementType = 'button'>({
 			;(onClick as React.MouseEventHandler<HTMLElement>)(event)
 		}
 
-		if (isToggleable && onToggle) {
+		if (isSelectable && onToggle) {
 			onToggle(!isSelected, event)
 		}
 	}
@@ -87,12 +86,12 @@ export const Chip = <C extends React.ElementType = 'button'>({
 			if (onClick) {
 				;(onClick as React.MouseEventHandler<HTMLElement>)(event as unknown as React.MouseEvent<HTMLElement>)
 			}
-			if (isToggleable && onToggle) {
+			if (isSelectable && onToggle) {
 				onToggle(!isSelected, event)
 			}
 		}
 
-		if ((event.key === 'Backspace' || event.key === 'Delete') && removable && onRemove) {
+		if ((event.key === 'Backspace' || event.key === 'Delete') && isRemovable && onRemove) {
 			event.preventDefault()
 			onRemove(event)
 		}
@@ -126,9 +125,10 @@ export const Chip = <C extends React.ElementType = 'button'>({
 		}
 	}
 
-	const leadingIcon = startIcon ?? (isToggleable && isSelected ? selectedIcon ?? <CheckIcon className={styles.icon} /> : null)
+	const leadingIcon =
+		startIcon ?? (isSelectable && isSelected ? selectedIcon ?? <CheckIcon className={styles.icon} /> : null)
 
-	const trailingIcon = removable ? (
+	const trailingIcon = isRemovable ? (
 		<span
 			role="button"
 			tabIndex={disabled ? -1 : 0}
@@ -150,19 +150,19 @@ export const Chip = <C extends React.ElementType = 'button'>({
 			role={role ?? (asChild === true ? 'button' : undefined)}
 			tabIndex={disabled ? -1 : tabIndex ?? 0}
 			aria-disabled={disabled || undefined}
-			aria-pressed={isToggleable ? isSelected : undefined}
-			aria-selected={isToggleable ? isSelected : undefined}
+			aria-pressed={isSelectable ? isSelected : undefined}
+			aria-selected={isSelectable ? isSelected : undefined}
 			className={cx(
 				'chip',
 				variant,
 				intent,
 				size,
-				{ selected: isSelected, disabled, removable },
+				{ selected: isSelected, disabled, removable: isRemovable },
 				styles.chip,
 				styles[variant],
 				styles[intent],
 				styles[size],
-				{ [styles.selected]: isSelected, [styles.disabled]: disabled, [styles.removable]: removable },
+				{ [styles.selected]: isSelected, [styles.disabled]: disabled, [styles.removable]: isRemovable },
 				className
 			)}
 			disabled={asChild === true ? undefined : disabled}
