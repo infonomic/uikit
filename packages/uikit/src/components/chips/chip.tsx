@@ -143,6 +143,9 @@ export const Chip = <C extends React.ElementType = 'button'>({
 		endIcon
 	)
 
+  const appliedVariant = isSelected ? 'filled' : 'outlined'
+ 
+
 	return (
 		<Comp
 			ref={ref}
@@ -159,10 +162,10 @@ export const Chip = <C extends React.ElementType = 'button'>({
 				size,
 				{ selected: isSelected, disabled, removable: isRemovable },
 				styles.chip,
-				styles[variant],
+				styles[appliedVariant],
 				styles[intent],
 				styles[size],
-				{ [styles.selected]: isSelected, [styles.disabled]: disabled, [styles.removable]: isRemovable },
+				{ [styles.disabled]: disabled, [styles.removable]: isRemovable },
 				className
 			)}
 			disabled={asChild === true ? undefined : disabled}

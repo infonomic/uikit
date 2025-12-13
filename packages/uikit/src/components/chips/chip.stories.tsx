@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { capitalize } from '../../utils/capitalize.js'
 import { intent, size } from '../@types/shared.js'
 import { CheckIcon } from '../../icons/check-icon.js'
+import { CalendarIcon } from '../../icons/calendar-icon.js'
 import { Chip } from './chip.js'
 import { chipVariant } from './@types/chip.js'
 
@@ -48,10 +49,10 @@ export const Variants: Story = {
       <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
         {chipVariant.map((variant) => (
           <Row key={variant}>
-            <Chip variant={variant}>{capitalize(variant)} chip</Chip>
-            <Chip variant={variant} selected={true} intent="success">{`${capitalize(variant)} with icon`}</Chip>
+            <Chip variant={variant} startIcon={<CalendarIcon height="16px" width="16px" />}>{capitalize(variant)} chip</Chip>
+            <Chip variant={variant} selected={true}>{`${capitalize(variant)} with icon`}</Chip>
             {(variant === 'removable' || variant === 'selectable-removable') && (
-              <Chip variant={variant} intent="info" onRemove={() => {}}>
+              <Chip variant={variant} onRemove={() => {}}>
                 {`${capitalize(variant)} with remove`}
               </Chip>
             )}
@@ -62,7 +63,7 @@ export const Variants: Story = {
   ),
 }
 
-export const SelectableControlled: Story = {
+export const Selectable: Story = {
   render: () => {
     const [selected, setSelected] = useState(false)
     return (
@@ -71,6 +72,7 @@ export const SelectableControlled: Story = {
           <Chip
             variant="selectable"
             intent="primary"
+            size="sm"
             selected={selected}
             onToggle={(next: boolean) => setSelected(next)}
             startIcon={<CheckIcon />}
