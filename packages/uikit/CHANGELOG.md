@@ -1,5 +1,12 @@
 # @infonomic/uikit
 
+## 5.10.0
+
+### Minor Changes
+
+- f77ee8e: Implemented chip component (with updates to icon-element).
+- cfb0a5e: New weak variants for button-like components.
+
 ## 5.9.0
 
 ### Minor Changes
