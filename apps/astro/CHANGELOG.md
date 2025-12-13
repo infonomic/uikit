@@ -1,5 +1,16 @@
 # @infonomic/website-astro
 
+## 5.11.0
+
+### Minor Changes
+
+- ddfdd12: Correct border, focus, and active ring for chips.
+
+### Patch Changes
+
+- Updated dependencies [ddfdd12]
+  - @infonomic/uikit@5.11.0
+
 ## 5.10.0
 
 ### Minor Changes

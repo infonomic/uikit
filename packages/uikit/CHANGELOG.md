@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 5.11.0
+
+### Minor Changes
+
+- ddfdd12: Correct border, focus, and active ring for chips.
+
 ## 5.10.0
 
 ### Minor Changes
