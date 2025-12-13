@@ -10,14 +10,14 @@ type Story = StoryObj<typeof Button>
 
 const AllIntents = (): React.JSX.Element => {
   return (
-    <div style={{ maxWidth: '800px', margin: '2rem auto' }}>
+    <div style={{ maxWidth: '1000px', margin: '2rem auto' }}>
       {intent.map((i) => {
         return (
           <div
             key={i}
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(4, minmax(0, 1fr)',
+              gridTemplateColumns: 'repeat(5, minmax(0, 1fr)',
               gap: '32px',
               marginBottom: '32px',
             }}

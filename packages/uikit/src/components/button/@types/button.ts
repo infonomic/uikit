@@ -8,7 +8,7 @@ import type { Size as s } from '../../@types/shared.js'
  */
 
 // typescript types
-export const variant = ['filled', 'outlined', 'gradient', 'text'] as const
+export const variant = ['filled', 'filled-weak', 'outlined', 'gradient', 'text'] as const
 export type Variant = (typeof variant)[number]
 
 export type Size = 'md' | s

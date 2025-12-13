@@ -3,7 +3,6 @@ import { useState } from 'react'
 
 import { capitalize } from '../../utils/capitalize.js'
 import { intent, size } from '../@types/shared.js'
-import { CheckIcon } from '../../icons/check-icon.js'
 import { CalendarIcon } from '../../icons/calendar-icon.js'
 import { Chip } from './chip.js'
 import { chipVariant } from './@types/chip.js'
@@ -36,7 +35,7 @@ export const Sizes: Story = {
      <div style={{ maxWidth: '800px', margin: '2rem auto' }}>
       <Row>
         {size.map((s) => (
-          <Chip variant={"selectable-removable"} selected key={s} size={s}>{`Size ${s}`}</Chip>
+          <Chip variant={"selectable-removable"} selected={true} key={s} size={s}>{`Size ${s}`}</Chip>
         ))}
       </Row>
     </div>
@@ -49,8 +48,8 @@ export const Variants: Story = {
       <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
         {chipVariant.map((variant) => (
           <Row key={variant}>
-            <Chip variant={variant} startIcon={<CalendarIcon height="16px" width="16px" />}>{capitalize(variant)} chip</Chip>
-            <Chip variant={variant} selected={true}>{`${capitalize(variant)} with icon`}</Chip>
+            <Chip variant={variant}>{capitalize(variant)} chip</Chip>
+            <Chip variant={variant} startIcon={<CalendarIcon height="16px" width="16px" />} selected={true}>{`${capitalize(variant)} with icon`}</Chip>
             {(variant === 'removable' || variant === 'selectable-removable') && (
               <Chip variant={variant} onRemove={() => {}}>
                 {`${capitalize(variant)} with remove`}
@@ -75,7 +74,6 @@ export const Selectable: Story = {
             size="sm"
             selected={selected}
             onToggle={(next: boolean) => setSelected(next)}
-            startIcon={<CheckIcon />}
           >
             Toggle me
           </Chip>
@@ -91,9 +89,9 @@ export const Removable: Story = {
       <Row>
         <Chip
           variant="removable"
-          intent="noeffect"
-          startIcon={<CheckIcon />}
+          intent="primary"
           onRemove={() => {}}
+          startIcon={<CalendarIcon height="16px" width="16px" />}
         >
           Removable chip
         </Chip>

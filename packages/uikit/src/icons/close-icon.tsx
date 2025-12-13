@@ -16,7 +16,7 @@ export const CloseIcon = ({ className, svgClassName, ...rest }: IconProps): Reac
         focusable="false"
         aria-hidden="true"
         viewBox="0 0 24 24" fill="none" 
-        strokeWidth="2.5" 
+        strokeWidth="2" 
         strokeLinecap="round" 
         strokeLinejoin="round"
         >

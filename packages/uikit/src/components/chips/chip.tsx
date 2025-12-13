@@ -5,6 +5,7 @@ import cx from 'classnames'
 import type React from 'react'
 
 import { CheckIcon } from '../../icons/check-icon.js'
+import { IconButton } from '../button/icon-button.js'
 import { CloseIcon } from '../../icons/close-icon.js'
 import type { ChipIntent, ChipSize, ChipVariant } from './@types/chip.js'
 import styles from './chip.module.css'
@@ -129,16 +130,18 @@ export const Chip = <C extends React.ElementType = 'button'>({
 		startIcon ?? (isSelectable && isSelected ? selectedIcon ?? <CheckIcon className={styles.icon} /> : null)
 
 	const trailingIcon = isRemovable ? (
-		<span
+		<IconButton
 			role="button"
+      variant={isSelected ? 'filled-weak' : 'outlined'}
+      className={cx('remove', styles.remove, styles['end-icon'])}
 			tabIndex={disabled ? -1 : 0}
-			className={cx(styles.remove, { [styles.disabled]: disabled })}
+			disabled={disabled}
 			aria-label={removeLabel}
 			onClick={handleRemoveClick}
 			onKeyDown={handleRemoveKeyDown}
 		>
 			<CloseIcon className={styles.icon} />
-		</span>
+		</IconButton>
 	) : (
 		endIcon
 	)
@@ -165,7 +168,6 @@ export const Chip = <C extends React.ElementType = 'button'>({
 				styles[appliedVariant],
 				styles[intent],
 				styles[size],
-				{ [styles.disabled]: disabled, [styles.removable]: isRemovable },
 				className
 			)}
 			disabled={asChild === true ? undefined : disabled}
@@ -173,9 +175,9 @@ export const Chip = <C extends React.ElementType = 'button'>({
 			onKeyDown={handleKeyDown}
 			{...restProps}
 		>
-			{leadingIcon != null && <span className={cx(styles.iconWrapper, styles.startIcon)}>{leadingIcon}</span>}
+			{leadingIcon != null && <span className={cx(styles.iconWrapper)}>{leadingIcon}</span>}
 			<span className={styles.label}>{children}</span>
-			{trailingIcon != null && <span className={cx(styles.iconWrapper, styles.endIcon)}>{trailingIcon}</span>}
+			{trailingIcon != null && <span className={cx(styles.iconWrapper)}>{trailingIcon}</span>}
 		</Comp>
 	)
 }
