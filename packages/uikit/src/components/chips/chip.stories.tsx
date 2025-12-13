@@ -35,7 +35,7 @@ export const Sizes: Story = {
      <div style={{ maxWidth: '800px', margin: '2rem auto' }}>
       <Row>
         {size.map((s) => (
-          <Chip key={s} size={s} startIcon={<CheckIcon />}>{`Size ${s}`}</Chip>
+          <Chip variant={"selectable-removable"} selected key={s} size={s}>{`Size ${s}`}</Chip>
         ))}
       </Row>
     </div>

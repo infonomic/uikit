@@ -34,6 +34,8 @@
     --chip-padding-y: 0.35rem;
     --chip-padding-x: 0.75rem;
 
+    --chip-icon-size: 1.2rem;
+
     appearance: none;
     border: 1px solid var(--chip-border);
     background-color: var(--chip-bg);
@@ -122,8 +124,8 @@
 
   .icon {
     color: var(--chip-icon);
-    width: 1.2rem;
-    height: 1.2rem;
+    width: var(--chip-icon-size);
+    height: var(--chip-icon-size);
   }
 
   .selected .icon,
@@ -154,8 +156,8 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 1.1rem;
-    height: 1.1rem;
+    width: calc(var(--chip-icon-size) * 0.9);
+    height: calc(var(--chip-icon-size) * 0.9);
     padding: 1px;
     border-radius: var(--border-radius-full);
     background-color: transparent;
@@ -291,6 +293,7 @@
     --chip-padding-y: 0.15rem;
     --chip-padding-x: 0.5rem;
     --chip-font-size: 0.75rem;
+    --chip-icon-size: 1.1rem;
     gap: var(--gap-1);
   }
 
@@ -300,29 +303,33 @@
     --chip-padding-y: 0.2rem;
     --chip-padding-x: 0.6rem;
     --chip-font-size: 0.82rem;
+    --chip-icon-size: 1.2rem;
   }
 
   .md,
   :global(.chip-md) {
-    --chip-height: 34px;
-    --chip-padding-y: 0.35rem;
+    --chip-height: 32px;
+    --chip-padding-y: 0.25rem;
     --chip-padding-x: 0.75rem;
     --chip-font-size: 0.9rem;
+    --chip-icon-size: 1.3rem;
   }
 
   .lg,
   :global(.chip-lg) {
-    --chip-height: 40px;
-    --chip-padding-y: 0.45rem;
-    --chip-padding-x: 0.9rem;
+    --chip-height: 36px;
+    --chip-padding-y: 0.3rem;
+    --chip-padding-x: 0.75rem;
     --chip-font-size: 0.98rem;
+    --chip-icon-size: 1.4rem;
   }
 
   .xl,
   :global(.chip-xl) {
-    --chip-height: 46px;
-    --chip-padding-y: 0.55rem;
-    --chip-padding-x: 1.05rem;
-    --chip-font-size: 1.05rem;
+    --chip-height: 40px;
+    --chip-padding-y: 0.3rem;
+    --chip-padding-x: 0.75rem;
+    --chip-font-size: 1rem;
+    --chip-icon-size: 1.45rem;
   }
 }
