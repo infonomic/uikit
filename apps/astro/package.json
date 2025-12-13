@@ -13,7 +13,7 @@
   "dependencies": {
     "@astrojs/node": "^9.5.1",
     "@infonomic/uikit": "workspace:*",
-    "astro": "^5.16.4",
+    "astro": "^5.16.5",
     "nanostores": "^1.1.0",
     "sharp": "^0.34.5"
   },
