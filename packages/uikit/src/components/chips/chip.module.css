@@ -4,7 +4,6 @@
 
   .chip,
   :global(.chip) {
-    --chip-border: var(--surface-panel-border);
     --chip-font-size: 0.9rem;
     --chip-height: 34px;
     --chip-padding-y: 0.35rem;
@@ -12,7 +11,8 @@
     --chip-icon-size: 1rem;
 
     appearance: none;
-    border: 1px solid var(--chip-border);
+    outline: 2px solid transparent;
+    outline-offset: 2px;
     display: inline-flex;
     align-items: center;
     gap: var(--gap-1);
