@@ -13,7 +13,7 @@ import { HelpText } from './help-text.js'
 export interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   id: string
   name: string
-  label: string
+  label?: string
   variant?: Variant
   size?: Size
   intent?: Intent
@@ -84,9 +84,11 @@ export const Checkbox = function Checkbox({
           </CheckboxPrimitive.Indicator>
         </CheckboxPrimitive.Root>
 
-        <LabelPrimitive.Label htmlFor={id} className={cx(styles.label, labelClasses)}>
-          {label}
-        </LabelPrimitive.Label>
+        { label != null && (
+          <LabelPrimitive.Label htmlFor={id} className={cx(styles.label, labelClasses)}>
+            {label}
+          </LabelPrimitive.Label>
+        )}
       </div>
       {error ? (
         <ErrorText id={`error-for-${id}`} text={errorText ?? helpText} />
