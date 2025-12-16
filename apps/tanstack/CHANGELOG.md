@@ -1,5 +1,16 @@
 # @infonomic/website-react
 
+## 5.12.0
+
+### Minor Changes
+
+- 9d15baf: Label is optional for checkbox.
+
+### Patch Changes
+
+- Updated dependencies [9d15baf]
+  - @infonomic/uikit@5.12.0
+
 ## 5.11.0
 
 ### Minor Changes

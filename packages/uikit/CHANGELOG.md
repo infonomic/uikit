@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 5.12.0
+
+### Minor Changes
+
+- 9d15baf: Label is optional for checkbox.
+
 ## 5.11.0
 
 ### Minor Changes
