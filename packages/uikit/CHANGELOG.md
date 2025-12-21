@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 5.13.0
+
+### Minor Changes
+
+- 47d5305: Updated outline button and primary weak colors.
+
 ## 5.12.0
 
 ### Minor Changes
