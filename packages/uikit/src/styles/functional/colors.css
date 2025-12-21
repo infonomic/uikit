@@ -30,11 +30,8 @@
     --fill-primary-strong: var(--primary-500);
     --fill-primary-strong-hover: oklch(from var(--primary-500) calc(l * 0.9) c h);
     --fill-primary-strong-disabled: oklch(from var(--primary-500) calc(l * 1.1) calc(c * 0.85) h);
-
-    /* Weak fill - for subtle backgrounds (outlined hover states) */
     --fill-primary-weak: oklch(from var(--primary-500) calc(l * 2.04) calc(c * 0.2) h);
     --fill-primary-weak-hover: oklch(from var(--canvas-50) calc(l * 0.995) c h);
-
 
     --text-on-primary: white;
     --text-on-primary-disabled: oklch(from white calc(l * 0.9) calc(c * 0.85) h);
@@ -69,11 +66,6 @@
     --text-secondary-strong: var(--secondary-950);
     --text-secondary-weak: oklch(from var(--secondary-500) calc(l * 0.7) c h);
     --text-secondary-disabled: oklch(from var(--secondary-950) calc(l * 1.5) calc(c * 0.5) h);
-
-    --stroke-secondary: var(--secondary-700);
-    --stroke-secondary-disabled: oklch(from var(--secondary-700) calc(l * 1.5) calc(c * 0.8) h);
-
-    --ring-secondary: var(--secondary-500);
 
     --stroke-secondary: var(--secondary-700);
     --stroke-secondary-hover: oklch(from var(--secondary-700) calc(l * 0.85) c h);
@@ -236,7 +228,6 @@
     /* Weak fill - adjusted for dark backgrounds */
     --fill-primary-weak: oklch(from var(--primary-400) calc(l * 0.75) c h / 0.5);
     --fill-primary-weak-hover: oklch(from var(--primary-400) calc(l * 0.65) c h / 0.5);
-
 
     --text-on-primary: white;
     --text-on-primary-disabled: oklch(from white calc(l * 0.85) calc(c * 0.85) h);
