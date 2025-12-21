@@ -151,27 +151,27 @@
   /* Weak variant for close button on selected chip */
 
   .filled-weak,
-  :global(.chip-filled) {
+  :global(.chip-filled-weak) {
     color: var(--chip-variant-filled-weak-foreground);
     background-color: var(--chip-variant-filled-weak);
   }
 
   .filled-weak:hover,
-  :global(.chip-filled):hover {
+  :global(.chip-filled-weak):hover {
     background-color: var(--chip-variant-filled-weak-hover);
   }
 
   .filled-weak:focus,
   .filled-weak:active,
-  :global(.chip-filled):focus,
-  :global(.chip-filled):active {
+  :global(.chip-filled-weak):focus,
+  :global(.chip-filled-weak):active {
     --ring-color: var(--chip-ring-color);
   }
 
   .filled-weak:disabled,
-  .filled[disabled],
-  :global(.chip-filled):disabled,
-  :global(.chip-filled)[disabled] {
+  .filled-weak[disabled],
+  :global(.chip-filled-weak):disabled,
+  :global(.chip-filled-weak)[disabled] {
     background-color: var(--chip-variant-filled-weak-disabled, oklch(from var(--chip-variant-filled-weak) calc(l * 1.1) calc(c * 0.85) h));
     color: var(--chip-variant-filled-weak-foreground-disabled, oklch(from var(--chip-variant-filled-weak-foreground) calc(l * 0.9) calc(c * 0.85) h));
   }
