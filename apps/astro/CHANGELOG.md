@@ -1,5 +1,18 @@
 # @infonomic/website-astro
 
+## 5.14.0
+
+### Minor Changes
+
+- a21b62a: Fixups for badge weak collision with filled disabled.
+- 2c0a86d: Fixups for weak color collision with fill disabled.
+
+### Patch Changes
+
+- Updated dependencies [a21b62a]
+- Updated dependencies [2c0a86d]
+  - @infonomic/uikit@5.14.0
+
 ## 5.13.0
 
 ### Minor Changes
