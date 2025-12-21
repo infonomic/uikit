@@ -35,14 +35,11 @@
     --fill-primary-weak: oklch(from var(--primary-500) calc(l * 2.04) calc(c * 0.2) h);
     --fill-primary-weak-hover: oklch(from var(--canvas-50) calc(l * 0.995) c h);
 
-    /* Text tokens - for foreground colors */
+
     --text-on-primary: white;
-    /* Text on primary fill */
     --text-on-primary-disabled: oklch(from white calc(l * 0.9) calc(c * 0.85) h);
     --text-primary-strong: var(--primary-600);
-    /* Primary-colored text (outlined, text variants) */
     --text-primary-weak: oklch(from var(--primary-500) calc(l * 0.7) c h);
-    /* Muted primary text */
     --text-primary-disabled: oklch(from var(--primary-600) calc(l * 1.5) calc(c * 0.5) h);
 
     /* Stroke tokens - for borders */
@@ -237,26 +234,23 @@
     --fill-primary-strong-disabled: oklch(from var(--primary-500) calc(l * 0.85) calc(c * 0.85) h);
 
     /* Weak fill - adjusted for dark backgrounds */
-    --fill-primary-weak: oklch(from var(--primary-500) calc(l * 0.45) calc(c * 0.1) h);
-    --fill-primary-weak-hover: var(--canvas-800);
+    --fill-primary-weak: oklch(from var(--primary-400) calc(l * 0.75) c h / 0.5);
+    --fill-primary-weak-hover: oklch(from var(--primary-400) calc(l * 0.65) c h / 0.5);
 
-    /* Text tokens */
+
     --text-on-primary: white;
-    /* Same as light mode */
     --text-on-primary-disabled: oklch(from white calc(l * 0.85) calc(c * 0.85) h);
-    --text-primary-strong: var(--primary-100);
-    /* Lighter for dark backgrounds */
+    --text-primary-strong: var(--primary-50);
     --text-primary-weak: var(--primary-100);
-    /* Used for text variant */
     --text-primary-disabled: oklch(from var(--primary-100) calc(l * 0.8) calc(c * 0.8) h);
 
     /* Stroke tokens */
-    --stroke-primary: var(--primary-500);
-    --stroke-primary-hover: oklch(from var(--primary-500) calc(l * 1.1) c h);
-    --stroke-primary-disabled: oklch(from var(--primary-500) calc(l * 0.8) calc(c * 0.8) h);
+    --stroke-primary: var(--primary-300);
+    --stroke-primary-hover: oklch(from var(--primary-300) calc(l * 1.1) c h);
+    --stroke-primary-disabled: oklch(from var(--primary-300) calc(l * 0.8) calc(c * 0.8) h);
 
     /* Ring tokens */
-    --ring-primary: var(--primary-500);
+    --ring-primary: var(--primary-300);
 
     /* Gradient tokens */
     --gradient-primary-start: var(--primary-500);
