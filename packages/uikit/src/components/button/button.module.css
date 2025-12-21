@@ -118,27 +118,27 @@
   /* Weak variant for close button on selected button */
 
   .filled-weak,
-  :global(.button-filled) {
+  :global(.button-filled-weak) {
     color: var(--button-variant-filled-weak-foreground);
     background-color: var(--button-variant-filled-weak);
   }
 
   .filled-weak:hover,
-  :global(.button-filled):hover {
+  :global(.button-filled-weak):hover {
     background-color: var(--button-variant-filled-weak-hover);
   }
 
   .filled-weak:focus,
   .filled-weak:active,
-  :global(.button-filled):focus,
-  :global(.button-filled):active {
+  :global(.button-filled-weak):focus,
+  :global(.button-filled-weak):active {
     --ring-color: var(--button-ring-color);
   }
 
   .filled-weak:disabled,
-  .filled[disabled],
-  :global(.button-filled):disabled,
-  :global(.button-filled)[disabled] {
+  .filled-weak[disabled],
+  :global(.button-filled-weak):disabled,
+  :global(.button-filled-weak)[disabled] {
     background-color: var(--button-variant-filled-weak-disabled, oklch(from var(--button-variant-filled-weak) calc(l * 1.1) calc(c * 0.85) h));
     color: var(--button-variant-filled-weak-foreground-disabled, oklch(from var(--button-variant-filled-weak-foreground) calc(l * 0.9) calc(c * 0.85) h));
   }
@@ -244,7 +244,7 @@
     --button-variant-filled-weak-foreground: var(--text-primary-weak);
     --button-variant-filled-weak-hover: var(--fill-primary-weak-hover);
     --button-variant-filled-weak-disabled: var(--fill-primary-weak-disabled);
-    --button-variant-filled-weak-foreground-disabled: var(--text-on-primary-disabled);
+    --button-variant-filled-weak-foreground-disabled: var(--text-primary-weak-disabled);
 
     /* Outlined */
     --button-variant-outlined: transparent;
