@@ -76,36 +76,36 @@
   /* Intents */
   .primary {
     --alert-border: var(--stroke-primary);
-    --alert-background: var(--fill-primary-transparent);
+    --alert-background: var(--fill-primary-weak);
   }
 
   .secondary {
     --alert-border: var(--stroke-secondary);
-    --alert-background: var(--fill-secondary-transparent);
+    --alert-background: var(--fill-secondary-weak);
   }
 
   .noeffect {
     --alert-border: var(--stroke-noeffect);
-    --alert-background: var(--fill-noeffect-transparent);
+    --alert-background: var(--fill-noeffect-weak);
   }
 
   .success {
     --alert-border: var(--stroke-success);
-    --alert-background: var(--fill-success-transparent);
+    --alert-background: var(--fill-success-weak);
   }
 
   .info {
     --alert-border: var(--stroke-info);
-    --alert-background: var(--fill-info-transparent);
+    --alert-background: var(--fill-info-weak);
   }
 
   .warning {
     --alert-border: var(--stroke-warning);
-    --alert-background: var(--fill-warning-transparent);
+    --alert-background: var(--fill-warning-weak);
   }
 
   .danger {
     --alert-border: var(--stroke-danger);
-    --alert-background: var(--fill-danger-transparent);
+    --alert-background: var(--fill-danger-weak);
   }
 }

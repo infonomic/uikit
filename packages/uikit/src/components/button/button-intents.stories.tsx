@@ -32,7 +32,7 @@ const AllIntents = (): React.JSX.Element => {
           )
         })}
       </div>
-      <div className="dark" style={{ maxWidth: '1100px', margin: '2rem auto', padding: '2rem',  borderRadius: '6px', backgroundColor: 'var(--theme-700)' }}>
+      <div className="dark" style={{ maxWidth: '1100px', margin: '2rem auto', padding: '2rem',  borderRadius: '6px', backgroundColor: 'var(--theme-800)' }}>
         {intent.map((i) => {
           return (
             <div

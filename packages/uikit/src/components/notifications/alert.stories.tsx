@@ -25,7 +25,7 @@ export const Alerts = (): React.JSX.Element => {
           This is an info alert with a title and with some additional text here.
         </AlertComponent>
       </div>
-      <div className="dark" style={{ maxWidth: '600px', margin: '2rem auto', borderRadius: '6px', backgroundColor: 'var(--theme-700)', padding: '1rem' }}>
+      <div className="dark" style={{ maxWidth: '600px', margin: '2rem auto', borderRadius: '6px', backgroundColor: 'var(--theme-800)', padding: '1rem' }}>
         {intent.map((intent: Intent) => {
           if (intent !== 'noeffect') {
             return (
