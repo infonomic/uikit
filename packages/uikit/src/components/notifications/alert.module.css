@@ -13,6 +13,7 @@
     transition: all 0.3s ease-in-out;
     border: 1px solid var(--alert-border);
     background-color: var(--alert-background);
+    color: var(--foreground);
     margin-bottom: 1rem;
   }
 
@@ -75,36 +76,36 @@
   /* Intents */
   .primary {
     --alert-border: var(--stroke-primary);
-    --alert-background: var(--fill-primary-weak);
+    --alert-background: var(--fill-primary-transparent);
   }
 
   .secondary {
     --alert-border: var(--stroke-secondary);
-    --alert-background: var(--fill-secondary-weak);
+    --alert-background: var(--fill-secondary-transparent);
   }
 
   .noeffect {
     --alert-border: var(--stroke-noeffect);
-    --alert-background: var(--fill-noeffect-weak);
+    --alert-background: var(--fill-noeffect-transparent);
   }
 
   .success {
     --alert-border: var(--stroke-success);
-    --alert-background: var(--fill-success-weak);
+    --alert-background: var(--fill-success-transparent);
   }
 
   .info {
     --alert-border: var(--stroke-info);
-    --alert-background: var(--fill-info-weak);
+    --alert-background: var(--fill-info-transparent);
   }
 
   .warning {
     --alert-border: var(--stroke-warning);
-    --alert-background: var(--fill-warning-weak);
+    --alert-background: var(--fill-warning-transparent);
   }
 
   .danger {
     --alert-border: var(--stroke-danger);
-    --alert-background: var(--fill-danger-weak);
+    --alert-background: var(--fill-danger-transparent);
   }
 }

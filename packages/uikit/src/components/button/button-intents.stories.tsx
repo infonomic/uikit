@@ -10,27 +10,50 @@ type Story = StoryObj<typeof Button>
 
 const AllIntents = (): React.JSX.Element => {
   return (
-    <div style={{ maxWidth: '1000px', margin: '2rem auto' }}>
-      {intent.map((i) => {
-        return (
-          <div
-            key={i}
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(5, minmax(0, 1fr)',
-              gap: '32px',
-              marginBottom: '32px',
-            }}
-          >
-            {variant.map((v) => {
-              return (
-                <Button key={`${i}-${v}`} intent={i} variant={v}>{`${capitalize(i)} ${v}`}</Button>
-              )
-            })}
-          </div>
-        )
-      })}
-    </div>
+    <>
+      <div style={{ maxWidth: '1100px', margin: '2rem auto', padding: '2rem',  borderRadius: '6px', backgroundColor: 'var(--background)' }}>
+        {intent.map((i) => {
+          return (
+            <div
+              key={i}
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(5, minmax(0, 1fr)',
+                gap: '32px',
+                marginBottom: '32px',
+              }}
+            >
+              {variant.map((v) => {
+                return (
+                  <Button key={`${i}-${v}`} intent={i} variant={v}>{`${capitalize(i)} ${v}`}</Button>
+                )
+              })}
+            </div>
+          )
+        })}
+      </div>
+      <div className="dark" style={{ maxWidth: '1100px', margin: '2rem auto', padding: '2rem',  borderRadius: '6px', backgroundColor: 'var(--theme-700)' }}>
+        {intent.map((i) => {
+          return (
+            <div
+              key={i}
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(5, minmax(0, 1fr)',
+                gap: '32px',
+                marginBottom: '32px',
+              }}
+            >
+              {variant.map((v) => {
+                return (
+                  <Button key={`${i}-${v}`} intent={i} variant={v}>{`${capitalize(i)} ${v}`}</Button>
+                )
+              })}
+            </div>
+          )
+        })}
+      </div>
+    </>
   )
 }
 

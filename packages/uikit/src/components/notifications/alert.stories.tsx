@@ -7,23 +7,42 @@ import { Alert as AlertComponent } from './alert.js'
 
 export const Alerts = (): React.JSX.Element => {
   return (
-    <div style={{ maxWidth: '600px', margin: '2rem auto' }}>
-      {intent.map((intent: Intent) => {
-        if (intent !== 'noeffect') {
-          return (
-            <div style={{ marginBottom: '1rem' }} key={intent}>
-              <AlertComponent intent={intent}>
-                This is a {intent} alert - with some additional text here.
-              </AlertComponent>
-            </div>
-          )
-        }
-        return null
-      })}
-      <AlertComponent intent="info" title="This is a title">
-        This is an info alert with a title and with some additional text here.
-      </AlertComponent>
-    </div>
+    <>
+      <div style={{ maxWidth: '600px', margin: '2rem auto', borderRadius: '6px', backgroundColor: 'var(--background)', padding: '1rem' }}>
+        {intent.map((intent: Intent) => {
+          if (intent !== 'noeffect') {
+            return (
+              <div style={{ marginBottom: '1rem' }} key={intent}>
+                <AlertComponent intent={intent}>
+                  This is a {intent} alert - with some additional text here.
+                </AlertComponent>
+              </div>
+            )
+          }
+          return null
+        })}
+        <AlertComponent intent="info" title="This is a title">
+          This is an info alert with a title and with some additional text here.
+        </AlertComponent>
+      </div>
+      <div className="dark" style={{ maxWidth: '600px', margin: '2rem auto', borderRadius: '6px', backgroundColor: 'var(--theme-700)', padding: '1rem' }}>
+        {intent.map((intent: Intent) => {
+          if (intent !== 'noeffect') {
+            return (
+              <div style={{ marginBottom: '1rem' }} key={intent}>
+                <AlertComponent intent={intent}>
+                  This is a {intent} alert - with some additional text here.
+                </AlertComponent>
+              </div>
+            )
+          }
+          return null
+        })}
+        <AlertComponent intent="info" title="This is a title">
+          This is an info alert with a title and with some additional text here.
+        </AlertComponent>
+      </div>
+    </>
   )
 }
 
