@@ -1,5 +1,16 @@
 # @modulus-learning/agent-demo-vanilla
 
+## 5.16.0
+
+### Minor Changes
+
+- 1874439: Fixed width for alert icon.
+
+### Patch Changes
+
+- Updated dependencies [1874439]
+  - @infonomic/uikit@5.16.0
+
 ## 5.15.0
 
 ### Minor Changes
