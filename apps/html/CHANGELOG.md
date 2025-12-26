@@ -1,5 +1,16 @@
 # @modulus-learning/agent-demo-vanilla
 
+## 5.15.0
+
+### Minor Changes
+
+- 429d40b: Correctly implemented weak color tokens (disabled todo).
+
+### Patch Changes
+
+- Updated dependencies [429d40b]
+  - @infonomic/uikit@5.15.0
+
 ## 5.14.0
 
 ### Minor Changes
