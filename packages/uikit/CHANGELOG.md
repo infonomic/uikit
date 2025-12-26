@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 5.16.0
+
+### Minor Changes
+
+- 1874439: Fixed width for alert icon.
+
 ## 5.15.0
 
 ### Minor Changes
