@@ -1,21 +1,24 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
 import { useState } from 'react'
 
+import type { Meta, StoryObj } from '@storybook/react-vite'
+
+import { CalendarIcon } from '../../icons/calendar-icon.js'
 import { capitalize } from '../../utils/capitalize.js'
 import { intent, size } from '../@types/shared.js'
-import { CalendarIcon } from '../../icons/calendar-icon.js'
-import { Chip } from './chip.js'
 import { chipVariant } from './@types/chip.js'
+import { Chip } from './chip.js'
 
 type Story = StoryObj<typeof Chip>
 
 const Row = ({ children }: { children: React.ReactNode }) => (
-  <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', alignItems: 'center' }}>{children}</div>
+  <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', alignItems: 'center' }}>
+    {children}
+  </div>
 )
 
 export const Intents: Story = {
   render: () => (
-     <div style={{ maxWidth: '800px', margin: '2rem auto' }}>
+    <div style={{ maxWidth: '800px', margin: '2rem auto' }}>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
         {intent.map((i) => (
           <Row key={i}>
@@ -32,10 +35,15 @@ export const Intents: Story = {
 
 export const Sizes: Story = {
   render: () => (
-     <div style={{ maxWidth: '800px', margin: '2rem auto' }}>
+    <div style={{ maxWidth: '800px', margin: '2rem auto' }}>
       <Row>
         {size.map((s) => (
-          <Chip variant={"selectable-removable"} selected={true} key={s} size={s}>{`Size ${s}`}</Chip>
+          <Chip
+            variant={'selectable-removable'}
+            selected={true}
+            key={s}
+            size={s}
+          >{`Size ${s}`}</Chip>
         ))}
       </Row>
     </div>
@@ -49,7 +57,11 @@ export const Variants: Story = {
         {chipVariant.map((variant) => (
           <Row key={variant}>
             <Chip variant={variant}>{capitalize(variant)} chip</Chip>
-            <Chip variant={variant} startIcon={<CalendarIcon height="16px" width="16px" />} selected={true}>{`${capitalize(variant)} with icon`}</Chip>
+            <Chip
+              variant={variant}
+              startIcon={<CalendarIcon height="16px" width="16px" />}
+              selected={true}
+            >{`${capitalize(variant)} with icon`}</Chip>
             {(variant === 'removable' || variant === 'selectable-removable') && (
               <Chip variant={variant} onRemove={() => {}}>
                 {`${capitalize(variant)} with remove`}
@@ -85,7 +97,7 @@ export const Selectable: Story = {
 
 export const Removable: Story = {
   render: () => (
-     <div style={{ maxWidth: '800px', margin: '2rem auto' }}>
+    <div style={{ maxWidth: '800px', margin: '2rem auto' }}>
       <Row>
         <Chip
           variant="removable"

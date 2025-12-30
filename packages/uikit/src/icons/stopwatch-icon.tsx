@@ -3,10 +3,8 @@ import type React from 'react'
 import cx from 'classnames'
 
 import { IconElement } from './icon-element'
-
-import type { IconProps } from './types/icon'
-
 import styles from './icons.module.css'
+import type { IconProps } from './types/icon'
 
 export const StopwatchIcon = ({
   className,

@@ -1,14 +1,14 @@
 'use client'
 
+import type React from 'react'
+
 import { Slot } from '@radix-ui/react-slot'
 import cx from 'classnames'
-import type React from 'react'
+
 import { useMediaQuery } from '../../hooks/use-media-query'
-
-import type { PagerButtonProps, RefType } from './pagination'
 import { usePager } from './pagination'
-
 import styles from './pagination.module.css'
+import type { PagerButtonProps, RefType } from './pagination'
 
 export type NumberButtonProps = PagerButtonProps & {
   page: number | null
@@ -74,7 +74,7 @@ export const NumberButton = ({
         aria-label={currentPage === page ? `Current Page, Page ${page}` : `Page ${page}`}
         {...rest}
       >
-        {(asChild ?? false) ? children : <>{page}</>}
+        {(asChild ?? false) ? children : page}
       </Comp>
     </li>
   )

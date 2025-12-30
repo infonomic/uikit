@@ -1,8 +1,8 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import type React from 'react'
 
-import { LoaderRing } from './ring.js'
 import { LoaderEllipsis } from './ellipses.js'
+import { LoaderRing } from './ring.js'
 import { LoaderSpinner } from './spinner.js'
 
 interface LoaderProps {
@@ -35,12 +35,10 @@ export default {
 
 export const Default = (): React.JSX.Element => {
   return (
-    <>
-      <div className="mb-6">
-        <div className="max-w-[700px]">
-          <LoaderDemo />
-        </div>
+    <div className="mb-6">
+      <div className="max-w-[700px]">
+        <LoaderDemo />
       </div>
-    </>
+    </div>
   )
 }

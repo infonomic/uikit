@@ -19,7 +19,7 @@ export default meta
 const DefaultPager = (): React.JSX.Element => {
   const [page, setPage] = React.useState(1)
 
-  const handlePageChange = (event: any, number: number): void => {
+  const handlePageChange = (_event: any, number: number): void => {
     setPage(number)
   }
 
@@ -70,7 +70,7 @@ const DefaultPager = (): React.JSX.Element => {
 const ClassicPager = (): React.JSX.Element => {
   const [page, setPage] = React.useState(1)
 
-  const handlePageChange = (event: any, number: number): void => {
+  const handlePageChange = (_event: any, number: number): void => {
     setPage(number)
   }
 
@@ -124,7 +124,7 @@ const ClassicPager = (): React.JSX.Element => {
 const DashboardPager = (): React.JSX.Element => {
   const [page, setPage] = React.useState(1)
 
-  const handlePageChange = (event: any, number: number): void => {
+  const handlePageChange = (_event: any, number: number): void => {
     setPage(number)
   }
 

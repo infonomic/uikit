@@ -1,7 +1,8 @@
 'use client'
 
+import { type ComponentProps, type MouseEvent, useEffect, useState } from 'react'
+
 import cx from 'classnames'
-import { type ComponentProps, useEffect, useState } from 'react'
 
 import styles from './scroll-to-top.module.css'
 
@@ -28,8 +29,9 @@ export function ScrollToTop({
   ...props
 }: ScrollToTopProps) {
   const [show, setShow] = useState(false)
+  const iconTitle = ariaLabel.trim() ? ariaLabel : 'Scroll to top'
 
-  const handleOnClick = (e: React.MouseEvent<HTMLButtonElement>): void => {
+  const handleOnClick = (e: MouseEvent<HTMLButtonElement>): void => {
     window.scrollTo({ top: offset, left: 0, behavior: 'smooth' })
     onClick?.(e)
   }
@@ -76,6 +78,7 @@ export function ScrollToTop({
           focusable="false"
           viewBox="0 0 51 32"
         >
+          <title>{iconTitle}</title>
           <path d="M25.4,9.8L45.6,30l4.5-4.5L25.4,0.8L0.8,25.4L5.3,30L25.4,9.8z" />
         </svg>
       </span>

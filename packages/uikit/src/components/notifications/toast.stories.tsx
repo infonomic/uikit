@@ -1,10 +1,10 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 
-import type { Meta } from '@storybook/react-vite'
 import React from 'react'
 
-import { Button } from '../button/button.js'
+import type { Meta } from '@storybook/react-vite'
 
+import { Button } from '../button/button.js'
 import { Toast as ToastComponent } from './toast.js'
 
 export const Toast = (): React.JSX.Element => {

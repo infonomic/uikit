@@ -1,6 +1,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+
 import { buildImports, buildTypes } from './build-imports.js'
 
 const __filename = fileURLToPath(import.meta.url)
@@ -22,9 +23,9 @@ if (!fs.existsSync(destDir)) {
 function copyAstroFiles(srcDir, destDir) {
   const files = fs.readdirSync(srcDir)
   // biome-ignore lint/complexity/noForEach: <explanation>
-  files.forEach(file => {
+  files.forEach((file) => {
     const srcFile = path.join(srcDir, file)
-    const destFile = path.join(destDir, file)
+    const _destFile = path.join(destDir, file)
     if (fs.statSync(srcFile).isDirectory()) {
       copyAstroFiles(srcFile, destDir)
     } else if (file.endsWith('.astro')) {
@@ -43,9 +44,9 @@ function copyAstroFiles(srcDir, destDir) {
 function copyCSSModuleFiles(srcDir, destDir) {
   const files = fs.readdirSync(srcDir)
   // biome-ignore lint/complexity/noForEach: <explanation>
-  files.forEach(file => {
+  files.forEach((file) => {
     const srcFile = path.join(srcDir, file)
-    const destFile = path.join(destDir, file)
+    const _destFile = path.join(destDir, file)
     if (fs.statSync(srcFile).isDirectory()) {
       copyCSSModuleFiles(srcFile, destDir)
     } else if (file.endsWith('.module.css')) {

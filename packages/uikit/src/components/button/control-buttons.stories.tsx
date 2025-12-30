@@ -6,7 +6,7 @@ type Story = StoryObj<typeof DirectionalButton>
 
 const ControlsDemo = (): React.JSX.Element => {
   return (
-     <div style={{ maxWidth: '600px', margin: '2rem auto' }}>
+    <div style={{ maxWidth: '600px', margin: '2rem auto' }}>
       <div className="ml-12 mb-6">
         <h2 style={{ fontSize: '1.2rem', margin: '1rem 0' }}>Small</h2>
         <div className="flex items-center gap-4 mb-6">

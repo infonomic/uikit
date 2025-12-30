@@ -1,4 +1,5 @@
 'use client'
+
 /**
  * NOTE: An accordion can be used in a variety of ways, including
  * simple FAQs, complex navigation, and more. As such, we minimally
@@ -7,9 +8,8 @@
 
 import type React from 'react'
 
-import { Accordion as AccordionPrimitive } from 'radix-ui'
-
 import cx from 'classnames'
+import { Accordion as AccordionPrimitive } from 'radix-ui'
 
 import styles from './accordion.module.css'
 

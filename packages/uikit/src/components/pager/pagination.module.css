@@ -1,4 +1,9 @@
-@layer infonomic-base, infonomic-functional, infonomic-utilities, infonomic-theme, infonomic-typography, infonomic-components;
+@layer infonomic-base,
+  infonomic-functional,
+  infonomic-utilities,
+  infonomic-theme,
+  infonomic-typography,
+  infonomic-components;
 
 @layer infonomic-components {
   .pagination-root {
@@ -78,7 +83,6 @@
     font-size: var(--font-size-sm);
   }
 
-
   .previous-button,
   .last-button,
   .next-button,
@@ -118,14 +122,12 @@
     background-color: var(--fill-primary-strong);
   }
 
-
   /* Opinionated mobile */
   .mobile-toggle {
     display: none;
   }
 
-  @media(min-width: 40rem) {
-
+  @media (min-width: 40rem) {
     .mobile-toggle {
       display: flex;
     }

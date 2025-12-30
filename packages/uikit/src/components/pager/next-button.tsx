@@ -1,13 +1,14 @@
 'use client'
 
+import type React from 'react'
+
 import { ChevronRightIcon } from '@radix-ui/react-icons'
 import { Slot } from '@radix-ui/react-slot'
 import cx from 'classnames'
-import type React from 'react'
-import type { PagerButtonProps, RefType } from './pagination'
-import { usePager } from './pagination'
 
+import { usePager } from './pagination'
 import styles from './pagination.module.css'
+import type { PagerButtonProps, RefType } from './pagination'
 
 export type NextButtonProps = PagerButtonProps & {
   page: number | null

@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.1.2/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.3.10/schema.json",
   "vcs": {
     "enabled": true,
     "clientKind": "git",
@@ -7,7 +7,7 @@
   },
   "files": {
     "ignoreUnknown": true,
-    "includes": ["**", "!**/(payload)", "!**/_payload", "!**/*.astro", "!**/tailwind.css"]
+    "includes": ["**", "!**/(payload)", "!**/payload-types.ts", "!**/*.astro", "!**/tailwind.css"]
   },
   "formatter": {
     "enabled": true,
@@ -22,9 +22,27 @@
     "includes": ["**", "!**/dist", "!**/build", "!**/node_modules", "!**/.cache"]
   },
   "assist": {
+    "enabled": true,
     "actions": {
       "source": {
-        "organizeImports": "on"
+        "organizeImports": {
+          "level": "on",
+          "options": {
+            "groups": [
+              ":NODE:",
+              ":URL:",
+              ":BLANK_LINE:",
+              ["react"],
+              ["next/**", "@tanstack/**"],
+              ":BLANK_LINE:",
+              ":PACKAGE:",
+              ":BLANK_LINE:",
+              {
+                "type": false
+              }
+            ]
+          }
+        }
       }
     }
   },
@@ -32,6 +50,10 @@
     "enabled": true,
     "rules": {
       "recommended": true,
+      "correctness": {
+        "noUnusedVariables": "warn",
+        "useUniqueElementIds": "off"
+      },
       "style": {
         "noNonNullAssertion": "info",
         "useSelfClosingElements": "off",
@@ -55,9 +77,6 @@
       },
       "a11y": {
         "useSemanticElements": "off"
-      },
-      "nursery": {
-        "useUniqueElementIds": "off"
       }
     }
   },

@@ -1,5 +1,7 @@
-import cx from 'classnames'
 import type React from 'react'
+
+import cx from 'classnames'
+
 import styles from './shimmer.module.css'
 
 interface ShimmerProps {
@@ -34,7 +36,6 @@ export function Shimmer({
         return styles.text
       case 'circular':
         return styles.circular
-      case 'rectangular':
       default:
         return styles.rectangular
     }

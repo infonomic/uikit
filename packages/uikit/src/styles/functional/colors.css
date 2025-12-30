@@ -2,23 +2,22 @@
  * SEMANTIC / FUNCTIONAL TOKEN LAYER FOR COLORS
  *
  * TODO: Refactor into separate file per token category (e.g., buttons, alerts)
- * 
+ *
  * This layer provides intent-based semantic tokens that automatically switch
  * between light and dark modes. By defining tokens here (in infonomic-theme layer),
  * component CSS can reference them without needing :not(:where([class~="not-dark"]...))
  * selectors, as the theme layer handles all mode switching.
- * 
+ *
  * Token Naming Convention: element-intent-emphasis-state
  * - element: fill (backgrounds), text (foreground), stroke (borders), ring (focus)
  * - intent: primary, secondary, noeffect, success, info, warning, danger
  * - emphasis: strong, weak, weaker (optional)
  * - state: hover, press, focus, disabled (optional)
- * 
+ *
  * Example: --fill-primary-strong-hover
  */
 
 @layer infonomic-functional {
-
   /* ===================================================================
      LIGHT MODE (default)
      =================================================================== */
@@ -62,10 +61,15 @@
        ----------------------------------------------------------------- */
     --fill-secondary-strong: var(--secondary-500);
     --fill-secondary-strong-hover: oklch(from var(--secondary-500) calc(l * 0.95) c h);
-    --fill-secondary-strong-disabled: oklch(from var(--secondary-500) calc(l * 1.1) calc(c * 0.85) h);
+    --fill-secondary-strong-disabled: oklch(
+      from var(--secondary-500) calc(l * 1.1) calc(c * 0.85) h
+    );
     --fill-secondary-weak: oklch(from var(--secondary-500) calc(l * 1.6) calc(c * 0.4) h / 0.7);
     --fill-secondary-weak-hover: oklch(from var(--secondary-500) calc(l * 2) calc(c * 0.4) h / 0.7);
-    --fill-secondary-weak-disabled: oklch(from var(--secondary-500) calc(l * 2) calc(c * 0.4) c h / 0.7);
+    --fill-secondary-weak-disabled: oklch(
+      from var(--secondary-500) calc(l * 2) calc(c * 0.4) c h /
+      0.7
+    );
 
     --text-on-secondary: black;
     --text-on-secondary-disabled: oklch(from black calc(l * 0.9) calc(c * 0.85) h);
@@ -118,7 +122,10 @@
     --fill-success-strong-disabled: oklch(from var(--green-400) calc(l * 1.1) calc(c * 0.85) h);
     --fill-success-weak: oklch(from var(--green-100) calc(l * 1.09) calc(c * 0.85) h / 0.7);
     --fill-success-weak-hover: oklch(from var(--green-100) calc(l * 0.975) calc(c * 0.85) h / 0.7);
-    --fill-success-weak-disabled: oklch(from var(--green-100) calc(l * 1.07) calc(c * 0.85) h / 0.7);
+    --fill-success-weak-disabled: oklch(
+      from var(--green-100) calc(l * 1.07) calc(c * 0.85) h /
+      0.7
+    );
 
     --text-on-success: white;
     --text-on-success-disabled: oklch(from white calc(l * 0.9) calc(c * 0.85) h);
@@ -214,9 +221,7 @@
     --gradient-danger-end: var(--red-700);
     --gradient-danger-foreground: white;
     --gradient-danger-disabled: oklch(from var(--red-700) calc(l * 1.2) calc(c * 0.85) h);
-
   }
-
 
   /* 🌙 Dark via `.dark` class or [data-theme="dark"] attribute. 
    * We rely on the consuming application to detect a user's 
@@ -263,10 +268,18 @@
        ----------------------------------------------------------------- */
     --fill-secondary-strong: var(--secondary-500);
     --fill-secondary-strong-hover: oklch(from var(--secondary-500) calc(l * 0.95) c h);
-    --fill-secondary-strong-disabled: oklch(from var(--secondary-500) calc(l * 0.85) calc(c * 0.85) h);
+    --fill-secondary-strong-disabled: oklch(
+      from var(--secondary-500) calc(l * 0.85) calc(c * 0.85) h
+    );
     --fill-secondary-weak: oklch(from var(--secondary-500) calc(l * 0.5) calc(c * 0.5) h / 0.5);
-    --fill-secondary-weak-hover: oklch(from var(--secondary-500) calc(l * 0.4) calc(c * 0.5) h / 0.5);
-    --fill-secondary-weak-disabled: oklch(from var(--secondary-500) calc(l * 0.4) calc(c * 0.5) h / 0.5);
+    --fill-secondary-weak-hover: oklch(
+      from var(--secondary-500) calc(l * 0.4) calc(c * 0.5) h /
+      0.5
+    );
+    --fill-secondary-weak-disabled: oklch(
+      from var(--secondary-500) calc(l * 0.4) calc(c * 0.5) h /
+      0.5
+    );
 
     --text-on-secondary: black;
     --text-on-secondary-disabled: oklch(from black calc(l * 0.85) calc(c * 0.85) h);
@@ -415,7 +428,6 @@
     --gradient-danger-end: var(--red-700);
     --gradient-danger-foreground: white;
     --gradient-danger-disabled: oklch(from var(--red-700) calc(l * 0.85) calc(c * 0.85) h);
-
   }
 
   /* ===================================================================
@@ -462,10 +474,15 @@
        ----------------------------------------------------------------- */
     --fill-secondary-strong: var(--secondary-500);
     --fill-secondary-strong-hover: oklch(from var(--secondary-500) calc(l * 0.95) c h);
-    --fill-secondary-strong-disabled: oklch(from var(--secondary-500) calc(l * 1.1) calc(c * 0.85) h);
+    --fill-secondary-strong-disabled: oklch(
+      from var(--secondary-500) calc(l * 1.1) calc(c * 0.85) h
+    );
     --fill-secondary-weak: oklch(from var(--secondary-500) calc(l * 1.6) calc(c * 0.4) h / 0.7);
     --fill-secondary-weak-hover: oklch(from var(--secondary-500) calc(l * 2) calc(c * 0.4) h / 0.7);
-    --fill-secondary-weak-disabled: oklch(from var(--secondary-500) calc(l * 2) calc(c * 0.4) c h / 0.7);
+    --fill-secondary-weak-disabled: oklch(
+      from var(--secondary-500) calc(l * 2) calc(c * 0.4) c h /
+      0.7
+    );
 
     --text-on-secondary: black;
     --text-on-secondary-disabled: oklch(from black calc(l * 0.9) calc(c * 0.85) h);
@@ -518,7 +535,10 @@
     --fill-success-strong-disabled: oklch(from var(--green-400) calc(l * 1.1) calc(c * 0.85) h);
     --fill-success-weak: oklch(from var(--green-100) calc(l * 1.09) calc(c * 0.85) h / 0.7);
     --fill-success-weak-hover: oklch(from var(--green-100) calc(l * 0.975) calc(c * 0.85) h / 0.7);
-    --fill-success-weak-disabled: oklch(from var(--green-100) calc(l * 1.07) calc(c * 0.85) h / 0.7);
+    --fill-success-weak-disabled: oklch(
+      from var(--green-100) calc(l * 1.07) calc(c * 0.85) h /
+      0.7
+    );
 
     --text-on-success: white;
     --text-on-success-disabled: oklch(from white calc(l * 0.9) calc(c * 0.85) h);

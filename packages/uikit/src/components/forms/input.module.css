@@ -1,7 +1,11 @@
-@layer infonomic-base, infonomic-functional, infonomic-utilities, infonomic-theme, infonomic-typography, infonomic-components;
+@layer infonomic-base,
+  infonomic-functional,
+  infonomic-utilities,
+  infonomic-theme,
+  infonomic-typography,
+  infonomic-components;
 
 @layer infonomic-components {
-
   .input-wrapper,
   :global(.input-wrapper) {
     display: flex;
@@ -137,7 +141,7 @@
   .underlined.sm,
   :global(.input-underlined.input-sm) {
     padding: 0.25rem 0.1rem;
-    min-height: 26px
+    min-height: 26px;
   }
 
   .underlined.md,
@@ -161,7 +165,6 @@
   :global(.input-filled) {
     background-color: var(--input-variant-filled);
   }
-
 
   /* Error classes last, so that they override all 
     of the above */

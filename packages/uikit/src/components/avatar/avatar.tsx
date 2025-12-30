@@ -1,7 +1,8 @@
 'use client'
 
-import { Avatar as AvatarPrimitive } from 'radix-ui'
 import type React from 'react'
+
+import { Avatar as AvatarPrimitive } from 'radix-ui'
 
 import styles from './avatar.module.css'
 

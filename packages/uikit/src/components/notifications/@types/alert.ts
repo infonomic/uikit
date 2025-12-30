@@ -1,6 +1,3 @@
-/* eslint-disable @typescript-eslint/naming-convention */
-import type { ReactNode } from 'react'
-
 // generic types
 import type { Intent as t } from '../../@types/shared.js'
 

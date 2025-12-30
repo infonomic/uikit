@@ -25,7 +25,7 @@
     will-change: transform, opacity;
 
     &:focus {
-      box-shadow: var(--shadow-md)
+      box-shadow: var(--shadow-md);
     }
 
     &[data-state="open"][data-side="top"] {
@@ -54,7 +54,6 @@
     width: 100%;
     gap: var(--spacing-8);
   }
-
 
   .status-and-actions {
     display: flex;
@@ -124,7 +123,7 @@
 
   .time-picker-scroll-area {
     height: 280px;
-    padding-right: var(--spacing-16)
+    padding-right: var(--spacing-16);
   }
 
   .time-picker {

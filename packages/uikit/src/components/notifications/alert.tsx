@@ -1,18 +1,18 @@
 'use client'
 
-import cx from 'classnames'
 import type React from 'react'
 import { useEffect, useState } from 'react'
+
+import cx from 'classnames'
+
 import { CloseIcon } from '../../icons/close-icon'
 import { DangerIcon } from '../../icons/danger-icon'
 import { InfoIcon } from '../../icons/info-icon'
 import { SuccessIcon } from '../../icons/success-icon'
 import { WarningIcon } from '../../icons/warning-icon'
 import { Button } from '../button/button.js'
-
-import type { Intent } from './@types/alert.js'
-
 import styles from './alert.module.css'
+import type { Intent } from './@types/alert.js'
 
 export interface AlertProps {
   intent?: Intent

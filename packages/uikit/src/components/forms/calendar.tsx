@@ -1,4 +1,5 @@
 'use client'
+
 /**
  * @file Calendar component using react-day-picker and radix-ui
  * @see https://github.com/Maliksidk19/shadcn-datetime-picker/
@@ -7,18 +8,19 @@
  * of https://github.com/Maliksidk19/shadcn-datetime-picker/
  */
 
+import * as React from 'react'
+
 import cx from 'classnames'
 import { Select as SelectPrimitive } from 'radix-ui'
-import * as React from 'react'
 import {
   DayPicker,
   type DayPickerProps,
   type Dropdown as DropDownDayPicker,
 } from 'react-day-picker'
+
 import { ChevronsUpDown } from '../../icons/chevrons-up-down.js'
 import { Button } from '../button/button.js'
 import { ScrollArea } from '../scroll-area/scroll-area.js'
-
 import styles from './calendar.module.css'
 
 export type CalendarProps = DayPickerProps & {

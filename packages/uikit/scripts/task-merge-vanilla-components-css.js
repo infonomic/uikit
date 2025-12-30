@@ -1,12 +1,13 @@
 /**
- * Bundle CSS for vanilla CSS components - i.e. those whose CSS 
+ * Bundle CSS for vanilla CSS components - i.e. those whose CSS
  * can be applied to HTML without a framework.
  */
 
 import { existsSync } from 'node:fs'
 import { readFile, writeFile } from 'node:fs/promises'
-import { resolve, dirname, join } from 'node:path'
+import { dirname, join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
+
 import { transform } from 'lightningcss'
 
 const __filename = fileURLToPath(import.meta.url)
@@ -31,13 +32,12 @@ const componentSources = [
   join(distDir, 'components/forms/error-text_module.css'),
   join(distDir, 'components/forms/help-text_module.css'),
   join(distDir, 'components/section/section_module.css'),
-  join(distDir, 'components/scroll-to-top/scroll-to-top_module.css')
-  
+  join(distDir, 'components/scroll-to-top/scroll-to-top_module.css'),
 ]
 
 async function bundleVanillaCssComponents() {
   console.log('🚀 Bundling Vanilla CSS Components...')
-  
+
   let concatenatedCss = ''
   let foundFiles = 0
 
@@ -45,7 +45,7 @@ async function bundleVanillaCssComponents() {
     if (existsSync(source)) {
       try {
         const content = await readFile(source, 'utf8')
-        concatenatedCss += content + '\n'
+        concatenatedCss += `${content}\n`
         foundFiles++
       } catch (err) {
         console.error(`❌ Error reading ${source}:`, err)
@@ -68,7 +68,7 @@ async function bundleVanillaCssComponents() {
       filename: 'components-vanilla.css',
       code: Buffer.from(concatenatedCss),
       minify: true,
-      sourceMap: false
+      sourceMap: false,
     })
 
     await writeFile(outputFile, code)

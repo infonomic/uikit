@@ -1,5 +1,4 @@
 import type { Preview } from '@storybook/react-vite'
-import React from 'react'
 // Self-hosted fonts for Storybook
 import '../src/styles/local-fonts.css'
 // UI kit styles
@@ -8,8 +7,8 @@ import '../src/styles/styles.css'
 import '../src/styles/typography.css'
 
 import { withThemeByClassName } from '@storybook/addon-themes'
-
 import { Toast as ToastPrimitive } from 'radix-ui'
+
 import { ThemeProvider } from '../src/theme/theme-provider'
 import { DrawerProvider } from '../src/widgets/drawer/drawer-context'
 
@@ -64,7 +63,16 @@ const preview: Preview = {
     options: {
       storySort: {
         method: 'alphabetical',
-        order: ['Base', 'Theme', 'Typography', 'Components', 'Animation', 'Icons', 'Loaders', 'Widgets'],
+        order: [
+          'Base',
+          'Theme',
+          'Typography',
+          'Components',
+          'Animation',
+          'Icons',
+          'Loaders',
+          'Widgets',
+        ],
         locales: '',
       },
     },

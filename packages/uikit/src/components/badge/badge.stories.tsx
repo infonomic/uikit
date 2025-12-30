@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { capitalize } from '../../utils/capitalize.js'
-
 import { intent } from '../@types/shared.js'
 import { Badge } from './badge.js'
 
@@ -18,7 +17,7 @@ const AllIntents = (): React.JSX.Element => {
               marginBottom: '12px',
             }}
           >
-           <Badge key={`${i}`} intent={i}>{`${capitalize(i)}`}</Badge>
+            <Badge key={`${i}`} intent={i}>{`${capitalize(i)}`}</Badge>
           </div>
         )
       })}

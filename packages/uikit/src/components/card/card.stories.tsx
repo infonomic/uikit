@@ -1,7 +1,6 @@
 import type { Meta } from '@storybook/react-vite'
 
 import { Button } from '../button/button.js'
-
 import { Card as CardComponent } from './card.js'
 
 const meta: Meta = {

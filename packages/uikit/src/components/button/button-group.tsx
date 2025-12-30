@@ -1,13 +1,13 @@
 'use client'
 
+import React, { type ComponentPropsWithoutRef, type Ref } from 'react'
+
 import cx from 'classnames'
 import { ToggleGroup as ToggleGroupPrimitive } from 'radix-ui'
-import React, { type ComponentPropsWithoutRef, type Ref, useState } from 'react'
 
-import type { EnableRipple, Intent, Size, Variant } from './@types/button'
 import { Button } from './button'
-
 import styles from './button-group.module.css'
+import type { EnableRipple, Intent, Size, Variant } from './@types/button'
 
 interface ButtonGroupContextType {
   variant?: Variant

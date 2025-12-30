@@ -1,6 +1,6 @@
 {
   "root": false,
-  "extends": ["../../biome.json"],
+  "extends": ["../../biome.jsonc"],
   "linter": {
     "rules": {
       "style": {

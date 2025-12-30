@@ -1,6 +1,6 @@
 /**
  * SURFACE FUNCTIONAL TOKENS
- * 
+ *
  * Semantic tokens for surfaces, backgrounds, shadows, and depth.
  * These tokens define the canvas on which content sits.
  */
@@ -14,17 +14,17 @@
 
     /* SURFACE TOKENS (for panels, dropdowns, menus, lists)
        ----------------------------------------------------------------- */
-    
+
     /* Panel/container backgrounds */
     --surface-panel: var(--canvas-25);
     --surface-panel-elevated: white; /* For dropdowns/popovers with shadow */
     --surface-panel-border: var(--border-color);
-    
+
     /* Item backgrounds (default transparent, inherits panel) */
     --surface-item: transparent;
     --surface-item-hover: var(--canvas-50);
     --surface-item-active: var(--canvas-100);
-    
+
     /* Item text colors */
     --surface-item-text: var(--text);
     --surface-item-text-hover: var(--text);
@@ -45,8 +45,7 @@
    */
   .dark,
   [data-theme="dark"],
-  [data-theme="dark"] ::backdrop 
-  {
+  [data-theme="dark"] ::backdrop {
     --background: var(--canvas-900);
     --foreground: var(--gray-50);
     --shadow: var(--shadow-lg);
@@ -54,17 +53,17 @@
 
     /* SURFACE TOKENS (Dark Mode)
        ----------------------------------------------------------------- */
-    
+
     /* Panel/container backgrounds - slightly elevated from canvas-900 base */
     --surface-panel: var(--canvas-800);
     --surface-panel-elevated: var(--canvas-800);
     --surface-panel-border: var(--border-color);
-    
+
     /* Item backgrounds - lighter than panel for hover/active */
     --surface-item: transparent;
     --surface-item-hover: var(--canvas-700);
     --surface-item-active: var(--canvas-600);
-    
+
     /* Item text colors */
     --surface-item-text: var(--text);
     --surface-item-text-hover: var(--text);
@@ -91,17 +90,17 @@
 
     /* SURFACE TOKENS (Force Light Mode)
        ----------------------------------------------------------------- */
-    
+
     /* Panel/container backgrounds - identical to :root */
     --surface-panel: var(--canvas-25);
     --surface-panel-elevated: white;
     --surface-panel-border: var(--border-color);
-    
+
     /* Item backgrounds */
     --surface-item: transparent;
     --surface-item-hover: var(--canvas-50);
     --surface-item-active: var(--canvas-100);
-    
+
     /* Item text colors */
     --surface-item-text: var(--text);
     --surface-item-text-hover: var(--text);

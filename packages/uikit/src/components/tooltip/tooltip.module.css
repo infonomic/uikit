@@ -1,4 +1,9 @@
-@layer infonomic-base, infonomic-functional, infonomic-utilities, infonomic-theme, infonomic-typography, infonomic-components;
+@layer infonomic-base,
+  infonomic-functional,
+  infonomic-utilities,
+  infonomic-theme,
+  infonomic-typography,
+  infonomic-components;
 
 @layer infonomic-components {
   .tooltip {
@@ -27,14 +32,12 @@
     animation-name: slideLeftAndFade;
   }
 
-
   .tooltip[data-state="delayed-open"][data-side="left"] :global {
     animation-name: slideRightAndFade;
   }
 
   .tooltip[data-state="delayed-open"][data-side="bottom"] :global {
     animation-name: slideUpAndFade;
-
   }
 
   .tooltip-arrow {

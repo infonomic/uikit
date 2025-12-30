@@ -1,7 +1,9 @@
+import { useRef, useState } from 'react'
+
 import type { Meta } from '@storybook/react-vite'
 import { format } from 'date-fns'
-import { useRef, useState } from 'react'
 import type { DateRange } from 'react-day-picker'
+
 import { Button } from '../button/button.js'
 import { Calendar as CalendarComponent } from './calendar.js'
 
@@ -17,8 +19,8 @@ const meta: Meta<typeof CalendarComponent> = {
 export default meta
 
 export const Calendar = (): React.JSX.Element => {
-  const [isOpen, setIsOpen] = useState(false)
-  const [time, setTime] = useState<string>('05:00')
+  const [_isOpen, setIsOpen] = useState(false)
+  const [time, _setTime] = useState<string>('05:00')
   const [date, setDate] = useState<Date>(new Date())
   const [month, setMonth] = useState<Date>(date)
 
@@ -37,7 +39,7 @@ export const Calendar = (): React.JSX.Element => {
           onSelect={(selectedDate: Date) => {
             if (selectedDate) {
               const [hours, minutes] = time.split(':')
-              selectedDate.setHours(Number.parseInt(hours), Number.parseInt(minutes))
+              selectedDate.setHours(Number.parseInt(hours, 10), Number.parseInt(minutes, 10))
               setDate(selectedDate)
               setMonth(selectedDate)
             }
@@ -73,7 +75,7 @@ export const Calendar = (): React.JSX.Element => {
 }
 
 export const Multiple = (): React.JSX.Element => {
-  const [isOpen, setIsOpen] = useState(false)
+  const [_isOpen, setIsOpen] = useState(false)
   const [dates, setDates] = useState<Date[] | undefined>([new Date()])
 
   const calendarRef = useRef<HTMLDivElement | null>(null)
@@ -106,7 +108,7 @@ export const Multiple = (): React.JSX.Element => {
 }
 
 export const Range = (): React.JSX.Element => {
-  const [isOpen, setIsOpen] = useState(false)
+  const [_isOpen, setIsOpen] = useState(false)
   const [dateRange, setDateRange] = useState<DateRange | undefined>(undefined)
 
   const calendarRef = useRef<HTMLDivElement | null>(null)

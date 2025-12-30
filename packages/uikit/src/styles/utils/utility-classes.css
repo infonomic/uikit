@@ -1,12 +1,11 @@
 /**
  * UTILITY CLASSES
- * 
- * A simple utility class collection. NOT designed as a 
- * replacement for Tailwind - but useful for small or simple 
+ *
+ * A simple utility class collection. NOT designed as a
+ * replacement for Tailwind - but useful for small or simple
  * projects as well as uikit development.
  */
 @layer infonomic-utilities {
-
   .sr-only {
     position: absolute;
     width: 1px;
@@ -34,7 +33,7 @@
   .text {
     color: var(--text);
   }
-  
+
   .headings {
     color: var(--headings);
   }
@@ -58,7 +57,7 @@
   }
 
   .dark .external-link::after,
-   [data-theme="dark"] .external-link::after {
+  [data-theme="dark"] .external-link::after {
     background-image: url("/external-link-dark.svg");
   }
 
@@ -131,7 +130,6 @@
     background-color: var(--fill-danger-weak);
     color: var(--text-on-danger);
   }
-
 
   /* ========================================
      TYPOGRAPHY UTILITIES
@@ -953,7 +951,6 @@
     gap: var(--gap-12);
   }
 
-
   .gap-16 {
     gap: var(--gap-16);
   }
@@ -1041,7 +1038,6 @@
   }
 
   @media (min-width: 48rem) {
-
     .md\:grid {
       display: grid;
     }
@@ -1117,19 +1113,19 @@
   .border {
     border-width: var(--border-width-normal);
     border-style: var(--border-style-solid);
-    border-color: var(--border-color)
+    border-color: var(--border-color);
   }
 
   .border-thin {
     border-width: var(--border-width-thin);
     border-style: var(--border-style-solid);
-    border-color: var(--border-color)
+    border-color: var(--border-color);
   }
 
   .border-thick {
     border-width: var(--border-width-thick);
     border-style: var(--border-style-solid);
-    border-color: var(--border-color)
+    border-color: var(--border-color);
   }
 
   .rounded-none {
@@ -1319,7 +1315,6 @@
     .md\:shadow-xl {
       box-shadow: var(--shadow-xl);
     }
-
   }
 
   /* ========================================

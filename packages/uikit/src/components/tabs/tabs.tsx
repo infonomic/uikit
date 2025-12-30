@@ -1,9 +1,9 @@
 'use client'
 
-import cx from 'classnames'
-
-import { Tabs as TabsPrimitive } from 'radix-ui'
 import type * as React from 'react'
+
+import cx from 'classnames'
+import { Tabs as TabsPrimitive } from 'radix-ui'
 
 import styles from './tabs.module.css'
 

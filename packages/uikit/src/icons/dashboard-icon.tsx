@@ -3,10 +3,8 @@ import type React from 'react'
 import cx from 'classnames'
 
 import { IconElement } from './icon-element.jsx'
-
-import type { IconProps } from './types/icon.js'
-
 import styles from './icons.module.css'
+import type { IconProps } from './types/icon.js'
 
 export const DashboardIcon = ({
   className,

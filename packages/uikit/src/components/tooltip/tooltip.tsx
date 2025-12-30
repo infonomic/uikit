@@ -1,7 +1,8 @@
 'use client'
 
-import { Tooltip as TooltipPrimitive } from 'radix-ui'
 import type React from 'react'
+
+import { Tooltip as TooltipPrimitive } from 'radix-ui'
 
 type TooltipIntrinsicProps = React.JSX.IntrinsicElements['div']
 export interface TooltipProps extends TooltipIntrinsicProps {

@@ -1,4 +1,5 @@
 'use client'
+
 /**
  * @file DatePicker component using react-day-picker and radix-ui
  * Portions copyright (c) 2023 Maliksidk19 licensed under the MIT
@@ -6,21 +7,23 @@
  * of https://github.com/Maliksidk19/shadcn-datetime-picker/
  */
 
+import type React from 'react'
+import { useEffect, useRef, useState } from 'react'
+
 import cx from 'classnames'
 import { format } from 'date-fns'
 import { Popover } from 'radix-ui'
-import type React from 'react'
-import { useEffect, useRef, useState } from 'react'
+
 import { Button } from '../../components/button/button.js'
 import { IconButton } from '../../components/button/icon-button.js'
 import { Calendar } from '../../components/forms/calendar.js'
 import { Input } from '../../components/forms/input.js'
 import { InputAdornment } from '../../components/forms/input-adornment.js'
-import type { Intent, Size, Variant } from '../../components/forms/@types/input.js'
 import { ScrollArea } from '../../components/scroll-area/scroll-area.js'
 import { CalendarIcon } from '../../icons/calendar-icon.js'
 import { CloseIcon } from '../../icons/close-icon.js'
 import styles from './datepicker.module.css'
+import type { Intent, Size, Variant } from '../../components/forms/@types/input.js'
 
 export interface DatePickerProps extends React.InputHTMLAttributes<HTMLInputElement> {
   id: string
@@ -208,7 +211,10 @@ export function DatePicker({
                   onSelect={(selectedDate: Date) => {
                     if (selectedDate) {
                       const [hours, minutes] = time.split(':')
-                      selectedDate.setHours(Number.parseInt(hours), Number.parseInt(minutes))
+                      selectedDate.setHours(
+                        Number.parseInt(hours, 10),
+                        Number.parseInt(minutes, 10)
+                      )
                       setDate(selectedDate)
                       setMonth(selectedDate)
                       handleOnDateChange(selectedDate)
@@ -243,7 +249,11 @@ export function DatePicker({
                               setTime(timeValue)
                               if (date) {
                                 const newDate = new Date(date.getTime())
-                                newDate.setHours(Number.parseInt(hour), Number.parseInt(minute), 0)
+                                newDate.setHours(
+                                  Number.parseInt(hour, 10),
+                                  Number.parseInt(minute, 10),
+                                  0
+                                )
                                 setDate(newDate)
                                 handleOnDateChange(newDate)
                               }

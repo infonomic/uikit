@@ -1,9 +1,9 @@
-import type { ReactNode } from 'react'
 import type React from 'react'
-
-import styles from './icons.module.css'
+import type { ReactNode } from 'react'
 
 import cx from 'classnames'
+
+import styles from './icons.module.css'
 
 export interface IconElementProps extends React.ComponentProps<'div'> {
   width?: string

@@ -1,5 +1,6 @@
-import cx from 'classnames'
 import type React from 'react'
+
+import cx from 'classnames'
 
 import styles from './label.module.css'
 

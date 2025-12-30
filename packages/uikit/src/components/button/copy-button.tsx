@@ -1,14 +1,14 @@
 'use client'
 
-import cx from 'classnames'
 import type React from 'react'
 import { useEffect, useState } from 'react'
 
-import { Tooltip } from '../tooltip/tooltip.js'
-import type { ButtonProps } from './button.js'
-import { Button } from './button.js'
+import cx from 'classnames'
 
+import { Tooltip } from '../tooltip/tooltip.js'
+import { Button } from './button.js'
 import styles from './copy-button.module.css'
+import type { ButtonProps } from './button.js'
 
 interface CopyButtonProps extends Omit<ButtonProps, 'children'> {
   text: string

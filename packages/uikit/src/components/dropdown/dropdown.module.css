@@ -1,7 +1,11 @@
-@layer infonomic-base, infonomic-functional, infonomic-utilities, infonomic-theme, infonomic-typography, infonomic-components;
+@layer infonomic-base,
+  infonomic-functional,
+  infonomic-utilities,
+  infonomic-theme,
+  infonomic-typography,
+  infonomic-components;
 
 @layer infonomic-components {
-
   .dropdown-content,
   .dropdown-subcontent {
     z-index: 20;
@@ -32,7 +36,6 @@
       animation-name: slideRightAndFade;
     }
   }
-
 
   .dropdown-item {
     display: flex;
@@ -116,5 +119,4 @@
       transform: translateX(0);
     }
   }
-
 }

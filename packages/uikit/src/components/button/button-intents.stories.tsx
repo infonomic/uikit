@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { capitalize } from '../../utils/capitalize.js'
-
 import { intent } from '../@types/shared.js'
 import { variant } from './@types/button.js'
 import { Button } from './button.js'
@@ -11,7 +10,15 @@ type Story = StoryObj<typeof Button>
 const AllIntents = (): React.JSX.Element => {
   return (
     <>
-      <div style={{ maxWidth: '1100px', margin: '2rem auto', padding: '2rem',  borderRadius: '6px', backgroundColor: 'var(--background)' }}>
+      <div
+        style={{
+          maxWidth: '1100px',
+          margin: '2rem auto',
+          padding: '2rem',
+          borderRadius: '6px',
+          backgroundColor: 'var(--background)',
+        }}
+      >
         {intent.map((i) => {
           return (
             <div
@@ -25,14 +32,27 @@ const AllIntents = (): React.JSX.Element => {
             >
               {variant.map((v) => {
                 return (
-                  <Button key={`${i}-${v}`} intent={i} variant={v}>{`${capitalize(i)} ${v}`}</Button>
+                  <Button
+                    key={`${i}-${v}`}
+                    intent={i}
+                    variant={v}
+                  >{`${capitalize(i)} ${v}`}</Button>
                 )
               })}
             </div>
           )
         })}
       </div>
-      <div className="dark" style={{ maxWidth: '1100px', margin: '2rem auto', padding: '2rem',  borderRadius: '6px', backgroundColor: 'var(--theme-800)' }}>
+      <div
+        className="dark"
+        style={{
+          maxWidth: '1100px',
+          margin: '2rem auto',
+          padding: '2rem',
+          borderRadius: '6px',
+          backgroundColor: 'var(--theme-800)',
+        }}
+      >
         {intent.map((i) => {
           return (
             <div
@@ -46,7 +66,11 @@ const AllIntents = (): React.JSX.Element => {
             >
               {variant.map((v) => {
                 return (
-                  <Button key={`${i}-${v}`} intent={i} variant={v}>{`${capitalize(i)} ${v}`}</Button>
+                  <Button
+                    key={`${i}-${v}`}
+                    intent={i}
+                    variant={v}
+                  >{`${capitalize(i)} ${v}`}</Button>
                 )
               })}
             </div>

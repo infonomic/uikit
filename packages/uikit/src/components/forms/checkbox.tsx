@@ -1,14 +1,15 @@
 'use client'
 
-import { CheckIcon } from '../../icons/check-icon'
-import cx from 'classnames'
-import { Checkbox as CheckboxPrimitive, Label as LabelPrimitive } from 'radix-ui'
 import type * as React from 'react'
 
-import type { Intent, Size, Variant } from './@types/checkbox.js'
+import cx from 'classnames'
+import { Checkbox as CheckboxPrimitive, Label as LabelPrimitive } from 'radix-ui'
+
+import { CheckIcon } from '../../icons/check-icon'
 import styles from './checkbox.module.css'
 import { ErrorText } from './error-text.js'
 import { HelpText } from './help-text.js'
+import type { Intent, Size, Variant } from './@types/checkbox.js'
 
 export interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   id: string
@@ -19,7 +20,7 @@ export interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   intent?: Intent
   reverse?: boolean
   checked?: boolean
-  className?: string,
+  className?: string
   checkBoxClasses?: string
   containerClasses?: string
   componentClasses?: string
@@ -84,7 +85,7 @@ export const Checkbox = function Checkbox({
           </CheckboxPrimitive.Indicator>
         </CheckboxPrimitive.Root>
 
-        { label != null && (
+        {label != null && (
           <LabelPrimitive.Label htmlFor={id} className={cx(styles.label, labelClasses)}>
             {label}
           </LabelPrimitive.Label>

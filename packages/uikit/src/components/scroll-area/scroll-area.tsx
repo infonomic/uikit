@@ -1,7 +1,8 @@
+import type React from 'react'
+
 import cx from 'classnames'
 import { ScrollArea as ScrollAreaPrimitive } from 'radix-ui'
 
-import type React from 'react'
 import styles from './scroll-area.module.css'
 
 interface ScrollAreaProps extends React.ComponentPropsWithoutRef<typeof ScrollAreaPrimitive.Root> {}

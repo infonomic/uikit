@@ -1,5 +1,6 @@
-import cx from 'classnames'
 import type React from 'react'
+
+import cx from 'classnames'
 
 import { IconElement } from './icon-element.jsx'
 import styles from './icons.module.css'
