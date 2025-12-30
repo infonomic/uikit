@@ -1,5 +1,16 @@
 # @modulus-learning/agent-demo-vanilla
 
+## 5.17.0
+
+### Minor Changes
+
+- 4c3d0df: Code clean up / linting, and correct peer dependency for React.
+
+### Patch Changes
+
+- Updated dependencies [4c3d0df]
+  - @infonomic/uikit@5.17.0
+
 ## 5.16.0
 
 ### Minor Changes
