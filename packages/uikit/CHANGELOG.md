@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 5.17.0
+
+### Minor Changes
+
+- 4c3d0df: Code clean up / linting, and correct peer dependency for React.
+
 ## 5.16.0
 
 ### Minor Changes
