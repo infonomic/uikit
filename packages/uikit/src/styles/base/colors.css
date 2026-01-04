@@ -96,22 +96,6 @@
     --gray-900: oklch(from var(--gray-base) calc(l * 0.4) c h);
     --gray-950: oklch(from var(--gray-base) calc(l * 0.3) c h);
 
-    /* Red base */
-    --red-base: oklch(54.27% 0.18 31.76);
-
-    --red-25: oklch(from var(--red-base) calc(l * 2) c h);
-    --red-50: oklch(from var(--red-base) calc(l * 1.75) c h);
-    --red-100: oklch(from var(--red-base) calc(l * 1.5) c h);
-    --red-200: oklch(from var(--red-base) calc(l * 1.25) c h);
-    --red-300: oklch(from var(--red-base) calc(l * 1.1) c h);
-    --red-400: var(--red-base);
-    --red-500: oklch(from var(--red-base) calc(l * 0.95) c h);
-    --red-600: oklch(from var(--red-base) calc(l * 0.9) c h);
-    --red-700: oklch(from var(--red-base) calc(l * 0.85) c h);
-    --red-800: oklch(from var(--red-base) calc(l * 0.8) c h);
-    --red-900: oklch(from var(--red-base) calc(l * 0.75) c h);
-    --red-950: oklch(from var(--red-base) calc(l * 0.7) c h);
-
     /* Green base */
     --green-base: oklch(65.26% 0.18 142.58);
 
@@ -159,5 +143,22 @@
     --yellow-800: oklch(from var(--yellow-base) calc(l * 0.8) c h);
     --yellow-900: oklch(from var(--yellow-base) calc(l * 0.75) c h);
     --yellow-950: oklch(from var(--yellow-base) calc(l * 0.7) c h);
+
+    /* Red base */
+    --red-base: oklch(54.27% 0.18 31.76);
+
+    --red-25: oklch(from var(--red-base) calc(l * 2) c h);
+    --red-50: oklch(from var(--red-base) calc(l * 1.75) c h);
+    --red-100: oklch(from var(--red-base) calc(l * 1.5) c h);
+    --red-200: oklch(from var(--red-base) calc(l * 1.25) c h);
+    --red-300: oklch(from var(--red-base) calc(l * 1.1) c h);
+    --red-400: var(--red-base);
+    --red-500: oklch(from var(--red-base) calc(l * 0.95) c h);
+    --red-600: oklch(from var(--red-base) calc(l * 0.9) c h);
+    --red-700: oklch(from var(--red-base) calc(l * 0.85) c h);
+    --red-800: oklch(from var(--red-base) calc(l * 0.8) c h);
+    --red-900: oklch(from var(--red-base) calc(l * 0.75) c h);
+    --red-950: oklch(from var(--red-base) calc(l * 0.7) c h);
   }
+
 }

@@ -8,7 +8,6 @@ import type { IconProps } from './types/icon.js'
 
 export const CheckIcon = ({ className, svgClassName, ...rest }: IconProps): React.JSX.Element => {
   const applied = cx(styles['fill-current'], svgClassName)
-  console.log('CheckIcon className:', className)
   return (
     <IconElement className={cx('check-icon', className)} {...rest}>
       <svg
