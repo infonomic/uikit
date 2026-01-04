@@ -1,5 +1,16 @@
 # @infonomic/website-astro
 
+## 5.18.0
+
+### Minor Changes
+
+- 9fd32e2: Updaded example tailwind.css, and removed console.log from check-icon.
+
+### Patch Changes
+
+- Updated dependencies [9fd32e2]
+  - @infonomic/uikit@5.18.0
+
 ## 5.17.0
 
 ### Minor Changes
