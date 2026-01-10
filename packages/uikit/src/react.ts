@@ -2,11 +2,15 @@
  * NOTE: We put a .js ending on imports here to satisfy
  * TS / dist output
  */
+
+// Used for creating theme test pages in client applications
 export * from './components/@types/shared.js'
 export * from './components/accordion/accordion.js'
 export * from './components/animation/fade-in-lift.js'
 export * from './components/avatar/avatar.js'
 export * from './components/badge/badge.js'
+// Used for creating theme test pages in client applications
+export { variant as buttonVariant } from './components/button/@types/button.js'
 export * from './components/button/button.js'
 export * from './components/button/button-group.js'
 export * from './components/button/control-buttons.js'
