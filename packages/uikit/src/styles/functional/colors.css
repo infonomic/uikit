@@ -386,13 +386,13 @@
     --fill-primary-strong-hover: oklch(from var(--primary-500) calc(l * 0.9) c h);
     --fill-primary-strong-disabled: oklch(from var(--primary-500) calc(l * 1.1) calc(c * 0.85) h);
 
-    --fill-primary-weak: oklch(from var(--primary-500) calc(l * 2.04) calc(c * 0.2) h / 0.7);
-    --fill-primary-weak-hover: oklch(from var(--primary-500) calc(l * 2) calc(c * 0.2) h / 0.7);
-    --fill-primary-weak-disabled: oklch(from var(--primary-500) calc(l * 2) calc(c * 0.2) h / 0.7);
+    --fill-primary-weak: oklch(from var(--primary-500) calc(l * 1.04) calc(c * 0.9) h / 0.5);
+    --fill-primary-weak-hover: oklch(from var(--primary-500) calc(l * 1) calc(c * 0.9) h / 0.5);
+    --fill-primary-weak-disabled: oklch(from var(--primary-500) calc(l * 1) calc(c * 0.9) h / 0.5);
 
     --fill-primary-outlined: transparent;
-    --fill-primary-outline-hover: oklch(from var(--primary-500) calc(l * 2) calc(c * 0.2) h / 0.7);
-    --fill-primary-outline-disabled: oklch(from var(--primary-500) calc(l * 2) calc(c * 0.2) h / 0.7);
+    --fill-primary-outlined-hover: oklch(from var(--primary-500) calc(l * 0.5) calc(c * 0.9) h / 0.5);
+    --fill-primary-outlined-disabled: oklch(from var(--primary-500) calc(l * 0.5) calc(c * 0.9) h / 0.5);
 
     --fill-primary-text: transparent;
     --fill-primary-text-hover: oklch(from var(--primary-500) calc(l * 2) calc(c * 0.2) h / 0.7);
@@ -403,13 +403,13 @@
     --text-on-primary-strong-hover: var(--primary-600);
     --text-on-primary-strong-disabled: oklch(from white calc(l * 0.9) calc(c * 0.85) h);
 
-    --text-on-primary-weak: oklch(from var(--primary-500) calc(l * 0.7) c h);
+    --text-on-primary-weak: var(--primary-200);
     --text-on-primary-weak-hover: oklch(from var(--primary-600) calc(l * 1.5) calc(c * 0.5) h);
     --text-on-primary-weak-disabled: oklch(from var(--primary-600) calc(l * 1.5) calc(c * 0.5) h);
 
-    --text-on-primary-outlined: oklch(from var(--primary-500) calc(l * 0.7) c h);
-    --text-on-primary-outlined-hover: oklch(from var(--primary-600) calc(l * 1.5) calc(c * 0.5) h);
-    --text-on-primary-outlined-disabled: oklch(from var(--primary-600) calc(l * 1.5) calc(c * 0.5) h);
+    --text-on-primary-outlined: var(--primary-200);
+    --text-on-primary-outlined-hover: oklch(from var(--primary-200) l calc(c * 0.5) h);
+    --text-on-primary-outlined-disabled: oklch(from var(--primary-200) l calc(c * 0.5) h);
 
     --text-primary: var(--primary-300);
     --text-primary-weak: oklch(from var(--primary-300) calc(l * 0.7) c h);
@@ -733,8 +733,8 @@
     --fill-primary-weak-disabled: oklch(from var(--primary-500) calc(l * 2) calc(c * 0.2) h / 0.7);
 
     --fill-primary-outlined: transparent;
-    --fill-primary-outline-hover: oklch(from var(--primary-500) calc(l * 2) calc(c * 0.2) h / 0.7);
-    --fill-primary-outline-disabled: oklch(from var(--primary-500) calc(l * 2) calc(c * 0.2) h / 0.7);
+    --fill-primary-outlined-hover: oklch(from var(--primary-500) calc(l * 2) calc(c * 0.2) h / 0.7);
+    --fill-primary-outlined-disabled: oklch(from var(--primary-500) calc(l * 2) calc(c * 0.2) h / 0.7);
 
     --fill-primary-text: transparent;
     --fill-primary-text-hover: oklch(from var(--primary-500) calc(l * 2) calc(c * 0.2) h / 0.7);
