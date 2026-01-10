@@ -270,9 +270,10 @@ infonomic-components;
     --button-variant-outlined-foreground-disabled: var(--text-on-primary-outlined-disabled);
 
     /* Text */
-    --button-variant-text: transparent;
-    --button-variant-text-foreground: var(--text-primary-weak);
-    --button-variant-text-hover: var(--fill-primary-weak-hover);
+    --button-variant-text: var(--fill-primary-text);
+    --button-variant-text-hover: var(--fill-primary-text-hover);
+    --button-variant-text-foreground: var(--text-primary);
+
 
     /* Gradient */
     --button-variant-gradient-start: var(--gradient-primary-start);
@@ -288,25 +289,26 @@ infonomic-components;
 
     /* Filled */
     --button-variant-filled: var(--fill-secondary-strong);
-    --button-variant-filled-foreground: var(--text-on-secondary);
     --button-variant-filled-hover: var(--fill-secondary-strong-hover);
     --button-variant-filled-disabled: var(--fill-secondary-strong-disabled);
+    --button-variant-filled-foreground: var(--text-on-secondary);
     --button-variant-filled-foreground-disabled: var(--text-on-secondary-disabled);
 
     /* Filled Weak */
     --button-variant-filled-weak: var(--fill-secondary-weak);
-    --button-variant-filled-weak-foreground: var(--text-secondary-weak);
     --button-variant-filled-weak-hover: var(--fill-secondary-weak-hover);
     --button-variant-filled-weak-disabled: var(--fill-secondary-weak-disabled);
-    --button-variant-filled-weak-foreground-disabled: var(--text-secondary-weak-disabled);
+    --button-variant-filled-weak-foreground: var(--text-on-secondary-weak);
+    --button-variant-filled-weak-foreground-disabled: var(--text-on-secondary-weak-disabled);
 
     /* Outlined */
-    --button-variant-outlined: transparent;
-    --button-variant-outlined-foreground: var(--text-secondary-strong);
-    --button-variant-outlined-hover: var(--fill-secondary-weak);
+    --button-variant-outlined: var(--fill-secondary-outlined);
     --button-variant-outlined-border: var(--stroke-secondary);
     --button-variant-outlined-border-disabled: var(--stroke-secondary-disabled);
-    --button-variant-outlined-foreground-disabled: var(--text-secondary-disabled);
+    --button-variant-outlined-hover: var(--fill-secondary-outlined-hover);
+    --button-variant-outlined-foreground: var(--text-on-secondary-outlined);
+    --button-variant-outlined-foreground-disabled: var(--text-on-secondary-outlined-disabled);
+
 
     /* Text */
     --button-variant-text: transparent;

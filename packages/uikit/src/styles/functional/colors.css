@@ -35,9 +35,13 @@
     --fill-primary-weak-hover: oklch(from var(--primary-500) calc(l * 2) calc(c * 0.2) h / 0.7);
     --fill-primary-weak-disabled: oklch(from var(--primary-500) calc(l * 2) calc(c * 0.2) h / 0.7);
 
-    --fill-primary-outline: transparent;
-    --fill-primary-outline-hover: oklch(from var(--primary-500) calc(l * 2) calc(c * 0.2) h / 0.7);
-    --fill-primary-outline-disabled: oklch(from var(--primary-500) calc(l * 2) calc(c * 0.2) h / 0.7);
+    --fill-primary-outlined: transparent;
+    --fill-primary-outlined-hover: oklch(from var(--primary-500) calc(l * 2) calc(c * 0.2) h / 0.7);
+    --fill-primary-outlined-disabled: oklch(from var(--primary-500) calc(l * 2) calc(c * 0.2) h / 0.7);
+
+    --fill-primary-text: transparent;
+    --fill-primary-text-hover: oklch(from var(--primary-500) calc(l * 2) calc(c * 0.2) h / 0.7);
+    --fill-primary-text-disabled: oklch(from var(--primary-500) calc(l * 2) calc(c * 0.2) h / 0.7);
 
     /* Text tokens - for text/icons on top of fills */
     --text-on-primary-strong: white;
@@ -54,6 +58,7 @@
 
     --text-primary: var(--primary-500);
     --text-primary-weak: oklch(from var(--primary-500) calc(l * 0.7) c h);
+    --text-primary-hover: oklch(from var(--primary-500) calc(l * 0.7) c h);
     --text-primary-disabled: oklch(from var(--primary-500) calc(l * 1.5) calc(c * 0.5) h);
 
     /* Stroke tokens - for borders */
@@ -86,6 +91,10 @@
     --fill-secondary-outlined-hover: oklch(from var(--secondary-500) calc(l * 2) calc(c * 0.4) h / 0.7);
     --fill-secondary-outlined-disabled: oklch(from var(--secondary-500) calc(l * 2) calc(c * 0.4) c h / 0.7);
 
+    --fill-secondary-text: transparent;
+    --fill-secondary-text-hover: oklch(from var(--secondary-500) calc(l * 2) calc(c * 0.4) h / 0.7);
+    --fill-secondary-text-disabled: oklch(from var(--secondary-500) calc(l * 2) calc(c * 0.4) c h / 0.7);
+
     /* Text tokens - for text/icons on top of fills */
     --text-on-secondary-strong: black;
     --text-on-secondary-strong-disabled: oklch(from black calc(l * 0.9) calc(c * 0.85) h);
@@ -95,12 +104,13 @@
     --text-on-secondary-weak-hover: oklch(from var(--secondary-950) calc(l * 1.5) calc(c * 0.5) h);
     --text-on-secondary-weak-disabled: oklch(from var(--secondary-950) calc(l * 1.5) calc(c * 0.5) h);
 
-    --text-on-secondary-outlined: oklch(from var(--secondary-500) calc(l * 0.7) c h);
+    --text-on-secondary-outlined: var(--secondary-800);
     --text-on-secondary-outlined-hover: oklch(from var(--secondary-950) calc(l * 1.5) calc(c * 0.5) h);
     --text-on-secondary-outlined-disabled: oklch(from var(--secondary-950) calc(l * 1.5) calc(c * 0.5) h);
 
     --text-secondary: var(--secondary-500);
     --text-secondary-weak: oklch(from var(--secondary-500) calc(l * 0.7) c h);
+    --text-secondary-hover: oklch(from var(--secondary-500) calc(l * 0.7) c h);
     --text-secondary-disabled: oklch(from var(--secondary-500) calc(l * 1.5) calc(c * 0.5) h);
 
     --stroke-secondary: var(--secondary-700);
@@ -142,8 +152,13 @@
     --text-on-noeffect-outlined-hover: oklch(from var(--gray-800) calc(l * 1.5) calc(c * 0.5) h);
     --text-on-noeffect-outlined-disabled: oklch(from var(--gray-800) calc(l * 1.5) calc(c * 0.5) h);
 
+    --text-on-noeffect-text: oklch(from var(--gray-100) calc(l * 0.5) c h);
+    --text-on-noeffect-text-hover: oklch(from var(--gray-800) calc(l * 1.5) calc(c * 0.5) h);
+    --text-on-noeffect-text-disabled: oklch(from var(--gray-800) calc(l * 1.5) calc(c * 0.5) h);
+
     --text-noeffect: var(--gray-600);
     --text-noeffect-weak: oklch(from var(--gray-400) calc(l * 0.7) c h);
+    --text-noeffect-hover: oklch(from var(--gray-400) calc(l * 0.7) c h);
     --text-noeffect-disabled: oklch(from var(--gray-600) calc(l * 1.5) calc(c * 0.5) h);
 
     --stroke-noeffect: var(--gray-500);
@@ -173,6 +188,10 @@
     --fill-success-outlined-hover: oklch(from var(--green-100) calc(l * 0.975) calc(c * 0.85) h / 0.7);
     --fill-success-outlined-disabled: oklch(from var(--green-100) calc(l * 1.07) calc(c * 0.85) h / 0.7);
 
+    --fill-success-text: transparent;
+    --fill-success-text-hover: oklch(from var(--green-100) calc(l * 0.975) calc(c * 0.85) h / 0.7);
+    --fill-success-text-disabled: oklch(from var(--green-100) calc(l * 1.07) calc(c * 0.85) h / 0.7);
+
     /* Text tokens - for text/icons on top of fills */
     --text-on-success-strong: white;
     --text-on-success-strong-hover: oklch(from white calc(l * 0.9) calc(c * 0.85) h);
@@ -188,6 +207,7 @@
 
     --text-success: var(--green-600);
     --text-success-weak: oklch(from var(--green-400) calc(l * 0.7) c h);
+    --text-success-hover: oklch(from var(--green-400) calc(l * 0.7) c h);
     --text-success-disabled: oklch(from var(--green-600) calc(l * 1.5) calc(c * 0.5) h);
 
     --stroke-success: var(--green-600);
@@ -217,6 +237,10 @@
     --fill-info-outlined-hover: oklch(from var(--blue-400) calc(l * 1.7) calc(c * 0.2) h / 0.7);
     --fill-info-outlined-disabled: oklch(from var(--blue-400) calc(l * 1.8) calc(c * 0.2) h / 0.7);
 
+    --fill-info-text: transparent;
+    --fill-info-text-hover: oklch(from var(--blue-400) calc(l * 1.7) calc(c * 0.2) h / 0.7);
+    --fill-info-text-disabled: oklch(from var(--blue-400) calc(l * 1.8) calc(c * 0.2) h / 0.7);
+
     /* Text tokens - for text/icons on top of fills */
     --text-on-info-strong: white;
     --text-on-info-strong-hover: oklch(from white calc(l * 0.9) calc(c * 0.85) h);
@@ -232,6 +256,7 @@
 
     --text-info: var(--blue-300);
     --text-info-weak: oklch(from var(--blue-400) calc(l * 0.7) c h);
+    --text-info-hover: oklch(from var(--blue-400) calc(l * 0.7) c h);
     --text-info-disabled: oklch(from var(--blue-300) calc(l * 1.5) calc(c * 0.5) h);
 
     --stroke-info: var(--blue-500);
@@ -260,6 +285,10 @@
     --fill-warning-outlined-hover: oklch(from var(--yellow-300) calc(l * 1.15) calc(c * 0.5) h / 0.7);
     --fill-warning-outlined-disabled: oklch(from var(--yellow-300) calc(l * 1.8) calc(c * 0.5) h / 0.7);
 
+    --fill-warning-text: transparent;
+    --fill-warning-text-hover: oklch(from var(--yellow-300) calc(l * 1.15) calc(c * 0.5) h / 0.7);
+    --fill-warning-text-disabled: oklch(from var(--yellow-300) calc(l * 1.8) calc(c * 0.5) h / 0.7);
+
     /* Text tokens - for text/icons on top of fills */
     --text-on-warning-strong: black;
     --text-on-warning-strong-hover: oklch(from black calc(l * 0.9) calc(c * 0.85) h);
@@ -275,6 +304,7 @@
 
     --text-warning: var(--yellow-700);
     --text-warning-weak: oklch(from var(--yellow-300) calc(l * 0.6) c h);
+    --text-warning-hover: oklch(from var(--yellow-300) calc(l * 0.6) c h);
     --text-warning-disabled: oklch(from var(--yellow-700) calc(l * 1.5) calc(c * 0.5) h);
 
     --stroke-warning: var(--yellow-500);
@@ -304,6 +334,10 @@
     --fill-danger-outlined-hover: oklch(from var(--red-300) calc(l * 1.65) calc(c * 0.5) h / 0.7);
     --fill-danger-outlined-disabled: oklch(from var(--red-300) calc(l * 1.65) calc(c * 0.5) h / 0.7);
 
+    --fill-danger-text: transparent;
+    --fill-danger-text-hover: oklch(from var(--red-300) calc(l * 1.65) calc(c * 0.5) h / 0.7);
+    --fill-danger-text-disabled: oklch(from var(--red-300) calc(l * 1.65) calc(c * 0.5) h / 0.7);
+
     /* Text tokens - for text/icons on top of fills */
     --text-on-danger-strong: white;
     --text-on-danger-strong-hover: oklch(from white calc(l * 0.9) calc(c * 0.85) h);
@@ -319,6 +353,7 @@
 
     --text-danger: var(--red-500);
     --text-danger-weak: oklch(from var(--red-400) calc(l * 0.7) c h);
+    --text-danger-hover: oklch(from var(--red-400) calc(l * 0.7) c h);
     --text-danger-disabled: oklch(from var(--red-500) calc(l * 1.5) calc(c * 0.5) h);
 
     --stroke-danger: var(--red-500);
@@ -355,9 +390,13 @@
     --fill-primary-weak-hover: oklch(from var(--primary-500) calc(l * 2) calc(c * 0.2) h / 0.7);
     --fill-primary-weak-disabled: oklch(from var(--primary-500) calc(l * 2) calc(c * 0.2) h / 0.7);
 
-    --fill-primary-outline: transparent;
+    --fill-primary-outlined: transparent;
     --fill-primary-outline-hover: oklch(from var(--primary-500) calc(l * 2) calc(c * 0.2) h / 0.7);
     --fill-primary-outline-disabled: oklch(from var(--primary-500) calc(l * 2) calc(c * 0.2) h / 0.7);
+
+    --fill-primary-text: transparent;
+    --fill-primary-text-hover: oklch(from var(--primary-500) calc(l * 2) calc(c * 0.2) h / 0.7);
+    --fill-primary-text-disabled: oklch(from var(--primary-500) calc(l * 2) calc(c * 0.2) h / 0.7);
 
     /* Text tokens - for text/icons on top of fills */
     --text-on-primary-strong: white;
@@ -374,6 +413,7 @@
 
     --text-primary: var(--primary-300);
     --text-primary-weak: oklch(from var(--primary-300) calc(l * 0.7) c h);
+    --text-primary-hover: oklch(from var(--primary-300) calc(l * 0.7) c h);
     --text-primary-disabled: oklch(from var(--primary-300) calc(l * 1.5) calc(c * 0.5) h);
 
     /* Stroke tokens */
@@ -405,6 +445,10 @@
     --fill-secondary-outlined-hover: oklch(from var(--secondary-500) calc(l * 2) calc(c * 0.4) h / 0.7);
     --fill-secondary-outlined-disabled: oklch(from var(--secondary-500) calc(l * 2) calc(c * 0.4) c h / 0.7);
 
+    --fill-secondary-text: transparent;
+    --fill-secondary-text-hover: oklch(from var(--secondary-500) calc(l * 2) calc(c * 0.4) h / 0.7);
+    --fill-secondary-text-disabled: oklch(from var(--secondary-500) calc(l * 2) calc(c * 0.4) c h / 0.7);
+
     /* Text tokens - for text/icons on top of fills */
     --text-on-secondary-strong: black;
     --text-on-secondary-strong-disabled: oklch(from black calc(l * 0.9) calc(c * 0.85) h);
@@ -420,6 +464,7 @@
 
     --text-secondary: var(--secondary-500);
     --text-secondary-weak: oklch(from var(--secondary-500) calc(l * 0.7) c h);
+    --text-secondary-hover: oklch(from var(--secondary-500) calc(l * 0.7) c h);
     --text-secondary-disabled: oklch(from var(--secondary-500) calc(l * 1.5) calc(c * 0.5) h);
 
     --stroke-secondary: var(--secondary-500);
@@ -448,6 +493,10 @@
     --fill-noeffect-outlined-hover: oklch(from var(--gray-100) calc(l * 1.05) c h / 0.7);
     --fill-noeffect-outlined-disabled: oklch(from var(--gray-100) calc(l * 1.07) c h / 0.7);
 
+    --fill-noeffect-text: transparent;
+    --fill-noeffect-text-hover: oklch(from var(--gray-100) calc(l * 1.05) c h / 0.7);
+    --fill-noeffect-text-disabled: oklch(from var(--gray-100) calc(l * 1.07) c h / 0.7);
+
     /* Text tokens - for text/icons on top of fills */
     --text-on-noeffect-strong: black;
     --text-on-noeffect-strong-hover: oklch(from black calc(l * 0.9) calc(c * 0.85) h);
@@ -463,6 +512,7 @@
 
     --text-noeffect: var(--gray-400);
     --text-noeffect-weak: oklch(from var(--gray-400) calc(l * 0.7) c h);
+    --text-noeffect-hover: oklch(from var(--gray-400) calc(l * 0.7) c h);
     --text-noeffect-disabled: oklch(from var(--gray-400) calc(l * 1.5) calc(c * 0.5) h);
 
     --stroke-noeffect: var(--gray-500);
@@ -492,6 +542,10 @@
     --fill-success-outlined-hover: oklch(from var(--green-100) calc(l * 0.975) calc(c * 0.85) h / 0.7);
     --fill-success-outlined-disabled: oklch(from var(--green-100) calc(l * 1.07) calc(c * 0.85) h / 0.7);
 
+    --fill-success-text: transparent;
+    --fill-success-text-hover: oklch(from var(--green-100) calc(l * 0.975) calc(c * 0.85) h / 0.7);
+    --fill-success-text-disabled: oklch(from var(--green-100) calc(l * 1.07) calc(c * 0.85) h / 0.7);
+
     /* Text tokens - for text/icons on top of fills */
     --text-on-success-strong: white;
     --text-on-success-strong-hover: oklch(from white calc(l * 0.9) calc(c * 0.85) h);
@@ -507,6 +561,7 @@
 
     --text-success: var(--green-400);
     --text-success-weak: oklch(from var(--green-400) calc(l * 0.7) c h);
+    --text-success-hover: oklch(from var(--green-400) calc(l * 0.7) c h);
     --text-success-disabled: oklch(from var(--green-600) calc(l * 1.5) calc(c * 0.5) h);
 
     --ring-success: var(--green-400);
@@ -531,6 +586,10 @@
     --fill-info-outlined-hover: oklch(from var(--blue-400) calc(l * 1.7) calc(c * 0.2) h / 0.7);
     --fill-info-outlined-disabled: oklch(from var(--blue-400) calc(l * 1.8) calc(c * 0.2) h / 0.7);
 
+    --fill-info-text: transparent;
+    --fill-info-text-hover: oklch(from var(--blue-400) calc(l * 1.7) calc(c * 0.2) h / 0.7);
+    --fill-info-text-disabled: oklch(from var(--blue-400) calc(l * 1.8) calc(c * 0.2) h / 0.7);
+
     /* Text tokens - for text/icons on top of fills */
     --text-on-info-strong: white;
     --text-on-info-strong-hover: oklch(from white calc(l * 0.9) calc(c * 0.85) h);
@@ -546,6 +605,7 @@
 
     --text-info: var(--blue-400);
     --text-info-weak: oklch(from var(--blue-400) calc(l * 0.7) c h);
+    --text-info-hover: oklch(from var(--blue-400) calc(l * 0.7) c h);
     --text-info-disabled: oklch(from var(--blue-500) calc(l * 1.5) calc(c * 0.5) h);
 
     --stroke-info: var(--blue-500);
@@ -574,6 +634,10 @@
     --fill-warning-outlined-hover: oklch(from var(--yellow-300) calc(l * 1.15) calc(c * 0.5) h / 0.7);
     --fill-warning-outlined-disabled: oklch(from var(--yellow-300) calc(l * 1.8) calc(c * 0.5) h / 0.7);
 
+    --fill-warning-text: transparent;
+    --fill-warning-text-hover: oklch(from var(--yellow-300) calc(l * 1.15) calc(c * 0.5) h / 0.7);
+    --fill-warning-text-disabled: oklch(from var(--yellow-300) calc(l * 1.8) calc(c * 0.5) h / 0.7);
+
     /* Text tokens - for text/icons on top of fills */
     --text-on-warning-strong: black;
     --text-on-warning-strong-hover: oklch(from black calc(l * 0.9) calc(c * 0.85) h);
@@ -589,6 +653,7 @@
 
     --text-warning: var(--yellow-700);
     --text-warning-weak: oklch(from var(--yellow-300) calc(l * 0.6) c h);
+    --text-warning-hover: oklch(from var(--yellow-300) calc(l * 0.6) c h);
     --text-warning-disabled: oklch(from var(--yellow-700) calc(l * 1.5) calc(c * 0.5) h);
 
     --stroke-warning: var(--yellow-500);
@@ -617,6 +682,10 @@
     --fill-danger-outlined: transparent;
     --fill-danger-outlined-hover: oklch(from var(--red-300) calc(l * 1.65) calc(c * 0.5) h / 0.7);
     --fill-danger-outlined-disabled: oklch(from var(--red-300) calc(l * 1.65) calc(c * 0.5) h / 0.7);
+
+    --fill-danger-text: transparent;
+    --fill-danger-text-hover: oklch(from var(--red-300) calc(l * 1.65) calc(c * 0.5) h / 0.7);
+    --fill-danger-text-disabled: oklch(from var(--red-300) calc(l * 1.65) calc(c * 0.5) h / 0.7);
 
     /* Text tokens - for text/icons on top of fills */
     --text-on-danger-strong: white;
@@ -663,9 +732,13 @@
     --fill-primary-weak-hover: oklch(from var(--primary-500) calc(l * 2) calc(c * 0.2) h / 0.7);
     --fill-primary-weak-disabled: oklch(from var(--primary-500) calc(l * 2) calc(c * 0.2) h / 0.7);
 
-    --fill-primary-outline: transparent;
+    --fill-primary-outlined: transparent;
     --fill-primary-outline-hover: oklch(from var(--primary-500) calc(l * 2) calc(c * 0.2) h / 0.7);
     --fill-primary-outline-disabled: oklch(from var(--primary-500) calc(l * 2) calc(c * 0.2) h / 0.7);
+
+    --fill-primary-text: transparent;
+    --fill-primary-text-hover: oklch(from var(--primary-500) calc(l * 2) calc(c * 0.2) h / 0.7);
+    --fill-primary-text-disabled: oklch(from var(--primary-500) calc(l * 2) calc(c * 0.2) h / 0.7);
 
     /* Text tokens - for text/icons on top of fills */
     --text-on-primary-strong: white;
@@ -682,6 +755,7 @@
 
     --text-primary: var(--primary-500);
     --text-primary-weak: oklch(from var(--primary-500) calc(l * 0.7) c h);
+    --text-primary-hover: oklch(from var(--primary-500) calc(l * 0.7) c h);
     --text-primary-disabled: oklch(from var(--primary-500) calc(l * 1.5) calc(c * 0.5) h);
 
     /* Stroke tokens - for borders */
@@ -714,6 +788,10 @@
     --fill-secondary-outlined-hover: oklch(from var(--secondary-500) calc(l * 2) calc(c * 0.4) h / 0.7);
     --fill-secondary-outlined-disabled: oklch(from var(--secondary-500) calc(l * 2) calc(c * 0.4) c h / 0.7);
 
+    --fill-secondary-text: transparent;
+    --fill-secondary-text-hover: oklch(from var(--secondary-500) calc(l * 2) calc(c * 0.4) h / 0.7);
+    --fill-secondary-text-disabled: oklch(from var(--secondary-500) calc(l * 2) calc(c * 0.4) c h / 0.7);
+
     /* Text tokens - for text/icons on top of fills */
     --text-on-secondary-strong: black;
     --text-on-secondary-strong-disabled: oklch(from black calc(l * 0.9) calc(c * 0.85) h);
@@ -729,6 +807,7 @@
 
     --text-secondary: var(--secondary-500);
     --text-secondary-weak: oklch(from var(--secondary-500) calc(l * 0.7) c h);
+    --text-secondary-hover: oklch(from var(--secondary-500) calc(l * 0.7) c h);
     --text-secondary-disabled: oklch(from var(--secondary-500) calc(l * 1.5) calc(c * 0.5) h);
 
     --stroke-secondary: var(--secondary-700);
@@ -770,8 +849,13 @@
     --text-on-noeffect-outlined-hover: oklch(from var(--gray-800) calc(l * 1.5) calc(c * 0.5) h);
     --text-on-noeffect-outlined-disabled: oklch(from var(--gray-800) calc(l * 1.5) calc(c * 0.5) h);
 
+    --text-on-noeffect-text: oklch(from var(--gray-100) calc(l * 0.5) c h);
+    --text-on-noeffect-text-hover: oklch(from var(--gray-800) calc(l * 1.5) calc(c * 0.5) h);
+    --text-on-noeffect-text-disabled: oklch(from var(--gray-800) calc(l * 1.5) calc(c * 0.5) h);
+
     --text-noeffect: var(--gray-600);
     --text-noeffect-weak: oklch(from var(--gray-400) calc(l * 0.7) c h);
+    --text-noeffect-hover: oklch(from var(--gray-400) calc(l * 0.7) c h);
     --text-noeffect-disabled: oklch(from var(--gray-600) calc(l * 1.5) calc(c * 0.5) h);
 
     --stroke-noeffect: var(--gray-500);
@@ -801,6 +885,10 @@
     --fill-success-outlined-hover: oklch(from var(--green-100) calc(l * 0.975) calc(c * 0.85) h / 0.7);
     --fill-success-outlined-disabled: oklch(from var(--green-100) calc(l * 1.07) calc(c * 0.85) h / 0.7);
 
+    --fill-success-text: transparent;
+    --fill-success-text-hover: oklch(from var(--green-100) calc(l * 0.975) calc(c * 0.85) h / 0.7);
+    --fill-success-text-disabled: oklch(from var(--green-100) calc(l * 1.07) calc(c * 0.85) h / 0.7);
+
     /* Text tokens - for text/icons on top of fills */
     --text-on-success-strong: white;
     --text-on-success-strong-hover: oklch(from white calc(l * 0.9) calc(c * 0.85) h);
@@ -816,6 +904,7 @@
 
     --text-success: var(--green-600);
     --text-success-weak: oklch(from var(--green-400) calc(l * 0.7) c h);
+    --text-success-hover: oklch(from var(--green-400) calc(l * 0.7) c h);
     --text-success-disabled: oklch(from var(--green-600) calc(l * 1.5) calc(c * 0.5) h);
 
     --stroke-success: var(--green-600);
@@ -845,6 +934,10 @@
     --fill-info-outlined-hover: oklch(from var(--blue-400) calc(l * 1.7) calc(c * 0.2) h / 0.7);
     --fill-info-outlined-disabled: oklch(from var(--blue-400) calc(l * 1.8) calc(c * 0.2) h / 0.7);
 
+    --fill-info-text: transparent;
+    --fill-info-text-hover: oklch(from var(--blue-400) calc(l * 1.7) calc(c * 0.2) h / 0.7);
+    --fill-info-text-disabled: oklch(from var(--blue-400) calc(l * 1.8) calc(c * 0.2) h / 0.7);
+
     /* Text tokens - for text/icons on top of fills */
     --text-on-info-strong: white;
     --text-on-info-strong-hover: oklch(from white calc(l * 0.9) calc(c * 0.85) h);
@@ -860,6 +953,7 @@
 
     --text-info: var(--blue-300);
     --text-info-weak: oklch(from var(--blue-400) calc(l * 0.7) c h);
+    --text-info-hover: oklch(from var(--blue-400) calc(l * 0.7) c h);
     --text-info-disabled: oklch(from var(--blue-300) calc(l * 1.5) calc(c * 0.5) h);
 
     --stroke-info: var(--blue-500);
@@ -888,6 +982,10 @@
     --fill-warning-outlined-hover: oklch(from var(--yellow-300) calc(l * 1.15) calc(c * 0.5) h / 0.7);
     --fill-warning-outlined-disabled: oklch(from var(--yellow-300) calc(l * 1.8) calc(c * 0.5) h / 0.7);
 
+    --fill-warning-text: transparent;
+    --fill-warning-text-hover: oklch(from var(--yellow-300) calc(l * 1.15) calc(c * 0.5) h / 0.7);
+    --fill-warning-text-disabled: oklch(from var(--yellow-300) calc(l * 1.8) calc(c * 0.5) h / 0.7);
+
     /* Text tokens - for text/icons on top of fills */
     --text-on-warning-strong: black;
     --text-on-warning-strong-hover: oklch(from black calc(l * 0.9) calc(c * 0.85) h);
@@ -903,6 +1001,7 @@
 
     --text-warning: var(--yellow-700);
     --text-warning-weak: oklch(from var(--yellow-300) calc(l * 0.6) c h);
+    --text-warning-hover: oklch(from var(--yellow-300) calc(l * 0.6) c h);
     --text-warning-disabled: oklch(from var(--yellow-700) calc(l * 1.5) calc(c * 0.5) h);
 
     --stroke-warning: var(--yellow-500);
@@ -932,6 +1031,10 @@
     --fill-danger-outlined-hover: oklch(from var(--red-300) calc(l * 1.65) calc(c * 0.5) h / 0.7);
     --fill-danger-outlined-disabled: oklch(from var(--red-300) calc(l * 1.65) calc(c * 0.5) h / 0.7);
 
+    --fill-danger-text: transparent;
+    --fill-danger-text-hover: oklch(from var(--red-300) calc(l * 1.65) calc(c * 0.5) h / 0.7);
+    --fill-danger-text-disabled: oklch(from var(--red-300) calc(l * 1.65) calc(c * 0.5) h / 0.7);
+
     /* Text tokens - for text/icons on top of fills */
     --text-on-danger-strong: white;
     --text-on-danger-strong-hover: oklch(from white calc(l * 0.9) calc(c * 0.85) h);
@@ -947,6 +1050,7 @@
 
     --text-danger: var(--red-500);
     --text-danger-weak: oklch(from var(--red-400) calc(l * 0.7) c h);
+    --text-danger-hover: oklch(from var(--red-400) calc(l * 0.7) c h);
     --text-danger-disabled: oklch(from var(--red-500) calc(l * 1.5) calc(c * 0.5) h);
 
     --stroke-danger: var(--red-500);
