@@ -328,30 +328,32 @@ infonomic-components;
 
     /* Filled */
     --button-variant-filled: var(--fill-noeffect-strong);
-    --button-variant-filled-foreground: var(--text-on-noeffect);
     --button-variant-filled-hover: var(--fill-noeffect-strong-hover);
     --button-variant-filled-disabled: var(--fill-noeffect-strong-disabled);
-    --button-variant-filled-foreground-disabled: var(--text-on-noeffect-disabled);
+    --button-variant-filled-foreground: var(--text-on-noeffect-strong);
+    --button-variant-filled-foreground-disabled: var(--text-on-noeffect-strong-disabled);
 
     /* Filled Weak */
     --button-variant-filled-weak: var(--fill-noeffect-weak);
-    --button-variant-filled-weak-foreground: var(--text-on-noeffect);
     --button-variant-filled-weak-hover: var(--fill-noeffect-weak-hover);
     --button-variant-filled-weak-disabled: var(--fill-noeffect-weak-disabled);
-    --button-variant-filled-weak-foreground-disabled: var(--text-on-noeffect-disabled);
+    --button-variant-filled-weak-foreground: var(--text-on-noeffect-weak);
+    --button-variant-filled-weak-foreground-disabled: var(--text-on-noeffect-weak-disabled);
+
 
     /* Outlined */
-    --button-variant-outlined: transparent;
-    --button-variant-outlined-foreground: var(--text-noeffect-strong);
-    --button-variant-outlined-hover: var(--fill-noeffect-weak);
+    --button-variant-outlined: var(--fill-noeffect-outlined);
+    --button-variant-outlined-hover: var(--fill-noeffect-outlined-hover);
+    --button-variant-outlined-disabled: var(--fill-noeffect-outlined-disabled);
     --button-variant-outlined-border: var(--stroke-noeffect);
     --button-variant-outlined-border-disabled: var(--stroke-noeffect-disabled);
-    --button-variant-outlined-foreground-disabled: var(--text-noeffect-disabled);
+    --button-variant-outlined-foreground: var(--text-on-noeffect-outlined);
+    --button-variant-outlined-foreground-disabled: var(--text-on-noeffect-disabled);
 
     /* Text */
-    --button-variant-text: transparent;
-    --button-variant-text-foreground: var(--text-noeffect-weak);
-    --button-variant-text-hover: var(--fill-noeffect-weak-hover);
+    --button-variant-text: var(--fill-noeffect-text);
+    --button-variant-text-hover: var(--fill-noeffect-text-hover);
+    --button-variant-text-foreground: var(--text-noeffect);
 
     /* Gradient */
     --button-variant-gradient-start: var(--gradient-noeffect-start);
@@ -367,30 +369,30 @@ infonomic-components;
 
     /* Filled */
     --button-variant-filled: var(--fill-success-strong);
-    --button-variant-filled-foreground: var(--text-on-success);
     --button-variant-filled-hover: var(--fill-success-strong-hover);
     --button-variant-filled-disabled: var(--fill-success-strong-disabled);
-    --button-variant-filled-foreground-disabled: var(--text-on-success-disabled);
+    --button-variant-filled-foreground: var(--text-on-success-strong);
+    --button-variant-filled-foreground-disabled: var(--text-on-success-strong-disabled);
 
     /* Filled Weak */
     --button-variant-filled-weak: var(--fill-success-weak);
-    --button-variant-filled-weak-foreground: var(--text-success-weak);
     --button-variant-filled-weak-hover: var(--fill-success-weak-hover);
     --button-variant-filled-weak-disabled: var(--fill-success-weak-disabled);
-    --button-variant-filled-weak-foreground-disabled: var(--text-success-weak-disabled);
+    --button-variant-filled-weak-foreground: var(--text-on-success-weak);
+    --button-variant-filled-weak-foreground-disabled: var(--text-on-success-weak-disabled);
 
     /* Outlined */
-    --button-variant-outlined: transparent;
-    --button-variant-outlined-foreground: var(--text-success-strong);
-    --button-variant-outlined-hover: var(--fill-success-weak);
+    --button-variant-outlined: var(--fill-success-outlined);
+    --button-variant-outlined-hover: var(--fill-success-outlined-hover);
     --button-variant-outlined-border: var(--stroke-success);
     --button-variant-outlined-border-disabled: var(--stroke-success-disabled);
-    --button-variant-outlined-foreground-disabled: var(--text-success-disabled);
+    --button-variant-outlined-foreground: var(--text-on-success-outlined);
+    --button-variant-outlined-foreground-disabled: var(--text-on-success-outlined-disabled);
 
     /* Text */
     --button-variant-text: transparent;
-    --button-variant-text-foreground: var(--text-success-weak);
-    --button-variant-text-hover: var(--fill-success-weak-hover);
+    --button-variant-text-hover: var(--fill-success-text-hover);
+    --button-variant-text-foreground: var(--text-success);
 
     /* Gradient */
     --button-variant-gradient-start: var(--gradient-success-start);
@@ -406,30 +408,30 @@ infonomic-components;
 
     /* Filled */
     --button-variant-filled: var(--fill-info-strong);
-    --button-variant-filled-foreground: var(--text-on-info);
     --button-variant-filled-hover: var(--fill-info-strong-hover);
     --button-variant-filled-disabled: var(--fill-info-strong-disabled);
-    --button-variant-filled-foreground-disabled: var(--text-on-info-disabled);
+    --button-variant-filled-foreground: var(--text-on-info-strong);
+    --button-variant-filled-foreground-disabled: var(--text-on-info-strong-disabled);
 
     /* Filled Weak */
     --button-variant-filled-weak: var(--fill-info-weak);
-    --button-variant-filled-weak-foreground: var(--text-info-weak);
     --button-variant-filled-weak-hover: var(--fill-info-weak-hover);
     --button-variant-filled-weak-disabled: var(--fill-info-weak-disabled);
-    --button-variant-filled-weak-foreground-disabled: var(--text-info-weak-disabled);
+    --button-variant-filled-weak-foreground: var(--text-on-info-weak);
+    --button-variant-filled-weak-foreground-disabled: var(--text-on-info-weak-disabled);
 
     /* Outlined */
     --button-variant-outlined: transparent;
-    --button-variant-outlined-foreground: var(--text-info-strong);
-    --button-variant-outlined-hover: var(--fill-info-weak);
+    --button-variant-outlined-hover: var(--fill-info-outlined-hover);
     --button-variant-outlined-border: var(--stroke-info);
     --button-variant-outlined-border-disabled: var(--stroke-info-disabled);
-    --button-variant-outlined-foreground-disabled: var(--text-info-disabled);
+    --button-variant-outlined-foreground: var(--text-on-info-outlined);
+    --button-variant-outlined-foreground-disabled: var(--text-on-info-outlined-disabled);
 
     /* Text */
     --button-variant-text: transparent;
-    --button-variant-text-foreground: var(--text-info-weak);
-    --button-variant-text-hover: var(--fill-info-weak-hover);
+    --button-variant-text-hover: var(--fill-info-text-hover);
+    --button-variant-text-foreground: var(--text-info);
 
     /* Gradient */
     --button-variant-gradient-start: var(--gradient-info-start);
@@ -445,30 +447,30 @@ infonomic-components;
 
     /* Filled */
     --button-variant-filled: var(--fill-warning-strong);
-    --button-variant-filled-foreground: var(--text-on-warning);
     --button-variant-filled-hover: var(--fill-warning-strong-hover);
     --button-variant-filled-disabled: var(--fill-warning-strong-disabled);
-    --button-variant-filled-foreground-disabled: var(--text-on-warning-disabled);
+    --button-variant-filled-foreground: var(--text-on-warning-strong);
+    --button-variant-filled-foreground-disabled: var(--text-on-warning-strong-disabled);
 
     /* Filled Weak */
     --button-variant-filled-weak: var(--fill-warning-weak);
-    --button-variant-filled-weak-foreground: var(--text-warning-weak);
     --button-variant-filled-weak-hover: var(--fill-warning-weak-hover);
     --button-variant-filled-weak-disabled: var(--fill-warning-weak-disabled);
-    --button-variant-filled-weak-foreground-disabled: var(--text-warning-weak-disabled);
+    --button-variant-filled-weak-foreground: var(--text-on-warning-weak);
+    --button-variant-filled-weak-foreground-disabled: var(--text-on-warning-weak-disabled);
 
     /* Outlined */
-    --button-variant-outlined: transparent;
-    --button-variant-outlined-foreground: var(--text-warning-strong);
-    --button-variant-outlined-hover: var(--fill-warning-weak);
+    --button-variant-outlined: var(--fill-warning-outlined);
+    --button-variant-outlined-hover: var(--fill-warning-outlined-hover);
     --button-variant-outlined-border: var(--stroke-warning);
     --button-variant-outlined-border-disabled: var(--stroke-warning-disabled);
-    --button-variant-outlined-foreground-disabled: var(--text-warning-disabled);
+    --button-variant-outlined-foreground: var(--text-on-warning-outlined);
+    --button-variant-outlined-foreground-disabled: var(--text-on-warning-outlined-disabled);
 
     /* Text */
     --button-variant-text: transparent;
-    --button-variant-text-foreground: var(--text-warning-weak);
-    --button-variant-text-hover: var(--fill-warning-weak-hover);
+    --button-variant-text-hover: var(--fill-warning-text-hover);
+    --button-variant-text-foreground: var(--text-warning);
 
     /* Gradient */
     --button-variant-gradient-start: var(--gradient-warning-start);
@@ -484,30 +486,30 @@ infonomic-components;
 
     /* Filled */
     --button-variant-filled: var(--fill-danger-strong);
-    --button-variant-filled-foreground: var(--text-on-danger);
     --button-variant-filled-hover: var(--fill-danger-strong-hover);
     --button-variant-filled-disabled: var(--fill-danger-strong-disabled);
-    --button-variant-filled-foreground-disabled: var(--text-on-danger-disabled);
+    --button-variant-filled-foreground: var(--text-on-danger-strong);
+    --button-variant-filled-foreground-disabled: var(--text-on-danger-strong-disabled);
 
     /* Filled Weak */
     --button-variant-filled-weak: var(--fill-danger-weak);
-    --button-variant-filled-weak-foreground: var(--text-danger-weak);
     --button-variant-filled-weak-hover: var(--fill-danger-weak-hover);
     --button-variant-filled-weak-disabled: var(--fill-danger-weak-disabled);
-    --button-variant-filled-weak-foreground-disabled: var(--text-danger-weak-disabled);
+    --button-variant-filled-weak-foreground: var(--text-on-danger-weak);
+    --button-variant-filled-weak-foreground-disabled: var(--text-on-danger-weak-disabled);
 
     /* Outlined */
     --button-variant-outlined: transparent;
-    --button-variant-outlined-foreground: var(--text-danger-strong);
-    --button-variant-outlined-hover: var(--fill-danger-weak);
+    --button-variant-outlined-hover: var(--fill-danger-outlined-hover);
     --button-variant-outlined-border: var(--stroke-danger);
     --button-variant-outlined-border-disabled: var(--stroke-danger-disabled);
-    --button-variant-outlined-foreground-disabled: var(--text-danger-disabled);
+    --button-variant-outlined-foreground: var(--text-on-danger-outlined);
+    --button-variant-outlined-foreground-disabled: var(--text-on-danger-outlined-disabled);
 
     /* Text */
     --button-variant-text: transparent;
-    --button-variant-text-foreground: var(--text-danger-weak);
-    --button-variant-text-hover: var(--fill-danger-weak-hover);
+    --button-variant-text-hover: var(--fill-danger-text-hover);
+    --button-variant-text-foreground: var(--text-danger);
 
     /* Gradient */
     --button-variant-gradient-start: var(--gradient-danger-start);
