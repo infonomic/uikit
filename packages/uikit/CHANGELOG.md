@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 5.19.0
+
+### Minor Changes
+
+- 2193d8b: Refactored functional colors. Updated Chip component.
+
 ## 5.18.0
 
 ### Minor Changes
