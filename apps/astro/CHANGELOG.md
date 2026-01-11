@@ -1,5 +1,16 @@
 # @infonomic/website-astro
 
+## 5.19.0
+
+### Minor Changes
+
+- 2193d8b: Refactored functional colors. Updated Chip component.
+
+### Patch Changes
+
+- Updated dependencies [2193d8b]
+  - @infonomic/uikit@5.19.0
+
 ## 5.18.0
 
 ### Minor Changes
