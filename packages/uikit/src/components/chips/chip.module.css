@@ -1,11 +1,12 @@
 @layer infonomic-base,
-  infonomic-functional,
-  infonomic-utilities,
-  infonomic-theme,
-  infonomic-typography,
-  infonomic-components;
+infonomic-functional,
+infonomic-utilities,
+infonomic-theme,
+infonomic-typography,
+infonomic-components;
 
 @layer infonomic-components {
+
   .chip,
   :global(.chip) {
     --chip-font-size: 0.9rem;
@@ -149,14 +150,10 @@
   .filled[disabled],
   :global(.chip-filled):disabled,
   :global(.chip-filled)[disabled] {
-    background-color: var(
-      --chip-variant-filled-disabled,
-      oklch(from var(--chip-variant-filled) calc(l * 1.1) calc(c * 0.85) h)
-    );
-    color: var(
-      --chip-variant-filled-foreground-disabled,
-      oklch(from var(--chip-variant-filled-foreground) calc(l * 0.9) calc(c * 0.85) h)
-    );
+    background-color: var(--chip-variant-filled-disabled,
+        oklch(from var(--chip-variant-filled) calc(l * 1.1) calc(c * 0.85) h));
+    color: var(--chip-variant-filled-foreground-disabled,
+        oklch(from var(--chip-variant-filled-foreground) calc(l * 0.9) calc(c * 0.85) h));
   }
 
   /* -------------------------------------------------------- */
@@ -184,14 +181,10 @@
   .filled-weak[disabled],
   :global(.chip-filled-weak):disabled,
   :global(.chip-filled-weak)[disabled] {
-    background-color: var(
-      --chip-variant-filled-weak-disabled,
-      oklch(from var(--chip-variant-filled-weak) calc(l * 1.1) calc(c * 0.85) h)
-    );
-    color: var(
-      --chip-variant-filled-weak-foreground-disabled,
-      oklch(from var(--chip-variant-filled-weak-foreground) calc(l * 0.9) calc(c * 0.85) h)
-    );
+    background-color: var(--chip-variant-filled-weak-disabled,
+        oklch(from var(--chip-variant-filled-weak) calc(l * 1.1) calc(c * 0.85) h));
+    color: var(--chip-variant-filled-weak-foreground-disabled,
+        oklch(from var(--chip-variant-filled-weak-foreground) calc(l * 0.9) calc(c * 0.85) h));
   }
 
   /* -------------------------------------------------------- */
@@ -208,14 +201,10 @@
   .outlined[disabled],
   :global(.chip-outlined):disabled,
   :global(.chip-outlined)[disabled] {
-    border-color: var(
-      --chip-variant-outlined-border-disabled,
-      oklch(from var(--chip-variant-outlined-border) calc(l * 1.5) calc(c * 0.8) h)
-    );
-    color: var(
-      --chip-variant-outlined-foreground-disabled,
-      oklch(from var(--chip-variant-outlined-foreground) calc(l * 1.1) calc(c * 0.7) h)
-    );
+    border-color: var(--chip-variant-outlined-border-disabled,
+        oklch(from var(--chip-variant-outlined-border) calc(l * 1.5) calc(c * 0.8) h));
+    color: var(--chip-variant-outlined-foreground-disabled,
+        oklch(from var(--chip-variant-outlined-foreground) calc(l * 1.1) calc(c * 0.7) h));
   }
 
   .outlined:hover,
@@ -262,25 +251,25 @@
 
     /* Filled */
     --chip-variant-filled: var(--fill-primary-strong);
-    --chip-variant-filled-foreground: var(--text-on-primary);
     --chip-variant-filled-hover: var(--fill-primary-strong-hover);
     --chip-variant-filled-disabled: var(--fill-primary-strong-disabled);
-    --chip-variant-filled-foreground-disabled: var(--text-on-primary-disabled);
+    --chip-variant-filled-foreground: var(--text-on-primary-strong);
+    --chip-variant-filled-foreground-disabled: var(--text-on-primary-strong-disabled);
 
     /* Filled Weak */
     --chip-variant-filled-weak: var(--fill-primary-weak);
-    --chip-variant-filled-weak-foreground: var(--text-on-primary);
     --chip-variant-filled-weak-hover: var(--fill-primary-weak-hover);
     --chip-variant-filled-weak-disabled: var(--fill-primary-weak-disabled);
-    --chip-variant-filled-weak-foreground-disabled: var(--text-on-primary-disabled);
+    --chip-variant-filled-weak-foreground: var(--text-on-primary-weak);
+    --chip-variant-filled-weak-foreground-disabled: var(--text-on-primary-weak-disabled);
 
     /* Outlined */
-    --chip-variant-outlined: transparent;
-    --chip-variant-outlined-foreground: var(--text-primary-strong);
-    --chip-variant-outlined-hover: var(--fill-primary-weak);
+    --chip-variant-outlined: var(--fill-primary-outlined);
+    --chip-variant-outlined-hover: var(--fill-primary-outlined-hover);
     --chip-variant-outlined-border: var(--stroke-primary);
     --chip-variant-outlined-border-disabled: var(--stroke-primary-disabled);
-    --chip-variant-outlined-foreground-disabled: var(--text-primary-disabled);
+    --chip-variant-outlined-foreground: var(--text-on-primary-outlined);
+    --chip-variant-outlined-foreground-disabled: var(--text-on-primary-outlined-disabled);
   }
 
   .secondary,
@@ -289,10 +278,10 @@
 
     /* Filled */
     --chip-variant-filled: var(--fill-secondary-strong);
-    --chip-variant-filled-foreground: var(--text-on-secondary);
     --chip-variant-filled-hover: var(--fill-secondary-strong-hover);
     --chip-variant-filled-disabled: var(--fill-secondary-strong-disabled);
-    --chip-variant-filled-foreground-disabled: var(--text-on-secondary-disabled);
+    --chip-variant-filled-foreground: var(--text-on-secondary-strong);
+    --chip-variant-filled-foreground-disabled: var(--text-on-secondary-strong-disabled);
 
     /* Filled Weak */
     --chip-variant-filled-weak: var(--fill-secondary-weak);
@@ -302,12 +291,12 @@
     --chip-variant-filled-weak-foreground-disabled: var(--text-on-secondary-disabled);
 
     /* Outlined */
-    --chip-variant-outlined: transparent;
-    --chip-variant-outlined-foreground: var(--text-secondary-strong);
-    --chip-variant-outlined-hover: var(--fill-secondary-weak);
+    --chip-variant-outlined: var(--fill-secondary-outlined);
+    --chip-variant-outlined-hover: var(--fill-secondary-outlined-hover);
     --chip-variant-outlined-border: var(--stroke-secondary);
     --chip-variant-outlined-border-disabled: var(--stroke-secondary-disabled);
-    --chip-variant-outlined-foreground-disabled: var(--text-secondary-disabled);
+    --chip-variant-outlined-foreground: var(--text-on-secondary-outlined);
+    --chip-variant-outlined-foreground-disabled: var(--text-on-secondary-outlined-disabled);
   }
 
   .noeffect,
@@ -316,25 +305,25 @@
 
     /* Filled */
     --chip-variant-filled: var(--fill-noeffect-strong);
-    --chip-variant-filled-foreground: var(--text-on-noeffect);
     --chip-variant-filled-hover: var(--fill-noeffect-strong-hover);
     --chip-variant-filled-disabled: var(--fill-noeffect-strong-disabled);
-    --chip-variant-filled-foreground-disabled: var(--text-on-noeffect-disabled);
+    --chip-variant-filled-foreground: var(--text-on-noeffect-strong);
+    --chip-variant-filled-foreground-disabled: var(--text-on-noeffect-strong-disabled);
 
     /* Filled Weak */
     --chip-variant-filled-weak: var(--fill-noeffect-weak);
-    --chip-variant-filled-weak-foreground: var(--text-on-noeffect);
     --chip-variant-filled-weak-hover: var(--fill-noeffect-weak-hover);
     --chip-variant-filled-weak-disabled: var(--fill-noeffect-weak-disabled);
-    --chip-variant-filled-weak-foreground-disabled: var(--text-on-noeffect-disabled);
+    --chip-variant-filled-weak-foreground: var(--text-on-noeffect-weak);
+    --chip-variant-filled-weak-foreground-disabled: var(--text-on-noeffect-weak-disabled);
 
     /* Outlined */
-    --chip-variant-outlined: transparent;
-    --chip-variant-outlined-foreground: var(--text-noeffect-strong);
-    --chip-variant-outlined-hover: var(--fill-noeffect-weak);
+    --chip-variant-outlined: var(--fill-noeffect-outlined);
+    --chip-variant-outlined-hover: var(--fill-noeffect-outlined-hover);
     --chip-variant-outlined-border: var(--stroke-noeffect);
     --chip-variant-outlined-border-disabled: var(--stroke-noeffect-disabled);
-    --chip-variant-outlined-foreground-disabled: var(--text-noeffect-disabled);
+    --chip-variant-outlined-foreground: var(--text-on-noeffect-outlined);
+    --chip-variant-outlined-foreground-disabled: var(--text-on-noeffect-outlined-disabled);
   }
 
   .success,
@@ -343,25 +332,25 @@
 
     /* Filled */
     --chip-variant-filled: var(--fill-success-strong);
-    --chip-variant-filled-foreground: var(--text-on-success);
     --chip-variant-filled-hover: var(--fill-success-strong-hover);
     --chip-variant-filled-disabled: var(--fill-success-strong-disabled);
-    --chip-variant-filled-foreground-disabled: var(--text-on-success-disabled);
+    --chip-variant-filled-foreground: var(--text-on-success-strong);
+    --chip-variant-filled-foreground-disabled: var(--text-on-success-strong-disabled);
 
     /* Filled Weak */
     --chip-variant-filled-weak: var(--fill-success-weak);
-    --chip-variant-filled-weak-foreground: var(--text-on-success);
     --chip-variant-filled-weak-hover: var(--fill-success-weak-hover);
     --chip-variant-filled-weak-disabled: var(--fill-success-weak-disabled);
-    --chip-variant-filled-weak-foreground-disabled: var(--text-on-success-disabled);
+    --chip-variant-filled-weak-foreground: var(--text-on-success-weak);
+    --chip-variant-filled-weak-foreground-disabled: var(--text-on-success-weak-disabled);
 
     /* Outlined */
-    --chip-variant-outlined: transparent;
-    --chip-variant-outlined-foreground: var(--text-success-strong);
-    --chip-variant-outlined-hover: var(--fill-success-weak);
+    --chip-variant-outlined: var(--fill-success-outlined);
+    --chip-variant-outlined-hover: var(--fill-success-outlined-hover);
     --chip-variant-outlined-border: var(--stroke-success);
     --chip-variant-outlined-border-disabled: var(--stroke-success-disabled);
-    --chip-variant-outlined-foreground-disabled: var(--text-success-disabled);
+    --chip-variant-outlined-foreground: var(--text-on-success-outlined);
+    --chip-variant-outlined-foreground-disabled: var(--text-on-success-outlined-disabled);
   }
 
   .info,
@@ -370,25 +359,25 @@
 
     /* Filled */
     --chip-variant-filled: var(--fill-info-strong);
-    --chip-variant-filled-foreground: var(--text-on-info);
     --chip-variant-filled-hover: var(--fill-info-strong-hover);
     --chip-variant-filled-disabled: var(--fill-info-strong-disabled);
-    --chip-variant-filled-foreground-disabled: var(--text-on-info-disabled);
+    --chip-variant-filled-foreground: var(--text-on-info-strong);
+    --chip-variant-filled-foreground-disabled: var(--text-on-info-strong-disabled);
 
     /* Filled Weak */
     --chip-variant-filled-weak: var(--fill-info-weak);
-    --chip-variant-filled-weak-foreground: var(--text-on-info);
     --chip-variant-filled-weak-hover: var(--fill-info-weak-hover);
     --chip-variant-filled-weak-disabled: var(--fill-info-weak-disabled);
-    --chip-variant-filled-weak-foreground-disabled: var(--text-on-info-disabled);
+    --chip-variant-filled-weak-foreground: var(--text-on-info-weak);
+    --chip-variant-filled-weak-foreground-disabled: var(--text-on-info-weak-disabled);
 
     /* Outlined */
-    --chip-variant-outlined: transparent;
-    --chip-variant-outlined-foreground: var(--text-info-strong);
-    --chip-variant-outlined-hover: var(--fill-info-weak);
+    --chip-variant-outlined: var(--fill-info-outlined);
+    --chip-variant-outlined-hover: var(--fill-info-outlined-hover);
     --chip-variant-outlined-border: var(--stroke-info);
     --chip-variant-outlined-border-disabled: var(--stroke-info-disabled);
-    --chip-variant-outlined-foreground-disabled: var(--text-info-disabled);
+    --chip-variant-outlined-foreground: var(--text-on-info-outlined);
+    --chip-variant-outlined-foreground-disabled: var(--text-on-info-outlined-disabled);
   }
 
   .warning,
@@ -397,25 +386,25 @@
 
     /* Filled */
     --chip-variant-filled: var(--fill-warning-strong);
-    --chip-variant-filled-foreground: var(--text-on-warning);
     --chip-variant-filled-hover: var(--fill-warning-strong-hover);
     --chip-variant-filled-disabled: var(--fill-warning-strong-disabled);
-    --chip-variant-filled-foreground-disabled: var(--text-on-warning-disabled);
+    --chip-variant-filled-foreground: var(--text-on-warning-strong);
+    --chip-variant-filled-foreground-disabled: var(--text-on-warning-strong-disabled);
 
     /* Filled Weak */
     --chip-variant-filled-weak: var(--fill-warning-weak);
-    --chip-variant-filled-weak-foreground: var(--text-on-warning);
     --chip-variant-filled-weak-hover: var(--fill-warning-weak-hover);
     --chip-variant-filled-weak-disabled: var(--fill-warning-weak-disabled);
-    --chip-variant-filled-weak-foreground-disabled: var(--text-on-warning-disabled);
+    --chip-variant-filled-weak-foreground: var(--text-on-warning-weak);
+    --chip-variant-filled-weak-foreground-disabled: var(--text-on-warning-weak-disabled);
 
     /* Outlined */
-    --chip-variant-outlined: transparent;
-    --chip-variant-outlined-foreground: var(--text-warning-strong);
-    --chip-variant-outlined-hover: var(--fill-warning-weak);
+    --chip-variant-outlined: var(--fill-warning-outlined);
+    --chip-variant-outlined-hover: var(--fill-warning-outlined-hover);
     --chip-variant-outlined-border: var(--stroke-warning);
     --chip-variant-outlined-border-disabled: var(--stroke-warning-disabled);
-    --chip-variant-outlined-foreground-disabled: var(--text-warning-disabled);
+    --chip-variant-outlined-foreground: var(--text-on-warning-outlined);
+    --chip-variant-outlined-foreground-disabled: var(--text-on-warning-outlined-disabled);
   }
 
   .danger,
@@ -424,24 +413,24 @@
 
     /* Filled */
     --chip-variant-filled: var(--fill-danger-strong);
-    --chip-variant-filled-foreground: var(--text-on-danger);
     --chip-variant-filled-hover: var(--fill-danger-strong-hover);
     --chip-variant-filled-disabled: var(--fill-danger-strong-disabled);
-    --chip-variant-filled-foreground-disabled: var(--text-on-danger-disabled);
+    --chip-variant-filled-foreground: var(--text-on-danger-strong);
+    --chip-variant-filled-foreground-disabled: var(--text-on-danger-strong-disabled);
 
     /* Filled Weak */
     --chip-variant-filled-weak: var(--fill-danger-weak);
-    --chip-variant-filled-weak-foreground: var(--text-on-danger);
     --chip-variant-filled-weak-hover: var(--fill-danger-weak-hover);
     --chip-variant-filled-weak-disabled: var(--fill-danger-weak-disabled);
-    --chip-variant-filled-weak-foreground-disabled: var(--text-on-danger-disabled);
+    --chip-variant-filled-weak-foreground: var(--text-on-danger-weak);
+    --chip-variant-filled-weak-foreground-disabled: var(--text-on-danger-weak-disabled);
 
     /* Outlined */
     --chip-variant-outlined: transparent;
-    --chip-variant-outlined-foreground: var(--text-danger-strong);
     --chip-variant-outlined-hover: var(--fill-danger-weak);
     --chip-variant-outlined-border: var(--stroke-danger);
     --chip-variant-outlined-border-disabled: var(--stroke-danger-disabled);
-    --chip-variant-outlined-foreground-disabled: var(--text-danger-disabled);
+    --chip-variant-outlined-foreground: var(--text-on-danger-outlined);
+    --chip-variant-outlined-foreground-disabled: var(--text-on-danger-outlined-disabled);
   }
 }

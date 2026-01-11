@@ -1,9 +1,9 @@
 @layer infonomic-base,
-  infonomic-functional,
-  infonomic-utilities,
-  infonomic-theme,
-  infonomic-typography,
-  infonomic-components;
+infonomic-functional,
+infonomic-utilities,
+infonomic-theme,
+infonomic-typography,
+infonomic-components;
 
 @layer infonomic-components {
   .pagination-root {
@@ -100,7 +100,7 @@
   .number-button:hover,
   .previous-button:hover,
   .first-button:hover {
-    color: var(--text-on-primary);
+    color: var(--text-on-primary-strong);
     background-color: var(--fill-primary-strong);
   }
 
@@ -118,7 +118,7 @@
   }
 
   .number-button.active {
-    color: var(--text-on-primary);
+    color: var(--text-on-primary-strong);
     background-color: var(--fill-primary-strong);
   }
 
@@ -139,6 +139,7 @@
   * a root html class accordingly
   */
   :global(.dark) {
+
     .ellipses,
     .number-button,
     .next-button,
