@@ -14,13 +14,13 @@ infonomic-components;
     --chip-padding-y: 0.35rem;
     --chip-padding-x: 0.4rem;
     --chip-icon-size: 1rem;
-
+    --chip-gap: var(--gap-1);
     appearance: none;
     outline: 2px solid transparent;
     outline-offset: 2px;
     display: inline-flex;
     align-items: center;
-    gap: var(--gap-1);
+    gap: var(--chip-gap);
     border-radius: var(--border-radius-sm);
     cursor: pointer;
     line-height: 1.1;
@@ -62,10 +62,6 @@ infonomic-components;
     height: var(--chip-icon-size);
   }
 
-  .end-icon {
-    margin-left: 0.3rem;
-  }
-
   .iconWrapper {
     display: inline-flex;
     align-items: center;
@@ -73,10 +69,9 @@ infonomic-components;
     line-height: 0;
   }
 
-  .remove {
-    width: calc(var(--chip-icon-size) * 0.85);
-    height: calc(var(--chip-icon-size) * 0.85);
-    min-height: calc(var(--chip-icon-size) * 0.85);
+  .close-icon {
+    width: calc(var(--chip-icon-size) * 0.9);
+    height: calc(var(--chip-icon-size) * 0.9);
   }
 
   /* Sizes ----------------------------------------------------------- */
@@ -94,7 +89,7 @@ infonomic-components;
   :global(.chip-sm) {
     --chip-height: 28px;
     --chip-padding-y: 0.2rem;
-    --chip-padding-x: 0.4rem;
+    --chip-padding-x: 0.3rem;
     --chip-font-size: 0.82rem;
     --chip-icon-size: 1.2rem;
   }
@@ -103,25 +98,27 @@ infonomic-components;
   :global(.chip-md) {
     --chip-height: 32px;
     --chip-padding-y: 0.25rem;
-    --chip-padding-x: 0.5rem;
+    --chip-padding-x: 0.3rem;
     --chip-font-size: 0.9rem;
     --chip-icon-size: 1.3rem;
   }
 
   .lg,
   :global(.chip-lg) {
+    --chip-gap: var(--gap-2);
     --chip-height: 36px;
     --chip-padding-y: 0.3rem;
-    --chip-padding-x: 0.6rem;
+    --chip-padding-x: 0.4rem;
     --chip-font-size: 0.98rem;
     --chip-icon-size: 1.35rem;
   }
 
   .xl,
   :global(.chip-xl) {
+    --chip-gap: var(--gap-2);
     --chip-height: 40px;
     --chip-padding-y: 0.3rem;
-    --chip-padding-x: 0.7rem;
+    --chip-padding-x: 0.5rem;
     --chip-font-size: 1rem;
     --chip-icon-size: 1.4rem;
   }

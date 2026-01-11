@@ -139,18 +139,16 @@ export const Chip = <C extends React.ElementType = 'button'>({
     (isSelectable && isSelected ? (selectedIcon ?? <CheckIcon className={styles.icon} />) : null)
 
   const trailingIcon = isRemovable ? (
-    <IconButton
-      role="button"
-      variant={isSelected ? 'filled-weak' : 'outlined'}
-      className={cx('remove', styles.remove, styles['end-icon'])}
+    <button
+      type="button"
       tabIndex={disabled ? -1 : 0}
       disabled={disabled}
       aria-label={removeLabel}
       onClick={handleRemoveClick}
       onKeyDown={handleRemoveKeyDown}
     >
-      <CloseIcon className={styles.icon} />
-    </IconButton>
+      <CloseIcon className={cx(styles.icon, styles['close-icon'])} />
+    </button>
   ) : (
     endIcon
   )
