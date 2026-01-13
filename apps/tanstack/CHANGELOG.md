@@ -1,5 +1,16 @@
 # @infonomic/website-react
 
+## 5.20.0
+
+### Minor Changes
+
+- 8e8cdc8: Loaders color defaults to currentColor.
+
+### Patch Changes
+
+- Updated dependencies [8e8cdc8]
+  - @infonomic/uikit@5.20.0
+
 ## 5.19.0
 
 ### Minor Changes
