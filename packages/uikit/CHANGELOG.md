@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 5.21.0
+
+### Minor Changes
+
+- b92b46e: Storybook story for icons and added stop icon.
+
 ## 5.20.0
 
 ### Minor Changes

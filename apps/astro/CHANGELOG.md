@@ -1,5 +1,16 @@
 # @infonomic/website-astro
 
+## 5.21.0
+
+### Minor Changes
+
+- b92b46e: Storybook story for icons and added stop icon.
+
+### Patch Changes
+
+- Updated dependencies [b92b46e]
+  - @infonomic/uikit@5.21.0
+
 ## 5.20.0
 
 ### Minor Changes
