@@ -25,7 +25,11 @@ const IconsDemo = (): React.JSX.Element => (
             className="flex flex-col items-center justify-center"
             style={{ display: 'flex', flexDirection: 'column' }}
           >
-            <Component style={{ marginBottom: '8px' }} />
+            <Component
+              style={{ marginBottom: '8px', width: '28px', height: '28px' }}
+              width="28px"
+              height="28px"
+            />
             <div
               style={{
                 fontSize: '10px',

@@ -1,4 +1,5 @@
 export * from './activity-icon.js'
+export * from './ai-icon.js'
 export * from './calendar-icon.js'
 export * from './check-icon.js'
 export * from './chevron-down-icon.js'
