@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 5.22.0
+
+### Minor Changes
+
+- 2131d8c: Added AI Icon.
+
 ## 5.21.0
 
 ### Minor Changes
