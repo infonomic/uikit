@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 5.23.0
+
+### Minor Changes
+
+- 6eed8e6: Separate reset.css from styles.css
+
 ## 5.22.0
 
 ### Minor Changes
