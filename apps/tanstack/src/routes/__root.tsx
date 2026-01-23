@@ -1,9 +1,11 @@
 import { createRootRoute, Outlet } from '@tanstack/react-router'
 import { TanStackRouterDevtools } from '@tanstack/react-router-devtools'
+
 import { AppBar } from '@/ui/components/app-bar.tsx'
 import { SiteFooter } from '@/ui/components/site-footer.tsx'
 
 import '@/ui/styles/global.css'
+
 import { ScrollToTop } from '@infonomic/uikit/react'
 
 export const Route = createRootRoute({
