@@ -1,7 +1,7 @@
 {
   "name": "@infonomic/html",
   "private": true,
-  "version": "5.22.0",
+  "version": "5.23.0",
   "type": "module",
   "scripts": {
     "clean": "rimraf dist node_modules .turbo",

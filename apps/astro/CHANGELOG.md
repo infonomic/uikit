@@ -1,5 +1,16 @@
 # @infonomic/website-astro
 
+## 5.23.0
+
+### Minor Changes
+
+- 6eed8e6: Separate reset.css from styles.css
+
+### Patch Changes
+
+- Updated dependencies [6eed8e6]
+  - @infonomic/uikit@5.23.0
+
 ## 5.22.0
 
 ### Minor Changes
