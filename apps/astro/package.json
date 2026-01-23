@@ -1,7 +1,7 @@
 {
   "name": "@infonomic/astro",
   "type": "module",
-  "version": "5.21.0",
+  "version": "5.22.0",
   "private": true,
   "scripts": {
     "clean": "rimraf .astro dist node_modules .turbo",
