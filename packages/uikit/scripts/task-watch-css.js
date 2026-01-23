@@ -11,7 +11,11 @@ const __dirname = path.dirname(__filename)
 // Define source and output paths
 const srcDir = path.join(__dirname, '..', 'src', 'styles')
 const outputDir = path.join(__dirname, '..', 'dist', 'styles')
-const entryFiles = [path.join(srcDir, 'styles.css'), path.join(srcDir, 'typography.css')]
+const entryFiles = [
+  path.join(srcDir, 'reset.css'),
+  path.join(srcDir, 'styles.css'),
+  path.join(srcDir, 'typography.css'),
+]
 
 // Function to bundle CSS
 const bundleCSS = () => {

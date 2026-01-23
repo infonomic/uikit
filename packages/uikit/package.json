@@ -28,8 +28,8 @@
     "build:clean": "rimraf dist build",
     "build:code": "rslib build",
     "build:astro": "node ./scripts/build-astro.js",
-    "build:css": "lightningcss --bundle ./src/styles/styles.css ./src/styles/typography.css --output-dir ./dist/styles",
-    "build:minify": "lightningcss --minify ./dist/styles/styles.css ./dist/styles/typography.css --output-dir ./dist/styles",
+    "build:css": "lightningcss --bundle ./src/styles/reset.css ./src/styles/styles.css ./src/styles/typography.css --output-dir ./dist/styles",
+    "build:minify": "lightningcss --minify ./dist/styles/reset.css ./dist/styles/styles.css ./dist/styles/typography.css --output-dir ./dist/styles",
     "build:vanilla-components-css": "node ./scripts/task-merge-vanilla-components-css.js",
     "typecheck": "tsc --noEmit",
     "clean": "rimraf node_modules dist build types .turbo",
@@ -59,6 +59,10 @@
       "import": "./dist/react.js",
       "main": "./dist/react.js",
       "default": "./dist/react.js"
+    },
+    "./reset.css": {
+      "import": "./dist/styles/reset.css",
+      "default": "./dist/styles/reset.css"
     },
     "./styles.css": {
       "import": "./dist/styles/styles.css",
