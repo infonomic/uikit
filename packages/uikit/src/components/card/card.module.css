@@ -24,14 +24,14 @@ infonomic-components;
   }
 
   :global(.dark),
-  :global([data-theme="dark"]),
-  :global([data-theme="dark"]) ::backdrop {
+  :global([data-theme="dark"]) {
 
     .card,
     :global(.card) {
       background: var(--canvas-800);
     }
   }
+
 
   .card-hover,
   :global(.card-hover) {
@@ -44,8 +44,7 @@ infonomic-components;
   }
 
   :global(.dark),
-  :global([data-theme="dark"]),
-  :global([data-theme="dark"]) ::backdrop {
+  :global([data-theme="dark"]) {
 
     .card-hover:hover,
     :global(.card-hover):hover {

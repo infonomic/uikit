@@ -1,45 +1,46 @@
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(245, 245, 245, 0.35);
-  z-index: 20;
-}
+@layer infonomic-base, infonomic-utilities, infonomic-theme, infonomic-typography, infonomic-components;
 
-:global(.dark),
-:global([data-theme="dark"]),
-:global([data-theme="dark"]) ::backdrop {
+@layer infonomic-components {
   .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(245, 245, 245, 0.35);
+    z-index: 20;
+  }
+
+  :global(.dark) .overlay,
+  :global([data-theme="dark"]) .overlay {
     background-color: rgba(0, 0, 0, 0.5);
   }
-}
 
-.animate-fade-in {
-  animation: fade-in 0.3s ease-in-out;
-}
-
-.animate-fade-out {
-  animation: fade-out 0.3s ease-in-out;
-}
-
-@keyframes fade-in {
-  from {
-    opacity: 0;
+  .animate-fade-in {
+    animation: fade-in 0.3s ease-in-out;
   }
 
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes fade-out {
-  from {
-    opacity: 1;
+  .animate-fade-out {
+    animation: fade-out 0.3s ease-in-out;
   }
 
-  to {
-    opacity: 0;
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fade-out {
+    from {
+      opacity: 1;
+    }
+
+    to {
+      opacity: 0;
+    }
   }
 }

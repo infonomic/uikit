@@ -17,8 +17,7 @@ infonomic-components;
   }
 
   :global(.dark),
-  :global([data-theme="dark"]),
-  :global([data-theme="dark"]) ::backdrop {
+  :global([data-theme="dark"]) {
     .shimmer {
       background-color: #141414;
       background-image: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.01), transparent);

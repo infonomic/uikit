@@ -25,8 +25,7 @@ infonomic-components;
   }
 
   :global(.dark),
-  :global([data-theme="dark"]),
-  :global([data-theme="dark"]) ::backdrop {
+  :global([data-theme="dark"]) {
     .root {
       background: var(--canvas-800);
     }
