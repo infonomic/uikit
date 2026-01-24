@@ -138,7 +138,8 @@ infonomic-components;
   * color scheme - either by header or cookie, and set
   * a root html class accordingly
   */
-  :global(.dark) {
+  :global(.dark),
+  :global([data-theme="dark"]) {
 
     .ellipses,
     .number-button,

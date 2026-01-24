@@ -1,12 +1,13 @@
 @layer infonomic-base,
-  infonomic-functional,
-  infonomic-utilities,
-  infonomic-theme,
-  infonomic-typography,
-  infonomic-components;
+infonomic-functional,
+infonomic-utilities,
+infonomic-theme,
+infonomic-typography,
+infonomic-components;
 
 /* 'border-collapse w-full text-sm text-left text-gray-700 dark:text-gray-400 m-0', */
 @layer infonomic-components {
+
   /* 'table--container break-normal overflow-hidden relative shadow-md rounded-md my-[16px] dark:border dark:border-canvas-700', */
   .table-container {
     display: block;
@@ -52,7 +53,8 @@
   .table-heading-cell {
     white-space: nowrap;
     padding: var(--spacing-8) var(--spacing-8);
-    font-size: 0.975rem; /* 15.6px */
+    font-size: 0.975rem;
+    /* 15.6px */
     /* text-transform: uppercase; */
     background-color: var(--canvas-50);
   }
@@ -79,7 +81,8 @@
   * color scheme - either by header or cookie, and set
   * a root html class accordingly
   */
-  :global(.dark) {
+  :global(.dark),
+  :global([data-theme="dark"]) {
     .table-header {
       background-color: var(--canvas-700);
     }
