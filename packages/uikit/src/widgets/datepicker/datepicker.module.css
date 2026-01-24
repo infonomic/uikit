@@ -45,8 +45,12 @@
     }
   }
 
-  .content:is(:global(.dark) *) {
-    background: var(--canvas-800);
+  .dark,
+  [data-theme="dark"],
+  [data-theme="dark"] ::backdrop {
+    .content {
+      background: var(--canvas-800);
+    }
   }
 
   .content-components {

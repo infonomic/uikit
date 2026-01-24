@@ -1,9 +1,9 @@
 @layer infonomic-base,
-  infonomic-functional,
-  infonomic-utilities,
-  infonomic-theme,
-  infonomic-typography,
-  infonomic-components;
+infonomic-functional,
+infonomic-utilities,
+infonomic-theme,
+infonomic-typography,
+infonomic-components;
 
 @layer infonomic-components {
   /* Positions are relative to the toast viewport which is set 
@@ -24,8 +24,12 @@
     box-shadow: var(--shadow-sm);
   }
 
-  .root:is(:global(.dark) *) {
-    background: var(--canvas-800);
+  .dark,
+  [data-theme="dark"],
+  [data-theme="dark"] ::backdrop {
+    .root {
+      background: var(--canvas-800);
+    }
   }
 
   .root[data-state="open"] {
@@ -132,6 +136,7 @@
   }
 
   @media (min-width: 48rem) {
+
     .root.top-right[data-state="open"],
     .root.bottom-right[data-state="open"] {
       animation: slideInFromRight 150ms cubic-bezier(0.16, 1, 0.3, 1);

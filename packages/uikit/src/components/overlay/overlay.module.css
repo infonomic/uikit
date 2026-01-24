@@ -8,8 +8,13 @@
   z-index: 20;
 }
 
-.overlay:is(:global(.dark) *) {
-  background-color: rgba(0, 0, 0, 0.5);
+
+.dark,
+[data-theme="dark"],
+[data-theme="dark"] ::backdrop {
+  .overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
 }
 
 .animate-fade-in {
