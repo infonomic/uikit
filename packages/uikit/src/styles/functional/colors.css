@@ -381,7 +381,7 @@
    */
   .dark,
   [data-theme="dark"],
-  [data-theme="dark"] ::backdrop {
+  [data-theme="dark"]::backdrop {
     /* PRIMARY INTENT TOKENS (Dark Mode)
        ----------------------------------------------------------------- */
 

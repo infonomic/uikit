@@ -16,9 +16,9 @@ infonomic-components;
     animation: shimmer 1.5s infinite;
   }
 
-  .dark,
-  [data-theme="dark"],
-  [data-theme="dark"] ::backdrop {
+  :global(.dark),
+  :global([data-theme="dark"]),
+  :global([data-theme="dark"]) ::backdrop {
     .shimmer {
       background-color: #141414;
       background-image: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.01), transparent);

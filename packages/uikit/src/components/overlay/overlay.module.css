@@ -8,10 +8,9 @@
   z-index: 20;
 }
 
-
-.dark,
-[data-theme="dark"],
-[data-theme="dark"] ::backdrop {
+:global(.dark),
+:global([data-theme="dark"]),
+:global([data-theme="dark"]) ::backdrop {
   .overlay {
     background-color: rgba(0, 0, 0, 0.5);
   }

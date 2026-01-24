@@ -23,7 +23,7 @@
    */
   .dark,
   [data-theme="dark"],
-  [data-theme="dark"] ::backdrop {
+  [data-theme="dark"]::backdrop {
     --text: var(--gray-50);
     --headings: var(--gray-50);
     --muted: oklch(from var(--foreground) calc(l * 0.75) c h);

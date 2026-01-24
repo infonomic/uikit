@@ -96,9 +96,9 @@
     fill: var(--red-500);
   }
 
-  .dark,
-  [data-theme="dark"],
-  [data-theme="dark"] ::backdrop {
+  :global(.dark),
+  :global([data-theme="dark"]),
+  :global([data-theme="dark"]) ::backdrop {
     .stroke-gray {
       stroke: var(--gray-300);
     }

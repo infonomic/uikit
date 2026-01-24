@@ -24,9 +24,9 @@ infonomic-components;
     box-shadow: var(--shadow-sm);
   }
 
-  .dark,
-  [data-theme="dark"],
-  [data-theme="dark"] ::backdrop {
+  :global(.dark),
+  :global([data-theme="dark"]),
+  :global([data-theme="dark"]) ::backdrop {
     .root {
       background: var(--canvas-800);
     }
