@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 5.26.0
+
+### Minor Changes
+
+- 48c7e73: Correct use of ::background selector and dual dark theme attribute selector :global([data-theme="dark"])
+
 ## 5.25.0
 
 ### Minor Changes
