@@ -1,5 +1,16 @@
 # @infonomic/website-react
 
+## 5.24.0
+
+### Minor Changes
+
+- 9e3fe4d: Removed all usages of :is(:global(.dark) \*).
+
+### Patch Changes
+
+- Updated dependencies [9e3fe4d]
+  - @infonomic/uikit@5.24.0
+
 ## 5.23.0
 
 ### Minor Changes

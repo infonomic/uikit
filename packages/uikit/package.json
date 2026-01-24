@@ -2,7 +2,7 @@
   "name": "@infonomic/uikit",
   "private": false,
   "license": "MIT",
-  "version": "5.23.0",
+  "version": "5.24.0",
   "type": "module",
   "description": "Infonomic UI kit is a collection of reusable UI components and utilities for React and Astro.",
   "keywords": [
