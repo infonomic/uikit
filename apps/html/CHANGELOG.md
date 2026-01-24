@@ -1,5 +1,16 @@
 # @modulus-learning/agent-demo-vanilla
 
+## 5.25.0
+
+### Minor Changes
+
+- f74024d: Fixed global CSS selectors for dark theme in CSS modules.
+
+### Patch Changes
+
+- Updated dependencies [f74024d]
+  - @infonomic/uikit@5.25.0
+
 ## 5.24.0
 
 ### Minor Changes
