@@ -11,13 +11,13 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/node": "^9.5.1",
+    "@astrojs/node": "^9.5.2",
     "@infonomic/uikit": "workspace:*",
-    "astro": "^5.16.9",
+    "astro": "^5.16.15",
     "nanostores": "^1.1.0",
     "sharp": "^0.34.5"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.3.11"
+    "@biomejs/biome": "2.3.12"
   }
 }
