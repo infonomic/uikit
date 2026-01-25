@@ -44,7 +44,7 @@ export const TextArea = function TextArea({
   ...rest
 }: TextAreaProps): React.JSX.Element {
   return (
-    <fieldset className={cx('text-area-wrapper', inputStyles['input-wrapper'])}>
+    <div className={cx('text-area-wrapper', inputStyles['input-wrapper'])}>
       {label != null && <Label id={id} htmlFor={id} required={required} label={label} />}
       <textarea
         ref={ref}
@@ -78,6 +78,6 @@ export const TextArea = function TextArea({
       ) : (
         helpText?.length > 0 && <HelpText text={helpText} />
       )}
-    </fieldset>
+    </div>
   )
 }
