@@ -1,5 +1,18 @@
 # @modulus-learning/agent-demo-vanilla
 
+## 5.27.0
+
+### Minor Changes
+
+- 8c109e7: Changed from fieldset to div for text area component.
+- 1ffb918: Updated deps.
+
+### Patch Changes
+
+- Updated dependencies [8c109e7]
+- Updated dependencies [1ffb918]
+  - @infonomic/uikit@5.27.0
+
 ## 5.26.0
 
 ### Minor Changes

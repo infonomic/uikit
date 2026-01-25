@@ -1,5 +1,12 @@
 # @infonomic/uikit
 
+## 5.27.0
+
+### Minor Changes
+
+- 8c109e7: Changed from fieldset to div for text area component.
+- 1ffb918: Updated deps.
+
 ## 5.26.0
 
 ### Minor Changes
