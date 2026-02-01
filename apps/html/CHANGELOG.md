@@ -1,5 +1,16 @@
 # @modulus-learning/agent-demo-vanilla
 
+## 5.28.0
+
+### Minor Changes
+
+- e06c605: Initial refactor to namespaced global class selectors.
+
+### Patch Changes
+
+- Updated dependencies [e06c605]
+  - @infonomic/uikit@5.28.0
+
 ## 5.27.0
 
 ### Minor Changes

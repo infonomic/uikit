@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 5.28.0
+
+### Minor Changes
+
+- e06c605: Initial refactor to namespaced global class selectors.
+
 ## 5.27.0
 
 ### Minor Changes
