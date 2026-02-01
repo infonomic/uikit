@@ -1,13 +1,14 @@
 @layer infonomic-base,
-  infonomic-functional,
-  infonomic-utilities,
-  infonomic-theme,
-  infonomic-typography,
-  infonomic-components;
+infonomic-functional,
+infonomic-utilities,
+infonomic-theme,
+infonomic-typography,
+infonomic-components;
 
 @layer infonomic-components {
+
   .container,
-  :global(.container) {
+  :global(.infonomic-container) {
     width: 100%;
     padding: 0 1rem;
     margin: 0 auto;
@@ -17,24 +18,27 @@
   /* Shy edges */
   /* Large */
   @media (min-width: 66rem) {
+
     .container,
-    :global(.container) {
+    :global(.infonomic-container) {
       max-width: 64rem;
     }
   }
 
   /* X-Large */
   @media (min-width: 77rem) {
+
     .container,
-    :global(.container) {
+    :global(.infonomic-container) {
       max-width: 74.375rem;
     }
   }
 
   /* 2X-Large */
   @media (min-width: 94rem) {
+
     .container,
-    :global(.container) {
+    :global(.infonomic-container) {
       max-width: 87.5rem;
     }
   }

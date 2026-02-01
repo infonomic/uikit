@@ -8,7 +8,7 @@ infonomic-components;
 @layer infonomic-components {
 
   .chip,
-  :global(.chip) {
+  :global(.infonomic-chip) {
     --chip-font-size: 0.9rem;
     --chip-height: 34px;
     --chip-padding-y: 0.35rem;
@@ -36,47 +36,51 @@ infonomic-components;
 
   .chip:disabled,
   .chip[disabled],
-  :global(.chip):disabled,
-  :global(.chip)[disabled] {
+  :global(.infonomic-chip):disabled,
+  :global(.infonomic-chip)[disabled] {
     pointer-events: none;
   }
 
   .chip:focus,
   .chip:active,
-  :global(.chip):focus,
-  :global(.chip):active {
+  :global(.infonomic-chip):focus,
+  :global(.infonomic-chip):active {
     --ring-offset-color: var(--background);
     --ring-offset-shadow: var(--ring-inset) 0 0 0 var(--ring-offset-width) var(--ring-offset-color);
     --ring-shadow: var(--ring-inset) 0 0 0 calc(1px + var(--ring-offset-width)) var(--ring-color);
     box-shadow: var(--ring-offset-shadow), var(--ring-shadow), var(--shadow, 0 0 #0000);
   }
 
-  .label {
+  .label,
+  :global(.infonomic-chip-label) {
     display: inline-flex;
     align-items: center;
     white-space: nowrap;
   }
 
-  .icon {
+  .icon,
+  :global(.infonomic-chip-icon) {
     width: var(--chip-icon-size);
     height: var(--chip-icon-size);
   }
 
-  .iconWrapper {
+  .iconWrapper,
+  :global(.infonomic-chip-icon-wrapper) {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     line-height: 0;
   }
 
-  .close-icon {
+  .close-icon,
+  :global(.infonomic-chip-close-icon) {
     width: calc(var(--chip-icon-size) * 0.9);
     height: calc(var(--chip-icon-size) * 0.9);
   }
 
   /* Sizes ----------------------------------------------------------- */
   .xs,
-  :global(.chip-xs) {
+  :global(.infonomic-chip-xs) {
     --chip-height: 24px;
     --chip-padding-y: 0.15rem;
     --chip-padding-x: 0.3rem;
@@ -86,7 +90,7 @@ infonomic-components;
   }
 
   .sm,
-  :global(.chip-sm) {
+  :global(.infonomic-chip-sm) {
     --chip-height: 28px;
     --chip-padding-y: 0.2rem;
     --chip-padding-x: 0.3rem;
@@ -95,7 +99,7 @@ infonomic-components;
   }
 
   .md,
-  :global(.chip-md) {
+  :global(.infonomic-chip-md) {
     --chip-height: 32px;
     --chip-padding-y: 0.25rem;
     --chip-padding-x: 0.3rem;
@@ -104,7 +108,7 @@ infonomic-components;
   }
 
   .lg,
-  :global(.chip-lg) {
+  :global(.infonomic-chip-lg) {
     --chip-gap: var(--gap-2);
     --chip-height: 36px;
     --chip-padding-y: 0.3rem;
@@ -114,7 +118,7 @@ infonomic-components;
   }
 
   .xl,
-  :global(.chip-xl) {
+  :global(.infonomic-chip-xl) {
     --chip-gap: var(--gap-2);
     --chip-height: 40px;
     --chip-padding-y: 0.3rem;
@@ -126,27 +130,27 @@ infonomic-components;
   /* Variants -------------------------------------------------------- */
   /* Variants - Consuming Variables */
   .filled,
-  :global(.chip-filled) {
+  :global(.infonomic-chip-filled) {
     color: var(--chip-variant-filled-foreground);
     background-color: var(--chip-variant-filled);
   }
 
   .filled:hover,
-  :global(.chip-filled):hover {
+  :global(.infonomic-chip-filled):hover {
     background-color: var(--chip-variant-filled-hover);
   }
 
   .filled:focus,
   .filled:active,
-  :global(.chip-filled):focus,
-  :global(.chip-filled):active {
+  :global(.infonomic-chip-filled):focus,
+  :global(.infonomic-chip-filled):active {
     --ring-color: var(--chip-ring-color);
   }
 
   .filled:disabled,
   .filled[disabled],
-  :global(.chip-filled):disabled,
-  :global(.chip-filled)[disabled] {
+  :global(.infonomic-chip-filled):disabled,
+  :global(.infonomic-chip-filled)[disabled] {
     background-color: var(--chip-variant-filled-disabled,
         oklch(from var(--chip-variant-filled) calc(l * 1.1) calc(c * 0.85) h));
     color: var(--chip-variant-filled-foreground-disabled,
@@ -157,27 +161,27 @@ infonomic-components;
   /* Weak variant for close button on selected chip */
 
   .filled-weak,
-  :global(.chip-filled-weak) {
+  :global(.infonomic-chip-filled-weak) {
     color: var(--chip-variant-filled-weak-foreground);
     background-color: var(--chip-variant-filled-weak);
   }
 
   .filled-weak:hover,
-  :global(.chip-filled-weak):hover {
+  :global(.infonomic-chip-filled-weak):hover {
     background-color: var(--chip-variant-filled-weak-hover);
   }
 
   .filled-weak:focus,
   .filled-weak:active,
-  :global(.chip-filled-weak):focus,
-  :global(.chip-filled-weak):active {
+  :global(.infonomic-chip-filled-weak):focus,
+  :global(.infonomic-chip-filled-weak):active {
     --ring-color: var(--chip-ring-color);
   }
 
   .filled-weak:disabled,
   .filled-weak[disabled],
-  :global(.chip-filled-weak):disabled,
-  :global(.chip-filled-weak)[disabled] {
+  :global(.infonomic-chip-filled-weak):disabled,
+  :global(.infonomic-chip-filled-weak)[disabled] {
     background-color: var(--chip-variant-filled-weak-disabled,
         oklch(from var(--chip-variant-filled-weak) calc(l * 1.1) calc(c * 0.85) h));
     color: var(--chip-variant-filled-weak-foreground-disabled,
@@ -188,7 +192,7 @@ infonomic-components;
   /* Outlined variant */
 
   .outlined,
-  :global(.chip-outlined) {
+  :global(.infonomic-chip-outlined) {
     border: 1px solid var(--chip-variant-outlined-border);
     color: var(--chip-variant-outlined-foreground);
     background-color: var(--chip-variant-outlined);
@@ -196,8 +200,8 @@ infonomic-components;
 
   .outlined:disabled,
   .outlined[disabled],
-  :global(.chip-outlined):disabled,
-  :global(.chip-outlined)[disabled] {
+  :global(.infonomic-chip-outlined):disabled,
+  :global(.infonomic-chip-outlined)[disabled] {
     border-color: var(--chip-variant-outlined-border-disabled,
         oklch(from var(--chip-variant-outlined-border) calc(l * 1.5) calc(c * 0.8) h));
     color: var(--chip-variant-outlined-foreground-disabled,
@@ -205,45 +209,45 @@ infonomic-components;
   }
 
   .outlined:hover,
-  :global(.chip-outlined):hover {
+  :global(.infonomic-chip-outlined):hover {
     background-color: var(--chip-variant-outlined-hover);
   }
 
   .outlined:focus,
   .outlined:active,
-  :global(.chip-outlined):focus,
-  :global(.chip-outlined):active {
+  :global(.infonomic-chip-outlined):focus,
+  :global(.infonomic-chip-outlined):active {
     --ring-color: var(--chip-ring-color);
   }
 
   .text,
-  :global(.chip-text) {
+  :global(.infonomic-chip-text) {
     background-color: var(--chip-variant-text);
     color: var(--chip-variant-text-foreground);
   }
 
   .text:disabled,
   .text[disabled],
-  :global(.chip-text):disabled,
-  :global(.chip-text)[disabled] {
+  :global(.infonomic-chip-text):disabled,
+  :global(.infonomic-chip-text)[disabled] {
     color: oklch(from var(--chip-variant-text-foreground) calc(l * 1.5) calc(c * 0.5) h);
   }
 
   .text:hover,
-  :global(.chip-text):hover {
+  :global(.infonomic-chip-text):hover {
     background-color: var(--chip-variant-text-hover);
   }
 
   .text:focus,
   .text:active,
-  :global(.chip-text):focus,
-  :global(.chip-text):active {
+  :global(.infonomic-chip-text):focus,
+  :global(.infonomic-chip-text):active {
     --ring-color: var(--chip-ring-color);
   }
 
   /* Intents - Defining Variables */
   .primary,
-  :global(.chip-primary) {
+  :global(.infonomic-chip-primary) {
     --chip-ring-color: var(--ring-primary);
 
     /* Filled */
@@ -270,7 +274,7 @@ infonomic-components;
   }
 
   .secondary,
-  :global(.chip-secondary) {
+  :global(.infonomic-chip-secondary) {
     --chip-ring-color: var(--ring-secondary);
 
     /* Filled */
@@ -297,7 +301,7 @@ infonomic-components;
   }
 
   .noeffect,
-  :global(.chip-noeffect) {
+  :global(.infonomic-chip-noeffect) {
     --chip-ring-color: var(--ring-noeffect);
 
     /* Filled */
@@ -324,7 +328,7 @@ infonomic-components;
   }
 
   .success,
-  :global(.chip-success) {
+  :global(.infonomic-chip-success) {
     --chip-ring-color: var(--ring-success);
 
     /* Filled */
@@ -351,7 +355,7 @@ infonomic-components;
   }
 
   .info,
-  :global(.chip-info) {
+  :global(.infonomic-chip-info) {
     --chip-ring-color: var(--ring-info);
 
     /* Filled */
@@ -378,7 +382,7 @@ infonomic-components;
   }
 
   .warning,
-  :global(.chip-warning) {
+  :global(.infonomic-chip-warning) {
     --chip-ring-color: var(--ring-warning);
 
     /* Filled */
@@ -405,7 +409,7 @@ infonomic-components;
   }
 
   .danger,
-  :global(.chip-danger) {
+  :global(.infonomic-chip-danger) {
     --chip-ring-color: var(--ring-danger);
 
     /* Filled */

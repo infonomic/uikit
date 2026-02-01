@@ -1,13 +1,14 @@
 @layer infonomic-base,
-  infonomic-functional,
-  infonomic-utilities,
-  infonomic-theme,
-  infonomic-typography,
-  infonomic-components;
+infonomic-functional,
+infonomic-utilities,
+infonomic-theme,
+infonomic-typography,
+infonomic-components;
 
 @layer infonomic-components {
+
   .adornment,
-  :global(.input-adornment) {
+  :global(.infonomic-input-adornment) {
     display: flex;
     align-items: center;
     line-height: 0;
@@ -15,12 +16,12 @@
   }
 
   .start,
-  :global(.input-adornment-start) {
+  :global(.infonomic-input-adornment-start) {
     justify-content: flex-start;
   }
 
   .end,
-  :global(.input-adornment-end) {
+  :global(.infonomic-input-adornment-end) {
     justify-content: flex-end;
   }
 }

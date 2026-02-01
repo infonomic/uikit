@@ -53,9 +53,9 @@ export const Checkbox = function Checkbox({
   ref?: React.RefObject<HTMLButtonElement>
 }): React.JSX.Element {
   return (
-    <div className={cx('checkbox-container', styles.container, containerClasses)}>
+    <div className={cx('infonomic-checkbox-container', styles.container, containerClasses)}>
       <div
-        className={cx('checkbox-component', styles.component, componentClasses, {
+        className={cx('infonomic-checkbox-component', styles.component, componentClasses, {
           [styles.reverse]: reverse,
         })}
       >
@@ -64,10 +64,10 @@ export const Checkbox = function Checkbox({
           id={id}
           name={name}
           className={cx(
-            'checkbox',
-            variant,
-            size,
-            intent,
+            'infonomic-checkbox',
+            `infonomic-checkbox-${variant}`,
+            `infonomic-checkbox-${size}`,
+            `infonomic-checkbox-${intent}`,
             styles.checkbox,
             styles[variant],
             styles[size],
@@ -79,14 +79,14 @@ export const Checkbox = function Checkbox({
         >
           <CheckboxPrimitive.Indicator
             forceMount
-            className={cx('checkbox-indicator', styles.indicator)}
+            className={cx('infonomic-checkbox-indicator', styles.indicator)}
           >
             <CheckIcon className={styles.icon} />
           </CheckboxPrimitive.Indicator>
         </CheckboxPrimitive.Root>
 
         {label != null && (
-          <LabelPrimitive.Label htmlFor={id} className={cx(styles.label, labelClasses)}>
+          <LabelPrimitive.Label htmlFor={id} className={cx('infonomic-checkbox-label', styles.label, labelClasses)}>
             {label}
           </LabelPrimitive.Label>
         )}

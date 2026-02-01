@@ -5,6 +5,7 @@ import type React from 'react'
 import { useEffect } from 'react'
 
 import { useFocusTrap } from '@mantine/hooks'
+import cx from 'classnames'
 import type { HTMLMotionProps } from 'motion/react'
 import { m } from 'motion/react'
 
@@ -39,7 +40,7 @@ export function ModalWrapper({
     <m.div
       ref={focusTrapRef}
       {...rest}
-      className={styles['modal-wrapper']}
+      className={cx('infonomic-modal-wrapper', styles['modal-wrapper'])}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}

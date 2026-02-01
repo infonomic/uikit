@@ -5,7 +5,7 @@ import cx from 'classnames'
 import styles from './section.module.css'
 
 type SectionIntrinsicProps = React.JSX.IntrinsicElements['section']
-export interface SectionProps extends SectionIntrinsicProps {}
+export interface SectionProps extends SectionIntrinsicProps { }
 
 export const Section = function Section({
   ref,
@@ -16,7 +16,7 @@ export const Section = function Section({
   ref?: React.RefObject<HTMLElement>
 }): React.JSX.Element {
   return (
-    <section className={cx('section', styles.section, className)} ref={ref} {...rest}>
+    <section className={cx('infonomic-section', styles.section, className)} ref={ref} {...rest}>
       {children}
     </section>
   )

@@ -1,9 +1,13 @@
 @layer infonomic-base, infonomic-utilities, infonomic-theme, infonomic-components;
 
 @layer infonomic-components {
+
   .stop-button,
   .play-button,
-  .directional-button {
+  .directional-button,
+  :global(.infonomic-stop-button),
+  :global(.infonomic-play-button),
+  :global(.infonomic-directional-button) {
     display: flex;
     align-items: center;
     justify-content: center;

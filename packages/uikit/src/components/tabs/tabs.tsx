@@ -16,7 +16,7 @@ const Tabs = ({
 }) => (
   <TabsPrimitive.Root
     ref={ref}
-    className={cx(styles['tabs-root'], 'tabs-root', className)}
+    className={cx(styles['tabs-root'], 'infonomic-tabs-root', className)}
     {...props}
   />
 )
@@ -31,7 +31,7 @@ const TabsList = ({
 }) => (
   <TabsPrimitive.List
     ref={ref}
-    className={cx(styles['tabs-list'], 'tabs-list', className)}
+    className={cx(styles['tabs-list'], 'infonomic-tabs-list', className)}
     {...props}
   />
 )
@@ -46,7 +46,7 @@ const TabsTrigger = ({
 }) => (
   <TabsPrimitive.Trigger
     ref={ref}
-    className={cx(styles['tabs-trigger'], 'tabs-trigger', className)}
+    className={cx(styles['tabs-trigger'], 'infonomic-tabs-trigger', className)}
     {...props}
   />
 )
@@ -62,7 +62,7 @@ const TabsContent = ({
   <TabsPrimitive.Content
     ref={ref}
     forceMount={true}
-    className={cx(styles['tabs-content'], 'tabs-content', className)}
+    className={cx(styles['tabs-content'], 'infonomic-tabs-content', className)}
     {...props}
   />
 )

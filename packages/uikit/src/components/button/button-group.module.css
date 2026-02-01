@@ -1,8 +1,9 @@
 @layer infonomic-base, infonomic-utilities, infonomic-theme, infonomic-components;
 
 @layer infonomic-components {
+
   .button-group,
-  :global(.button-group) {
+  :global(.infonomic-button-group) {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -11,8 +12,9 @@
   }
 
   @media screen and (min-width: 40rem) {
+
     .button-group,
-    :global(.button-group) {
+    :global(.infonomic-button-group) {
       flex-direction: row;
     }
   }

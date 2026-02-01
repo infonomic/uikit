@@ -20,7 +20,7 @@ export const ModalContainer = function ModalContainer({
   ref?: React.RefObject<HTMLDivElement>
 }) {
   return (
-    <div ref={ref} className={cx(styles['modal-container'], className)} {...rest}>
+    <div ref={ref} className={cx('infonomic-modal-container', styles['modal-container'], className)} {...rest}>
       {children}
     </div>
   )

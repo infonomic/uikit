@@ -1,18 +1,19 @@
 @layer infonomic-base,
-  infonomic-functional,
-  infonomic-utilities,
-  infonomic-theme,
-  infonomic-typography,
-  infonomic-components;
+infonomic-functional,
+infonomic-utilities,
+infonomic-theme,
+infonomic-typography,
+infonomic-components;
 
 @layer infonomic-components {
+
   .copy-button-container,
-  :global(.copy-button-container) {
+  :global(.infonomic-copy-button-container) {
     display: inline-block;
   }
 
   .copy-button svg,
-  :global(.copy-button) svg {
+  :global(.infonomic-copy-button) svg {
     width: 90%;
     height: 90%;
     display: block;
@@ -20,7 +21,7 @@
 
   /* Sizes */
   .xs,
-  :global(.copy-button-xs) {
+  :global(.infonomic-copy-button-xs) {
     width: 26px;
     height: 26px;
     min-height: 26px;
@@ -28,7 +29,7 @@
   }
 
   .sm,
-  :global(.copy-button-sm) {
+  :global(.infonomic-copy-button-sm) {
     width: 32px;
     height: 32px;
     min-height: 32px;
@@ -36,7 +37,7 @@
   }
 
   .md,
-  :global(.copy-button-md) {
+  :global(.infonomic-copy-button-md) {
     width: 38px;
     height: 38px;
     min-height: 38px;
@@ -44,7 +45,7 @@
   }
 
   .lg,
-  :global(.copy-button-lg) {
+  :global(.infonomic-copy-button-lg) {
     width: 46px;
     height: 46px;
     min-height: 46px;
@@ -52,7 +53,7 @@
   }
 
   .xl,
-  :global(.copy-button-xl) {
+  :global(.infonomic-copy-button-xl) {
     width: 54px;
     height: 54px;
     min-height: 54px;

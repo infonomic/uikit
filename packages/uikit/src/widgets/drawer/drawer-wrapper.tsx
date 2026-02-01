@@ -42,7 +42,7 @@ export function DrawerWrapper({
     <m.div
       ref={focusTrapRef}
       {...rest}
-      className={cx(styles['drawer-wrapper'], className)}
+      className={cx('infonomic-drawer-wrapper', styles['drawer-wrapper'], className)}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}

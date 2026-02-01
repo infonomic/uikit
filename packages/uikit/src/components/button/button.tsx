@@ -51,7 +51,7 @@ export const Button = <C extends React.ElementType = 'button'>({
     const rippleEffect = new Ripple()
     onMouseDown = (e: React.MouseEvent<HTMLButtonElement>) => {
       if (rest.onMouseDown) {
-        ;(rest.onMouseDown as React.MouseEventHandler<HTMLButtonElement>)(e)
+        ; (rest.onMouseDown as React.MouseEventHandler<HTMLButtonElement>)(e)
       }
       rippleEffect.create(e, variant === 'filled' || variant === 'gradient' ? 'light' : 'dark')
     }
@@ -62,10 +62,10 @@ export const Button = <C extends React.ElementType = 'button'>({
       ref={ref}
       type={type}
       className={cx(
-        'button',
-        intent,
-        variant,
-        size,
+        'infonomic-button',
+        `infonomic-button-${intent}`,
+        `infonomic-button-${variant}`,
+        `infonomic-button-${size}`,
         styles.button,
         styles[variant],
         styles[size],

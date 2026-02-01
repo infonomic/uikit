@@ -61,7 +61,7 @@ export const RadioGroup = ({
 }) => (
   <RadioGroupPrimitive.Root
     ref={forwardedRef}
-    className={cx('radio-group', styles[direction], className)}
+    className={cx('infonomic-radio-group', styles[direction], className)}
     // aria-label="View density"
     {...props}
   >

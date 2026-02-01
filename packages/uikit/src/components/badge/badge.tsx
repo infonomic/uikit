@@ -34,7 +34,7 @@ export const Badge = <C extends React.ElementType = 'div'>({
   return (
     <Comp
       ref={ref}
-      className={cx('badge', intent, styles.badge, styles[intent], className)}
+      className={cx('infonomic-badge', `infonomic-badge-${intent}`, styles.badge, styles[intent], className)}
       {...rest}
     >
       {children}

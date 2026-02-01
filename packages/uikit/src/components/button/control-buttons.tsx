@@ -42,7 +42,7 @@ export const DirectionalButton = ({
       type="button"
       aria-label={direction}
       className={cx(
-        'control-button',
+        'infonomic-control-button',
         direction,
         size,
         styles['directional-button'],

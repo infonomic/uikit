@@ -10,5 +10,5 @@ interface HelpTextProps {
 }
 
 export function HelpText({ className, text }: HelpTextProps): React.JSX.Element {
-  return <p className={cx('help-text', styles.text, className)}>{text}</p>
+  return <p className={cx('infonomic-help-text', styles.text, className)}>{text}</p>
 }

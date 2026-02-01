@@ -70,7 +70,7 @@ export const Chip = <C extends React.ElementType = 'button'>({
     }
 
     if (onClick) {
-      ;(onClick as React.MouseEventHandler<HTMLElement>)(event)
+      ; (onClick as React.MouseEventHandler<HTMLElement>)(event)
     }
 
     if (isSelectable && onToggle) {
@@ -86,7 +86,7 @@ export const Chip = <C extends React.ElementType = 'button'>({
     if ((event.key === 'Enter' || event.key === ' ') && asChild === true) {
       event.preventDefault()
       if (onClick) {
-        ;(onClick as React.MouseEventHandler<HTMLElement>)(
+        ; (onClick as React.MouseEventHandler<HTMLElement>)(
           event as unknown as React.MouseEvent<HTMLElement>
         )
       }
@@ -147,7 +147,7 @@ export const Chip = <C extends React.ElementType = 'button'>({
       onClick={handleRemoveClick}
       onKeyDown={handleRemoveKeyDown}
     >
-      <CloseIcon className={cx(styles.icon, styles['close-icon'])} />
+      <CloseIcon className={cx('infonomic-chip-close-icon', styles.icon, styles['close-icon'])} />
     </button>
   ) : (
     endIcon
@@ -165,10 +165,10 @@ export const Chip = <C extends React.ElementType = 'button'>({
       aria-pressed={isSelectable ? isSelected : undefined}
       aria-selected={isSelectable ? isSelected : undefined}
       className={cx(
-        'chip',
-        variant,
-        intent,
-        size,
+        'infonomic-chip',
+        `infonomic-chip-${variant}`,
+        `infonomic-chip-${intent}`,
+        `infonomic-chip-${size}`,
         { selected: isSelected, disabled, removable: isRemovable },
         styles.chip,
         styles[appliedVariant],
@@ -181,9 +181,9 @@ export const Chip = <C extends React.ElementType = 'button'>({
       onKeyDown={handleKeyDown}
       {...restProps}
     >
-      {leadingIcon != null && <span className={cx(styles.iconWrapper)}>{leadingIcon}</span>}
-      <span className={styles.label}>{children}</span>
-      {trailingIcon != null && <span className={cx(styles.iconWrapper)}>{trailingIcon}</span>}
+      {leadingIcon != null && <span className={cx('infonomic-chip-icon-wrapper', styles.iconWrapper)}>{leadingIcon}</span>}
+      <span className={cx('infonomic-chip-label', styles.label)}>{children}</span>
+      {trailingIcon != null && <span className={cx('infonomic-chip-icon-wrapper', styles.iconWrapper)}>{trailingIcon}</span>}
     </Comp>
   )
 }

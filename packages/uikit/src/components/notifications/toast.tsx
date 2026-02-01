@@ -79,11 +79,11 @@ export const Toast = function Toast({
   return (
     <ToastPrimitive.Root
       ref={mergedRef}
-      className={cx('toast', styles.root, styles[position])}
+      className={cx('infonomic-toast', styles.root, styles[position])}
       open={open}
       onOpenChange={onOpenChange}
     >
-      <div className={cx('toast-header', styles.header)}>
+      <div className={cx('infonomic-toast-header', styles.header)}>
         <time dateTime={eventDateRef.current.toISOString()} className="text-sm">
           {new Intl.DateTimeFormat('default', {
             hour12: true,
@@ -98,7 +98,7 @@ export const Toast = function Toast({
               tabIndex={0}
               variant="filled"
               aria-label="Close"
-              className={styles.close}
+              className={cx('infonomic-toast-close', styles.close)}
               type="button"
               onClick={handleOnClose}
             >
@@ -107,11 +107,11 @@ export const Toast = function Toast({
           </ToastPrimitive.Close>
         )}
       </div>
-      <ToastPrimitive.Title className={cx('toast-title', styles.title)}>
+      <ToastPrimitive.Title className={cx('infonomic-toast-title', styles.title)}>
         {icon != null && <Icon />}
         {title}
       </ToastPrimitive.Title>
-      <ToastPrimitive.Description className={cx('toast-description', styles.description)}>
+      <ToastPrimitive.Description className={cx('infonomic-toast-description', styles.description)}>
         {message}
       </ToastPrimitive.Description>
       {/* <ToastPrimitive.Action className={styles.action} asChild altText="Goto schedule to undo">

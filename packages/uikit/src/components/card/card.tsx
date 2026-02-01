@@ -36,7 +36,7 @@ const Card = <C extends React.ElementType = 'div'>({
   const classes = cx(styles.card, hoverClasses, className)
 
   return (
-    <Comp ref={ref} className={classes} {...rest}>
+    <Comp ref={ref} className={cx('infonomic-card', classes)} {...rest}>
       {children}
     </Comp>
   )
@@ -49,7 +49,7 @@ interface OtherProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const Header = ({ className, ref, ...props }: OtherProps) => (
-  <div ref={ref} className={cx(styles['card-header'], className)} {...props} />
+  <div ref={ref} className={cx('infonomic-card-header', styles['card-header'], className)} {...props} />
 )
 
 Header.displayName = 'CardHeader'
@@ -57,24 +57,24 @@ Header.displayName = 'CardHeader'
 const Title = ({ className, ref, ...props }: OtherProps) => (
   <div
     ref={ref as React.Ref<HTMLDivElement>}
-    className={cx(styles['card-title'], className)}
+    className={cx('infonomic-card-title', styles['card-title'], className)}
     {...props}
   />
 )
 Title.displayName = 'CardTitle'
 
 const Description = ({ className, ref, ...props }: OtherProps) => (
-  <div ref={ref} className={cx(styles['card-description'], className)} {...props} />
+  <div ref={ref} className={cx('infonomic-card-description', styles['card-description'], className)} {...props} />
 )
 Description.displayName = 'CardDescription'
 
 const Content = ({ className, ref, ...props }: OtherProps) => (
-  <div ref={ref} className={cx(styles['card-content'], className)} {...props} />
+  <div ref={ref} className={cx('infonomic-card-content', styles['card-content'], className)} {...props} />
 )
 Content.displayName = 'CardContent'
 
 const Footer = ({ className, ref, ...props }: OtherProps) => (
-  <div ref={ref} className={cx(styles['card-footer'], className)} {...props} />
+  <div ref={ref} className={cx('infonomic-card-footer', styles['card-footer'], className)} {...props} />
 )
 Footer.displayName = 'CardFooter'
 

@@ -1,7 +1,9 @@
 @layer infonomic-base, infonomic-utilities, infonomic-theme, infonomic-components;
 
 @layer infonomic-components {
-  .modal-wrapper {
+
+  .modal-wrapper,
+  :global(.infonomic-modal-open) {
     position: fixed;
     display: flex;
     flex-direction: column;
@@ -15,7 +17,8 @@
     opacity: 1;
   }
 
-  .modal-container {
+  .modal-container,
+  :global(.infonomic-modal-container) {
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -33,7 +36,9 @@
   }
 
   @media screen and (min-width: 40rem) {
-    .modal-container {
+
+    .modal-container,
+    :global(.infonomic-modal-container) {
       max-height: calc(100vh - 24px);
       min-height: auto;
       bottom: auto;
@@ -41,7 +46,8 @@
     }
   }
 
-  .modal-header {
+  .modal-header,
+  :global(.infonomic-modal-header) {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -53,11 +59,14 @@
   }
 
   .modal-header h2,
-  .modal-header h3 {
+  .modal-header h3,
+  :global(.infonomic-modal-header h2),
+  :global(.infonomic-modal-header h3) {
     margin: 0;
   }
 
-  .modal-content {
+  .modal-content,
+  :global(.infonomic-modal-content) {
     display: flex;
     flex: 1;
     flex-direction: column;
@@ -68,7 +77,8 @@
     max-width: 100%;
   }
 
-  .modal-actions {
+  .modal-actions,
+  :global(.infonomic-modal-actions) {
     display: flex;
     align-items: center;
     justify-content: flex-end;

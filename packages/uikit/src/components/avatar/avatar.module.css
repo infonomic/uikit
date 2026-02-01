@@ -1,13 +1,15 @@
 @layer infonomic-base,
-  infonomic-functional,
-  infonomic-utilities,
-  infonomic-theme,
-  infonomic-typography,
-  infonomic-components;
+infonomic-functional,
+infonomic-utilities,
+infonomic-theme,
+infonomic-typography,
+infonomic-components;
 
 @layer infonomic-components {
+
   /* relative inline-flex h-10 w-10 rounded-full */
-  .avatar-root {
+  .avatar-root,
+  :global(.infonomic-avatar-root) {
     position: relative;
     display: inline-flex;
     height: 100%;
@@ -15,7 +17,8 @@
     border-radius: 50%;
   }
 
-  .avatar-image {
+  .avatar-image,
+  :global(.infonomic-avatar-image) {
     height: 100%;
     width: 100%;
     border-radius: 50%;
@@ -23,7 +26,8 @@
   }
 
   /* flex h-full w-full items-center justify-center rounded-full bg-white dark:bg-gray-800 */
-  .avatar-fallback {
+  .avatar-fallback,
+  :global(.infonomic-avatar-fallback) {
     display: flex;
     height: 100%;
     width: 100%;
@@ -33,7 +37,8 @@
     background-color: var(--color-white);
   }
 
-  .avatar-text {
+  .avatar-text,
+  :global(.infonomic-avatar-text) {
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-medium);
     text-transform: uppercase;
@@ -45,7 +50,8 @@
   * color scheme - either by header or cookie, and set
   * a root html class accordingly
   */
-  :global(.dark) {
+  :global(.dark),
+  :global([data-theme="dark"]) {
     .avatar-fallback {
       background-color: var(--gray-800);
     }

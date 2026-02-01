@@ -1,31 +1,37 @@
 @layer infonomic-base, infonomic-utilities, infonomic-theme, infonomic-components;
 
 @layer infonomic-components {
-  .root {
+
+  .root,
+  :global(.infonomic-accordion-root) {
     border-radius: 6px;
     width: 300px;
     background-color: var(--canvas-25);
     box-shadow: var(--shadow-md);
   }
 
-  .item {
+  .item,
+  :global(.infonomic-accordion-item) {
     overflow: hidden;
     margin-top: 1px;
   }
 
-  .header {
+  .header,
+  :global(.infonomic-accordion-header) {
     margin: 0;
     display: flex;
   }
 
-  .trigger {
+  .trigger,
+  :global(.infonomic-accordion-trigger) {
     display: flex;
     cursor: pointer;
     align-items: center;
     width: 100%;
   }
 
-  .content {
+  .content,
+  :global(.infonomic-accordion-content) {
     overflow: hidden;
 
     &[data-state="open"] {

@@ -1,12 +1,13 @@
 @layer infonomic-base,
-  infonomic-utilities,
-  infonomic-theme,
-  infonomic-typography,
-  infonomic-components;
+infonomic-utilities,
+infonomic-theme,
+infonomic-typography,
+infonomic-components;
 
 @layer infonomic-components {
+
   .scroll-to-top,
-  :global(.scroll-to-top) {
+  :global(.infonomic-scroll-to-top) {
     display: flex;
     position: fixed;
     width: 0;
@@ -33,28 +34,28 @@
   }
 
   .scroll-to-top span,
-  :global(.scroll-to-top span) {
+  :global(.infonomic-scroll-to-top span) {
     width: 18px;
     padding-bottom: 3px;
   }
 
   .scroll-to-top span svg path,
-  :global(.scroll-to-top span svg path) {
+  :global(.infonomic-scroll-to-top span svg path) {
     stroke: none;
     fill: var(--text-on-primary);
   }
 
   .scroll-to-top:hover,
   .scroll-to-top:focus,
-  :global(.scroll-to-top:hover),
-  :global(.scroll-to-top:focus) {
+  :global(.infonomic-scroll-to-top:hover),
+  :global(.infonomic-scroll-to-top:focus) {
     color: var(--text-on-primary);
     background-color: var(--fill-primary-strong-hover);
     transform: translateY(-5px);
   }
 
   .scroll-to-top-shown,
-  :global(.scroll-to-top-shown) {
+  :global(.infonomic-scroll-to-top-shown) {
     min-width: 0;
     opacity: 1;
     visibility: visible;
@@ -67,19 +68,20 @@
   }
 
   @media screen and (min-width: 587px) {
+
     .scroll-to-top,
-    :global(.scroll-to-top) {
+    :global(.infonomic-scroll-to-top) {
       bottom: 45px;
       right: 45px;
     }
 
     .scroll-to-top span,
-    :global(.scroll-to-top span) {
+    :global(.infonomic-scroll-to-top span) {
       width: 18px;
     }
 
     .scroll-to-top-shown,
-    :global(.scroll-to-top-shown) {
+    :global(.infonomic-scroll-to-top-shown) {
       width: 42px;
       height: 42px;
       border-radius: 21px;

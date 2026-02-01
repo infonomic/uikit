@@ -1,12 +1,14 @@
 @layer infonomic-base,
-  infonomic-functional,
-  infonomic-utilities,
-  infonomic-theme,
-  infonomic-typography,
-  infonomic-components;
+infonomic-functional,
+infonomic-utilities,
+infonomic-theme,
+infonomic-typography,
+infonomic-components;
 
 @layer infonomic-components {
-  .tooltip {
+
+  .tooltip,
+  :global(.infonomic-tooltip) {
     font-size: 0.75rem;
     line-height: 1;
     color: var(--surface-item-text);
@@ -40,9 +42,8 @@
     animation-name: slideUpAndFade;
   }
 
-  .tooltip-arrow {
+  .tooltip-arrow,
+  :global(.infonomic-tooltip-arrow) {
     fill: var(--surface-panel-border);
   }
-
-  /* Dark mode handled by semantic tokens in theme layer */
 }

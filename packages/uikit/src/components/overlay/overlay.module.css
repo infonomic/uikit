@@ -1,7 +1,9 @@
 @layer infonomic-base, infonomic-utilities, infonomic-theme, infonomic-typography, infonomic-components;
 
 @layer infonomic-components {
-  .overlay {
+
+  .overlay,
+  :global(.infonomic-overlay) {
     position: fixed;
     top: 0;
     left: 0;
@@ -11,16 +13,22 @@
     z-index: 20;
   }
 
-  :global(.dark) .overlay,
-  :global([data-theme="dark"]) .overlay {
-    background-color: rgba(0, 0, 0, 0.5);
+  :global(.dark),
+  :global([data-theme="dark"]) {
+
+    .overlay,
+    :global(.infonomic-overlay) {
+      background-color: rgba(0, 0, 0, 0.5);
+    }
   }
 
-  .animate-fade-in {
+  .animate-fade-in,
+  :global(.infonomic-animate-fade-in) {
     animation: fade-in 0.3s ease-in-out;
   }
 
-  .animate-fade-out {
+  .animate-fade-out,
+  :global(.infonomic-animate-fade-out) {
     animation: fade-out 0.3s ease-in-out;
   }
 

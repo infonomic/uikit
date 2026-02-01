@@ -62,7 +62,7 @@ export function CopyButton({
   const tooltipText = copied != null && copied ? copiedText : hoverText
 
   return (
-    <div className={cx(styles['copy-button-container'], containerClassName)}>
+    <div className={cx('infonomic-copy-button-container', styles['copy-button-container'], containerClassName)}>
       <Tooltip side="top" sideOffset={2} text={tooltipText} open={copied}>
         <Button
           variant={variant}
@@ -70,7 +70,11 @@ export function CopyButton({
           intent={intent}
           fullWidth={fullWidth}
           ripple={ripple}
-          className={cx('copy-button', variant, size, intent, styles[size], className)}
+          className={cx('infonomic-copy-button',
+            `infonomic-copy-button-${variant}`,
+            `infonomic-copy-button-${size}`,
+            `infonomic-copy-button-${intent}`,
+            styles[size], className)}
           onClick={handleCopied}
           {...rest}
         >

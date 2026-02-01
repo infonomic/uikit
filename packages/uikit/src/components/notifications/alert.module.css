@@ -1,12 +1,14 @@
 @layer infonomic-base,
-  infonomic-functional,
-  infonomic-utilities,
-  infonomic-theme,
-  infonomic-typography,
-  infonomic-components;
+infonomic-functional,
+infonomic-utilities,
+infonomic-theme,
+infonomic-typography,
+infonomic-components;
 
 @layer infonomic-components {
-  .alert {
+
+  .alert,
+  :global(.infonomic-alert) {
     display: flex;
     align-items: start;
     width: 100%;
@@ -22,13 +24,15 @@
     margin-bottom: 1rem;
   }
 
-  .alert-with-title {
+  .alert-with-title,
+  :global(.infonomic-alert-with-title) {
     display: flex;
     flex-direction: column;
     width: 100%;
   }
 
-  .icon {
+  .icon,
+  :global(.infonomic-alert-icon) {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -38,7 +42,8 @@
     height: 24px;
   }
 
-  .close {
+  .close,
+  :global(.infonomic-alert-close) {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -52,12 +57,14 @@
     margin-top: -2px;
   }
 
-  .fade {
+  .fade,
+  :global(.infonomic-alert-fade) {
     opacity: 0;
     transition: opacity 0.4s ease-in-out;
   }
 
-  .header {
+  .header,
+  :global(.infonomic-alert-header) {
     display: flex;
     align-items: start;
     width: 100%;
@@ -65,7 +72,8 @@
     gap: var(--gap-2);
   }
 
-  .title {
+  .title,
+  :global(.infonomic-alert-title) {
     display: flex;
     font-weight: bold;
     font-size: 1.2rem;
@@ -73,47 +81,56 @@
     padding-top: 1px;
   }
 
-  .content {
+  .content,
+  :global(.infonomic-alert-content) {
     padding-top: 1px;
     font-size: var(--font-size-sm);
   }
 
-  .content:first-child {
+  .content:first-child,
+  :global(.infonomic-alert-content:first-child) {
     margin-top: 0;
   }
 
   /* Intents */
-  .primary {
+  .primary,
+  :global(.infonomic-alert-primary) {
     --alert-border: var(--stroke-primary);
     --alert-background: var(--fill-primary-weak);
   }
 
-  .secondary {
+  .secondary,
+  :global(.infonomic-alert-secondary) {
     --alert-border: var(--stroke-secondary);
     --alert-background: var(--fill-secondary-weak);
   }
 
-  .noeffect {
+  .noeffect,
+  :global(.infonomic-alert-noeffect) {
     --alert-border: var(--stroke-noeffect);
     --alert-background: var(--fill-noeffect-weak);
   }
 
-  .success {
+  .success,
+  :global(.infonomic-alert-success) {
     --alert-border: var(--stroke-success);
     --alert-background: var(--fill-success-weak);
   }
 
-  .info {
+  .info,
+  :global(.infonomic-alert-info) {
     --alert-border: var(--stroke-info);
     --alert-background: var(--fill-info-weak);
   }
 
-  .warning {
+  .warning,
+  :global(.infonomic-alert-warning) {
     --alert-border: var(--stroke-warning);
     --alert-background: var(--fill-warning-weak);
   }
 
-  .danger {
+  .danger,
+  :global(.infonomic-alert-danger) {
     --alert-border: var(--stroke-danger);
     --alert-background: var(--fill-danger-weak);
   }

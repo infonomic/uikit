@@ -22,8 +22,8 @@ export function InputAdornment({
   return (
     <div
       className={cx(
-        'input-adornment',
-        position,
+        'infonomic-input-adornment',
+        `infonomic-input-adornment-${position}`,
         styles.adornment,
         { [styles.start]: position === 'start' },
         { [styles.end]: position === 'end' },

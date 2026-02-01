@@ -8,7 +8,7 @@ infonomic-components;
 @layer infonomic-components {
 
   .badge,
-  :global(.badge) {
+  :global(.infonomic-badge) {
     display: inline-block;
     padding: 0.25em 0.4em;
     font-size: var(--font-size-sm);
@@ -21,43 +21,43 @@ infonomic-components;
   }
 
   .primary,
-  :global(.badge-primary) {
+  :global(.infonomic-badge-primary) {
     color: var(--text-on-primary-strong);
     background-color: var(--fill-primary-strong);
   }
 
   .secondary,
-  :global(.badge-secondary) {
+  :global(.infonomic-badge-secondary) {
     color: var(--text-on-secondary-strong);
     background-color: var(--fill-secondary-strong);
   }
 
   .noeffect,
-  :global(.badge-noeffect) {
+  :global(.infonomic-badge-noeffect) {
     color: var(--text-on-noeffect-strong);
     background-color: var(--fill-noeffect-strong);
   }
 
   .success,
-  :global(.badge-success) {
+  :global(.infonomic-badge-success) {
     color: var(--text-on-success-strong);
     background-color: var(--fill-success-strong);
   }
 
   .info,
-  :global(.badge-info) {
+  :global(.infonomic-badge-info) {
     color: var(--text-on-info-strong);
     background-color: var(--fill-info-strong);
   }
 
   .warning,
-  :global(.badge-warning) {
+  :global(.infonomic-badge-warning) {
     color: var(--text-on-warning-strong);
     background-color: var(--fill-warning-strong);
   }
 
   .danger,
-  :global(.badge-danger) {
+  :global(.infonomic-badge-danger) {
     color: var(--text-on-danger-strong);
     background-color: var(--fill-danger-strong);
   }

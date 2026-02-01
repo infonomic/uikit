@@ -7,7 +7,9 @@ infonomic-components;
 
 /* 'border-collapse w-full text-sm text-left text-gray-700 dark:text-gray-400 m-0', */
 @layer infonomic-components {
-  .shimmer {
+
+  .shimmer,
+  :global(.infonomic-shimmer) {
     position: relative;
     overflow: hidden;
     background-color: #f0f0f0;
@@ -18,27 +20,33 @@ infonomic-components;
 
   :global(.dark),
   :global([data-theme="dark"]) {
-    .shimmer {
+
+    .shimmer,
+    :global(.infonomic-shimmer) {
       background-color: #141414;
       background-image: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.01), transparent);
     }
   }
 
-  .shimmerContainer {
+  .shimmerContainer,
+  :global(.infonomic-shimmer-container) {
     display: flex;
     flex-direction: column;
   }
 
-  .rectangular {
+  .rectangular,
+  :global(.infonomic-shimmer-rectangular) {
     border-radius: 0.25rem;
   }
 
-  .text {
+  .text,
+  :global(.infonomic-shimmer-text) {
     border-radius: 0.125rem;
     height: 1rem;
   }
 
-  .circular {
+  .circular,
+  :global(.infonomic-shimmer-circular) {
     border-radius: 50%;
     aspect-ratio: 1;
   }

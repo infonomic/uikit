@@ -1,16 +1,19 @@
 @layer infonomic-base,
-  infonomic-functional,
-  infonomic-utilities,
-  infonomic-theme,
-  infonomic-typography,
-  infonomic-components;
+infonomic-functional,
+infonomic-utilities,
+infonomic-theme,
+infonomic-typography,
+infonomic-components;
 
 @layer infonomic-components {
-  .content {
+
+  .content,
+  :global(.infonomic-select-content) {
     z-index: 50;
   }
 
-  .viewport {
+  .viewport,
+  :global(.infonomic-select-viewport) {
     z-index: 50;
     margin-top: 2px;
     border: 1px solid var(--surface-panel-border);
@@ -20,11 +23,13 @@
     padding: 6px;
   }
 
-  .group {
+  .group,
+  :global(.infonomic-select-group) {
     z-index: 50;
   }
 
-  .scroll-button {
+  .scroll-button,
+  :global(.infonomic-select-scroll-button) {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -36,7 +41,8 @@
     padding: 2px;
   }
 
-  .select-item {
+  .select-item,
+  :global(.infonomic-select-item) {
     position: relative;
     user-select: none;
     color: var(--surface-item-text);
@@ -51,18 +57,21 @@
     border-radius: 6px;
   }
 
-  .select-item[data-disabled] {
+  .select-item[data-disabled],
+  :global(.infonomic-select-item[data-disabled]) {
     color: var(--surface-item-text-disabled);
     pointer-events: none;
   }
 
-  .select-item[data-highlighted] {
+  .select-item[data-highlighted],
+  :global(.infonomic-select-item[data-highlighted]) {
     outline: none;
     background-color: var(--surface-item-hover);
     color: var(--surface-item-text-hover);
   }
 
-  .select-item-indicator {
+  .select-item-indicator,
+  :global(.infonomic-select-item-indicator) {
     position: absolute;
     left: 0;
     width: 25px;

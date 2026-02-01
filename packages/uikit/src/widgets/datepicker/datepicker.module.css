@@ -45,8 +45,8 @@
     }
   }
 
-  .dark,
-  [data-theme="dark"] {
+  :global(.dark),
+  :global([data-theme="dark"]) {
     .content {
       background: var(--canvas-800);
     }

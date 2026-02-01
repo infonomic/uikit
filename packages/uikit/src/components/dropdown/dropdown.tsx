@@ -21,7 +21,7 @@ const Trigger = ({
 }): React.JSX.Element => {
   return (
     <DropdownMenuPrimitive.Trigger
-      className={cx('dropdown-menu-trigger', className)}
+      className={cx('infonomic-dropdown-trigger', className)}
       ref={ref}
       {...rest}
     >
@@ -49,7 +49,7 @@ const Content = ({
   return (
     <DropdownMenuPrimitive.Content
       ref={ref}
-      className={cx('dropdown-menu-content', styles['dropdown-content'], className)}
+      className={cx('infonomic-dropdown-content', styles['dropdown-content'], className)}
       {...rest}
     >
       {children}
@@ -69,7 +69,7 @@ const Group = ({
   return (
     <DropdownMenuPrimitive.Group
       ref={ref}
-      className={cx('dropdown-menu-group', className)}
+      className={cx('infonomic-dropdown-group', className)}
       {...rest}
     >
       {children}
@@ -89,7 +89,7 @@ const Item = ({
   return (
     <DropdownMenuPrimitive.Item
       ref={ref}
-      className={cx('dropdown-menu-item', styles['dropdown-item'], className)}
+      className={cx('infonomic-dropdown-item', styles['dropdown-item'], className)}
       {...rest}
     >
       {children}
@@ -109,7 +109,7 @@ const Label = ({
   return (
     <DropdownMenuPrimitive.Label
       ref={ref}
-      className={cx('dropdown-menu-label', className)}
+      className={cx('infonomic-dropdown-label', className)}
       {...rest}
     >
       {children}
@@ -128,7 +128,7 @@ const Separator = ({
   return (
     <DropdownMenuPrimitive.Separator
       ref={ref}
-      className={cx('dropdown-menu-separator', styles['dropdown-separator'], className)}
+      className={cx('infonomic-dropdown-separator', styles['dropdown-separator'], className)}
       {...props}
     />
   )
@@ -150,7 +150,7 @@ const SubContent = ({
   return (
     <DropdownMenuPrimitive.SubContent
       ref={ref}
-      className={cx('dropdown-menu-subcontent', styles['dropdown-subcontent'], className)}
+      className={cx('infonomic-dropdown-subcontent', styles['dropdown-subcontent'], className)}
       {...rest}
     >
       {children}
@@ -170,7 +170,7 @@ const SubTrigger = ({
   return (
     <DropdownMenuPrimitive.SubTrigger
       ref={ref}
-      className={cx('dropdown-menu-trigger', className)}
+      className={cx('infonomic-dropdown-subtrigger', className)}
       {...rest}
     >
       {children}

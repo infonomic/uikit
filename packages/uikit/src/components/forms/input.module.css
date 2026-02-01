@@ -1,20 +1,21 @@
 @layer infonomic-base,
-  infonomic-functional,
-  infonomic-utilities,
-  infonomic-theme,
-  infonomic-typography,
-  infonomic-components;
+infonomic-functional,
+infonomic-utilities,
+infonomic-theme,
+infonomic-typography,
+infonomic-components;
 
 @layer infonomic-components {
+
   .input-wrapper,
-  :global(.input-wrapper) {
+  :global(.infonomic-input-wrapper) {
     display: flex;
     flex-direction: column;
     gap: var(--gap-1);
   }
 
   .input-container,
-  :global(.input-container) {
+  :global(.infonomic-input-container) {
     position: relative;
     width: 100%;
     padding: 0;
@@ -24,7 +25,7 @@
   }
 
   .input,
-  :global(.input) {
+  :global(.infonomic-input) {
     border: none;
     outline: none;
     font-weight: normal;
@@ -38,8 +39,8 @@
 
   .input:focus,
   .input:active,
-  :global(.input):focus,
-  :global(.input):active {
+  :global(.infonomic-input):focus,
+  :global(.infonomic-input):active {
     --ring-offset-color: var(--background);
     --ring-offset-shadow: var(--ring-inset) 0 0 0 var(--ring-offset-width) var(--ring-offset-color);
     --ring-shadow: var(--ring-inset) 0 0 0 calc(1px + var(--ring-offset-width)) var(--ring-color);
@@ -48,13 +49,13 @@
 
   .input:disabled,
   .input[disabled],
-  :global(.input):disabled,
-  :global(.input)[disabled] {
+  :global(.infonomic-input):disabled,
+  :global(.infonomic-input)[disabled] {
     pointer-events: none;
   }
 
   .label,
-  :global(.input-label) {
+  :global(.infonomic-input-label) {
     font-size: 0.875rem;
     font-weight: 500;
     color: var(--label-color);
@@ -62,7 +63,7 @@
 
   /* Sizes */
   .sm,
-  :global(.input-sm) {
+  :global(.infonomic-input-sm) {
     min-height: 32px;
     font-size: 0.875rem;
     line-height: 0;
@@ -70,7 +71,7 @@
   }
 
   .md,
-  :global(.input-md) {
+  :global(.infonomic-input-md) {
     min-height: 38px;
     font-size: 1.1rem;
     line-height: 0;
@@ -78,7 +79,7 @@
   }
 
   .lg,
-  :global(.input-lg) {
+  :global(.infonomic-input-lg) {
     min-height: 46px;
     font-size: 1.2rem;
     line-height: 0;
@@ -87,50 +88,50 @@
 
   .start-adornment,
   .end-adornment,
-  :global(.input-start-adornment),
-  :global(.input-end-adornment) {
+  :global(.infonomic-input-start-adornment),
+  :global(.infonomic-input-end-adornment) {
     position: absolute;
     display: flex;
     align-items: center;
   }
 
   .start-adornment,
-  :global(.input-start-adornment) {
+  :global(.infonomic-input-start-adornment) {
     left: 5px;
   }
 
   .end-adornment,
-  :global(.input-end-adornment) {
+  :global(.infonomic-input-end-adornment) {
     right: 5px;
   }
 
   .help-text,
-  :global(.input-help-text) {
+  :global(.infonomic-input-help-text) {
     font-size: 0.75rem;
     color: var(--help-text-color);
   }
 
   /* Variants */
   .outlined,
-  :global(.input-outlined) {
+  :global(.infonomic-input-outlined) {
     border: 1px solid var(--input-variant-outlined-border);
     background-color: transparent;
   }
 
   .outlined:hover,
-  :global(.input-outlined):hover {
+  :global(.infonomic-input-outlined):hover {
     border: 1px solid var(--input-variant-outlined-hover-border);
   }
 
   .outlined:focus,
   .outlined:active,
-  :global(.input-outlined):focus,
-  :global(.input-outlined):active {
+  :global(.infonomic-input-outlined):focus,
+  :global(.infonomic-input-outlined):active {
     --ring-color: var(--input-variant-outline-ring-color);
   }
 
   .underlined,
-  :global(.input-underlined) {
+  :global(.infonomic-input-underlined) {
     border-bottom: 1px solid var(--input-variant-underlined-border);
     border-radius: 0;
     gap: var(--gap-1);
@@ -139,79 +140,79 @@
 
   /* Sizes */
   .underlined.sm,
-  :global(.input-underlined.input-sm) {
+  :global(.infonomic-input-underlined.input-sm) {
     padding: 0.25rem 0.1rem;
     min-height: 26px;
   }
 
   .underlined.md,
-  :global(.input-underlined.input-md) {
+  :global(.infonomic-input-underlined.input-md) {
     padding: 0.25rem 0.1rem;
     min-height: 30px;
   }
 
   .underlined.lg,
-  :global(.input-underlined.input-lg) {
+  :global(.infonomic-input-underlined.input-lg) {
     padding: 0 0.1rem;
     min-height: 34px;
   }
 
   .underlined:hover,
-  :global(.input-underlined):hover {
+  :global(.infonomic-input-underlined):hover {
     border-bottom: 1px solid var(--input-variant-underlined-hover-border);
   }
 
   .filled,
-  :global(.input-filled) {
+  :global(.infonomic-input-filled) {
     background-color: var(--input-variant-filled);
   }
 
   /* Error classes last, so that they override all 
     of the above */
   .error,
-  :global(.input-error) {
+  :global(.infonomic-input-error) {
     border: 1px solid var(--red-400);
   }
 
   .error:hover,
-  :global(.input-error):hover {
+  :global(.infonomic-input-error):hover {
     border: 1px solid var(--red-400);
   }
 
   .error:focus,
   .error:active,
-  :global(.input-error):focus,
-  :global(.input-error):active {
+  :global(.infonomic-input-error):focus,
+  :global(.infonomic-input-error):active {
     --ring-color: var(--red-300);
   }
 
   .underlined.start-adornment-padding,
   .start-adornment-padding,
-  :global(.input-underlined.input-start-adornment-padding),
-  :global(.input-start-adornment-padding) {
+  :global(.infonomic-input-underlined.input-start-adornment-padding),
+  :global(.infonomic-input-start-adornment-padding) {
     padding-left: 2rem;
   }
 
   .underlined.end-adornment-padding,
   .end-adornment-padding,
-  :global(.input-underlined.input-end-adornment-padding),
-  :global(.input-end-adornment-padding) {
+  :global(.infonomic-input-underlined.input-end-adornment-padding),
+  :global(.infonomic-input-end-adornment-padding) {
     padding-right: 2rem;
   }
 
   .underlined.start-adornment,
-  :global(.input-underlined.input-start-adornment) {
+  :global(.infonomic-input-underlined.input-start-adornment) {
     left: 0;
   }
 
   .underlined.end-adornment,
-  :global(.input-underlined.input-end-adornment) {
+  :global(.infonomic-input-underlined.input-end-adornment) {
     right: 0;
   }
 
   /* Intents */
   .primary,
-  :global(.input-primary) {
+  :global(.infonomic-input-primary) {
     --input-variant-outlined-border: var(--stroke-primary);
     --input-variant-outlined-hover-border: var(--stroke-primary-hover);
     --input-variant-outline-ring-color: var(--ring-primary);
@@ -221,7 +222,7 @@
   }
 
   .secondary,
-  :global(.input-secondary) {
+  :global(.infonomic-input-secondary) {
     --input-variant-outlined-border: var(--stroke-secondary);
     --input-variant-outlined-hover-border: var(--stroke-secondary-hover);
     --input-variant-outline-ring-color: var(--ring-secondary);
@@ -231,7 +232,7 @@
   }
 
   .noeffect,
-  :global(.input-noeffect) {
+  :global(.infonomic-input-noeffect) {
     --input-variant-outlined-border: var(--stroke-noeffect);
     --input-variant-outlined-hover-border: var(--stroke-noeffect-hover);
     --input-variant-outline-ring-color: var(--ring-noeffect);
@@ -241,7 +242,7 @@
   }
 
   .success,
-  :global(.input-success) {
+  :global(.infonomic-input-success) {
     --input-variant-outlined-border: var(--stroke-success);
     --input-variant-outlined-hover-border: var(--stroke-success-hover);
     --input-variant-outline-ring-color: var(--ring-success);
@@ -251,7 +252,7 @@
   }
 
   .info,
-  :global(.input-info) {
+  :global(.infonomic-input-info) {
     --input-variant-outlined-border: var(--stroke-info);
     --input-variant-outlined-hover-border: var(--stroke-info-hover);
     --input-variant-outline-ring-color: var(--ring-info);
@@ -261,7 +262,7 @@
   }
 
   .warning,
-  :global(.input-warning) {
+  :global(.infonomic-input-warning) {
     --input-variant-outlined-border: var(--stroke-warning);
     --input-variant-outlined-hover-border: var(--stroke-warning-hover);
     --input-variant-outline-ring-color: var(--ring-warning);
@@ -271,7 +272,7 @@
   }
 
   .danger,
-  :global(.input-danger) {
+  :global(.infonomic-input-danger) {
     --input-variant-outlined-border: var(--stroke-danger);
     --input-variant-outlined-hover-border: var(--stroke-danger-hover);
     --input-variant-outline-ring-color: var(--ring-danger);

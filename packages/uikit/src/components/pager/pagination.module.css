@@ -6,34 +6,35 @@ infonomic-typography,
 infonomic-components;
 
 @layer infonomic-components {
-  .pagination-root {
+
+  .pagination-root,
+  :global(.infonomic-pagination-root) {
     display: flex;
     padding: 0;
     align-items: center;
   }
 
-  .pagination-items {
-    display: flex;
-    align-items: center;
-    list-style: none;
-  }
-
-  .pagination-items {
+  .pagination-items,
+  :global(.infonomic-pagination-items) {
     display: flex;
     align-items: center;
     list-style: none;
   }
 
   .pagination-items.dashboard li,
-  .pagination-items.default li {
+  .pagination-items.default li,
+  :global(.infonomic-pagination-items.dashboard) li,
+  :global(.infonomic-pagination-items.default) li {
     margin-right: -1px;
   }
 
-  .pagination-items.classic li {
+  .pagination-items.classic li,
+  :global(.infonomic-pagination-items.classic) li {
     margin-right: 0;
   }
 
-  .pagination-items.classic {
+  .pagination-items.classic,
+  :global(.infonomic-pagination-items.classic) {
     gap: 6px;
   }
 

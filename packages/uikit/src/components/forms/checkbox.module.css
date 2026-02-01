@@ -1,17 +1,20 @@
 @layer infonomic-base,
-  infonomic-functional,
-  infonomic-utilities,
-  infonomic-theme,
-  infonomic-typography,
-  infonomic-components;
+infonomic-functional,
+infonomic-utilities,
+infonomic-theme,
+infonomic-typography,
+infonomic-components;
 
 @layer infonomic-components {
-  .container {
+
+  .container,
+  :global(.infonomic-checkbox-container) {
     width: 100%;
     padding: 0;
   }
 
-  .component {
+  .component,
+  :global(.infonomic-checkbox-component) {
     display: flex;
     width: 100%;
     padding: 0;
@@ -19,11 +22,13 @@
     gap: var(--gap-2);
   }
 
-  .reverse {
+  .reverse,
+  :global(.infonomic-checkbox-reverse) {
     flex-direction: row-reverse;
   }
 
-  .checkbox {
+  .checkbox,
+  :global(.infonomic-checkbox) {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -31,7 +36,8 @@
     transition: all var(--transition-normal);
   }
 
-  .checkbox[data-state="checked"] {
+  .checkbox[data-state="checked"],
+  :global(.infonomic-checkbox)[data-state="checked"] {
     --ring-offset-color: var(--background);
     --ring-offset-shadow: var(--ring-inset) 0 0 0 var(--ring-offset-width) var(--ring-offset-color);
     --ring-shadow: var(--ring-inset) 0 0 0 calc(1px + var(--ring-offset-width)) var(--ring-color);
@@ -39,88 +45,105 @@
   }
 
   .checkbox:disabled,
-  .checkbox[disabled] {
+  :global(.infonomic-checkbox):disabled,
+  .checkbox[disabled],
+  :global(.infonomic-checkbox)[disabled] {
     pointer-events: none;
   }
 
-  .indicator {
+  .indicator,
+  :global(.infonomic-checkbox-indicator) {
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
-  .icon {
+  .icon,
+  :global(.infonomic-checkbox-icon) {
     width: 20px;
     height: 20px;
     color: var(--checkbox-icon-color);
   }
 
   /* Style for the "checked" state */
-  .indicator[data-state="checked"] .icon {
+  .indicator[data-state="checked"] .icon,
+  :global(.infonomic-checkbox-indicator)[data-state="checked"] :global(.infonomic-checkbox-icon) {
     animation: checkBoxIn 0.3s cubic-bezier(0.25, 1.5, 0.5, 1) forwards;
     opacity: 1;
     transform: scale(1);
   }
 
   /* Style for the "unchecked" state */
-  .indicator[data-state="unchecked"] .icon {
+  .indicator[data-state="unchecked"] .icon,
+  :global(.infonomic-checkbox-indicator)[data-state="unchecked"] :global(.infonomic-checkbox-icon) {
     animation: checkBoxOut 0.2s ease-in;
     opacity: 0;
     transform: scale(0.8);
   }
 
-  .label {
+  .label,
+  :global(.infonomic-checkbox-label) {
     margin-left: 0.25rem;
     cursor: pointer;
     font-weight: 500;
     color: var(--label-color);
   }
 
-  .checkbox:disabled ~ .label,
-  .checkbox[disabled] ~ .label {
+  .checkbox:disabled~.label,
+  .checkbox[disabled]~.label,
+  :global(.infonomic-checkbox):disabled~:global(.infonomic-checkbox-label),
+  :global(.infonomic-checkbox)[disabled]~:global(.infonomic-checkbox-label) {
     pointer-events: none;
   }
 
-  .errorText {
+  .errorText,
+  :global(.infonomic-dropdown-error-text) {
     margin-top: 0.25rem;
     font-size: 0.875rem;
     color: red;
   }
 
   /* Sizes */
-  .sm {
+  .sm,
+  :global(.infonomic-checkbox-sm) {
     width: 18px;
     height: 18px;
   }
 
-  .md {
+  .md,
+  :global(.infonomic-checkbox-md) {
     width: 20px;
     height: 20px;
   }
 
-  .lg {
+  .lg,
+  :global(.infonomic-checkbox-lg) {
     width: 22px;
     height: 22px;
   }
 
   /* Variants */
-  .outlined {
+  .outlined,
+  :global(.infonomic-checkbox-outlined) {
     border: 2px solid var(--checkbox-variant-outlined-border);
     --checkbox-icon-color: white;
   }
 
-  .outlined[data-state="checked"] {
+  .outlined[data-state="checked"],
+  :global(.infonomic-checkbox-outlined)[data-state="checked"] {
     --ring-color: var(--checkbox-variant-outline-ring-color);
     background-color: var(--checkbox-variant-outlined);
   }
 
-  .filled {
+  .filled,
+  :global(.infonomic-checkbox-filled) {
     background-color: var(--checkbox-variant-filled);
     --checkbox-icon-color: white;
   }
 
   /* Intents */
-  .primary {
+  .primary,
+  :global(.infonomic-checkbox-primary) {
     --checkbox-variant-outlined-border: var(--fill-primary-strong);
     --checkbox-variant-outlined: var(--fill-primary-strong);
     --checkbox-variant-outlined-hover-border: var(--fill-primary-strong-hover);
@@ -129,7 +152,8 @@
     --checkbox-icon-color: var(--text-on-primary);
   }
 
-  .secondary {
+  .secondary,
+  :global(.infonomic-checkbox-secondary) {
     --checkbox-variant-outlined-border: var(--fill-secondary-strong);
     --checkbox-variant-outlined: var(--fill-secondary-strong);
     --checkbox-variant-outlined-hover-border: var(--fill-secondary-strong-hover);
@@ -138,7 +162,8 @@
     --checkbox-icon-color: var(--text-on-secondary);
   }
 
-  .noeffect {
+  .noeffect,
+  :global(.infonomic-checkbox-noeffect) {
     --checkbox-variant-outlined-border: var(--fill-noeffect-strong);
     --checkbox-variant-outlined: var(--fill-noeffect-strong);
     --checkbox-variant-outlined-hover-border: var(--fill-noeffect-strong-hover);
@@ -147,7 +172,8 @@
     --checkbox-icon-color: var(--text-on-noeffect);
   }
 
-  .success {
+  .success,
+  :global(.infonomic-checkbox-success) {
     --checkbox-variant-outlined-border: var(--fill-success-strong);
     --checkbox-variant-outlined: var(--fill-success-strong);
     --checkbox-variant-outlined-hover-border: var(--fill-success-strong-hover);
@@ -156,7 +182,8 @@
     --checkbox-icon-color: var(--text-on-success);
   }
 
-  .info {
+  .info,
+  :global(.infonomic-checkbox-info) {
     --checkbox-variant-outlined-border: var(--fill-info-strong);
     --checkbox-variant-outlined: var(--fill-info-strong);
     --checkbox-variant-outlined-hover-border: var(--fill-info-strong-hover);
@@ -165,7 +192,8 @@
     --checkbox-icon-color: var(--text-on-info);
   }
 
-  .warning {
+  .warning,
+  :global(.infonomic-checkbox-warning) {
     --checkbox-variant-outlined-border: var(--fill-warning-strong);
     --checkbox-variant-outlined: var(--fill-warning-strong);
     --checkbox-variant-outlined-hover-border: var(--fill-warning-strong-hover);
@@ -174,7 +202,8 @@
     --checkbox-icon-color: var(--text-on-warning);
   }
 
-  .danger {
+  .danger,
+  :global(.infonomic-checkbox-danger) {
     --checkbox-variant-outlined-border: var(--fill-danger-strong);
     --checkbox-variant-outlined: var(--fill-danger-strong);
     --checkbox-variant-outlined-hover-border: var(--fill-danger-strong-hover);
