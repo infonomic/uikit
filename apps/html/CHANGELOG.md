@@ -1,5 +1,16 @@
 # @modulus-learning/agent-demo-vanilla
 
+## 5.31.0
+
+### Minor Changes
+
+- b6253b5: Updated README with optional reset and removed Tailwind container overrides.
+
+### Patch Changes
+
+- Updated dependencies [b6253b5]
+  - @infonomic/uikit@5.31.0
+
 ## 5.30.0
 
 ### Minor Changes
