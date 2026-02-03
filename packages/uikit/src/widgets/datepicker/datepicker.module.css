@@ -1,16 +1,21 @@
 @layer infonomic-base, infonomic-utilities, infonomic-theme, infonomic-components;
 
 @layer infonomic-components {
-  .container {
+
+  .container,
+  :global(.infonomic-datepicker-container) {
     position: relative;
   }
 
   .input,
-  .input-wrapper {
+  .input-wrapper,
+  :global(.infonomic-datepicker-input),
+  :global(.infonomic-datepicker-input-wrapper) {
     width: 100%;
   }
 
-  .content {
+  .content,
+  :global(.infonomic-datepicker-content) {
     width: 100%;
     z-index: 50;
     border-radius: 4px;
@@ -53,13 +58,15 @@
     }
   }
 
-  .content-components {
+  .content-components,
+  :global(.infonomic-datepicker-content-components) {
     display: flex;
     width: 100%;
     gap: var(--spacing-8);
   }
 
-  .status-and-actions {
+  .status-and-actions,
+  :global(.infonomic-datepicker-status-and-actions) {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -67,7 +74,8 @@
     width: 100%;
   }
 
-  .content-status {
+  .content-status,
+  :global(.infonomic-datepicker-content-status) {
     display: flex;
     align-items: center;
     padding-left: var(--spacing-16);
@@ -77,7 +85,8 @@
     width: 100%;
   }
 
-  .content-actions {
+  .content-actions,
+  :global(.infonomic-datepicker-content-actions) {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -88,16 +97,19 @@
     width: 100%;
   }
 
-  .content-actions-button {
+  .content-actions-button,
+  :global(.infonomic-datepicker-content-actions-button) {
     /* min-width: 100px; */
     --ring-color: var(--violet-7);
   }
 
-  .arrow {
+  .arrow,
+  :global(.infonomic-datepicker-arrow) {
     fill: var(--gray-50);
   }
 
-  .close {
+  .close,
+  :global(.infonomic-datepicker-close) {
     all: unset;
     font-family: inherit;
     border-radius: 100%;
@@ -120,17 +132,20 @@
     }
   }
 
-  .time-picker-container {
+  .time-picker-container,
+  :global(.infonomic-datepicker-time-picker-container) {
     width: 80px;
     margin: 0.6rem 0.5rem 1rem 0;
   }
 
-  .time-picker-scroll-area {
+  .time-picker-scroll-area,
+  :global(.infonomic-datepicker-time-picker-scroll-area) {
     height: 280px;
     padding-right: var(--spacing-16);
   }
 
-  .time-picker {
+  .time-picker,
+  :global(.infonomic-datepicker-time-picker) {
     display: flex;
     padding-left: var(--spacing-4);
     padding-right: var(--spacing-4);
@@ -138,7 +153,8 @@
     gap: 0.5rem;
   }
 
-  .time-picker-button {
+  .time-picker-button,
+  :global(.infonomic-datepicker-time-picker-button) {
     width: 100%;
   }
 

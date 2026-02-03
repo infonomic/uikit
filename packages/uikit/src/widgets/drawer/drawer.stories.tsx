@@ -4,6 +4,7 @@ import React from 'react'
 import { Button } from '../../components/button/button.js'
 import { IconButton } from '../../components/button/icon-button.js'
 import { CloseIcon } from '../../icons/close-icon.js'
+import { DatePicker } from '../datepicker/datepicker.js'
 import { Drawer } from './drawer.js'
 
 export default {
@@ -96,6 +97,18 @@ export const Wide = (): React.JSX.Element => {
           </Drawer.Header>
           <Drawer.Content>
             <p>Drawer content here...</p>
+            <div style={{ maxWidth: '300px', marginTop: '20px', margin: '0 auto' }}>
+              <DatePicker
+                id="datepicker-1"
+                name="datepicker-1"
+                label="Select Date"
+                required
+                initialValue={new Date()}
+                onDateChange={(date) => {
+                  console.log('Selected date:', date)
+                }}
+              />
+            </div>
           </Drawer.Content>
         </Drawer.Container>
       </Drawer>
