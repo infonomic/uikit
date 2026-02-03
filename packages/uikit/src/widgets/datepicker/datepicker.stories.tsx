@@ -13,13 +13,28 @@ export const Default = (): React.JSX.Element => {
 
   return (
     <div style={{ maxWidth: '270px', margin: '2rem auto' }}>
-      <DatePicker
-        onDateChange={handleDateChange}
-        id="published_on"
-        name="published_on"
-        variant="outlined"
-        helpText="Select published on date."
-      />
+      <div style={{ display: 'flex', flexDirection: 'column', marginBottom: '1.5rem' }}>
+        <span>Date and Time</span>
+        <DatePicker
+          onDateChange={handleDateChange}
+          id="published_on"
+          name="published_on"
+          variant="outlined"
+          helpText="Select published on date."
+        />
+      </div>
+
+      <div style={{ display: 'flex', flexDirection: 'column', marginBottom: '1.5rem' }}>
+        <span>Date</span>
+        <DatePicker
+          onDateChange={handleDateChange}
+          mode="date"
+          id="published_on"
+          name="published_on"
+          variant="outlined"
+          helpText="Select published on date."
+        />
+      </div>
     </div>
   )
 }

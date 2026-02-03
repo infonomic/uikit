@@ -156,7 +156,7 @@ export function DatePicker({
             e.stopPropagation()
             setIsOpen(true)
           }}
-          value={date ? `${format(date, 'PP HH:mm')}` : ''}
+          value={date ? format(date, mode === 'datetime' ? 'PP HH:mm' : 'PP') : ''}
           placeHolder={placeHolderText}
           helpText={helpText}
           disabled={false}
@@ -272,7 +272,7 @@ export function DatePicker({
             </div>
             <div className={styles['status-and-actions']}>
               <div className={styles['content-status']}>
-                {date ? `${format(date, 'PPPp')}` : 'No date selected'}
+                {date ? format(date, mode === 'datetime' ? 'PPPp' : 'PPP') : 'No date selected'}
               </div>
               <div className={styles['content-actions']}>
                 <div>
