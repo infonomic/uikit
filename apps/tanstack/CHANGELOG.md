@@ -1,5 +1,16 @@
 # @infonomic/website-react
 
+## 5.30.0
+
+### Minor Changes
+
+- 3af0375: Updated DatePicker widget date value to respect mode property.
+
+### Patch Changes
+
+- Updated dependencies [3af0375]
+  - @infonomic/uikit@5.30.0
+
 ## 5.29.0
 
 ### Minor Changes
