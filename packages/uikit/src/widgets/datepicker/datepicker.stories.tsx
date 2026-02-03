@@ -19,6 +19,7 @@ export const Default = (): React.JSX.Element => {
           onDateChange={handleDateChange}
           id="published_on"
           name="published_on"
+          yearsInPast={70}
           variant="outlined"
           helpText="Select published on date."
         />
@@ -32,6 +33,7 @@ export const Default = (): React.JSX.Element => {
           id="published_on"
           name="published_on"
           variant="outlined"
+          yearsInPast={70}
           helpText="Select published on date."
         />
       </div>
