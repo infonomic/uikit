@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 5.31.0
+
+### Minor Changes
+
+- b6253b5: Updated README with optional reset and removed Tailwind container overrides.
+
 ## 5.30.0
 
 ### Minor Changes
