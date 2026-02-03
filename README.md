@@ -52,11 +52,12 @@ And then in your application in a global.css or other root CSS file...
 
 ```css
 /**
- * Core uikit styles including var system for breakpoints,
- * colors, scales, utils  etc., which can be optionally
+ * Optional reset and core styles including var system for 
+ * breakpoints, colors, scales, utils  etc., which can be
  * integrated with Tailwind (colors, breakpoints etc.) via
  * Tailwind theme configuration.
  */
+@import '@infonomic/uikit/reset.css';
 @import '@infonomic/uikit/styles.css';
 
 /**
@@ -97,33 +98,6 @@ Here's an example Tailwind CSS integration. Note that we have our own reset, and
 @import "tailwindcss/utilities.css" layer(utilities);
 
 @custom-variant dark (&:is(.dark *));
-
-/* 
-   Set the utility class in Tailwind to match our own, as for now
-   at least, we add the 'container' class attribute to our container
-   component - which conflicts with Tailwind's own container utility.
-*/
-@utility container {
-  width: 100%;
-  padding: 0 16px;
-  margin: 0 auto;
-  max-width: 960px;
-
-  /* Large */
-  @media (min-width: 1050px) {
-    max-width: 1024px;
-  }
-
-  /* X-Large */
-  @media (min-width: 1230px) {
-    max-width: 1190px;
-  }
-
-  /* 2X-Large */
-  @media (min-width: 1500px) {
-    max-width: 1400px;
-  }
-}
 
 @theme {
   --breakpoint-*: initial;
