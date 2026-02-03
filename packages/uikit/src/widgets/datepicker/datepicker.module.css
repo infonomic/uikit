@@ -12,6 +12,7 @@
 
   .content {
     width: 100%;
+    z-index: 50;
     border-radius: 4px;
     padding-top: var(--spacing-16);
     padding-bottom: var(--spacing-8);

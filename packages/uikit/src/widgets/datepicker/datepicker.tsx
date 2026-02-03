@@ -39,7 +39,8 @@ export interface DatePickerProps extends React.InputHTMLAttributes<HTMLInputElem
   inputWrapperClassName?: string
   inputClassName?: string
   intent?: Intent
-  containerClassName?: string
+  containerClassName?: string,
+  contentClassName?: string
   helpText?: string
   errorText?: string
   ariaLabelForSearch?: string
@@ -68,8 +69,9 @@ export function DatePicker({
   inputClassName,
   inputWrapperClassName,
   containerClassName,
-  onClear = () => {},
-  onDateChange = () => {},
+  contentClassName,
+  onClear = () => { },
+  onDateChange = () => { },
   validatorFn,
   helpText,
   errorText,
@@ -198,7 +200,7 @@ export function DatePicker({
           </div>
         </Popover.Trigger>
         <Popover.Portal>
-          <Popover.Content sideOffset={5} className={styles.content}>
+          <Popover.Content sideOffset={5} className={cx(styles.content, contentClassName)}>
             <div className={styles['content-components']}>
               <div ref={calendarRef}>
                 <Calendar
@@ -222,11 +224,11 @@ export function DatePicker({
                   }}
                   startMonth={new Date(new Date().getFullYear() - yearsInPast, 0)}
                   endMonth={new Date(new Date().getFullYear() + yearsInFuture, 0)}
-                  // TODO: add props
-                  // disabled={(date) =>
-                  //   Number(date) < Date.now() - 1000 * 60 * 60 * 24 ||
-                  //   Number(date) > Date.now() + 1000 * 60 * 60 * 24 * 30
-                  // }
+                // TODO: add props
+                // disabled={(date) =>
+                //   Number(date) < Date.now() - 1000 * 60 * 60 * 24 ||
+                //   Number(date) > Date.now() + 1000 * 60 * 60 * 24 * 30
+                // }
                 />
               </div>
               {mode === 'datetime' && (
