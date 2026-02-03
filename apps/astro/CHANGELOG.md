@@ -1,5 +1,16 @@
 # @infonomic/website-astro
 
+## 5.29.0
+
+### Minor Changes
+
+- 227dc07: DatePicker widget z-index fix.
+
+### Patch Changes
+
+- Updated dependencies [227dc07]
+  - @infonomic/uikit@5.29.0
+
 ## 5.28.0
 
 ### Minor Changes
