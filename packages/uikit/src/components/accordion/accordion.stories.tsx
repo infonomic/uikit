@@ -16,19 +16,27 @@ export default meta
 
 type Story = StoryObj<typeof AccordionComponent.Root>
 
+
+/**
+ * NOTE: Accordions are very much context specific in terms of styling
+ * and so we apply very little styling to the default accordion component.
+ * Below is an example of a custom (albeit basic) styled accordion for demo 
+ * purposes.
+ */
 export const Accordion: Story = {
   args: {
     type: 'single',
     asChild: true,
     defaultValue: 'item-1',
     collapsible: true,
-    className: 'accordion-root border',
+    className: 'accordion-root',
   },
   render: (args) => (
     <div style={{ maxWidth: '600px', margin: '2rem auto' }}>
       <style>
         {`
       .accordion-root {
+        border: 1px solid var(--gray-100);
         border-radius: 6px;
         padding: 12px 6px;
         width: 300px;
@@ -58,6 +66,7 @@ export const Accordion: Story = {
       }
 
       .dark .accordion-root {
+        border: 1px solid var(--gray-600);
         background-color: var(--canvas-700);
       }
 

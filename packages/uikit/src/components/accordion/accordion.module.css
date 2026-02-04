@@ -2,14 +2,6 @@
 
 @layer infonomic-components {
 
-  .root,
-  :global(.infonomic-accordion-root) {
-    border-radius: 6px;
-    width: 300px;
-    background-color: var(--canvas-25);
-    box-shadow: var(--shadow-md);
-  }
-
   .item,
   :global(.infonomic-accordion-item) {
     overflow: hidden;
