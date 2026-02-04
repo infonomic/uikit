@@ -1,5 +1,16 @@
 # @modulus-learning/agent-demo-vanilla
 
+## 5.33.0
+
+### Minor Changes
+
+- 2ed9a86: Removed root styling from acordion component.
+
+### Patch Changes
+
+- Updated dependencies [2ed9a86]
+  - @infonomic/uikit@5.33.0
+
 ## 5.32.0
 
 ### Minor Changes

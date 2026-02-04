@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 5.33.0
+
+### Minor Changes
+
+- 2ed9a86: Removed root styling from acordion component.
+
 ## 5.32.0
 
 ### Minor Changes
