@@ -3,10 +3,14 @@
 import type React from 'react'
 import { useEffect, useState } from 'react'
 
+import cx from 'classnames'
+
 import { Checkbox } from './checkbox.js'
 
 export interface CheckboxGroupProps {
   groupName: string
+  className?: string
+  checkBoxClasses?: string,
   checkBoxes: { id: string; label: string }[]
   defaultValues?: string[]
   controlledValue?: string
@@ -16,6 +20,8 @@ export interface CheckboxGroupProps {
 
 export const CheckboxGroup: React.FC<CheckboxGroupProps> = ({
   groupName,
+  className,
+  checkBoxClasses,
   checkBoxes,
   defaultValues,
   controlledValue,
@@ -61,13 +67,14 @@ export const CheckboxGroup: React.FC<CheckboxGroupProps> = ({
   }
 
   return (
-    <div className="space-y-2">
+    <div className={cx('infonomic-checkbox-group', className)}>
       {checkBoxes.map((cb) => (
         <Checkbox
           key={cb.id}
           id={`${groupName}-${cb.id}`}
           name={`${groupName}-${cb.id}`}
           label={cb.label}
+          checkBoxClasses={checkBoxClasses}
           checked={selected.includes(cb.id)}
           disabled={disabled}
           onCheckedChange={(checked) => handleCheckboxChange(cb.id, checked)}

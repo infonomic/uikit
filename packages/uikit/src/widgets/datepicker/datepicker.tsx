@@ -136,7 +136,7 @@ export function DatePicker({
   })
 
   return (
-    <div className={cx(styles.container, containerClassName)}>
+    <div className={cx('infonomic-datepicker-container', styles.container, containerClassName)}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-8)' }}>
         <Input
           id={id}
@@ -148,8 +148,8 @@ export function DatePicker({
           intent={intent}
           inputSize={inputSize}
           ref={inputRef}
-          className={cx(styles.input, inputClassName)}
-          inputWrapperClassName={cx(styles['input-wrapper'], inputWrapperClassName)}
+          className={cx('infonomic-datepicker-input', styles.input, inputClassName)}
+          inputWrapperClassName={cx('infonomic-datepicker-input-wrapper', styles['input-wrapper'], inputWrapperClassName)}
           onKeyDown={handleOnKeyDown}
           onClick={(e) => {
             e.preventDefault()
@@ -200,8 +200,8 @@ export function DatePicker({
           </div>
         </Popover.Trigger>
         <Popover.Portal>
-          <Popover.Content sideOffset={5} className={cx(styles.content, contentClassName)}>
-            <div className={styles['content-components']}>
+          <Popover.Content sideOffset={5} className={cx('infonomic-datepicker-content', styles.content, contentClassName)}>
+            <div className={cx('infonomic-datepicker-content-components', styles['content-components'])}>
               <div ref={calendarRef}>
                 <Calendar
                   mode="single"
@@ -270,16 +270,16 @@ export function DatePicker({
                 </div>
               )}
             </div>
-            <div className={styles['status-and-actions']}>
-              <div className={styles['content-status']}>
+            <div className={cx('infonomic-datepicker-status-and-actions', styles['status-and-actions'])}>
+              <div className={cx('infonomic-datepicker-content-status', styles['content-status'])}>
                 {date ? format(date, mode === 'datetime' ? 'PPPp' : 'PPP') : 'No date selected'}
               </div>
-              <div className={styles['content-actions']}>
+              <div className={cx('infonomic-datepicker-content-actions', styles['content-actions'])}>
                 <div>
                   <Button
                     variant="outlined"
                     size="sm"
-                    className={styles['content-actions-button']}
+                    className={cx('infonomic-datepicker-content-actions-button', styles['content-actions-button'])}
                     onClick={() => {
                       const today = new Date()
                       setDate(today)
@@ -294,7 +294,7 @@ export function DatePicker({
                   <Button
                     size="sm"
                     intent="noeffect"
-                    className={styles['content-actions-button']}
+                    className={cx('infonomic-datepicker-content-actions-button', styles['content-actions-button'])}
                     onClick={() => {
                       setIsOpen(false)
                     }}
@@ -304,7 +304,7 @@ export function DatePicker({
                   <Button
                     variant="outlined"
                     size="sm"
-                    className={styles['content-actions-button']}
+                    className={cx('infonomic-datepicker-content-actions-button', styles['content-actions-button'])}
                     onClick={() => {
                       setIsOpen(false)
                       handleOnDateChange(date)
