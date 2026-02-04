@@ -1,5 +1,16 @@
 # @infonomic/website-react
 
+## 5.32.0
+
+### Minor Changes
+
+- d3c6a6f: CheckboxGroup classNames props and namespaces for DatePicker.
+
+### Patch Changes
+
+- Updated dependencies [d3c6a6f]
+  - @infonomic/uikit@5.32.0
+
 ## 5.31.0
 
 ### Minor Changes
