@@ -1,5 +1,16 @@
 # @modulus-learning/agent-demo-vanilla
 
+## 5.34.0
+
+### Minor Changes
+
+- 27461b6: Eye icons and password input component.
+
+### Patch Changes
+
+- Updated dependencies [27461b6]
+  - @infonomic/uikit@5.34.0
+
 ## 5.33.0
 
 ### Minor Changes

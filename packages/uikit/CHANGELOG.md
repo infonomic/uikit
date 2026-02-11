@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 5.34.0
+
+### Minor Changes
+
+- 27461b6: Eye icons and password input component.
+
 ## 5.33.0
 
 ### Minor Changes
