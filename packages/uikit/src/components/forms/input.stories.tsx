@@ -6,6 +6,7 @@ import { intent } from '../@types/shared.js'
 import { IconButton } from '../button/icon-button.js'
 import { size, variant } from './@types/input.js'
 import { Input, InputAdornment } from './index.js'
+import { InputPassword } from './input-password.js'
 
 export default {
   title: 'Components/Forms/Text',
@@ -161,6 +162,22 @@ export const Error = (): React.JSX.Element => {
         disabled={false}
         error={true}
         errorText="Please enter a valid name."
+      />
+    </div>
+  )
+}
+
+export const Password = (): React.JSX.Element => {
+  return (
+    <div style={{ maxWidth: '300px', margin: '0 auto' }}>
+      <InputPassword
+        required
+        id="password"
+        name="password"
+        label="Password"
+        placeHolder="Password"
+        helpText="Please enter your password."
+        disabled={false}
       />
     </div>
   )
