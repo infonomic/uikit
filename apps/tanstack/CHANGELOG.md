@@ -1,5 +1,16 @@
 # @infonomic/website-react
 
+## 5.35.0
+
+### Minor Changes
+
+- 2567fcf: Toast position fixed. Updated deps.
+
+### Patch Changes
+
+- Updated dependencies [2567fcf]
+  - @infonomic/uikit@5.35.0
+
 ## 5.34.0
 
 ### Minor Changes
