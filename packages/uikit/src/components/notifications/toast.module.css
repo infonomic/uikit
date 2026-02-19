@@ -11,7 +11,7 @@ infonomic-components;
 
   .root,
   :global(.infonomic-toast-root) {
-    position: absolute;
+    position: fixed;
     display: flex;
     flex-direction: column;
     gap: var(--gap-1);
