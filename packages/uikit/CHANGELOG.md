@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 5.36.2
+
+### Patch Changes
+
+- a8a9ff9: Disabled options and empty options list for ComboButton.
+
 ## 5.36.1
 
 ### Patch Changes
