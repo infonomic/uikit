@@ -24,7 +24,9 @@ const ComboButtonDemo = (): React.JSX.Element => {
       <div className="ml-12 mb-6">
         <h2 style={{ fontSize: '1.2rem', margin: '1rem 0' }}>Combo Button</h2>
         <div className="flex items-center gap-4 mb-6">
-          <ComboButton size="sm" options={options} onButtonClick={handleButtonClick} onOptionSelect={handleOptionSelect} />
+          <ComboButton size="sm" options={options} onButtonClick={handleButtonClick} onOptionSelect={handleOptionSelect} >
+            Combo Button
+          </ComboButton>
         </div>
       </div>
     </div>
