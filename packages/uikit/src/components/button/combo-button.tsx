@@ -9,18 +9,27 @@ export type ComboButtonProps = ButtonProps & {
   options: { label: string; value: string }[]
   onButtonClick?: () => void
   onOptionSelect?: (value: string) => void
+  children?: React.ReactNode
+  align?: 'start' | 'center' | 'end'
+  dataSide?: 'top' | 'bottom' | 'left' | 'right'
+  sideOffset?: number
 }
+
 
 export const ComboButton = ({
   options,
   onButtonClick,
   onOptionSelect,
+  children,
+  align = 'end',
+  dataSide = 'top',
+  sideOffset = 5,
   ...rest
 }: ComboButtonProps) => {
   return (
     <div className={cx('combo-button-wrapper', styles['combo-button-wrapper'])}>
       <Button className={cx('combo-button-button', styles['combo-button-button'])} {...rest} onClick={onButtonClick}>
-        Combo Button
+        {children}
       </Button>
       <DropdownComponent.Root>
         <DropdownComponent.Trigger asChild>
@@ -32,9 +41,9 @@ export const ComboButton = ({
         <DropdownComponent.Portal>
           <DropdownComponent.Content
             className={cx('combo-button-options', styles['combo-button-options'])}
-            align="end"
-            data-side="top"
-            sideOffset={5}
+            align={align}
+            data-side={dataSide}
+            sideOffset={sideOffset}
           >
             {options.map((option) => (
               <DropdownComponent.Item
