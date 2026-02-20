@@ -8,7 +8,7 @@ infonomic-components;
 @layer infonomic-components {
 
   .button,
-  :global(.infonomic-infonomic-button) {
+  :global(.infonomic-button) {
     border: none;
     cursor: pointer;
     font-weight: normal;

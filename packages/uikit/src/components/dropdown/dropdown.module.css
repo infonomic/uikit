@@ -20,7 +20,7 @@ infonomic-components;
     border-width: var(--border-width-thin);
     border-color: var(--surface-panel-border);
     border-style: var(--border-style-solid);
-    border-radius: var(--border-radius-md);
+    border-radius: var(--border-radius-sm);
     box-shadow: var(--shadow-sm);
 
     &[data-side="top"] {

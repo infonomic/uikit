@@ -1,0 +1,43 @@
+@layer infonomic-base, infonomic-utilities, infonomic-theme, infonomic-components;
+
+@layer infonomic-components {
+
+  .combo-button-wrapper,
+  :global(.infonomic-combo-button-wrapper) {
+    display: flex;
+    align-items: center;
+    gap: 0.1rem;
+  }
+
+  .combo-button-button,
+  :global(.infonomic-combo-button-button) {
+    box-shadow: none;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  .combo-button-button:focus,
+  .combo-button-button:active {
+    box-shadow: none;
+  }
+
+  .combo-button-trigger,
+  :global(.infonomic-combo-button-trigger) {
+    box-shadow: none;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+  }
+
+  .combo-button-trigger:focus,
+  .combo-button-trigger:active {
+    box-shadow: none;
+  }
+
+  .combo-button-options,
+  :global(.infonomic-combo-button-options) {
+    min-width: 120px;
+  }
+
+  .combo-button-options-item,
+  :global(.infonomic-combo-button-options-item) {}
+}
