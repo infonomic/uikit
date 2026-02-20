@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 5.36.1
+
+### Patch Changes
+
+- 1f0b405: Correct props for ComboButton.
+
 ## 5.36.0
 
 ### Minor Changes

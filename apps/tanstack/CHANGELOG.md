@@ -1,5 +1,13 @@
 # @infonomic/website-react
 
+## 5.36.1
+
+### Patch Changes
+
+- 1f0b405: Correct props for ComboButton.
+- Updated dependencies [1f0b405]
+  - @infonomic/uikit@5.36.1
+
 ## 5.36.0
 
 ### Minor Changes
