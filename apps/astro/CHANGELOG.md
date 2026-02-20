@@ -1,5 +1,16 @@
 # @infonomic/website-astro
 
+## 5.36.0
+
+### Minor Changes
+
+- 9f8775d: Implemented initial version of ComboButton.
+
+### Patch Changes
+
+- Updated dependencies [9f8775d]
+  - @infonomic/uikit@5.36.0
+
 ## 5.35.0
 
 ### Minor Changes

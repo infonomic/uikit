@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 5.36.0
+
+### Minor Changes
+
+- 9f8775d: Implemented initial version of ComboButton.
+
 ## 5.35.0
 
 ### Minor Changes
