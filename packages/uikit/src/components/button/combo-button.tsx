@@ -9,6 +9,9 @@ export type ComboButtonProps = ButtonProps & {
   options: { label: string; value: string }[]
   onButtonClick?: () => void
   onOptionSelect?: (value: string) => void
+  disabled?: boolean
+  buttonDisabled?: boolean
+  optionsDisabled?: boolean
   children?: React.ReactNode
   align?: 'start' | 'center' | 'end'
   dataSide?: 'top' | 'bottom' | 'left' | 'right'
@@ -20,6 +23,9 @@ export const ComboButton = ({
   options,
   onButtonClick,
   onOptionSelect,
+  disabled = false,
+  buttonDisabled = false,
+  optionsDisabled = false,
   children,
   align = 'end',
   dataSide = 'top',
@@ -28,33 +34,35 @@ export const ComboButton = ({
 }: ComboButtonProps) => {
   return (
     <div className={cx('combo-button-wrapper', styles['combo-button-wrapper'])}>
-      <Button className={cx('combo-button-button', styles['combo-button-button'])} {...rest} onClick={onButtonClick}>
+      <Button className={cx('combo-button-button', styles['combo-button-button'])} disabled={disabled || buttonDisabled} {...rest} onClick={onButtonClick}>
         {children}
       </Button>
       <DropdownComponent.Root>
         <DropdownComponent.Trigger asChild>
-          <Button className={cx('combo-button-trigger', styles['combo-button-trigger'])} {...rest}>
+          <Button className={cx('combo-button-trigger', styles['combo-button-trigger'])} disabled={disabled || optionsDisabled} {...rest}>
             <ChevronDownIcon width="16px" height="16px" />
           </Button>
         </DropdownComponent.Trigger>
 
-        <DropdownComponent.Portal>
-          <DropdownComponent.Content
-            className={cx('combo-button-options', styles['combo-button-options'])}
-            align={align}
-            data-side={dataSide}
-            sideOffset={sideOffset}
-          >
-            {options.map((option) => (
-              <DropdownComponent.Item
-                key={option.value}
-                onSelect={() => onOptionSelect?.(option.value)}
-              >
-                <div className={cx('combo-button-options-item', styles['combo-button-options-item'])}>{option.label}</div>
-              </DropdownComponent.Item>
-            ))}
-          </DropdownComponent.Content>
-        </DropdownComponent.Portal>
+        {options.length > 0 && (
+          <DropdownComponent.Portal>
+            <DropdownComponent.Content
+              className={cx('combo-button-options', styles['combo-button-options'])}
+              align={align}
+              data-side={dataSide}
+              sideOffset={sideOffset}
+            >
+              {options.map((option) => (
+                <DropdownComponent.Item
+                  key={option.value}
+                  onSelect={() => onOptionSelect?.(option.value)}
+                >
+                  <div className={cx('combo-button-options-item', styles['combo-button-options-item'])}>{option.label}</div>
+                </DropdownComponent.Item>
+              ))}
+            </DropdownComponent.Content>
+          </DropdownComponent.Portal>
+        )}
       </DropdownComponent.Root>
     </div>
   )
