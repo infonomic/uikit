@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 5.37.0
+
+### Minor Changes
+
+- 1766b9b: Classnames for ComboButton.
+
 ## 5.36.2
 
 ### Patch Changes
