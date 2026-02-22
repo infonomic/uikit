@@ -6,7 +6,7 @@
   :global(.infonomic-combo-button-wrapper) {
     display: flex;
     align-items: center;
-    gap: 0.1rem;
+    gap: 0.075rem;
   }
 
   .combo-button-button,

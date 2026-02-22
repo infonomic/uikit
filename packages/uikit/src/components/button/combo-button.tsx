@@ -15,7 +15,10 @@ export type ComboButtonProps = ButtonProps & {
   children?: React.ReactNode
   align?: 'start' | 'center' | 'end'
   dataSide?: 'top' | 'bottom' | 'left' | 'right'
-  sideOffset?: number
+  sideOffset?: number,
+  className?: string
+  buttonClassName?: string
+  triggerClassName?: string
 }
 
 
@@ -30,16 +33,19 @@ export const ComboButton = ({
   align = 'end',
   dataSide = 'top',
   sideOffset = 5,
+  className,
+  buttonClassName,
+  triggerClassName,
   ...rest
 }: ComboButtonProps) => {
   return (
-    <div className={cx('combo-button-wrapper', styles['combo-button-wrapper'])}>
-      <Button className={cx('combo-button-button', styles['combo-button-button'])} disabled={disabled || buttonDisabled} {...rest} onClick={onButtonClick}>
+    <div className={cx('combo-button-wrapper', styles['combo-button-wrapper'], className)}>
+      <Button className={cx('combo-button-button', styles['combo-button-button'], buttonClassName)} disabled={disabled || buttonDisabled} {...rest} onClick={onButtonClick}>
         {children}
       </Button>
       <DropdownComponent.Root>
         <DropdownComponent.Trigger asChild>
-          <Button className={cx('combo-button-trigger', styles['combo-button-trigger'])} disabled={disabled || optionsDisabled} {...rest}>
+          <Button className={cx('combo-button-trigger', styles['combo-button-trigger'], triggerClassName)} disabled={disabled || optionsDisabled} {...rest}>
             <ChevronDownIcon width="16px" height="16px" />
           </Button>
         </DropdownComponent.Trigger>
