@@ -1,5 +1,16 @@
 # @infonomic/website-astro
 
+## 5.37.0
+
+### Minor Changes
+
+- 1766b9b: Classnames for ComboButton.
+
+### Patch Changes
+
+- Updated dependencies [1766b9b]
+  - @infonomic/uikit@5.37.0
+
 ## 5.36.2
 
 ### Patch Changes
