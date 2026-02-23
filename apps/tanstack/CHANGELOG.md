@@ -1,5 +1,16 @@
 # @infonomic/website-react
 
+## 5.39.0
+
+### Minor Changes
+
+- 3fc350e: Reduced top padding in modal header.
+
+### Patch Changes
+
+- Updated dependencies [3fc350e]
+  - @infonomic/uikit@5.39.0
+
 ## 5.38.0
 
 ### Minor Changes
