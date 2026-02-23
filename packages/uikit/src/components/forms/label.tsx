@@ -20,7 +20,7 @@ export function Label({ className, id, htmlFor, label, required }: LabelProps): 
       className={cx('label', styles.label, className)}
     >
       {label}
-      {required != null && <span className={styles.required}>&nbsp;*</span>}
+      {required && <span className={styles.required}>&nbsp;*</span>}
     </label>
   )
 }
