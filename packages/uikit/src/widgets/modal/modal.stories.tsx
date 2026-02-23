@@ -27,10 +27,10 @@ export const Default = (): React.JSX.Element => {
       <Modal isOpen={isOpen} onDismiss={onDismiss} closeOnOverlayClick={true}>
         <Modal.Container style={{ maxWidth: '600px' }}>
           <Modal.Header>
-            <h2>Modal Header</h2>
+            <h3>Modal Header</h3>
             <IconButton
               arial-label="Close"
-              size="sm"
+              size="xs"
               onClick={() => {
                 setIsOpen(false)
               }}

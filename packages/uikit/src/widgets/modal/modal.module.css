@@ -54,7 +54,7 @@
     gap: var(--gap-3);
     padding-left: var(--spacing-16);
     padding-right: var(--spacing-16);
-    padding-top: var(--spacing-20);
+    padding-top: var(--spacing-16);
     max-width: 100%;
   }
 
