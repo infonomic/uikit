@@ -72,18 +72,18 @@ infonomic-components;
 
   .md,
   :global(.infonomic-input-md) {
-    min-height: 38px;
-    font-size: 1.1rem;
+    min-height: 36px;
+    font-size: 1rem;
     line-height: 0;
-    padding: 0.4rem 0.5rem;
+    padding: 0.3rem 0.5rem;
   }
 
   .lg,
   :global(.infonomic-input-lg) {
-    min-height: 46px;
-    font-size: 1.2rem;
+    min-height: 40px;
+    font-size: 1.175rem;
     line-height: 0;
-    padding: 0.5rem 0.5rem;
+    padding: 0.4rem 0.5rem;
   }
 
   .start-adornment,
