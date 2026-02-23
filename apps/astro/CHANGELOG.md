@@ -1,5 +1,13 @@
 # @infonomic/website-astro
 
+## 5.39.1
+
+### Patch Changes
+
+- 4e80b84: Fixed label indicator for required.
+- Updated dependencies [4e80b84]
+  - @infonomic/uikit@5.39.1
+
 ## 5.39.0
 
 ### Minor Changes

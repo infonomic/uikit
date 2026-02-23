@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 5.39.1
+
+### Patch Changes
+
+- 4e80b84: Fixed label indicator for required.
+
 ## 5.39.0
 
 ### Minor Changes
