@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 5.38.0
+
+### Minor Changes
+
+- 3960df1: Reduced default height and text sizes for md and lg inputs.
+
 ## 5.37.0
 
 ### Minor Changes
