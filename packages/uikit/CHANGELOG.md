@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 5.41.0
+
+### Minor Changes
+
+- eb947ba: Correct colors for noeffect filled.
+
 ## 5.40.0
 
 ### Minor Changes
