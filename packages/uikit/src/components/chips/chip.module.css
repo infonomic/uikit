@@ -1,12 +1,11 @@
 @layer infonomic-base,
-infonomic-functional,
-infonomic-utilities,
-infonomic-theme,
-infonomic-typography,
-infonomic-components;
+  infonomic-functional,
+  infonomic-utilities,
+  infonomic-theme,
+  infonomic-typography,
+  infonomic-components;
 
 @layer infonomic-components {
-
   .chip,
   :global(.infonomic-chip) {
     --chip-font-size: 0.9rem;
@@ -151,10 +150,14 @@ infonomic-components;
   .filled[disabled],
   :global(.infonomic-chip-filled):disabled,
   :global(.infonomic-chip-filled)[disabled] {
-    background-color: var(--chip-variant-filled-disabled,
-        oklch(from var(--chip-variant-filled) calc(l * 1.1) calc(c * 0.85) h));
-    color: var(--chip-variant-filled-foreground-disabled,
-        oklch(from var(--chip-variant-filled-foreground) calc(l * 0.9) calc(c * 0.85) h));
+    background-color: var(
+      --chip-variant-filled-disabled,
+      oklch(from var(--chip-variant-filled) calc(l * 1.1) calc(c * 0.85) h)
+    );
+    color: var(
+      --chip-variant-filled-foreground-disabled,
+      oklch(from var(--chip-variant-filled-foreground) calc(l * 0.9) calc(c * 0.85) h)
+    );
   }
 
   /* -------------------------------------------------------- */
@@ -182,10 +185,14 @@ infonomic-components;
   .filled-weak[disabled],
   :global(.infonomic-chip-filled-weak):disabled,
   :global(.infonomic-chip-filled-weak)[disabled] {
-    background-color: var(--chip-variant-filled-weak-disabled,
-        oklch(from var(--chip-variant-filled-weak) calc(l * 1.1) calc(c * 0.85) h));
-    color: var(--chip-variant-filled-weak-foreground-disabled,
-        oklch(from var(--chip-variant-filled-weak-foreground) calc(l * 0.9) calc(c * 0.85) h));
+    background-color: var(
+      --chip-variant-filled-weak-disabled,
+      oklch(from var(--chip-variant-filled-weak) calc(l * 1.1) calc(c * 0.85) h)
+    );
+    color: var(
+      --chip-variant-filled-weak-foreground-disabled,
+      oklch(from var(--chip-variant-filled-weak-foreground) calc(l * 0.9) calc(c * 0.85) h)
+    );
   }
 
   /* -------------------------------------------------------- */
@@ -202,10 +209,14 @@ infonomic-components;
   .outlined[disabled],
   :global(.infonomic-chip-outlined):disabled,
   :global(.infonomic-chip-outlined)[disabled] {
-    border-color: var(--chip-variant-outlined-border-disabled,
-        oklch(from var(--chip-variant-outlined-border) calc(l * 1.5) calc(c * 0.8) h));
-    color: var(--chip-variant-outlined-foreground-disabled,
-        oklch(from var(--chip-variant-outlined-foreground) calc(l * 1.1) calc(c * 0.7) h));
+    border-color: var(
+      --chip-variant-outlined-border-disabled,
+      oklch(from var(--chip-variant-outlined-border) calc(l * 1.5) calc(c * 0.8) h)
+    );
+    color: var(
+      --chip-variant-outlined-foreground-disabled,
+      oklch(from var(--chip-variant-outlined-foreground) calc(l * 1.1) calc(c * 0.7) h)
+    );
   }
 
   .outlined:hover,

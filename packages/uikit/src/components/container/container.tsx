@@ -5,7 +5,7 @@ import cx from 'classnames'
 import styles from './container.module.css'
 
 type ContainerIntrinsicProps = React.JSX.IntrinsicElements['div']
-export interface ContainerProps extends ContainerIntrinsicProps { }
+export interface ContainerProps extends ContainerIntrinsicProps {}
 
 export const Container = function Container({
   ref,

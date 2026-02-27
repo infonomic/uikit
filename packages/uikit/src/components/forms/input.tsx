@@ -58,7 +58,15 @@ export const Input = <_C extends React.ElementType = 'input'>({
       {label != null && <Label id={id} htmlFor={id} required={required} label={label} />}
       <div className={cx('infonomic-input-container', styles['input-container'])}>
         {startAdornment != null && (
-          <div className={cx('infonomic-input-start-adornment', styles['start-adornment'], styles[variant])}>{startAdornment}</div>
+          <div
+            className={cx(
+              'infonomic-input-start-adornment',
+              styles['start-adornment'],
+              styles[variant]
+            )}
+          >
+            {startAdornment}
+          </div>
         )}
         <input
           ref={ref}
@@ -90,7 +98,15 @@ export const Input = <_C extends React.ElementType = 'input'>({
           {...rest}
         />
         {endAdornment != null && (
-          <div className={cx('infonomic-input-end-adornment', styles['end-adornment'], styles[variant])}>{endAdornment}</div>
+          <div
+            className={cx(
+              'infonomic-input-end-adornment',
+              styles['end-adornment'],
+              styles[variant]
+            )}
+          >
+            {endAdornment}
+          </div>
         )}
       </div>
       {error ? (

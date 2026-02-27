@@ -1,12 +1,11 @@
 @layer infonomic-base,
-infonomic-functional,
-infonomic-utilities,
-infonomic-theme,
-infonomic-typography,
-infonomic-components;
+  infonomic-functional,
+  infonomic-utilities,
+  infonomic-theme,
+  infonomic-typography,
+  infonomic-components;
 
 @layer infonomic-components {
-
   .container,
   :global(.infonomic-checkbox-container) {
     width: 100%;
@@ -89,10 +88,10 @@ infonomic-components;
     color: var(--label-color);
   }
 
-  .checkbox:disabled~.label,
-  .checkbox[disabled]~.label,
-  :global(.infonomic-checkbox):disabled~:global(.infonomic-checkbox-label),
-  :global(.infonomic-checkbox)[disabled]~:global(.infonomic-checkbox-label) {
+  .checkbox:disabled ~ .label,
+  .checkbox[disabled] ~ .label,
+  :global(.infonomic-checkbox):disabled ~ :global(.infonomic-checkbox-label),
+  :global(.infonomic-checkbox)[disabled] ~ :global(.infonomic-checkbox-label) {
     pointer-events: none;
   }
 
@@ -116,8 +115,8 @@ infonomic-components;
     height: 16px;
   }
 
-  .sm~.label,
-  :global(.infonomic-checkbox-sm)~ :global(.infonomic-checkbox-label) {
+  .sm ~ .label,
+  :global(.infonomic-checkbox-sm) ~ :global(.infonomic-checkbox-label) {
     font-size: 0.85rem;
   }
 
@@ -133,8 +132,8 @@ infonomic-components;
     height: 18px;
   }
 
-  .md~.label,
-  :global(.infonomic-checkbox-md)~ :global(.infonomic-checkbox-label) {
+  .md ~ .label,
+  :global(.infonomic-checkbox-md) ~ :global(.infonomic-checkbox-label) {
     font-size: 0.875rem;
   }
 
@@ -150,8 +149,8 @@ infonomic-components;
     height: 22px;
   }
 
-  .lg~.label,
-  :global(.infonomic-checkbox-lg)~ :global(.infonomic-checkbox-label) {
+  .lg ~ .label,
+  :global(.infonomic-checkbox-lg) ~ :global(.infonomic-checkbox-label) {
     font-size: 1rem;
   }
 

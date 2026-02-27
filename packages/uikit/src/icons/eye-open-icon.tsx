@@ -6,11 +6,7 @@ import { IconElement } from './icon-element.js'
 import styles from './icons.module.css'
 import type { IconProps } from './types/icon.js'
 
-export const EyeOpenIcon = ({
-  className,
-  svgClassName,
-  ...rest
-}: IconProps): React.JSX.Element => {
+export const EyeOpenIcon = ({ className, svgClassName, ...rest }: IconProps): React.JSX.Element => {
   const applied = cx(styles['fill-none'], styles['stroke-current'], svgClassName)
 
   return (

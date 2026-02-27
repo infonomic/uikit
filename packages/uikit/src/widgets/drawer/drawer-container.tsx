@@ -20,7 +20,12 @@ export function DrawerContainer({
   ref?: React.RefObject<HTMLDivElement>
 }) {
   return (
-    <div ref={ref} role="dialog" className={cx('infonomic-drawer-container', styles['drawer-container'], className)} {...rest}>
+    <div
+      ref={ref}
+      role="dialog"
+      className={cx('infonomic-drawer-container', styles['drawer-container'], className)}
+      {...rest}
+    >
       {children}
     </div>
   )

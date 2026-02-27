@@ -237,7 +237,12 @@ const Root = ({
     <nav
       data-testid={dataTestId}
       ref={ref}
-      className={cx('infonomic-pagination-root', styles['pagination-root'], 'pagination-root', className)}
+      className={cx(
+        'infonomic-pagination-root',
+        styles['pagination-root'],
+        'pagination-root',
+        className
+      )}
       {...rest}
       aria-label={ariaLabel ?? 'Pager navigation'}
     >

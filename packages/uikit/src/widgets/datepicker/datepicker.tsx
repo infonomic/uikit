@@ -39,7 +39,7 @@ export interface DatePickerProps extends React.InputHTMLAttributes<HTMLInputElem
   inputWrapperClassName?: string
   inputClassName?: string
   intent?: Intent
-  containerClassName?: string,
+  containerClassName?: string
   contentClassName?: string
   helpText?: string
   errorText?: string
@@ -70,8 +70,8 @@ export function DatePicker({
   inputWrapperClassName,
   containerClassName,
   contentClassName,
-  onClear = () => { },
-  onDateChange = () => { },
+  onClear = () => {},
+  onDateChange = () => {},
   validatorFn,
   helpText,
   errorText,
@@ -149,7 +149,11 @@ export function DatePicker({
           inputSize={inputSize}
           ref={inputRef}
           className={cx('infonomic-datepicker-input', styles.input, inputClassName)}
-          inputWrapperClassName={cx('infonomic-datepicker-input-wrapper', styles['input-wrapper'], inputWrapperClassName)}
+          inputWrapperClassName={cx(
+            'infonomic-datepicker-input-wrapper',
+            styles['input-wrapper'],
+            inputWrapperClassName
+          )}
           onKeyDown={handleOnKeyDown}
           onClick={(e) => {
             e.preventDefault()
@@ -200,8 +204,16 @@ export function DatePicker({
           </div>
         </Popover.Trigger>
         <Popover.Portal>
-          <Popover.Content sideOffset={5} className={cx('infonomic-datepicker-content', styles.content, contentClassName)}>
-            <div className={cx('infonomic-datepicker-content-components', styles['content-components'])}>
+          <Popover.Content
+            sideOffset={5}
+            className={cx('infonomic-datepicker-content', styles.content, contentClassName)}
+          >
+            <div
+              className={cx(
+                'infonomic-datepicker-content-components',
+                styles['content-components']
+              )}
+            >
               <div ref={calendarRef}>
                 <Calendar
                   mode="single"
@@ -224,11 +236,11 @@ export function DatePicker({
                   }}
                   startMonth={new Date(new Date().getFullYear() - yearsInPast, 0)}
                   endMonth={new Date(new Date().getFullYear() + yearsInFuture, 0)}
-                // TODO: add props
-                // disabled={(date) =>
-                //   Number(date) < Date.now() - 1000 * 60 * 60 * 24 ||
-                //   Number(date) > Date.now() + 1000 * 60 * 60 * 24 * 30
-                // }
+                  // TODO: add props
+                  // disabled={(date) =>
+                  //   Number(date) < Date.now() - 1000 * 60 * 60 * 24 ||
+                  //   Number(date) > Date.now() + 1000 * 60 * 60 * 24 * 30
+                  // }
                 />
               </div>
               {mode === 'datetime' && (
@@ -270,16 +282,26 @@ export function DatePicker({
                 </div>
               )}
             </div>
-            <div className={cx('infonomic-datepicker-status-and-actions', styles['status-and-actions'])}>
+            <div
+              className={cx(
+                'infonomic-datepicker-status-and-actions',
+                styles['status-and-actions']
+              )}
+            >
               <div className={cx('infonomic-datepicker-content-status', styles['content-status'])}>
                 {date ? format(date, mode === 'datetime' ? 'PPPp' : 'PPP') : 'No date selected'}
               </div>
-              <div className={cx('infonomic-datepicker-content-actions', styles['content-actions'])}>
+              <div
+                className={cx('infonomic-datepicker-content-actions', styles['content-actions'])}
+              >
                 <div>
                   <Button
                     variant="outlined"
                     size="sm"
-                    className={cx('infonomic-datepicker-content-actions-button', styles['content-actions-button'])}
+                    className={cx(
+                      'infonomic-datepicker-content-actions-button',
+                      styles['content-actions-button']
+                    )}
                     onClick={() => {
                       const today = new Date()
                       setDate(today)
@@ -294,7 +316,10 @@ export function DatePicker({
                   <Button
                     size="sm"
                     intent="noeffect"
-                    className={cx('infonomic-datepicker-content-actions-button', styles['content-actions-button'])}
+                    className={cx(
+                      'infonomic-datepicker-content-actions-button',
+                      styles['content-actions-button']
+                    )}
                     onClick={() => {
                       setIsOpen(false)
                     }}
@@ -304,7 +329,10 @@ export function DatePicker({
                   <Button
                     variant="outlined"
                     size="sm"
-                    className={cx('infonomic-datepicker-content-actions-button', styles['content-actions-button'])}
+                    className={cx(
+                      'infonomic-datepicker-content-actions-button',
+                      styles['content-actions-button']
+                    )}
                     onClick={() => {
                       setIsOpen(false)
                       handleOnDateChange(date)

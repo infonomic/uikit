@@ -160,5 +160,4 @@
     --red-900: oklch(from var(--red-base) calc(l * 0.75) c h);
     --red-950: oklch(from var(--red-base) calc(l * 0.7) c h);
   }
-
 }

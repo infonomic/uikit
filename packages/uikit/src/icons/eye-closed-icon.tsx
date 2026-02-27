@@ -24,7 +24,8 @@ export const EyeClosedIcon = ({
         fill="none"
         strokeWidth={1.5}
         strokeLinecap="round"
-        strokeLinejoin="round">
+        strokeLinejoin="round"
+      >
         <path d="m15 18-.722-3.25" />
         <path d="M2 8a10.645 10.645 0 0 0 20 0" />
         <path d="m20 15-1.726-2.05" />

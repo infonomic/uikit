@@ -65,9 +65,16 @@ export const Alert = function Alert({
   return (
     <div
       ref={ref}
-      className={cx('infonomic-alert', `infonomic-alert-${intent}`, styles.alert, styles[intent], className, {
-        [styles.fade]: fade,
-      })}
+      className={cx(
+        'infonomic-alert',
+        `infonomic-alert-${intent}`,
+        styles.alert,
+        styles[intent],
+        className,
+        {
+          [styles.fade]: fade,
+        }
+      )}
       {...rest}
     >
       {title != null ? (

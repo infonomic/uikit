@@ -1,12 +1,11 @@
 @layer infonomic-base,
-infonomic-functional,
-infonomic-utilities,
-infonomic-theme,
-infonomic-typography,
-infonomic-components;
+  infonomic-functional,
+  infonomic-utilities,
+  infonomic-theme,
+  infonomic-typography,
+  infonomic-components;
 
 @layer infonomic-components {
-
   .pagination-root,
   :global(.infonomic-pagination-root) {
     display: flex;
@@ -141,7 +140,6 @@ infonomic-components;
   */
   :global(.dark),
   :global([data-theme="dark"]) {
-
     .ellipses,
     .number-button,
     .next-button,

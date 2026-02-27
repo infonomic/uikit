@@ -15,12 +15,11 @@ export type ComboButtonProps = ButtonProps & {
   children?: React.ReactNode
   align?: 'start' | 'center' | 'end'
   dataSide?: 'top' | 'bottom' | 'left' | 'right'
-  sideOffset?: number,
+  sideOffset?: number
   className?: string
   buttonClassName?: string
   triggerClassName?: string
 }
-
 
 export const ComboButton = ({
   options,
@@ -40,12 +39,21 @@ export const ComboButton = ({
 }: ComboButtonProps) => {
   return (
     <div className={cx('combo-button-wrapper', styles['combo-button-wrapper'], className)}>
-      <Button className={cx('combo-button-button', styles['combo-button-button'], buttonClassName)} disabled={disabled || buttonDisabled} {...rest} onClick={onButtonClick}>
+      <Button
+        className={cx('combo-button-button', styles['combo-button-button'], buttonClassName)}
+        disabled={disabled || buttonDisabled}
+        {...rest}
+        onClick={onButtonClick}
+      >
         {children}
       </Button>
       <DropdownComponent.Root>
         <DropdownComponent.Trigger asChild>
-          <Button className={cx('combo-button-trigger', styles['combo-button-trigger'], triggerClassName)} disabled={disabled || optionsDisabled} {...rest}>
+          <Button
+            className={cx('combo-button-trigger', styles['combo-button-trigger'], triggerClassName)}
+            disabled={disabled || optionsDisabled}
+            {...rest}
+          >
             <ChevronDownIcon width="16px" height="16px" />
           </Button>
         </DropdownComponent.Trigger>
@@ -63,7 +71,11 @@ export const ComboButton = ({
                   key={option.value}
                   onSelect={() => onOptionSelect?.(option.value)}
                 >
-                  <div className={cx('combo-button-options-item', styles['combo-button-options-item'])}>{option.label}</div>
+                  <div
+                    className={cx('combo-button-options-item', styles['combo-button-options-item'])}
+                  >
+                    {option.label}
+                  </div>
                 </DropdownComponent.Item>
               ))}
             </DropdownComponent.Content>

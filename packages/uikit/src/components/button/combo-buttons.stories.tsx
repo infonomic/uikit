@@ -28,7 +28,8 @@ const ComboButtonDemo = (): React.JSX.Element => {
             size="sm"
             options={options}
             onButtonClick={handleButtonClick}
-            onOptionSelect={handleOptionSelect} >
+            onOptionSelect={handleOptionSelect}
+          >
             Combo Button
           </ComboButton>
         </div>
@@ -40,7 +41,8 @@ const ComboButtonDemo = (): React.JSX.Element => {
             size="sm"
             options={[]}
             onButtonClick={handleButtonClick}
-            onOptionSelect={handleOptionSelect} >
+            onOptionSelect={handleOptionSelect}
+          >
             Combo Button
           </ComboButton>
         </div>
@@ -54,7 +56,8 @@ const ComboButtonDemo = (): React.JSX.Element => {
             options={options}
             onButtonClick={handleButtonClick}
             onOptionSelect={handleOptionSelect}
-            disabled={true}>
+            disabled={true}
+          >
             Combo Button
           </ComboButton>
         </div>

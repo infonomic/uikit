@@ -1,12 +1,11 @@
 @layer infonomic-base,
-infonomic-functional,
-infonomic-utilities,
-infonomic-theme,
-infonomic-typography,
-infonomic-components;
+  infonomic-functional,
+  infonomic-utilities,
+  infonomic-theme,
+  infonomic-typography,
+  infonomic-components;
 
 @layer infonomic-components {
-
   .card,
   :global(.infonomic-card) {
     display: flex;
@@ -25,13 +24,11 @@ infonomic-components;
 
   :global(.dark),
   :global([data-theme="dark"]) {
-
     .card,
     :global(.infonomic-card) {
       background: var(--canvas-800);
     }
   }
-
 
   .card-hover,
   :global(.infonomic-card-hover) {
@@ -45,7 +42,6 @@ infonomic-components;
 
   :global(.dark),
   :global([data-theme="dark"]) {
-
     .card-hover:hover,
     :global(.infonomic-card-hover):hover {
       background: oklch(from var(--canvas-800) 0.2 c h);

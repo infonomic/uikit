@@ -7,7 +7,6 @@ import cx from 'classnames'
 
 import { CheckIcon } from '../../icons/check-icon.js'
 import { CloseIcon } from '../../icons/close-icon.js'
-import { IconButton } from '../button/icon-button.js'
 import styles from './chip.module.css'
 import type { ChipIntent, ChipSize, ChipVariant } from './@types/chip.js'
 
@@ -70,7 +69,7 @@ export const Chip = <C extends React.ElementType = 'button'>({
     }
 
     if (onClick) {
-      ; (onClick as React.MouseEventHandler<HTMLElement>)(event)
+      ;(onClick as React.MouseEventHandler<HTMLElement>)(event)
     }
 
     if (isSelectable && onToggle) {
@@ -86,7 +85,7 @@ export const Chip = <C extends React.ElementType = 'button'>({
     if ((event.key === 'Enter' || event.key === ' ') && asChild === true) {
       event.preventDefault()
       if (onClick) {
-        ; (onClick as React.MouseEventHandler<HTMLElement>)(
+        ;(onClick as React.MouseEventHandler<HTMLElement>)(
           event as unknown as React.MouseEvent<HTMLElement>
         )
       }
@@ -181,9 +180,15 @@ export const Chip = <C extends React.ElementType = 'button'>({
       onKeyDown={handleKeyDown}
       {...restProps}
     >
-      {leadingIcon != null && <span className={cx('infonomic-chip-icon-wrapper', styles.iconWrapper)}>{leadingIcon}</span>}
+      {leadingIcon != null && (
+        <span className={cx('infonomic-chip-icon-wrapper', styles.iconWrapper)}>{leadingIcon}</span>
+      )}
       <span className={cx('infonomic-chip-label', styles.label)}>{children}</span>
-      {trailingIcon != null && <span className={cx('infonomic-chip-icon-wrapper', styles.iconWrapper)}>{trailingIcon}</span>}
+      {trailingIcon != null && (
+        <span className={cx('infonomic-chip-icon-wrapper', styles.iconWrapper)}>
+          {trailingIcon}
+        </span>
+      )}
     </Comp>
   )
 }

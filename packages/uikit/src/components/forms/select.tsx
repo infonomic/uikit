@@ -106,7 +106,9 @@ export const SelectItem = ({
       ref={forwardedRef}
     >
       <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
-      <SelectPrimitive.ItemIndicator className={cx('infonomic-select-item-indicator', styles['select-item-indicator'])}>
+      <SelectPrimitive.ItemIndicator
+        className={cx('infonomic-select-item-indicator', styles['select-item-indicator'])}
+      >
         <CheckIcon />
       </SelectPrimitive.ItemIndicator>
     </SelectPrimitive.Item>

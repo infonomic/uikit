@@ -7,7 +7,7 @@ import styles from './icons.module.css'
 import type { IconProps } from './types/icon.js'
 
 export const AiIcon = ({ className, svgClassName, ...rest }: IconProps): React.JSX.Element => {
-  const applied = cx(styles['stroke-current'], svgClassName)
+  const _applied = cx(styles['stroke-current'], svgClassName)
 
   return (
     <IconElement className={cx('ai-icon', className)} {...rest}>

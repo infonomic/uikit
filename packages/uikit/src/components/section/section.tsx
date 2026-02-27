@@ -5,7 +5,7 @@ import cx from 'classnames'
 import styles from './section.module.css'
 
 type SectionIntrinsicProps = React.JSX.IntrinsicElements['section']
-export interface SectionProps extends SectionIntrinsicProps { }
+export interface SectionProps extends SectionIntrinsicProps {}
 
 export const Section = function Section({
   ref,

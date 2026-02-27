@@ -86,7 +86,10 @@ export const Checkbox = function Checkbox({
         </CheckboxPrimitive.Root>
 
         {label != null && (
-          <LabelPrimitive.Label htmlFor={id} className={cx('infonomic-checkbox-label', styles.label, labelClasses)}>
+          <LabelPrimitive.Label
+            htmlFor={id}
+            className={cx('infonomic-checkbox-label', styles.label, labelClasses)}
+          >
             {label}
           </LabelPrimitive.Label>
         )}

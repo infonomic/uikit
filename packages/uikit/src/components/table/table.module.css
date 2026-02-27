@@ -1,13 +1,12 @@
 @layer infonomic-base,
-infonomic-functional,
-infonomic-utilities,
-infonomic-theme,
-infonomic-typography,
-infonomic-components;
+  infonomic-functional,
+  infonomic-utilities,
+  infonomic-theme,
+  infonomic-typography,
+  infonomic-components;
 
 /* 'border-collapse w-full text-sm text-left text-gray-700 dark:text-gray-400 m-0', */
 @layer infonomic-components {
-
   /* 'table--container break-normal overflow-hidden relative shadow-md rounded-md my-[16px] dark:border dark:border-canvas-700', */
   .table-container,
   :global(.infonomic-table-container) {
@@ -92,7 +91,6 @@ infonomic-components;
   */
   :global(.dark),
   :global([data-theme="dark"]) {
-
     .table-header,
     :global(.infonomic-table-header) {
       background-color: var(--canvas-700);

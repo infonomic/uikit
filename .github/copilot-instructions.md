@@ -192,3 +192,296 @@ Every CSS module MUST include the layer preamble at the top:
 - Semantic tokens: `packages/uikit/src/styles/theme/tokens.css`
 - Theme system: `packages/uikit/src/styles/theme/theme.css`
 - Monorepo tasks: `turbo.json`
+
+---
+
+## Consuming the Library
+
+This section is for projects that **install and use** `@infonomic/uikit` as a dependency. It describes the public API, available components, their props, and how to configure theming.
+
+### Installation
+
+```bash
+npm install @infonomic/uikit
+# or
+pnpm add @infonomic/uikit
+```
+
+### Required CSS Imports (in order)
+
+Add these to your app's global stylesheet or entry point:
+
+```css
+@import '@infonomic/uikit/reset.css';
+@import '@infonomic/uikit/styles.css';
+@import '@infonomic/uikit/typography.css';
+```
+
+The order matters: reset → component styles → typography.
+
+### Import Paths
+
+```tsx
+// React (all components)
+import { Button, Input, Badge, Alert, Toast } from '@infonomic/uikit/react'
+
+// Astro (select components with Astro variants)
+import { Button, Input, Card } from '@infonomic/uikit/astro'
+```
+
+### Component Reference
+
+#### Buttons
+
+| Component | Key Props | Intents | Variants | Sizes |
+|---|---|---|---|---|
+| `Button` | `intent`, `variant`, `size`, `fullWidth`, `ripple`, `asChild` | all 7 | `filled` `filled-weak` `outlined` `gradient` `text` | `xs` `sm` `md` `lg` `xl` |
+| `IconButton` | `intent`, `variant`, `size`, `square`, `round` | all 7 | same as Button | `xs` `sm` `md` `lg` `xl` |
+| `ButtonGroup` | wraps multiple `Button` children | — | — | — |
+| `ComboButton` | split button with dropdown action | all 7 | same as Button | — |
+| `CopyButton` | copies text to clipboard, shows feedback | all 7 | same as Button | — |
+
+#### Form Fields
+
+| Component | Key Props | Intents | Variants | Sizes |
+|---|---|---|---|---|
+| `Input` | `id`, `name`, `label`, `variant`, `inputSize`, `intent`, `startAdornment`, `endAdornment`, `error`, `helpText`, `errorText` | all 7 | `outlined` `filled` `underlined` | `sm` `md` `lg` |
+| `InputPassword` | same as Input, adds show/hide toggle | all 7 | same as Input | `sm` `md` `lg` |
+| `Checkbox` | `id`, `name`, `label`, `variant`, `size`, `intent` | all 7 | `outlined` `filled` | `sm` `md` `lg` |
+| `CheckboxGroup` | wraps multiple `Checkbox` children | — | — | — |
+| `RadioGroup` | `options`, `value`, `onChange` | all 7 | — | — |
+| `Select` | `id`, `intent`, `variant`, `size`, `placeholder`, `position` | all 7 | same as Button | `sm` `md` `lg` |
+| `TextArea` | `id`, `name`, `label`, `variant`, `inputSize`, `intent`, `error`, `helpText`, `errorText` | all 7 | `outlined` `filled` `underlined` | `sm` `md` `lg` |
+| `Calendar` | controlled date selection | — | — | — |
+| `Label` | `id`, `htmlFor`, `required`, `label` | — | — | — |
+| `HelpText` | `text`, `size` | — | — | — |
+| `ErrorText` | `id`, `text`, `size` | — | — | — |
+| `InputAdornment` | `position` (`start`\|`end`) | — | — | — |
+
+#### Feedback & Notifications
+
+| Component | Key Props | Intents | Notes |
+|---|---|---|---|
+| `Alert` | `intent`, `icon`, `close`, `title` | all 7 | Inline contextual alert |
+| `Toast` | `intent`, `position`, `icon` | all 7 | Floating ephemeral notification |
+
+#### Display
+
+| Component | Key Props | Intents | Variants | Sizes |
+|---|---|---|---|---|
+| `Badge` | `intent`, `asChild` | all 7 | — | — |
+| `Chip` | `intent`, `size`, `variant` | all 7 | `assist` `selectable` `removable` `selectable-removable` | `xs` `sm` `md` `lg` `xl` |
+| `Avatar` | `src`, `alt`, `size` | — | — | — |
+| `Card` | compound: `CardHeader`, `CardTitle`, `CardDescription`, `CardContent`, `CardFooter` | — | — | — |
+| `Table` | standard HTML table with styled wrappers | — | — | — |
+
+#### Navigation & Layout
+
+| Component | Key Props | Notes |
+|---|---|---|
+| `Tabs` | `Tabs.List`, `Tabs.Trigger`, `Tabs.Content` | Compound component via Radix |
+| `Accordion` | compound root/item/trigger/content | Compound component via Radix |
+| `Pagination` | `page`, `totalPages`, `onPageChange`, `variant` | Variants: `default` `classic` `dashboard` |
+| `Dropdown` | trigger + content | Radix DropdownMenu-based |
+| `Container` | `maxWidth` | Layout wrapper |
+| `Section` | semantic section wrapper | — |
+
+#### Overlays & Floating UI
+
+| Component | Notes |
+|---|---|
+| `Modal` | Accessible dialog via Radix |
+| `Drawer` | Slide-in panel; exports `DrawerContext` for controlled open state |
+| `Tooltip` | Hover tooltip via Radix |
+| `ScrollArea` | Custom scrollbar styling via Radix |
+
+#### Widgets
+
+| Component | Notes |
+|---|---|
+| `Datepicker` | Full date-picker with `Calendar` integration |
+| `Search` | Command-palette style search with keyboard navigation |
+| `Timeline` | Vertical timeline list |
+
+#### Loaders
+
+`Spinner`, `RingLoader`, `EllipsesLoader` — inline loading indicators.
+`Shimmer` — skeleton placeholder for content loading states.
+
+---
+
+### Intent System
+
+The `intent` prop controls the **semantic color** of a component — its background, border, text, and icon colors all derive from a single intent value.
+
+| Intent | Visual Meaning | Typical Use |
+|---|---|---|
+| `primary` | Brand blue (default) | Main CTAs, primary actions |
+| `secondary` | Alternate brand color | Supporting actions |
+| `noeffect` | Neutral gray | Tertiary actions, disabled-looking buttons |
+| `success` | Green | Confirmation, completed states |
+| `info` | Cyan/blue | Informational, non-critical messages |
+| `warning` | Yellow/amber | Caution, attention required |
+| `danger` | Red | Destructive actions, errors |
+
+All intents automatically adapt to light and dark modes via semantic CSS tokens.
+
+---
+
+### Variant System
+
+| Component Group | Variants | Default |
+|---|---|---|
+| Button / IconButton | `filled` `filled-weak` `outlined` `gradient` `text` | `filled` |
+| Input / TextArea | `outlined` `filled` `underlined` | `outlined` |
+| Checkbox | `outlined` `filled` | `outlined` |
+| Chip | `assist` `selectable` `removable` `selectable-removable` | `assist` |
+| Pagination | `default` `classic` `dashboard` | `default` |
+
+---
+
+### Size System
+
+Most components accept a `size` prop (or `inputSize` for form fields):
+
+| Value | Description |
+|---|---|
+| `xs` | Extra-small, compact inline use |
+| `sm` | Small, tight layouts |
+| `md` | Standard (default for most components) |
+| `lg` | Large, prominent elements |
+| `xl` | Extra-large, hero or display use |
+
+Form components (`Input`, `Checkbox`, `TextArea`) use `sm` / `md` / `lg` only.
+
+---
+
+### Dark Mode
+
+Add the `.dark` class (or `data-theme="dark"`) to the root `<html>` element:
+
+```html
+<html class="dark">...</html>
+```
+
+All component tokens switch automatically — no per-component dark mode overrides needed in consumer code.
+
+**Force light mode on a specific subtree** (e.g. a fixed sidebar that should always appear light even when the app is dark):
+
+```html
+<div class="not-dark">
+  <!-- children render with light-mode tokens regardless of parent .dark -->
+</div>
+```
+
+---
+
+### Style Overriding (No `!important` Needed)
+
+The library uses **CSS Cascade Layers**. All component styles live inside `@layer infonomic-components { }`. Any CSS you write **outside** a layer automatically has higher specificity:
+
+```css
+/* Your app stylesheet — wins automatically, no !important */
+.my-custom-button {
+  padding-inline: 2rem;
+  border-radius: 0;
+}
+```
+
+Pass your class via the `className` prop:
+
+```tsx
+<Button className="my-custom-button" intent="primary">Submit</Button>
+```
+
+---
+
+### Common Usage Patterns
+
+#### Basic button with intent and variant
+
+```tsx
+import { Button } from '@infonomic/uikit/react'
+
+<Button intent="primary" variant="filled" size="md">Save changes</Button>
+<Button intent="danger" variant="outlined" size="sm">Delete</Button>
+<Button intent="noeffect" variant="text">Cancel</Button>
+```
+
+#### Input with label, help text, and validation state
+
+```tsx
+import { Input } from '@infonomic/uikit/react'
+
+// Standard field
+<Input id="email" name="email" label="Email address" type="email" />
+
+// With help text
+<Input id="username" name="username" label="Username" helpText="Letters and numbers only" />
+
+// Error state
+<Input
+  id="password"
+  name="password"
+  label="Password"
+  type="password"
+  error={true}
+  errorText="Password must be at least 8 characters"
+/>
+```
+
+#### Input with adornments
+
+```tsx
+import { Input, InputAdornment } from '@infonomic/uikit/react'
+import { SearchIcon } from '@infonomic/uikit/react'
+
+<Input
+  id="search"
+  name="search"
+  startAdornment={<InputAdornment position="start"><SearchIcon /></InputAdornment>}
+/>
+```
+
+#### `asChild` — composing with a router Link
+
+The `asChild` prop (via Radix Slot) merges the button's styles and behaviour onto its single child, enabling router-aware links styled as buttons:
+
+```tsx
+import { Button } from '@infonomic/uikit/react'
+import { Link } from 'react-router-dom' // or TanStack Router, Next.js Link, etc.
+
+<Button asChild intent="primary">
+  <Link to="/dashboard">Go to Dashboard</Link>
+</Button>
+```
+
+#### Alert and Toast
+
+```tsx
+import { Alert, Toast } from '@infonomic/uikit/react'
+
+<Alert intent="success" icon title="Saved!">Your changes have been saved.</Alert>
+<Alert intent="danger" icon close>Something went wrong. Please try again.</Alert>
+```
+
+#### Chip variants
+
+```tsx
+import { Chip } from '@infonomic/uikit/react'
+
+<Chip intent="primary" variant="selectable">React</Chip>
+<Chip intent="danger" variant="removable" onRemove={() => {}}>Tag to remove</Chip>
+```
+
+---
+
+### Tailwind Compatibility
+
+The library is fully compatible with Tailwind CSS in consuming apps. Tailwind utilities can be passed directly via `className`:
+
+```tsx
+<Button className="mt-4 w-full" intent="primary">Submit</Button>
+```
+
+Because component styles are inside CSS Cascade Layers and Tailwind utilities are typically unlayered (or in a lower-priority layer), conflicts are resolved predictably without `!important`. If you use Tailwind's `@layer utilities` or `@layer components`, be aware this may affect specificity — test overrides as needed.

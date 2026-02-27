@@ -1,7 +1,6 @@
 @layer infonomic-base, infonomic-utilities, infonomic-theme, infonomic-components;
 
 @layer infonomic-components {
-
   .modal-wrapper,
   :global(.infonomic-modal-open) {
     position: fixed;
@@ -36,7 +35,6 @@
   }
 
   @media screen and (min-width: 40rem) {
-
     .modal-container,
     :global(.infonomic-modal-container) {
       max-height: calc(100vh - 24px);

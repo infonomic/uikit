@@ -11,7 +11,13 @@ export function InputPassword({ ...props }: InputProps) {
   return (
     <Input
       type={visible ? 'text' : 'password'}
-      endAdornment={visible ? <EyeOpenIcon width="18px" height="18px" onClick={() => setVisible(!visible)} /> : <EyeClosedIcon width="18px" height="18px" onClick={() => setVisible(!visible)} />}
+      endAdornment={
+        visible ? (
+          <EyeOpenIcon width="18px" height="18px" onClick={() => setVisible(!visible)} />
+        ) : (
+          <EyeClosedIcon width="18px" height="18px" onClick={() => setVisible(!visible)} />
+        )
+      }
       {...props}
     />
   )

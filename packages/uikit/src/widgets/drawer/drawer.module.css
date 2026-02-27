@@ -1,7 +1,6 @@
 @layer infonomic-base, infonomic-utilities, infonomic-theme, infonomic-components;
 
 @layer infonomic-components {
-
   .drawer-wrapper,
   :global(.infonomic-drawer-wrapper) {
     position: fixed;
@@ -53,7 +52,6 @@
   }
 
   @media (min-width: 48rem) {
-
     .drawer-depth-0.drawer-medium .drawer-container,
     :global(.infonomic-drawer-depth-0.drawer-medium .drawer-container) {
       width: 600px;

@@ -1,12 +1,11 @@
 @layer infonomic-base,
-infonomic-functional,
-infonomic-utilities,
-infonomic-theme,
-infonomic-typography,
-infonomic-components;
+  infonomic-functional,
+  infonomic-utilities,
+  infonomic-theme,
+  infonomic-typography,
+  infonomic-components;
 
 @layer infonomic-components {
-
   .timeline,
   :global(.infonomic-timeline) {
     margin-left: var(--spacing-8);
@@ -95,7 +94,6 @@ infonomic-components;
   */
   :global(.dark),
   :global([data-theme="dark"]) {
-
     :global(.infonomic-timeline-icon),
     .timeline-icon {
       border-color: var(--canvas-600);

@@ -16,11 +16,10 @@ export default meta
 
 type Story = StoryObj<typeof AccordionComponent.Root>
 
-
 /**
  * NOTE: Accordions are very much context specific in terms of styling
  * and so we apply very little styling to the default accordion component.
- * Below is an example of a custom (albeit basic) styled accordion for demo 
+ * Below is an example of a custom (albeit basic) styled accordion for demo
  * purposes.
  */
 export const Accordion: Story = {

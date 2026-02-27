@@ -20,7 +20,11 @@ export const ModalActions = function ModalActions({
   ref?: React.RefObject<HTMLDivElement>
 }) {
   return (
-    <div ref={ref} {...rest} className={cx('infonomic-modal-actions', styles['modal-actions'], className)}>
+    <div
+      ref={ref}
+      {...rest}
+      className={cx('infonomic-modal-actions', styles['modal-actions'], className)}
+    >
       {children}
     </div>
   )

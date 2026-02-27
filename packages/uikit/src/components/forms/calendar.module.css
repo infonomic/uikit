@@ -1,9 +1,9 @@
 @layer infonomic-base,
-infonomic-functional,
-infonomic-utilities,
-infonomic-theme,
-infonomic-typography,
-infonomic-components;
+  infonomic-functional,
+  infonomic-utilities,
+  infonomic-theme,
+  infonomic-typography,
+  infonomic-components;
 
 @layer infonomic-components {
   .day-picker {
@@ -167,19 +167,19 @@ infonomic-components;
   }
 
   /* '[&>button]:bg-primary [&>button]:text-primary-foreground [&>button]:hover:bg-primary [&>button]:hover:text-primary-foreground', */
-  .day>button {
+  .day > button {
     color: var(--foreground);
   }
 
   /* '[&>button]:bg-accent [&>button]:text-accent-foreground', */
-  .today>button {
+  .today > button {
     /* background-color: var(--gray-50); */
     border: solid 1px var(--stroke-primary);
     color: var(--foreground);
   }
 
-  .day>button:hover,
-  .day-selected>button {
+  .day > button:hover,
+  .day-selected > button {
     background-color: var(--fill-primary-strong);
     color: white;
   }
@@ -206,12 +206,12 @@ infonomic-components;
     color: var(--foreground);
   }
 
-  .button-range>button {
+  .button-range > button {
     background-color: var(--fill-primary-strong);
     color: white;
   }
 
-  .button-range>button:hover {
+  .button-range > button:hover {
     background-color: var(--fill-primary-strong);
     color: var(--foreground);
   }
@@ -232,8 +232,8 @@ infonomic-components;
     color: var(--foreground);
   }
 
-  .range-middle>button,
-  .range-middle>button:hover {
+  .range-middle > button,
+  .range-middle > button:hover {
     background-color: transparent;
     color: var(--foreground);
   }

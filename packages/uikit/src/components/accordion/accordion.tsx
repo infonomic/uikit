@@ -26,7 +26,11 @@ const Root = ({
   ref?: React.RefObject<AccordionRootElement>
 } & (AccordionPrimitive.AccordionSingleProps | AccordionPrimitive.AccordionMultipleProps)) => {
   return (
-    <AccordionPrimitive.Root ref={ref} className={cx('infonomic-accordion-root', className)} {...props}>
+    <AccordionPrimitive.Root
+      ref={ref}
+      className={cx('infonomic-accordion-root', className)}
+      {...props}
+    >
       {children}
     </AccordionPrimitive.Root>
   )
@@ -42,7 +46,11 @@ const Item = function AccordionItem({
   ref?: React.RefObject<AccordionItemElement>
 }) {
   return (
-    <AccordionPrimitive.Item className={cx('infonomic-accordion-item', className)} {...props} ref={ref}>
+    <AccordionPrimitive.Item
+      className={cx('infonomic-accordion-item', className)}
+      {...props}
+      ref={ref}
+    >
       {children}
     </AccordionPrimitive.Item>
   )
@@ -58,7 +66,11 @@ const Header = function AccordionHeader({
   ref?: React.RefObject<AccordionHeaderElement>
 }) {
   return (
-    <AccordionPrimitive.Header className={cx('infonomic-accordion-header', className)} {...props} ref={ref}>
+    <AccordionPrimitive.Header
+      className={cx('infonomic-accordion-header', className)}
+      {...props}
+      ref={ref}
+    >
       {children}
     </AccordionPrimitive.Header>
   )
@@ -74,7 +86,11 @@ const Trigger = function AccordionTrigger({
   ref?: React.RefObject<AccordionTriggerElement>
 }) {
   return (
-    <AccordionPrimitive.Trigger ref={ref} className={cx('infonomic-accordion-trigger', styles.trigger, className)} {...props}>
+    <AccordionPrimitive.Trigger
+      ref={ref}
+      className={cx('infonomic-accordion-trigger', styles.trigger, className)}
+      {...props}
+    >
       {children}
     </AccordionPrimitive.Trigger>
   )
@@ -90,7 +106,11 @@ const Content = function AccordionContent({
   ref?: React.RefObject<AccordionContentElement>
 }) {
   return (
-    <AccordionPrimitive.Content className={cx('infonomic-accordion-content', styles.content, className)} {...props} ref={ref}>
+    <AccordionPrimitive.Content
+      className={cx('infonomic-accordion-content', styles.content, className)}
+      {...props}
+      ref={ref}
+    >
       {children}
     </AccordionPrimitive.Content>
   )

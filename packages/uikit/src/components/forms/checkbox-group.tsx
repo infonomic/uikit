@@ -10,7 +10,7 @@ import { Checkbox } from './checkbox.js'
 export interface CheckboxGroupProps {
   groupName: string
   className?: string
-  checkBoxClasses?: string,
+  checkBoxClasses?: string
   checkBoxes: { id: string; label: string }[]
   defaultValues?: string[]
   controlledValue?: string

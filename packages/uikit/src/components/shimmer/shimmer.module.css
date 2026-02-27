@@ -1,13 +1,12 @@
 @layer infonomic-base,
-infonomic-functional,
-infonomic-utilities,
-infonomic-theme,
-infonomic-typography,
-infonomic-components;
+  infonomic-functional,
+  infonomic-utilities,
+  infonomic-theme,
+  infonomic-typography,
+  infonomic-components;
 
 /* 'border-collapse w-full text-sm text-left text-gray-700 dark:text-gray-400 m-0', */
 @layer infonomic-components {
-
   .shimmer,
   :global(.infonomic-shimmer) {
     position: relative;
@@ -20,7 +19,6 @@ infonomic-components;
 
   :global(.dark),
   :global([data-theme="dark"]) {
-
     .shimmer,
     :global(.infonomic-shimmer) {
       background-color: #141414;

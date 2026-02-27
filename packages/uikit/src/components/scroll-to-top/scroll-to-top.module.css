@@ -1,11 +1,10 @@
 @layer infonomic-base,
-infonomic-utilities,
-infonomic-theme,
-infonomic-typography,
-infonomic-components;
+  infonomic-utilities,
+  infonomic-theme,
+  infonomic-typography,
+  infonomic-components;
 
 @layer infonomic-components {
-
   .scroll-to-top,
   :global(.infonomic-scroll-to-top) {
     display: flex;
@@ -68,7 +67,6 @@ infonomic-components;
   }
 
   @media screen and (min-width: 587px) {
-
     .scroll-to-top,
     :global(.infonomic-scroll-to-top) {
       bottom: 45px;

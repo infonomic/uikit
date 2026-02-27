@@ -1,7 +1,10 @@
-@layer infonomic-base, infonomic-utilities, infonomic-theme, infonomic-typography, infonomic-components;
+@layer infonomic-base,
+  infonomic-utilities,
+  infonomic-theme,
+  infonomic-typography,
+  infonomic-components;
 
 @layer infonomic-components {
-
   .overlay,
   :global(.infonomic-overlay) {
     position: fixed;
@@ -15,7 +18,6 @@
 
   :global(.dark),
   :global([data-theme="dark"]) {
-
     .overlay,
     :global(.infonomic-overlay) {
       background-color: rgba(0, 0, 0, 0.5);

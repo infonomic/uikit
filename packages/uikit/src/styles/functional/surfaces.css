@@ -88,7 +88,6 @@
     --foreground: var(--gray-900);
     --shadow: var(--shadow-md);
     --loader-color: currentColor;
-    ;
 
     /* SURFACE TOKENS (Force Light Mode)
        ----------------------------------------------------------------- */

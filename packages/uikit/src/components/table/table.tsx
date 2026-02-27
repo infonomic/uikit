@@ -106,7 +106,12 @@ function HeadingCell({
 }: TableHeadingCellProps & {
   ref?: React.RefObject<HTMLTableCellElement>
 }): React.JSX.Element {
-  const classes = cx(styles['table-heading-cell'], 'infonomic-table-heading-cell', 'not-prose', className)
+  const classes = cx(
+    styles['table-heading-cell'],
+    'infonomic-table-heading-cell',
+    'not-prose',
+    className
+  )
   return (
     <th ref={ref} className={classes} {...rest}>
       {children}
