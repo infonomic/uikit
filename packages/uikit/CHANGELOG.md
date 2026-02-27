@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 5.42.0
+
+### Minor Changes
+
+- fe1fc14: Lint and docs.
+
 ## 5.41.0
 
 ### Minor Changes
