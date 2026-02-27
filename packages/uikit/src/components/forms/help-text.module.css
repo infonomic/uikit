@@ -12,4 +12,19 @@ infonomic-components;
     font-size: 0.875rem;
     color: var(--muted);
   }
+
+  .sm,
+  :global(.infonomic-help-text-sm) {
+    font-size: 0.85rem;
+  }
+
+  .md,
+  :global(.infonomic-help-text-md) {
+    font-size: 0.875rem;
+  }
+
+  .lg,
+  :global(.infonomic-help-text-lg) {
+    font-size: 0.9rem;
+  }
 }

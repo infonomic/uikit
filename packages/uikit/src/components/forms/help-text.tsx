@@ -6,9 +6,10 @@ import styles from './help-text.module.css'
 
 interface HelpTextProps {
   className?: string
+  size?: 'sm' | 'md' | 'lg'
   text: string
 }
 
-export function HelpText({ className, text }: HelpTextProps): React.JSX.Element {
-  return <p className={cx('infonomic-help-text', styles.text, className)}>{text}</p>
+export function HelpText({ className, size, text }: HelpTextProps): React.JSX.Element {
+  return <p className={cx('infonomic-help-text', styles.text, size && styles[size], className)}>{text}</p>
 }

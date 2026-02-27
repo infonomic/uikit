@@ -92,9 +92,9 @@ export const Checkbox = function Checkbox({
         )}
       </div>
       {error ? (
-        <ErrorText id={`error-for-${id}`} text={errorText ?? helpText} />
+        <ErrorText id={`error-for-${id}`} size={size} text={errorText ?? helpText} />
       ) : (
-        helpText?.length > 0 && <HelpText text={helpText} />
+        helpText?.length > 0 && <HelpText size={size} text={helpText} />
       )}
     </div>
   )

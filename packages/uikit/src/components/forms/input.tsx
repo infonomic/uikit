@@ -94,9 +94,9 @@ export const Input = <_C extends React.ElementType = 'input'>({
         )}
       </div>
       {error ? (
-        <ErrorText id={`error-for-${id}`} text={errorText ?? helpText} />
+        <ErrorText id={`error-for-${id}`} size={inputSize} text={errorText ?? helpText} />
       ) : (
-        helpText?.length > 0 && <HelpText text={helpText} />
+        helpText?.length > 0 && <HelpText size={inputSize} text={helpText} />
       )}
     </div>
   )
