@@ -106,20 +106,53 @@ infonomic-components;
   /* Sizes */
   .sm,
   :global(.infonomic-checkbox-sm) {
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
+  }
+
+  .sm .icon,
+  :global(.infonomic-checkbox-sm) :global(.infonomic-checkbox-icon) {
+    width: 16px;
+    height: 16px;
+  }
+
+  .sm~.label,
+  :global(.infonomic-checkbox-sm)~ :global(.infonomic-checkbox-label) {
+    font-size: 0.85rem;
   }
 
   .md,
   :global(.infonomic-checkbox-md) {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
+  }
+
+  .md .icon,
+  :global(.infonomic-checkbox-md) :global(.infonomic-checkbox-icon) {
+    width: 18px;
+    height: 18px;
+  }
+
+  .md~.label,
+  :global(.infonomic-checkbox-md)~ :global(.infonomic-checkbox-label) {
+    font-size: 0.875rem;
   }
 
   .lg,
   :global(.infonomic-checkbox-lg) {
+    width: 20px;
+    height: 20px;
+  }
+
+  .lg .icon,
+  :global(.infonomic-checkbox-lg) :global(.infonomic-checkbox-icon) {
     width: 22px;
     height: 22px;
+  }
+
+  .lg~.label,
+  :global(.infonomic-checkbox-lg)~ :global(.infonomic-checkbox-label) {
+    font-size: 1rem;
   }
 
   /* Variants */

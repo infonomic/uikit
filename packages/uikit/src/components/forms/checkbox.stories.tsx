@@ -215,6 +215,55 @@ export const Checked = (): React.JSX.Element => {
   )
 }
 
+export const Sized = (): React.JSX.Element => {
+  const [checked, setChecked] = useState(true)
+  const handleOnClick = (): void => {
+    setChecked(!checked)
+  }
+  return (
+    <div style={{ maxWidth: '800px', margin: '2rem auto 2rem' }}>
+      <h2 className="text-xl" style={{ marginBottom: '1rem' }}>
+        Outlined
+      </h2>
+      <div className="grid gap-4 grid-cols-3">
+        <div className="control">
+          <Checkbox
+            onClick={handleOnClick}
+            aria-label="Large Checkbox"
+            size="lg"
+            checked={checked}
+            id="large"
+            name="large"
+            label="Large Checkbox"
+          />
+        </div>
+        <div className="control">
+          <Checkbox
+            onClick={handleOnClick}
+            aria-label="Medium Checkbox"
+            size="md"
+            checked={checked}
+            id="medium"
+            name="medium"
+            label="Medium Checkbox"
+          />
+        </div>
+        <div className="control">
+          <Checkbox
+            onClick={handleOnClick}
+            aria-label="Small Checkbox"
+            size="sm"
+            checked={checked}
+            id="small"
+            name="small"
+            label="Small Checkbox"
+          />
+        </div>
+      </div>
+    </div>
+  )
+}
+
 export const Disabled = (): React.JSX.Element => {
   const [checked, setChecked] = useState(true)
   const handleOnClick = (): void => {
