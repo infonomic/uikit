@@ -485,9 +485,9 @@
     /* NOEFFECT INTENT TOKENS (Dark Mode)
        ----------------------------------------------------------------- */
     /* Fill tokens - for filled variant */
-    --fill-noeffect-strong: var(--gray-100);
-    --fill-noeffect-strong-hover: oklch(from var(--gray-100) calc(l * 0.95) c h);
-    --fill-noeffect-strong-disabled: oklch(from var(--gray-100) calc(l * 1.1) calc(c * 0.85) h);
+    --fill-noeffect-strong: var(--gray-700);
+    --fill-noeffect-strong-hover: oklch(from var(--gray-700) calc(l * 0.95) c h);
+    --fill-noeffect-strong-disabled: oklch(from var(--gray-700) calc(l * 1.1) calc(c * 0.85) h);
 
     --fill-noeffect-weak: oklch(from var(--gray-100) calc(l * 1.09) c h / 0.3);
     --fill-noeffect-weak-hover: oklch(from var(--gray-100) calc(l * 1.05) c h / 0.3);
@@ -502,7 +502,7 @@
     --fill-noeffect-text-disabled: oklch(from var(--gray-300) calc(l * 1.07) c h / 0.1);
 
     /* Text tokens - for text/icons on top of fills */
-    --text-on-noeffect-strong: black;
+    --text-on-noeffect-strong: white;
     --text-on-noeffect-strong-hover: oklch(from black calc(l * 0.9) calc(c * 0.85) h);
     --text-on-noeffect-strong-disabled: oklch(from black calc(l * 0.9) calc(c * 0.85) h);
 
