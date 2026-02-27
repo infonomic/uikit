@@ -1,5 +1,16 @@
 # @modulus-learning/agent-demo-vanilla
 
+## 5.41.0
+
+### Minor Changes
+
+- eb947ba: Correct colors for noeffect filled.
+
+### Patch Changes
+
+- Updated dependencies [eb947ba]
+  - @infonomic/uikit@5.41.0
+
 ## 5.40.0
 
 ### Minor Changes
