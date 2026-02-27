@@ -1,5 +1,16 @@
 # @infonomic/website-react
 
+## 5.42.0
+
+### Minor Changes
+
+- fe1fc14: Lint and docs.
+
+### Patch Changes
+
+- Updated dependencies [fe1fc14]
+  - @infonomic/uikit@5.42.0
+
 ## 5.41.0
 
 ### Minor Changes
