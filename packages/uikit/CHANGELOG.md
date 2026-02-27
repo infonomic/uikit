@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 5.40.0
+
+### Minor Changes
+
+- 5df47b1: Size options for Checkbox, HelpText and ErrorText.
+
 ## 5.39.1
 
 ### Patch Changes
