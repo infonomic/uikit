@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 5.43.0
+
+### Minor Changes
+
+- cf1e19d: Checkbox icon flash, and Select sizing.
+
 ## 5.42.0
 
 ### Minor Changes
