@@ -1,11 +1,12 @@
 @layer infonomic-base,
-  infonomic-functional,
-  infonomic-utilities,
-  infonomic-theme,
-  infonomic-typography,
-  infonomic-components;
+infonomic-functional,
+infonomic-utilities,
+infonomic-theme,
+infonomic-typography,
+infonomic-components;
 
 @layer infonomic-components {
+
   .container,
   :global(.infonomic-checkbox-container) {
     width: 100%;
@@ -62,9 +63,17 @@
     width: 20px;
     height: 20px;
     color: var(--checkbox-icon-color);
+    /* Hidden by default — prevents flash on initial render before data-state is applied */
+    opacity: 0;
+    transform: scale(0.8);
+    /* Transition handles the unchecked→unchecked no-op and the checked→unchecked exit.
+       It only fires on state changes, never on initial mount, so no flash. */
+    transition:
+      opacity 0.2s ease-in,
+      transform 0.2s ease-in;
   }
 
-  /* Style for the "checked" state */
+  /* Style for the "checked" state — animation overrides the transition for bouncy entry */
   .indicator[data-state="checked"] .icon,
   :global(.infonomic-checkbox-indicator)[data-state="checked"] :global(.infonomic-checkbox-icon) {
     animation: checkBoxIn 0.3s cubic-bezier(0.25, 1.5, 0.5, 1) forwards;
@@ -72,10 +81,9 @@
     transform: scale(1);
   }
 
-  /* Style for the "unchecked" state */
+  /* Style for the "unchecked" state — no animation, let the CSS transition handle the exit */
   .indicator[data-state="unchecked"] .icon,
   :global(.infonomic-checkbox-indicator)[data-state="unchecked"] :global(.infonomic-checkbox-icon) {
-    animation: checkBoxOut 0.2s ease-in;
     opacity: 0;
     transform: scale(0.8);
   }
@@ -88,10 +96,10 @@
     color: var(--label-color);
   }
 
-  .checkbox:disabled ~ .label,
-  .checkbox[disabled] ~ .label,
-  :global(.infonomic-checkbox):disabled ~ :global(.infonomic-checkbox-label),
-  :global(.infonomic-checkbox)[disabled] ~ :global(.infonomic-checkbox-label) {
+  .checkbox:disabled~.label,
+  .checkbox[disabled]~.label,
+  :global(.infonomic-checkbox):disabled~ :global(.infonomic-checkbox-label),
+  :global(.infonomic-checkbox)[disabled]~ :global(.infonomic-checkbox-label) {
     pointer-events: none;
   }
 
@@ -115,8 +123,8 @@
     height: 16px;
   }
 
-  .sm ~ .label,
-  :global(.infonomic-checkbox-sm) ~ :global(.infonomic-checkbox-label) {
+  .sm~.label,
+  :global(.infonomic-checkbox-sm)~ :global(.infonomic-checkbox-label) {
     font-size: 0.85rem;
   }
 
@@ -132,8 +140,8 @@
     height: 18px;
   }
 
-  .md ~ .label,
-  :global(.infonomic-checkbox-md) ~ :global(.infonomic-checkbox-label) {
+  .md~.label,
+  :global(.infonomic-checkbox-md)~ :global(.infonomic-checkbox-label) {
     font-size: 0.875rem;
   }
 
@@ -149,8 +157,8 @@
     height: 22px;
   }
 
-  .lg ~ .label,
-  :global(.infonomic-checkbox-lg) ~ :global(.infonomic-checkbox-label) {
+  .lg~.label,
+  :global(.infonomic-checkbox-lg)~ :global(.infonomic-checkbox-label) {
     font-size: 1rem;
   }
 
@@ -269,16 +277,4 @@
     }
   }
 
-  /* Define keyframes for the "unchecked" state */
-  @keyframes checkBoxOut {
-    from {
-      opacity: 1;
-      transform: scale(1);
-    }
-
-    to {
-      opacity: 0;
-      transform: scale(0.8);
-    }
-  }
 }
