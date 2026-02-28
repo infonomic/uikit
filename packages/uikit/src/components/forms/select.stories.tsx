@@ -19,14 +19,52 @@ const values: SelectValue[] = [
 
 export const Default = (): React.JSX.Element => {
   return (
-    <div style={{ maxWidth: '600px', margin: '2rem auto' }}>
-      <Select placeholder="Select one..." helpText="Select an item.">
-        {values.map((value) => (
-          <SelectItem key={value.value} value={value.value}>
-            {value.label}
-          </SelectItem>
-        ))}
-      </Select>
-    </div>
+    <>
+      <div style={{ maxWidth: '600px', margin: '2rem auto' }}>
+        <Select size="xl" placeholder="Select one..." helpText="Extra Large select.">
+          {values.map((value) => (
+            <SelectItem key={value.value} value={value.value}>
+              {value.label}
+            </SelectItem>
+          ))}
+        </Select>
+      </div>
+      <div style={{ maxWidth: '600px', margin: '2rem auto' }}>
+        <Select size="lg" placeholder="Select one..." helpText="Large select.">
+          {values.map((value) => (
+            <SelectItem key={value.value} value={value.value}>
+              {value.label}
+            </SelectItem>
+          ))}
+        </Select>
+      </div>
+      <div style={{ maxWidth: '600px', margin: '2rem auto' }}>
+        <Select size="md" placeholder="Select one..." helpText="Medium select.">
+          {values.map((value) => (
+            <SelectItem key={value.value} value={value.value}>
+              {value.label}
+            </SelectItem>
+          ))}
+        </Select>
+      </div>
+      <div style={{ maxWidth: '600px', margin: '2rem auto' }}>
+        <Select size="sm" placeholder="Select one..." helpText="Small select.">
+          {values.map((value) => (
+            <SelectItem key={value.value} value={value.value}>
+              {value.label}
+            </SelectItem>
+          ))}
+        </Select>
+      </div>
+      <div style={{ maxWidth: '600px', margin: '2rem auto' }}>
+        <Select size="xs" placeholder="Select one..." helpText="Extra small select.">
+          {values.map((value) => (
+            <SelectItem key={value.value} value={value.value}>
+              {value.label}
+            </SelectItem>
+          ))}
+        </Select>
+      </div>
+    </>
   )
 }

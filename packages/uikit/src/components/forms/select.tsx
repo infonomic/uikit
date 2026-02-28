@@ -77,7 +77,7 @@ export function Select({
             <SelectPrimitive.ScrollUpButton className={styles['scroll-button']}>
               <ChevronUpIcon />
             </SelectPrimitive.ScrollUpButton>
-            <SelectPrimitive.Viewport className={styles.viewport}>
+            <SelectPrimitive.Viewport className={cx(styles.viewport, size != null && styles[`viewport-${size}`])}>
               <SelectPrimitive.Group className={styles.group}>{children}</SelectPrimitive.Group>
             </SelectPrimitive.Viewport>
             <SelectPrimitive.ScrollDownButton className={styles['scroll-button']}>
