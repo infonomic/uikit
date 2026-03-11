@@ -1,5 +1,13 @@
 # @infonomic/website-react
 
+## 5.43.1
+
+### Patch Changes
+
+- b6a434d: Updated deps.
+- Updated dependencies [b6a434d]
+  - @infonomic/uikit@5.43.1
+
 ## 5.43.0
 
 ### Minor Changes

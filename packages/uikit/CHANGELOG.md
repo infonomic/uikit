@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 5.43.1
+
+### Patch Changes
+
+- b6a434d: Updated deps.
+
 ## 5.43.0
 
 ### Minor Changes
