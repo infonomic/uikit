@@ -15,7 +15,7 @@ function Index() {
             Website
           </span>
         </h1>
-        <p className="mb-12 max-w-2xl text-lg text-gray-900 dark:text-gray-200 sm:text-xl text-balance">
+        <p className="text-center mx-auto mb-12 max-w-2xl text-lg text-gray-900 dark:text-gray-200 sm:text-xl">
           A workbench application for Infonomic's UI kit.
         </p>
       </Container>
