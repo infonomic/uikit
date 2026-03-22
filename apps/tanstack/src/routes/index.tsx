@@ -1,5 +1,6 @@
 import { Container, Section } from '@infonomic/uikit/react'
 import { createFileRoute } from '@tanstack/react-router'
+import { Link } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/')({
   component: Index,
@@ -18,6 +19,18 @@ function Index() {
         <p className="mb-12 max-w-2xl text-lg text-gray-900 dark:text-gray-200 sm:text-xl text-balance">
           A workbench application for Infonomic's UI kit.
         </p>
+        <div className="flex flex-wrap items-center justify-center gap-4">
+          <Link to="/cards" className="text-blue-500 hover:underline">
+            Cards
+          </Link>
+          <Link to="/buttons" className="text-blue-500 hover:underline">
+            Buttons
+          </Link>
+          <Link to="/prose" className="text-blue-500 hover:underline">
+            Prose
+          </Link>
+        </div>
+
       </Container>
     </Section>
   )

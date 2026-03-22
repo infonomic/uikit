@@ -24,7 +24,7 @@ export function Branding({
       )}
     >
       <Link to="/" className="flex items-center gap-3">
-        Logo here...
+        Home
       </Link>
     </div>
   )

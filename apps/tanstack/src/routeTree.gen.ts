@@ -10,12 +10,18 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ProseRouteImport } from './routes/prose'
+import { Route as CardsRouteImport } from './routes/cards'
 import { Route as ButtonsRouteImport } from './routes/buttons'
 import { Route as IndexRouteImport } from './routes/index'
 
 const ProseRoute = ProseRouteImport.update({
   id: '/prose',
   path: '/prose',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CardsRoute = CardsRouteImport.update({
+  id: '/cards',
+  path: '/cards',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ButtonsRoute = ButtonsRouteImport.update({
@@ -32,30 +38,34 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/buttons': typeof ButtonsRoute
+  '/cards': typeof CardsRoute
   '/prose': typeof ProseRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/buttons': typeof ButtonsRoute
+  '/cards': typeof CardsRoute
   '/prose': typeof ProseRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/buttons': typeof ButtonsRoute
+  '/cards': typeof CardsRoute
   '/prose': typeof ProseRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/buttons' | '/prose'
+  fullPaths: '/' | '/buttons' | '/cards' | '/prose'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/buttons' | '/prose'
-  id: '__root__' | '/' | '/buttons' | '/prose'
+  to: '/' | '/buttons' | '/cards' | '/prose'
+  id: '__root__' | '/' | '/buttons' | '/cards' | '/prose'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ButtonsRoute: typeof ButtonsRoute
+  CardsRoute: typeof CardsRoute
   ProseRoute: typeof ProseRoute
 }
 
@@ -66,6 +76,13 @@ declare module '@tanstack/react-router' {
       path: '/prose'
       fullPath: '/prose'
       preLoaderRoute: typeof ProseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cards': {
+      id: '/cards'
+      path: '/cards'
+      fullPath: '/cards'
+      preLoaderRoute: typeof CardsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/buttons': {
@@ -88,6 +105,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ButtonsRoute: ButtonsRoute,
+  CardsRoute: CardsRoute,
   ProseRoute: ProseRoute,
 }
 export const routeTree = rootRouteImport
