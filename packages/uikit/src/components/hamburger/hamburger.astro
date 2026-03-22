@@ -1,30 +1,38 @@
 ---
-// SEE: uikit/src/styles/components/hamburger.css
+// NOTE: In Astro, open/closed state is managed externally
+// (e.g. via nanostores). Toggle the 'infonomic-hamburger-open'
+// class on the button and update aria-expanded from client JS.
 
-// NOTE: we don't use open or color props in Astro.
-// Instead we set open / closed state via nanostores.
-// and then apply global classes according.
-// Class overrides for inner span colors are set in
-// Astro app.css
-
-interface HamburgerProps {
+interface Props {
   class?: string
+  colorScheme?: 'auto' | 'onDark' | 'onLight'
   ariaLabel?: string
   ariaControls?: string
 }
 
-const { class: className, ariaLabel, ariaControls } = Astro.props as HamburgerProps
+import styles from './hamburger.module.css'
+
+const {
+  class: className,
+  colorScheme = 'auto',
+  ariaLabel = 'Toggle menu',
+  ariaControls,
+  ...rest
+} = Astro.props as Props
+
+const colorSchemeClass =
+  colorScheme === 'onDark' ? styles.onDark : colorScheme === 'onLight' ? styles.onLight : undefined
 ---
 
 <button
-  id="component--hamburger"
-  class:list={['component--hamburger', className]}
-  tabindex="0"
+  type="button"
+  class:list={['infonomic-hamburger', styles.hamburger, colorSchemeClass, className]}
   aria-label={ariaLabel}
   aria-controls={ariaControls}
-  aria-haspopup="true"
+  aria-expanded="false"
+  {...rest}
 >
-  <span class="box" aria-hidden="true">
-    <span class="inner"></span>
+  <span class:list={['infonomic-hamburger-box', styles.box]} aria-hidden="true">
+    <span class:list={['infonomic-hamburger-inner', styles.inner]}></span>
   </span>
 </button>

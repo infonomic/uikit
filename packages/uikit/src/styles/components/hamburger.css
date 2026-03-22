@@ -1,9 +1,11 @@
+/* No longer used in our actual hamburger React and Astro components
+but left here as a reference. */
 @layer infonomic-base,
-  infonomic-functional,
-  infonomic-utilities,
-  infonomic-theme,
-  infonomic-typography,
-  infonomic-components;
+infonomic-functional,
+infonomic-utilities,
+infonomic-theme,
+infonomic-typography,
+infonomic-components;
 
 @layer infonomic-components {
   .component--hamburger {

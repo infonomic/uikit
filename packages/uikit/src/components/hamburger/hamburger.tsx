@@ -1,65 +1,73 @@
 'use client'
 
 import type React from 'react'
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect } from 'react'
 
 import cx from 'classnames'
 
-interface HamburgerProps {
+import styles from './hamburger.module.css'
+
+type ColorScheme = 'auto' | 'onDark' | 'onLight'
+
+export interface HamburgerProps {
   className?: string
-  color?: string
-  activeBorderColor?: string
-  open: boolean
-  onChange: (event: React.MouseEvent<HTMLButtonElement> | null) => void
+  colorScheme?: ColorScheme
+  open?: boolean
+  onChange?: (open: boolean) => void
+  ariaLabel?: string
+  ariaControls?: string
 }
 
 export function Hamburger({
   className,
-  color = 'bg-white before:bg-white after:bg-white',
-  activeBorderColor,
-  open,
+  colorScheme = 'auto',
+  open = false,
   onChange,
+  ariaLabel = 'Toggle menu',
+  ariaControls,
   ...other
 }: HamburgerProps): React.JSX.Element {
-  const [isOpen, setIsOpen] = useState(false)
-
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>): void => {
-    setIsOpen(!isOpen)
-    onChange(event)
+  const handleClick = (): void => {
+    onChange?.(!open)
   }
 
   const handleEscapeKey = useCallback(
     (event: KeyboardEvent): void => {
-      if (event.key === 'Escape') {
-        if (isOpen) {
-          setIsOpen(false)
-          onChange(null)
-        }
+      if (event.key === 'Escape' && open) {
+        onChange?.(false)
       }
     },
-    [isOpen, onChange]
+    [open, onChange]
   )
 
   useEffect(() => {
-    setIsOpen(open)
     document.addEventListener('keydown', handleEscapeKey, false)
     return () => {
       document.removeEventListener('keydown', handleEscapeKey, false)
     }
-  }, [open, handleEscapeKey])
+  }, [handleEscapeKey])
 
   return (
     <button
+      type="button"
       onClick={handleClick}
-      className={cx(`component--hamburger ${isOpen ? 'is_active' : ''}`, className)}
-      tabIndex={0}
-      aria-label="Open main menu"
-      aria-controls="main-menu"
-      aria-haspopup="true"
+      className={cx(
+        'infonomic-hamburger',
+        styles.hamburger,
+        {
+          [styles.open]: open,
+          [styles.onDark]: colorScheme === 'onDark',
+          [styles.onLight]: colorScheme === 'onLight',
+        },
+        className
+      )}
+      aria-label={ariaLabel}
+      aria-controls={ariaControls}
+      aria-expanded={open}
       {...other}
     >
-      <span className="box" aria-hidden="true">
-        <span className={cx('inner', color)} />
+      <span className={cx('infonomic-hamburger-box', styles.box)} aria-hidden="true">
+        <span className={cx('infonomic-hamburger-inner', styles.inner)} />
       </span>
     </button>
   )
