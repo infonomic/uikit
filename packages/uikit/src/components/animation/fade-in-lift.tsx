@@ -1,4 +1,5 @@
 'use client'
+
 import type React from 'react'
 import type { ComponentPropsWithoutRef, ElementType } from 'react'
 
@@ -22,7 +23,7 @@ export const FadeInLift = <T extends ElementType = 'div'>({
   delay = 0,
   ...rest
 }: FadeInLiftProps<T> & Omit<ComponentPropsWithoutRef<T>, keyof FadeInLiftProps<T>>) => {
-  const Component = as ? motion(as) : motion.div
+  const Component = as ? motion.create(as) : motion.div
 
   return (
     <Component

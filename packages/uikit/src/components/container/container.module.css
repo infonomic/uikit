@@ -1,28 +1,41 @@
-@layer infonomic-base, infonomic-utilities, infonomic-theme, infonomic-typography, infonomic-components;
+@layer infonomic-base,
+  infonomic-functional,
+  infonomic-utilities,
+  infonomic-theme,
+  infonomic-typography,
+  infonomic-components;
 
 @layer infonomic-components {
-  .container {
+  .container,
+  :global(.infonomic-container) {
     width: 100%;
-    padding: 0 16px;
+    padding: 0 1rem;
     margin: 0 auto;
-    max-width: 900px;
+    max-width: 60rem;
   }
 
-  @media (min-width: 1100px) {
-    .container {
-      max-width: 1050px;
+  /* Shy edges */
+  /* Large */
+  @media (min-width: 66rem) {
+    .container,
+    :global(.infonomic-container) {
+      max-width: 64rem;
     }
   }
 
-  @media (min-width: 1300px) {
-    .container {
-      max-width: 1200px;
+  /* X-Large */
+  @media (min-width: 77rem) {
+    .container,
+    :global(.infonomic-container) {
+      max-width: 74.375rem;
     }
   }
 
-  @media (min-width: 1536px) {
-    .container {
-      max-width: 1400px;
+  /* 2X-Large */
+  @media (min-width: 94rem) {
+    .container,
+    :global(.infonomic-container) {
+      max-width: 87.5rem;
     }
   }
 }

@@ -1,5 +1,6 @@
-import cx from 'classnames'
 import type React from 'react'
+
+import cx from 'classnames'
 
 import { IconElement } from './icon-element.jsx'
 import styles from './icons.module.css'
@@ -10,7 +11,7 @@ export const ChevronsUpDown = ({
   svgClassName,
   ...rest
 }: IconProps): React.JSX.Element => {
-  const applied = cx(styles['stroke-contrast'], svgClassName)
+  const applied = cx(styles['stroke-current'], svgClassName)
 
   return (
     <IconElement className={cx('chevrons-up-down', className)} {...rest}>

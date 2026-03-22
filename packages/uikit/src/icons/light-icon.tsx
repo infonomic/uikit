@@ -3,13 +3,11 @@ import type React from 'react'
 import cx from 'classnames'
 
 import { IconElement } from './icon-element.js'
-
+import styles from './icons.module.css'
 import type { IconProps } from './types/icon.js'
 
-import styles from './icons.module.css'
-
 export const LightIcon = ({ className, svgClassName, ...rest }: IconProps): React.JSX.Element => {
-  const applied = cx(styles['fill-contrast'], styles['stroke-none'], svgClassName)
+  const applied = cx(styles['fill-current'], styles['stroke-none'], svgClassName)
 
   return (
     <IconElement className={cx('light-icon', className)} {...rest}>

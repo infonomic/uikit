@@ -1,0 +1,153 @@
+@layer infonomic-base,
+infonomic-functional,
+infonomic-utilities,
+infonomic-theme,
+infonomic-typography,
+infonomic-components;
+
+@layer infonomic-components {
+
+  .content,
+  :global(.infonomic-select-content) {
+    z-index: 50;
+  }
+
+  .viewport,
+  :global(.infonomic-select-viewport) {
+    z-index: 50;
+    margin-top: 2px;
+    border: 1px solid var(--surface-panel-border);
+    box-shadow: var(--shadow-md);
+    border-radius: var(--border-radius-md);
+    background-color: var(--surface-panel-elevated);
+    padding: 6px;
+  }
+
+  .viewport-xs {
+    padding: 4px;
+  }
+
+  .viewport-sm {
+    padding: 4px;
+  }
+
+  .viewport-md {
+    padding: 6px;
+  }
+
+  .viewport-lg {
+    padding: 6px;
+  }
+
+  .viewport-xl {
+    padding: 8px;
+  }
+
+  .group,
+  :global(.infonomic-select-group) {
+    z-index: 50;
+  }
+
+  .scroll-button,
+  :global(.infonomic-select-scroll-button) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--surface-item-text);
+    border: 1px solid var(--surface-panel-border);
+    box-shadow: var(--shadow-md);
+    border-radius: var(--border-radius-md);
+    background-color: var(--surface-panel-elevated);
+    padding: 2px;
+  }
+
+  .select-item,
+  :global(.infonomic-select-item) {
+    position: relative;
+    user-select: none;
+    color: var(--surface-item-text);
+    background-color: var(--surface-item);
+    font-size: 1rem;
+    line-height: 1;
+    padding-right: 32px;
+    padding-left: 24px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    border-radius: 6px;
+  }
+
+  .select-item[data-disabled],
+  :global(.infonomic-select-item[data-disabled]) {
+    color: var(--surface-item-text-disabled);
+    pointer-events: none;
+  }
+
+  .select-item[data-highlighted],
+  :global(.infonomic-select-item[data-highlighted]) {
+    outline: none;
+    background-color: var(--surface-item-hover);
+    color: var(--surface-item-text-hover);
+  }
+
+  .select-item-indicator,
+  :global(.infonomic-select-item-indicator) {
+    position: absolute;
+    left: 0;
+    width: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* size variants — treat current values as 'md' */
+  .viewport-xs .select-item {
+    font-size: 0.75rem;
+    height: 24px;
+    padding-right: 28px;
+    padding-left: 20px;
+    border-radius: 4px;
+  }
+
+  .viewport-xs .select-item-indicator {
+    width: 20px;
+  }
+
+  .viewport-sm .select-item {
+    font-size: 0.875rem;
+    height: 28px;
+    padding-right: 30px;
+    padding-left: 22px;
+    border-radius: 5px;
+  }
+
+  .viewport-sm .select-item-indicator {
+    width: 22px;
+  }
+
+  /* .viewport-md — inherits base .select-item values */
+
+  .viewport-lg .select-item {
+    font-size: 1.125rem;
+    height: 34px;
+    padding-right: 32px;
+    padding-left: 24px;
+    border-radius: 6px;
+  }
+
+  .viewport-lg .select-item-indicator {
+    width: 24px;
+  }
+
+  .viewport-xl .select-item {
+    font-size: 1.25rem;
+    height: 40px;
+    padding-right: 36px;
+    padding-left: 28px;
+    border-radius: 8px;
+  }
+
+  .viewport-xl .select-item-indicator {
+    width: 28px;
+  }
+}

@@ -1,7 +1,7 @@
 {
   "name": "@infonomic/astro",
   "type": "module",
-  "version": "2.7.0",
+  "version": "5.43.1",
   "private": true,
   "scripts": {
     "clean": "rimraf .astro dist node_modules .turbo",
@@ -11,6 +11,7 @@
     "astro": "astro"
   },
   "dependencies": {
+<<<<<<< HEAD
     "@astrojs/node": "^10.0.3",
     "@infonomic/uikit": "workspace:*",
     "astro": "^6.0.8",
@@ -19,5 +20,15 @@
   },
   "devDependencies": {
     "@biomejs/biome": "2.4.8"
+=======
+    "@astrojs/node": "^10.0.0",
+    "@infonomic/uikit": "workspace:*",
+    "astro": "^6.0.2",
+    "nanostores": "^1.1.1",
+    "sharp": "^0.34.5"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.4.6"
+>>>>>>> 61075a5def0cb956fc01ca60d4592ea21c6bf414
   }
 }

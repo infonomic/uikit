@@ -1,4 +1,5 @@
 'use client'
+
 import type * as React from 'react'
 
 import cx from 'classnames'
@@ -19,7 +20,11 @@ export const ModalContent = function ModalContent({
   ref?: React.RefObject<HTMLDivElement>
 }) {
   return (
-    <div ref={ref} {...rest} className={cx(styles['modal-content'], className)}>
+    <div
+      ref={ref}
+      {...rest}
+      className={cx('infonomic-modal-content', styles['modal-content'], className)}
+    >
       {children}
     </div>
   )

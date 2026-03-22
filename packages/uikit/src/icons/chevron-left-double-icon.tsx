@@ -19,8 +19,9 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-import cx from 'classnames'
 import type React from 'react'
+
+import cx from 'classnames'
 
 import { IconElement } from './icon-element.jsx'
 import styles from './icons.module.css'
@@ -31,7 +32,7 @@ export const ChevronLeftDoubleIcon = ({
   svgClassName,
   ...rest
 }: IconProps): React.JSX.Element => {
-  const applied = cx(styles['fill-contrast'], svgClassName)
+  const applied = cx(styles['fill-current'], svgClassName)
 
   return (
     <IconElement className={cx('chevron-left-double-icon', className)} {...rest}>

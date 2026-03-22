@@ -1,4 +1,4 @@
 export * from './first'
-export * from './previous'
-export * from './next'
 export * from './last'
+export * from './next'
+export * from './previous'

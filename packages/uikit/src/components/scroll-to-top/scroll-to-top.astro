@@ -1,0 +1,75 @@
+---
+import styles from './scroll-to-top.module.css'
+
+interface Props {
+  class?: string
+  showAt?: number
+  offset?: number
+  'aria-label'?: string
+  [key: string]: any
+}
+
+const {
+  class: className,
+  showAt = 200,
+  offset = -65,
+  'aria-label': ariaLabel = 'Scroll to top',
+  ...rest
+} = Astro.props
+---
+
+<button
+  type="button"
+  aria-label={ariaLabel}
+  class:list={['scroll-to-top', styles['scroll-to-top'], className]}
+  data-show-at={showAt}
+  data-offset={offset}
+  data-class-shown={styles['scroll-to-top-shown']}
+  {...rest}
+>
+  <span aria-hidden="true">
+    <svg class="icon" style="fill: currentColor" focusable="false" viewBox="0 0 51 32">
+      <path d="M25.4,9.8L45.6,30l4.5-4.5L25.4,0.8L0.8,25.4L5.3,30L25.4,9.8z"></path>
+    </svg>
+  </span>
+</button>
+
+<script>
+  const buttons = document.querySelectorAll('button.scroll-to-top')
+
+  buttons.forEach((button) => {
+    if (!(button instanceof HTMLElement)) return
+
+    const showAt = Number(button.dataset.showAt) || 200
+    const offset = Number(button.dataset.offset) || -65
+    const classShown = button.dataset.classShown
+
+    if (classShown == null) return
+
+    // Click Handler
+    button.addEventListener('click', () => {
+      window.scrollTo({ top: offset, left: 0, behavior: 'smooth' })
+    })
+
+    // Scroll Handler
+    let ticking = false
+    const handleOnScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const shouldShow = window.scrollY > showAt
+          if (shouldShow) {
+            button.classList.add(classShown)
+            button.classList.add('scroll-to-top-shown')
+          } else {
+            button.classList.remove(classShown)
+            button.classList.remove('scroll-to-top-shown')
+          }
+          ticking = false
+        })
+        ticking = true
+      }
+    }
+
+    window.addEventListener('scroll', handleOnScroll, { passive: true })
+  })
+</script>

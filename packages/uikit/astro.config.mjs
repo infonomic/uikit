@@ -6,15 +6,15 @@ export default defineConfig({
   trailingSlash: 'never',
   output: 'server',
   adapter: node({
-    mode: 'standalone'
+    mode: 'standalone',
   }),
 
   build: {
-    format: 'file'
+    format: 'file',
   },
   vite: {
     ssr: {
-      noExternal: ['webcoreui']
-    }
-  }
+      noExternal: ['webcoreui'],
+    },
+  },
 })

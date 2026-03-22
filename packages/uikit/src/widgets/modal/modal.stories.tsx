@@ -4,7 +4,6 @@ import React from 'react'
 import { Button } from '../../components/button/button.js'
 import { IconButton } from '../../components/button/icon-button.js'
 import { CloseIcon } from '../../icons/close-icon.js'
-
 import { Modal, useModal } from './modal.js'
 
 export default {
@@ -16,15 +15,8 @@ export default {
 export const Default = (): React.JSX.Element => {
   const { onDismiss, onOpen, isOpen, setIsOpen } = useModal()
 
-  const whiteIcon = `
-    .white-icon {
-      fill: white;  
-    }
-  `
-
   return (
-    <>
-      <style>{whiteIcon}</style>
+    <div style={{ margin: '2rem 0' }}>
       <Button
         onClick={() => {
           setIsOpen(true)
@@ -35,10 +27,10 @@ export const Default = (): React.JSX.Element => {
       <Modal isOpen={isOpen} onDismiss={onDismiss} closeOnOverlayClick={true}>
         <Modal.Container style={{ maxWidth: '600px' }}>
           <Modal.Header>
-            <h2>Modal Header</h2>
+            <h3>Modal Header</h3>
             <IconButton
               arial-label="Close"
-              size="sm"
+              size="xs"
               onClick={() => {
                 setIsOpen(false)
               }}
@@ -66,6 +58,6 @@ export const Default = (): React.JSX.Element => {
           </Modal.Actions>
         </Modal.Container>
       </Modal>
-    </>
+    </div>
   )
 }

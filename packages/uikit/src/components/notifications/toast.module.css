@@ -1,11 +1,17 @@
-@layer infonomic-base, infonomic-utilities, infonomic-theme, infonomic-typography, infonomic-components;
+@layer infonomic-base,
+  infonomic-functional,
+  infonomic-utilities,
+  infonomic-theme,
+  infonomic-typography,
+  infonomic-components;
 
 @layer infonomic-components {
   /* Positions are relative to the toast viewport which is set 
    globally in components/toast.css  */
 
-  .root {
-    position: absolute;
+  .root,
+  :global(.infonomic-toast-root) {
+    position: fixed;
     display: flex;
     flex-direction: column;
     gap: var(--gap-1);
@@ -19,38 +25,51 @@
     box-shadow: var(--shadow-sm);
   }
 
-  .root:is(:global(.dark) *) {
-    background: var(--canvas-800);
+  :global(.dark),
+  :global([data-theme="dark"]) {
+    .root,
+    :global(.infonomic-toast-root) {
+      background: var(--canvas-800);
+    }
   }
 
-  .root[data-state="open"] {
+  .root[data-state="open"],
+  :global(.infonomic-toast-root[data-state="open"]) {
     animation: slideInFromBottom 150ms cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  .root[data-state="closed"] {
+  .root[data-state="closed"],
+  :global(.infonomic-toast-root[data-state="closed"]) {
     animation: hide 100ms ease-in;
   }
 
-  .root[data-swipe="move"] {
+  .root[data-swipe="move"],
+  :global(.infonomic-toast-root[data-swipe="move"]) {
     transform: translateX(var(--radix-toast-swipe-move-x));
   }
 
-  .root[data-swipe="cancel"] {
+  .root[data-swipe="cancel"],
+  :global(.infonomic-toast-root[data-swipe="cancel"]) {
     transform: translateX(0);
     transition: transform 200ms ease-out;
   }
 
   .root.top-right[data-swipe="end"],
-  .root.bottom-right[data-swipe="end"] {
+  .root.bottom-right[data-swipe="end"],
+  :global(.infonomic-toast-root.top-right[data-swipe="end"]),
+  :global(.infonomic-toast-root.bottom-right[data-swipe="end"]) {
     animation: swipeOutToRight 100ms ease-out;
   }
 
   .root.top-left[data-swipe="end"],
-  .root.bottom-left[data-swipe="end"] {
+  .root.bottom-left[data-swipe="end"],
+  :global(.infonomic-toast-root.top-left[data-swipe="end"]),
+  :global(.infonomic-toast-root.bottom-left[data-swipe="end"]) {
     animation: swipeOutToLeft 100ms ease-out;
   }
 
-  .header {
+  .header,
+  :global(.infonomic-toast-header) {
     display: flex;
     padding: 0 16px 0 12px;
     align-items: start;
@@ -58,7 +77,8 @@
     justify-content: space-between;
   }
 
-  .close {
+  .close,
+  :global(.infonomic-toast-close) {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -72,12 +92,13 @@
     margin-top: -2px;
   }
 
-  .close svg {
+  .close svg,
+  :global(.infonomic-toast-close svg) {
     fill: white;
   }
 
-
-  .title {
+  .title,
+  :global(.infonomic-toast-title) {
     display: flex;
     padding: 0 12px 0 8px;
     align-items: start;
@@ -87,14 +108,16 @@
     font-size: 15px;
   }
 
-  .description {
+  .description,
+  :global(.infonomic-toast-description) {
     margin: 0;
     padding: 0 8px 0 12px;
     font-size: var(--font-size-sm);
     line-height: 1.3;
   }
 
-  .action {
+  .action,
+  :global(.infonomic-toast-action) {
     display: flex;
     justify-content: end;
     padding: 0 12px 0 12px;
@@ -103,43 +126,51 @@
   /* Positions are relative to the toast viewport which is set 
    globally in components/toast.css  */
 
-  .top-left {
+  .top-left,
+  :global(.infonomic-toast-top-left) {
     top: 88px;
     right: 16px;
     left: 16px;
   }
 
-  .top-right {
+  .top-right,
+  :global(.infonomic-toast-top-right) {
     top: 88px;
     right: 16px;
     left: 16px;
   }
 
-  .bottom-left {
+  .bottom-left,
+  :global(.infonomic-toast-bottom-left) {
     bottom: 16px;
     right: 16px;
     left: 16px;
   }
 
-  .bottom-right {
+  .bottom-right,
+  :global(.infonomic-toast-bottom-right) {
     bottom: 16px;
     right: 16px;
     left: 16px;
   }
 
-  @media (min-width: 768px) {
-
+  @media (min-width: 48rem) {
     .root.top-right[data-state="open"],
-    .root.bottom-right[data-state="open"] {
+    .root.bottom-right[data-state="open"],
+    :global(.infonomic-toast-root.top-right[data-state="open"]),
+    :global(.infonomic-toast-root.bottom-right[data-state="open"]) {
       animation: slideInFromRight 150ms cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .root.top-left[data-state="open"],
-    .root.bottom-left[data-state="open"] {
+    .root.bottom-left[data-state="open"],
+    :global(.infonomic-toast-root.top-left[data-state="open"]),
+    :global(.infonomic-toast-root.bottom-left[data-state="open"]) {
       animation: slideInFromLeft 150ms cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    .bottom-right {
+    .bottom-right,
+    :global(.infonomic-toast-bottom-right) {
       bottom: 16px;
       right: 16px;
       left: auto;
@@ -147,7 +178,8 @@
       max-width: 390px;
     }
 
-    .bottom-left {
+    .bottom-left,
+    :global(.infonomic-toast-bottom-left) {
       bottom: 16px;
       left: 16px;
       right: auto;
@@ -155,7 +187,8 @@
       max-width: 390px;
     }
 
-    .top-left {
+    .top-left,
+    :global(.infonomic-toast-top-left) {
       top: 88px;
       left: 16px;
       right: auto;
@@ -164,7 +197,8 @@
       max-width: 390px;
     }
 
-    .top-right {
+    .top-right,
+    :global(.infonomic-toast-top-right) {
       top: 88px;
       right: 16px;
       bottom: auto;
@@ -172,7 +206,6 @@
       width: 100%;
       max-width: 390px;
     }
-
   }
 
   @keyframes slideInFromRight {

@@ -1,11 +1,12 @@
 'use client'
 
-import cx from 'classnames'
 import type React from 'react'
-import { Button } from './button'
-import type { ButtonProps } from './button.js'
 
+import cx from 'classnames'
+
+import { Button } from './button'
 import styles from './button.module.css'
+import type { ButtonProps } from './button.js'
 
 type IconButtonProps<C extends React.ElementType = 'button'> = ButtonProps<C> & {
   square?: boolean

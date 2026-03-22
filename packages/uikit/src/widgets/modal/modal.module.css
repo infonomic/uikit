@@ -1,7 +1,8 @@
 @layer infonomic-base, infonomic-utilities, infonomic-theme, infonomic-components;
 
 @layer infonomic-components {
-  .modal-wrapper {
+  .modal-wrapper,
+  :global(.infonomic-modal-open) {
     position: fixed;
     display: flex;
     flex-direction: column;
@@ -15,7 +16,8 @@
     opacity: 1;
   }
 
-  .modal-container {
+  .modal-container,
+  :global(.infonomic-modal-container) {
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -26,18 +28,15 @@
     max-height: 88vh;
     width: 100%;
     bottom: 0;
-    background-color: var(--canvas-25);
+    background-color: var(--surface-panel);
     border: 1px solid var(--border-color);
-    margin-left: var(--spacing-2);
-    margin-right: var(--spacing-2);
+    margin-left: var(--spacing-8);
+    margin-right: var(--spacing-8);
   }
 
-  .modal-container:is(:global(.dark) *) {
-    background: var(--canvas-800);
-  }
-
-  @media screen and (min-width: 640px) {
-    .modal-container {
+  @media screen and (min-width: 40rem) {
+    .modal-container,
+    :global(.infonomic-modal-container) {
       max-height: calc(100vh - 24px);
       min-height: auto;
       bottom: auto;
@@ -45,41 +44,46 @@
     }
   }
 
-  .modal-header {
+  .modal-header,
+  :global(.infonomic-modal-header) {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: var(--gap-3);
-    padding-left: var(--spacing-6);
-    padding-right: var(--spacing-6);
-    padding-top: var(--spacing-5);
+    padding-left: var(--spacing-16);
+    padding-right: var(--spacing-16);
+    padding-top: var(--spacing-16);
     max-width: 100%;
   }
 
   .modal-header h2,
-  .modal-header h3 {
+  .modal-header h3,
+  :global(.infonomic-modal-header h2),
+  :global(.infonomic-modal-header h3) {
     margin: 0;
   }
 
-  .modal-content {
+  .modal-content,
+  :global(.infonomic-modal-content) {
     display: flex;
     flex: 1;
     flex-direction: column;
     gap: var(--gap-3);
-    padding-left: var(--spacing-6);
-    padding-right: var(--spacing-6);
-    padding-bottom: var(--spacing-3);
+    padding-left: var(--spacing-16);
+    padding-right: var(--spacing-16);
+    padding-bottom: var(--spacing-12);
     max-width: 100%;
   }
 
-  .modal-actions {
+  .modal-actions,
+  :global(.infonomic-modal-actions) {
     display: flex;
     align-items: center;
     justify-content: flex-end;
     gap: var(--gap-3);
-    padding-top: var(--spacing-2);
-    padding-bottom: var(--spacing-5);
-    padding-left: var(--spacing-6);
-    padding-right: var(--spacing-6);
+    padding-top: var(--spacing-8);
+    padding-bottom: var(--spacing-20);
+    padding-left: var(--spacing-16);
+    padding-right: var(--spacing-16);
   }
 }

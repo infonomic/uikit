@@ -1,22 +1,23 @@
 'use client'
 
-import cx from 'classnames'
 // usePagination hook from...
 // https://github.com/mui/material-ui/blob/master/packages/mui-material/src/usePagination/usePagination.js
 // https://github.com/mui/material-ui/blob/master/LICENSE
 /* eslint-disable react/jsx-pascal-case */
 import React, { useContext } from 'react'
-import type { Variant } from './@types'
+
+import cx from 'classnames'
 
 import { Ellipses } from './ellipses.js'
 import { FirstButton } from './first-button'
-import type { UsePaginationItem, UsePaginationProps } from './hooks/types/usePagination'
 import { usePagination } from './hooks/usePagination'
 import { LastButton } from './last-button'
 import { NextButton } from './next-button'
 import { NumberButton } from './number-button'
 import styles from './pagination.module.css'
 import { PreviousButton } from './previous-button'
+import type { Variant } from './@types'
+import type { UsePaginationItem, UsePaginationProps } from './hooks/types/usePagination'
 
 const PAGINATION_NAME = 'Pagination'
 const ROOT_NAME = 'Root'
@@ -236,13 +237,18 @@ const Root = ({
     <nav
       data-testid={dataTestId}
       ref={ref}
-      className={cx('pagination-root', styles['pagination-root'], 'pagination-root', className)}
+      className={cx(
+        'infonomic-pagination-root',
+        styles['pagination-root'],
+        'pagination-root',
+        className
+      )}
       {...rest}
       aria-label={ariaLabel ?? 'Pager navigation'}
     >
       <ul
         className={cx(
-          'pagination-items',
+          'infonomic-pagination-items',
           styles['pagination-items'],
           styles[variant],
           itemsClassName

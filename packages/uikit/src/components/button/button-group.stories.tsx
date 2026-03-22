@@ -25,7 +25,7 @@ const ButtonGroupDemo = (): React.JSX.Element => {
     setValue(value)
   }
   return (
-    <div className="ml-12 mb-6 max-w-[500px]">
+    <div style={{ maxWidth: '600px', margin: '2rem auto' }}>
       <ButtonGroupComponent
         type="single"
         expandToFit={true}

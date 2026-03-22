@@ -1,0 +1,22 @@
+{
+  "name": "@infonomic/html",
+  "private": true,
+  "version": "5.43.1",
+  "type": "module",
+  "scripts": {
+    "clean": "rimraf dist node_modules .turbo",
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@infonomic/uikit": "workspace:*",
+    "@tailwindcss/vite": "^4.2.1",
+    "tailwindcss": "^4.2.1"
+  },
+  "devDependencies": {
+    "lightningcss": "^1.32.0",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.1"
+  }
+}

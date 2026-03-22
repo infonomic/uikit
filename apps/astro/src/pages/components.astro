@@ -10,7 +10,10 @@ import {
   CardHeader,
   CardTitle,
   Container,
-  Section
+  Section,
+  Input,
+  Checkbox,
+  TextArea
 } from '@infonomic/uikit/astro'
 
 import Layout from '../layouts/layout.astro'
@@ -80,6 +83,17 @@ const meta = {
           </CardFooter>
         </Card>
       </div>
+    </Container>
+  </Section>
+  <Section>
+    <Container>
+      <form method="post">
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+          <Input id="name" type="text" name="name" variant="underlined" label="Name" />
+          <TextArea id="message" name="message" label="Message" variant="underlined" />
+          <Checkbox id="agree" name="agree" label="I agree to the terms and conditions" />
+        </div>
+      </form>
     </Container>
   </Section>
 </Layout>

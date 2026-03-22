@@ -1,34 +1,39 @@
-@layer infonomic-base, infonomic-utilities, infonomic-theme, infonomic-typography, infonomic-components;
+@layer infonomic-base,
+  infonomic-functional,
+  infonomic-utilities,
+  infonomic-theme,
+  infonomic-typography,
+  infonomic-components;
 
 @layer infonomic-components {
-  .pagination-root {
+  .pagination-root,
+  :global(.infonomic-pagination-root) {
     display: flex;
     padding: 0;
     align-items: center;
   }
 
-  .pagination-items {
-    display: flex;
-    align-items: center;
-    list-style: none;
-  }
-
-  .pagination-items {
+  .pagination-items,
+  :global(.infonomic-pagination-items) {
     display: flex;
     align-items: center;
     list-style: none;
   }
 
   .pagination-items.dashboard li,
-  .pagination-items.default li {
+  .pagination-items.default li,
+  :global(.infonomic-pagination-items.dashboard) li,
+  :global(.infonomic-pagination-items.default) li {
     margin-right: -1px;
   }
 
-  .pagination-items.classic li {
+  .pagination-items.classic li,
+  :global(.infonomic-pagination-items.classic) li {
     margin-right: 0;
   }
 
-  .pagination-items.classic {
+  .pagination-items.classic,
+  :global(.infonomic-pagination-items.classic) {
     gap: 6px;
   }
 
@@ -72,12 +77,11 @@
     justify-content: center;
     height: 32px;
     line-height: 1;
-    border: 1px solid var(--primary-500);
-    background-color: white;
-    color: var(--gray-900);
+    border: 1px solid var(--stroke-primary);
+    background-color: var(--background);
+    color: var(--foreground);
     font-size: var(--font-size-sm);
   }
-
 
   .previous-button,
   .last-button,
@@ -96,8 +100,8 @@
   .number-button:hover,
   .previous-button:hover,
   .first-button:hover {
-    color: white;
-    background-color: var(--primary-600);
+    color: var(--text-on-primary-strong);
+    background-color: var(--fill-primary-strong);
   }
 
   .last-button:disabled,
@@ -114,18 +118,16 @@
   }
 
   .number-button.active {
-    background-color: var(--primary-600);
-    color: white;
+    color: var(--text-on-primary-strong);
+    background-color: var(--fill-primary-strong);
   }
-
 
   /* Opinionated mobile */
   .mobile-toggle {
     display: none;
   }
 
-  @media(min-width: 640px) {
-
+  @media (min-width: 40rem) {
     .mobile-toggle {
       display: flex;
     }
@@ -136,8 +138,8 @@
   * color scheme - either by header or cookie, and set
   * a root html class accordingly
   */
-  :global(.dark) {
-
+  :global(.dark),
+  :global([data-theme="dark"]) {
     .ellipses,
     .number-button,
     .next-button,
@@ -145,21 +147,6 @@
     .previous-button,
     .first-button {
       border-color: var(--canvas-700);
-      background-color: var(--canvas-800);
-      color: var(--gray-200);
-    }
-
-    .number-button:hover,
-    .next-button:hover,
-    .last-button:hover,
-    .previous-button:hover,
-    .first-button:hover {
-      background-color: var(--canvas-700);
-    }
-
-    .number-button.active {
-      background-color: var(--primary-500);
-      color: white;
     }
   }
 }

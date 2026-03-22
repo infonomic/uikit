@@ -18,7 +18,7 @@ export default meta
 
 export const Table = (): React.JSX.Element => {
   return (
-    <div style={{ maxWidth: '960px', margin: '0 auto' }}>
+    <div style={{ maxWidth: '960px', margin: '2rem auto' }}>
       <TableComponent.Container>
         <TableComponent>
           <TableComponent.Header>

@@ -1,5 +1,6 @@
-import type { Meta } from '@storybook/react-vite'
 import type React from 'react'
+
+import type { Meta } from '@storybook/react-vite'
 
 import { Avatar as AvatarComponent } from './avatar.js'
 
@@ -18,7 +19,7 @@ export const Avatar = (): React.JSX.Element => (
   <div
     style={{
       maxWidth: '300px',
-      marginBottom: '24px',
+      margin: '2rem auto',
       display: 'flex',
       gap: '24px',
       alignItems: 'center',

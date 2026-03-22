@@ -11,7 +11,7 @@ export default {
   argTypes: {},
 }
 
-export const Default = (): React.JSX.Element => {
+export const Sprites = (): React.JSX.Element => {
   return (
     <div className="mb-6">
       <div className="max-w-[800px] grid grid-cols-12">

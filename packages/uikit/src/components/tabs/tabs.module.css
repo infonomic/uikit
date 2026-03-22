@@ -1,23 +1,29 @@
-@layer infonomic-base, infonomic-utilities, infonomic-theme, infonomic-typography, infonomic-components;
+@layer infonomic-base,
+  infonomic-functional,
+  infonomic-utilities,
+  infonomic-theme,
+  infonomic-typography,
+  infonomic-components;
 
 @layer infonomic-components {
-
-  .tabs-root {
+  .tabs-root,
+  :global(.infonomic-tabs-root) {
     display: flex;
-    padding: var(--spacing-2);
+    padding: var(--spacing-8);
     flex-direction: column;
-    gap: var(--spacing-1);
+    gap: var(--spacing-4);
     border-radius: var(--border-radius-md);
     border: 1px solid var(--border-color);
   }
 
-  .tabs-list {
+  .tabs-list,
+  :global(.infonomic-tabs-list) {
     display: flex;
     width: 100%;
     gap: var(--gap-2);
     align-items: center;
     border-radius: var(--border-radius-md);
-    padding: var(--spacing-1);
+    padding: var(--spacing-4);
     border: 1px solid var(--border-color);
 
     &:focus-visible {
@@ -25,7 +31,8 @@
     }
   }
 
-  .tabs-trigger {
+  .tabs-trigger,
+  :global(.infonomic-tabs-trigger) {
     align-items: center;
     justify-content: center;
     white-space: nowrap;
@@ -40,12 +47,15 @@
 
     &:focus {
       position: relative;
-      box-shadow: 0 0 0 2px black;
+      /* NOTE: will override ring shadows for buttons */
+      /* Will revisit as we're going to rewrite our uikit tabs component */
+      /* box-shadow: 0 0 0 2px black; */
     }
   }
 
-  .tabs-content {
-    margin-top: var(--spacing-2);
+  .tabs-content,
+  :global(.infonomic-tabs-content) {
+    margin-top: var(--spacing-8);
     padding: 6px;
     outline: none;
 

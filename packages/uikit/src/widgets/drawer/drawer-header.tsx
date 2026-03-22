@@ -1,4 +1,5 @@
 'use client'
+
 import type * as React from 'react'
 
 import cx from 'classnames'
@@ -18,7 +19,7 @@ export const DrawerHeader = function DrawerHeader({
 }: DrawerHeaderProps & {
   ref?: React.RefObject<HTMLDivElement>
 }) {
-  const classes = cx(styles['drawer-header'], className)
+  const classes = cx('infonomic-drawer-header', styles['drawer-header'], className)
   return (
     <div style={{ overflowWrap: 'anywhere' }} ref={ref} {...rest} className={classes}>
       {children}

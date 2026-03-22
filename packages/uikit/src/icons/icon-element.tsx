@@ -1,7 +1,9 @@
-import type { ReactNode } from 'react'
 import type React from 'react'
+import type { ReactNode } from 'react'
 
 import cx from 'classnames'
+
+import styles from './icons.module.css'
 
 export interface IconElementProps extends React.ComponentProps<'div'> {
   width?: string
@@ -12,18 +14,15 @@ export interface IconElementProps extends React.ComponentProps<'div'> {
 }
 
 export const IconElement = (props: IconElementProps): React.JSX.Element => {
-  const { className, children, width = '22px', height = '22px', menuItem = false, ...rest } = props
+  const { className, children, width, height, menuItem = false, ...rest } = props
   return (
     <div
       style={{
         width,
         height,
-        flex: `0 0 ${width}`,
-        alignItems: 'center',
-        justifyContent: 'center',
         marginRight: menuItem != null && menuItem ? '1.2rem' : '0',
       }}
-      className={cx('component--icon-element-root', className)}
+      className={cx(styles['element-root'], className)}
       {...rest}
     >
       {children}

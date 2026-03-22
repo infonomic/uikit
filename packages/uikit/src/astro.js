@@ -7,13 +7,17 @@ import CardFooterComponent from './components/card/card-footer.astro'
 import CardHeaderComponent from './components/card/card-header.astro'
 import CardTitleComponent from './components/card/card-title.astro'
 import ContainerComponent from './components/container/container.astro'
+import CheckboxComponent from './components/forms/checkbox.astro'
+import ErrorTextComponent from './components/forms/error-text.astro'
+import HelpTextComponent from './components/forms/help-text.astro'
+import InputComponent from './components/forms/input.astro'
+import InputAdornmentComponent from './components/forms/input-adornment.astro'
+import LabelComponent from './components/forms/label.astro'
+import TextAreaComponent from './components/forms/text-area.astro'
 import HamburgerComponent from './components/hamburger/hamburger.astro'
-import ErrorTextComponent from './components/input/error-text.astro'
-import HelpTextComponent from './components/input/help-text.astro'
-import InputComponent from './components/input/input.astro'
-import InputAdornmentComponent from './components/input/input-adornment.astro'
-import LabelComponent from './components/input/label.astro'
+import ScrollToTopComponent from './components/scroll-to-top/scroll-to-top.astro'
 import SectionComponent from './components/section/section.astro'
+import CheckIconComponent from './icons/check-icon.astro'
 import CloseIconComponent from './icons/close-icon.astro'
 import IconElementComponent from './icons/icon-element.astro'
 import LightIconComponent from './icons/light-icon.astro'
@@ -30,14 +34,18 @@ export const CardHeader = CardHeaderComponent
 export const CardTitle = CardTitleComponent
 export const Card = CardComponent
 export const Container = ContainerComponent
+export const Checkbox = CheckboxComponent
 export const ErrorText = ErrorTextComponent
 export const HelpText = HelpTextComponent
 export const InputAdornment = InputAdornmentComponent
 export const Input = InputComponent
 export const Label = LabelComponent
+export const TextArea = TextAreaComponent
 export const Section = SectionComponent
+export const ScrollToTop = ScrollToTopComponent
 export const IconElement = IconElementComponent
 export const LightIcon = LightIconComponent
 export const MoonIcon = MoonIconComponent
 export const SearchIcon = SearchIconComponent
+export const CheckIcon = CheckIconComponent
 export const CloseIcon = CloseIconComponent

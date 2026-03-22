@@ -1,17 +1,19 @@
 'use client'
 
+import React from 'react'
+
 import { useFocusTrap, useMergedRef } from '@mantine/hooks'
 import cx from 'classnames'
 import { Toast as ToastPrimitive } from 'radix-ui'
-import React from 'react'
+
 import { CloseIcon } from '../../icons/close-icon'
 import { DangerIcon } from '../../icons/danger-icon'
 import { InfoIcon } from '../../icons/info-icon'
 import { SuccessIcon } from '../../icons/success-icon'
 import { WarningIcon } from '../../icons/warning-icon'
 import { Button } from '../button/button.js'
-import type { IconType, Intent, OnOpenChange, Position } from './@types/toast.js'
 import styles from './toast.module.css'
+import type { IconType, Intent, OnOpenChange, Position } from './@types/toast.js'
 
 const toastIcons = {
   success: SuccessIcon,
@@ -63,7 +65,7 @@ export const Toast = function Toast({
     if (onOpenChange != null) onOpenChange(false)
   }
 
-  const handleOnChange = (open: boolean): void => {
+  const _handleOnChange = (open: boolean): void => {
     console.log('handleOnChange', { open })
     if (open) {
       timerRef.current = window.setTimeout(() => {
@@ -77,11 +79,11 @@ export const Toast = function Toast({
   return (
     <ToastPrimitive.Root
       ref={mergedRef}
-      className={cx('toast', styles.root, styles[position])}
+      className={cx('infonomic-toast', styles.root, styles[position])}
       open={open}
       onOpenChange={onOpenChange}
     >
-      <div className={cx('toast-header', styles.header)}>
+      <div className={cx('infonomic-toast-header', styles.header)}>
         <time dateTime={eventDateRef.current.toISOString()} className="text-sm">
           {new Intl.DateTimeFormat('default', {
             hour12: true,
@@ -96,7 +98,7 @@ export const Toast = function Toast({
               tabIndex={0}
               variant="filled"
               aria-label="Close"
-              className={styles.close}
+              className={cx('infonomic-toast-close', styles.close)}
               type="button"
               onClick={handleOnClose}
             >
@@ -105,11 +107,11 @@ export const Toast = function Toast({
           </ToastPrimitive.Close>
         )}
       </div>
-      <ToastPrimitive.Title className={cx('toast-title', styles.title)}>
+      <ToastPrimitive.Title className={cx('infonomic-toast-title', styles.title)}>
         {icon != null && <Icon />}
         {title}
       </ToastPrimitive.Title>
-      <ToastPrimitive.Description className={cx('toast-description', styles.description)}>
+      <ToastPrimitive.Description className={cx('infonomic-toast-description', styles.description)}>
         {message}
       </ToastPrimitive.Description>
       {/* <ToastPrimitive.Action className={styles.action} asChild altText="Goto schedule to undo">

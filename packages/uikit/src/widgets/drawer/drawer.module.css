@@ -1,7 +1,8 @@
 @layer infonomic-base, infonomic-utilities, infonomic-theme, infonomic-components;
 
 @layer infonomic-components {
-  .drawer-wrapper {
+  .drawer-wrapper,
+  :global(.infonomic-drawer-wrapper) {
     position: fixed;
     display: flex;
     flex-direction: column;
@@ -14,92 +15,105 @@
     opacity: 1;
   }
 
-
-  .drawer-container {
+  .drawer-container,
+  :global(.infonomic-drawer-container) {
     position: absolute;
     right: 0;
     height: 100%;
-    background-color: var(--canvas-25);
+    background-color: var(--surface-panel);
     box-shadow: var(--shadow-md);
     z-index: inherit;
   }
 
-  .drawer-container[aria-hidden="false"] {
+  .drawer-container[aria-hidden="false"],
+  :global(.infonomic-drawer-container[aria-hidden="false"]) {
     animation: slideIn 150ms cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  .drawer-container:is(:global(.dark) *) {
-    background: var(--canvas-800);
-  }
-
   .drawer-depth-0.drawer-medium .drawer-container,
-  .drawer-depth-0.drawer-wide .drawer-container {
+  .drawer-depth-0.drawer-wide .drawer-container,
+  :global(.infonomic-drawer-depth-0.drawer-medium .drawer-container),
+  :global(.infonomic-drawer-depth-0.drawer-wide .drawer-container) {
     width: 90%;
   }
 
   .drawer-depth-1.drawer-medium .drawer-container,
-  .drawer-depth-1.drawer-wide .drawer-container {
+  .drawer-depth-1.drawer-wide .drawer-container,
+  :global(.infonomic-drawer-depth-1.drawer-medium .drawer-container),
+  :global(.infonomic-drawer-depth-1.drawer-wide .drawer-container) {
     width: 88%;
   }
 
   .drawer-depth-2.drawer- .drawer-container,
-  .drawer-depth-2.drawer-wide .drawer-container {
+  .drawer-depth-2.drawer-wide .drawer-container,
+  :global(.infonomic-drawer-depth-2.drawer-medium .drawer-container),
+  :global(.infonomic-drawer-depth-2.drawer-wide .drawer-container) {
     width: 86%;
   }
 
-  @media (min-width: 768px) {
-    .drawer-depth-0.drawer-medium .drawer-container {
+  @media (min-width: 48rem) {
+    .drawer-depth-0.drawer-medium .drawer-container,
+    :global(.infonomic-drawer-depth-0.drawer-medium .drawer-container) {
       width: 600px;
     }
 
-    .drawer-depth-1.drawer-medium .drawer-container {
+    .drawer-depth-1.drawer-medium .drawer-container,
+    :global(.infonomic-drawer-depth-1.drawer-medium .drawer-container) {
       width: 580px;
     }
 
-    .drawer-depth-2.drawer- .drawer-container {
+    .drawer-depth-2.drawer- .drawer-container,
+    :global(.infonomic-drawer-depth-2.drawer-medium .drawer-container) {
       width: 560px;
     }
   }
 
-  .drawer-narrow .drawer-container {
+  .drawer-narrow .drawer-container,
+  :global(.infonomic-drawer-narrow .infonomic-drawer-container) {
     width: calc(100% - 32px);
-    max-width: 400px
+    max-width: 400px;
   }
 
-  .drawer-container[aria-hidden="true"] {
+  .drawer-container[aria-hidden="true"],
+  :global(.infonomic-drawer-container[aria-hidden="true"]) {
     transform: translateX(100%);
     opacity: 0;
   }
 
-  .drawer-top-actions {
+  .drawer-top-actions,
+  :global(.infonomic-drawer-top-actions) {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    padding-top: var(--spacing-3);
-    padding-left: var(--spacing-6);
-    padding-right: var(--spacing-6);
+    padding-top: var(--spacing-12);
+    padding-left: var(--spacing-12);
+    padding-right: var(--spacing-12);
     padding-bottom: 0;
     max-width: 100%;
   }
 
-  .drawer-header {
+  .drawer-header,
+  :global(.infonomic-drawer-header) {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: var(--gap-3);
     padding-top: 0;
-    padding-left: var(--spacing-6);
-    padding-right: var(--spacing-6);
+    padding-left: var(--spacing-12);
+    padding-right: var(--spacing-12);
     max-width: 100%;
   }
 
   .drawer-header h2,
-  .drawer-header h3 {
+  .drawer-header h3,
+  :global(.infonomic-drawer-header h2),
+  :global(.infonomic-drawer-header h3) {
     margin: 0;
   }
 
-  .drawer-content {
-    padding: var(--spacing-6);
+  .drawer-content,
+  :global(.infonomic-drawer-content) {
+    padding: var(--spacing-12);
   }
 
   @keyframes slideIn {

@@ -1,7 +1,9 @@
 'use client'
+
 import type React from 'react'
-import type { PaginationProps } from './pagination'
+
 import { Pagination } from './pagination'
+import type { PaginationProps } from './pagination'
 
 /**
  * A convenience event-based pager

@@ -1,0 +1,133 @@
+---
+import type { HTMLAttributes } from 'astro/types'
+import type { Intent, Size, Variant } from './@types/checkbox.js'
+import CheckIcon from '../../icons/check-icon.astro'
+import ErrorText from './error-text.astro'
+import HelpText from './help-text.astro'
+import styles from './checkbox.module.css'
+
+interface Props extends HTMLAttributes<'input'> {
+  id: string
+  name: string
+  label?: string
+  variant?: Variant
+  size?: Size
+  intent?: Intent
+  reverse?: boolean
+  checked?: boolean
+  class?: string
+  checkBoxClasses?: string
+  containerClasses?: string
+  componentClasses?: string
+  labelClasses?: string
+  error?: boolean
+  helpText?: string
+  errorText?: string
+}
+
+const {
+  id,
+  name,
+  label,
+  variant = 'outlined',
+  size = 'md',
+  intent = 'primary',
+  reverse = false,
+  checked = false,
+  class: className,
+  checkBoxClasses,
+  containerClasses,
+  componentClasses,
+  labelClasses,
+  error = false,
+  helpText = '',
+  errorText = '',
+  ...rest
+} = Astro.props
+---
+
+<div class:list={['checkbox-container', styles.container, containerClasses]}>
+  <div
+    class:list={[
+      'checkbox-component',
+      styles.component,
+      componentClasses,
+      { [styles.reverse]: reverse }
+    ]}
+  >
+    <input type="checkbox" id={id} name={name} checked={checked} class="sr-only peer" {...rest} />
+
+    <label
+      for={id}
+      class:list={[
+        'checkbox',
+        variant,
+        size,
+        intent,
+        styles.checkbox,
+        styles[variant],
+        styles[size],
+        styles[intent],
+        checkBoxClasses,
+        className
+      ]}
+      data-state={checked ? 'checked' : 'unchecked'}
+    >
+      <span
+        class:list={['checkbox-indicator', styles.indicator]}
+        data-state={checked ? 'checked' : 'unchecked'}
+      >
+        <CheckIcon class={styles.icon} />
+      </span>
+    </label>
+
+    {
+      label && (
+        <label for={id} class:list={[styles.label, labelClasses]}>
+          {label}
+        </label>
+      )
+    }
+  </div>
+  {
+    error ? (
+      <ErrorText id={`error-for-${id}`} text={errorText ?? helpText} />
+    ) : (
+      helpText?.length > 0 && <HelpText text={helpText} />
+    )
+  }
+</div>
+
+<script>
+  function setupCheckboxes() {
+    const inputs = document.querySelectorAll('input[type="checkbox"].peer')
+
+    inputs.forEach((input) => {
+      const checkboxInput = input as HTMLInputElement
+      const id = checkboxInput.id
+      // Find the visual checkbox label associated with this input
+      const visualCheckbox = document.querySelector(`label.checkbox[for="${id}"]`)
+      const indicator = visualCheckbox?.querySelector('.checkbox-indicator')
+
+      if (visualCheckbox && indicator) {
+        // Update state on change
+        checkboxInput.addEventListener('change', () => {
+          const state = checkboxInput.checked ? 'checked' : 'unchecked'
+          visualCheckbox.setAttribute('data-state', state)
+          indicator.setAttribute('data-state', state)
+        })
+
+        // Ensure initial state is correct
+        const state = checkboxInput.checked ? 'checked' : 'unchecked'
+        visualCheckbox.setAttribute('data-state', state)
+        indicator.setAttribute('data-state', state)
+      }
+    })
+  }
+
+  // Run on initial load
+  setupCheckboxes()
+
+  // Support Astro View Transitions
+  document.addEventListener('astro:page-load', setupCheckboxes)
+</script>

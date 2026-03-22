@@ -1,7 +1,8 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { buildImports } from './build-imports.js'
+
+import { buildImports, buildTypes } from './build-imports.js'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -10,6 +11,7 @@ const __dirname = path.dirname(__filename)
 const srcDir = path.join(__dirname, '..', 'src')
 const destDir = path.join(__dirname, '..', 'dist')
 const outputFile = path.join(__dirname, '..', 'dist', 'astro.js')
+const outputTypesFile = path.join(__dirname, '..', 'dist', 'astro.d.ts')
 
 console.log('🚀 Preparing astro build')
 
@@ -21,9 +23,9 @@ if (!fs.existsSync(destDir)) {
 function copyAstroFiles(srcDir, destDir) {
   const files = fs.readdirSync(srcDir)
   // biome-ignore lint/complexity/noForEach: <explanation>
-  files.forEach(file => {
+  files.forEach((file) => {
     const srcFile = path.join(srcDir, file)
-    const destFile = path.join(destDir, file)
+    const _destFile = path.join(destDir, file)
     if (fs.statSync(srcFile).isDirectory()) {
       copyAstroFiles(srcFile, destDir)
     } else if (file.endsWith('.astro')) {
@@ -42,9 +44,9 @@ function copyAstroFiles(srcDir, destDir) {
 function copyCSSModuleFiles(srcDir, destDir) {
   const files = fs.readdirSync(srcDir)
   // biome-ignore lint/complexity/noForEach: <explanation>
-  files.forEach(file => {
+  files.forEach((file) => {
     const srcFile = path.join(srcDir, file)
-    const destFile = path.join(destDir, file)
+    const _destFile = path.join(destDir, file)
     if (fs.statSync(srcFile).isDirectory()) {
       copyCSSModuleFiles(srcFile, destDir)
     } else if (file.endsWith('.module.css')) {
@@ -63,6 +65,6 @@ copyAstroFiles(srcDir, destDir)
 copyCSSModuleFiles(srcDir, destDir)
 
 fs.writeFileSync(outputFile, buildImports('astro'))
-// fs.writeFileSync('dist/astro.d.ts', buildTypes('astro'))
+fs.writeFileSync(outputTypesFile, buildTypes('astro'))
 
 console.log('✅ Astro components built')

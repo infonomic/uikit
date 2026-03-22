@@ -1,0 +1,99 @@
+---
+import type { HTMLAttributes } from 'astro/types'
+import type { Intent, Size, Variant } from './@types/input.js'
+import ErrorText from './error-text.astro'
+import HelpText from './help-text.astro'
+import styles from './input.module.css'
+import Label from './label.astro'
+
+interface Props extends HTMLAttributes<'input'> {
+  id: string
+  name: string
+  label?: string
+  variant?: Variant
+  inputSize?: Size
+  intent?: Intent
+  required?: boolean
+  placeHolder?: string
+  autoComplete?: string
+  startAdornment?: any
+  endAdornment?: any
+  error?: boolean
+  helpText?: string
+  errorText?: string
+  class?: string
+}
+
+const {
+  id,
+  name,
+  variant = 'outlined',
+  inputSize = 'md',
+  intent = 'primary',
+  required,
+  label,
+  startAdornment,
+  endAdornment,
+  placeHolder = '',
+  autoComplete = 'off',
+  error = false,
+  helpText = '',
+  errorText = '',
+  class: className,
+  ...rest
+} = Astro.props as Props
+---
+
+<div class:list={['input-wrapper', styles['input-wrapper']]}>
+  {label != null && <Label id={id} for={id} required={required} label={label} />}
+  <div class:list={['input-container', styles['input-container']]}>
+    {
+      startAdornment != null && (
+        <div class:list={[styles['start-adornment'], styles[variant]]}>
+          <slot name="start-adornment" />
+        </div>
+      )
+    }
+    <input
+      id={id}
+      name={name}
+      required={required}
+      auto-complete={autoComplete}
+      placeholder={placeHolder}
+      aria-labelledby={`label-for-${id}`}
+      aria-invalid={error}
+      aria-required={required}
+      aria-errormessage={errorText}
+      aria-describedby={error ? `error-for-${id}` : undefined}
+      class:list={[
+        'input',
+        variant,
+        inputSize,
+        intent,
+        styles.input,
+        styles[variant],
+        styles[inputSize],
+        styles[intent],
+        startAdornment != null && styles['start-adornment-padding'],
+        endAdornment != null && styles['end-adornment-padding'],
+        error && styles.error,
+        className
+      ]}
+      {...rest}
+    />
+    {
+      endAdornment != null && (
+        <div class:list={[styles['end-adornment'], styles[variant]]}>
+          <slot name="end-adornment" />
+        </div>
+      )
+    }
+  </div>
+  {
+    error ? (
+      <ErrorText id={`error-for-${id}`} text={errorText ?? helpText} />
+    ) : (
+      helpText?.length > 0 && <HelpText text={helpText} />
+    )
+  }
+</div>

@@ -3,17 +3,15 @@ import type React from 'react'
 import cx from 'classnames'
 
 import { IconElement } from './icon-element.js'
-
-import type { IconProps } from './types/icon.js'
-
 import styles from './icons.module.css'
+import type { IconProps } from './types/icon.js'
 
 export const GripperVerticalIcon = ({
   className,
   svgClassName,
   ...rest
 }: IconProps): React.JSX.Element => {
-  const applied = cx(styles['fill-none'], styles['stroke-contrast'], svgClassName)
+  const applied = cx(styles['fill-none'], styles['stroke-current'], svgClassName)
 
   return (
     <IconElement className={cx('gripper-vertical-icon', className)} {...rest}>

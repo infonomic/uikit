@@ -1,8 +1,11 @@
 'use client'
-import cx from 'classnames'
+
 import type React from 'react'
-import type { Size } from './@types/button.js'
+
+import cx from 'classnames'
+
 import styles from './control-buttons.module.css'
+import type { Size } from './@types/button.js'
 
 type ButtonType = React.JSX.IntrinsicElements['button']
 
@@ -39,7 +42,7 @@ export const DirectionalButton = ({
       type="button"
       aria-label={direction}
       className={cx(
-        'control-button',
+        'infonomic-control-button',
         direction,
         size,
         styles['directional-button'],

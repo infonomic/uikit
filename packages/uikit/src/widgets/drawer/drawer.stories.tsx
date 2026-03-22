@@ -4,7 +4,7 @@ import React from 'react'
 import { Button } from '../../components/button/button.js'
 import { IconButton } from '../../components/button/icon-button.js'
 import { CloseIcon } from '../../icons/close-icon.js'
-
+import { DatePicker } from '../datepicker/datepicker.js'
 import { Drawer } from './drawer.js'
 
 export default {
@@ -16,19 +16,8 @@ export default {
 export const Default = (): React.JSX.Element => {
   const [isOpen, setIsOpen] = React.useState(false)
 
-  const whiteIcon = `
-    .white-icon {
-      fill: white;  
-    }
-
-    .dark .white-icon {
-      fill: black;
-    }
-  `
-
   return (
     <>
-      <style>{whiteIcon}</style>
       <Button
         onClick={() => {
           setIsOpen(true)
@@ -54,7 +43,7 @@ export const Default = (): React.JSX.Element => {
                 setIsOpen(false)
               }}
             >
-              <CloseIcon width="14px" height="14px" svgClassName="white-icon" />
+              <CloseIcon width="14px" height="14px" />
             </IconButton>
           </Drawer.TopActions>
           <Drawer.Header className="flex items-center justify-between mb-4">
@@ -69,22 +58,11 @@ export const Default = (): React.JSX.Element => {
   )
 }
 
-const whiteIcon = `
-.white-icon {
-  fill: white;  
-}
-
-.dark .white-icon {
-  fill: black;
-}
-`
-
 export const Wide = (): React.JSX.Element => {
   const [isOpen, setIsOpen] = React.useState(false)
 
   return (
     <>
-      <style>{whiteIcon}</style>
       <Button
         onClick={() => {
           setIsOpen(true)
@@ -119,6 +97,18 @@ export const Wide = (): React.JSX.Element => {
           </Drawer.Header>
           <Drawer.Content>
             <p>Drawer content here...</p>
+            <div style={{ maxWidth: '300px', marginTop: '20px', margin: '0 auto' }}>
+              <DatePicker
+                id="datepicker-1"
+                name="datepicker-1"
+                label="Select Date"
+                required
+                initialValue={new Date()}
+                onDateChange={(date) => {
+                  console.log('Selected date:', date)
+                }}
+              />
+            </div>
           </Drawer.Content>
         </Drawer.Container>
       </Drawer>
@@ -130,19 +120,8 @@ export const Nested = (): React.JSX.Element => {
   const [isOpen1, setIsOpen1] = React.useState(false)
   const [isOpen2, setIsOpen2] = React.useState(false)
 
-  const whiteIcon = `
-    .white-icon {
-      fill: white;  
-    }
-
-    .dark .white-icon {
-      fill: black;
-    }
-  `
-
   return (
     <>
-      <style>{whiteIcon}</style>
       <Button
         onClick={() => {
           setIsOpen1(true)
@@ -176,46 +155,44 @@ export const Nested = (): React.JSX.Element => {
             <h2>Drawer 1</h2>
           </Drawer.Header>
           <Drawer.Content>
-            <>
-              <p>Drawer 1 actions here...</p>
-              <Button
-                onClick={() => {
-                  setIsOpen2(true)
-                }}
-              >
-                Open Drawer 2
-              </Button>
-              <Drawer
-                id="second-drawer"
-                width="medium"
-                closeOnOverlayClick={true}
-                isOpen={isOpen2}
-                onDismiss={() => setIsOpen2(false)}
-              >
-                <Drawer.Container aria-hidden={!isOpen2}>
-                  <Drawer.TopActions>
-                    <button type="button" tabIndex={0} className="sr-only">
-                      no action
-                    </button>
-                    <IconButton
-                      arial-label="Close"
-                      size="xs"
-                      onClick={() => {
-                        setIsOpen2(false)
-                      }}
-                    >
-                      <CloseIcon width="14px" height="14px" svgClassName="white-icon" />
-                    </IconButton>
-                  </Drawer.TopActions>
-                  <Drawer.Header className="flex items-center justify-between mb-4">
-                    <h2>Drawer 2</h2>
-                  </Drawer.Header>
-                  <Drawer.Content>
-                    <p>Drawer content here...</p>
-                  </Drawer.Content>
-                </Drawer.Container>
-              </Drawer>
-            </>
+            <p>Drawer 1 actions here...</p>
+            <Button
+              onClick={() => {
+                setIsOpen2(true)
+              }}
+            >
+              Open Drawer 2
+            </Button>
+            <Drawer
+              id="second-drawer"
+              width="medium"
+              closeOnOverlayClick={true}
+              isOpen={isOpen2}
+              onDismiss={() => setIsOpen2(false)}
+            >
+              <Drawer.Container aria-hidden={!isOpen2}>
+                <Drawer.TopActions>
+                  <button type="button" tabIndex={0} className="sr-only">
+                    no action
+                  </button>
+                  <IconButton
+                    arial-label="Close"
+                    size="xs"
+                    onClick={() => {
+                      setIsOpen2(false)
+                    }}
+                  >
+                    <CloseIcon width="14px" height="14px" svgClassName="white-icon" />
+                  </IconButton>
+                </Drawer.TopActions>
+                <Drawer.Header className="flex items-center justify-between mb-4">
+                  <h2>Drawer 2</h2>
+                </Drawer.Header>
+                <Drawer.Content>
+                  <p>Drawer content here...</p>
+                </Drawer.Content>
+              </Drawer.Container>
+            </Drawer>
           </Drawer.Content>
         </Drawer.Container>
       </Drawer>

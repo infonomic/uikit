@@ -35,12 +35,10 @@ export default {
 
 export const Default = (): React.JSX.Element => {
   return (
-    <>
-      <div className="mb-6">
-        <div className="max-w-[700px]">
-          <LoaderDemo />
-        </div>
+    <div className="mb-6">
+      <div className="max-w-[700px]">
+        <LoaderDemo />
       </div>
-    </>
+    </div>
   )
 }

@@ -21,7 +21,7 @@ export const Colors = (): React.JSX.Element => {
         }
       `}
       </style>
-      <div style={{ marginBottom: '2rem' }}>
+      <div style={{ margin: '2rem 0' }}>
         <table>
           <tbody>
             <tr>
@@ -664,7 +664,7 @@ const meta: Meta = {
    * See https://storybook.js.org/docs/react/configure/overview#configure-story-loading
    * to learn how to generate automatic titles
    */
-  title: 'Theme',
+  title: 'Base',
   component: Colors,
 }
 

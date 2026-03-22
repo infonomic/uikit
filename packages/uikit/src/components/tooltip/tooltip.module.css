@@ -1,29 +1,29 @@
-@layer infonomic-base, infonomic-utilities, infonomic-theme, infonomic-typography, infonomic-components;
+@layer infonomic-base,
+  infonomic-functional,
+  infonomic-utilities,
+  infonomic-theme,
+  infonomic-typography,
+  infonomic-components;
 
 @layer infonomic-components {
-  .tooltip {
+  .tooltip,
+  :global(.infonomic-tooltip) {
     font-size: 0.75rem;
     line-height: 1;
-    color: var(--canvas-900);
+    color: var(--surface-item-text);
     user-select: none;
     padding: 0.625rem 1rem;
     border-radius: var(--border-radius-sm);
     border-width: var(--border-width-thin);
     border-style: var(--border-style-solid);
-    background-color: var(--gray-25);
-    border-color: var(--gray-100);
+    background-color: var(--surface-panel-elevated);
+    border-color: var(--surface-panel-border);
     box-shadow: var(--shadow-xs);
     will-change: transform, opacity;
     animation: var(--transition-normal);
   }
 
-  :global(.dark) {
-    .tooltip {
-      color: var(--gray-50);
-      border-color: var(--canvas-700);
-      background-color: var(--canvas-800);
-    }
-  }
+  /* Dark mode handled by semantic tokens in theme layer */
 
   .tooltip[data-state="delayed-open"][data-side="top"] :global {
     animation-name: slideDownAndFade;
@@ -33,23 +33,16 @@
     animation-name: slideLeftAndFade;
   }
 
-
   .tooltip[data-state="delayed-open"][data-side="left"] :global {
     animation-name: slideRightAndFade;
   }
 
   .tooltip[data-state="delayed-open"][data-side="bottom"] :global {
     animation-name: slideUpAndFade;
-
   }
 
-  .tooltip-arrow {
-    fill: var(--gray-100)
-  }
-
-  :global(.dark) {
-    .tooltip-arrow {
-      fill: var(--canvas-700);
-    }
+  .tooltip-arrow,
+  :global(.infonomic-tooltip-arrow) {
+    fill: var(--surface-panel-border);
   }
 }

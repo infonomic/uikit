@@ -1,14 +1,13 @@
 'use client'
+
 /* eslint-disable @typescript-eslint/consistent-type-imports */
 import type React from 'react'
 import { useEffect } from 'react'
 
-import cx from 'classnames'
-
 import { useFocusTrap } from '@mantine/hooks'
-import { m } from 'motion/react'
-
+import cx from 'classnames'
 import type { HTMLMotionProps } from 'motion/react'
+import { m } from 'motion/react'
 
 import styles from './drawer.module.css'
 
@@ -43,7 +42,7 @@ export function DrawerWrapper({
     <m.div
       ref={focusTrapRef}
       {...rest}
-      className={cx(styles['drawer-wrapper'], className)}
+      className={cx('infonomic-drawer-wrapper', styles['drawer-wrapper'], className)}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}

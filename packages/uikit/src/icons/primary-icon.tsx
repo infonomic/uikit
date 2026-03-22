@@ -1,11 +1,11 @@
-import cx from 'classnames'
 import type React from 'react'
 
-import { IconElement } from './icon-element.jsx'
+import cx from 'classnames'
 
+import { IconElement } from './icon-element.jsx'
 import type { IconProps } from './types/icon.js'
 
-const svgStylesDefault = 'fill-gray-800 dark:fill-white'
+const _svgStylesDefault = 'fill-gray-800 dark:fill-white'
 
 import styles from './icons.module.css'
 

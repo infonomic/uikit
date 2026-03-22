@@ -1,4 +1,5 @@
 'use client'
+
 import type * as React from 'react'
 
 import cx from 'classnames'
@@ -19,7 +20,11 @@ export const ModalActions = function ModalActions({
   ref?: React.RefObject<HTMLDivElement>
 }) {
   return (
-    <div ref={ref} {...rest} className={cx(styles['modal-actions'], className)}>
+    <div
+      ref={ref}
+      {...rest}
+      className={cx('infonomic-modal-actions', styles['modal-actions'], className)}
+    >
       {children}
     </div>
   )

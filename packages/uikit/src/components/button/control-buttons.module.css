@@ -1,10 +1,12 @@
 @layer infonomic-base, infonomic-utilities, infonomic-theme, infonomic-components;
 
 @layer infonomic-components {
-
   .stop-button,
   .play-button,
-  .directional-button {
+  .directional-button,
+  :global(.infonomic-stop-button),
+  :global(.infonomic-play-button),
+  :global(.infonomic-directional-button) {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -15,7 +17,7 @@
     margin: 0;
     outline: none;
     color: white;
-    background-color: var(--primary-500);
+    background-color: var(--fill-primary-strong);
     transition-property: all, color;
     transition-duration: 0.3s, 1ms;
     transition-timing-function: cubic-bezier(0.25, 0.8, 0.5, 1), ease;
@@ -50,7 +52,7 @@
   .directional-button:hover,
   .directional-button:focus {
     color: white;
-    background-color: var(--primary-600);
+    background-color: var(--fill-primary-strong-hover);
     transform: translateY(-5px);
   }
 
@@ -126,19 +128,7 @@
     transform: translateX(5px);
   }
 
-  :global(.dark) .play-button,
-  :global(.dark) .stop-button,
-  :global(.dark) .directional-button {
-    background-color: var(--primary-500);
-  }
-
-  :global(.dark) .play-button:hover,
-  :global(.dark) .stop-button:hover,
-  :global(.dark) .play-button:focus,
-  :global(.dark) .stop-button:focus,
-  :global(.dark) .directional-button:hover,
-  :global(.dark) .directional-button:focus {
-    color: white;
-    background-color: var(--primary-600);
-  }
+  /* No dark theme overrides needed! 
+   * Tokens automatically switch in .dark and respect .not-dark 
+  */
 }

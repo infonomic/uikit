@@ -21,24 +21,25 @@ const BodyLock = (): null => {
     const classList = document.body.classList
     appBar = document.getElementById('app-bar')
     classList.add('overlay-shown')
-    if(appBar != null) appBar.classList.add('app-bar-overlay-shown')
-    if (mediaMatch.matches) {  
+    if (appBar != null) appBar.classList.add('app-bar-overlay-shown')
+    if (mediaMatch.matches) {
       classList.add('overlay-shown--desktop')
       if (appBar != null) {
         appBar.classList.add('app-bar-overlay-shown--desktop')
-      } 
+      }
     } else {
       classList.add('overlay-shown--mobile')
       if (appBar != null) {
-         appBar.classList.add('app-bar-overlay-shown--mobile')
+        appBar.classList.add('app-bar-overlay-shown--mobile')
       }
     }
     return () => {
       classList.remove('overlay-shown')
-      if(appBar != null) appBar.classList.remove('app-bar-overlay-shown')
+      if (appBar != null) appBar.classList.remove('app-bar-overlay-shown')
       if (mediaMatch.matches) {
         classList.remove('overlay-shown--desktop')
-        if (appBar != null) appBar.classList.remove('app-bar-overlay-shown app-bar-overlay-shown--desktop')
+        if (appBar != null)
+          appBar.classList.remove('app-bar-overlay-shown', 'app-bar-overlay-shown--desktop')
       } else {
         classList.remove('overlay-shown--mobile')
         if (appBar != null) appBar.classList.remove('app-bar-overlay-shown--mobile')

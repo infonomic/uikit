@@ -1,13 +1,14 @@
 'use client'
-import { Slot } from '@radix-ui/react-slot'
-import cx from 'classnames'
-// @ts-ignore
-import Ripple from 'material-ripple-effects'
+
 import type React from 'react'
 
-import type { Intent, Size, Variant } from './@types/button.js'
+import { Slot } from '@radix-ui/react-slot'
+import cx from 'classnames'
+// @ts-expect-error
+import Ripple from 'material-ripple-effects'
 
 import styles from './button.module.css'
+import type { Intent, Size, Variant } from './@types/button.js'
 
 export type ButtonRefType<C extends React.ElementType> = React.ComponentPropsWithRef<C>['ref']
 
@@ -61,10 +62,10 @@ export const Button = <C extends React.ElementType = 'button'>({
       ref={ref}
       type={type}
       className={cx(
-        'button',
-        intent,
-        variant,
-        size,
+        'infonomic-button',
+        `infonomic-button-${intent}`,
+        `infonomic-button-${variant}`,
+        `infonomic-button-${size}`,
         styles.button,
         styles[variant],
         styles[size],

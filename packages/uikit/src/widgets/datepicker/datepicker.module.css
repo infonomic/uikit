@@ -1,22 +1,27 @@
 @layer infonomic-base, infonomic-utilities, infonomic-theme, infonomic-components;
 
 @layer infonomic-components {
-  .container {
+  .container,
+  :global(.infonomic-datepicker-container) {
     position: relative;
   }
 
   .input,
-  .input-wrapper {
+  .input-wrapper,
+  :global(.infonomic-datepicker-input),
+  :global(.infonomic-datepicker-input-wrapper) {
     width: 100%;
   }
 
-  .content {
+  .content,
+  :global(.infonomic-datepicker-content) {
     width: 100%;
+    z-index: 50;
     border-radius: 4px;
-    padding-top: var(--spacing-4);
-    padding-bottom: var(--spacing-2);
-    padding-left: var(--spacing-2);
-    padding-right: var(--spacing-1);
+    padding-top: var(--spacing-16);
+    padding-bottom: var(--spacing-8);
+    padding-left: var(--spacing-8);
+    padding-right: var(--spacing-4);
     background-color: var(--background);
     border: 1px solid var(--border-color);
     box-shadow: var(--shadow-md);
@@ -25,7 +30,7 @@
     will-change: transform, opacity;
 
     &:focus {
-      box-shadow: var(--shadow-md)
+      box-shadow: var(--shadow-md);
     }
 
     &[data-state="open"][data-side="top"] {
@@ -45,18 +50,22 @@
     }
   }
 
-  .content:is(:global(.dark) *) {
-    background: var(--canvas-800);
+  :global(.dark),
+  :global([data-theme="dark"]) {
+    .content {
+      background: var(--canvas-800);
+    }
   }
 
-  .content-components {
+  .content-components,
+  :global(.infonomic-datepicker-content-components) {
     display: flex;
     width: 100%;
-    gap: var(--spacing-2);
+    gap: var(--spacing-8);
   }
 
-
-  .status-and-actions {
+  .status-and-actions,
+  :global(.infonomic-datepicker-status-and-actions) {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -64,37 +73,42 @@
     width: 100%;
   }
 
-  .content-status {
+  .content-status,
+  :global(.infonomic-datepicker-content-status) {
     display: flex;
     align-items: center;
-    padding-left: var(--spacing-4);
-    padding-right: var(--spacing-2);
+    padding-left: var(--spacing-16);
+    padding-right: var(--spacing-8);
     font-size: var(--font-size-sm);
     color: var(--foreground);
     width: 100%;
   }
 
-  .content-actions {
+  .content-actions,
+  :global(.infonomic-datepicker-content-actions) {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-top: var(--spacing-3);
-    padding-left: var(--spacing-4);
+    margin-top: var(--spacing-12);
+    padding-left: var(--spacing-16);
     padding-right: var(--spacing-6);
-    gap: var(--spacing-2);
+    gap: var(--spacing-8);
     width: 100%;
   }
 
-  .content-actions-button {
+  .content-actions-button,
+  :global(.infonomic-datepicker-content-actions-button) {
     /* min-width: 100px; */
     --ring-color: var(--violet-7);
   }
 
-  .arrow {
+  .arrow,
+  :global(.infonomic-datepicker-arrow) {
     fill: var(--gray-50);
   }
 
-  .close {
+  .close,
+  :global(.infonomic-datepicker-close) {
     all: unset;
     font-family: inherit;
     border-radius: 100%;
@@ -109,33 +123,37 @@
     right: 5px;
 
     &:hover {
-      background-color: var(--violet-4);
+      background-color: var(--primary-400);
     }
 
     &:focus {
-      box-shadow: 0 0 0 2px var(--violet-7);
+      box-shadow: 0 0 0 2px var(--primary-600);
     }
   }
 
-  .time-picker-container {
+  .time-picker-container,
+  :global(.infonomic-datepicker-time-picker-container) {
     width: 80px;
     margin: 0.6rem 0.5rem 1rem 0;
   }
 
-  .time-picker-scroll-area {
+  .time-picker-scroll-area,
+  :global(.infonomic-datepicker-time-picker-scroll-area) {
     height: 280px;
-    padding-right: var(--spacing-4)
+    padding-right: var(--spacing-16);
   }
 
-  .time-picker {
+  .time-picker,
+  :global(.infonomic-datepicker-time-picker) {
     display: flex;
-    padding-left: var(--spacing-1);
-    padding-right: var(--spacing-1);
+    padding-left: var(--spacing-4);
+    padding-right: var(--spacing-4);
     flex-direction: column;
     gap: 0.5rem;
   }
 
-  .time-picker-button {
+  .time-picker-button,
+  :global(.infonomic-datepicker-time-picker-button) {
     width: 100%;
   }
 

@@ -4,9 +4,10 @@ import type React from 'react'
 import { useEffect, useRef, useState } from 'react'
 
 import { IconButton } from '../../components/button/index.js'
-import { Input, InputAdornment } from '../../components/input'
-import type { ClassName, Intent, Size, Variant } from '../../components/input/@types/input.js'
+import { Input } from '../../components/forms/input.js'
+import { InputAdornment } from '../../components/forms/input-adornment.js'
 import { CloseIcon, SearchIcon } from '../../icons'
+import type { ClassName, Intent, Size, Variant } from '../../components/forms/@types/input.js'
 
 export interface SearchProps extends React.InputHTMLAttributes<HTMLInputElement> {
   variant?: Variant

@@ -1,7 +1,9 @@
 'use client'
 
-import { Tooltip as TooltipPrimitive } from 'radix-ui'
 import type React from 'react'
+
+import cx from 'classnames'
+import { Tooltip as TooltipPrimitive } from 'radix-ui'
 
 type TooltipIntrinsicProps = React.JSX.IntrinsicElements['div']
 export interface TooltipProps extends TooltipIntrinsicProps {
@@ -40,10 +42,12 @@ export const Tooltip = function Tooltip({
           ref={ref}
           side={side}
           sideOffset={sideOffset}
-          className={styles.tooltip}
+          className={cx(styles.tooltip, 'infonomic-tooltip')}
         >
           {text}
-          <TooltipPrimitive.Arrow className={styles['tooltip-arrow']} />
+          <TooltipPrimitive.Arrow
+            className={cx(styles['tooltip-arrow'], 'infonomic-tooltip-arrow')}
+          />
         </TooltipPrimitive.Content>
       </TooltipPrimitive.Root>
     </TooltipPrimitive.Provider>

@@ -1,7 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import type React from 'react'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
+import type { Meta } from '@storybook/react-vite'
 
 import { Section } from '../section/section.js'
 import { Container as ContainerComponent } from './container.js'
@@ -17,26 +17,20 @@ const meta: Meta<typeof ContainerComponent> = {
 
 export default meta
 
-type Story = StoryObj<typeof ContainerComponent>
-
 export const Container = (): React.JSX.Element => {
   return (
-    <Section style={{ height: '100vh' }}>
+    <Section style={{ height: '100vh', margin: '2rem auto' }}>
       <ContainerComponent
+        className="primary-strong"
         style={{
-          backgroundColor: 'lightblue',
           height: '400px',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
         }}
       >
-        <p>I'm in a container</p>
+        <p>I'm in a container with shy edges.</p>
       </ContainerComponent>
     </Section>
   )
 }
-
-// export const Default: Story = {
-//   render: () => <DivDemo />,
-// }

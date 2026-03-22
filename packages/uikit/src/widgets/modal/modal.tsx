@@ -1,15 +1,15 @@
 'use client'
+
 /* eslint-disable @typescript-eslint/consistent-type-imports */
 import type React from 'react'
 import { createContext, useCallback, useState } from 'react'
-import { createPortal } from 'react-dom'
 
 import { AnimatePresence, type FeatureBundle, LazyMotion } from 'motion/react'
+import { createPortal } from 'react-dom'
 
 import { Overlay } from '../../components/overlay'
 import { useMediaQuery } from '../../hooks/use-media-query'
 import { getPortalRoot } from '../../utils/getPortalRoot'
-
 import { ModalActions } from './modal-actions'
 import { ModalContainer } from './modal-container'
 import { ModalContent } from './modal-content'
