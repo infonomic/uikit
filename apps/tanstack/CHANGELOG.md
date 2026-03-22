@@ -1,5 +1,16 @@
 # @infonomic/website-react
 
+## 5.44.0
+
+### Minor Changes
+
+- e637d8b: Updated deps and refactored Hamburger component.
+
+### Patch Changes
+
+- Updated dependencies [e637d8b]
+  - @infonomic/uikit@5.44.0
+
 ## 5.43.1
 
 ### Patch Changes
