@@ -2,13 +2,16 @@
 
 import type React from 'react'
 
+import { Menu } from '@base-ui/react/menu'
 import cx from 'classnames'
-import { DropdownMenu as DropdownMenuPrimitive } from 'radix-ui'
 
 import styles from './dropdown.module.css'
 
-function Root({ children, ...rest }: DropdownMenuPrimitive.DropdownMenuProps): React.JSX.Element {
-  return <DropdownMenuPrimitive.Root {...rest}>{children}</DropdownMenuPrimitive.Root>
+function Root({
+  children,
+  ...rest
+}: React.ComponentProps<typeof Menu.Root>): React.JSX.Element {
+  return <Menu.Root {...rest}>{children}</Menu.Root>
 }
 
 const Trigger = ({
@@ -16,17 +19,17 @@ const Trigger = ({
   className,
   children,
   ...rest
-}: DropdownMenuPrimitive.DropdownMenuTriggerProps & {
+}: React.ComponentProps<typeof Menu.Trigger> & {
   ref?: React.RefObject<React.ComponentRef<'button'>>
 }): React.JSX.Element => {
   return (
-    <DropdownMenuPrimitive.Trigger
+    <Menu.Trigger
       className={cx('infonomic-dropdown-trigger', className)}
       ref={ref}
       {...rest}
     >
       {children}
-    </DropdownMenuPrimitive.Trigger>
+    </Menu.Trigger>
   )
 }
 Trigger.displayName = 'Trigger'
@@ -34,26 +37,46 @@ Trigger.displayName = 'Trigger'
 function Portal({
   children,
   ...rest
-}: DropdownMenuPrimitive.DropdownMenuPortalProps): React.JSX.Element {
-  return <DropdownMenuPrimitive.Portal {...rest}>{children}</DropdownMenuPrimitive.Portal>
+}: React.ComponentProps<typeof Menu.Portal>): React.JSX.Element {
+  return <Menu.Portal {...rest}>{children}</Menu.Portal>
 }
 
 const Content = ({
   ref,
   className,
   children,
+  side,
+  sideOffset,
+  align,
+  alignOffset,
+  collisionPadding,
   ...rest
-}: DropdownMenuPrimitive.DropdownMenuContentProps & {
+}: {
   ref?: React.RefObject<React.ComponentRef<'div'>>
-}): React.JSX.Element => {
+  className?: string
+  children?: React.ReactNode
+  side?: React.ComponentProps<typeof Menu.Positioner>['side']
+  sideOffset?: React.ComponentProps<typeof Menu.Positioner>['sideOffset']
+  align?: React.ComponentProps<typeof Menu.Positioner>['align']
+  alignOffset?: React.ComponentProps<typeof Menu.Positioner>['alignOffset']
+  collisionPadding?: React.ComponentProps<typeof Menu.Positioner>['collisionPadding']
+} & Omit<React.ComponentProps<typeof Menu.Popup>, 'className'>): React.JSX.Element => {
   return (
-    <DropdownMenuPrimitive.Content
-      ref={ref}
-      className={cx('infonomic-dropdown-content', styles['dropdown-content'], className)}
-      {...rest}
+    <Menu.Positioner
+      side={side}
+      sideOffset={sideOffset}
+      align={align}
+      alignOffset={alignOffset}
+      collisionPadding={collisionPadding}
     >
-      {children}
-    </DropdownMenuPrimitive.Content>
+      <Menu.Popup
+        ref={ref}
+        className={cx('infonomic-dropdown-content', styles['dropdown-content'], className)}
+        {...rest}
+      >
+        {children}
+      </Menu.Popup>
+    </Menu.Positioner>
   )
 }
 Content.displayName = 'Content'
@@ -63,17 +86,17 @@ const Group = ({
   className,
   children,
   ...rest
-}: DropdownMenuPrimitive.DropdownMenuGroupProps & {
+}: React.ComponentProps<typeof Menu.Group> & {
   ref?: React.RefObject<React.ComponentRef<'div'>>
 }): React.JSX.Element => {
   return (
-    <DropdownMenuPrimitive.Group
+    <Menu.Group
       ref={ref}
       className={cx('infonomic-dropdown-group', className)}
       {...rest}
     >
       {children}
-    </DropdownMenuPrimitive.Group>
+    </Menu.Group>
   )
 }
 Group.displayName = 'Group'
@@ -83,17 +106,17 @@ const Item = ({
   className,
   children,
   ...rest
-}: DropdownMenuPrimitive.DropdownMenuItemProps & {
+}: React.ComponentProps<typeof Menu.Item> & {
   ref?: React.RefObject<React.ComponentRef<'div'>>
 }): React.JSX.Element => {
   return (
-    <DropdownMenuPrimitive.Item
+    <Menu.Item
       ref={ref}
       className={cx('infonomic-dropdown-item', styles['dropdown-item'], className)}
       {...rest}
     >
       {children}
-    </DropdownMenuPrimitive.Item>
+    </Menu.Item>
   )
 }
 Item.displayName = 'Item'
@@ -103,17 +126,17 @@ const Label = ({
   className,
   children,
   ...rest
-}: DropdownMenuPrimitive.DropdownMenuLabelProps & {
+}: React.ComponentProps<typeof Menu.GroupLabel> & {
   ref?: React.RefObject<React.ComponentRef<'div'>>
 }): React.JSX.Element => {
   return (
-    <DropdownMenuPrimitive.Label
+    <Menu.GroupLabel
       ref={ref}
       className={cx('infonomic-dropdown-label', className)}
       {...rest}
     >
       {children}
-    </DropdownMenuPrimitive.Label>
+    </Menu.GroupLabel>
   )
 }
 Label.displayName = 'Label'
@@ -122,11 +145,11 @@ const Separator = ({
   ref,
   className,
   ...props
-}: DropdownMenuPrimitive.DropdownMenuSeparatorProps & {
+}: React.ComponentProps<typeof Menu.Separator> & {
   ref?: React.RefObject<React.ComponentRef<'div'>>
 }): React.JSX.Element => {
   return (
-    <DropdownMenuPrimitive.Separator
+    <Menu.Separator
       ref={ref}
       className={cx('infonomic-dropdown-separator', styles['dropdown-separator'], className)}
       {...props}
@@ -135,26 +158,49 @@ const Separator = ({
 }
 Separator.displayName = 'Separator'
 
-function Sub({ children, ...rest }: DropdownMenuPrimitive.DropdownMenuSubProps): React.JSX.Element {
-  return <DropdownMenuPrimitive.Sub {...rest}>{children}</DropdownMenuPrimitive.Sub>
+function Sub({
+  children,
+  ...rest
+}: React.ComponentProps<typeof Menu.SubmenuRoot>): React.JSX.Element {
+  return <Menu.SubmenuRoot {...rest}>{children}</Menu.SubmenuRoot>
 }
 
 const SubContent = ({
   ref,
   className,
   children,
+  side,
+  sideOffset,
+  align,
+  alignOffset,
+  collisionPadding,
   ...rest
-}: DropdownMenuPrimitive.DropdownMenuSubContentProps & {
+}: {
   ref?: React.RefObject<React.ComponentRef<'div'>>
-}): React.JSX.Element => {
+  className?: string
+  children?: React.ReactNode
+  side?: React.ComponentProps<typeof Menu.Positioner>['side']
+  sideOffset?: React.ComponentProps<typeof Menu.Positioner>['sideOffset']
+  align?: React.ComponentProps<typeof Menu.Positioner>['align']
+  alignOffset?: React.ComponentProps<typeof Menu.Positioner>['alignOffset']
+  collisionPadding?: React.ComponentProps<typeof Menu.Positioner>['collisionPadding']
+} & Omit<React.ComponentProps<typeof Menu.Popup>, 'className'>): React.JSX.Element => {
   return (
-    <DropdownMenuPrimitive.SubContent
-      ref={ref}
-      className={cx('infonomic-dropdown-subcontent', styles['dropdown-subcontent'], className)}
-      {...rest}
+    <Menu.Positioner
+      side={side}
+      sideOffset={sideOffset}
+      align={align}
+      alignOffset={alignOffset}
+      collisionPadding={collisionPadding}
     >
-      {children}
-    </DropdownMenuPrimitive.SubContent>
+      <Menu.Popup
+        ref={ref}
+        className={cx('infonomic-dropdown-subcontent', styles['dropdown-subcontent'], className)}
+        {...rest}
+      >
+        {children}
+      </Menu.Popup>
+    </Menu.Positioner>
   )
 }
 SubContent.displayName = 'SubContent'
@@ -164,17 +210,17 @@ const SubTrigger = ({
   className,
   children,
   ...rest
-}: DropdownMenuPrimitive.DropdownMenuSubTriggerProps & {
+}: React.ComponentProps<typeof Menu.SubmenuTrigger> & {
   ref?: React.RefObject<React.ComponentRef<'div'>>
 }): React.JSX.Element => {
   return (
-    <DropdownMenuPrimitive.SubTrigger
+    <Menu.SubmenuTrigger
       ref={ref}
       className={cx('infonomic-dropdown-subtrigger', className)}
       {...rest}
     >
       {children}
-    </DropdownMenuPrimitive.SubTrigger>
+    </Menu.SubmenuTrigger>
   )
 }
 SubTrigger.displayName = 'SubTrigger'

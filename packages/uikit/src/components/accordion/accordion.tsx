@@ -8,8 +8,8 @@
 
 import type React from 'react'
 
+import { Accordion as AccordionPrimitive } from '@base-ui/react/accordion'
 import cx from 'classnames'
-import { Accordion as AccordionPrimitive } from 'radix-ui'
 
 import styles from './accordion.module.css'
 
@@ -24,7 +24,7 @@ const Root = ({
   children: React.ReactNode
   className?: string
   ref?: React.RefObject<AccordionRootElement>
-} & (AccordionPrimitive.AccordionSingleProps | AccordionPrimitive.AccordionMultipleProps)) => {
+} & React.ComponentProps<typeof AccordionPrimitive.Root>) => {
   return (
     <AccordionPrimitive.Root
       ref={ref}
@@ -42,7 +42,7 @@ const Item = function AccordionItem({
   children,
   className,
   ...props
-}: AccordionPrimitive.AccordionItemProps & {
+}: React.ComponentProps<typeof AccordionPrimitive.Item> & {
   ref?: React.RefObject<AccordionItemElement>
 }) {
   return (
@@ -56,13 +56,13 @@ const Item = function AccordionItem({
   )
 }
 
-export type AccordionHeaderElement = React.ComponentRef<'h2'>
+export type AccordionHeaderElement = React.ComponentRef<'h3'>
 const Header = function AccordionHeader({
   ref,
   children,
   className,
   ...props
-}: AccordionPrimitive.AccordionHeaderProps & {
+}: React.ComponentProps<typeof AccordionPrimitive.Header> & {
   ref?: React.RefObject<AccordionHeaderElement>
 }) {
   return (
@@ -82,7 +82,7 @@ const Trigger = function AccordionTrigger({
   children,
   className,
   ...props
-}: AccordionPrimitive.AccordionTriggerProps & {
+}: React.ComponentProps<typeof AccordionPrimitive.Trigger> & {
   ref?: React.RefObject<AccordionTriggerElement>
 }) {
   return (
@@ -96,23 +96,23 @@ const Trigger = function AccordionTrigger({
   )
 }
 
-export type AccordionContentElement = React.ComponentRef<'div'>
-const Content = function AccordionContent({
+export type AccordionPanelElement = React.ComponentRef<'div'>
+const Panel = function AccordionPanel({
   ref,
   children,
   className,
   ...props
-}: AccordionPrimitive.AccordionContentProps & {
-  ref?: React.RefObject<AccordionContentElement>
+}: React.ComponentProps<typeof AccordionPrimitive.Panel> & {
+  ref?: React.RefObject<AccordionPanelElement>
 }) {
   return (
-    <AccordionPrimitive.Content
+    <AccordionPrimitive.Panel
       className={cx('infonomic-accordion-content', styles.content, className)}
       {...props}
       ref={ref}
     >
       {children}
-    </AccordionPrimitive.Content>
+    </AccordionPrimitive.Panel>
   )
 }
 
@@ -121,5 +121,5 @@ export const Accordion = {
   Item,
   Header,
   Trigger,
-  Content,
+  Panel,
 }

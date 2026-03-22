@@ -1,6 +1,7 @@
 @layer infonomic-base, infonomic-utilities, infonomic-theme, infonomic-components;
 
 @layer infonomic-components {
+
   .item,
   :global(.infonomic-accordion-item) {
     overflow: hidden;
@@ -25,11 +26,11 @@
   :global(.infonomic-accordion-content) {
     overflow: hidden;
 
-    &[data-state="open"] {
+    &[data-open] {
       animation: accordionSlideDown 300ms cubic-bezier(0.87, 0, 0.13, 1);
     }
 
-    &[data-state="closed"] {
+    &[data-ending-style] {
       animation: accordionSlideUp 300ms cubic-bezier(0.87, 0, 0.13, 1);
     }
   }
@@ -40,13 +41,13 @@
     }
 
     to {
-      height: var(--radix-accordion-content-height);
+      height: var(--accordion-panel-height);
     }
   }
 
   @keyframes accordionSlideUp {
     from {
-      height: var(--radix-accordion-content-height);
+      height: var(--accordion-panel-height);
     }
 
     to {

@@ -2,8 +2,8 @@
 
 import type React from 'react'
 
+import { Avatar as AvatarPrimitive } from '@base-ui/react/avatar'
 import cx from 'classnames'
-import { Avatar as AvatarPrimitive } from 'radix-ui'
 
 import styles from './avatar.module.css'
 
@@ -19,7 +19,7 @@ export const Avatar = ({ initials }: { initials: string }): React.JSX.Element =>
       />
       <AvatarPrimitive.Fallback
         className={cx('infonomic-avatar-fallback', styles['avatar-fallback'])}
-        delayMs={600}
+        delay={600}
       >
         <span className={cx('infonomic-avatar-text', styles['avatar-text'])}>{initials}</span>
       </AvatarPrimitive.Fallback>

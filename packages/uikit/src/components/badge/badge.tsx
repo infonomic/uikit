@@ -1,51 +1,42 @@
-import { Slot } from '@radix-ui/react-slot'
+import { useRender } from '@base-ui/react/use-render'
 import cx from 'classnames'
 
 import styles from './badge.module.css'
 import type { Intent } from '../@types/shared'
 
-type AsDiv = {
-  asChild?: false
-} & React.ComponentPropsWithoutRef<'div'>
-
-interface AsSlot {
-  asChild?: true
-}
-
-export type BadgeRefType<C extends React.ElementType> = React.ComponentPropsWithRef<C>['ref']
-
-export type BadgeProps<C extends React.ElementType = 'div'> = {
+export type BadgeProps = useRender.ComponentProps<'div'> & {
   children: React.ReactNode
   intent?: Intent
   className?: string
-  asChild?: boolean
-  ref?: BadgeRefType<C>
-} & (AsSlot | AsDiv)
+  ref?: React.Ref<HTMLDivElement>
+}
 
-export const Badge = <C extends React.ElementType = 'div'>({
+export const Badge = ({
   className,
   intent = 'primary',
   children,
-  asChild,
+  render,
   ref,
   ...rest
-}: BadgeProps<C>): React.JSX.Element => {
-  const Comp: React.ElementType = asChild === true ? Slot : 'div'
-  return (
-    <Comp
-      ref={ref}
-      className={cx(
+}: BadgeProps): React.JSX.Element => {
+  const element = useRender({
+    defaultTagName: 'div',
+    render,
+    ref,
+    props: {
+      ...rest,
+      className: cx(
         'infonomic-badge',
         `infonomic-badge-${intent}`,
         styles.badge,
         styles[intent],
         className
-      )}
-      {...rest}
-    >
-      {children}
-    </Comp>
-  )
+      ),
+      children,
+    },
+  })
+
+  return element
 }
 
 Badge.displayName = 'Badge'

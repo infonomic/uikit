@@ -55,10 +55,8 @@ export const Dropdown: Story = {
           }}
         >
           <DropdownComponent.Root {...args}>
-            <DropdownComponent.Trigger asChild>
-              <Button size="sm" variant="filled">
-                +
-              </Button>
+            <DropdownComponent.Trigger render={<Button size="sm" variant="filled" />}>
+              +
             </DropdownComponent.Trigger>
 
             <DropdownComponent.Portal>

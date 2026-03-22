@@ -2,7 +2,8 @@
 
 import type React from 'react'
 
-import { Slot } from '@radix-ui/react-slot'
+import { mergeProps } from '@base-ui/react/merge-props'
+import { useRender } from '@base-ui/react/use-render'
 import cx from 'classnames'
 // @ts-expect-error
 import Ripple from 'material-ripple-effects'
@@ -10,15 +11,7 @@ import Ripple from 'material-ripple-effects'
 import styles from './button.module.css'
 import type { Intent, Size, Variant } from './@types/button.js'
 
-export type ButtonRefType<C extends React.ElementType> = React.ComponentPropsWithRef<C>['ref']
-
-type AsButton = { asChild?: false } & React.ComponentPropsWithoutRef<'button'>
-
-interface AsSlot {
-  asChild?: true
-}
-
-export type ButtonProps<C extends React.ElementType = 'button'> = {
+export type ButtonProps = useRender.ComponentProps<'button'> & {
   variant?: Variant
   size?: Size
   type?: 'submit' | 'reset' | 'button'
@@ -26,12 +19,11 @@ export type ButtonProps<C extends React.ElementType = 'button'> = {
   fullWidth?: boolean
   ripple?: boolean
   className?: string
-  children: React.ReactNode
-  ref?: React.RefObject<ButtonRefType<C>>
-} & (AsButton | AsSlot) &
-  React.HTMLAttributes<HTMLElement>
+  children?: React.ReactNode
+  ref?: React.Ref<HTMLButtonElement>
+} & React.HTMLAttributes<HTMLElement>
 
-export const Button = <C extends React.ElementType = 'button'>({
+export const Button = ({
   variant = 'filled',
   size = 'md',
   type = 'button',
@@ -40,43 +32,40 @@ export const Button = <C extends React.ElementType = 'button'>({
   ripple = true,
   className,
   children,
-  asChild,
+  render,
   ref,
   ...rest
-}: ButtonProps<C>) => {
-  const Comp: React.ElementType = asChild != null && asChild === true ? Slot : 'button'
+}: ButtonProps) => {
+  const defaultProps: Record<string, unknown> = {
+    type,
+    className: cx(
+      'infonomic-button',
+      `infonomic-button-${intent}`,
+      `infonomic-button-${variant}`,
+      `infonomic-button-${size}`,
+      styles.button,
+      styles[variant],
+      styles[size],
+      styles[intent],
+      { [styles.fullWidth]: fullWidth === true },
+      className
+    ),
+    children,
+  }
 
-  let onMouseDown: React.MouseEventHandler<HTMLButtonElement> | undefined
   if (ripple === true) {
     const rippleEffect = new Ripple()
-    onMouseDown = (e: React.MouseEvent<HTMLButtonElement>) => {
-      if (rest.onMouseDown) {
-        ;(rest.onMouseDown as React.MouseEventHandler<HTMLButtonElement>)(e)
-      }
+    defaultProps.onMouseDown = (e: React.MouseEvent<HTMLButtonElement>) => {
       rippleEffect.create(e, variant === 'filled' || variant === 'gradient' ? 'light' : 'dark')
     }
   }
 
-  return (
-    <Comp
-      ref={ref}
-      type={type}
-      className={cx(
-        'infonomic-button',
-        `infonomic-button-${intent}`,
-        `infonomic-button-${variant}`,
-        `infonomic-button-${size}`,
-        styles.button,
-        styles[variant],
-        styles[size],
-        styles[intent],
-        { [styles.fullWidth]: fullWidth === true },
-        className
-      )}
-      onMouseDown={onMouseDown}
-      {...rest}
-    >
-      {children}
-    </Comp>
-  )
+  const element = useRender({
+    defaultTagName: 'button',
+    render,
+    ref,
+    props: mergeProps<'button'>(defaultProps, rest),
+  })
+
+  return element
 }

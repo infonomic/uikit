@@ -63,7 +63,7 @@ export const Variants: Story = {
               selected={true}
             >{`${capitalize(variant)} with icon`}</Chip>
             {(variant === 'removable' || variant === 'selectable-removable') && (
-              <Chip variant={variant} onRemove={() => {}}>
+              <Chip variant={variant} onRemove={() => { }}>
                 {`${capitalize(variant)} with remove`}
               </Chip>
             )}
@@ -102,7 +102,7 @@ export const Removable: Story = {
         <Chip
           variant="removable"
           intent="primary"
-          onRemove={() => {}}
+          onRemove={() => { }}
           startIcon={<CalendarIcon height="16px" width="16px" />}
         >
           Removable chip

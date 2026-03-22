@@ -1,45 +1,33 @@
 import type React from 'react'
 
-import { Slot } from '@radix-ui/react-slot'
+import { useRender } from '@base-ui/react/use-render'
 import cx from 'classnames'
 
 import styles from './card.module.css'
 
-type AsDiv = {
-  asChild?: false
-} & React.ComponentPropsWithoutRef<'div'>
-
-interface AsSlot {
-  asChild?: true
-}
-
-export type CardRefType<C extends React.ElementType> = React.ComponentPropsWithRef<C>['ref']
-
-export type CardProps<C extends React.ElementType = 'div'> = {
+export type CardProps = useRender.ComponentProps<'div'> & {
   children: React.ReactNode
   className?: string
   hover?: boolean
-  asChild?: boolean
-  ref?: CardRefType<C>
-} & (AsSlot | AsDiv)
+  ref?: React.Ref<HTMLDivElement>
+}
 
-const Card = <C extends React.ElementType = 'div'>({
-  className,
-  hover,
-  children,
-  asChild,
-  ref,
-  ...rest
-}: CardProps<C>) => {
-  const Comp: React.ElementType = asChild === true ? Slot : 'div'
+const Card = ({ className, hover, children, render, ref, ...rest }: CardProps) => {
   const hoverClasses = hover != null && hover === true ? styles['card-hover'] : undefined
-  const classes = cx(styles.card, hoverClasses, className)
+  const classes = cx('infonomic-card', styles.card, hoverClasses, className)
 
-  return (
-    <Comp ref={ref} className={cx('infonomic-card', classes)} {...rest}>
-      {children}
-    </Comp>
-  )
+  const element = useRender({
+    defaultTagName: 'div',
+    render,
+    ref,
+    props: {
+      ...rest,
+      className: classes,
+      children,
+    },
+  })
+
+  return element
 }
 
 Card.displayName = 'Card'

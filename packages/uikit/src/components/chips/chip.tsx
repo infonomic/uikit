@@ -2,7 +2,8 @@
 
 import type React from 'react'
 
-import { Slot } from '@radix-ui/react-slot'
+import { mergeProps } from '@base-ui/react/merge-props'
+import { useRender } from '@base-ui/react/use-render'
 import cx from 'classnames'
 
 import { CheckIcon } from '../../icons/check-icon.js'
@@ -10,18 +11,10 @@ import { CloseIcon } from '../../icons/close-icon.js'
 import styles from './chip.module.css'
 import type { ChipIntent, ChipSize, ChipVariant } from './@types/chip.js'
 
-type AsButton = { asChild?: false } & React.ComponentPropsWithoutRef<'button'>
-
-interface AsSlot {
-  asChild?: true
-}
-
-export type ChipRefType<C extends React.ElementType> = React.ComponentPropsWithRef<C>['ref']
-
 type ToggleEvent = React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLElement>
 type RemoveEvent = React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLElement>
 
-export type ChipProps<C extends React.ElementType = 'button'> = {
+export type ChipProps = Omit<useRender.ComponentProps<'button'>, 'onToggle'> & {
   variant?: ChipVariant
   intent?: ChipIntent
   size?: ChipSize
@@ -34,11 +27,10 @@ export type ChipProps<C extends React.ElementType = 'button'> = {
   onToggle?: (selected: boolean, event: ToggleEvent) => void
   onRemove?: (event: RemoveEvent) => void
   className?: string
-  ref?: ChipRefType<C>
-} & (AsButton | AsSlot) &
-  Omit<React.HTMLAttributes<HTMLElement>, 'onToggle'>
+  ref?: React.Ref<HTMLButtonElement>
+} & Omit<React.HTMLAttributes<HTMLElement>, 'onToggle'>
 
-export const Chip = <C extends React.ElementType = 'button'>({
+export const Chip = ({
   variant = 'assist',
   intent = 'primary',
   size = 'md',
@@ -52,12 +44,12 @@ export const Chip = <C extends React.ElementType = 'button'>({
   onRemove,
   className,
   children,
-  asChild,
+  render,
   ref,
   ...rest
-}: ChipProps<C>) => {
+}: ChipProps) => {
   const { onClick, onKeyDown, role, tabIndex, ...restProps } = rest
-  const Comp: React.ElementType = asChild === true ? Slot : 'button'
+  const isCustomElement = render != null
   const isSelectable = variant === 'selectable' || variant === 'selectable-removable'
   const isRemovable = variant === 'removable' || variant === 'selectable-removable'
   const isSelected = Boolean(selected)
@@ -69,7 +61,7 @@ export const Chip = <C extends React.ElementType = 'button'>({
     }
 
     if (onClick) {
-      ;(onClick as React.MouseEventHandler<HTMLElement>)(event)
+      ; (onClick as React.MouseEventHandler<HTMLElement>)(event)
     }
 
     if (isSelectable && onToggle) {
@@ -82,10 +74,10 @@ export const Chip = <C extends React.ElementType = 'button'>({
       return
     }
 
-    if ((event.key === 'Enter' || event.key === ' ') && asChild === true) {
+    if ((event.key === 'Enter' || event.key === ' ') && isCustomElement) {
       event.preventDefault()
       if (onClick) {
-        ;(onClick as React.MouseEventHandler<HTMLElement>)(
+        ; (onClick as React.MouseEventHandler<HTMLElement>)(
           event as unknown as React.MouseEvent<HTMLElement>
         )
       }
@@ -154,43 +146,53 @@ export const Chip = <C extends React.ElementType = 'button'>({
 
   const appliedVariant = isSelected ? 'filled' : 'outlined'
 
-  return (
-    <Comp
-      ref={ref}
-      type={asChild === true ? undefined : 'button'}
-      role={role ?? (asChild === true ? 'button' : undefined)}
-      tabIndex={disabled ? -1 : (tabIndex ?? 0)}
-      aria-disabled={disabled || undefined}
-      aria-pressed={isSelectable ? isSelected : undefined}
-      aria-selected={isSelectable ? isSelected : undefined}
-      className={cx(
-        'infonomic-chip',
-        `infonomic-chip-${variant}`,
-        `infonomic-chip-${intent}`,
-        `infonomic-chip-${size}`,
-        { selected: isSelected, disabled, removable: isRemovable },
-        styles.chip,
-        styles[appliedVariant],
-        styles[intent],
-        styles[size],
-        className
-      )}
-      disabled={asChild === true ? undefined : disabled}
-      onClick={handleClick}
-      onKeyDown={handleKeyDown}
-      {...restProps}
-    >
-      {leadingIcon != null && (
-        <span className={cx('infonomic-chip-icon-wrapper', styles.iconWrapper)}>{leadingIcon}</span>
-      )}
-      <span className={cx('infonomic-chip-label', styles.label)}>{children}</span>
-      {trailingIcon != null && (
-        <span className={cx('infonomic-chip-icon-wrapper', styles.iconWrapper)}>
-          {trailingIcon}
-        </span>
-      )}
-    </Comp>
-  )
+  const defaultProps: Record<string, unknown> = {
+    type: isCustomElement ? undefined : 'button',
+    role: role ?? (isCustomElement ? 'button' : undefined),
+    tabIndex: disabled ? -1 : (tabIndex ?? 0),
+    'aria-disabled': disabled || undefined,
+    'aria-pressed': isSelectable ? isSelected : undefined,
+    'aria-selected': isSelectable ? isSelected : undefined,
+    className: cx(
+      'infonomic-chip',
+      `infonomic-chip-${variant}`,
+      `infonomic-chip-${intent}`,
+      `infonomic-chip-${size}`,
+      { selected: isSelected, disabled, removable: isRemovable },
+      styles.chip,
+      styles[appliedVariant],
+      styles[intent],
+      styles[size],
+      className
+    ),
+    disabled: isCustomElement ? undefined : disabled,
+    onClick: handleClick,
+    onKeyDown: handleKeyDown,
+    children: (
+      <>
+        {leadingIcon != null && (
+          <span className={cx('infonomic-chip-icon-wrapper', styles.iconWrapper)}>
+            {leadingIcon}
+          </span>
+        )}
+        <span className={cx('infonomic-chip-label', styles.label)}>{children}</span>
+        {trailingIcon != null && (
+          <span className={cx('infonomic-chip-icon-wrapper', styles.iconWrapper)}>
+            {trailingIcon}
+          </span>
+        )}
+      </>
+    ),
+  }
+
+  const element = useRender({
+    defaultTagName: 'button',
+    render,
+    ref,
+    props: mergeProps<'button'>(defaultProps, restProps),
+  })
+
+  return element
 }
 
 Chip.displayName = 'Chip'

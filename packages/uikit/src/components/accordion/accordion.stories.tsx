@@ -24,10 +24,7 @@ type Story = StoryObj<typeof AccordionComponent.Root>
  */
 export const Accordion: Story = {
   args: {
-    type: 'single',
-    asChild: true,
-    defaultValue: 'item-1',
-    collapsible: true,
+    defaultValue: ['item-1'],
     className: 'accordion-root',
   },
   render: (args) => (
@@ -56,11 +53,11 @@ export const Accordion: Story = {
         transition: transform 300ms cubic-bezier(0.87, 0, 0.13, 1);
       }
 
-      .accordion-trigger[data-state="open"] + .accordion-chevron {
+      .accordion-trigger[data-panel-open] ~ .accordion-chevron {
         transform: rotate(180deg);
       }
 
-      .accordion-content {
+      .accordion-panel {
         padding: 0 12px;
       }
 
@@ -85,9 +82,9 @@ export const Accordion: Story = {
               </AccordionComponent.Trigger>
               <ChevronDownIcon className="accordion-chevron" />
             </AccordionComponent.Header>
-            <AccordionComponent.Content className="accordion-content">
+            <AccordionComponent.Panel className="accordion-panel">
               <p>Yes. It adheres to the WAI-ARIA design pattern.</p>
-            </AccordionComponent.Content>
+            </AccordionComponent.Panel>
           </AccordionComponent.Item>
 
           <AccordionComponent.Item value="item-2">
@@ -97,13 +94,13 @@ export const Accordion: Story = {
               </AccordionComponent.Trigger>
               <ChevronDownIcon className="accordion-chevron" />
             </AccordionComponent.Header>
-            <AccordionComponent.Content className="accordion-content">
+            <AccordionComponent.Panel className="accordion-panel">
               <ul>
                 <li>Submenu Item One</li>
                 <li>Submenu Item Two</li>
                 <li>Submenu Item Three</li>
               </ul>
-            </AccordionComponent.Content>
+            </AccordionComponent.Panel>
           </AccordionComponent.Item>
 
           <AccordionComponent.Item value="item-3">
@@ -113,9 +110,9 @@ export const Accordion: Story = {
               </AccordionComponent.Trigger>
               <ChevronDownIcon className="accordion-chevron" />
             </AccordionComponent.Header>
-            <AccordionComponent.Content className="accordion-content">
+            <AccordionComponent.Panel className="accordion-panel">
               <p> Yes! You can animate the Accordion with CSS or JavaScript.</p>
-            </AccordionComponent.Content>
+            </AccordionComponent.Panel>
           </AccordionComponent.Item>
         </nav>
       </AccordionComponent.Root>
