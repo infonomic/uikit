@@ -3,7 +3,7 @@ import type React from 'react'
 
 import classNames from 'classnames'
 
-import type { LoaderProps } from './types/index.js'
+import type { LoaderProps } from './@types/index.js'
 
 export function LoaderRing({ color, size = 60, className, style }: LoaderProps): React.JSX.Element {
   const circles = [...Array(4)].map((_, index) => {

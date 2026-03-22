@@ -3,7 +3,7 @@ import type React from 'react'
 
 import classNames from 'classnames'
 
-import type { LoaderProps } from './types/index.js'
+import type { LoaderProps } from './@types/index.js'
 
 export function LoaderEllipsis({
   color,

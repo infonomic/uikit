@@ -32,37 +32,6 @@
   }
 }
 
-@layer utilities {
-
-  /* Override default Tailwind container styles */
-  [class*="container"] {
-    margin-inline: auto;
-    padding-inline: 0;
-  }
-
-  .container {
-    width: 100%;
-    padding: 0 1rem;
-    margin: 0 auto;
-    max-width: 60rem;
-
-    /* Large */
-    @media (min-width: 66rem) {
-      max-width: 64rem;
-    }
-
-    /* X-Large */
-    @media (min-width: 77rem) {
-      max-width: 74.375rem;
-    }
-
-    /* 2X-Large */
-    @media (min-width: 94rem) {
-      max-width: 87.5rem;
-    }
-  }
-}
-
 @theme {
   --breakpoint-*: initial;
   /* 480px */
@@ -91,6 +60,15 @@
   --font-mono:
     'Source Code Pro', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     'Liberation Mono', 'Courier New', monospace;
+
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --color-noeffect: var(--noeffect);
+  --color-success: var(--success);
+  --color-info: var(--info);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
 
   --color-theme-25: var(--theme-25);
   --color-theme-50: var(--theme-50);
