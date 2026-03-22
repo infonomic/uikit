@@ -14,7 +14,7 @@ export default defineConfig({
   lib: [
     {
       format: 'esm',
-      syntax: 'es2021',
+      syntax: 'es2023',
       bundle: false,
       dts: {
         distPath: './dist',
