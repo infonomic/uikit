@@ -111,12 +111,14 @@ Every CSS module MUST include the layer preamble at the top:
 - **Components reference semantic tokens**, not primitives (e.g., use `--fill-primary-strong` instead of `--primary-600`)
 - **Use surface tokens** for any list-based interactive UI (dropdowns, menus, selects, command palettes)
 
-**Theme System**:
-- Theme variables in `src/styles/theme/theme.css`: `--background`, `--foreground`, `--text`, `--headings`
-- Semantic tokens in `src/styles/theme/tokens.css` automatically switch between light/dark modes
+**Functional / Semantic Tokens**:
+- Functional / Semantic tokens in `src/styles/functional` automatically switch between light/dark modes
 - `.dark` class on root element toggles theme
 - **`.not-dark` override**: Forces light mode tokens regardless of parent `.dark` class
 - **Key benefit**: No need for `:not(:where([class~="not-dark"]...))` in component CSS when using semantic tokens
+
+**Theme System**:
+- Theme variables in `src/styles/theme`: `--background`, `--foreground`, `--text`, `--headings`
 
 **Build**: LightningCSS bundles `styles.css` and `typography.css` separately
 
