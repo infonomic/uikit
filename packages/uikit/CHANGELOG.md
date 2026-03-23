@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 6.0.3
+
+### Patch Changes
+
+- 822abf5: Updated checkbox icon colors.
+
 ## 6.0.2
 
 ### Patch Changes
