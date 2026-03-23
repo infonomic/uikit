@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 6.0.1
+
+### Patch Changes
+
+- ed2af65: Updated README.
+
 ## 6.0.0
 
 ### Major Changes
