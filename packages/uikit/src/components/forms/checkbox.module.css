@@ -189,7 +189,7 @@ infonomic-components;
     --checkbox-variant-outlined-hover-border: var(--fill-primary-strong-hover);
     --checkbox-variant-outline-ring-color: var(--ring-primary);
     --checkbox-variant-filled: var(--fill-primary-strong);
-    --checkbox-icon-color: var(--text-on-primary);
+    --checkbox-icon-color: white;
   }
 
   .secondary,
@@ -199,7 +199,7 @@ infonomic-components;
     --checkbox-variant-outlined-hover-border: var(--fill-secondary-strong-hover);
     --checkbox-variant-outline-ring-color: var(--ring-secondary);
     --checkbox-variant-filled: var(--fill-secondary-strong);
-    --checkbox-icon-color: var(--text-on-secondary);
+    --checkbox-icon-color: black;
   }
 
   .noeffect,
@@ -219,7 +219,7 @@ infonomic-components;
     --checkbox-variant-outlined-hover-border: var(--fill-success-strong-hover);
     --checkbox-variant-outline-ring-color: var(--ring-success);
     --checkbox-variant-filled: var(--fill-success-strong);
-    --checkbox-icon-color: var(--text-on-success);
+    --checkbox-icon-color: white;
   }
 
   .info,
@@ -229,7 +229,7 @@ infonomic-components;
     --checkbox-variant-outlined-hover-border: var(--fill-info-strong-hover);
     --checkbox-variant-outline-ring-color: var(--ring-info);
     --checkbox-variant-filled: var(--fill-info-strong);
-    --checkbox-icon-color: var(--text-on-info);
+    --checkbox-icon-color: white;
   }
 
   .warning,
@@ -249,7 +249,7 @@ infonomic-components;
     --checkbox-variant-outlined-hover-border: var(--fill-danger-strong-hover);
     --checkbox-variant-outline-ring-color: var(--ring-danger);
     --checkbox-variant-filled: var(--fill-danger-strong);
-    --checkbox-icon-color: var(--text-on-danger);
+    --checkbox-icon-color: white;
   }
 
   /* Dark mode handled by semantic tokens in theme layer */
