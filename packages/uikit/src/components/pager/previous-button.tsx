@@ -1,11 +1,10 @@
 'use client'
 
-import type React from 'react'
+import React from 'react'
 
-import { ChevronLeftIcon } from '@radix-ui/react-icons'
-import { Slot } from '@radix-ui/react-slot'
 import cx from 'classnames'
 
+import { ChevronLeftIcon } from '../../icons/chevron-left-icon.js'
 import { usePager } from './pagination'
 import styles from './pagination.module.css'
 import type { PagerButtonProps, RefType } from './pagination'
@@ -14,37 +13,38 @@ export const PreviousButton = ({
   ref,
   className,
   disabled,
-  asChild,
+  render,
   children,
   ...rest
 }: PagerButtonProps & {
   ref?: React.RefObject<RefType>
 }) => {
-  const Comp = asChild != null ? Slot : ('button' as React.ElementType)
   const { showFirstButton, variant } = usePager()
 
-  const aria = disabled ? { 'aria-disabled': true } : { 'aria-label': 'Previous' }
+  const sharedProps = {
+    className: cx(
+      styles['previous-button'],
+      styles[variant],
+      { [styles['rounded-left']]: showFirstButton == null || showFirstButton === false },
+      'pagination-previous',
+      className
+    ),
+    disabled,
+    title: 'Previous',
+    'data-testid': 'pagination-previous',
+    ...(disabled ? { 'aria-disabled': true } : { 'aria-label': 'Previous' }),
+    ...rest,
+  }
 
   return (
     <li className={styles['mobile-toggle']}>
-      <Comp
-        ref={ref}
-        className={cx(
-          styles['previous-button'],
-          styles[variant],
-
-          { [styles['rounded-left']]: showFirstButton == null || showFirstButton === false },
-          'pagination-previous',
-          className
-        )}
-        disabled={disabled}
-        title="Previous"
-        data-testid="pagination-previous"
-        {...aria}
-        {...rest}
-      >
-        {(asChild ?? false) ? children : <ChevronLeftIcon />}
-      </Comp>
+      {render ? (
+        React.cloneElement(render, { ref, ...sharedProps } as React.Attributes & Record<string, unknown>, children)
+      ) : (
+        <button ref={ref as React.RefObject<HTMLButtonElement>} {...sharedProps}>
+          {children ?? <ChevronLeftIcon width="18px" height="18px" />}
+        </button>
+      )}
     </li>
   )
 }

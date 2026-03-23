@@ -71,11 +71,13 @@ const {
         checkBoxClasses,
         className
       ]}
-      data-state={checked ? 'checked' : 'unchecked'}
+      data-checked={checked ? '' : undefined}
+      data-unchecked={!checked ? '' : undefined}
     >
       <span
         class:list={['checkbox-indicator', styles.indicator]}
-        data-state={checked ? 'checked' : 'unchecked'}
+        data-checked={checked ? '' : undefined}
+        data-unchecked={!checked ? '' : undefined}
       >
         <CheckIcon class={styles.icon} />
       </span>
@@ -110,17 +112,20 @@ const {
       const indicator = visualCheckbox?.querySelector('.checkbox-indicator')
 
       if (visualCheckbox && indicator) {
+        const updateState = (checked: boolean) => {
+          for (const el of [visualCheckbox, indicator]) {
+            el.toggleAttribute('data-checked', checked)
+            el.toggleAttribute('data-unchecked', !checked)
+          }
+        }
+
         // Update state on change
         checkboxInput.addEventListener('change', () => {
-          const state = checkboxInput.checked ? 'checked' : 'unchecked'
-          visualCheckbox.setAttribute('data-state', state)
-          indicator.setAttribute('data-state', state)
+          updateState(checkboxInput.checked)
         })
 
         // Ensure initial state is correct
-        const state = checkboxInput.checked ? 'checked' : 'unchecked'
-        visualCheckbox.setAttribute('data-state', state)
-        indicator.setAttribute('data-state', state)
+        updateState(checkboxInput.checked)
       }
     })
   }

@@ -1,13 +1,10 @@
 'use client'
 
-/* eslint-disable @typescript-eslint/strict-boolean-expressions */
+import React from 'react'
 
-import type React from 'react'
-
-import { DoubleArrowLeftIcon } from '@radix-ui/react-icons'
-import { Slot } from '@radix-ui/react-slot'
 import cx from 'classnames'
 
+import { ChevronLeftDoubleIcon } from '../../icons/chevron-left-double-icon.js'
 import { usePager } from './pagination'
 import styles from './pagination.module.css'
 import type { PagerButtonProps, RefType } from './pagination'
@@ -16,7 +13,7 @@ export const FirstButton = ({
   ref,
   className,
   disabled,
-  asChild,
+  render,
   children,
   ...rest
 }: PagerButtonProps & {
@@ -24,29 +21,30 @@ export const FirstButton = ({
 }) => {
   const { variant } = usePager()
 
-  const Comp = asChild != null ? Slot : ('button' as React.ElementType)
-
-  const aria = disabled ? { 'aria-disabled': true } : { 'aria-label': 'First' }
+  const sharedProps = {
+    className: cx(
+      styles['first-button'],
+      styles[variant],
+      styles['rounded-left'],
+      'pagination-first',
+      className
+    ),
+    disabled,
+    'data-testid': 'pagination-first',
+    title: 'First',
+    ...(disabled ? { 'aria-disabled': true } : { 'aria-label': 'First' }),
+    ...rest,
+  }
 
   return (
     <li className={styles['mobile-toggle']}>
-      <Comp
-        ref={ref}
-        className={cx(
-          styles['first-button'],
-          styles[variant],
-          styles['rounded-left'],
-          'pagination-first',
-          className
-        )}
-        disabled={disabled}
-        data-testid="pagination-first"
-        title="First"
-        {...aria}
-        {...rest}
-      >
-        {(asChild ?? false) ? children : <DoubleArrowLeftIcon />}
-      </Comp>
+      {render ? (
+        React.cloneElement(render, { ref, ...sharedProps } as React.Attributes & Record<string, unknown>, children)
+      ) : (
+        <button ref={ref as React.RefObject<HTMLButtonElement>} {...sharedProps}>
+          {children ?? <ChevronLeftDoubleIcon width="18px" height="18px" />}
+        </button>
+      )}
     </li>
   )
 }

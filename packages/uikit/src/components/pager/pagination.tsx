@@ -122,23 +122,16 @@ export function usePager(): PagerContextType {
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // First, Previous, Next, Last and Page number buttons
 
-// Define the ref type based on asChild prop
-export type RefType = React.Ref<HTMLButtonElement> | React.Ref<HTMLElement>
-
-// Your existing types...
-type AsButton = { asChild?: false } & React.ComponentRef<'button'>
-
-// Or AsSlot
-interface AsSlot {
-  asChild?: true
-}
+// Define the ref type
+export type RefType = HTMLButtonElement | HTMLElement
 
 export type PagerButtonProps = {
   className?: string
   disabled?: boolean
   children?: React.ReactNode
+  render?: React.ReactElement
   onClick?: React.ReactEventHandler<Element> | undefined
-} & (AsButton | AsSlot)
+}
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Pager container component

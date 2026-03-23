@@ -14,7 +14,7 @@ In addition to our thoughts above, this kit is built around the philosophy of ad
 
 Having lived through a full generation of 'all-in-one' and difficult to override themed UI kits like Bootstrap and Material UI, the trend towards composable headless (unstyled) component libraries is a welcome one - and one that forms the basis of this kit. 
 
-Many of the current components are built on Radix UI. The great thing about wrapping these components in a client-consumable interface and library, is that in theory at least, the consumer of our kit's components won't have to worry about implementation details, or migration from Radix UI to Base UI or other. The 'contract' and core styling semantics will never change.
+Many of the current components are now built on Base UI. The great thing about wrapping these components in a client-consumable interface and library, is that in theory at least, the consumer of our kit's components won't have to worry about implementation details, or migration from Base UI or other another library. The 'contract' and core styling semantics will never change.
 
 ## Design Goals
 

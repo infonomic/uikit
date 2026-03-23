@@ -1,42 +1,40 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import type React from 'react'
 
-import React from 'react'
-
-import type { Meta } from '@storybook/react-vite'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Button } from '../button/button.js'
-import { Toast as ToastComponent } from './toast.js'
+import { useToastManager } from './toast.js'
 
-export const Toast = (): React.JSX.Element => {
-  const [toast, setToast] = React.useState(false)
+function ToastDemo(): React.JSX.Element {
+  const toastManager = useToastManager()
 
   const handleOpenToastClick = (): void => {
-    setToast(!toast)
+    toastManager.add({
+      title: 'Note',
+      description:
+        'This is a test Toast notification that should appear when the button is clicked.',
+      data: {
+        intent: 'success',
+        iconType: 'success',
+        icon: true,
+        close: true,
+      },
+    })
   }
 
   return (
     <div style={{ maxWidth: '600px', margin: '2rem 0' }}>
       <Button onClick={handleOpenToastClick}>Open Toast</Button>
-      <ToastComponent
-        title="Note"
-        iconType="success"
-        intent="success"
-        position="bottom-right"
-        message="This is a test Toast modal that should appear when the button is clicked."
-        open={toast}
-        onOpenChange={setToast}
-      />
     </div>
   )
 }
 
-const meta: Meta<typeof Toast> = {
-  /* 👇 The title prop is optional.
-   * See https://storybook.js.org/docs/react/configure/overview#configure-story-loading
-   * to learn how to generate automatic titles
-   */
+export const Toast: StoryObj = {
+  render: () => <ToastDemo />,
+}
+
+const meta: Meta = {
   title: 'Components/Toast',
-  component: ToastComponent,
 }
 
 export default meta

@@ -7,13 +7,13 @@ infonomic-components;
 
 @layer infonomic-components {
 
-  .content,
-  :global(.infonomic-select-content) {
+  .positioner,
+  :global(.infonomic-select-positioner) {
     z-index: 50;
   }
 
-  .viewport,
-  :global(.infonomic-select-viewport) {
+  .popup,
+  :global(.infonomic-select-popup) {
     z-index: 50;
     margin-top: 2px;
     border: 1px solid var(--surface-panel-border);
@@ -23,33 +23,33 @@ infonomic-components;
     padding: 6px;
   }
 
-  .viewport-xs {
+  .popup-xs {
     padding: 4px;
   }
 
-  .viewport-sm {
+  .popup-sm {
     padding: 4px;
   }
 
-  .viewport-md {
+  .popup-md {
     padding: 6px;
   }
 
-  .viewport-lg {
+  .popup-lg {
     padding: 6px;
   }
 
-  .viewport-xl {
+  .popup-xl {
     padding: 8px;
   }
 
-  .group,
-  :global(.infonomic-select-group) {
+  .list,
+  :global(.infonomic-select-list) {
     z-index: 50;
   }
 
-  .scroll-button,
-  :global(.infonomic-select-scroll-button) {
+  .scroll-arrow,
+  :global(.infonomic-select-scroll-arrow) {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -101,7 +101,7 @@ infonomic-components;
   }
 
   /* size variants — treat current values as 'md' */
-  .viewport-xs .select-item {
+  .popup-xs .select-item {
     font-size: 0.75rem;
     height: 24px;
     padding-right: 28px;
@@ -109,11 +109,11 @@ infonomic-components;
     border-radius: 4px;
   }
 
-  .viewport-xs .select-item-indicator {
+  .popup-xs .select-item-indicator {
     width: 20px;
   }
 
-  .viewport-sm .select-item {
+  .popup-sm .select-item {
     font-size: 0.875rem;
     height: 28px;
     padding-right: 30px;
@@ -121,13 +121,13 @@ infonomic-components;
     border-radius: 5px;
   }
 
-  .viewport-sm .select-item-indicator {
+  .popup-sm .select-item-indicator {
     width: 22px;
   }
 
-  /* .viewport-md — inherits base .select-item values */
+  /* .popup-md — inherits base .select-item values */
 
-  .viewport-lg .select-item {
+  .popup-lg .select-item {
     font-size: 1.125rem;
     height: 34px;
     padding-right: 32px;
@@ -135,11 +135,11 @@ infonomic-components;
     border-radius: 6px;
   }
 
-  .viewport-lg .select-item-indicator {
+  .popup-lg .select-item-indicator {
     width: 24px;
   }
 
-  .viewport-xl .select-item {
+  .popup-xl .select-item {
     font-size: 1.25rem;
     height: 40px;
     padding-right: 36px;
@@ -147,7 +147,7 @@ infonomic-components;
     border-radius: 8px;
   }
 
-  .viewport-xl .select-item-indicator {
+  .popup-xl .select-item-indicator {
     width: 28px;
   }
 }

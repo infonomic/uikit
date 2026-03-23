@@ -1,6 +1,6 @@
-import { ChevronDownIcon } from '@radix-ui/react-icons'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
+import { ChevronDownIcon } from '../../icons/chevron-down-icon.js'
 import { Accordion as AccordionComponent } from './accordion.js'
 
 const meta: Meta = {

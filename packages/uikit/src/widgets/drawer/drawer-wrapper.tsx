@@ -4,11 +4,11 @@
 import type React from 'react'
 import { useEffect } from 'react'
 
-import { useFocusTrap } from '@mantine/hooks'
 import cx from 'classnames'
 import type { HTMLMotionProps } from 'motion/react'
 import { m } from 'motion/react'
 
+import { useFocusTrap } from '../../hooks/use-focus-trap/index.js'
 import styles from './drawer.module.css'
 
 export interface DrawerWrapperProps extends HTMLMotionProps<'div'> {

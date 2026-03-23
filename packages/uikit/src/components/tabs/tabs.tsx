@@ -2,8 +2,8 @@
 
 import type * as React from 'react'
 
+import { Tabs as TabsPrimitive } from '@base-ui/react/tabs'
 import cx from 'classnames'
-import { Tabs as TabsPrimitive } from 'radix-ui'
 
 import styles from './tabs.module.css'
 
@@ -11,8 +11,8 @@ const Tabs = ({
   ref,
   className,
   ...props
-}: React.ComponentPropsWithoutRef<typeof TabsPrimitive.Root> & {
-  ref?: React.RefObject<React.ComponentRef<typeof TabsPrimitive.Root>>
+}: React.ComponentProps<typeof TabsPrimitive.Root> & {
+  ref?: React.RefObject<HTMLDivElement>
 }) => (
   <TabsPrimitive.Root
     ref={ref}
@@ -20,14 +20,14 @@ const Tabs = ({
     {...props}
   />
 )
-Tabs.displayName = TabsPrimitive.Root.displayName
+Tabs.displayName = 'Tabs'
 
 const TabsList = ({
   ref,
   className,
   ...props
-}: React.ComponentPropsWithoutRef<typeof TabsPrimitive.List> & {
-  ref?: React.RefObject<React.ComponentRef<typeof TabsPrimitive.List>>
+}: React.ComponentProps<typeof TabsPrimitive.List> & {
+  ref?: React.RefObject<HTMLDivElement>
 }) => (
   <TabsPrimitive.List
     ref={ref}
@@ -35,38 +35,39 @@ const TabsList = ({
     {...props}
   />
 )
-TabsList.displayName = TabsPrimitive.List.displayName
+TabsList.displayName = 'TabsList'
 
 const TabsTrigger = ({
   ref,
   className,
   ...props
-}: React.ComponentPropsWithoutRef<typeof TabsPrimitive.Trigger> & {
-  ref?: React.RefObject<React.ComponentRef<typeof TabsPrimitive.Trigger>>
+}: React.ComponentProps<typeof TabsPrimitive.Tab> & {
+  ref?: React.RefObject<HTMLButtonElement>
 }) => (
-  <TabsPrimitive.Trigger
+  <TabsPrimitive.Tab
     ref={ref}
     className={cx(styles['tabs-trigger'], 'infonomic-tabs-trigger', className)}
     {...props}
   />
 )
-TabsTrigger.displayName = TabsPrimitive.Trigger.displayName
+TabsTrigger.displayName = 'TabsTrigger'
 
 const TabsContent = ({
   ref,
   className,
+  keepMounted = true,
   ...props
-}: React.ComponentPropsWithoutRef<typeof TabsPrimitive.Content> & {
-  ref?: React.RefObject<React.ComponentRef<typeof TabsPrimitive.Content>>
+}: React.ComponentProps<typeof TabsPrimitive.Panel> & {
+  ref?: React.RefObject<HTMLDivElement>
 }) => (
-  <TabsPrimitive.Content
+  <TabsPrimitive.Panel
     ref={ref}
-    forceMount={true}
+    keepMounted={keepMounted}
     className={cx(styles['tabs-content'], 'infonomic-tabs-content', className)}
     {...props}
   />
 )
-TabsContent.displayName = TabsPrimitive.Content.displayName
+TabsContent.displayName = 'TabsContent'
 
 Tabs.List = TabsList
 Tabs.Trigger = TabsTrigger

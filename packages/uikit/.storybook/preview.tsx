@@ -8,8 +8,8 @@ import '../src/styles/styles.css'
 import '../src/styles/typography.css'
 
 import { withThemeByClassName } from '@storybook/addon-themes'
-import { Toast as ToastPrimitive } from 'radix-ui'
 
+import { ToastProvider, ToastViewport } from '../src/components/notifications/toast'
 import { ThemeProvider } from '../src/theme/theme-provider'
 import { DrawerProvider } from '../src/widgets/drawer/drawer-context'
 
@@ -18,7 +18,7 @@ const globalDecorator = (StoryFn, context) => {
   return (
     <ThemeProvider theme={theme}>
       <DrawerProvider>
-        <ToastPrimitive.Provider swipeDirection="right" duration={5000}>
+        <ToastProvider timeout={5000}>
           <div
             className="background"
             style={{
@@ -40,8 +40,8 @@ const globalDecorator = (StoryFn, context) => {
             </div>
             <StoryFn />
           </div>
-          <ToastPrimitive.Viewport className="toast-viewport" />
-        </ToastPrimitive.Provider>
+          <ToastViewport position="bottom-right" />
+        </ToastProvider>
       </DrawerProvider>
     </ThemeProvider>
   )

@@ -1,11 +1,10 @@
 'use client'
 
-import type React from 'react'
+import React from 'react'
 
-import { ChevronRightIcon } from '@radix-ui/react-icons'
-import { Slot } from '@radix-ui/react-slot'
 import cx from 'classnames'
 
+import { ChevronRightIcon } from '../../icons/chevron-right-icon.js'
 import { usePager } from './pagination'
 import styles from './pagination.module.css'
 import type { PagerButtonProps, RefType } from './pagination'
@@ -19,36 +18,38 @@ export const NextButton = ({
   className,
   disabled,
   page,
-  asChild,
+  render,
   children,
   ...rest
 }: NextButtonProps & {
   ref?: React.RefObject<RefType>
 }) => {
-  const Comp = asChild != null ? Slot : ('button' as React.ElementType)
   const { variant, showLastButton } = usePager()
 
-  const aria = disabled ? { 'aria-disabled': true } : { 'aria-label': 'Next' }
+  const sharedProps = {
+    className: cx(
+      styles['next-button'],
+      [styles[variant]],
+      { [styles['rounded-right']]: showLastButton == null || showLastButton === false },
+      'pagination-next',
+      className
+    ),
+    disabled,
+    title: 'Next',
+    'data-testid': 'pagination-next',
+    ...(disabled ? { 'aria-disabled': true } : { 'aria-label': 'Next' }),
+    ...rest,
+  }
 
   return (
     <li className={styles['mobile-toggle']}>
-      <Comp
-        ref={ref}
-        className={cx(
-          styles['next-button'],
-          [styles[variant]],
-          { [styles['rounded-right']]: showLastButton == null || showLastButton === false },
-          'pagination-next',
-          className
-        )}
-        disabled={disabled}
-        title="Next"
-        data-testid="pagination-next"
-        {...aria}
-        {...rest}
-      >
-        {(asChild ?? false) ? children : <ChevronRightIcon />}
-      </Comp>
+      {render ? (
+        React.cloneElement(render, { ref, ...sharedProps } as React.Attributes & Record<string, unknown>, children)
+      ) : (
+        <button ref={ref as React.RefObject<HTMLButtonElement>} {...sharedProps}>
+          {children ?? <ChevronRightIcon width="18px" height="18px" />}
+        </button>
+      )}
     </li>
   )
 }

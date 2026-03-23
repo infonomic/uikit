@@ -1,7 +1,7 @@
 'use client'
 
 /**
- * @file Calendar component using react-day-picker and radix-ui
+ * @file Calendar component using react-day-picker and @base-ui/react
  * @see https://github.com/Maliksidk19/shadcn-datetime-picker/
  * Portions copyright (c) 2023 Maliksidk19 licensed under the MIT
  * license found in the LICENSE file in the root directory of this source tree.
@@ -10,8 +10,8 @@
 
 import * as React from 'react'
 
+import { Select as SelectPrimitive } from '@base-ui/react/select'
 import cx from 'classnames'
-import { Select as SelectPrimitive } from 'radix-ui'
 import {
   DayPicker,
   type DayPickerProps,
@@ -87,48 +87,58 @@ export function Calendar({
   const Dropdown = React.useCallback(
     ({ value, onChange, options }: React.ComponentProps<typeof DropDownDayPicker>) => {
       const selected = options?.find((option) => option.value === value)
-      const handleChange = (value: string) => {
+      const handleChange = (newValue: string) => {
         const changeEvent = {
-          target: { value },
+          target: { value: newValue },
         } as React.ChangeEvent<HTMLSelectElement>
         onChange?.(changeEvent)
       }
       return (
         <SelectPrimitive.Root
           value={value?.toString()}
-          onValueChange={(value) => {
-            handleChange(value)
+          onValueChange={(newValue) => {
+            handleChange(newValue as string)
           }}
         >
-          <SelectPrimitive.Trigger asChild>
-            <Button
-              variant="outlined"
-              size="sm"
-              className={cx(styles['select-trigger'], props.selectTriggerClassName)}
-            >
-              <SelectPrimitive.Value>{selected?.label}</SelectPrimitive.Value>
-              <ChevronsUpDown height="18px" width="18px" svgClassName={styles['select-chevrons']} />
-            </Button>
-          </SelectPrimitive.Trigger>
-          <SelectPrimitive.Content
-            className={styles['select-content']}
-            position="popper"
-            sideOffset={4}
-            align="center"
+          <SelectPrimitive.Trigger
+            render={
+              <Button
+                variant="outlined"
+                size="sm"
+                className={cx(styles['select-trigger'], props.selectTriggerClassName)}
+              />
+            }
           >
-            <ScrollArea className={cx(styles['scroll-area'])}>
-              {options?.map(({ value, label, disabled }, id) => (
-                <SelectPrimitive.Item
-                  className={styles['select-item']}
-                  key={`${value}-${id}`}
-                  value={value?.toString()}
-                  disabled={disabled}
-                >
-                  {label}
-                </SelectPrimitive.Item>
-              ))}
-            </ScrollArea>
-          </SelectPrimitive.Content>
+            <SelectPrimitive.Value>{() => selected?.label}</SelectPrimitive.Value>
+            <SelectPrimitive.Icon>
+              <ChevronsUpDown height="18px" width="18px" svgClassName={styles['select-chevrons']} />
+            </SelectPrimitive.Icon>
+          </SelectPrimitive.Trigger>
+          <SelectPrimitive.Portal>
+            <SelectPrimitive.Positioner
+              className={styles['select-content']}
+              sideOffset={4}
+              align="center"
+              alignItemWithTrigger={false}
+            >
+              <SelectPrimitive.Popup>
+                <ScrollArea className={cx(styles['scroll-area'])}>
+                  <SelectPrimitive.List>
+                    {options?.map(({ value, label, disabled }, id) => (
+                      <SelectPrimitive.Item
+                        className={styles['select-item']}
+                        key={`${value}-${id}`}
+                        value={value?.toString()}
+                        disabled={disabled}
+                      >
+                        <SelectPrimitive.ItemText>{label}</SelectPrimitive.ItemText>
+                      </SelectPrimitive.Item>
+                    ))}
+                  </SelectPrimitive.List>
+                </ScrollArea>
+              </SelectPrimitive.Popup>
+            </SelectPrimitive.Positioner>
+          </SelectPrimitive.Portal>
         </SelectPrimitive.Root>
       )
     },

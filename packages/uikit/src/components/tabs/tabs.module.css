@@ -1,11 +1,12 @@
 @layer infonomic-base,
-  infonomic-functional,
-  infonomic-utilities,
-  infonomic-theme,
-  infonomic-typography,
-  infonomic-components;
+infonomic-functional,
+infonomic-utilities,
+infonomic-theme,
+infonomic-typography,
+infonomic-components;
 
 @layer infonomic-components {
+
   .tabs-root,
   :global(.infonomic-tabs-root) {
     display: flex;
@@ -38,18 +39,8 @@
     white-space: nowrap;
     width: 100%;
 
-    /* &[data-state="active"] {
-      color: var(----primary-600);
-      box-shadow:
-        inset 0 -1px 0 0 currentColor,
-        0 1px 0 0 currentColor;
-    } */
-
     &:focus {
       position: relative;
-      /* NOTE: will override ring shadows for buttons */
-      /* Will revisit as we're going to rewrite our uikit tabs component */
-      /* box-shadow: 0 0 0 2px black; */
     }
   }
 
@@ -59,7 +50,7 @@
     padding: 6px;
     outline: none;
 
-    &[data-state="inactive"] {
+    &[data-hidden] {
       display: none;
     }
 

@@ -1,8 +1,7 @@
 'use client'
 
-import type React from 'react'
+import React from 'react'
 
-import { Slot } from '@radix-ui/react-slot'
 import cx from 'classnames'
 
 import { useMediaQuery } from '../../hooks/use-media-query'
@@ -22,7 +21,7 @@ export const NumberButton = ({
   className,
   disabled,
   activeClassName,
-  asChild,
+  render,
   children,
   ...rest
 }: NumberButtonProps & {
@@ -39,43 +38,45 @@ export const NumberButton = ({
     hidePrevButton,
   } = usePager()
 
-  const Comp = asChild != null ? Slot : ('button' as React.ElementType)
-
   const active = page === currentPage
+
+  const sharedProps = {
+    className: cx(
+      styles['number-button'],
+      [styles[variant]],
+      { [styles.active]: active === true, active: active === true },
+      {
+        [styles['rounded-left']]:
+          page === 1 && ((!(showFirstButton ?? false) && (hidePrevButton ?? false)) || mobile),
+      },
+      {
+        [styles['rounded-right']]:
+          page === count &&
+          ((!(showLastButton ?? false) && (hideNextButton ?? false)) || mobile),
+      },
+      'pagination-number',
+      className
+    ),
+    'data-testid':
+      cx({
+        'pager-number-active': currentPage === page,
+        [`pager-number-${page}`]: currentPage !== page,
+      }).length > 0 || undefined,
+    disabled,
+    'aria-current': currentPage === page,
+    'aria-label': currentPage === page ? `Current Page, Page ${page}` : `Page ${page}`,
+    ...rest,
+  }
 
   return (
     <li className="flex">
-      <Comp
-        ref={ref}
-        className={cx(
-          styles['number-button'],
-          [styles[variant]],
-          { [styles.active]: active === true, active: active === true },
-          {
-            [styles['rounded-left']]:
-              page === 1 && ((!(showFirstButton ?? false) && (hidePrevButton ?? false)) || mobile),
-          },
-          {
-            [styles['rounded-right']]:
-              page === count &&
-              ((!(showLastButton ?? false) && (hideNextButton ?? false)) || mobile),
-          },
-          'pagination-number',
-          className
-        )}
-        data-testid={
-          cx({
-            'pager-number-active': currentPage === page,
-            [`pager-number-${page}`]: currentPage !== page,
-          }).length > 0 || undefined
-        }
-        disabled={disabled}
-        aria-current={currentPage === page}
-        aria-label={currentPage === page ? `Current Page, Page ${page}` : `Page ${page}`}
-        {...rest}
-      >
-        {(asChild ?? false) ? children : page}
-      </Comp>
+      {render ? (
+        React.cloneElement(render, { ref, ...sharedProps } as React.Attributes & Record<string, unknown>, children)
+      ) : (
+        <button ref={ref as React.RefObject<HTMLButtonElement>} {...sharedProps}>
+          {children ?? page}
+        </button>
+      )}
     </li>
   )
 }

@@ -2,9 +2,8 @@
 
 import React from 'react'
 
-import { useFocusTrap, useMergedRef } from '@mantine/hooks'
+import { Toast as ToastPrimitive } from '@base-ui/react/toast'
 import cx from 'classnames'
-import { Toast as ToastPrimitive } from 'radix-ui'
 
 import { CloseIcon } from '../../icons/close-icon'
 import { DangerIcon } from '../../icons/danger-icon'
@@ -13,7 +12,7 @@ import { SuccessIcon } from '../../icons/success-icon'
 import { WarningIcon } from '../../icons/warning-icon'
 import { Button } from '../button/button.js'
 import styles from './toast.module.css'
-import type { IconType, Intent, OnOpenChange, Position } from './@types/toast.js'
+import type { Position, ToastData } from './@types/toast.js'
 
 const toastIcons = {
   success: SuccessIcon,
@@ -22,105 +21,110 @@ const toastIcons = {
   danger: DangerIcon,
 }
 
-export interface ToastProps extends React.InputHTMLAttributes<HTMLLIElement> {
-  intent?: Intent
+// Re-export Base UI toast utilities
+export const useToastManager = ToastPrimitive.useToastManager<ToastData>
+export const createToastManager = ToastPrimitive.createToastManager<ToastData>
+
+export interface ToastProviderProps {
+  children: React.ReactNode
+  timeout?: number
+  limit?: number
+  toastManager?: ReturnType<typeof createToastManager>
+}
+
+export function ToastProvider({
+  children,
+  timeout = 5000,
+  limit = 3,
+  toastManager,
+}: ToastProviderProps) {
+  return (
+    <ToastPrimitive.Provider timeout={timeout} limit={limit} toastManager={toastManager}>
+      {children}
+    </ToastPrimitive.Provider>
+  )
+}
+
+export interface ToastViewportProps {
   position?: Position
-  title: string
-  message: string
-  icon?: boolean
-  iconType?: IconType
-  close?: boolean
-  open: boolean
-  onOpenChange: OnOpenChange
   className?: string
 }
 
-export const ToastProvider = ToastPrimitive.Provider
-export const ToastViewport = ToastPrimitive.Viewport
+export function ToastViewport({ position = 'bottom-right', className }: ToastViewportProps) {
+  const { toasts } = ToastPrimitive.useToastManager<ToastData>()
+  return (
+    <ToastPrimitive.Portal>
+      <ToastPrimitive.Viewport
+        className={cx('infonomic-toast-viewport', styles.viewport, styles[position], className)}
+      >
+        {toasts.map((toast) => (
+          <ToastItem key={toast.id} toast={toast} />
+        ))}
+      </ToastPrimitive.Viewport>
+    </ToastPrimitive.Portal>
+  )
+}
 
-// Important!: see comments in app/ui/components/notifications/styles/toast.ts regarding toast position
-
-export const Toast = function Toast({
-  ref,
-  intent = 'success',
-  position = 'bottom-right',
-  title,
-  message,
-  icon = true,
-  iconType = 'success',
-  close = true,
-  open,
-  onOpenChange,
-  className,
-}: ToastProps & {
-  ref?: React.RefObject<HTMLLIElement>
+function ToastItem({
+  toast,
+}: {
+  toast: ToastPrimitive.Root.ToastObject<ToastData>
 }) {
+  const {
+    intent = 'success',
+    iconType = 'success',
+    icon = true,
+    close = true,
+  } = toast.data ?? {}
   const eventDateRef = React.useRef(new Date())
-  const timerRef = React.useRef(0)
-  const focusTrapRef = useFocusTrap()
-  const mergedRef = useMergedRef(ref, focusTrapRef)
   const Icon = toastIcons[iconType as keyof typeof toastIcons]
 
-  const handleOnClose = (): void => {
-    if (onOpenChange != null) onOpenChange(false)
-  }
-
-  const _handleOnChange = (open: boolean): void => {
-    console.log('handleOnChange', { open })
-    if (open) {
-      timerRef.current = window.setTimeout(() => {
-        onOpenChange(false)
-      }, 5000)
-    } else {
-      window.clearTimeout(timerRef.current)
-    }
-  }
+  const swipeDirection = React.useMemo<
+    React.ComponentProps<typeof ToastPrimitive.Root>['swipeDirection']
+  >(() => ['down', 'right'], [])
 
   return (
     <ToastPrimitive.Root
-      ref={mergedRef}
-      className={cx('infonomic-toast', styles.root, styles[position])}
-      open={open}
-      onOpenChange={onOpenChange}
+      toast={toast}
+      swipeDirection={swipeDirection}
+      className={cx('infonomic-toast', styles.root)}
     >
-      <div className={cx('infonomic-toast-header', styles.header)}>
-        <time dateTime={eventDateRef.current.toISOString()} className="text-sm">
-          {new Intl.DateTimeFormat('default', {
-            hour12: true,
-            hour: 'numeric',
-            minute: 'numeric',
-          }).format(eventDateRef.current)}
-        </time>
-        {close === true && (
-          <ToastPrimitive.Close aria-label="Close" asChild>
-            <Button
-              intent={intent}
-              tabIndex={0}
-              variant="filled"
-              aria-label="Close"
-              className={cx('infonomic-toast-close', styles.close)}
-              type="button"
-              onClick={handleOnClose}
+      <ToastPrimitive.Content className={cx('infonomic-toast-content', styles.content)}>
+        <div className={cx('infonomic-toast-header', styles.header)}>
+          <time dateTime={eventDateRef.current.toISOString()} className="text-sm">
+            {new Intl.DateTimeFormat('default', {
+              hour12: true,
+              hour: 'numeric',
+              minute: 'numeric',
+            }).format(eventDateRef.current)}
+          </time>
+          {close && (
+            <ToastPrimitive.Close
+              render={
+                <Button
+                  intent={intent}
+                  tabIndex={0}
+                  variant="filled"
+                  aria-label="Close"
+                  className={cx('infonomic-toast-close', styles.close)}
+                  type="button"
+                />
+              }
             >
               <CloseIcon height="12px" width="12px" />
-            </Button>
-          </ToastPrimitive.Close>
-        )}
-      </div>
-      <ToastPrimitive.Title className={cx('infonomic-toast-title', styles.title)}>
-        {icon != null && <Icon />}
-        {title}
-      </ToastPrimitive.Title>
-      <ToastPrimitive.Description className={cx('infonomic-toast-description', styles.description)}>
-        {message}
-      </ToastPrimitive.Description>
-      {/* <ToastPrimitive.Action className={styles.action} asChild altText="Goto schedule to undo">
-        <div>
-          <Button intent="primary" tabIndex={0} size="sm" variant="filled">
-            Undo
-          </Button>
+            </ToastPrimitive.Close>
+          )}
         </div>
-      </ToastPrimitive.Action> */}
+        <ToastPrimitive.Title className={cx('infonomic-toast-title', styles.title)}>
+          {icon && Icon && <Icon />}
+          {toast.title}
+        </ToastPrimitive.Title>
+        <ToastPrimitive.Description
+          className={cx('infonomic-toast-description', styles.description)}
+        >
+          {toast.description}
+        </ToastPrimitive.Description>
+      </ToastPrimitive.Content>
     </ToastPrimitive.Root>
   )
 }

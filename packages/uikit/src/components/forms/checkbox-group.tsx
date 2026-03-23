@@ -50,7 +50,7 @@ export const CheckboxGroup: React.FC<CheckboxGroupProps> = ({
     }
   }, [controlledValue, defaultValues])
 
-  const handleCheckboxChange = (id: string, checked: boolean | 'indeterminate') => {
+  const handleCheckboxChange = (id: string, checked: boolean) => {
     const s = [...selected]
     if (checked === true) {
       if (s.includes(id) === false) {

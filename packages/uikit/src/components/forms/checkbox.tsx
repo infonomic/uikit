@@ -2,8 +2,8 @@
 
 import type * as React from 'react'
 
+import { Checkbox as CheckboxPrimitive } from '@base-ui/react/checkbox'
 import cx from 'classnames'
-import { Checkbox as CheckboxPrimitive, Label as LabelPrimitive } from 'radix-ui'
 
 import { CheckIcon } from '../../icons/check-icon'
 import styles from './checkbox.module.css'
@@ -11,7 +11,7 @@ import { ErrorText } from './error-text.js'
 import { HelpText } from './help-text.js'
 import type { Intent, Size, Variant } from './@types/checkbox.js'
 
-export interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface Props {
   id: string
   name: string
   label?: string
@@ -20,6 +20,7 @@ export interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   intent?: Intent
   reverse?: boolean
   checked?: boolean
+  disabled?: boolean
   className?: string
   checkBoxClasses?: string
   containerClasses?: string
@@ -28,7 +29,9 @@ export interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   error?: boolean
   helpText?: string
   errorText?: string
-  onCheckedChange?: (checked: boolean | 'indeterminate') => void
+  onCheckedChange?: React.ComponentProps<typeof CheckboxPrimitive.Root>['onCheckedChange']
+  onClick?: React.MouseEventHandler
+  'aria-label'?: string
 }
 
 export const Checkbox = function Checkbox({
@@ -63,6 +66,8 @@ export const Checkbox = function Checkbox({
           ref={ref}
           id={id}
           name={name}
+          nativeButton
+          render={<button type="button" />}
           className={cx(
             'infonomic-checkbox',
             `infonomic-checkbox-${variant}`,
@@ -78,7 +83,7 @@ export const Checkbox = function Checkbox({
           {...rest}
         >
           <CheckboxPrimitive.Indicator
-            forceMount
+            keepMounted
             className={cx('infonomic-checkbox-indicator', styles.indicator)}
           >
             <CheckIcon className={styles.icon} />
@@ -86,12 +91,12 @@ export const Checkbox = function Checkbox({
         </CheckboxPrimitive.Root>
 
         {label != null && (
-          <LabelPrimitive.Label
+          <label
             htmlFor={id}
             className={cx('infonomic-checkbox-label', styles.label, labelClasses)}
           >
             {label}
-          </LabelPrimitive.Label>
+          </label>
         )}
       </div>
       {error ? (

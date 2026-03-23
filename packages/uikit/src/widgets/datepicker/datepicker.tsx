@@ -1,7 +1,7 @@
 'use client'
 
 /**
- * @file DatePicker component using react-day-picker and radix-ui
+ * @file DatePicker component using react-day-picker and @base-ui/react
  * Portions copyright (c) 2023 Maliksidk19 licensed under the MIT
  * license found in the LICENSE file in the root directory of this source tree.
  * of https://github.com/Maliksidk19/shadcn-datetime-picker/
@@ -10,9 +10,9 @@
 import type React from 'react'
 import { useEffect, useRef, useState } from 'react'
 
+import { Popover } from '@base-ui/react/popover'
 import cx from 'classnames'
 import { format } from 'date-fns'
-import { Popover } from 'radix-ui'
 
 import { Button } from '../../components/button/button.js'
 import { IconButton } from '../../components/button/icon-button.js'
@@ -70,8 +70,8 @@ export function DatePicker({
   inputWrapperClassName,
   containerClassName,
   contentClassName,
-  onClear = () => {},
-  onDateChange = () => {},
+  onClear = () => { },
+  onDateChange = () => { },
   validatorFn,
   helpText,
   errorText,
@@ -198,152 +198,154 @@ export function DatePicker({
       </div>
 
       <Popover.Root open={isOpen} onOpenChange={setIsOpen}>
-        <Popover.Trigger asChild>
-          <div style={{ position: 'relative', height: '1px' }}>
-            <span className="sr-only">Select date</span>
-          </div>
+        <Popover.Trigger
+          nativeButton={false}
+          render={<div style={{ position: 'relative', height: '1px' }} />}
+        >
+          <span className="sr-only">Select date</span>
         </Popover.Trigger>
         <Popover.Portal>
-          <Popover.Content
-            sideOffset={5}
-            className={cx('infonomic-datepicker-content', styles.content, contentClassName)}
-          >
-            <div
-              className={cx(
-                'infonomic-datepicker-content-components',
-                styles['content-components']
-              )}
+          <Popover.Positioner sideOffset={5}>
+            <Popover.Popup
+              className={cx('infonomic-datepicker-content', styles.content, contentClassName)}
             >
-              <div ref={calendarRef}>
-                <Calendar
-                  mode="single"
-                  required
-                  captionLayout="dropdown"
-                  selected={date ?? undefined}
-                  month={month ?? undefined}
-                  onMonthChange={setMonth}
-                  onSelect={(selectedDate: Date) => {
-                    if (selectedDate) {
-                      const [hours, minutes] = time.split(':')
-                      selectedDate.setHours(
-                        Number.parseInt(hours, 10),
-                        Number.parseInt(minutes, 10)
-                      )
-                      setDate(selectedDate)
-                      setMonth(selectedDate)
-                      handleOnDateChange(selectedDate)
-                    }
-                  }}
-                  startMonth={new Date(new Date().getFullYear() - yearsInPast, 0)}
-                  endMonth={new Date(new Date().getFullYear() + yearsInFuture, 0)}
+              <div
+                className={cx(
+                  'infonomic-datepicker-content-components',
+                  styles['content-components']
+                )}
+              >
+                <div ref={calendarRef}>
+                  <Calendar
+                    mode="single"
+                    required
+                    captionLayout="dropdown"
+                    selected={date ?? undefined}
+                    month={month ?? undefined}
+                    onMonthChange={setMonth}
+                    onSelect={(selectedDate: Date) => {
+                      if (selectedDate) {
+                        const [hours, minutes] = time.split(':')
+                        selectedDate.setHours(
+                          Number.parseInt(hours, 10),
+                          Number.parseInt(minutes, 10)
+                        )
+                        setDate(selectedDate)
+                        setMonth(selectedDate)
+                        handleOnDateChange(selectedDate)
+                      }
+                    }}
+                    startMonth={new Date(new Date().getFullYear() - yearsInPast, 0)}
+                    endMonth={new Date(new Date().getFullYear() + yearsInFuture, 0)}
                   // TODO: add props
                   // disabled={(date) =>
                   //   Number(date) < Date.now() - 1000 * 60 * 60 * 24 ||
                   //   Number(date) > Date.now() + 1000 * 60 * 60 * 24 * 30
                   // }
-                />
-              </div>
-              {mode === 'datetime' && (
-                <div className={styles['time-picker-container']}>
-                  <ScrollArea className={styles['time-picker-scroll-area']}>
-                    <div className={styles['time-picker']}>
-                      {Array.from({ length: 96 }).map((_, i) => {
-                        const hour = Math.floor(i / 4)
-                          .toString()
-                          .padStart(2, '0')
-                        const minute = ((i % 4) * 15).toString().padStart(2, '0')
-                        const timeValue = `${hour}:${minute}`
-                        return (
-                          <Button
-                            key={i}
-                            size="sm"
-                            className={styles['time-picker-button']}
-                            variant="outlined"
-                            onClick={() => {
-                              setTime(timeValue)
-                              if (date) {
-                                const newDate = new Date(date.getTime())
-                                newDate.setHours(
-                                  Number.parseInt(hour, 10),
-                                  Number.parseInt(minute, 10),
-                                  0
-                                )
-                                setDate(newDate)
-                                handleOnDateChange(newDate)
-                              }
-                            }}
-                          >
-                            {timeValue}
-                          </Button>
-                        )
-                      })}
-                    </div>
-                  </ScrollArea>
+                  />
                 </div>
-              )}
-            </div>
-            <div
-              className={cx(
-                'infonomic-datepicker-status-and-actions',
-                styles['status-and-actions']
-              )}
-            >
-              <div className={cx('infonomic-datepicker-content-status', styles['content-status'])}>
-                {date ? format(date, mode === 'datetime' ? 'PPPp' : 'PPP') : 'No date selected'}
+                {mode === 'datetime' && (
+                  <div className={styles['time-picker-container']}>
+                    <ScrollArea className={styles['time-picker-scroll-area']}>
+                      <div className={styles['time-picker']}>
+                        {Array.from({ length: 96 }).map((_, i) => {
+                          const hour = Math.floor(i / 4)
+                            .toString()
+                            .padStart(2, '0')
+                          const minute = ((i % 4) * 15).toString().padStart(2, '0')
+                          const timeValue = `${hour}:${minute}`
+                          return (
+                            <Button
+                              key={i}
+                              size="sm"
+                              className={styles['time-picker-button']}
+                              variant="outlined"
+                              onClick={() => {
+                                setTime(timeValue)
+                                if (date) {
+                                  const newDate = new Date(date.getTime())
+                                  newDate.setHours(
+                                    Number.parseInt(hour, 10),
+                                    Number.parseInt(minute, 10),
+                                    0
+                                  )
+                                  setDate(newDate)
+                                  handleOnDateChange(newDate)
+                                }
+                              }}
+                            >
+                              {timeValue}
+                            </Button>
+                          )
+                        })}
+                      </div>
+                    </ScrollArea>
+                  </div>
+                )}
               </div>
               <div
-                className={cx('infonomic-datepicker-content-actions', styles['content-actions'])}
+                className={cx(
+                  'infonomic-datepicker-status-and-actions',
+                  styles['status-and-actions']
+                )}
               >
-                <div>
-                  <Button
-                    variant="outlined"
-                    size="sm"
-                    className={cx(
-                      'infonomic-datepicker-content-actions-button',
-                      styles['content-actions-button']
-                    )}
-                    onClick={() => {
-                      const today = new Date()
-                      setDate(today)
-                      setMonth(today)
-                      handleOnDateChange(today)
-                    }}
-                  >
-                    Today
-                  </Button>
+                <div className={cx('infonomic-datepicker-content-status', styles['content-status'])}>
+                  {date ? format(date, mode === 'datetime' ? 'PPPp' : 'PPP') : 'No date selected'}
                 </div>
-                <div style={{ display: 'flex', gap: 'var(--spacing-12)' }}>
-                  <Button
-                    size="sm"
-                    intent="noeffect"
-                    className={cx(
-                      'infonomic-datepicker-content-actions-button',
-                      styles['content-actions-button']
-                    )}
-                    onClick={() => {
-                      setIsOpen(false)
-                    }}
-                  >
-                    Cancel
-                  </Button>
-                  <Button
-                    variant="outlined"
-                    size="sm"
-                    className={cx(
-                      'infonomic-datepicker-content-actions-button',
-                      styles['content-actions-button']
-                    )}
-                    onClick={() => {
-                      setIsOpen(false)
-                      handleOnDateChange(date)
-                    }}
-                  >
-                    Select
-                  </Button>
+                <div
+                  className={cx('infonomic-datepicker-content-actions', styles['content-actions'])}
+                >
+                  <div>
+                    <Button
+                      variant="outlined"
+                      size="sm"
+                      className={cx(
+                        'infonomic-datepicker-content-actions-button',
+                        styles['content-actions-button']
+                      )}
+                      onClick={() => {
+                        const today = new Date()
+                        setDate(today)
+                        setMonth(today)
+                        handleOnDateChange(today)
+                      }}
+                    >
+                      Today
+                    </Button>
+                  </div>
+                  <div style={{ display: 'flex', gap: 'var(--spacing-12)' }}>
+                    <Button
+                      size="sm"
+                      intent="noeffect"
+                      className={cx(
+                        'infonomic-datepicker-content-actions-button',
+                        styles['content-actions-button']
+                      )}
+                      onClick={() => {
+                        setIsOpen(false)
+                      }}
+                    >
+                      Cancel
+                    </Button>
+                    <Button
+                      variant="outlined"
+                      size="sm"
+                      className={cx(
+                        'infonomic-datepicker-content-actions-button',
+                        styles['content-actions-button']
+                      )}
+                      onClick={() => {
+                        setIsOpen(false)
+                        handleOnDateChange(date)
+                      }}
+                    >
+                      Select
+                    </Button>
+                  </div>
                 </div>
               </div>
-            </div>
-          </Popover.Content>
+            </Popover.Popup>
+          </Popover.Positioner>
         </Popover.Portal>
       </Popover.Root>
     </div>

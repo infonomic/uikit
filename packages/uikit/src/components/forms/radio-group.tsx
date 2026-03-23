@@ -2,8 +2,9 @@
 
 import type React from 'react'
 
+import { Radio } from '@base-ui/react/radio'
+import { RadioGroup as RadioGroupPrimitive } from '@base-ui/react/radio-group'
 import cx from 'classnames'
-import { RadioGroup as RadioGroupPrimitive } from 'radix-ui'
 
 import styles from './radio-group.module.css'
 import type { Intent } from '../@types/shared'
@@ -22,24 +23,26 @@ export const RadioGroupItem = ({
   label,
   ref: forwardedRef,
   ...props
-}: RadioGroupPrimitive.RadioGroupItemProps & {
+}: Omit<React.ComponentProps<typeof Radio.Root>, 'value'> & {
   intent?: Intent
   className?: string
   id: string
   value: string
   label: string
-  ref?: React.RefObject<React.ComponentRef<'div'>>
+  ref?: React.RefObject<HTMLDivElement>
 }) => {
   return (
     <div ref={forwardedRef} className={styles['item-container']}>
-      <RadioGroupPrimitive.Item
+      <Radio.Root
         {...props}
         className={cx(styles.item, styles[intent])}
         value={value}
         id={id}
+        nativeButton
+        render={<button type="button" />}
       >
-        <RadioGroupPrimitive.Indicator className={styles.indicator} />
-      </RadioGroupPrimitive.Item>
+        <Radio.Indicator className={styles.indicator} />
+      </Radio.Root>
       <label className={styles.label} htmlFor={id}>
         {label}
       </label>
@@ -53,18 +56,17 @@ export const RadioGroup = ({
   direction = 'column',
   children,
   ...props
-}: RadioGroupPrimitive.RadioGroupProps & {
+}: React.ComponentProps<typeof RadioGroupPrimitive> & {
   direction?: 'row' | 'column'
   className?: string
   children: React.ReactNode
-  ref?: React.RefObject<React.ComponentRef<'div'>>
+  ref?: React.RefObject<HTMLDivElement>
 }) => (
-  <RadioGroupPrimitive.Root
+  <RadioGroupPrimitive
     ref={forwardedRef}
     className={cx('infonomic-radio-group', styles[direction], className)}
-    // aria-label="View density"
     {...props}
   >
     {children}
-  </RadioGroupPrimitive.Root>
+  </RadioGroupPrimitive>
 )

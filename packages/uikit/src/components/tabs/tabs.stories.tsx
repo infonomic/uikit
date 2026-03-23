@@ -27,14 +27,14 @@ export const Tabs = (): React.JSX.Element => (
   >
     <TabsComponent style={{ width: '400px', minHeight: '235px' }} defaultValue="detailsTab">
       <TabsComponent.List>
-        <TabsComponent.Trigger asChild value="detailsTab">
-          <Button size="sm">Details</Button>
+        <TabsComponent.Trigger value="detailsTab" render={<Button size="sm" />}>
+          Details
         </TabsComponent.Trigger>
-        <TabsComponent.Trigger asChild value="rolesTab">
-          <Button size="sm">Roles</Button>
+        <TabsComponent.Trigger value="rolesTab" render={<Button size="sm" />}>
+          Roles
         </TabsComponent.Trigger>
       </TabsComponent.List>
-      <TabsComponent.Content value="detailsTab" forceMount={true}>
+      <TabsComponent.Content value="detailsTab" keepMounted={true}>
         <p>Details tab content here. Some more text to make this tab content area a bit longer.</p>
         <p>Details tab content here. Some more text to make this tab content area a bit longer.</p>
       </TabsComponent.Content>

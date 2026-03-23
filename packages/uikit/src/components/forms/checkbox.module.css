@@ -38,15 +38,13 @@ infonomic-components;
     transition: all var(--transition-normal);
   }
 
-  .checkbox[data-state="checked"],
-  :global(.infonomic-checkbox)[data-state="checked"] {
+  .checkbox[data-checked],
+  :global(.infonomic-checkbox)[data-checked] {
     outline-color: var(--ring-color);
   }
 
-  .checkbox:disabled,
-  :global(.infonomic-checkbox):disabled,
-  .checkbox[disabled],
-  :global(.infonomic-checkbox)[disabled] {
+  .checkbox[data-disabled],
+  :global(.infonomic-checkbox)[data-disabled] {
     pointer-events: none;
   }
 
@@ -73,16 +71,16 @@ infonomic-components;
   }
 
   /* Style for the "checked" state — animation overrides the transition for bouncy entry */
-  .indicator[data-state="checked"] .icon,
-  :global(.infonomic-checkbox-indicator)[data-state="checked"] :global(.infonomic-checkbox-icon) {
+  .indicator[data-checked] .icon,
+  :global(.infonomic-checkbox-indicator)[data-checked] :global(.infonomic-checkbox-icon) {
     animation: checkBoxIn 0.3s cubic-bezier(0.25, 1.5, 0.5, 1) forwards;
     opacity: 1;
     transform: scale(1);
   }
 
   /* Style for the "unchecked" state — no animation, let the CSS transition handle the exit */
-  .indicator[data-state="unchecked"] .icon,
-  :global(.infonomic-checkbox-indicator)[data-state="unchecked"] :global(.infonomic-checkbox-icon) {
+  .indicator[data-unchecked] .icon,
+  :global(.infonomic-checkbox-indicator)[data-unchecked] :global(.infonomic-checkbox-icon) {
     opacity: 0;
     transform: scale(0.8);
   }
@@ -95,10 +93,8 @@ infonomic-components;
     color: var(--label-color);
   }
 
-  .checkbox:disabled~.label,
-  .checkbox[disabled]~.label,
-  :global(.infonomic-checkbox):disabled~ :global(.infonomic-checkbox-label),
-  :global(.infonomic-checkbox)[disabled]~ :global(.infonomic-checkbox-label) {
+  .checkbox[data-disabled]~.label,
+  :global(.infonomic-checkbox)[data-disabled]~ :global(.infonomic-checkbox-label) {
     pointer-events: none;
   }
 
@@ -168,8 +164,8 @@ infonomic-components;
     --checkbox-icon-color: white;
   }
 
-  .outlined[data-state="checked"],
-  :global(.infonomic-checkbox-outlined)[data-state="checked"] {
+  .outlined[data-checked],
+  :global(.infonomic-checkbox-outlined)[data-checked] {
     --ring-color: var(--checkbox-variant-outline-ring-color);
     background-color: var(--checkbox-variant-outlined);
   }
@@ -180,8 +176,8 @@ infonomic-components;
     --checkbox-icon-color: white;
   }
 
-  .filled[data-state="checked"],
-  :global(.infonomic-checkbox-filled)[data-state="checked"] {
+  .filled[data-checked],
+  :global(.infonomic-checkbox-filled)[data-checked] {
     --ring-color: var(--checkbox-variant-outline-ring-color);
   }
 

@@ -1,12 +1,13 @@
 'use client'
 
 import type React from 'react'
-import type { ComponentPropsWithoutRef } from 'react'
 
-import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from '@radix-ui/react-icons'
+import { Select as SelectPrimitive } from '@base-ui/react/select'
 import cx from 'classnames'
-import { Select as SelectPrimitive } from 'radix-ui'
 
+import { CheckIcon } from '../../icons/check-icon.js'
+import { ChevronDownIcon } from '../../icons/chevron-down-icon.js'
+import { ChevronUpIcon } from '../../icons/chevron-up-icon.js'
 import { Button } from '../button/button.js'
 import { HelpText } from './help-text.js'
 import styles from './select.module.css'
@@ -20,7 +21,7 @@ export interface SelectValue {
   suffix?: string
 }
 
-type SelectProps = ComponentPropsWithoutRef<typeof SelectPrimitive.Root> & {
+type SelectProps = React.ComponentProps<typeof SelectPrimitive.Root> & {
   id?: string
   intent?: Intent
   variant?: Variant
@@ -52,38 +53,40 @@ export function Select({
   return (
     <div className={cx('infonomic-select-container', containerClassName)}>
       <SelectPrimitive.Root {...rest}>
-        <SelectPrimitive.Trigger asChild aria-label={ariaLabel ?? 'Select'}>
-          <Button
-            id={id}
-            intent={intent}
-            variant={variant}
-            size={size}
-            className={cx('whitespace-nowrap', className)}
-          >
-            <SelectPrimitive.Value placeholder={placeholder} />
-            <SelectPrimitive.Icon>
-              <ChevronDownIcon />
-            </SelectPrimitive.Icon>
-          </Button>
+        <SelectPrimitive.Trigger
+          aria-label={ariaLabel ?? 'Select'}
+          render={
+            <Button
+              id={id}
+              intent={intent}
+              variant={variant}
+              size={size}
+              className={cx('whitespace-nowrap', className)}
+            />
+          }
+        >
+          <SelectPrimitive.Value placeholder={placeholder} />
+          <SelectPrimitive.Icon>
+            <ChevronDownIcon />
+          </SelectPrimitive.Icon>
         </SelectPrimitive.Trigger>
         <SelectPrimitive.Portal>
-          <SelectPrimitive.Content
-            position={position}
-            className={styles.content}
-            ref={(ref) => {
-              if (ref == null) return
-            }}
+          <SelectPrimitive.Positioner
+            className={styles.positioner}
+            alignItemWithTrigger={position !== 'popper'}
           >
-            <SelectPrimitive.ScrollUpButton className={styles['scroll-button']}>
+            <SelectPrimitive.ScrollUpArrow className={styles['scroll-arrow']}>
               <ChevronUpIcon />
-            </SelectPrimitive.ScrollUpButton>
-            <SelectPrimitive.Viewport className={cx(styles.viewport, size != null && styles[`viewport-${size}`])}>
-              <SelectPrimitive.Group className={styles.group}>{children}</SelectPrimitive.Group>
-            </SelectPrimitive.Viewport>
-            <SelectPrimitive.ScrollDownButton className={styles['scroll-button']}>
+            </SelectPrimitive.ScrollUpArrow>
+            <SelectPrimitive.Popup className={cx(styles.popup, size != null && styles[`popup-${size}`])}>
+              <SelectPrimitive.List className={styles.list}>
+                {children}
+              </SelectPrimitive.List>
+            </SelectPrimitive.Popup>
+            <SelectPrimitive.ScrollDownArrow className={styles['scroll-arrow']}>
               <ChevronDownIcon />
-            </SelectPrimitive.ScrollDownButton>
-          </SelectPrimitive.Content>
+            </SelectPrimitive.ScrollDownArrow>
+          </SelectPrimitive.Positioner>
         </SelectPrimitive.Portal>
       </SelectPrimitive.Root>
       {helpText != null && helpText?.length > 0 && <HelpText text={helpText} />}
@@ -96,8 +99,8 @@ export const SelectItem = ({
   children,
   className,
   ...props
-}: SelectPrimitive.SelectItemProps & {
-  ref?: React.RefObject<React.ComponentRef<'div'>>
+}: React.ComponentProps<typeof SelectPrimitive.Item> & {
+  ref?: React.RefObject<HTMLDivElement>
 }) => {
   return (
     <SelectPrimitive.Item

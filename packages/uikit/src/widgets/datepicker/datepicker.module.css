@@ -1,6 +1,7 @@
 @layer infonomic-base, infonomic-utilities, infonomic-theme, infonomic-components;
 
 @layer infonomic-components {
+
   .container,
   :global(.infonomic-datepicker-container) {
     position: relative;
@@ -33,19 +34,19 @@
       box-shadow: var(--shadow-md);
     }
 
-    &[data-state="open"][data-side="top"] {
+    &[data-open][data-side="top"] {
       animation-name: slideDownAndFade;
     }
 
-    &[data-state="open"][data-side="right"] {
+    &[data-open][data-side="right"] {
       animation-name: slideLeftAndFade;
     }
 
-    &[data-state="open"][data-side="bottom"] {
+    &[data-open][data-side="bottom"] {
       animation-name: slideUpAndFade;
     }
 
-    &[data-state="open"][data-side="left"] {
+    &[data-open][data-side="left"] {
       animation-name: slideRightAndFade;
     }
   }

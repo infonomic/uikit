@@ -21,22 +21,22 @@ export const Tooltip = (): React.JSX.Element => {
         padding: '16px',
       }}
     >
-      <TooltipComponent text="I'm a tooltip" side="top" sideOffset={5}>
+      <TooltipComponent text="I'm a tooltip" side="top" sideOffset={8}>
         <Button fullWidth={true} size="sm">
           Top
         </Button>
       </TooltipComponent>
-      <TooltipComponent text="I'm a tooltip" side="left" sideOffset={5}>
+      <TooltipComponent text="I'm a tooltip" side="left" sideOffset={8}>
         <Button fullWidth={true} size="sm">
           Left
         </Button>
       </TooltipComponent>
-      <TooltipComponent text="I'm a tooltip" side="right" sideOffset={5}>
+      <TooltipComponent text="I'm a tooltip" side="right" sideOffset={8}>
         <Button fullWidth={true} size="sm">
           Right
         </Button>
       </TooltipComponent>
-      <TooltipComponent text="I'm a tooltip" side="bottom" sideOffset={5}>
+      <TooltipComponent text="I'm a tooltip" side="bottom" sideOffset={8}>
         <Button fullWidth={true} size="sm">
           Bottom
         </Button>

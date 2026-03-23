@@ -1,9 +1,10 @@
 'use client'
 
-import React, { type ComponentPropsWithoutRef, type Ref } from 'react'
+import React, { type Ref } from 'react'
 
+import { Toggle } from '@base-ui/react/toggle'
+import { ToggleGroup } from '@base-ui/react/toggle-group'
 import cx from 'classnames'
-import { ToggleGroup as ToggleGroupPrimitive } from 'radix-ui'
 
 import { Button } from './button'
 import styles from './button-group.module.css'
@@ -28,16 +29,22 @@ const ButtonGroupContext = React.createContext<ButtonGroupContextType>({
   inactive: 'noeffect',
 })
 
-type ToggleGroupRootProps = ComponentPropsWithoutRef<typeof ToggleGroupPrimitive.Root>
+type ToggleGroupProps = React.ComponentProps<typeof ToggleGroup>
 
 // Create separate props for single and multiple modes
-type SingleToggleGroupProps = Omit<ToggleGroupRootProps, 'type' | 'value' | 'onValueChange'> & {
+type SingleToggleGroupProps = Omit<
+  ToggleGroupProps,
+  'multiple' | 'value' | 'onValueChange'
+> & {
   type: 'single'
   value?: string
   onValueChange?: (value: string) => void
 }
 
-type MultipleToggleGroupProps = Omit<ToggleGroupRootProps, 'type' | 'value' | 'onValueChange'> & {
+type MultipleToggleGroupProps = Omit<
+  ToggleGroupProps,
+  'multiple' | 'value' | 'onValueChange'
+> & {
   type: 'multiple'
   value?: string[]
   onValueChange?: (value: string[]) => void
@@ -65,68 +72,77 @@ const ButtonGroup = ({
   ref,
   ...props
 }: ButtonGroupProps) => {
-  if (type === 'multiple') {
-    return (
-      <ToggleGroupPrimitive.Root
-        type="multiple"
-        defaultValue={defaultValue as string[]}
-        value={value as string[]}
-        ref={ref}
-        onValueChange={onValueChange}
-        className={cx(styles['button-group'], className)}
-        {...props}
-      >
-        <ButtonGroupContext value={{ variant, size, ripple, expandToFit, active, inactive, value }}>
-          {children}
-        </ButtonGroupContext>
-      </ToggleGroupPrimitive.Root>
-    )
+  const isMultiple = type === 'multiple'
+
+  const handleValueChange: React.ComponentProps<typeof ToggleGroup>['onValueChange'] = (
+    newValue,
+    event,
+  ) => {
+    if (!onValueChange) return
+    if (isMultiple) {
+      onValueChange(newValue)
+    } else {
+      // For single mode, pass the first value or empty string
+      onValueChange(newValue[0] ?? '')
+    }
   }
+
+  // Normalize value to string[] for Base UI
+  const normalizedValue = value == null ? undefined : Array.isArray(value) ? value : [value]
+  const normalizedDefault =
+    defaultValue == null ? undefined : Array.isArray(defaultValue) ? defaultValue : [defaultValue]
+
   return (
-    <ToggleGroupPrimitive.Root
-      type="single"
-      value={value as string}
-      defaultValue={defaultValue as string}
+    <ToggleGroup
+      multiple={isMultiple}
+      defaultValue={normalizedDefault}
+      value={normalizedValue}
       ref={ref}
-      onValueChange={onValueChange}
+      onValueChange={handleValueChange}
       className={cx(styles['button-group'], className)}
       {...props}
     >
       <ButtonGroupContext value={{ variant, size, ripple, expandToFit, active, inactive, value }}>
         {children}
       </ButtonGroupContext>
-    </ToggleGroupPrimitive.Root>
+    </ToggleGroup>
   )
 }
 
-ButtonGroupContext.displayName = ToggleGroupPrimitive.Root.displayName
+ButtonGroupContext.displayName = 'ButtonGroup'
 
-type ButtonGroupItemProps = ComponentPropsWithoutRef<typeof ToggleGroupPrimitive.Item> & {
-  ref?: Ref<HTMLButtonElement> // Updated ref type
+type ButtonGroupItemProps = Omit<React.ComponentProps<typeof Toggle>, 'className'> & {
+  className?: string
+  ref?: Ref<HTMLButtonElement>
 } & ButtonGroupContextType
 
 const ButtonGroupItem = ({ className, children, value, ref, ...props }: ButtonGroupItemProps) => {
   const context = React.useContext(ButtonGroupContext)
   const active = Array.isArray(context.value)
-    ? context.value.includes(value)
+    ? context.value.includes(value!)
     : context.value === value
 
   return (
-    <ToggleGroupPrimitive.Item asChild value={value} ref={ref} {...props}>
-      <Button
-        className={className}
-        fullWidth={context.expandToFit}
-        variant={context.variant}
-        intent={active ? context.active : context.inactive}
-        size={context.size}
-        ripple={context.ripple}
-      >
-        {children}
-      </Button>
-    </ToggleGroupPrimitive.Item>
+    <Toggle
+      value={value}
+      ref={ref}
+      render={
+        <Button
+          className={className}
+          fullWidth={context.expandToFit}
+          variant={context.variant}
+          intent={active ? context.active : context.inactive}
+          size={context.size}
+          ripple={context.ripple}
+        />
+      }
+      {...props}
+    >
+      {children}
+    </Toggle>
   )
 }
 
-ButtonGroupItem.displayName = ToggleGroupPrimitive.Item.displayName
+ButtonGroupItem.displayName = 'ButtonGroupItem'
 
 export { ButtonGroup, ButtonGroupItem }
