@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 6.0.4
+
+### Patch Changes
+
+- 02a5191: Flex col gap for checkbox group.
+
 ## 6.0.3
 
 ### Patch Changes
