@@ -1,11 +1,12 @@
 @layer infonomic-base,
-  infonomic-functional,
-  infonomic-utilities,
-  infonomic-theme,
-  infonomic-typography,
-  infonomic-components;
+infonomic-functional,
+infonomic-utilities,
+infonomic-theme,
+infonomic-typography,
+infonomic-components;
 
 @layer infonomic-components {
+
   .button,
   :global(.infonomic-button) {
     border: none;
@@ -18,11 +19,11 @@
     align-items: center;
     white-space: nowrap;
     justify-content: center;
-    outline: 2px solid transparent;
+    outline: 1px solid transparent;
     outline-offset: 2px;
     transition:
       background-color var(--transition-normal),
-      box-shadow var(--transition-normal);
+      outline-color var(--transition-normal);
     border-radius: var(--border-radius-sm);
   }
 
@@ -37,10 +38,7 @@
   .button:active,
   :global(.infonomic-button):focus,
   :global(.infonomic-button):active {
-    --ring-offset-color: var(--background);
-    --ring-offset-shadow: var(--ring-inset) 0 0 0 var(--ring-offset-width) var(--ring-offset-color);
-    --ring-shadow: var(--ring-inset) 0 0 0 calc(1px + var(--ring-offset-width)) var(--ring-color);
-    box-shadow: var(--ring-offset-shadow), var(--ring-shadow), var(--shadow, 0 0 #0000);
+    outline-color: var(--ring-color);
   }
 
   .button.square,
@@ -116,14 +114,10 @@
   .filled[disabled],
   :global(.infonomic-button-filled):disabled,
   :global(.infonomic-button-filled)[disabled] {
-    background-color: var(
-      --button-variant-filled-disabled,
-      oklch(from var(--button-variant-filled) calc(l * 1.1) calc(c * 0.85) h)
-    );
-    color: var(
-      --button-variant-filled-foreground-disabled,
-      oklch(from var(--button-variant-filled-foreground) calc(l * 0.9) calc(c * 0.85) h)
-    );
+    background-color: var(--button-variant-filled-disabled,
+        oklch(from var(--button-variant-filled) calc(l * 1.1) calc(c * 0.85) h));
+    color: var(--button-variant-filled-foreground-disabled,
+        oklch(from var(--button-variant-filled-foreground) calc(l * 0.9) calc(c * 0.85) h));
   }
 
   /* -------------------------------------------------------- */
@@ -151,14 +145,10 @@
   .filled-weak[disabled],
   :global(.infonomic-button-filled-weak):disabled,
   :global(.infonomic-button-filled-weak)[disabled] {
-    background-color: var(
-      --button-variant-filled-weak-disabled,
-      oklch(from var(--button-variant-filled-weak) calc(l * 1.1) calc(c * 0.85) h)
-    );
-    color: var(
-      --button-variant-filled-weak-foreground-disabled,
-      oklch(from var(--button-variant-filled-weak-foreground) calc(l * 0.9) calc(c * 0.85) h)
-    );
+    background-color: var(--button-variant-filled-weak-disabled,
+        oklch(from var(--button-variant-filled-weak) calc(l * 1.1) calc(c * 0.85) h));
+    color: var(--button-variant-filled-weak-foreground-disabled,
+        oklch(from var(--button-variant-filled-weak-foreground) calc(l * 0.9) calc(c * 0.85) h));
   }
 
   .outlined,
@@ -172,14 +162,10 @@
   .outlined[disabled],
   :global(.infonomic-button-outlined):disabled,
   :global(.infonomic-button-outlined)[disabled] {
-    border-color: var(
-      --button-variant-outlined-border-disabled,
-      oklch(from var(--button-variant-outlined-border) calc(l * 1.5) calc(c * 0.8) h)
-    );
-    color: var(
-      --button-variant-outlined-foreground-disabled,
-      oklch(from var(--button-variant-outlined-foreground) calc(l * 1.1) calc(c * 0.7) h)
-    );
+    border-color: var(--button-variant-outlined-border-disabled,
+        oklch(from var(--button-variant-outlined-border) calc(l * 1.5) calc(c * 0.8) h));
+    color: var(--button-variant-outlined-foreground-disabled,
+        oklch(from var(--button-variant-outlined-foreground) calc(l * 1.1) calc(c * 0.7) h));
   }
 
   .outlined:hover,
@@ -197,11 +183,9 @@
   .gradient,
   :global(.infonomic-button-gradient) {
     color: var(--button-variant-gradient-foreground);
-    background: linear-gradient(
-      45deg,
-      var(--button-variant-gradient-start),
-      var(--button-variant-gradient-end)
-    );
+    background: linear-gradient(45deg,
+        var(--button-variant-gradient-start),
+        var(--button-variant-gradient-end));
   }
 
   .gradient:disabled,
@@ -209,24 +193,18 @@
   :global(.infonomic-button-gradient):disabled,
   :global(.infonomic-button-gradient)[disabled] {
     background: unset;
-    background-color: var(
-      --button-variant-gradient-disabled,
-      oklch(from var(--button-variant-gradient-end) calc(l * 1.2) calc(c * 0.85) h)
-    );
-    color: var(
-      --button-variant-gradient-foreground-disabled,
-      oklch(from var(--button-variant-gradient-foreground) calc(l * 0.9) calc(c * 0.85) h)
-    );
+    background-color: var(--button-variant-gradient-disabled,
+        oklch(from var(--button-variant-gradient-end) calc(l * 1.2) calc(c * 0.85) h));
+    color: var(--button-variant-gradient-foreground-disabled,
+        oklch(from var(--button-variant-gradient-foreground) calc(l * 0.9) calc(c * 0.85) h));
   }
 
   .gradient:hover,
   :global(.infonomic-button-gradient):hover {
     color: var(--button-variant-gradient-foreground);
-    background: linear-gradient(
-      45deg,
-      var(--button-variant-gradient-start),
-      var(--button-variant-gradient-end)
-    );
+    background: linear-gradient(45deg,
+        var(--button-variant-gradient-start),
+        var(--button-variant-gradient-end));
   }
 
   .gradient:focus,

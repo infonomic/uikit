@@ -1,12 +1,13 @@
 @layer infonomic-base,
-  infonomic-functional,
-  infonomic-utilities,
-  infonomic-theme,
-  infonomic-typography,
-  infonomic-components;
+infonomic-functional,
+infonomic-utilities,
+infonomic-theme,
+infonomic-typography,
+infonomic-components;
 
 /* 'border-collapse w-full text-sm text-left text-gray-700 dark:text-gray-400 m-0', */
 @layer infonomic-components {
+
   .column,
   :global(.infonomic-radio-group-column) {
     display: flex;
@@ -38,13 +39,8 @@
     transition: all var(--transition-normal);
   }
 
-  .item[data-state="checked"],
-  :global(.infonomic-radio-group-item[data-state="checked"]) {
-    --ring-offset-color: var(--background);
-    --ring-offset-shadow: var(--ring-inset) 0 0 0 var(--ring-offset-width) var(--ring-offset-color);
-    --ring-shadow: var(--ring-inset) 0 0 0 calc(1px + var(--ring-offset-width)) var(--ring-color);
-    box-shadow: var(--ring-offset-shadow), var(--ring-shadow), var(--shadow, 0 0 #0000);
-  }
+  /* .item[data-state="checked"],
+  :global(.infonomic-radio-group-item[data-state="checked"]) {} */
 
   .item:disabled,
   :global(.infonomic-radio-group-item:disabled),

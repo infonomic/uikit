@@ -1,11 +1,12 @@
 @layer infonomic-base,
-  infonomic-functional,
-  infonomic-utilities,
-  infonomic-theme,
-  infonomic-typography,
-  infonomic-components;
+infonomic-functional,
+infonomic-utilities,
+infonomic-theme,
+infonomic-typography,
+infonomic-components;
 
 @layer infonomic-components {
+
   .input-wrapper,
   :global(.infonomic-input-wrapper) {
     display: flex;
@@ -26,7 +27,8 @@
   .input,
   :global(.infonomic-input) {
     border: none;
-    outline: none;
+    outline: 1px solid transparent;
+    outline-offset: 2px;
     font-weight: normal;
     display: inline-flex;
     gap: var(--gap-2);
@@ -40,10 +42,7 @@
   .input:active,
   :global(.infonomic-input):focus,
   :global(.infonomic-input):active {
-    --ring-offset-color: var(--background);
-    --ring-offset-shadow: var(--ring-inset) 0 0 0 var(--ring-offset-width) var(--ring-offset-color);
-    --ring-shadow: var(--ring-inset) 0 0 0 calc(1px + var(--ring-offset-width)) var(--ring-color);
-    box-shadow: var(--ring-offset-shadow), var(--ring-shadow), var(--shadow, 0 0 #0000);
+    outline-color: var(--ring-color);
   }
 
   .input:disabled,

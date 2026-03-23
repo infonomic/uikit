@@ -32,16 +32,15 @@ infonomic-components;
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    outline: 1px solid transparent;
+    outline-offset: 2px;
     border-radius: var(--border-radius-sm);
     transition: all var(--transition-normal);
   }
 
   .checkbox[data-state="checked"],
   :global(.infonomic-checkbox)[data-state="checked"] {
-    --ring-offset-color: var(--background);
-    --ring-offset-shadow: var(--ring-inset) 0 0 0 var(--ring-offset-width) var(--ring-offset-color);
-    --ring-shadow: var(--ring-inset) 0 0 0 calc(1px + var(--ring-offset-width)) var(--ring-color);
-    box-shadow: var(--ring-offset-shadow), var(--ring-shadow), var(--shadow, 0 0 #0000);
+    outline-color: var(--ring-color);
   }
 
   .checkbox:disabled,
@@ -179,6 +178,11 @@ infonomic-components;
   :global(.infonomic-checkbox-filled) {
     background-color: var(--checkbox-variant-filled);
     --checkbox-icon-color: white;
+  }
+
+  .filled[data-state="checked"],
+  :global(.infonomic-checkbox-filled)[data-state="checked"] {
+    --ring-color: var(--checkbox-variant-outline-ring-color);
   }
 
   /* Intents */

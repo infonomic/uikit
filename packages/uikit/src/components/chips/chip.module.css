@@ -1,11 +1,12 @@
 @layer infonomic-base,
-  infonomic-functional,
-  infonomic-utilities,
-  infonomic-theme,
-  infonomic-typography,
-  infonomic-components;
+infonomic-functional,
+infonomic-utilities,
+infonomic-theme,
+infonomic-typography,
+infonomic-components;
 
 @layer infonomic-components {
+
   .chip,
   :global(.infonomic-chip) {
     --chip-font-size: 0.9rem;
@@ -15,7 +16,7 @@
     --chip-icon-size: 1rem;
     --chip-gap: var(--gap-1);
     appearance: none;
-    outline: 2px solid transparent;
+    outline: 1px solid transparent;
     outline-offset: 2px;
     display: inline-flex;
     align-items: center;
@@ -30,7 +31,7 @@
     font-size: var(--chip-font-size);
     transition:
       background-color var(--transition-normal),
-      box-shadow var(--transition-normal);
+      outline-color var(--transition-normal);
   }
 
   .chip:disabled,
@@ -44,10 +45,7 @@
   .chip:active,
   :global(.infonomic-chip):focus,
   :global(.infonomic-chip):active {
-    --ring-offset-color: var(--background);
-    --ring-offset-shadow: var(--ring-inset) 0 0 0 var(--ring-offset-width) var(--ring-offset-color);
-    --ring-shadow: var(--ring-inset) 0 0 0 calc(1px + var(--ring-offset-width)) var(--ring-color);
-    box-shadow: var(--ring-offset-shadow), var(--ring-shadow), var(--shadow, 0 0 #0000);
+    outline-color: var(--ring-color);
   }
 
   .label,
@@ -150,14 +148,10 @@
   .filled[disabled],
   :global(.infonomic-chip-filled):disabled,
   :global(.infonomic-chip-filled)[disabled] {
-    background-color: var(
-      --chip-variant-filled-disabled,
-      oklch(from var(--chip-variant-filled) calc(l * 1.1) calc(c * 0.85) h)
-    );
-    color: var(
-      --chip-variant-filled-foreground-disabled,
-      oklch(from var(--chip-variant-filled-foreground) calc(l * 0.9) calc(c * 0.85) h)
-    );
+    background-color: var(--chip-variant-filled-disabled,
+        oklch(from var(--chip-variant-filled) calc(l * 1.1) calc(c * 0.85) h));
+    color: var(--chip-variant-filled-foreground-disabled,
+        oklch(from var(--chip-variant-filled-foreground) calc(l * 0.9) calc(c * 0.85) h));
   }
 
   /* -------------------------------------------------------- */
@@ -185,14 +179,10 @@
   .filled-weak[disabled],
   :global(.infonomic-chip-filled-weak):disabled,
   :global(.infonomic-chip-filled-weak)[disabled] {
-    background-color: var(
-      --chip-variant-filled-weak-disabled,
-      oklch(from var(--chip-variant-filled-weak) calc(l * 1.1) calc(c * 0.85) h)
-    );
-    color: var(
-      --chip-variant-filled-weak-foreground-disabled,
-      oklch(from var(--chip-variant-filled-weak-foreground) calc(l * 0.9) calc(c * 0.85) h)
-    );
+    background-color: var(--chip-variant-filled-weak-disabled,
+        oklch(from var(--chip-variant-filled-weak) calc(l * 1.1) calc(c * 0.85) h));
+    color: var(--chip-variant-filled-weak-foreground-disabled,
+        oklch(from var(--chip-variant-filled-weak-foreground) calc(l * 0.9) calc(c * 0.85) h));
   }
 
   /* -------------------------------------------------------- */
@@ -209,14 +199,10 @@
   .outlined[disabled],
   :global(.infonomic-chip-outlined):disabled,
   :global(.infonomic-chip-outlined)[disabled] {
-    border-color: var(
-      --chip-variant-outlined-border-disabled,
-      oklch(from var(--chip-variant-outlined-border) calc(l * 1.5) calc(c * 0.8) h)
-    );
-    color: var(
-      --chip-variant-outlined-foreground-disabled,
-      oklch(from var(--chip-variant-outlined-foreground) calc(l * 1.1) calc(c * 0.7) h)
-    );
+    border-color: var(--chip-variant-outlined-border-disabled,
+        oklch(from var(--chip-variant-outlined-border) calc(l * 1.5) calc(c * 0.8) h));
+    color: var(--chip-variant-outlined-foreground-disabled,
+        oklch(from var(--chip-variant-outlined-foreground) calc(l * 1.1) calc(c * 0.7) h));
   }
 
   .outlined:hover,
