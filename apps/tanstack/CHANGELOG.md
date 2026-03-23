@@ -1,5 +1,16 @@
 # @infonomic/website-react
 
+## 6.0.0
+
+### Major Changes
+
+- 381d089: Migration from Radix UI to Base UI.
+
+### Patch Changes
+
+- Updated dependencies [381d089]
+  - @infonomic/uikit@6.0.0
+
 ## 5.44.0
 
 ### Minor Changes

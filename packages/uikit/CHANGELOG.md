@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 6.0.0
+
+### Major Changes
+
+- 381d089: Migration from Radix UI to Base UI.
+
 ## 5.44.0
 
 ### Minor Changes
