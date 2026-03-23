@@ -1,5 +1,6 @@
+import { createFileRoute, Link } from '@tanstack/react-router'
+
 import { Button, Container, Section } from '@infonomic/uikit/react'
-import { createFileRoute } from '@tanstack/react-router'
 
 const variant = ['filled', 'outlined', 'gradient', 'text'] as const
 const intent = ['primary', 'secondary', 'noeffect', 'success', 'info', 'warning', 'danger'] as const
@@ -46,6 +47,12 @@ function Buttons() {
             <div className="w-[800px] mx-auto mb-6">
               <Button className="w-[600px] border-4 border-white border-solid">
                 Tailwind Overrides Without !
+              </Button>
+            </div>
+            <div className="w-[800px] mx-auto mb-6">
+              <p>Button as a router Link - even though technically this is bad practice.</p>
+              <Button render={<Link to="/" />}>
+                Router Link Button
               </Button>
             </div>
           </div>

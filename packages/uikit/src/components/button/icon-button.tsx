@@ -1,19 +1,17 @@
 'use client'
 
-import type React from 'react'
-
 import cx from 'classnames'
 
 import { Button } from './button'
 import styles from './button.module.css'
 import type { ButtonProps } from './button.js'
 
-type IconButtonProps<C extends React.ElementType = 'button'> = ButtonProps<C> & {
+type IconButtonProps = ButtonProps & {
   square?: boolean
   round?: boolean
 }
 
-export const IconButton = <C extends React.ElementType = 'button'>({
+export const IconButton = ({
   square = false,
   round = true,
   variant,
@@ -22,7 +20,7 @@ export const IconButton = <C extends React.ElementType = 'button'>({
   className,
   children,
   ...rest
-}: IconButtonProps<C>) => {
+}: IconButtonProps) => {
   return (
     <Button
       variant={variant}

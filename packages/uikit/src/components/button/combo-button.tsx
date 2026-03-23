@@ -48,14 +48,16 @@ export const ComboButton = ({
         {children}
       </Button>
       <DropdownComponent.Root>
-        <DropdownComponent.Trigger asChild>
-          <Button
-            className={cx('combo-button-trigger', styles['combo-button-trigger'], triggerClassName)}
-            disabled={disabled || optionsDisabled}
-            {...rest}
-          >
-            <ChevronDownIcon width="16px" height="16px" />
-          </Button>
+        <DropdownComponent.Trigger
+          className={cx('combo-button-trigger', styles['combo-button-trigger'], triggerClassName)}
+          render={
+            <Button
+              disabled={disabled || optionsDisabled}
+              {...rest}
+            />
+          }
+        >
+          <ChevronDownIcon width="16px" height="16px" />
         </DropdownComponent.Trigger>
 
         {options.length > 0 && (
