@@ -2,10 +2,10 @@ import type * as React from 'react'
 
 import cx from 'classnames'
 
-import { ErrorText } from './error-text.js'
-import { HelpText } from './help-text.js'
+import { ErrorText } from './error-text.jsx'
+import { HelpText } from './help-text.jsx'
 import inputStyles from './input.module.css'
-import { Label } from './label.js'
+import { Label } from './label.jsx'
 import styles from './text-area.module.css'
 import type { Intent, Variant } from './@types/input.js'
 

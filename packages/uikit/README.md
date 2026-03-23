@@ -4,17 +4,15 @@ A UI kit that relies on CSS Modules for component styling, while playing nicely 
 
 ![image](https://github.com/user-attachments/assets/5f6ec314-7467-4c33-926d-0c382d9d2831)
 
-We created this project because while we appreciate Tailwind CSS for front-end development of PoC and smaller applications, we don't feel it belongs in a component library. Tailwind CSS as a [&#39;programmatic&#39; atomic CSS system](https://css-tricks.com/lets-define-exactly-atomic-css/#aa-programmatic) - is brilliant at what it does in preventing CSS rot and gradual CSS bloat - as well as making it clear how a layout or front-end component has been styled. It's also the ultimate expression of what [Thierry Koblentz](https://www.smashingmagazine.com/author/thierry-koblentz/) was talking about in his 2103 article, [Challenging CSS Best Practices](https://www.smashingmagazine.com/2013/10/challenging-css-best-practices-atomic-approach/).
+We created this project because while we appreciate Tailwind CSS for front-end development of PoC and smaller applications, we don't feel it belongs in a component library. Tailwind CSS as a ['programmatic' atomic CSS system](https://css-tricks.com/lets-define-exactly-atomic-css/#aa-programmatic) - is brilliant at what it does in preventing CSS rot and gradual CSS bloat - as well as making it clear how a layout or front-end component has been styled. It's also the ultimate expression of what [Thierry Koblentz](https://www.smashingmagazine.com/author/thierry-koblentz/) was talking about in his 2013 article, [Challenging CSS Best Practices](https://www.smashingmagazine.com/2013/10/challenging-css-best-practices-atomic-approach/).
 
 It just doesn't belong in UI kits and libraries.
 
 ## Rationale
 
-In addition to our thoughts above, this kit is built around the philosophy of adopting or 'folding in' best-in-class components, like the ones in well-known 'à la carte' headless component libraries such as [Base UI](https://base-ui.com/), and [React Aria](https://react-spectrum.adobe.com/react-aria/index.html) as well as individually well-known components such as [React Day Picker](https://github.com/gpbl/react-day-picker) and more. 
+In addition to our thoughts above, this kit is built around the philosophy of adopting or 'folding in' best-in-class components, like the ones in well-known 'à la carte' headless component libraries such as [Base UI](https://base-ui.com/) and [React Aria](https://react-spectrum.adobe.com/react-aria/index.html), as well as other well-known individual components such as [React Day Picker](https://github.com/gpbl/react-day-picker) and more. 
 
-Having lived through a full generation of 'all-in-one' and difficult to override themed UI kits like Bootstrap and Material UI, the trend towards composable headless (unstyled) component libraries is a welcome one - and one that forms the basis of this kit. 
-
-Many of the current components are built on Base UI. The great thing about wrapping these components in a client-consumable interface and library, is that in theory at least, the consumer of our kit's components won't have to worry about implementation details, or migration from Base UI to another underlying component library. The 'contract' and core styling semantics will never change.
+Many of the current components are built on [Base UI](https://base-ui.com/) - which is an excellent project. The great thing about wrapping these components in a client-consumable interface and library is that, in theory at least, the consumer of our kit's components won't have to worry about implementation details or migration from one underlying component library to another. The 'contract' and core styling semantics will never change.
 
 ## Design Goals
 
@@ -22,7 +20,7 @@ We built this with the following design goals in mind:
 
 1. We'd like a structure and style system that will work with any component framework - [Astro](https://astro.build/), [React](https://react.dev/), [Vue.js](https://vuejs.org/), [Solid](https://www.solidjs.com/), [Svelte](https://svelte.dev/) etc.
 2. We'd like to be able to easily target various front-end meta frameworks, from [Astro](https://astro.build/), to [Next.js](https://nextjs.org/) to [React Router v7](https://reactrouter.com/) (formerly Remix) - and even plain old HTML/CSS.
-3. We'd like a good developer experience (DX), allowing us to develop our components in the 'kit' via tests and Storybook, as well as in a monorepo with the example front-end meta-frameworks.
+3. We'd like a good developer experience (DX), allowing us to develop our components in the 'kit' via tests and Storybook, as well as in a monorepo with example front-end meta-frameworks (more to do here).
 
 4. We'd like our components' styles to be easily overridable - whether via 'style' attributes, Tailwind, regular CSS classnames and stylesheets, or any other style system being used by the front-end. We'd especially like to be able to override a component's styles without having to use CSS !important.
 
@@ -30,13 +28,15 @@ We built this with the following design goals in mind:
 
 ### Other key points:
 
-We use CSS [Cascade layers](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Cascade_layers) via the @layer statement at-rule for named layers. This allows all of our CSS to be easily overwritten by any consuming client application - since CSS outside any layer, automatically has a higher specificity than CSS within a layer. We also carefully order our layers to create our own specificity hierarchy - for example - @layer infonomic-base, infonomic-utilities, infonomic-theme, infonomic-typography, infonomic-components;
+We use CSS [Cascade layers](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Cascade_layers) via the `@layer` statement at-rule for named layers. This allows all of our CSS to be easily overridden by any consuming client application - since CSS outside any layer automatically has a higher specificity than CSS within a layer. We also carefully order our layers to create our own specificity hierarchy - for example - `@layer infonomic-base, infonomic-utilities, infonomic-theme, infonomic-typography, infonomic-components;`
 
-For components - this means ensuring that the layer specificity order appears at the top of each CSS module. It acts as sort of a 'preamble' - and it means that the component's bundled CSS will behave correctly when used within the overall UI kit.
+For components - this means ensuring that the layer specificity order appears at the top of each CSS module. It acts as a sort of 'preamble' - and it means that the component's bundled CSS will behave correctly when used within the overall UI kit.
 
-The use of CSS modules will also allow us to support exporting individual components separately (we export a single bundle for import at the moment) helping to reduce the import and bundle size of the consuming client. Once we've enabled single component exports, a client will then be able to import the main style.css file followed by an individual component. We'll be revisiting this soon.
+We also highly value the option to 'tell' components to ignore or override a top-level theme decision of light or dark. There is an intentionally duplicated `.not-dark` class selector in our functional tokens file. Being able to use `.not-dark` means that we can override components that need to be in 'dark mode' on an otherwise 'light theme', or that need to be in `.not-dark` mode on an otherwise 'dark theme'.
 
-Lastly - we highly value the option to 'tell' components to ignore or override a top-level theme decision of light or dark. There is an intentionally duplicated `.not-dark` class selector in our functional tokens file. Being able to use `.not-dark` means that we can override components that need to be in 'dark mode' on an otherwise 'light theme', or that need to be in .not-dark mode, on an otherwise 'dark theme'.
+In addition to CSS modules, we're experimenting with an assembled global stylesheet (in a post-build script) that can be used in vanilla HTML/CSS projects.
+
+
 
 ## Getting Started
 
@@ -79,17 +79,17 @@ And then in your application in a global.css or other root CSS file...
 Followed by the below in any of your components or routes where you'd like to import a component...
 
 ```ts
-import { Button, Card, Container, Section } from '@infonomic/uikit/react
+import { Button, Card, Container, Section } from '@infonomic/uikit/react'
 
 ```
 
 ## Documentation
 
-At the moment self-documented component examples are all based on [Storybook](https://storybook.js.org/). For now at least, in order to view our Storybook stories you'll need to clone this repo, install all dependencies, then change into the packages/ui directory and start Storybook with `pnpm storybook` or `npm run storybook`.
+At the moment, self-documented component examples are all based on [Storybook](https://storybook.js.org/). For now at least, in order to view our Storybook stories you'll need to clone this repo, install all dependencies, then change into the packages/uikit directory and start Storybook with `pnpm storybook` or `npm run storybook`.
 
 ## Tailwind CSS Integration
 
-Here's an example Tailwind CSS integration. Note that we have our own reset, and optional typography system and so the order of our imports are a little different from the usual 'Tailwind first' approach. The example below does NOT use the Tailwind CSS reset.
+Here's an example Tailwind CSS integration. Note that we have our own reset, and optional typography system and so the order of our imports is a little different from the usual 'Tailwind first' approach. The example below does NOT use the Tailwind CSS reset.
 
 ```css
 @layer theme, base, components, utilities;

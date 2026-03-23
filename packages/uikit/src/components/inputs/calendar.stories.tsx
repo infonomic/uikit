@@ -12,7 +12,7 @@ const meta: Meta<typeof CalendarComponent> = {
    * See https://storybook.js.org/docs/react/configure/overview#configure-story-loading
    * to learn how to generate automatic titles
    */
-  title: 'Components/Forms/Calendar',
+  title: 'Components/Inputs/Calendar',
   component: CalendarComponent,
 }
 
@@ -45,12 +45,12 @@ export const Calendar = (): React.JSX.Element => {
             }
           }}
           onDayClick={() => setIsOpen(false)}
-          // fromYear={2000}
-          // toYear={new Date().getFullYear()}
-          // disabled={(date: Date) =>
-          //   Number(date) < Date.now() - 1000 * 60 * 60 * 24 ||
-          //   Number(date) > Date.now() + 1000 * 60 * 60 * 24 * 30
-          // }
+        // fromYear={2000}
+        // toYear={new Date().getFullYear()}
+        // disabled={(date: Date) =>
+        //   Number(date) < Date.now() - 1000 * 60 * 60 * 24 ||
+        //   Number(date) > Date.now() + 1000 * 60 * 60 * 24 * 30
+        // }
         />
         <div style={{ paddingLeft: '1rem', paddingTop: '1rem' }}>
           {date ? `${format(date, 'PPPp')}` : 'No date selected'}
@@ -95,12 +95,12 @@ export const Multiple = (): React.JSX.Element => {
             }
           }}
           onDayClick={() => setIsOpen(false)}
-          // fromYear={2000}
-          // toYear={new Date().getFullYear()}
-          // disabled={(date: Date) =>
-          //   Number(date) < Date.now() - 1000 * 60 * 60 * 24 ||
-          //   Number(date) > Date.now() + 1000 * 60 * 60 * 24 * 30
-          // }
+        // fromYear={2000}
+        // toYear={new Date().getFullYear()}
+        // disabled={(date: Date) =>
+        //   Number(date) < Date.now() - 1000 * 60 * 60 * 24 ||
+        //   Number(date) > Date.now() + 1000 * 60 * 60 * 24 * 30
+        // }
         />
       </div>
     </div>
@@ -128,12 +128,12 @@ export const Range = (): React.JSX.Element => {
             }
           }}
           onDayClick={() => setIsOpen(false)}
-          // fromYear={2000}
-          // toYear={new Date().getFullYear()}
-          // disabled={(date: Date) =>
-          //   Number(date) < Date.now() - 1000 * 60 * 60 * 24 ||
-          //   Number(date) > Date.now() + 1000 * 60 * 60 * 24 * 30
-          // }
+        // fromYear={2000}
+        // toYear={new Date().getFullYear()}
+        // disabled={(date: Date) =>
+        //   Number(date) < Date.now() - 1000 * 60 * 60 * 24 ||
+        //   Number(date) > Date.now() + 1000 * 60 * 60 * 24 * 30
+        // }
         />
       </div>
     </div>

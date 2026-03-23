@@ -9,7 +9,7 @@ import { Input, InputAdornment } from './index.js'
 import { InputPassword } from './input-password.js'
 
 export default {
-  title: 'Components/Forms/Text',
+  title: 'Components/Inputs/Text',
   component: Input,
   argTypes: {},
 }

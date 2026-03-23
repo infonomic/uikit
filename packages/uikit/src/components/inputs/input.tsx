@@ -4,12 +4,12 @@ import type React from 'react'
 
 import cx from 'classnames'
 
-import { ErrorText } from './error-text.js'
-import { HelpText } from './help-text.js'
+import { ErrorText } from './error-text.jsx'
+import { HelpText } from './help-text.jsx'
 import styles from './input.module.css'
-import { Label } from './label.js'
+import { Label } from './label.jsx'
 import type { Intent, Size, Variant } from './@types/input.js'
-import type { InputAdornmentProps } from './input-adornment.js'
+import type { InputAdornmentProps } from './input-adornment.jsx'
 
 export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   id: string

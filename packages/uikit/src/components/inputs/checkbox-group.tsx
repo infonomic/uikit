@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 
 import cx from 'classnames'
 
-import { Checkbox } from './checkbox.js'
+import { Checkbox } from './checkbox.jsx'
 import styles from './checkbox-group.module.css'
 
 export interface CheckboxGroupProps {

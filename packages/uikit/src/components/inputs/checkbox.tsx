@@ -7,8 +7,8 @@ import cx from 'classnames'
 
 import { CheckIcon } from '../../icons/check-icon'
 import styles from './checkbox.module.css'
-import { ErrorText } from './error-text.js'
-import { HelpText } from './help-text.js'
+import { ErrorText } from './error-text.jsx'
+import { HelpText } from './help-text.jsx'
 import type { Intent, Size, Variant } from './@types/checkbox.js'
 
 export interface Props {

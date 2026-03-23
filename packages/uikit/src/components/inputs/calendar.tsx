@@ -18,9 +18,9 @@ import {
   type Dropdown as DropDownDayPicker,
 } from 'react-day-picker'
 
-import { ChevronsUpDown } from '../../icons/chevrons-up-down.js'
-import { Button } from '../button/button.js'
-import { ScrollArea } from '../scroll-area/scroll-area.js'
+import { ChevronsUpDown } from '../../icons/chevrons-up-down.jsx'
+import { Button } from '../button/button.jsx'
+import { ScrollArea } from '../scroll-area/scroll-area.jsx'
 import styles from './calendar.module.css'
 
 export type CalendarProps = DayPickerProps & {

@@ -6,7 +6,7 @@ import { CheckboxGroup } from './checkbox-group.js'
 
 
 export default {
-  title: 'Components/Forms/CheckboxGroup',
+  title: 'Components/Inputs/CheckboxGroup',
   component: CheckboxGroup,
   argTypes: {},
 }

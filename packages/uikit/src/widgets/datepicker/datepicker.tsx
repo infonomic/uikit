@@ -16,14 +16,14 @@ import { format } from 'date-fns'
 
 import { Button } from '../../components/button/button.js'
 import { IconButton } from '../../components/button/icon-button.js'
-import { Calendar } from '../../components/forms/calendar.js'
-import { Input } from '../../components/forms/input.js'
-import { InputAdornment } from '../../components/forms/input-adornment.js'
+import { Calendar } from '../../components/inputs/calendar.jsx'
+import { Input } from '../../components/inputs/input.jsx'
+import { InputAdornment } from '../../components/inputs/input-adornment.jsx'
 import { ScrollArea } from '../../components/scroll-area/scroll-area.js'
 import { CalendarIcon } from '../../icons/calendar-icon.js'
 import { CloseIcon } from '../../icons/close-icon.js'
 import styles from './datepicker.module.css'
-import type { Intent, Size, Variant } from '../../components/forms/@types/input.js'
+import type { Intent, Size, Variant } from '../../components/inputs/@types/input.js'
 
 export interface DatePickerProps extends React.InputHTMLAttributes<HTMLInputElement> {
   id: string

@@ -4,7 +4,7 @@ import type React from 'react'
 import { TextArea } from './index.js'
 
 export default {
-  title: 'Components/Forms/TextArea',
+  title: 'Components/Inputs/TextArea',
   component: TextArea,
   argTypes: {},
 }

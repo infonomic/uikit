@@ -1,9 +1,9 @@
 import { useState } from 'react'
 
-import { EyeClosedIcon } from '../../icons/eye-closed-icon.js'
-import { EyeOpenIcon } from '../../icons/eye-open-icon.js'
-import { Input } from './input'
-import type { InputProps } from './input'
+import { EyeClosedIcon } from '../../icons/eye-closed-icon.jsx'
+import { EyeOpenIcon } from '../../icons/eye-open-icon.jsx'
+import { Input } from './input.jsx'
+import type { InputProps } from './input.jsx'
 
 export function InputPassword({ ...props }: InputProps) {
   const [visible, setVisible] = useState(false)
