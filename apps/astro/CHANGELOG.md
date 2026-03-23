@@ -1,5 +1,13 @@
 # @infonomic/website-astro
 
+## 6.0.3
+
+### Patch Changes
+
+- 822abf5: Updated checkbox icon colors.
+- Updated dependencies [822abf5]
+  - @infonomic/uikit@6.0.3
+
 ## 6.0.2
 
 ### Patch Changes
