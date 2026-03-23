@@ -1,5 +1,13 @@
 # @infonomic/website-astro
 
+## 6.0.4
+
+### Patch Changes
+
+- 02a5191: Flex col gap for checkbox group.
+- Updated dependencies [02a5191]
+  - @infonomic/uikit@6.0.4
+
 ## 6.0.3
 
 ### Patch Changes
