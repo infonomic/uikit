@@ -101,11 +101,19 @@ Here's an example Tailwind CSS integration. Note that we have our own reset, and
 
 @theme {
   --breakpoint-*: initial;
-  --breakpoint-sm: 640px;
-  --breakpoint-md: 768px;
-  --breakpoint-lg: 1050px;
-  --breakpoint-xl: 1230px;
-  --breakpoint-2xl: 1500px;
+  /* 480px */
+  --breakpoint-xs: 30rem;
+  /* 640px */
+  --breakpoint-sm: 40rem;
+  /* 768px */
+  --breakpoint-md: 48rem;
+  /* 1056px */
+  --breakpoint-lg: 66rem;
+  /* our container component will set max width to common screen size */
+  /* 1232px */
+  --breakpoint-xl: 77rem;
+  /* 1504px */
+  --breakpoint-2xl: 94rem;
 
   --font-*: initial;
   --font-sans:
