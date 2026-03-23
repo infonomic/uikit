@@ -10,11 +10,11 @@ It just doesn't belong in UI kits and libraries.
 
 ## Rationale
 
-In addition to our thoughts above, this kit is built around the philosophy of adopting or 'folding in' best-in-class components, like the ones in well-known 'à la carte' headless component libraries such as [Base UI](https://base-ui.com/), [Radix UI](https://www.radix-ui.com/), and [React Aria](https://react-spectrum.adobe.com/react-aria/index.html) as well as individually well-known components such as [React Day Picker](https://github.com/gpbl/react-day-picker) and more. 
+In addition to our thoughts above, this kit is built around the philosophy of adopting or 'folding in' best-in-class components, like the ones in well-known 'à la carte' headless component libraries such as [Base UI](https://base-ui.com/), and [React Aria](https://react-spectrum.adobe.com/react-aria/index.html) as well as individually well-known components such as [React Day Picker](https://github.com/gpbl/react-day-picker) and more. 
 
 Having lived through a full generation of 'all-in-one' and difficult to override themed UI kits like Bootstrap and Material UI, the trend towards composable headless (unstyled) component libraries is a welcome one - and one that forms the basis of this kit. 
 
-Many of the current components are built on Radix UI. The great thing about wrapping these components in a client-consumable interface and library, is that in theory at least, the consumer of our kit's components won't have to worry about implementation details, or migration from Radix UI to Base UI or other. The 'contract' and core styling semantics will never change.
+Many of the current components are built on Base UI. The great thing about wrapping these components in a client-consumable interface and library, is that in theory at least, the consumer of our kit's components won't have to worry about implementation details, or migration from Base UI to another underlying component library. The 'contract' and core styling semantics will never change.
 
 ## Design Goals
 
@@ -36,7 +36,7 @@ For components - this means ensuring that the layer specificity order appears at
 
 The use of CSS modules will also allow us to support exporting individual components separately (we export a single bundle for import at the moment) helping to reduce the import and bundle size of the consuming client. Once we've enabled single component exports, a client will then be able to import the main style.css file followed by an individual component. We'll be revisiting this soon.
 
-Lastly - we highly value the option to 'tell' components to ignore or override a top-level theme decision of light or dark. There is an intentionally duplicated `.not-dark` class selector in our tokens.css file. Since we're using shadows to create ring offsets (which we desire for focus, active modes etc.) and since CSS shadows need a background color - being able to use `.not-dark`  means that we can override components that need to be in 'dark mode' on an otherwise 'light theme', or that need to be in .not-dark mode, on an otherwise 'dark theme'. This allows us to use the correct ring, background and component colors for components that might be placed on fixed dark or light background panels or sections - irrespective of the currently selected theme
+Lastly - we highly value the option to 'tell' components to ignore or override a top-level theme decision of light or dark. There is an intentionally duplicated `.not-dark` class selector in our functional tokens file. Being able to use `.not-dark` means that we can override components that need to be in 'dark mode' on an otherwise 'light theme', or that need to be in .not-dark mode, on an otherwise 'dark theme'.
 
 ## Getting Started
 
@@ -118,6 +118,15 @@ Here's an example Tailwind CSS integration. Note that we have our own reset, and
   --font-mono:
     'Source Code Pro', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     'Liberation Mono', 'Courier New', monospace;
+
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --color-noeffect: var(--noeffect);
+  --color-success: var(--success);
+  --color-info: var(--info);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
 
   --color-theme-25: var(--theme-25);
   --color-theme-50: var(--theme-50);
