@@ -1,5 +1,13 @@
 # @infonomic/website-astro
 
+## 6.0.1
+
+### Patch Changes
+
+- ed2af65: Updated README.
+- Updated dependencies [ed2af65]
+  - @infonomic/uikit@6.0.1
+
 ## 6.0.0
 
 ### Major Changes
