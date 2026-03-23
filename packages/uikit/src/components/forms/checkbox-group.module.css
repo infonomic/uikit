@@ -1,0 +1,16 @@
+@layer infonomic-base,
+infonomic-functional,
+infonomic-utilities,
+infonomic-theme,
+infonomic-typography,
+infonomic-components;
+
+@layer infonomic-components {
+
+  :global(.infonomic-checkbox-group),
+  .checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-8);
+  }
+}

@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react'
 import cx from 'classnames'
 
 import { Checkbox } from './checkbox.js'
+import styles from './checkbox-group.module.css'
 
 export interface CheckboxGroupProps {
   groupName: string
@@ -67,7 +68,7 @@ export const CheckboxGroup: React.FC<CheckboxGroupProps> = ({
   }
 
   return (
-    <div className={cx('infonomic-checkbox-group', className)}>
+    <div className={cx('infonomic-checkbox-group', styles['checkbox-group'], className)}>
       {checkBoxes.map((cb) => (
         <Checkbox
           key={cb.id}
