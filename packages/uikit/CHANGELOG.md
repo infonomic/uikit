@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 6.0.5
+
+### Patch Changes
+
+- 49a5961: Changed from forms dir to inputs dir, and updated README.
+
 ## 6.0.4
 
 ### Patch Changes
