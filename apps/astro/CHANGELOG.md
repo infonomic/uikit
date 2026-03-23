@@ -1,5 +1,13 @@
 # @infonomic/website-astro
 
+## 6.0.2
+
+### Patch Changes
+
+- 03a1fef: Updated README and Tailwind CSS integration example.
+- Updated dependencies [03a1fef]
+  - @infonomic/uikit@6.0.2
+
 ## 6.0.1
 
 ### Patch Changes
