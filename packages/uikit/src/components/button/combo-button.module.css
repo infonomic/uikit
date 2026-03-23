@@ -1,35 +1,45 @@
 @layer infonomic-base, infonomic-utilities, infonomic-theme, infonomic-components;
 
 @layer infonomic-components {
+
   .combo-button-wrapper,
   :global(.infonomic-combo-button-wrapper) {
     display: flex;
     align-items: center;
     gap: 0.075rem;
+    border-radius: var(--border-radius-sm);
+    outline: 1px solid transparent;
+    outline-offset: 2px;
+    transition: outline-color var(--transition-normal);
+  }
+
+  .combo-button-wrapper:focus-within,
+  .combo-button-wrapper:has([data-popup-open]),
+  :global(.infonomic-combo-button-wrapper):focus-within,
+  :global(.infonomic-combo-button-wrapper):has([data-popup-open]) {
+    outline-color: var(--ring-color);
   }
 
   .combo-button-button,
   :global(.infonomic-combo-button-button) {
-    box-shadow: none;
     border-bottom-right-radius: 0;
     border-top-right-radius: 0;
   }
 
   .combo-button-button:focus,
   .combo-button-button:active {
-    box-shadow: none;
+    outline-color: transparent;
   }
 
   .combo-button-trigger,
   :global(.infonomic-combo-button-trigger) {
-    box-shadow: none;
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
   }
 
   .combo-button-trigger:focus,
   .combo-button-trigger:active {
-    box-shadow: none;
+    outline-color: transparent;
   }
 
   .combo-button-options,
@@ -38,6 +48,5 @@
   }
 
   .combo-button-options-item,
-  :global(.infonomic-combo-button-options-item) {
-  }
+  :global(.infonomic-combo-button-options-item) {}
 }

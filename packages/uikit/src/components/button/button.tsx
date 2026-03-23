@@ -5,9 +5,8 @@ import type React from 'react'
 import { mergeProps } from '@base-ui/react/merge-props'
 import { useRender } from '@base-ui/react/use-render'
 import cx from 'classnames'
-// @ts-expect-error
-import Ripple from 'material-ripple-effects'
 
+import { Ripple } from '../../lib/ripple.js'
 import styles from './button.module.css'
 import type { Intent, Size, Variant } from './@types/button.js'
 

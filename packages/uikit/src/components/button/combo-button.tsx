@@ -35,13 +35,18 @@ export const ComboButton = ({
   className,
   buttonClassName,
   triggerClassName,
+  intent = 'primary',
   ...rest
 }: ComboButtonProps) => {
   return (
-    <div className={cx('combo-button-wrapper', styles['combo-button-wrapper'], className)}>
+    <div
+      className={cx('combo-button-wrapper', styles['combo-button-wrapper'], className)}
+      style={{ '--ring-color': `var(--ring-${intent})` } as React.CSSProperties}
+    >
       <Button
         className={cx('combo-button-button', styles['combo-button-button'], buttonClassName)}
         disabled={disabled || buttonDisabled}
+        intent={intent}
         {...rest}
         onClick={onButtonClick}
       >
@@ -53,6 +58,7 @@ export const ComboButton = ({
           render={
             <Button
               disabled={disabled || optionsDisabled}
+              intent={intent}
               {...rest}
             />
           }
