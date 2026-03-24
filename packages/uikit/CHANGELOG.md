@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 6.2.1
+
+### Patch Changes
+
+- 77bbc34: Allow className prop overrides for the Drawer component.
+
 ## 6.2.0
 
 ### Minor Changes
