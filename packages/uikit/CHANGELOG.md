@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 6.2.0
+
+### Minor Changes
+
+- edb675a: Resolved all stacking context issues by migrating to Base UI Drawer and Dialog components.
+
 ## 6.1.0
 
 ### Minor Changes
