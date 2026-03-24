@@ -27,7 +27,8 @@ export function Hamburger({
   ariaControls,
   ...other
 }: HamburgerProps): React.JSX.Element {
-  const handleClick = (): void => {
+  const handleClick = (event: React.MouseEvent): void => {
+    event.stopPropagation()
     onChange?.(!open)
   }
 
