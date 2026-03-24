@@ -1,5 +1,13 @@
 # @infonomic/website-astro
 
+## 6.2.2
+
+### Patch Changes
+
+- ff2ecc7: added event.stopPropagation() to Hamburger menu.
+- Updated dependencies [ff2ecc7]
+  - @infonomic/uikit@6.2.2
+
 ## 6.2.1
 
 ### Patch Changes
