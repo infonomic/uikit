@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 6.1.0
+
+### Minor Changes
+
+- 1f42c96: Updated Select component.
+
 ## 6.0.5
 
 ### Patch Changes

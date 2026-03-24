@@ -1,5 +1,16 @@
 # @infonomic/website-react
 
+## 6.1.0
+
+### Minor Changes
+
+- 1f42c96: Updated Select component.
+
+### Patch Changes
+
+- Updated dependencies [1f42c96]
+  - @infonomic/uikit@6.1.0
+
 ## 6.0.5
 
 ### Patch Changes
