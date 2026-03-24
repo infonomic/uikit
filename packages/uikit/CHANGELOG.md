@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 6.2.2
+
+### Patch Changes
+
+- ff2ecc7: added event.stopPropagation() to Hamburger menu.
+
 ## 6.2.1
 
 ### Patch Changes
