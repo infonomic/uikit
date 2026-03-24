@@ -1,5 +1,16 @@
 # @infonomic/website-react
 
+## 6.2.0
+
+### Minor Changes
+
+- edb675a: Resolved all stacking context issues by migrating to Base UI Drawer and Dialog components.
+
+### Patch Changes
+
+- Updated dependencies [edb675a]
+  - @infonomic/uikit@6.2.0
+
 ## 6.1.0
 
 ### Minor Changes
