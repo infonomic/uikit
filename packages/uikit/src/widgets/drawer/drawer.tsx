@@ -27,6 +27,7 @@ export interface DrawerProps {
   children: ReactNode
   width?: 'narrow' | 'medium' | 'wide'
   topOffset?: string
+  className?: string
 }
 
 const Drawer = ({
@@ -37,6 +38,7 @@ const Drawer = ({
   children,
   width = 'narrow',
   topOffset = '0',
+  className,
 }: DrawerProps) => {
   const { addDrawer, removeDrawer, drawers } = useDrawer()
   const depth = drawers.indexOf(id)
@@ -74,7 +76,8 @@ const Drawer = ({
             'infonomic-drawer-wrapper',
             styles['drawer-wrapper'],
             typedStyles[`drawer-${width}`],
-            typedStyles[`drawer-depth-${depth.toString()}`]
+            typedStyles[`drawer-depth-${depth.toString()}`],
+            className
           )}
           style={hasTopOffset ? { top: topOffset } : undefined}
         >
