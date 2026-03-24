@@ -22,7 +22,6 @@ export function DrawerContainer({
   return (
     <div
       ref={ref}
-      role="dialog"
       className={cx('infonomic-drawer-container', styles['drawer-container'], className)}
       {...rest}
     >

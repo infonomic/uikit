@@ -31,7 +31,7 @@ const globalDecorator = (StoryFn, context) => {
               overflow: 'auto',
             }}
           >
-            <div style={{ marginBottom: 'var(--spacing-8)' }}>
+            <div className="root" style={{ marginBottom: 'var(--spacing-8)' }}>
               <h1
                 style={{ fontWeight: 'bold', fontSize: '1.5rem' }}
                 className="headings"

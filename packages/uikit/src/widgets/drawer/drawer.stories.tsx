@@ -31,7 +31,53 @@ export const Default = (): React.JSX.Element => {
         isOpen={isOpen}
         onDismiss={() => setIsOpen(false)}
       >
-        <Drawer.Container aria-hidden={!isOpen}>
+        <Drawer.Container>
+          <Drawer.TopActions>
+            <button type="button" tabIndex={0} className="sr-only">
+              no action
+            </button>
+            <IconButton
+              arial-label="Close"
+              size="xs"
+              onClick={() => {
+                setIsOpen(false)
+              }}
+            >
+              <CloseIcon width="14px" height="14px" />
+            </IconButton>
+          </Drawer.TopActions>
+          <Drawer.Header className="flex items-center justify-between mb-4">
+            <h2>Drawer Actions Here</h2>
+          </Drawer.Header>
+          <Drawer.Content>
+            <p>Drawer content here...</p>
+          </Drawer.Content>
+        </Drawer.Container>
+      </Drawer>
+    </>
+  )
+}
+
+export const TopOffset = (): React.JSX.Element => {
+  const [isOpen, setIsOpen] = React.useState(false)
+
+  return (
+    <>
+      <Button
+        onClick={() => {
+          setIsOpen(true)
+        }}
+      >
+        Open Drawer
+      </Button>
+      <Drawer
+        id="top-offset-drawer"
+        topOffset="60px"
+        closeOnOverlayClick={false}
+        isOpen={isOpen}
+        onDismiss={() => setIsOpen(false)}
+      >
+        <Drawer.Container>
           <Drawer.TopActions>
             <button type="button" tabIndex={0} className="sr-only">
               no action
@@ -72,12 +118,12 @@ export const Wide = (): React.JSX.Element => {
       </Button>
       <Drawer
         id="first-drawer"
-        closeOnOverlayClick={true}
+        closeOnOverlayClick={false}
         isOpen={isOpen}
         width="wide"
         onDismiss={() => setIsOpen(false)}
       >
-        <Drawer.Container aria-hidden={!isOpen}>
+        <Drawer.Container>
           <Drawer.TopActions>
             <button type="button" tabIndex={0} className="sr-only">
               no action
@@ -136,7 +182,7 @@ export const Nested = (): React.JSX.Element => {
         isOpen={isOpen1}
         onDismiss={() => setIsOpen1(false)}
       >
-        <Drawer.Container aria-hidden={!isOpen1}>
+        <Drawer.Container>
           <Drawer.TopActions>
             <button type="button" tabIndex={0} className="sr-only">
               no action
@@ -170,7 +216,7 @@ export const Nested = (): React.JSX.Element => {
               isOpen={isOpen2}
               onDismiss={() => setIsOpen2(false)}
             >
-              <Drawer.Container aria-hidden={!isOpen2}>
+              <Drawer.Container>
                 <Drawer.TopActions>
                   <button type="button" tabIndex={0} className="sr-only">
                     no action

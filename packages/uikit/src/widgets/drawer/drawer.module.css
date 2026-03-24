@@ -1,84 +1,108 @@
 @layer infonomic-base, infonomic-utilities, infonomic-theme, infonomic-components;
 
 @layer infonomic-components {
+
+  /* Backdrop overlay (replaces previous Overlay component) */
+
+  .backdrop,
+  :global(.infonomic-drawer-backdrop) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(245, 245, 245, 0.35);
+    transition: opacity 200ms ease;
+  }
+
+  .backdrop[data-starting-style],
+  .backdrop[data-ending-style] {
+    opacity: 0;
+  }
+
+  :global(.dark) .backdrop,
+  :global([data-theme="dark"]) .backdrop,
+  :global(.dark .infonomic-drawer-backdrop),
+  :global([data-theme="dark"] .infonomic-drawer-backdrop) {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  /* Drawer wrapper / popup — the sliding panel itself */
+
   .drawer-wrapper,
   :global(.infonomic-drawer-wrapper) {
     position: fixed;
     display: flex;
     flex-direction: column;
-    justify-content: end;
     top: 0;
-    left: 0;
     right: 0;
     bottom: 0;
-    z-index: 30;
-    opacity: 1;
+    background-color: var(--surface-panel);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+    transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1);
   }
+
+  .drawer-wrapper[data-open] {
+    transform: translateX(var(--drawer-swipe-movement-x, 0px));
+  }
+
+  .drawer-wrapper[data-closed],
+  .drawer-wrapper[data-starting-style] {
+    transform: translateX(100%);
+  }
+
+  .drawer-wrapper[data-swiping] {
+    transition: none;
+  }
+
+  /* Container (inner wrapper, no longer needs positioning) */
 
   .drawer-container,
   :global(.infonomic-drawer-container) {
-    position: absolute;
-    right: 0;
     height: 100%;
-    background-color: var(--surface-panel);
-    box-shadow: var(--shadow-md);
-    z-index: inherit;
   }
 
-  .drawer-container[aria-hidden="false"],
-  :global(.infonomic-drawer-container[aria-hidden="false"]) {
-    animation: slideIn 150ms cubic-bezier(0.16, 1, 0.3, 1);
-  }
+  /* Width variant: narrow */
 
-  .drawer-depth-0.drawer-medium .drawer-container,
-  .drawer-depth-0.drawer-wide .drawer-container,
-  :global(.infonomic-drawer-depth-0.drawer-medium .drawer-container),
-  :global(.infonomic-drawer-depth-0.drawer-wide .drawer-container) {
-    width: 90%;
-  }
-
-  .drawer-depth-1.drawer-medium .drawer-container,
-  .drawer-depth-1.drawer-wide .drawer-container,
-  :global(.infonomic-drawer-depth-1.drawer-medium .drawer-container),
-  :global(.infonomic-drawer-depth-1.drawer-wide .drawer-container) {
-    width: 88%;
-  }
-
-  .drawer-depth-2.drawer- .drawer-container,
-  .drawer-depth-2.drawer-wide .drawer-container,
-  :global(.infonomic-drawer-depth-2.drawer-medium .drawer-container),
-  :global(.infonomic-drawer-depth-2.drawer-wide .drawer-container) {
-    width: 86%;
-  }
-
-  @media (min-width: 48rem) {
-    .drawer-depth-0.drawer-medium .drawer-container,
-    :global(.infonomic-drawer-depth-0.drawer-medium .drawer-container) {
-      width: 600px;
-    }
-
-    .drawer-depth-1.drawer-medium .drawer-container,
-    :global(.infonomic-drawer-depth-1.drawer-medium .drawer-container) {
-      width: 580px;
-    }
-
-    .drawer-depth-2.drawer- .drawer-container,
-    :global(.infonomic-drawer-depth-2.drawer-medium .drawer-container) {
-      width: 560px;
-    }
-  }
-
-  .drawer-narrow .drawer-container,
-  :global(.infonomic-drawer-narrow .infonomic-drawer-container) {
+  .drawer-narrow,
+  :global(.infonomic-drawer-narrow) {
     width: calc(100% - 32px);
     max-width: 400px;
   }
 
-  .drawer-container[aria-hidden="true"],
-  :global(.infonomic-drawer-container[aria-hidden="true"]) {
-    transform: translateX(100%);
-    opacity: 0;
+  /* Width variants: medium/wide at different depths */
+
+  .drawer-depth-0.drawer-medium,
+  .drawer-depth-0.drawer-wide {
+    width: 90%;
   }
+
+  .drawer-depth-1.drawer-medium,
+  .drawer-depth-1.drawer-wide {
+    width: 88%;
+  }
+
+  .drawer-depth-2.drawer-medium,
+  .drawer-depth-2.drawer-wide {
+    width: 86%;
+  }
+
+  @media (min-width: 48rem) {
+    .drawer-depth-0.drawer-medium {
+      width: 600px;
+    }
+
+    .drawer-depth-1.drawer-medium {
+      width: 580px;
+    }
+
+    .drawer-depth-2.drawer-medium {
+      width: 560px;
+    }
+  }
+
+  /* Sub-component styles */
 
   .drawer-top-actions,
   :global(.infonomic-drawer-top-actions) {
@@ -114,17 +138,5 @@
   .drawer-content,
   :global(.infonomic-drawer-content) {
     padding: var(--spacing-12);
-  }
-
-  @keyframes slideIn {
-    from {
-      transform: translateX(100%);
-      opacity: 0;
-    }
-
-    to {
-      transform: translateX(0);
-      opacity: 1;
-    }
   }
 }

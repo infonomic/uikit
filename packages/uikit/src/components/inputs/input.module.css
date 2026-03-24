@@ -160,6 +160,13 @@ infonomic-components;
     border-bottom: 1px solid var(--input-variant-underlined-hover-border);
   }
 
+  .underlined:focus,
+  .underlined:active,
+  :global(.infonomic-input-underlined):focus,
+  :global(.infonomic-input-underlined):active {
+    outline: none;
+  }
+
   .filled,
   :global(.infonomic-input-filled) {
     background-color: var(--input-variant-filled);
