@@ -1,5 +1,13 @@
 # @infonomic/website-astro
 
+## 6.2.1
+
+### Patch Changes
+
+- 77bbc34: Allow className prop overrides for the Drawer component.
+- Updated dependencies [77bbc34]
+  - @infonomic/uikit@6.2.1
+
 ## 6.2.0
 
 ### Minor Changes
