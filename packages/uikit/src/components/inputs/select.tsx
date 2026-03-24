@@ -21,7 +21,7 @@ export interface SelectValue {
   suffix?: string
 }
 
-type SelectProps = React.ComponentProps<typeof SelectPrimitive.Root> & {
+type SelectProps = Omit<React.ComponentProps<typeof SelectPrimitive.Root>, 'items'> & {
   id?: string
   intent?: Intent
   variant?: Variant
@@ -33,6 +33,7 @@ type SelectProps = React.ComponentProps<typeof SelectPrimitive.Root> & {
   disabledValue?: string
   ariaLabel?: string
   helpText?: string
+  items?: SelectValue[]
 }
 
 export function Select({
@@ -48,11 +49,12 @@ export function Select({
   className,
   ariaLabel,
   helpText,
+  items,
   ...rest
 }: SelectProps): React.JSX.Element {
   return (
     <div className={cx('infonomic-select-container', containerClassName)}>
-      <SelectPrimitive.Root {...rest}>
+      <SelectPrimitive.Root items={items} {...rest}>
         <SelectPrimitive.Trigger
           aria-label={ariaLabel ?? 'Select'}
           render={
@@ -70,6 +72,7 @@ export function Select({
             <ChevronDownIcon />
           </SelectPrimitive.Icon>
         </SelectPrimitive.Trigger>
+
         <SelectPrimitive.Portal>
           <SelectPrimitive.Positioner
             className={styles.positioner}
@@ -80,7 +83,11 @@ export function Select({
             </SelectPrimitive.ScrollUpArrow>
             <SelectPrimitive.Popup className={cx(styles.popup, size != null && styles[`popup-${size}`])}>
               <SelectPrimitive.List className={styles.list}>
-                {children}
+                {children ?? items?.map((item) => (
+                  <SelectItem key={item.value} value={item.value} label={item.label}>
+                    {item.label}
+                  </SelectItem>
+                ))}
               </SelectPrimitive.List>
             </SelectPrimitive.Popup>
             <SelectPrimitive.ScrollDownArrow className={styles['scroll-arrow']}>
@@ -88,6 +95,7 @@ export function Select({
             </SelectPrimitive.ScrollDownArrow>
           </SelectPrimitive.Positioner>
         </SelectPrimitive.Portal>
+
       </SelectPrimitive.Root>
       {helpText != null && helpText?.length > 0 && <HelpText text={helpText} />}
     </div>
@@ -108,12 +116,12 @@ export const SelectItem = ({
       {...props}
       ref={forwardedRef}
     >
-      <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
       <SelectPrimitive.ItemIndicator
         className={cx('infonomic-select-item-indicator', styles['select-item-indicator'])}
       >
         <CheckIcon />
       </SelectPrimitive.ItemIndicator>
+      <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
     </SelectPrimitive.Item>
   )
 }
