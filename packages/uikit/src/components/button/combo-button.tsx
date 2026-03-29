@@ -77,7 +77,7 @@ export const ComboButton = ({
               {options.map((option) => (
                 <DropdownComponent.Item
                   key={option.value}
-                  onSelect={() => onOptionSelect?.(option.value)}
+                  onClick={() => onOptionSelect?.(option.value)}
                 >
                   <div
                     className={cx('combo-button-options-item', styles['combo-button-options-item'])}
