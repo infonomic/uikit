@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 6.3.1
+
+### Patch Changes
+
+- 87ad367: correct ComboButton option select handler.
+
 ## 6.3.0
 
 ### Minor Changes
