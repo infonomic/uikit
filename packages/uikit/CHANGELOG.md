@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 6.3.0
+
+### Minor Changes
+
+- 9945473: Accept generic value param for Select (default to string).
+
 ## 6.2.2
 
 ### Patch Changes
