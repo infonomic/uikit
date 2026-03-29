@@ -14,14 +14,17 @@ import styles from './select.module.css'
 import type { Intent } from '../@types/shared.js'
 import type { Size, Variant } from '../button/@types/button.js'
 
-export interface SelectValue {
+export interface SelectValue<Value extends string | number = string> {
   label: string
-  value: string
+  value: Value
   prefix?: string
   suffix?: string
 }
 
-type SelectProps = Omit<React.ComponentProps<typeof SelectPrimitive.Root>, 'items'> & {
+type SelectProps<Value extends string | number = string> = Omit<
+  React.ComponentProps<typeof SelectPrimitive.Root<Value>>,
+  'items'
+> & {
   id?: string
   intent?: Intent
   variant?: Variant
@@ -33,10 +36,10 @@ type SelectProps = Omit<React.ComponentProps<typeof SelectPrimitive.Root>, 'item
   disabledValue?: string
   ariaLabel?: string
   helpText?: string
-  items?: SelectValue[]
+  items?: SelectValue<Value>[]
 }
 
-export function Select({
+export function Select<Value extends string | number = string>({
   id,
   children,
   placeholder,
@@ -51,10 +54,10 @@ export function Select({
   helpText,
   items,
   ...rest
-}: SelectProps): React.JSX.Element {
+}: SelectProps<Value>): React.JSX.Element {
   return (
     <div className={cx('infonomic-select-container', containerClassName)}>
-      <SelectPrimitive.Root items={items} {...rest}>
+      <SelectPrimitive.Root<Value> items={items} {...rest}>
         <SelectPrimitive.Trigger
           aria-label={ariaLabel ?? 'Select'}
           render={
