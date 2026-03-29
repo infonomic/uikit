@@ -1,5 +1,13 @@
 # @infonomic/website-astro
 
+## 6.3.1
+
+### Patch Changes
+
+- 87ad367: correct ComboButton option select handler.
+- Updated dependencies [87ad367]
+  - @infonomic/uikit@6.3.1
+
 ## 6.3.0
 
 ### Minor Changes
