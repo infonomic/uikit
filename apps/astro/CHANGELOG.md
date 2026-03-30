@@ -1,5 +1,16 @@
 # @infonomic/website-astro
 
+## 6.4.0
+
+### Minor Changes
+
+- dc66aa0: Migrated all loaders to CSS Modules with global exports and DX-friendly props.
+
+### Patch Changes
+
+- Updated dependencies [dc66aa0]
+  - @infonomic/uikit@6.4.0
+
 ## 6.3.1
 
 ### Patch Changes
