@@ -1,3 +1,5 @@
+/* No longer used in our actual loaders for React and Astro components
+but left here as a reference. */
 .lds-ellipsis {
   display: inline-block;
   position: relative;

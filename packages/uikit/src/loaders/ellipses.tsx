@@ -1,33 +1,40 @@
 // https://github.com/JoshK2/react-spinners-css
 import type React from 'react'
 
-import classNames from 'classnames'
+import cx from 'classnames'
 
 import type { LoaderProps } from './@types/index.js'
+import styles from './ellipses.module.css'
 
 export function LoaderEllipsis({
   color,
-  size = 80,
+  size,
   className,
   style,
   ...rest
 }: LoaderProps): React.JSX.Element {
-  const height = size * 0.5
+  const ellipsisStyle: React.CSSProperties & Record<string, string | number | undefined> = {
+    ...style,
+  }
+  if (size != null) {
+    ellipsisStyle['--loader-ellipsis-size'] = typeof size === 'number' ? `${size}px` : size
+  }
+  if (color) {
+    ellipsisStyle['--loader-ellipsis-color'] = color
+  }
 
   const circles = [...Array(4)].map((_, index) => (
     <div
       // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
       key={index}
-      style={{
-        backgroundColor: color ? color : 'var(--loader-color)',
-      }}
+      className={cx('infonomic-loader-ellipsis-dot', styles['loader-ellipsis-dot'])}
     />
   ))
 
   return (
     <div
-      className={classNames('lds-ellipsis', className)}
-      style={{ ...style, width: size, height }}
+      className={cx('infonomic-loader-ellipsis', styles['loader-ellipsis'], className)}
+      style={ellipsisStyle}
       {...rest}
     >
       {circles}
