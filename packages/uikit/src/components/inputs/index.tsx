@@ -1,3 +1,4 @@
+export * from './autocomplete.jsx'
 export * from './checkbox.jsx'
 export * from './help-text.jsx'
 export * from './input.jsx'
