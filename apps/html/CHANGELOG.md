@@ -1,5 +1,16 @@
 # @modulus-learning/agent-demo-vanilla
 
+## 6.5.0
+
+### Minor Changes
+
+- 4ae31ac: Autocomplete component (and updated all deps).
+
+### Patch Changes
+
+- Updated dependencies [4ae31ac]
+  - @infonomic/uikit@6.5.0
+
 ## 6.4.0
 
 ### Minor Changes
