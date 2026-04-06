@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 6.5.0
+
+### Minor Changes
+
+- 4ae31ac: Autocomplete component (and updated all deps).
+
 ## 6.4.0
 
 ### Minor Changes
