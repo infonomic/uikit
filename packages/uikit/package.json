@@ -77,6 +77,10 @@
       "default": "./dist/styles/components-vanilla.css"
     }
   },
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
   "dependencies": {
     "@base-ui/react": "^1.3.0",
     "classnames": "^2.5.1",
@@ -84,9 +88,7 @@
     "motion": "^12.38.0",
     "npm-run-all": "^4.1.5",
     "prism-react-renderer": "^2.4.1",
-    "react": "19.2.4",
     "react-day-picker": "^9.14.0",
-    "react-dom": "19.2.4",
     "zod": "^4.3.6",
     "zod-form-data": "^3.0.1"
   },
@@ -111,6 +113,8 @@
     "eslint-plugin-storybook": "^10.3.4",
     "lightningcss": "^1.32.0",
     "lightningcss-cli": "^1.32.0",
+    "react": "19.2.5",
+    "react-dom": "19.2.5",
     "rimraf": "^6.1.3",
     "storybook": "^10.3.4",
     "typescript": "6.0.2",
