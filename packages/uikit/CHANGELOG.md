@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 6.5.1
+
+### Patch Changes
+
+- f673965: Correctly declare react as a peer dependency.
+
 ## 6.5.0
 
 ### Minor Changes
