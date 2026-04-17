@@ -1,5 +1,16 @@
 # @modulus-learning/agent-demo-vanilla
 
+## 6.7.0
+
+### Minor Changes
+
+- 8f4ba76: Updated shadcn compatibility layer (and updated deps)
+
+### Patch Changes
+
+- Updated dependencies [8f4ba76]
+  - @infonomic/uikit@6.7.0
+
 ## 6.6.0
 
 ### Minor Changes
