@@ -1,0 +1,555 @@
+/**
+ * Showcase landing-page atmosphere.
+ *
+ * Scoped to the home route via CSS modules. Component-level styling
+ * still comes from @infonomic/uikit tokens; this file only contributes
+ * page chrome (typography families, the dotted technical grid, the
+ * specimen-card frame, and a single staggered reveal).
+ */
+
+.page {
+  --showcase-ink: oklch(0.98 0 0);
+  --showcase-ink-muted: oklch(0.72 0 0 / 0.72);
+  --showcase-ink-dim: oklch(0.56 0 0 / 0.55);
+  --showcase-rule: oklch(1 0 0 / 0.1);
+  --showcase-rule-soft: oklch(1 0 0 / 0.05);
+  --showcase-mark: oklch(0.82 0.15 68);
+  --showcase-surface: oklch(0.22 0.004 280 / 0.38);
+  --showcase-surface-ring: oklch(1 0 0 / 0.07);
+
+  position: relative;
+  isolation: isolate;
+  /* Font families come from @infonomic/uikit's typography plugin:
+     --font-display = Roboto, --font-sans = Inter,
+     --font-serif = Merriweather, --font-mono = Source Code Pro. */
+  font-family: var(--font-sans);
+  color: var(--showcase-ink);
+  /* 1px dotted grid every 24px - the technical-drawing atmosphere. */
+  background-image:
+    radial-gradient(var(--showcase-rule-soft) 1px, transparent 1px);
+  background-size: 24px 24px;
+  background-position: 0 0;
+}
+
+.page::before {
+  /* A soft warm wash at the top so the hero feels lit. */
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 520px;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      80% 100% at 50% 0%,
+      oklch(0.82 0.15 68 / 0.08),
+      transparent 70%
+    );
+}
+
+:global(.light) .page {
+  --showcase-ink: oklch(0.18 0.01 280);
+  --showcase-ink-muted: oklch(0.38 0.008 280 / 0.75);
+  --showcase-ink-dim: oklch(0.55 0.008 280 / 0.6);
+  --showcase-rule: oklch(0.2 0.01 280 / 0.14);
+  --showcase-rule-soft: oklch(0.2 0.01 280 / 0.07);
+  --showcase-mark: oklch(0.6 0.17 40);
+  --showcase-surface: oklch(1 0 0 / 0.65);
+  --showcase-surface-ring: oklch(0.2 0.01 280 / 0.09);
+}
+
+/* ==========================================================
+   TOP + BOTTOM RULER STRIPS
+   Thin monospace meta bar, mimicking a catalogue running head.
+   ========================================================== */
+
+.ruler {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 0 12px;
+  border-bottom: 1px solid var(--showcase-rule);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--showcase-ink-muted);
+}
+
+.ruler-end {
+  border-top: 1px solid var(--showcase-rule);
+  border-bottom: 0;
+  padding: 14px 0 10px;
+}
+
+.ruler-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--showcase-mark);
+  margin: 0 10px 0 0;
+  translate: 0 -1px;
+}
+
+.ruler-section {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.ruler-section > span + span {
+  padding-left: 16px;
+  border-left: 1px solid var(--showcase-rule);
+}
+
+.ruler-hidden-sm {
+  display: none;
+}
+@media (min-width: 640px) {
+  .ruler-hidden-sm {
+    display: inline;
+  }
+}
+
+/* ==========================================================
+   HERO
+   ========================================================== */
+
+.hero {
+  padding: 72px 0 56px;
+  position: relative;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--showcase-ink-muted);
+  padding: 6px 12px 6px 8px;
+  border: 1px solid var(--showcase-rule);
+  border-radius: 999px;
+  background: color-mix(in oklch, var(--showcase-surface) 85%, transparent);
+}
+
+.hero-eyebrow::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--showcase-mark);
+  box-shadow: 0 0 0 3px color-mix(in oklch, var(--showcase-mark) 25%, transparent);
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 0.94;
+  letter-spacing: -0.035em;
+  margin: 28px 0 28px;
+  font-size: clamp(48px, 9vw, 112px);
+  color: var(--showcase-ink);
+}
+
+.hero-title em {
+  /* Italic emphasis uses the serif default for editorial character. */
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 300;
+  color: var(--showcase-mark);
+  /* Merriweather runs larger on the body — nudge down so the italic
+     word sits on the same optical line as the surrounding display text. */
+  font-size: 0.86em;
+  letter-spacing: -0.015em;
+}
+
+.hero-rule-word {
+  position: relative;
+  white-space: nowrap;
+}
+
+.hero-rule-word::after {
+  /* A hairline under the last word, like a catalog entry. */
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0.06em;
+  height: 1px;
+  background: var(--showcase-rule);
+}
+
+.hero-sub {
+  font-family: var(--font-sans);
+  font-size: clamp(15px, 1.4vw, 17px);
+  line-height: 1.55;
+  color: var(--showcase-ink-muted);
+  max-width: 58ch;
+  margin: 0 0 36px;
+}
+
+.hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+}
+
+.hero-aside {
+  display: none;
+}
+@media (min-width: 900px) {
+  .hero-aside {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 76px;
+    width: 240px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    line-height: 1.7;
+    letter-spacing: 0.04em;
+    color: var(--showcase-ink-muted);
+    border-left: 1px solid var(--showcase-rule);
+    padding-left: 16px;
+  }
+  .hero-aside-label {
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--showcase-ink-dim);
+    margin-bottom: 8px;
+  }
+}
+
+/* ==========================================================
+   FACTS STRIP
+   ========================================================== */
+
+.facts {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border-top: 1px solid var(--showcase-rule);
+  border-bottom: 1px solid var(--showcase-rule);
+  margin-top: 8px;
+}
+@media (min-width: 700px) {
+  .facts {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.facts-cell {
+  padding: 18px 20px;
+  border-right: 1px solid var(--showcase-rule);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.facts-cell:last-child {
+  border-right: 0;
+}
+@media (max-width: 699px) {
+  .facts-cell:nth-child(2n) {
+    border-right: 0;
+  }
+  .facts-cell:nth-child(1),
+  .facts-cell:nth-child(2) {
+    border-bottom: 1px solid var(--showcase-rule);
+  }
+}
+
+.facts-num {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 32px;
+  letter-spacing: -0.02em;
+  color: var(--showcase-ink);
+  line-height: 1;
+}
+.facts-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--showcase-ink-dim);
+}
+
+/* ==========================================================
+   SPECIMEN GRID
+   ========================================================== */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 12px;
+  margin: 56px 0 64px;
+}
+
+.spec {
+  grid-column: span 12;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 260px;
+  padding: 20px 22px 22px;
+  border: 1px solid var(--showcase-surface-ring);
+  background: var(--showcase-surface);
+  border-radius: 6px;
+  backdrop-filter: blur(6px);
+  overflow: hidden;
+  /* Stagger reveal. */
+  opacity: 0;
+  transform: translateY(10px);
+  animation: spec-in 620ms cubic-bezier(0.2, 0.65, 0.2, 1) forwards;
+}
+
+/* Faint crosshair marks in the corners — specimen sheet detail. */
+.spec::before,
+.spec::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border: 1px solid var(--showcase-rule);
+}
+.spec::before { top: 6px;    left: 6px;    border-right: 0; border-bottom: 0; }
+.spec::after  { bottom: 6px; right: 6px;   border-left: 0;  border-top: 0;    }
+
+.spec-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 14px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--showcase-rule);
+}
+
+.spec-num {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--showcase-ink-dim);
+}
+.spec-num b {
+  font-weight: 500;
+  color: var(--showcase-mark);
+  margin-right: 10px;
+}
+
+.spec-title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 20px;
+  letter-spacing: -0.01em;
+  color: var(--showcase-ink);
+  line-height: 1.1;
+}
+
+.spec-desc {
+  /* Italic one-liners use Merriweather for editorial character. */
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--showcase-ink-muted);
+  margin: -8px 0 18px;
+  max-width: 42ch;
+}
+
+.spec-body {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spec-body-stretch {
+  align-items: stretch;
+  justify-content: stretch;
+}
+
+.spec-foot {
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--showcase-rule);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--showcase-ink-dim);
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+/* Span overrides per specimen, md+ only. */
+@media (min-width: 760px) {
+  .span-a { grid-column: span 8; }
+  .span-b { grid-column: span 4; }
+  .span-c { grid-column: span 5; }
+  .span-d { grid-column: span 7; }
+  .span-e { grid-column: span 7; }
+  .span-f { grid-column: span 5; }
+  .span-g { grid-column: span 4; }
+  .span-h { grid-column: span 8; }
+}
+
+/* Per-card reveal delay. */
+.spec:nth-child(1) { animation-delay: 80ms; }
+.spec:nth-child(2) { animation-delay: 140ms; }
+.spec:nth-child(3) { animation-delay: 200ms; }
+.spec:nth-child(4) { animation-delay: 260ms; }
+.spec:nth-child(5) { animation-delay: 320ms; }
+.spec:nth-child(6) { animation-delay: 380ms; }
+.spec:nth-child(7) { animation-delay: 440ms; }
+.spec:nth-child(8) { animation-delay: 500ms; }
+
+/* Small inline specimen helpers */
+
+.button-matrix {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  width: 100%;
+}
+@media (min-width: 480px) {
+  .button-matrix { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+}
+
+.avatar-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.avatar-group > * {
+  width: 56px;
+  height: 56px;
+  border: 2px solid var(--showcase-surface);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.avatar-group > * + * {
+  margin-left: -12px;
+}
+
+.loader-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  color: var(--showcase-ink-muted);
+}
+
+.tooltip-demo {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  text-align: center;
+}
+.tooltip-demo-hint {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--showcase-ink-dim);
+}
+
+.badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Final CTA band */
+.band {
+  margin: 8px 0 56px;
+  padding: 44px 0 48px;
+  border-top: 1px solid var(--showcase-rule);
+  border-bottom: 1px solid var(--showcase-rule);
+  display: grid;
+  gap: 22px;
+  grid-template-columns: 1fr;
+  align-items: end;
+}
+@media (min-width: 760px) {
+  .band { grid-template-columns: 1.4fr auto; }
+}
+
+.band-title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(30px, 4.4vw, 50px);
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+  color: var(--showcase-ink);
+  margin: 0;
+}
+.band-title em {
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: var(--showcase-mark);
+  font-weight: 300;
+  font-size: 0.88em;
+  letter-spacing: -0.015em;
+}
+.band-sub {
+  font-family: var(--font-sans);
+  color: var(--showcase-ink-muted);
+  font-size: 15px;
+  margin-top: 10px;
+  max-width: 52ch;
+}
+
+.band-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+/* ==========================================================
+   ANIMATIONS
+   ========================================================== */
+
+@keyframes spec-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spec {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
