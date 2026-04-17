@@ -22,7 +22,8 @@
  */
 
 import { Link } from '@tanstack/react-router'
-// import Logo from '@/images/logo'
+
+import logo from '@/images/logo/type-logo-white.svg'
 
 export function SiteFooter() {
   return (
@@ -32,12 +33,12 @@ export function SiteFooter() {
           <div className="space-y-4">
             <div className="flex items-center space-x-3">
               <div className="flex items-center space-x-2">
-                <Link to="/">
-                  {/* <Logo className="w-[32px] h-[32px]" /> */}
-                  Logo here...
-                </Link>
+                <a href="https://infonomic.com" target="_blank" rel="noopener noreferrer">
+                  <div className="not-prose mr-2 w-[160px] transition-all duration-500 ease-out">
+                    <img src={logo} alt="Infonomic" />
+                  </div>
+                </a>
               </div>
-              <span className="text-xl font-bold">Infonomic</span>
             </div>
             <p className="text-gray-400">
               Building the future of content management, one commit at a time.

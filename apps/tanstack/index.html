@@ -51,26 +51,52 @@
     href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300..700;1,400&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Source+Code+Pro:wght@300;400;500&display=swap"
   />
 
-  <script>
+  <!--
+    Early theme detector: runs synchronously before hydration so the initial
+    paint matches the user's preferred theme (no FOUC). Mirrors the logic of
+    src/ui/theme/early-theme-detector.tsx in the SSR sibling app. The "force"
+    constant here corresponds to the `force` prop passed to <ThemeProvider/>
+    in src/routes/__root.tsx — keep them in sync.
+  -->
+  <script id="theme-detection">
     (() => {
       const classList = document.documentElement.classList;
       const style = document.documentElement.style;
-      const theme = localStorage.theme
-      // This site defaults to dark mode, but respects user preference if set.
-      // const dark = window.matchMedia("(prefers-color-scheme: dark)");
-      if (localStorage.theme == null) {
-        localStorage.setItem("theme", "dark");
-        classList.add("dark");
-        style.colorScheme = "dark";
+      const system = window.matchMedia('(prefers-color-scheme: dark)');
+      const force = 'dark';
+      let theme = localStorage.theme;
+      if (theme != null && theme !== 'dark' && theme !== 'light') {
+        localStorage.removeItem('theme');
+        theme = null;
+      }
+
+      if (theme == null) {
+        if (force == null || force.length === 0) {
+          if (system.matches) {
+            classList.remove('light');
+            classList.add('dark');
+            style.colorScheme = 'dark';
+          } else {
+            classList.remove('dark');
+            classList.add('light');
+            style.colorScheme = 'light';
+          }
+        } else {
+          localStorage.setItem('theme', force);
+          classList.remove('light');
+          classList.remove('dark');
+          classList.add(force);
+          style.colorScheme = force;
+        }
       } else {
-        if (theme === "dark") {
-          classList.remove("light");
-          classList.add("dark");
-          style.colorScheme = "dark";
-        } else if (theme === "light") {
-          classList.remove("dark");
-          classList.add("light");
-          style.colorScheme = "light";
+        if (theme === 'dark') {
+          classList.remove('light');
+          classList.add('dark');
+          style.colorScheme = 'dark';
+        } else if (theme === 'light') {
+          classList.remove('dark');
+          classList.add('light');
+          style.colorScheme = 'light';
         }
       }
     })();

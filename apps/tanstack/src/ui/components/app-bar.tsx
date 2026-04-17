@@ -1,13 +1,15 @@
 'use client'
 
 import { forwardRef, useEffect, useState } from 'react'
-import { useRouterState } from '@tanstack/react-router'
+import { Link } from '@tanstack/react-router'
 
-import { GithubIcon } from '@infonomic/uikit/react'
 import cx from 'classnames'
 
-import { Branding } from '@/ui/components/branding'
+import { useTheme } from '@/ui/theme/provider'
+import { Theme } from '@/ui/theme/utils'
 import type { Locale } from '@/i18n/i18n-config'
+
+import styles from './app-bar.module.css'
 
 interface AppBarProps {
   className?: string
@@ -16,96 +18,64 @@ interface AppBarProps {
 export type Ref = HTMLDivElement
 
 export const AppBar = forwardRef<Ref, AppBarProps>(function AppBar(
-  { className, lng, ...other },
+  { className, lng: _lng, ...other },
   ref
 ) {
-  const location = useRouterState({ select: (s) => s.location })
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [hasScrolled, setHasScrolled] = useState(false)
-
-  const _handleToggleMobileMenu = (event: React.MouseEvent<HTMLButtonElement> | null): void => {
-    if (event != null) event.stopPropagation()
-    // e.preventDefault()
-    setMobileMenuOpen(!mobileMenuOpen)
-  }
-
-  const _handleMobileMenuClose = (): void => {
-    setMobileMenuOpen(false)
-  }
-
-  const handleWindowClick = (): void => {
-    setMobileMenuOpen(false)
-  }
+  const { theme, setTheme } = useTheme()
+  const year = new Date().getFullYear()
 
   useEffect(() => {
-    window.addEventListener('click', handleWindowClick)
-    return () => {
-      window.removeEventListener('click', handleWindowClick)
+    const handleScroll = () => {
+      setHasScrolled(window.scrollY > 24)
     }
-  })
-
-  const handleScroll = (): void => {
-    const position = window.scrollY
-    if (position > 100) {
-      setHasScrolled(true)
-    } else {
-      setHasScrolled(false)
-    }
-  }
-
-  useEffect(() => {
+    handleScroll()
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => {
       window.removeEventListener('scroll', handleScroll)
     }
-  })
-
-  const appBarBackground = hasScrolled
-    ? 'bg-white dark:bg-canvas-900 border-b border-gray-200/50 dark:border-gray-900/70'
-    : 'bg-transparent  backdrop-blur-md'
-  // const appBarBackground =
-  //   hasScrolled || pathName.length > 3
-  //     ? 'bg-primary-400 dark:bg-primary-900'
-  //     : 'border-b border-gray-800/50 bg-white dark:bg-black/80 backdrop-blur-md'
-
-  const _appBarTextColor =
-    hasScrolled || location.pathname.length > 3
-      ? 'text-black fill-black dark:text-white dark:fill-white'
-      : 'text-black fill-black dark:text-white dark:fill-white'
-
-  const _hamburgerColor =
-    hasScrolled || location.pathname.length > 3
-      ? 'bg-black before:bg-black after:bg-black dark:bg-white dark:before:bg-white dark:after:bg-white'
-      : 'bg-white before:bg-white after:bg-white'
-
-  const _hamburgerColorMobileMenuOpen = 'bg-white before:bg-white after:bg-white'
+  }, [])
 
   return (
     <header
       id="header"
-      className={cx('sticky top-0 z-30 w-full', appBarBackground, className)}
       ref={ref}
+      className={cx(styles.appBar, hasScrolled && styles.appBarScrolled, className)}
       {...other}
     >
-      <div
-        id="app-bar"
-        className={cx(
-          'app-bar sticky top-0 flex min-h-[60px] w-full items-center gap-4 pl-0 pr-[12px]',
-          'sm:gap-4 sm:pl-0 sm:pr-[18px]',
-          'transition-all duration-500 ease-out'
-        )}
-      >
-        <div className="lg:flex-initial mr-auto">
-          <Branding lng="en" hasScrolled={hasScrolled} pathName={location.pathname} />
+      <div className={styles.inner}>
+        <div className={styles.section}>
+          <Link to="/" className={styles.brand}>
+            <span className={styles.dot} aria-hidden />
+            Infonomic · UIKit
+          </Link>
+          <span className={styles.hiddenSm}>v6.6.0</span>
+          <span className={styles.hiddenSm}>Specimen / 01</span>
         </div>
-        <a
-          className="block"
-          href="https://github.com/infonomic/uikit"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <GithubIcon width="28px" height="28px" />
-        </a>
+        <div className={styles.section}>
+          <span>{year}</span>
+          <span className={styles.themeGroup}>
+            <button
+              type="button"
+              className={cx(styles.themeButton, theme === Theme.DARK && styles.themeButtonActive)}
+              onClick={() => setTheme(Theme.DARK)}
+              aria-pressed={theme === Theme.DARK}
+            >
+              Dark
+            </button>
+            <span className={styles.themeSep} aria-hidden>
+              ·
+            </span>
+            <button
+              type="button"
+              className={cx(styles.themeButton, theme === Theme.LIGHT && styles.themeButtonActive)}
+              onClick={() => setTheme(Theme.LIGHT)}
+              aria-pressed={theme === Theme.LIGHT}
+            >
+              Light
+            </button>
+          </span>
+        </div>
       </div>
     </header>
   )

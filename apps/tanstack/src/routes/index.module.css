@@ -17,6 +17,13 @@
   --showcase-surface: oklch(0.22 0.004 280 / 0.38);
   --showcase-surface-ring: oklch(1 0 0 / 0.07);
 
+  /* Pull the page up under the fixed AppBar (which is 38px tall and added
+     as padding on <main> in __root.tsx), then re-add equivalent padding so
+     the dot-grid background extends to the top of the viewport while the
+     hero and other content sit below the bar. */
+  margin-top: -38px;
+  padding-top: 38px;
+
   position: relative;
   isolation: isolate;
   /* Font families come from @infonomic/uikit's typography plugin:

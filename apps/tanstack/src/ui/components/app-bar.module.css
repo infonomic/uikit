@@ -1,0 +1,153 @@
+/**
+ * App bar — catalog-style running head.
+ *
+ * Fixed to the top of the viewport so the home page's dot-grid background
+ * extends up behind it. Transparent at scroll position 0; gains an opaque
+ * blurred surface and hairline border once scrolled.
+ */
+
+.appBar {
+  --app-bar-height: 38px;
+
+  /* Catalog ink — mirrors the showcase tokens in routes/index.module.css
+     but scoped here so the bar can sit outside `.page`. */
+  --bar-ink: oklch(0.98 0 0);
+  --bar-ink-muted: oklch(0.72 0 0 / 0.85);
+  --bar-ink-dim: oklch(0.56 0 0 / 0.65);
+  --bar-rule: oklch(1 0 0 / 0.1);
+  --bar-mark: oklch(0.82 0.15 68);
+  --bar-surface: oklch(0.18 0.004 280 / 0.72);
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 30;
+  transition:
+    background-color 250ms ease,
+    backdrop-filter 250ms ease,
+    border-color 250ms ease;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+}
+
+:global(.light) .appBar {
+  --bar-ink: oklch(0.18 0.01 280);
+  --bar-ink-muted: oklch(0.38 0.008 280 / 0.85);
+  --bar-ink-dim: oklch(0.55 0.008 280 / 0.7);
+  --bar-rule: oklch(0.2 0.01 280 / 0.14);
+  --bar-mark: oklch(0.6 0.17 40);
+  --bar-surface: oklch(1 0 0 / 0.7);
+}
+
+.appBarScrolled {
+  background: var(--bar-surface);
+  backdrop-filter: blur(8px);
+  border-bottom-color: var(--bar-rule);
+}
+
+.inner {
+  width: 100%;
+  max-width: 87.5rem;
+  margin: 0 auto;
+  padding: 10px 16px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--bar-ink-muted);
+  min-height: var(--app-bar-height);
+}
+
+@media (min-width: 640px) {
+  .inner {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+.section {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+}
+
+.section > * + * {
+  padding-left: 16px;
+  border-left: 1px solid var(--bar-rule);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  color: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 200ms ease;
+}
+
+.brand:hover {
+  color: var(--bar-ink);
+}
+
+.dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--bar-mark);
+  margin-right: 10px;
+  translate: 0 -1px;
+}
+
+.hiddenSm {
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .hiddenSm {
+    display: inline;
+  }
+}
+
+.themeGroup {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+}
+
+.themeButton {
+  background: transparent;
+  border: 0;
+  padding: 0 8px;
+  margin: 0;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  transition: color 200ms ease;
+}
+
+.themeButton:hover {
+  color: var(--bar-ink);
+}
+
+.themeButton:focus-visible {
+  outline: 1px dashed var(--bar-mark);
+  outline-offset: 2px;
+}
+
+.themeButtonActive {
+  color: var(--bar-mark);
+}
+
+.themeSep {
+  color: var(--bar-ink-dim);
+  user-select: none;
+}

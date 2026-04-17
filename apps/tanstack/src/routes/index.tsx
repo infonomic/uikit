@@ -23,29 +23,9 @@ export const Route = createFileRoute('/')({
 })
 
 function Index() {
-  const year = new Date().getFullYear()
-
   return (
     <div className={styles.page}>
       <Container>
-        {/* =========================================================
-            Top ruler — running head in the catalog style
-         ========================================================= */}
-        <div className={styles.ruler} aria-hidden>
-          <div className={styles['ruler-section']}>
-            <span>
-              <span className={styles['ruler-dot']} />
-              Infonomic · UIKit
-            </span>
-            <span className={styles['ruler-hidden-sm']}>v6.5.1</span>
-            <span className={styles['ruler-hidden-sm']}>Specimen / 01</span>
-          </div>
-          <div className={styles['ruler-section']}>
-            <span>{year}</span>
-            <span className={styles['ruler-hidden-sm']}>Dark · Light · .not-dark</span>
-          </div>
-        </div>
-
         {/* =========================================================
             HERO
          ========================================================= */}
