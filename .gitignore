@@ -45,3 +45,10 @@ mongodb/backups
 
 # vercel
 .vercel
+
+
+# Claude Code
+.claude/plans/
+.claude/worktrees/
+.claude/memory/
+.claude/settings.local.json
