@@ -9,10 +9,10 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as ButtonsRouteImport } from './routes/buttons'
-import { Route as CardsRouteImport } from './routes/cards'
-import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProseRouteImport } from './routes/prose'
+import { Route as CardsRouteImport } from './routes/cards'
+import { Route as ButtonsRouteImport } from './routes/buttons'
+import { Route as IndexRouteImport } from './routes/index'
 
 const ProseRoute = ProseRouteImport.update({
   id: '/prose',
