@@ -209,7 +209,7 @@ infonomic-components;
     --checkbox-variant-outlined-hover-border: var(--fill-noeffect-strong-hover);
     --checkbox-variant-outline-ring-color: var(--ring-noeffect);
     --checkbox-variant-filled: var(--fill-noeffect-strong);
-    --checkbox-icon-color: var(--text-on-noeffect);
+    --checkbox-icon-color: var(--text-on-noeffect-strong);
   }
 
   .success,
@@ -239,7 +239,7 @@ infonomic-components;
     --checkbox-variant-outlined-hover-border: var(--fill-warning-strong-hover);
     --checkbox-variant-outline-ring-color: var(--ring-warning);
     --checkbox-variant-filled: var(--fill-warning-strong);
-    --checkbox-icon-color: var(--text-on-warning);
+    --checkbox-icon-color: var(--text-on-warning-strong);
   }
 
   .danger,

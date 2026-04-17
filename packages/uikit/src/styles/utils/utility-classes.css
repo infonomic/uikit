@@ -63,72 +63,62 @@
 
   .primary-strong {
     background-color: var(--fill-primary-strong);
-    color: var(--text-on-primary);
+    color: var(--text-on-primary-strong);
   }
 
   .primary-weak {
     background-color: var(--fill-primary-weak);
-    color: var(--text-on-primary);
+    color: var(--text-on-primary-weak);
   }
 
   .secondary-strong {
     background-color: var(--fill-secondary-strong);
-    color: var(--text-on-secondary);
+    color: var(--text-on-secondary-strong);
   }
 
   .secondary-weak {
     background-color: var(--fill-secondary-weak);
-    color: var(--text-on-secondary);
-  }
-
-  .accent-strong {
-    background-color: var(--fill-accent-strong);
-    color: var(--text-on-accent);
-  }
-
-  .accent-weak {
-    background-color: var(--fill-accent-weak);
-    color: var(--text-on-accent);
+    color: var(--text-on-secondary-weak);
   }
 
   .info-strong {
     background-color: var(--fill-info-strong);
-    color: var(--text-on-info);
+    color: var(--text-on-info-strong);
   }
 
   .info-weak {
     background-color: var(--fill-info-weak);
-    color: var(--text-on-info);
+    color: var(--text-on-info-weak);
   }
 
   .success-strong {
     background-color: var(--fill-success-strong);
-    color: var(--text-on-success);
+    color: var(--text-on-success-strong);
   }
 
   .success-weak {
     background-color: var(--fill-success-weak);
-    color: var(--text-on-success);
+    color: var(--text-on-success-weak);
   }
 
   .warning-strong {
     background-color: var(--fill-warning-strong);
-    color: var(--text-on-warning);
+    color: var(--text-on-warning-strong);
   }
 
   .warning-weak {
     background-color: var(--fill-warning-weak);
-    color: var(--text-on-warning);
+    color: var(--text-on-warning-weak);
   }
 
   .danger-strong {
     background-color: var(--fill-danger-strong);
-    color: var(--text-on-danger);
+    color: var(--text-on-danger-strong);
   }
 
   .danger-weak {
     background-color: var(--fill-danger-weak);
-    color: var(--text-on-danger);
+    color: var(--text-on-danger-weak);
   }
 
   /* ========================================

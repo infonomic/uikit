@@ -23,7 +23,7 @@
     justify-content: center;
     bottom: 45px;
     right: 30px;
-    color: var(--text-on-primary);
+    color: var(--text-on-primary-strong);
     background-color: var(--fill-primary-strong);
     transition-property: all, color;
     transition-duration: 0.3s, 1ms;
@@ -41,14 +41,14 @@
   .scroll-to-top span svg path,
   :global(.infonomic-scroll-to-top span svg path) {
     stroke: none;
-    fill: var(--text-on-primary);
+    fill: var(--text-on-primary-strong);
   }
 
   .scroll-to-top:hover,
   .scroll-to-top:focus,
   :global(.infonomic-scroll-to-top:hover),
   :global(.infonomic-scroll-to-top:focus) {
-    color: var(--text-on-primary);
+    color: var(--text-on-primary-strong);
     background-color: var(--fill-primary-strong-hover);
     transform: translateY(-5px);
   }
