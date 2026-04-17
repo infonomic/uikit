@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 6.6.0
+
+### Minor Changes
+
+- 9eab9c4: Refactored CSS design system, tokens and components.
+
 ## 6.5.1
 
 ### Patch Changes
