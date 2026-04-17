@@ -74,26 +74,29 @@ Every CSS module MUST include the layer preamble at the top:
 
 **Layer Specificity Order** (lowest to highest):
 1. `infonomic-base` - Reset/normalize styles, primitive tokens (colors, spacing)
-2. `infonomic-utilities` - Utility classes
-3. `infonomic-theme` - **Semantic tokens** and theme variables
-4. `infonomic-typography` - Typography styles
-5. `infonomic-components` - Component styles
-6. (unlayered) - Consumer app styles automatically win
+2. `infonomic-functional` - **Semantic tokens** (intent, surface, field, text-role) — this is the semantic source of truth
+3. `infonomic-utilities` - Utility classes
+4. `infonomic-theme` - Document-level defaults and browser behaviour (autofill, scrollbars, element resets). Despite the name, semantic tokens live in `functional`, not here.
+5. `infonomic-typography` - Typography styles
+6. `infonomic-components` - Component styles
+7. (unlayered) - Consumer app styles automatically win
 
 **Why This Matters**:
 - Enables per-component CSS bundling for tree-shaking (future: import only needed components)
 - Consuming apps can override ANY style without `!important`
-- Internal hierarchy lets theme variables override base, components override theme, etc.
+- Internal hierarchy lets functional tokens override base, components override functional, etc.
 
-**Semantic Token System** (NEW):
+**Semantic Token System**:
 - **Primitive tokens**: `src/styles/base/colors.css` - Base colors like `--primary-600`, `--red-500`
-- **Semantic tokens**: `src/styles/theme/tokens.css` - Intent-based and surface tokens
+- **Semantic tokens**: `src/styles/functional/` - Intent, surface, field, and text-role tokens. This is the single source of truth for semantic styling. Each file (`colors.css`, `surfaces.css`, `typography.css`, `borders.css`) defines tokens in `:root`, `.dark`, and `.not-dark` scopes.
 
 **Intent Token Naming**: `element-intent-emphasis-state` (e.g., `--fill-primary-strong-hover`)
-  - `element`: `fill` (backgrounds), `text` (foreground), `stroke` (borders), `ring` (focus), `gradient`
+  - `element`: `fill` (backgrounds), `text-on` (foreground on a fill), `text` (foreground with no fill context), `stroke` (borders), `ring` (focus rings), `gradient`
   - `intent`: `primary`, `secondary`, `noeffect`, `success`, `info`, `warning`, `danger`
-  - `emphasis`: `strong`, `weak`, `weaker` (optional)
-  - `state`: `hover`, `press`, `focus`, `disabled` (optional)
+  - `emphasis`: `strong`, `weak`, `outlined`, `text` (optional)
+  - `state`: `hover`, `disabled` (optional)
+
+**Canonical, not flattened**: Always use the full emphasis + state form. For the disabled state of a primary strong surface, use `--text-on-primary-strong-disabled`, not `--text-on-primary-disabled`. There is no `accent` intent family — the `--accent` variable is a raw brand palette token, not a surface token; prefer `--fill-primary-*` or `--surface-subtle-*` instead.
 
 **Surface Token Naming**: `surface-type-state` (e.g., `--surface-item-hover`)
   - Used for: Dropdowns, selects, menus, tooltips, popovers, dialogs, command palettes
@@ -110,6 +113,7 @@ Every CSS module MUST include the layer preamble at the top:
 
 - **Components reference semantic tokens**, not primitives (e.g., use `--fill-primary-strong` instead of `--primary-600`)
 - **Use surface tokens** for any list-based interactive UI (dropdowns, menus, selects, command palettes)
+- **Generic role tokens** (for components that need a role without an intent): `--focus-ring`, `--field-border`, `--field-border-hover`, `--field-border-invalid`, `--field-ring`, `--field-ring-invalid`, `--surface-subtle`, `--surface-subtle-hover`, `--surface-subtle-active`, `--text-subtle`, `--text-placeholder`.
 
 **Functional / Semantic Tokens**:
 - Functional / Semantic tokens in `src/styles/functional` automatically switch between light/dark modes
@@ -117,8 +121,10 @@ Every CSS module MUST include the layer preamble at the top:
 - **`.not-dark` override**: Forces light mode tokens regardless of parent `.dark` class
 - **Key benefit**: No need for `:not(:where([class~="not-dark"]...))` in component CSS when using semantic tokens
 
-**Theme System**:
-- Theme variables in `src/styles/theme`: `--background`, `--foreground`, `--text`, `--headings`
+**ShadCN Compatibility (optional)**:
+- `src/styles/functional/shadcn-compat.css` exposes a `--shadcn-*` alias namespace mapping the uikit's semantic tokens onto ShadCN-style token names. It is imported last from `functional.css` so it always sees the current mode's values.
+- Consumer Tailwind apps can opt in by registering a second `@theme` block against these aliases (see root `README.md` and `apps/tanstack/src/ui/styles/tailwind-shadcn.css`).
+- Do **not** use `--shadcn-*` inside uikit components. It is strictly a translation layer for AI-generated markup in consumer apps. The uikit's own components continue to read from the core semantic tokens.
 
 **Build**: LightningCSS bundles `styles.css` and `typography.css` separately
 
@@ -136,21 +142,27 @@ Every CSS module MUST include the layer preamble at the top:
    ```
    This ensures correct cascade behavior when CSS is bundled. Wrap component styles in `@layer infonomic-components { }`.
 
-2. **Semantic Token Usage**: Components should reference semantic tokens from `tokens.css`, not primitive colors:
+2. **Semantic Token Usage**: Components should reference semantic tokens from `src/styles/functional/`, not primitive colors. Always use the canonical full form — never a flattened alias:
    ```css
-   /* GOOD - Uses semantic tokens */
+   /* GOOD - canonical semantic tokens */
+   .primary {
+     background-color: var(--fill-primary-strong);
+     color: var(--text-on-primary-strong);
+   }
+
+   /* AVOID - flattened alias (does not exist) */
    .primary {
      background-color: var(--fill-primary-strong);
      color: var(--text-on-primary);
    }
-   
-   /* AVOID - Direct primitive usage */
+
+   /* AVOID - direct primitive usage */
    .primary {
      background-color: var(--primary-600);
      color: white;
    }
    ```
-   **Why**: Semantic tokens automatically handle light/dark/`.not-dark` switching at theme layer, eliminating verbose `:not(:where([class~="not-dark"]...))` selectors in component CSS.
+   **Why**: Semantic tokens automatically handle light/dark/`.not-dark` switching in the `infonomic-functional` layer, eliminating verbose `:not(:where([class~="not-dark"]...))` selectors in component CSS. Flattened aliases like `--text-on-primary` or `--fill-accent-strong` are not defined anywhere and silently fall back to the property's initial value.
 
 3. **Legacy Dark Mode Override Pattern** (for non-token components): Use `:not(:where([class~="not-dark"], [class~="not-dark"] *))` when NOT using semantic tokens:
    ```css
@@ -190,9 +202,10 @@ Every CSS module MUST include the layer preamble at the top:
 - Export structure: `packages/uikit/src/react.ts`, `packages/uikit/src/astro.js`
 - Build config: `packages/uikit/rslib.config.ts`
 - CSS layers: `packages/uikit/src/styles/styles.css`
-- Primitive tokens: `packages/uikit/src/styles/base/colors.css`, `packages/uikit/src/styles/base/vars.css`
-- Semantic tokens: `packages/uikit/src/styles/theme/tokens.css`
-- Theme system: `packages/uikit/src/styles/theme/theme.css`
+- Primitive tokens: `packages/uikit/src/styles/base/`
+- Semantic tokens (source of truth): `packages/uikit/src/styles/functional/colors.css`, `surfaces.css`, `typography.css`, `borders.css`
+- ShadCN compatibility aliases: `packages/uikit/src/styles/functional/shadcn-compat.css`
+- Document defaults and resets: `packages/uikit/src/styles/theme/`
 - Monorepo tasks: `turbo.json`
 
 ---

@@ -1,0 +1,44 @@
+/**
+ * SHADCN-COMPATIBLE TAILWIND SEMANTIC UTILITIES
+ *
+ * Opt-in Tailwind @theme block that registers the standard ShadCN semantic
+ * token names against the uikit's --shadcn-* compatibility aliases (defined
+ * in @infonomic/uikit styles at packages/uikit/src/styles/functional/shadcn-compat.css).
+ *
+ * Load this file AFTER ./tailwind.css so the semantic names like bg-primary,
+ * bg-card, text-muted-foreground, border-border, ring-ring etc. resolve to the
+ * uikit's semantic tokens without conflicting with the brand palette, which
+ * is exposed under --color-brand-* in ./tailwind.css.
+ */
+
+@theme {
+  --color-background: var(--shadcn-background);
+  --color-foreground: var(--shadcn-foreground);
+
+  --color-card: var(--shadcn-card);
+  --color-card-foreground: var(--shadcn-card-foreground);
+
+  --color-popover: var(--shadcn-popover);
+  --color-popover-foreground: var(--shadcn-popover-foreground);
+
+  --color-primary: var(--shadcn-primary);
+  --color-primary-foreground: var(--shadcn-primary-foreground);
+
+  --color-secondary: var(--shadcn-secondary);
+  --color-secondary-foreground: var(--shadcn-secondary-foreground);
+
+  --color-muted: var(--shadcn-muted);
+  --color-muted-foreground: var(--shadcn-muted-foreground);
+
+  --color-accent: var(--shadcn-accent);
+  --color-accent-foreground: var(--shadcn-accent-foreground);
+
+  --color-destructive: var(--shadcn-destructive);
+  --color-destructive-foreground: var(--shadcn-destructive-foreground);
+
+  --color-border: var(--shadcn-border);
+  --color-input: var(--shadcn-input);
+  --color-ring: var(--shadcn-ring);
+
+  --radius: var(--shadcn-radius);
+}

@@ -61,10 +61,16 @@
     'Source Code Pro', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     'Liberation Mono', 'Courier New', monospace;
 
-  --color-primary: var(--primary);
-  --color-secondary: var(--secondary);
-  --color-accent: var(--accent);
-  --color-noeffect: var(--noeffect);
+  /* Brand palette access.
+     Renamed from --color-primary etc. so the short semantic names (primary,
+     secondary, accent, muted, destructive) remain available for the ShadCN
+     compatibility layer in ./tailwind-shadcn.css, which is loaded after this
+     file. success/info/warning/danger keep their short names because they do
+     not collide with ShadCN's semantic vocabulary. */
+  --color-brand-primary: var(--primary);
+  --color-brand-secondary: var(--secondary);
+  --color-brand-accent: var(--accent);
+  --color-brand-noeffect: var(--noeffect);
   --color-success: var(--success);
   --color-info: var(--info);
   --color-warning: var(--warning);

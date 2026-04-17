@@ -36,6 +36,23 @@ We also highly value the option to 'tell' components to ignore or override a top
 
 In addition to CSS modules, we're experimenting with an assembled global stylesheet (in a post-build script) that can be used in vanilla HTML/CSS projects.
 
+## Design System Architecture
+
+Our CSS is organised into three layers. The directory names matter and are worth calling out because "theme" is a misleading name for what it now does:
+
+- `src/styles/base/` — primitive tokens (color palette scales, spacing, breakpoints, shadows, typography scales). No semantic meaning, no mode switching.
+- `src/styles/functional/` — **the semantic source of truth**. This is where intent-based tokens live (`--fill-primary-strong`, `--text-on-danger-weak`, `--stroke-warning-disabled`, etc.), along with generic role tokens (`--focus-ring`, `--field-border-invalid`, `--surface-subtle`, `--text-subtle`). Every component should read from this layer, not from base primitives. Light / dark / `.not-dark` switching happens here.
+- `src/styles/theme/` — document-level defaults and browser behaviour (autofill colours, scrollbars, element resets). Despite the name, this is not where semantic tokens live.
+
+The intent token taxonomy follows `element-intent-emphasis-state`:
+
+- **element**: `fill` (backgrounds), `text-on` (foreground on a fill), `text` (foreground with no fill context), `stroke` (borders), `ring` (focus rings), `gradient`
+- **intent**: `primary`, `secondary`, `noeffect`, `success`, `info`, `warning`, `danger`
+- **emphasis** (optional): `strong`, `weak`, `outlined`, `text`
+- **state** (optional): `hover`, `disabled`
+
+Example: `--text-on-primary-strong-disabled`. Components that need a role without an intent (e.g. a focus ring on a form field) should use the generic tokens: `--focus-ring`, `--field-border`, `--field-border-invalid`, `--surface-subtle`, `--text-subtle`.
+
 
 
 ## Getting Started
@@ -127,10 +144,15 @@ Here's an example Tailwind CSS integration. Note that we have our own reset, and
     'Source Code Pro', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     'Liberation Mono', 'Courier New', monospace;
 
-  --color-primary: var(--primary);
-  --color-secondary: var(--secondary);
-  --color-accent: var(--accent);
-  --color-noeffect: var(--noeffect);
+  /* Brand palette access. If you plan to opt into the ShadCN compatibility
+     layer (see below), keep these under the brand-* namespace so the short
+     semantic names (primary, secondary, accent, muted, destructive) stay
+     free for ShadCN-style utilities. If you are not using the compat layer,
+     you can drop the brand- prefix and expose --color-primary etc. directly. */
+  --color-brand-primary: var(--primary);
+  --color-brand-secondary: var(--secondary);
+  --color-brand-accent: var(--accent);
+  --color-brand-noeffect: var(--noeffect);
   --color-success: var(--success);
   --color-info: var(--info);
   --color-warning: var(--warning);
@@ -219,6 +241,56 @@ Here's an example Tailwind CSS integration. Note that we have our own reset, and
   --shadow-slider: 0 0 0 5px rgba(0, 0, 0, 0.3);
 }
 ```
+
+## Optional ShadCN Compatibility Layer
+
+The uikit ships an **opt-in** compatibility layer that exposes ShadCN-style semantic token names as aliases over our existing semantic tokens. This is useful if you're dropping AI-generated UI snippets (which typically reach for `bg-card`, `text-muted-foreground`, `border-border`, `ring-ring`, `bg-destructive`, etc.) into a Tailwind-consumer app.
+
+The compatibility layer is additive. It does **not** change any existing uikit component or semantic token — it only adds a parallel `--shadcn-*` namespace that maps onto our tokens. In particular:
+
+- `--shadcn-accent` maps to a subtle interactive surface (our `--surface-subtle-hover`), not our brand `--accent` palette. This matches ShadCN's convention.
+- `--shadcn-muted` is a subdued surface (our `--surface-subtle-hover`), not our `--muted` text token.
+- `--shadcn-primary` / `--shadcn-destructive` are high-emphasis action surfaces mapped to `--fill-primary-strong` / `--fill-danger-strong`.
+
+The `--shadcn-*` aliases are defined inside `@infonomic/uikit/styles.css` and are always present — they're cheap. To make them resolvable through Tailwind utilities (`bg-card`, `text-primary-foreground`, etc.), add a second Tailwind `@theme` block in your consumer app after the main brand palette block:
+
+```css
+@theme {
+  --color-background: var(--shadcn-background);
+  --color-foreground: var(--shadcn-foreground);
+
+  --color-card: var(--shadcn-card);
+  --color-card-foreground: var(--shadcn-card-foreground);
+
+  --color-popover: var(--shadcn-popover);
+  --color-popover-foreground: var(--shadcn-popover-foreground);
+
+  --color-primary: var(--shadcn-primary);
+  --color-primary-foreground: var(--shadcn-primary-foreground);
+
+  --color-secondary: var(--shadcn-secondary);
+  --color-secondary-foreground: var(--shadcn-secondary-foreground);
+
+  --color-muted: var(--shadcn-muted);
+  --color-muted-foreground: var(--shadcn-muted-foreground);
+
+  --color-accent: var(--shadcn-accent);
+  --color-accent-foreground: var(--shadcn-accent-foreground);
+
+  --color-destructive: var(--shadcn-destructive);
+  --color-destructive-foreground: var(--shadcn-destructive-foreground);
+
+  --color-border: var(--shadcn-border);
+  --color-input: var(--shadcn-input);
+  --color-ring: var(--shadcn-ring);
+
+  --radius: var(--shadcn-radius);
+}
+```
+
+Because this block registers `--color-primary`, `--color-secondary`, `--color-accent`, and `--color-muted` as Tailwind semantic utilities, make sure your brand palette uses the `--color-brand-*` names shown in the Tailwind example above so the two vocabularies don't collide.
+
+Our TanStack example app in `apps/tanstack` demonstrates this pattern: the brand palette and core Tailwind theme registrations live in `tailwind.css`, and the opt-in ShadCN registrations live in a separate `tailwind-shadcn.css` that is imported after it.
 
 ## Questions or Comments?
 

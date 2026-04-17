@@ -18,6 +18,13 @@
 @import './tailwind.css';
 
 /**
+  * Optional ShadCN-compatible Tailwind semantic utilities (bg-card,
+  * text-muted-foreground, border-border, etc.) that resolve against the
+  * uikit's --shadcn-* compatibility aliases. Remove this import to opt out.
+  */
+@import './tailwind-shadcn.css';
+
+/**
   * Application styles
   */
 @import './app.css';

@@ -7,7 +7,14 @@
   },
   "files": {
     "ignoreUnknown": true,
-    "includes": ["**", "!**/(payload)", "!**/payload-types.ts", "!**/*.astro", "!**/tailwind.css"]
+    "includes": [
+      "**",
+      "!**/(payload)",
+      "!**/payload-types.ts",
+      "!**/*.astro",
+      "!**/tailwind.css",
+      "!**/tailwind-shadcn.css"
+    ]
   },
   "formatter": {
     "enabled": true,
