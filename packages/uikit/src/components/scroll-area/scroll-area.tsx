@@ -5,7 +5,7 @@ import cx from 'classnames'
 
 import styles from './scroll-area.module.css'
 
-interface ScrollAreaProps extends React.ComponentProps<typeof ScrollAreaPrimitive.Root> { }
+interface ScrollAreaProps extends React.ComponentProps<typeof ScrollAreaPrimitive.Root> {}
 
 export const ScrollArea = ({ children, style, className }: ScrollAreaProps) => (
   <ScrollAreaPrimitive.Root

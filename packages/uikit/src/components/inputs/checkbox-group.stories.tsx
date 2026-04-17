@@ -4,7 +4,6 @@ import { useState } from 'react'
 
 import { CheckboxGroup } from './checkbox-group.js'
 
-
 export default {
   title: 'Components/Inputs/CheckboxGroup',
   component: CheckboxGroup,
@@ -14,7 +13,7 @@ export default {
 export const Default = (): React.JSX.Element => {
   const [checked, setChecked] = useState(false)
 
-  const handleOnClick = (): void => {
+  const _handleOnClick = (): void => {
     console.log('clicked')
     setChecked(!checked)
   }
@@ -34,14 +33,12 @@ export const Default = (): React.JSX.Element => {
               { id: 'editor', label: 'Editor' },
               { id: 'viewer', label: 'Viewer' },
             ]}
-          // onChange={(selected) => {
-          //   handleOnClick(selected)
-          // }}
+            // onChange={(selected) => {
+            //   handleOnClick(selected)
+            // }}
           />
         </div>
       </div>
     </div>
   )
 }
-
-

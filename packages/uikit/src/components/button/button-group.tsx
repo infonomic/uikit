@@ -32,19 +32,13 @@ const ButtonGroupContext = React.createContext<ButtonGroupContextType>({
 type ToggleGroupProps = React.ComponentProps<typeof ToggleGroup>
 
 // Create separate props for single and multiple modes
-type SingleToggleGroupProps = Omit<
-  ToggleGroupProps,
-  'multiple' | 'value' | 'onValueChange'
-> & {
+type SingleToggleGroupProps = Omit<ToggleGroupProps, 'multiple' | 'value' | 'onValueChange'> & {
   type: 'single'
   value?: string
   onValueChange?: (value: string) => void
 }
 
-type MultipleToggleGroupProps = Omit<
-  ToggleGroupProps,
-  'multiple' | 'value' | 'onValueChange'
-> & {
+type MultipleToggleGroupProps = Omit<ToggleGroupProps, 'multiple' | 'value' | 'onValueChange'> & {
   type: 'multiple'
   value?: string[]
   onValueChange?: (value: string[]) => void
@@ -76,7 +70,7 @@ const ButtonGroup = ({
 
   const handleValueChange: React.ComponentProps<typeof ToggleGroup>['onValueChange'] = (
     newValue,
-    event,
+    _event
   ) => {
     if (!onValueChange) return
     if (isMultiple) {

@@ -65,17 +65,8 @@ export function ToastViewport({ position = 'bottom-right', className }: ToastVie
   )
 }
 
-function ToastItem({
-  toast,
-}: {
-  toast: ToastPrimitive.Root.ToastObject<ToastData>
-}) {
-  const {
-    intent = 'success',
-    iconType = 'success',
-    icon = true,
-    close = true,
-  } = toast.data ?? {}
+function ToastItem({ toast }: { toast: ToastPrimitive.Root.ToastObject<ToastData> }) {
+  const { intent = 'success', iconType = 'success', icon = true, close = true } = toast.data ?? {}
   const eventDateRef = React.useRef(new Date())
   const Icon = toastIcons[iconType as keyof typeof toastIcons]
 

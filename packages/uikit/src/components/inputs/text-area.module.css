@@ -1,12 +1,11 @@
 @layer infonomic-base,
-infonomic-functional,
-infonomic-utilities,
-infonomic-theme,
-infonomic-typography,
-infonomic-components;
+  infonomic-functional,
+  infonomic-utilities,
+  infonomic-theme,
+  infonomic-typography,
+  infonomic-components;
 
 @layer infonomic-components {
-
   .text-area,
   :global(.infonomic-text-area) {
     font-size: 1rem;
@@ -27,7 +26,9 @@ infonomic-components;
     outline: none;
   }
 
-  .outlined {}
+  .outlined {
+  }
 
-  .filled {}
+  .filled {
+  }
 }

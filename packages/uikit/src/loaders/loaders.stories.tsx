@@ -53,7 +53,11 @@ export const Sizes = (): React.JSX.Element => {
           <h3 style={{ marginBottom: '1rem', fontSize: '1.125rem', fontWeight: 600 }}>Ring</h3>
           <div style={{ display: 'flex', alignItems: 'flex-end', gap: '2.5rem' }}>
             {sizes.map((size) => (
-              <Loader key={String(size)} loader={<LoaderRing size={size} />} label={`${size}${typeof size === 'number' ? 'px' : ''}`} />
+              <Loader
+                key={String(size)}
+                loader={<LoaderRing size={size} />}
+                label={`${size}${typeof size === 'number' ? 'px' : ''}`}
+              />
             ))}
           </div>
         </div>
@@ -61,7 +65,11 @@ export const Sizes = (): React.JSX.Element => {
           <h3 style={{ marginBottom: '1rem', fontSize: '1.125rem', fontWeight: 600 }}>Ellipsis</h3>
           <div style={{ display: 'flex', alignItems: 'flex-end', gap: '2.5rem' }}>
             {sizes.map((size) => (
-              <Loader key={String(size)} loader={<LoaderEllipsis size={size} />} label={`${size}${typeof size === 'number' ? 'px' : ''}`} />
+              <Loader
+                key={String(size)}
+                loader={<LoaderEllipsis size={size} />}
+                label={`${size}${typeof size === 'number' ? 'px' : ''}`}
+              />
             ))}
           </div>
         </div>
@@ -69,7 +77,11 @@ export const Sizes = (): React.JSX.Element => {
           <h3 style={{ marginBottom: '1rem', fontSize: '1.125rem', fontWeight: 600 }}>Spinner</h3>
           <div style={{ display: 'flex', alignItems: 'flex-end', gap: '2.5rem' }}>
             {sizes.map((size) => (
-              <Loader key={String(size)} loader={<LoaderSpinner size={size} />} label={`${size}${typeof size === 'number' ? 'px' : ''}`} />
+              <Loader
+                key={String(size)}
+                loader={<LoaderSpinner size={size} />}
+                label={`${size}${typeof size === 'number' ? 'px' : ''}`}
+              />
             ))}
           </div>
         </div>
@@ -102,7 +114,11 @@ export const Colors = (): React.JSX.Element => {
           <h3 style={{ marginBottom: '1rem', fontSize: '1.125rem', fontWeight: 600 }}>Ellipsis</h3>
           <div style={{ display: 'flex', alignItems: 'flex-end', gap: '2.5rem' }}>
             {colors.map(({ value, label }) => (
-              <Loader key={label} loader={<LoaderEllipsis size={48} color={value} />} label={label} />
+              <Loader
+                key={label}
+                loader={<LoaderEllipsis size={48} color={value} />}
+                label={label}
+              />
             ))}
           </div>
         </div>
@@ -110,7 +126,11 @@ export const Colors = (): React.JSX.Element => {
           <h3 style={{ marginBottom: '1rem', fontSize: '1.125rem', fontWeight: 600 }}>Spinner</h3>
           <div style={{ display: 'flex', alignItems: 'flex-end', gap: '2.5rem' }}>
             {colors.map(({ value, label }) => (
-              <Loader key={label} loader={<LoaderSpinner size={48} color={value} />} label={label} />
+              <Loader
+                key={label}
+                loader={<LoaderSpinner size={48} color={value} />}
+                label={label}
+              />
             ))}
           </div>
         </div>
@@ -126,7 +146,9 @@ export const StringSizes = (): React.JSX.Element => {
     <div style={{ maxWidth: '800px', margin: '1.5rem auto' }}>
       <div style={{ maxWidth: '800px', display: 'flex', flexDirection: 'column', gap: '2.5rem' }}>
         <div>
-          <h3 style={{ marginBottom: '1rem', fontSize: '1.125rem', fontWeight: 600 }}>Ring (rem units)</h3>
+          <h3 style={{ marginBottom: '1rem', fontSize: '1.125rem', fontWeight: 600 }}>
+            Ring (rem units)
+          </h3>
           <div style={{ display: 'flex', alignItems: 'flex-end', gap: '2.5rem' }}>
             {stringSizes.map((size) => (
               <Loader key={String(size)} loader={<LoaderRing size={size} />} label={String(size)} />
@@ -134,18 +156,30 @@ export const StringSizes = (): React.JSX.Element => {
           </div>
         </div>
         <div>
-          <h3 style={{ marginBottom: '1rem', fontSize: '1.125rem', fontWeight: 600 }}>Ellipsis (rem units)</h3>
+          <h3 style={{ marginBottom: '1rem', fontSize: '1.125rem', fontWeight: 600 }}>
+            Ellipsis (rem units)
+          </h3>
           <div style={{ display: 'flex', alignItems: 'flex-end', gap: '2.5rem' }}>
             {stringSizes.map((size) => (
-              <Loader key={String(size)} loader={<LoaderEllipsis size={size} />} label={String(size)} />
+              <Loader
+                key={String(size)}
+                loader={<LoaderEllipsis size={size} />}
+                label={String(size)}
+              />
             ))}
           </div>
         </div>
         <div>
-          <h3 style={{ marginBottom: '1rem', fontSize: '1.125rem', fontWeight: 600 }}>Spinner (rem units)</h3>
+          <h3 style={{ marginBottom: '1rem', fontSize: '1.125rem', fontWeight: 600 }}>
+            Spinner (rem units)
+          </h3>
           <div style={{ display: 'flex', alignItems: 'flex-end', gap: '2.5rem' }}>
             {stringSizes.map((size) => (
-              <Loader key={String(size)} loader={<LoaderSpinner size={size} />} label={String(size)} />
+              <Loader
+                key={String(size)}
+                loader={<LoaderSpinner size={size} />}
+                label={String(size)}
+              />
             ))}
           </div>
         </div>

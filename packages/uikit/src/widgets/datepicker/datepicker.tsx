@@ -70,8 +70,8 @@ export function DatePicker({
   inputWrapperClassName,
   containerClassName,
   contentClassName,
-  onClear = () => { },
-  onDateChange = () => { },
+  onClear = () => {},
+  onDateChange = () => {},
   validatorFn,
   helpText,
   errorText,
@@ -237,11 +237,11 @@ export function DatePicker({
                     }}
                     startMonth={new Date(new Date().getFullYear() - yearsInPast, 0)}
                     endMonth={new Date(new Date().getFullYear() + yearsInFuture, 0)}
-                  // TODO: add props
-                  // disabled={(date) =>
-                  //   Number(date) < Date.now() - 1000 * 60 * 60 * 24 ||
-                  //   Number(date) > Date.now() + 1000 * 60 * 60 * 24 * 30
-                  // }
+                    // TODO: add props
+                    // disabled={(date) =>
+                    //   Number(date) < Date.now() - 1000 * 60 * 60 * 24 ||
+                    //   Number(date) > Date.now() + 1000 * 60 * 60 * 24 * 30
+                    // }
                   />
                 </div>
                 {mode === 'datetime' && (
@@ -289,7 +289,9 @@ export function DatePicker({
                   styles['status-and-actions']
                 )}
               >
-                <div className={cx('infonomic-datepicker-content-status', styles['content-status'])}>
+                <div
+                  className={cx('infonomic-datepicker-content-status', styles['content-status'])}
+                >
                   {date ? format(date, mode === 'datetime' ? 'PPPp' : 'PPP') : 'No date selected'}
                 </div>
                 <div

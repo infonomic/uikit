@@ -1,9 +1,9 @@
 @layer infonomic-base,
-infonomic-functional,
-infonomic-utilities,
-infonomic-theme,
-infonomic-typography,
-infonomic-components;
+  infonomic-functional,
+  infonomic-utilities,
+  infonomic-theme,
+  infonomic-typography,
+  infonomic-components;
 
 @layer infonomic-components {
   /* ============================================
@@ -53,7 +53,6 @@ infonomic-components;
   }
 
   @media (min-width: 48rem) {
-
     .bottom-right,
     :global(.infonomic-toast-bottom-right) {
       bottom: var(--viewport-padding);
@@ -110,7 +109,8 @@ infonomic-components;
     border-style: var(--border-style-solid);
     border-radius: var(--border-radius-md);
     box-shadow: var(--shadow-sm);
-    transform: translateX(var(--toast-swipe-movement-x, 0)) translateY(var(--toast-swipe-movement-y, 0));
+    transform: translateX(var(--toast-swipe-movement-x, 0))
+      translateY(var(--toast-swipe-movement-y, 0));
     transition:
       transform 200ms ease-out,
       opacity 150ms ease-in;
@@ -124,7 +124,6 @@ infonomic-components;
   }
 
   @media (min-width: 48rem) {
-
     .viewport.top-right .root[data-starting-style],
     .viewport.bottom-right .root[data-starting-style],
     :global(.infonomic-toast-viewport.top-right .infonomic-toast-root[data-starting-style]),

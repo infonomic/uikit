@@ -1,6 +1,8 @@
-import { Link } from '@tanstack/react-router'
-import cx from 'classnames'
 import type React from 'react'
+import { Link } from '@tanstack/react-router'
+
+import cx from 'classnames'
+
 import type { Locale } from '@/i18n/i18n-config'
 //. import Logo from '@/images/infonomic-logo'
 

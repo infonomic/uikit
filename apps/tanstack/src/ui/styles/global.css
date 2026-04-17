@@ -4,27 +4,27 @@
  * integrated with Tailwind (colors, breakpoints etc.) via
  * Tailwind theme configuration.
  */
-@import '@infonomic/uikit/reset.css';
-@import '@infonomic/uikit/styles.css';
+@import "@infonomic/uikit/reset.css";
+@import "@infonomic/uikit/styles.css";
 
 /**
-  * Optional uikit typography including prose and fonts
-  */
-@import '@infonomic/uikit/typography.css';
+ * Optional uikit typography including prose and fonts
+ */
+@import "@infonomic/uikit/typography.css";
 
 /**
-  * Tailwind - should come after the above.
-  */
-@import './tailwind.css';
+ * Tailwind - should come after the above.
+ */
+@import "./tailwind.css";
 
 /**
-  * Optional ShadCN-compatible Tailwind semantic utilities (bg-card,
-  * text-muted-foreground, border-border, etc.) that resolve against the
-  * uikit's --shadcn-* compatibility aliases. Remove this import to opt out.
-  */
-@import './tailwind-shadcn.css';
+ * Optional ShadCN-compatible Tailwind semantic utilities (bg-card,
+ * text-muted-foreground, border-border, etc.) that resolve against the
+ * uikit's --shadcn-* compatibility aliases. Remove this import to opt out.
+ */
+@import "./tailwind-shadcn.css";
 
 /**
-  * Application styles
-  */
-@import './app.css';
+ * Application styles
+ */
+@import "./app.css";

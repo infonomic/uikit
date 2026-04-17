@@ -51,8 +51,7 @@ export const NumberButton = ({
       },
       {
         [styles['rounded-right']]:
-          page === count &&
-          ((!(showLastButton ?? false) && (hideNextButton ?? false)) || mobile),
+          page === count && ((!(showLastButton ?? false) && (hideNextButton ?? false)) || mobile),
       },
       'pagination-number',
       className
@@ -71,7 +70,11 @@ export const NumberButton = ({
   return (
     <li className="flex">
       {render ? (
-        React.cloneElement(render, { ref, ...sharedProps } as React.Attributes & Record<string, unknown>, children)
+        React.cloneElement(
+          render,
+          { ref, ...sharedProps } as React.Attributes & Record<string, unknown>,
+          children
+        )
       ) : (
         <button ref={ref as React.RefObject<HTMLButtonElement>} {...sharedProps}>
           {children ?? page}

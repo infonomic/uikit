@@ -51,9 +51,7 @@ function Buttons() {
             </div>
             <div className="w-[800px] mx-auto mb-6">
               <p>Button as a router Link - even though technically this is bad practice.</p>
-              <Button render={<Link to="/" />}>
-                Router Link Button
-              </Button>
+              <Button render={<Link to="/" />}>Router Link Button</Button>
             </div>
           </div>
         </Container>

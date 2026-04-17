@@ -7,10 +7,7 @@ import cx from 'classnames'
 
 import styles from './dropdown.module.css'
 
-function Root({
-  children,
-  ...rest
-}: React.ComponentProps<typeof Menu.Root>): React.JSX.Element {
+function Root({ children, ...rest }: React.ComponentProps<typeof Menu.Root>): React.JSX.Element {
   return <Menu.Root {...rest}>{children}</Menu.Root>
 }
 
@@ -23,11 +20,7 @@ const Trigger = ({
   ref?: React.RefObject<React.ComponentRef<'button'>>
 }): React.JSX.Element => {
   return (
-    <Menu.Trigger
-      className={cx('infonomic-dropdown-trigger', className)}
-      ref={ref}
-      {...rest}
-    >
+    <Menu.Trigger className={cx('infonomic-dropdown-trigger', className)} ref={ref} {...rest}>
       {children}
     </Menu.Trigger>
   )
@@ -90,11 +83,7 @@ const Group = ({
   ref?: React.RefObject<React.ComponentRef<'div'>>
 }): React.JSX.Element => {
   return (
-    <Menu.Group
-      ref={ref}
-      className={cx('infonomic-dropdown-group', className)}
-      {...rest}
-    >
+    <Menu.Group ref={ref} className={cx('infonomic-dropdown-group', className)} {...rest}>
       {children}
     </Menu.Group>
   )
@@ -130,11 +119,7 @@ const Label = ({
   ref?: React.RefObject<React.ComponentRef<'div'>>
 }): React.JSX.Element => {
   return (
-    <Menu.GroupLabel
-      ref={ref}
-      className={cx('infonomic-dropdown-label', className)}
-      {...rest}
-    >
+    <Menu.GroupLabel ref={ref} className={cx('infonomic-dropdown-label', className)} {...rest}>
       {children}
     </Menu.GroupLabel>
   )

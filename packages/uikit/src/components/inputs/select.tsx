@@ -84,13 +84,16 @@ export function Select<Value extends string | number = string>({
             <SelectPrimitive.ScrollUpArrow className={styles['scroll-arrow']}>
               <ChevronUpIcon />
             </SelectPrimitive.ScrollUpArrow>
-            <SelectPrimitive.Popup className={cx(styles.popup, size != null && styles[`popup-${size}`])}>
+            <SelectPrimitive.Popup
+              className={cx(styles.popup, size != null && styles[`popup-${size}`])}
+            >
               <SelectPrimitive.List className={styles.list}>
-                {children ?? items?.map((item) => (
-                  <SelectItem key={item.value} value={item.value} label={item.label}>
-                    {item.label}
-                  </SelectItem>
-                ))}
+                {children ??
+                  items?.map((item) => (
+                    <SelectItem key={item.value} value={item.value} label={item.label}>
+                      {item.label}
+                    </SelectItem>
+                  ))}
               </SelectPrimitive.List>
             </SelectPrimitive.Popup>
             <SelectPrimitive.ScrollDownArrow className={styles['scroll-arrow']}>
@@ -98,7 +101,6 @@ export function Select<Value extends string | number = string>({
             </SelectPrimitive.ScrollDownArrow>
           </SelectPrimitive.Positioner>
         </SelectPrimitive.Portal>
-
       </SelectPrimitive.Root>
       {helpText != null && helpText?.length > 0 && <HelpText text={helpText} />}
     </div>

@@ -21,7 +21,12 @@ export const Default = (): React.JSX.Element => {
   return (
     <>
       <div style={{ maxWidth: '600px', margin: '2rem auto' }}>
-        <Select items={values} size="xl" placeholder="Select one..." helpText="Extra Large select." />
+        <Select
+          items={values}
+          size="xl"
+          placeholder="Select one..."
+          helpText="Extra Large select."
+        />
       </div>
       <div style={{ maxWidth: '600px', margin: '2rem auto' }}>
         <Select items={values} size="lg" placeholder="Select one..." helpText="Large select." />
@@ -33,7 +38,12 @@ export const Default = (): React.JSX.Element => {
         <Select items={values} size="sm" placeholder="Select one..." helpText="Small select." />
       </div>
       <div style={{ maxWidth: '600px', margin: '2rem auto' }}>
-        <Select items={values} size="xs" placeholder="Select one..." helpText="Extra small select." />
+        <Select
+          items={values}
+          size="xs"
+          placeholder="Select one..."
+          helpText="Extra small select."
+        />
       </div>
     </>
   )
@@ -42,10 +52,17 @@ export const Default = (): React.JSX.Element => {
 export const CustomChildren = (): React.JSX.Element => {
   return (
     <div style={{ maxWidth: '600px', margin: '2rem auto' }}>
-      <Select items={values} size="md" placeholder="Select one..." helpText="Custom children rendering.">
+      <Select
+        items={values}
+        size="md"
+        placeholder="Select one..."
+        helpText="Custom children rendering."
+      >
         {values.map((value) => (
           <SelectItem key={value.value} value={value.value} label={value.label}>
-            {value.prefix}{value.label}{value.suffix}
+            {value.prefix}
+            {value.label}
+            {value.suffix}
           </SelectItem>
         ))}
       </Select>

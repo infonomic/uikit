@@ -61,7 +61,7 @@ export const Chip = ({
     }
 
     if (onClick) {
-      ; (onClick as React.MouseEventHandler<HTMLElement>)(event)
+      ;(onClick as React.MouseEventHandler<HTMLElement>)(event)
     }
 
     if (isSelectable && onToggle) {
@@ -77,7 +77,7 @@ export const Chip = ({
     if ((event.key === 'Enter' || event.key === ' ') && isCustomElement) {
       event.preventDefault()
       if (onClick) {
-        ; (onClick as React.MouseEventHandler<HTMLElement>)(
+        ;(onClick as React.MouseEventHandler<HTMLElement>)(
           event as unknown as React.MouseEvent<HTMLElement>
         )
       }

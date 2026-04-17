@@ -39,7 +39,11 @@ export const PreviousButton = ({
   return (
     <li className={styles['mobile-toggle']}>
       {render ? (
-        React.cloneElement(render, { ref, ...sharedProps } as React.Attributes & Record<string, unknown>, children)
+        React.cloneElement(
+          render,
+          { ref, ...sharedProps } as React.Attributes & Record<string, unknown>,
+          children
+        )
       ) : (
         <button ref={ref as React.RefObject<HTMLButtonElement>} {...sharedProps}>
           {children ?? <ChevronLeftIcon width="18px" height="18px" />}

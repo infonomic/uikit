@@ -43,9 +43,9 @@ export class Ripple {
     element.style.borderRadius = '50%'
     element.style.pointerEvents = 'none'
     element.style.position = 'absolute'
-    element.style.left = clientX - rect.left - radius + 'px'
-    element.style.top = clientY - rect.top - radius + 'px'
-    element.style.width = element.style.height = radius * 2 + 'px'
+    element.style.left = `${clientX - rect.left - radius}px`
+    element.style.top = `${clientY - rect.top - radius}px`
+    element.style.width = element.style.height = `${radius * 2}px`
   }
 
   private applyAnimation(element: HTMLSpanElement): void {

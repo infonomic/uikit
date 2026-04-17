@@ -57,7 +57,13 @@ export function Autocomplete<Item = string>({
   ...rest
 }: AutocompleteProps<Item>) {
   return (
-    <div className={cx('infonomic-autocomplete-wrapper', styles['autocomplete-wrapper'], wrapperClassName)}>
+    <div
+      className={cx(
+        'infonomic-autocomplete-wrapper',
+        styles['autocomplete-wrapper'],
+        wrapperClassName
+      )}
+    >
       <AutocompletePrimitive.Root items={items} {...rest}>
         {label != null && <Label id={id} htmlFor={id} required={required} label={label} />}
         <AutocompletePrimitive.Input
@@ -80,7 +86,7 @@ export function Autocomplete<Item = string>({
             styles[intent],
             { [styles.error]: error },
             className,
-            inputClassName,
+            inputClassName
           )}
         />
 
@@ -93,7 +99,7 @@ export function Autocomplete<Item = string>({
               className={cx(
                 'infonomic-autocomplete-popup',
                 styles.popup,
-                inputSize != null && styles[`popup-${inputSize}`],
+                inputSize != null && styles[`popup-${inputSize}`]
               )}
             >
               <AutocompletePrimitive.Empty

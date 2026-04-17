@@ -1,12 +1,11 @@
 @layer infonomic-base,
-infonomic-functional,
-infonomic-utilities,
-infonomic-theme,
-infonomic-typography,
-infonomic-components;
+  infonomic-functional,
+  infonomic-utilities,
+  infonomic-theme,
+  infonomic-typography,
+  infonomic-components;
 
 @layer infonomic-components {
-
   .tooltip,
   :global(.infonomic-tooltip) {
     font-size: 0.75rem;
@@ -46,22 +45,22 @@ infonomic-components;
   :global(.infonomic-tooltip-arrow) {
     display: flex;
 
-    &[data-side='top'] {
+    &[data-side="top"] {
       bottom: -6px;
       rotate: 180deg;
     }
 
-    &[data-side='bottom'] {
+    &[data-side="bottom"] {
       top: -6px;
       rotate: 0deg;
     }
 
-    &[data-side='left'] {
+    &[data-side="left"] {
       right: -10px;
       rotate: 90deg;
     }
 
-    &[data-side='right'] {
+    &[data-side="right"] {
       left: -10px;
       rotate: -90deg;
     }

@@ -19,7 +19,6 @@ const meta: Meta<typeof HamburgerComponent> = {
 export default meta
 
 export const Hamburger = (): React.JSX.Element => {
-
   const [open, setOpen] = useState(false)
 
   return (

@@ -3,8 +3,8 @@ import type React from 'react'
 
 import cx from 'classnames'
 
-import type { LoaderProps } from './@types/index.js'
 import styles from './ring.module.css'
+import type { LoaderProps } from './@types/index.js'
 
 export function LoaderRing({
   color,

@@ -1,3 +1,5 @@
+import { createFileRoute, Link } from '@tanstack/react-router'
+
 import {
   Alert,
   Avatar,
@@ -13,7 +15,6 @@ import {
   LoaderSpinner,
   Tooltip,
 } from '@infonomic/uikit/react'
-import { createFileRoute, Link } from '@tanstack/react-router'
 
 import styles from './index.module.css'
 
@@ -71,11 +72,7 @@ function Index() {
               variant="text"
               size="md"
               render={
-                <a
-                  href="https://github.com/infonomic/uikit"
-                  target="_blank"
-                  rel="noreferrer"
-                >
+                <a href="https://github.com/infonomic/uikit" target="_blank" rel="noreferrer">
                   Source on GitHub ↗
                 </a>
               }
@@ -367,9 +364,7 @@ function Index() {
                     Hover me
                   </Button>
                 </Tooltip>
-                <span className={styles['tooltip-demo-hint']}>
-                  ↑ tooltip anchors here
-                </span>
+                <span className={styles['tooltip-demo-hint']}>↑ tooltip anchors here</span>
               </div>
             </div>
             <div className={styles['spec-foot']}>
@@ -421,28 +416,13 @@ function Index() {
             </p>
           </div>
           <div className={styles['band-cta']}>
-            <Button
-              intent="primary"
-              variant="filled"
-              size="md"
-              render={<Link to="/buttons" />}
-            >
+            <Button intent="primary" variant="filled" size="md" render={<Link to="/buttons" />}>
               Buttons
             </Button>
-            <Button
-              intent="secondary"
-              variant="outlined"
-              size="md"
-              render={<Link to="/cards" />}
-            >
+            <Button intent="secondary" variant="outlined" size="md" render={<Link to="/cards" />}>
               Cards
             </Button>
-            <Button
-              intent="noeffect"
-              variant="text"
-              size="md"
-              render={<Link to="/prose" />}
-            >
+            <Button intent="noeffect" variant="text" size="md" render={<Link to="/prose" />}>
               Prose
             </Button>
           </div>
