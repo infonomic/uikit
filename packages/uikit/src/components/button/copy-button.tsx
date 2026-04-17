@@ -32,7 +32,12 @@ export function CopyButton({
   svgClassName,
   ...rest
 }: CopyButtonProps): React.JSX.Element {
-  const [copied, setCopied] = useState<boolean | undefined>(undefined)
+  // Track copied-feedback and hover-open as separate booleans so the
+  // tooltip's `open` prop is always a boolean. Passing `undefined` -> `true`
+  // makes Base UI's Tooltip switch from uncontrolled to controlled and emits
+  // a React warning in consumer apps.
+  const [copied, setCopied] = useState(false)
+  const [hoverOpen, setHoverOpen] = useState(false)
 
   const handleCopied = (): void => {
     // TODO: Permissions check?
@@ -52,14 +57,12 @@ export function CopyButton({
   }
 
   useEffect(() => {
-    if (copied === true) {
-      setTimeout(() => {
-        setCopied(undefined)
-      }, 900)
-    }
-  })
+    if (!copied) return
+    const timer = setTimeout(() => setCopied(false), 900)
+    return () => clearTimeout(timer)
+  }, [copied])
 
-  const tooltipText = copied != null && copied ? copiedText : hoverText
+  const tooltipText = copied ? copiedText : hoverText
 
   return (
     <div
@@ -69,7 +72,18 @@ export function CopyButton({
         containerClassName
       )}
     >
-      <Tooltip side="top" sideOffset={2} text={tooltipText} open={copied}>
+      <Tooltip
+        side="top"
+        sideOffset={2}
+        text={tooltipText}
+        open={copied || hoverOpen}
+        onOpenChange={(next) => {
+          // While the "Copied!" feedback is showing, ignore hover-close so
+          // the tooltip stays visible for the full confirmation window.
+          if (copied && !next) return
+          setHoverOpen(next)
+        }}
+      >
         <Button
           variant={variant}
           size={size}
