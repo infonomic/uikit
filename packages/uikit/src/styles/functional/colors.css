@@ -89,7 +89,7 @@
     --gradient-primary-disabled: oklch(from var(--primary-700) calc(l * 1.2) calc(c * 0.85) h);
 
     /* SECONDARY INTENT TOKENS
-       ----------------------------------------------------------------- *
+       ----------------------------------------------------------------- */
 
     /* Fill tokens - for filled variant */
     --fill-secondary-strong: var(--secondary-500);
@@ -100,7 +100,7 @@
     --fill-secondary-weak-hover: oklch(from var(--secondary-500) calc(l * 1.2) calc(c * 0.4) h / 0.5);
     --fill-secondary-weak-disabled: oklch(from var(--secondary-500) calc(l * 2) calc(c * 0.4) c h / 0.5);
 
-    --fill-secondary-outlined: var(--fill-secondary-outlined);
+    --fill-secondary-outlined: transparent;
     --fill-secondary-outlined-hover: oklch(from var(--secondary-500) calc(l * 2) calc(c * 0.4) h / 0.7);
     --fill-secondary-outlined-disabled: oklch(from var(--secondary-500) calc(l * 2) calc(c * 0.4) c h / 0.7);
 
@@ -543,6 +543,10 @@
     --text-on-noeffect-outlined-hover: oklch(from var(--gray-200) calc(l * 1.5) calc(c * 0.5) h);
     --text-on-noeffect-outlined-disabled: oklch(from var(--gray-200) calc(l * 1.5) calc(c * 0.5) h);
 
+    --text-on-noeffect-text: var(--gray-200);
+    --text-on-noeffect-text-hover: oklch(from var(--gray-200) calc(l * 1.5) calc(c * 0.5) h);
+    --text-on-noeffect-text-disabled: oklch(from var(--gray-200) calc(l * 1.5) calc(c * 0.5) h);
+
     --text-noeffect: var(--gray-200);
     --text-noeffect-weak: oklch(from var(--gray-200) calc(l * 0.7) c h);
     --text-noeffect-hover: oklch(from var(--gray-200) calc(l * 0.7) c h);
@@ -596,6 +600,10 @@
     --text-success-weak: oklch(from var(--green-300) calc(l * 0.7) c h);
     --text-success-hover: oklch(from var(--green-300) calc(l * 0.7) c h);
     --text-success-disabled: oklch(from var(--green-300) calc(l * 1.5) calc(c * 0.5) h);
+
+    --stroke-success: var(--green-400);
+    --stroke-success-hover: oklch(from var(--green-400) calc(l * 1.1) c h);
+    --stroke-success-disabled: oklch(from var(--green-400) calc(l * 0.8) calc(c * 0.8) h);
 
     --ring-success: var(--green-400);
 
@@ -735,7 +743,12 @@
 
     --text-danger: var(--red-400);
     --text-danger-weak: oklch(from var(--red-400) calc(l * 0.7) c h);
+    --text-danger-hover: oklch(from var(--red-400) calc(l * 0.7) c h);
     --text-danger-disabled: oklch(from var(--red-500) calc(l * 1.5) calc(c * 0.5) h);
+
+    --stroke-danger: var(--red-400);
+    --stroke-danger-hover: oklch(from var(--red-400) calc(l * 1.1) c h);
+    --stroke-danger-disabled: oklch(from var(--red-400) calc(l * 0.8) calc(c * 0.8) h);
 
     --ring-danger: var(--red-400);
 
@@ -879,6 +892,10 @@
     --fill-noeffect-outlined: transparent;
     --fill-noeffect-outlined-hover: oklch(from var(--gray-100) calc(l * 1.05) c h / 0.7);
     --fill-noeffect-outlined-disabled: oklch(from var(--gray-100) calc(l * 1.07) c h / 0.7);
+
+    --fill-noeffect-text: transparent;
+    --fill-noeffect-text-hover: oklch(from var(--gray-100) calc(l * 1.05) c h / 0.5);
+    --fill-noeffect-text-disabled: oklch(from var(--gray-100) calc(l * 1.07) c h / 0.5);
 
     /* Text tokens - for text/icons on top of fills */
     --text-on-noeffect-strong: black;
@@ -1035,13 +1052,13 @@
     --text-on-warning-strong-hover: oklch(from black calc(l * 0.9) calc(c * 0.85) h);
     --text-on-warning-strong-disabled: oklch(from black calc(l * 0.9) calc(c * 0.85) h);
 
-    --text-on-warning-weak: black;
-    --text-on-warning-weak-hover: oklch(from black calc(l * 0.9) calc(c * 0.85) h);
-    --text-on-warning-weak-disabled: oklch(from black calc(l * 0.9) calc(c * 0.85) h);
+    --text-on-warning-weak: var(--yellow-700);
+    --text-on-warning-weak-hover: oklch(from var(--yellow-700) calc(l * 0.9) calc(c * 0.85) h);
+    --text-on-warning-weak-disabled: oklch(from var(--yellow-700) calc(l * 0.9) calc(c * 0.85) h);
 
-    --text-on-warning-outlined: black;
-    --text-on-warning-outlined-hover: oklch(from black calc(l * 0.9) calc(c * 0.85) h);
-    --text-on-warning-outlined-disabled: oklch(from black calc(l * 0.9) calc(c * 0.85) h);
+    --text-on-warning-outlined: var(--yellow-800);
+    --text-on-warning-outlined-hover: oklch(from var(--yellow-800) calc(l * 0.9) calc(c * 0.85) h);
+    --text-on-warning-outlined-disabled: oklch(from var(--yellow-800) calc(l * 0.9) calc(c * 0.85) h);
 
     --text-warning: var(--yellow-700);
     --text-warning-weak: oklch(from var(--yellow-300) calc(l * 0.6) c h);

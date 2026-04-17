@@ -15,6 +15,6 @@
 
   .required,
   :global(.infonomic-label-required) {
-    color: var(--error);
+    color: var(--text-danger);
   }
 }

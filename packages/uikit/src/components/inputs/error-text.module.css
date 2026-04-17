@@ -9,7 +9,7 @@
   .text,
   :global(.infonomic-error-text) {
     font-size: 0.875rem;
-    color: var(--error);
+    color: var(--text-danger);
   }
 
   .sm,
