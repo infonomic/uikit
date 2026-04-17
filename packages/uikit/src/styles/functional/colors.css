@@ -34,6 +34,9 @@
     --warning: var(--yellow-500);
     --danger: var(--red-500);
 
+    /* Generic focus ring, used by components that are not tied to an intent */
+    --focus-ring: var(--ring-primary);
+
     /* PRIMARY INTENT TOKENS
        ----------------------------------------------------------------- */
 
@@ -409,6 +412,9 @@
     --warning: var(--yellow-500);
     --danger: var(--red-500);
 
+    /* Generic focus ring, used by components that are not tied to an intent */
+    --focus-ring: var(--ring-primary);
+
     /* PRIMARY INTENT TOKENS (Dark Mode)
        ----------------------------------------------------------------- */
 
@@ -776,6 +782,9 @@
     --info: var(--blue-500);
     --warning: var(--yellow-500);
     --danger: var(--red-500);
+
+    /* Generic focus ring, used by components that are not tied to an intent */
+    --focus-ring: var(--ring-primary);
 
     /* PRIMARY INTENT TOKENS
        ----------------------------------------------------------------- */

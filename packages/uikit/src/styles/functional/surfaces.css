@@ -32,6 +32,13 @@
     --surface-item-text-active: var(--text);
     --surface-item-text-disabled: var(--gray-400);
 
+    /* Subtle neutral surface - generic role used by components that need
+       a muted background without adopting any intent color. Also the
+       mapping target for ShadCN-style muted/accent tokens. */
+    --surface-subtle: var(--canvas-50);
+    --surface-subtle-hover: var(--canvas-100);
+    --surface-subtle-active: var(--canvas-200);
+
     /* Panel scrollers */
     --surface-panel-scrollbar: var(--gray-50);
     --surface-panel-scrollbar-thumb: var(--primary-100);
@@ -71,6 +78,11 @@
     --surface-item-text-active: var(--text);
     --surface-item-text-disabled: var(--gray-500);
 
+    /* Subtle neutral surface */
+    --surface-subtle: var(--canvas-800);
+    --surface-subtle-hover: var(--canvas-700);
+    --surface-subtle-active: var(--canvas-600);
+
     /* Panel scrollers */
     --surface-panel-scrollbar: var(--canvas-700);
     --surface-panel-scrollbar-thumb: var(--primary-400);
@@ -107,6 +119,11 @@
     --surface-item-text-hover: var(--text);
     --surface-item-text-active: var(--text);
     --surface-item-text-disabled: var(--gray-400);
+
+    /* Subtle neutral surface */
+    --surface-subtle: var(--canvas-50);
+    --surface-subtle-hover: var(--canvas-100);
+    --surface-subtle-active: var(--canvas-200);
 
     /* Panel scrollers */
     --surface-panel-scrollbar: var(--gray-50);

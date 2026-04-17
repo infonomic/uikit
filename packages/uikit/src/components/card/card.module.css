@@ -14,20 +14,12 @@
     width: 100%;
     max-width: 100%;
     color: var(--foreground);
-    background: var(--canvas-25);
+    background: var(--surface-panel);
     border-width: var(--border-width-thin);
     border-color: var(--border-color);
     border-style: var(--border-style-solid);
     border-radius: var(--border-radius-md);
     box-shadow: var(--shadow-sm);
-  }
-
-  :global(.dark),
-  :global([data-theme="dark"]) {
-    .card,
-    :global(.infonomic-card) {
-      background: var(--canvas-800);
-    }
   }
 
   .card-hover,

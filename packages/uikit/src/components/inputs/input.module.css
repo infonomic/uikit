@@ -172,23 +172,23 @@ infonomic-components;
     background-color: var(--input-variant-filled);
   }
 
-  /* Error classes last, so that they override all 
+  /* Error classes last, so that they override all
     of the above */
   .error,
   :global(.infonomic-input-error) {
-    border: 1px solid var(--red-400);
+    border: 1px solid var(--field-border-invalid);
   }
 
   .error:hover,
   :global(.infonomic-input-error):hover {
-    border: 1px solid var(--red-400);
+    border: 1px solid var(--field-border-invalid);
   }
 
   .error:focus,
   .error:active,
   :global(.infonomic-input-error):focus,
   :global(.infonomic-input-error):active {
-    --ring-color: var(--red-300);
+    --ring-color: var(--field-ring-invalid);
   }
 
   .underlined.start-adornment-padding,

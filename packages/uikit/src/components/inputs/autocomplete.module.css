@@ -139,19 +139,19 @@ infonomic-components;
 
   .error,
   :global(.infonomic-autocomplete-input-error) {
-    border: 1px solid var(--red-400);
+    border: 1px solid var(--field-border-invalid);
   }
 
   .error:hover,
   :global(.infonomic-autocomplete-input-error):hover {
-    border: 1px solid var(--red-400);
+    border: 1px solid var(--field-border-invalid);
   }
 
   .error:focus,
   .error:active,
   :global(.infonomic-autocomplete-input-error):focus,
   :global(.infonomic-autocomplete-input-error):active {
-    --ring-color: var(--red-300);
+    --ring-color: var(--field-ring-invalid);
   }
 
   /* ── Intents ── */

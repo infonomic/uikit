@@ -104,7 +104,7 @@ infonomic-components;
     gap: var(--gap-1);
     padding-top: 12px;
     padding-bottom: 16px;
-    background: var(--gray-25);
+    background: var(--surface-panel-elevated);
     border-width: var(--border-width-thin);
     border-color: var(--border-color);
     border-style: var(--border-style-solid);
@@ -114,15 +114,6 @@ infonomic-components;
     transition:
       transform 200ms ease-out,
       opacity 150ms ease-in;
-  }
-
-  :global(.dark),
-  :global([data-theme="dark"]) {
-
-    .root,
-    :global(.infonomic-toast-root) {
-      background: var(--canvas-800);
-    }
   }
 
   /* Entry animation */
