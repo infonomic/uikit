@@ -11,7 +11,7 @@ Components must read from these tokens. They must not read base palette primitiv
 - `typography.css` — `--text`, `--headings`, `--muted`, `--text-subtle`, `--text-placeholder`.
 - `borders.css` — `--border-color`, field-state tokens (`--field-border`, `--field-border-hover`, `--field-border-invalid`, `--field-ring`, `--field-ring-invalid`).
 - `grid-flex.css` — layout tokens.
-- `shadcn-compat.css` — optional `--shadcn-*` alias namespace. Strictly for ShadCN-style Tailwind utilities in consumer apps; **do not use inside uikit components**.
+- `shadcn-compat.css` — optional `--shadcn-*` alias namespace covering core surface/content roles, the radius scale (`--shadcn-radius{,-sm,-md,-lg,-xl}`), the five-slot chart palette (`--shadcn-chart-1`…`-5`), and the sidebar primitive (`--shadcn-sidebar*`). Mode switching is handled by the underlying functional tokens, so the aliases are defined once in `:root` only. Strictly for ShadCN-style Tailwind utilities in consumer apps; **do not use inside uikit components**.
 
 ## Intent Token Taxonomy
 

@@ -9,9 +9,14 @@
  * bg-card, text-muted-foreground, border-border, ring-ring etc. resolve to the
  * uikit's semantic tokens without conflicting with the brand palette, which
  * is exposed under --color-brand-* in ./tailwind.css.
+ *
+ * Uses `@theme inline` so generated utilities reference the CSS variables
+ * directly (the form `shadcn init` produces) - this keeps opacity modifiers
+ * like `bg-primary/90` resolving against the live token, and keeps dark-mode
+ * switching reactive to the .dark class on the DOM.
  */
 
-@theme {
+@theme inline {
   --color-background: var(--shadcn-background);
   --color-foreground: var(--shadcn-foreground);
 
@@ -40,5 +45,27 @@
   --color-input: var(--shadcn-input);
   --color-ring: var(--shadcn-ring);
 
+  /* Chart palette */
+  --color-chart-1: var(--shadcn-chart-1);
+  --color-chart-2: var(--shadcn-chart-2);
+  --color-chart-3: var(--shadcn-chart-3);
+  --color-chart-4: var(--shadcn-chart-4);
+  --color-chart-5: var(--shadcn-chart-5);
+
+  /* Sidebar primitive */
+  --color-sidebar: var(--shadcn-sidebar);
+  --color-sidebar-foreground: var(--shadcn-sidebar-foreground);
+  --color-sidebar-primary: var(--shadcn-sidebar-primary);
+  --color-sidebar-primary-foreground: var(--shadcn-sidebar-primary-foreground);
+  --color-sidebar-accent: var(--shadcn-sidebar-accent);
+  --color-sidebar-accent-foreground: var(--shadcn-sidebar-accent-foreground);
+  --color-sidebar-border: var(--shadcn-sidebar-border);
+  --color-sidebar-ring: var(--shadcn-sidebar-ring);
+
+  /* Radius scale - drives rounded-sm / rounded-md / rounded-lg / rounded-xl */
+  --radius-sm: var(--shadcn-radius-sm);
+  --radius-md: var(--shadcn-radius-md);
+  --radius-lg: var(--shadcn-radius-lg);
+  --radius-xl: var(--shadcn-radius-xl);
   --radius: var(--shadcn-radius);
 }
