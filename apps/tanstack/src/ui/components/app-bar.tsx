@@ -7,9 +7,8 @@ import cx from 'classnames'
 
 import { useTheme } from '@/ui/theme/provider'
 import { Theme } from '@/ui/theme/utils'
-import type { Locale } from '@/i18n/i18n-config'
-
 import styles from './app-bar.module.css'
+import type { Locale } from '@/i18n/i18n-config'
 
 interface AppBarProps {
   className?: string
@@ -49,7 +48,7 @@ export const AppBar = forwardRef<Ref, AppBarProps>(function AppBar(
             <span className={styles.dot} aria-hidden />
             Infonomic · UIKit
           </Link>
-          <span className={styles.hiddenSm}>v6.6.0</span>
+          <span className={styles.hiddenSm}>v6.7.0</span>
           <span className={styles.hiddenSm}>Specimen / 01</span>
         </div>
         <div className={styles.section}>
