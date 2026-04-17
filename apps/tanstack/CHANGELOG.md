@@ -1,5 +1,16 @@
 # @infonomic/website-react
 
+## 6.6.0
+
+### Minor Changes
+
+- 9eab9c4: Refactored CSS design system, tokens and components.
+
+### Patch Changes
+
+- Updated dependencies [9eab9c4]
+  - @infonomic/uikit@6.6.0
+
 ## 6.5.1
 
 ### Patch Changes
