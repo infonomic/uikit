@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 6.7.1
+
+### Patch Changes
+
+- 574923d: Increased stroke width of history icon.
+
 ## 6.7.0
 
 ### Minor Changes

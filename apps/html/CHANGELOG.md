@@ -1,5 +1,13 @@
 # @modulus-learning/agent-demo-vanilla
 
+## 6.7.1
+
+### Patch Changes
+
+- 574923d: Increased stroke width of history icon.
+- Updated dependencies [574923d]
+  - @infonomic/uikit@6.7.1
+
 ## 6.7.0
 
 ### Minor Changes
