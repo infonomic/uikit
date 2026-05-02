@@ -18,7 +18,7 @@ export const HistoryIcon = ({ className, svgClassName, ...rest }: IconProps): Re
         aria-hidden="true"
         viewBox="0 0 24 24"
         fill="none"
-        strokeWidth="1"
+        strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       >
