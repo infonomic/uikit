@@ -11,7 +11,7 @@ import { ErrorText } from './error-text.jsx'
 import { HelpText } from './help-text.jsx'
 import type { Intent, Size, Variant } from './@types/checkbox.js'
 
-export interface Props {
+export interface CheckboxProps {
   id: string
   name: string
   label?: string
@@ -52,7 +52,7 @@ export const Checkbox = function Checkbox({
   helpText = '',
   errorText = '',
   ...rest
-}: Props & {
+}: CheckboxProps & {
   ref?: React.RefObject<HTMLButtonElement>
 }): React.JSX.Element {
   return (
