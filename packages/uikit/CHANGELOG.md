@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 6.7.2
+
+### Patch Changes
+
+- Checkbox props renamed, and removed outline from search widget adornments.
+
 ## 6.7.1
 
 ### Patch Changes

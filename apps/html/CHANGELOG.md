@@ -1,5 +1,13 @@
 # @modulus-learning/agent-demo-vanilla
 
+## 6.7.2
+
+### Patch Changes
+
+- Checkbox props renamed, and removed outline from search widget adornments.
+- Updated dependencies
+  - @infonomic/uikit@6.7.2
+
 ## 6.7.1
 
 ### Patch Changes
