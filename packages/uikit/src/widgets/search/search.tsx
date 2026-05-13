@@ -153,6 +153,7 @@ export function Search({
               role="button"
               intent="noeffect"
               variant="text"
+              style={{ outline: 'none' }}
               ripple={false}
               arial-label={ariaLabelForSearch}
               size="xs"
@@ -170,6 +171,8 @@ export function Search({
               role="button"
               intent="noeffect"
               variant="text"
+              style={{ outline: 'none' }}
+              ripple={false}
               arial-label={ariaLabelForClear}
               size="xs"
               onClick={() => {
