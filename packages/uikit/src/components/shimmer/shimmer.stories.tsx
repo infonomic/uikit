@@ -16,7 +16,7 @@ export default meta
 export const Shimmer = (): React.JSX.Element => {
   return (
     <div style={{ height: '100vh' }}>
-      <ShimmerComponent variant="text" width="100%" borderRadius="4px" height="1rem" lines={5}>
+      <ShimmerComponent variant="text" width="100%" borderRadius="4px" lineHeight="1rem" lines={5}>
         <div style={{ width: '100%' }} />
       </ShimmerComponent>
     </div>

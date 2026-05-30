@@ -11,8 +11,8 @@
   :global(.infonomic-shimmer) {
     position: relative;
     overflow: hidden;
-    background-color: #f0f0f0;
-    background-image: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+    background-color: var(--surface-shimmer);
+    background-image: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.7), transparent);
     background-size: 200% 100%;
     animation: shimmer 1.5s infinite;
   }
@@ -21,8 +21,9 @@
   :global([data-theme="dark"]) {
     .shimmer,
     :global(.infonomic-shimmer) {
-      background-color: #141414;
-      background-image: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.01), transparent);
+      /* base colour comes from --surface-shimmer; only the white sheen is
+         toned down here so it doesn't glare against the dark bar */
+      background-image: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.04), transparent);
     }
   }
 
@@ -30,6 +31,9 @@
   :global(.infonomic-shimmer-container) {
     display: flex;
     flex-direction: column;
+    /* When a container `height` is set, crop overflowing lines cleanly
+       rather than letting them spill past the skeleton's bounds. */
+    overflow: hidden;
   }
 
   .rectangular,
