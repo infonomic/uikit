@@ -1,5 +1,13 @@
 # @modulus-learning/agent-demo-vanilla
 
+## 6.7.3
+
+### Patch Changes
+
+- Updated shimmer component.
+- Updated dependencies
+  - @infonomic/uikit@6.7.3
+
 ## 6.7.2
 
 ### Patch Changes
