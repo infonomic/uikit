@@ -21,7 +21,7 @@ IMPORTANT: It's important that everyone then git fetches, git pulls the latest f
 
 ## II Manual flow:
 
-NOTE: you'll need to log in to NPM on the command line before starting: `npm login`
+NOTE: This flow publishes via `./publish-packages.sh`, which uses the npm bypass token in your `~/.npmrc`. We use this instead of `pnpm release:npm` (`changeset publish`) because `pnpm`/`changeset` cannot publish under passkey-only 2FA — pnpm's OTP pre-check accepts only a typed numeric code and dead-ends at `ERR_PNPM_OTP_NON_INTERACTIVE`. Plain `npm publish` honours the `~/.npmrc` bypass token silently. The script `pnpm pack`s first (which rewrites any `workspace:*` deps into real versions) and then `npm publish`es the resulting tarball.
 
 1. `pnpm changeset`
 
@@ -32,8 +32,17 @@ Write a summary for the change set.
 
 This will call changeset version, updating all package.json versions and updating release notes. It will also clear / remove the pending changeset from the .changeset directory.
 
-3. `pnpm release:npm`
+3. Commit the release (e.g. `chore(release): X.Y.Z`).
 
-This will build the uikit package, and then call changeset publish. It will publish to npm via whatever account you've authenticated locally with via `npm login`.
+The publish script tags this commit, so make the release commit before running it.
+
+4. `./publish-packages.sh`
+
+This builds `@infonomic/uikit`, packs it, publishes the tarball to npm via the token in your `~/.npmrc`, then creates and pushes the `@infonomic/uikit@X.Y.Z` git tag. It is idempotent — if the version is already published it skips the publish and just ensures the tag — so it's safe to re-run after a partial failure.
+
+Options:
+- `./publish-packages.sh --dry-run` — pack + verify only; no publish, no tag, no push.
+- `./publish-packages.sh --no-build` — skip the turbo build and use the existing `dist/`.
+- `./publish-packages.sh --yes` — skip the confirmation prompt.
 
 NOTE: The manual flow will not create a Releases entry in the repo (and therefore not create any attached zip binaries).
