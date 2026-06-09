@@ -1,5 +1,13 @@
 # @modulus-learning/agent-demo-vanilla
 
+## 6.7.4
+
+### Patch Changes
+
+- Increased transparency of alerts
+- Updated dependencies
+  - @infonomic/uikit@6.7.4
+
 ## 6.7.3
 
 ### Patch Changes

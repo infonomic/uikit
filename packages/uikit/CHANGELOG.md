@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 6.7.4
+
+### Patch Changes
+
+- Increased transparency of alerts
+
 ## 6.7.3
 
 ### Patch Changes
