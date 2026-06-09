@@ -18,7 +18,12 @@
     font-weight: normal;
     transition: all 0.3s ease-in-out;
     border: 1px solid var(--alert-border);
-    background-color: var(--alert-background);
+    /* Multiply the fill token's existing alpha channel to layer on additional
+       transparency, without altering the --fill-<intent>-weak color primitives. */
+    --alert-background-opacity: 0.5;
+    background-color: oklch(
+      from var(--alert-background) l c h / calc(alpha * var(--alert-background-opacity))
+    );
     color: var(--foreground);
     margin-bottom: 1rem;
   }
