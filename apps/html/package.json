@@ -11,12 +11,12 @@
   },
   "dependencies": {
     "@infonomic/uikit": "workspace:*",
-    "@tailwindcss/vite": "^4.2.2",
-    "tailwindcss": "^4.2.2"
+    "@tailwindcss/vite": "^4.3.0",
+    "tailwindcss": "^4.3.0"
   },
   "devDependencies": {
     "lightningcss": "^1.32.0",
     "typescript": "^6.0.3",
-    "vite": "^8.0.8"
+    "vite": "^8.0.16"
   }
 }

@@ -2,13 +2,12 @@ packages:
   - packages/**
   - apps/**
   - '!apps/next/.next/**'
-
-onlyBuiltDependencies:
-  - '@biomejs/biome'
-  - '@parcel/watcher'
-  - '@tailwindcss/oxide'
-  - core-js
-  - esbuild
-  - lightningcss-cli
-  - sharp
-  - unrs-resolver
+allowBuilds:
+  '@biomejs/biome': true
+  '@parcel/watcher': true
+  '@tailwindcss/oxide': true
+  core-js: true
+  esbuild: true
+  lightningcss-cli: true
+  sharp: true
+  unrs-resolver: true
