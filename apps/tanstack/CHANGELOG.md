@@ -1,5 +1,13 @@
 # @infonomic/website-react
 
+## 6.7.5
+
+### Patch Changes
+
+- Responsive font sizes for alerts
+- Updated dependencies
+  - @infonomic/uikit@6.7.5
+
 ## 6.7.4
 
 ### Patch Changes
