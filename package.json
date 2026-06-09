@@ -16,7 +16,7 @@
     "start": "turbo run start",
     "preview": "turbo run preview",
     "storybook": "turbo run storybook",
-    "dev": "turbo run dev --parallel",
+    "dev": "turbo run dev",
     "lint": "turbo run lint --continue",
     "typecheck": "turbo run typecheck --continue",
     "test": "turbo run test",
