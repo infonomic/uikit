@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 6.7.6
+
+### Patch Changes
+
+- Accessability changes to help text, input and text area.
+
 ## 6.7.5
 
 ### Patch Changes

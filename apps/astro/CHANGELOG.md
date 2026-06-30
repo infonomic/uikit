@@ -1,5 +1,13 @@
 # @infonomic/website-astro
 
+## 6.7.6
+
+### Patch Changes
+
+- Accessability changes to help text, input and text area.
+- Updated dependencies
+  - @infonomic/uikit@6.7.6
+
 ## 6.7.5
 
 ### Patch Changes
