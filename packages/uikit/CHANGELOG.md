@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 6.7.7
+
+### Patch Changes
+
+- accessibility fixes from the a11y audit: corrected the `Search` icon-button `aria-label`s and restored their focus rings, gave `Checkbox` a keyboard focus ring when unchecked, raised `--ring-noeffect` focus-ring contrast to meet WCAG 1.4.11, and hid the `Label` required asterisk from the accessible name
+
 ## 6.7.6
 
 ### Patch Changes

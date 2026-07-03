@@ -1,5 +1,12 @@
 # @modulus-learning/agent-demo-vanilla
 
+## 6.7.7
+
+### Patch Changes
+
+- Updated dependencies
+  - @infonomic/uikit@6.7.7
+
 ## 6.7.6
 
 ### Patch Changes
