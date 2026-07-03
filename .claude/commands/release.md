@@ -85,16 +85,24 @@ Do **not** list the `apps/*` packages — they are private and `pnpm version-pac
 
 ## Step 5 — Lint
 
-`pnpm lint`. If it fails on real issues, stop and surface the output. This repo's lint does **not** auto-fix, so the generated CHANGELOG/package.json edits should pass cleanly; a failure here means something unrelated needs attention.
+`pnpm lint` — this repo's lint runs Biome with `--write --unsafe`, so it **auto-fixes** in place rather than just reporting. Expect it to succeed. Two things to watch for afterward:
+
+- **Unrelated formatting churn.** Biome will reformat any pre-existing drift it finds, not just the bumped files — e.g. long-line wrapping in CSS, trailing newlines, `routeTree.gen.ts`. Run `git status --short` and separate these from the bump: the version/CHANGELOG files belong in the release commit; everything else is incidental and must **not** be swept into it (this repo's release commits are pure bumps — see any past `chore(release): X.Y.Z`). Commit the incidental files first as a separate `style: biome formatting fixes` commit (Step 6 handles the split).
+- **A real failure.** If lint errors instead of quietly fixing, stop and surface the output — something unrelated needs attention.
 
 ## Step 6 — Release commit
 
-Stage the bump artefacts explicitly — do **not** use `git add -A`:
+If Step 5 produced incidental formatting fixes (files outside the version/CHANGELOG set), commit those **first** so the release commit stays a pure bump:
+
+- `git add` only the incidental files, then `git commit -m "style: biome formatting fixes"`.
+
+Then stage the bump artefacts explicitly — do **not** use `git add -A`:
 
 - `git add .changeset/` (the consumed changeset file is removed; the config stays — both diffs land here)
 - `git add packages/uikit/package.json packages/uikit/CHANGELOG.md`
 - `git add apps/*/package.json apps/*/CHANGELOG.md` (the auto-propagated dependency bumps)
-- If lint touched anything else, include only the files actually modified by the bump or lint in this turn.
+
+After staging, `git status --porcelain` should show **only** the version/CHANGELOG files staged and nothing left unstaged. If anything else is staged, unstage it — it belongs in the `style:` commit, not here.
 
 Commit with the literal message `chore(release): <NEXT_VERSION>` (match the format of past release commits — e.g. `chore(release): 6.7.7`). Then `git push` on the current branch.
 
