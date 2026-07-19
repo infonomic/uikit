@@ -1,5 +1,12 @@
 # @infonomic/uikit
 
+## 6.8.0
+
+### Minor Changes
+
+- `ComboButton` options now take an optional leading `icon` with labels aligned across mixed menus, and the menu anchors to the whole control so `align` measures from the button; new `MarkdownIcon`
+  `Modal` overlay-click dismissal now fires reliably and no longer closes when a text-selection drag is released outside the dialog
+
 ## 6.7.7
 
 ### Patch Changes

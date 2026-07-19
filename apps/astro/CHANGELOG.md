@@ -1,5 +1,12 @@
 # @infonomic/website-astro
 
+## 6.7.8
+
+### Patch Changes
+
+- Updated dependencies
+  - @infonomic/uikit@6.8.0
+
 ## 6.7.7
 
 ### Patch Changes
