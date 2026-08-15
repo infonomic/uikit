@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 6.8.1
+
+### Patch Changes
+
+- Updated deps
+
 ## 6.8.0
 
 ### Minor Changes
