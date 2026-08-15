@@ -9,19 +9,14 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as IndexRouteImport } from './routes/index'
 import { Route as ButtonsRouteImport } from './routes/buttons'
 import { Route as CardsRouteImport } from './routes/cards'
-import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProseRouteImport } from './routes/prose'
 
-const ProseRoute = ProseRouteImport.update({
-  id: '/prose',
-  path: '/prose',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CardsRoute = CardsRouteImport.update({
-  id: '/cards',
-  path: '/cards',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ButtonsRoute = ButtonsRouteImport.update({
@@ -29,9 +24,14 @@ const ButtonsRoute = ButtonsRouteImport.update({
   path: '/buttons',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const CardsRoute = CardsRouteImport.update({
+  id: '/cards',
+  path: '/cards',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProseRoute = ProseRouteImport.update({
+  id: '/prose',
+  path: '/prose',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -71,18 +71,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/prose': {
-      id: '/prose'
-      path: '/prose'
-      fullPath: '/prose'
-      preLoaderRoute: typeof ProseRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/cards': {
-      id: '/cards'
-      path: '/cards'
-      fullPath: '/cards'
-      preLoaderRoute: typeof CardsRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/buttons': {
@@ -92,11 +85,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ButtonsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/cards': {
+      id: '/cards'
+      path: '/cards'
+      fullPath: '/cards'
+      preLoaderRoute: typeof CardsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/prose': {
+      id: '/prose'
+      path: '/prose'
+      fullPath: '/prose'
+      preLoaderRoute: typeof ProseRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
