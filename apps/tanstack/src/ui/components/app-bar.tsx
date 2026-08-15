@@ -3,7 +3,7 @@
 import { forwardRef, useEffect, useState } from 'react'
 import { Link } from '@tanstack/react-router'
 
-import cx from 'classnames'
+import cx from 'clsx'
 
 import { useTheme } from '@/ui/theme/provider'
 import { Theme } from '@/ui/theme/utils'

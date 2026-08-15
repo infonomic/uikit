@@ -51,10 +51,10 @@ button/
 └── index.ts                # Barrel export
 ```
 
-**Pattern**: Always import CSS modules as `styles` and use `cx()` from `classnames` for composition:
+**Pattern**: Always import CSS modules as `styles` and use `cx()` from `clsx` for composition:
 ```tsx
 import styles from './button.module.css'
-import cx from 'classnames'
+import cx from 'clsx'
 
 className={cx('button', intent, variant, styles.button, styles[variant], className)}
 ```
