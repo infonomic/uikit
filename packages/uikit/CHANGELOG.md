@@ -1,5 +1,11 @@
 # @infonomic/uikit
 
+## 6.8.2
+
+### Patch Changes
+
+- Confirmed migration from classnames to clsx
+
 ## 6.8.1
 
 ### Patch Changes
