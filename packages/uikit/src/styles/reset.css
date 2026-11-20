@@ -1,7 +1,25 @@
+@layer base,
+  infonomic-base,
+  theme,
+  infonomic-theme,
+  infonomic-functional,
+  infonomic-typography,
+  components,
+  infonomic-components,
+  overrides,
+  infonomic-utilities,
+  utilities;
+
 /* 
  * Based on Tailwind reset / preflight
  * If used in a tailwind project, turn preflight off.
  * Copyright (c) Tailwind Labs, Inc.
+ *
+ * The preamble above reserves the kit's full cascade-layer order, including
+ * the host `overrides` slot below Tailwind utilities. Every kit stylesheet
+ * opens with it. Hosts also use @infonomic/uikit/css-layers in the document
+ * head and their CSS build, so a host or vendor stylesheet cannot establish a
+ * partial order first. See "CSS cascade layers" in the README.
 */
 @layer infonomic-base {
   /*

@@ -1,2 +1,14 @@
+@layer base,
+  infonomic-base,
+  theme,
+  infonomic-theme,
+  infonomic-functional,
+  infonomic-typography,
+  components,
+  infonomic-components,
+  overrides,
+  infonomic-utilities,
+  utilities;
+
 @import "./utility-classes.css";
 @import "./scroll-layout-shift.css";

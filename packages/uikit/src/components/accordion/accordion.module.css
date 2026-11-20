@@ -1,4 +1,14 @@
-@layer infonomic-base, infonomic-utilities, infonomic-theme, infonomic-components;
+@layer base,
+  infonomic-base,
+  theme,
+  infonomic-theme,
+  infonomic-functional,
+  infonomic-typography,
+  components,
+  infonomic-components,
+  overrides,
+  infonomic-utilities,
+  utilities;
 
 @layer infonomic-components {
   .item,

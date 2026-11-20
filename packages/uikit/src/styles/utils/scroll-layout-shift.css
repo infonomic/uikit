@@ -1,3 +1,15 @@
+@layer base,
+  infonomic-base,
+  theme,
+  infonomic-theme,
+  infonomic-functional,
+  infonomic-typography,
+  components,
+  infonomic-components,
+  overrides,
+  infonomic-utilities,
+  utilities;
+
 @layer infonomic-utilities {
   .fix-scroll-layout-shift-right {
     padding-right: var(--removed-body-scroll-bar-size);

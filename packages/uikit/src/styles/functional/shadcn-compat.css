@@ -1,3 +1,15 @@
+@layer base,
+  infonomic-base,
+  theme,
+  infonomic-theme,
+  infonomic-functional,
+  infonomic-typography,
+  components,
+  infonomic-components,
+  overrides,
+  infonomic-utilities,
+  utilities;
+
 /**
  * SHADCN COMPATIBILITY ALIAS LAYER
  *

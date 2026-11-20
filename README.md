@@ -100,6 +100,157 @@ import { Button, Card, Container, Section } from '@infonomic/uikit/react'
 
 ```
 
+## CSS cascade layers
+
+A Tailwind utility applied directly to an element overrides ordinary
+component, typography and theme declarations for the same property on that
+element. This is a cascade-order contract, not a matter of selector
+specificity.
+
+Limits:
+
+- Per element and per property. A utility on a parent does not beat a rule
+  on its children.
+- Two conflicting utilities follow Tailwind's generated order, not their order
+  in `className`.
+- `@apply` keeps the precedence of the layer it is written in. `@utility` is
+  emitted into Tailwind's `utilities` layer.
+- `!important`, inline styles, animations and transitions are outside the
+  contract. Important declarations reverse layer order, so `!important` is not
+  a fix for a rule in the wrong layer. Do not make Tailwind `important`
+  globally, and do not raise selector specificity as a substitute for layering.
+
+Every kit stylesheet reserves this order, lowest to highest precedence:
+
+```css
+@layer base, infonomic-base, theme, infonomic-theme, infonomic-functional,
+  infonomic-typography, components, infonomic-components, overrides,
+  infonomic-utilities, utilities;
+```
+
+| Layer | Owner | Holds |
+|---|---|---|
+| `base`, `theme`, `components`, `utilities` | Tailwind | Tailwind's output |
+| `infonomic-*` | uikit | Reset, tokens, functional rules, typography, components, kit utilities |
+| `components` | Host | The host's own component CSS, including CSS modules |
+| `overrides` | Host | Brand tokens, area themes, restyles of kit components |
+| `utilities` | Tailwind | The final say |
+
+Avoid ordinary unlayered rules in a host: they outrank every named layer,
+including Tailwind utilities. CSS modules rename classes; they do not create
+a layer, so wrap module rules in `@layer components` too. A packaged
+application built on the kit may add its own layers between these (for
+example a package theme layer directly above `infonomic-theme`), provided its
+full statement keeps the same relative order for every name above and reaches
+the browser first.
+
+### Host integration
+
+Import the kit CSS as shown in [Getting Started](#getting-started), then
+establish the order with both of the helpers exported from the React-free
+`@infonomic/uikit/css-layers` entry. The PostCSS plugin needs PostCSS 8, which
+Vite already uses; add `postcss` as a development dependency if your host does
+not already have it.
+
+```ts
+// vite.config.ts
+import { infonomicLayerOrder } from '@infonomic/uikit/css-layers'
+import { defineConfig } from 'vite'
+
+export default defineConfig({
+  css: { postcss: { plugins: [infonomicLayerOrder()] } },
+})
+```
+
+```tsx
+// root document
+import { INFONOMIC_LAYER_ORDER } from '@infonomic/uikit/css-layers'
+
+<head>
+  <style>{INFONOMIC_LAYER_ORDER}</style>
+  <HeadContent />
+</head>
+```
+
+Keep both. The head statement covers CSS injected in development. React can
+hoist production stylesheet links above that `<style>`, so the plugin puts the
+statement at the top of every stylesheet before the bundler hashes it.
+Repeating the order is harmless, but a layer name's position is fixed where it
+first appears, and a partial order cannot be repaired afterwards. In a host
+that does not use PostCSS (for example Vite's `lightningcss` transformer),
+import `@infonomic/uikit/reset.css` or `styles.css` first: each kit stylesheet
+opens with the full statement. Check the first appearance of layer names in
+your production CSS; minifiers may fold statements into layer blocks without
+changing their order.
+
+In a Tailwind entry, open with the full statement rather than Tailwind's
+default `@layer theme, base, components, utilities;` (see
+[Tailwind CSS Integration](#tailwind-css-integration)).
+
+### Themed areas
+
+To theme part of a site (a public front end, say) without reaching another
+area that should keep the kit defaults, set an attribute on `<html>` during
+rendering, including SSR, and scope overrides to it. Putting it on `<html>`
+keeps portalled dialogs, drawers and toasts in the right theme.
+
+```css
+@layer overrides {
+  @scope (:root[data-theme-context="public"]) {
+    :scope { --theme-base: oklch(0.55 0.084 144.28); }
+    :scope.dark { --prose-body: var(--gray-100); }
+    .infonomic-button { border-radius: 0; }
+  }
+}
+```
+
+Inside `@scope (:root[…])`, a rule written as `:root { … }`, `html { … }` or
+`.dark .x { … }` never matches, and nothing reports it. Write `:scope { … }`,
+`:scope.dark .x { … }` or `.x:is(.dark *)`. Set tokens on the root itself
+(`:scope`), not on a descendant wrapper: Tailwind's colour aliases resolve
+tokens on the root before inheritance. The attribute and context names are a
+host convention.
+
+Tailwind theme variables are global. Add new names in a top-level `@theme`
+freely, but change shared values (an existing colour or font) on the scoped
+root instead.
+
+### Upgrading existing hosts
+
+This order changes observable behaviour:
+
+- Kit utilities (`infonomic-utilities`, for example `.sr-only` and the
+  `.text-*`, `.font-*` and `.primary-strong` helpers) now rank above kit theme,
+  typography and components. Before, they ranked below all three.
+- `infonomic-theme` now ranks below `infonomic-functional`.
+- Kit typography tokens now rank above Tailwind's `theme` layer. If you
+  import `typography.css` and set `--font-sans`, `--font-serif`,
+  `--font-display` or `--font-mono` in Tailwind `@theme`, the kit values now
+  win. Set those tokens in `@layer overrides` instead. No other kit token
+  shares a name with a Tailwind theme variable.
+- Unlayered host rules are unchanged: they beat all kit CSS and Tailwind
+  utilities, whatever their specificity. A global `button` or `a` rule can
+  change kit controls, so the contract only holds once host CSS is layered.
+
+Before upgrading, move ordinary host CSS (including CSS modules and global
+element rules) into named layers: site components in `components`, kit
+restyles and brand tokens in `overrides`. Add both integrations above, then
+compare representative pages, dialogs and forms in light and dark against a
+visual baseline taken before the upgrade.
+
+### Verification
+
+`pnpm --filter @infonomic/uikit test` runs the source guard
+(`packages/uikit/tests/css-layers.test.mjs`): every kit stylesheet opens with
+the full order, no declaration is unlayered or `!important`, `@scope` rules do
+not select the scope root by `:root`, `html` or `.dark`, and the TanStack demo
+keeps both integrations. After `pnpm build`, `test:css-build` also checks the
+published helper and the first-appearance order of every emitted stylesheet.
+
+The layer prefix is `infonomic-`. The Byline CMS kit (`@byline/ui`) uses the
+same order with the `byline-` prefix; when porting a change between the kits,
+rename `@layer` names but not the `.infonomic-*` DOM class hooks.
+
 ## Documentation
 
 At the moment, self-documented component examples are all based on [Storybook](https://storybook.js.org/). For now at least, in order to view our Storybook stories you'll need to clone this repo, install all dependencies, then change into the packages/uikit directory and start Storybook with `pnpm storybook` or `npm run storybook`.
@@ -109,7 +260,9 @@ At the moment, self-documented component examples are all based on [Storybook](h
 Here's an example Tailwind CSS integration. Note that we have our own reset, and optional typography system and so the order of our imports is a little different from the usual 'Tailwind first' approach. The example below does NOT use the Tailwind CSS reset.
 
 ```css
-@layer theme, base, components, utilities;
+@layer base, infonomic-base, theme, infonomic-theme, infonomic-functional,
+  infonomic-typography, components, infonomic-components, overrides,
+  infonomic-utilities, utilities;
 @import "tailwindcss/theme.css" layer(theme);
 /* @import "tailwindcss/preflight.css" layer(base); */
 @import "tailwindcss/utilities.css" layer(utilities);

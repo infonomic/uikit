@@ -1,9 +1,14 @@
-@layer infonomic-base,
-  infonomic-functional,
-  infonomic-utilities,
+@layer base,
+  infonomic-base,
+  theme,
   infonomic-theme,
+  infonomic-functional,
   infonomic-typography,
-  infonomic-components;
+  components,
+  infonomic-components,
+  overrides,
+  infonomic-utilities,
+  utilities;
 
 @layer infonomic-components {
   .label,

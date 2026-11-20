@@ -247,6 +247,9 @@ importers:
       lightningcss-cli:
         specifier: ^1.33.0
         version: 1.33.0
+      postcss:
+        specifier: ^8.5.26
+        version: 8.5.26
       react:
         specifier: ^19.2.8
         version: 19.2.8

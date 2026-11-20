@@ -1,3 +1,15 @@
+@layer base,
+  infonomic-base,
+  theme,
+  infonomic-theme,
+  infonomic-functional,
+  infonomic-typography,
+  components,
+  infonomic-components,
+  overrides,
+  infonomic-utilities,
+  utilities;
+
 /* 
  * Adapted from Tailwind typography plugin
  * Portions copyright (c) Tailwind Labs, Inc.
