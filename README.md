@@ -10,7 +10,7 @@ It just doesn't belong in UI kits and libraries.
 
 ## Rationale
 
-In addition to our thoughts above, this kit is built around the philosophy of adopting or 'folding in' best-in-class components, like the ones in well-known 'à la carte' headless component libraries such as [Base UI](https://base-ui.com/) and [React Aria](https://react-spectrum.adobe.com/react-aria/index.html), as well as other well-known individual components such as [React Day Picker](https://github.com/gpbl/react-day-picker) and more. 
+In addition to our thoughts above, this kit is built around the philosophy of adopting or 'folding in' best-in-class components, like the ones in well-known 'à la carte' headless component libraries such as [Base UI](https://base-ui.com/) and [React Aria](https://react-spectrum.adobe.com/react-aria/index.html), as well as other well-known individual components such as [React Day Picker](https://github.com/gpbl/react-day-picker) and more.
 
 Many of the current components are built on [Base UI](https://base-ui.com/) - which is an excellent project. The great thing about wrapping these components in a client-consumable interface and library is that, in theory at least, the consumer of our kit's components won't have to worry about implementation details or migration from one underlying component library to another. The 'contract' and core styling semantics will never change.
 
@@ -24,7 +24,7 @@ We built this with the following design goals in mind:
 
 4. We'd like our components' styles to be easily overridable - whether via 'style' attributes, Tailwind, regular CSS classnames and stylesheets, or any other style system being used by the front-end. We'd especially like to be able to override a component's styles without having to use CSS !important.
 
-5. We have a very opinionated definition of variants and intents. Variants in our kit refer to overall style variations - meaning they may differ in terms of shape, form, borders, etc. For example, `outlined`, `gradient`, or `filled` buttons, or `outlined`, `filled`, and `underlined` text input components. Our intents system, as the name suggests, signals semantic intent and is composed of `primary`, `secondary`, `noeffect`, `info`, `warning`, `success` and `danger`. Many of our components support both variant and intent properties. 
+5. We have a very opinionated definition of variants and intents. Variants in our kit refer to overall style variations - meaning they may differ in terms of shape, form, borders, etc. For example, `outlined`, `gradient`, or `filled` buttons, or `outlined`, `filled`, and `underlined` text input components. Our intents system, as the name suggests, signals semantic intent and is composed of `primary`, `secondary`, `noeffect`, `info`, `warning`, `success` and `danger`. Many of our components support both variant and intent properties.
 
 ### Other key points:
 
@@ -53,8 +53,6 @@ The intent token taxonomy follows `element-intent-emphasis-state`:
 
 Example: `--text-on-primary-strong-disabled`. Components that need a role without an intent (e.g. a focus ring on a form field) should use the generic tokens: `--focus-ring`, `--field-border`, `--field-border-invalid`, `--surface-subtle`, `--text-subtle`.
 
-
-
 ## Getting Started
 
 Install packages
@@ -69,35 +67,34 @@ And then in your application in a global.css or other root CSS file...
 
 ```css
 /**
- * Optional reset and core styles including var system for 
+ * Optional reset and core styles including var system for
  * breakpoints, colors, scales, utils  etc., which can be
  * integrated with Tailwind (colors, breakpoints etc.) via
  * Tailwind theme configuration.
  */
-@import '@infonomic/uikit/reset.css';
-@import '@infonomic/uikit/styles.css';
+@import "@infonomic/uikit/reset.css";
+@import "@infonomic/uikit/styles.css";
 
 /**
-  * Optional uikit typography including prose and fonts
-  */
-@import '@infonomic/uikit/typography.css';
+ * Optional uikit typography including prose and fonts
+ */
+@import "@infonomic/uikit/typography.css";
 
 /**
-  * Tailwind (optional) - should come after the above.
-  */
-@import './tailwind.css';
+ * Tailwind (optional) - should come after the above.
+ */
+@import "./tailwind.css";
 
 /**
-  * Application styles
-  */
-@import './app.css';
+ * Application styles
+ */
+@import "./app.css";
 ```
 
 Followed by the below in any of your components or routes where you'd like to import a component...
 
 ```ts
 import { Button, Card, Container, Section } from '@infonomic/uikit/react'
-
 ```
 
 ## CSS cascade layers
@@ -123,18 +120,26 @@ Limits:
 Every kit stylesheet reserves this order, lowest to highest precedence:
 
 ```css
-@layer base, infonomic-base, theme, infonomic-theme, infonomic-functional,
-  infonomic-typography, components, infonomic-components, overrides,
-  infonomic-utilities, utilities;
+@layer base,
+  infonomic-base,
+  theme,
+  infonomic-theme,
+  infonomic-functional,
+  infonomic-typography,
+  components,
+  infonomic-components,
+  overrides,
+  infonomic-utilities,
+  utilities;
 ```
 
-| Layer | Owner | Holds |
-|---|---|---|
-| `base`, `theme`, `components`, `utilities` | Tailwind | Tailwind's output |
-| `infonomic-*` | uikit | Reset, tokens, functional rules, typography, components, kit utilities |
-| `components` | Host | The host's own component CSS, including CSS modules |
-| `overrides` | Host | Brand tokens, area themes, restyles of kit components |
-| `utilities` | Tailwind | The final say |
+| Layer                                      | Owner    | Holds                                                                  |
+| ------------------------------------------ | -------- | ---------------------------------------------------------------------- |
+| `base`, `theme`, `components`, `utilities` | Tailwind | Tailwind's output                                                      |
+| `infonomic-*`                              | uikit    | Reset, tokens, functional rules, typography, components, kit utilities |
+| `components`                               | Host     | The host's own component CSS, including CSS modules                    |
+| `overrides`                                | Host     | Brand tokens, area themes, restyles of kit components                  |
+| `utilities`                                | Tailwind | The final say                                                          |
 
 Avoid ordinary unlayered rules in a host: they outrank every named layer,
 including Tailwind utilities. CSS modules rename classes; they do not create
@@ -166,7 +171,7 @@ export default defineConfig({
 // root document
 import { INFONOMIC_LAYER_ORDER } from '@infonomic/uikit/css-layers'
 
-<head>
+;<head>
   <style>{INFONOMIC_LAYER_ORDER}</style>
   <HeadContent />
 </head>
@@ -197,9 +202,15 @@ keeps portalled dialogs, drawers and toasts in the right theme.
 ```css
 @layer overrides {
   @scope (:root[data-theme-context="public"]) {
-    :scope { --theme-base: oklch(0.55 0.084 144.28); }
-    :scope.dark { --prose-body: var(--gray-100); }
-    .infonomic-button { border-radius: 0; }
+    :scope {
+      --theme-base: oklch(0.55 0.084 144.28);
+    }
+    :scope.dark {
+      --prose-body: var(--gray-100);
+    }
+    .infonomic-button {
+      border-radius: 0;
+    }
   }
 }
 ```
@@ -458,5 +469,5 @@ Copyright © 2025 Anthony Bouch and contributors.
 
 ### Major Contributors
 
-* Anthony Bouch https://www.linkedin.com/in/anthonybouch/ anthony@infonomic.io 
-* David Lipsky https://www.linkedin.com/in/david-lipsky-4391862a8/ david@infonomic.io 
+- Anthony Bouch https://www.linkedin.com/in/anthonybouch/ anthony@infonomic.io
+- David Lipsky https://www.linkedin.com/in/david-lipsky-4391862a8/ david@infonomic.io
