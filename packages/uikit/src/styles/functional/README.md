@@ -17,12 +17,12 @@ Components must read from these tokens. They must not read base palette primitiv
 
 `--{element}-{intent}[-{emphasis}][-{state}]`
 
-| Part | Values |
-| --- | --- |
-| element | `fill`, `text-on`, `text`, `stroke`, `ring`, `gradient` |
-| intent | `primary`, `secondary`, `noeffect`, `success`, `info`, `warning`, `danger` |
+| Part     | Values                                                                        |
+| -------- | ----------------------------------------------------------------------------- |
+| element  | `fill`, `text-on`, `text`, `stroke`, `ring`, `gradient`                       |
+| intent   | `primary`, `secondary`, `noeffect`, `success`, `info`, `warning`, `danger`    |
 | emphasis | `strong`, `weak`, `outlined`, `text` (present on `fill` and `text-on` tokens) |
-| state | `hover`, `disabled` (present where a state-specific value is needed) |
+| state    | `hover`, `disabled` (present where a state-specific value is needed)          |
 
 There is **no `accent` intent family**. `--accent` is a raw brand palette token; prefer `--fill-primary-*` for emphasis surfaces or `--surface-subtle-*` for interactive neutral surfaces.
 
@@ -48,19 +48,19 @@ Noeffect additionally provides `--text-on-noeffect-text*` and `--gradient-noeffe
 
 Use these when a component needs a role without adopting an intent:
 
-| Token | Purpose |
-| --- | --- |
-| `--focus-ring` | Neutral focus ring when the component is not tied to an intent |
-| `--field-border` | Default border on form fields |
-| `--field-border-hover` | Hover border on form fields |
-| `--field-border-invalid` | Invalid-state border on form fields |
-| `--field-ring` | Default focus ring on form fields |
-| `--field-ring-invalid` | Invalid-state focus ring on form fields |
-| `--surface-subtle` | Subdued neutral surface |
-| `--surface-subtle-hover` | Subdued neutral surface on hover / for interactive neutral highlight |
-| `--surface-subtle-active` | Subdued neutral surface when pressed / active |
-| `--text-subtle` | Subdued foreground text |
-| `--text-placeholder` | Placeholder-style foreground text |
+| Token                     | Purpose                                                              |
+| ------------------------- | -------------------------------------------------------------------- |
+| `--focus-ring`            | Neutral focus ring when the component is not tied to an intent       |
+| `--field-border`          | Default border on form fields                                        |
+| `--field-border-hover`    | Hover border on form fields                                          |
+| `--field-border-invalid`  | Invalid-state border on form fields                                  |
+| `--field-ring`            | Default focus ring on form fields                                    |
+| `--field-ring-invalid`    | Invalid-state focus ring on form fields                              |
+| `--surface-subtle`        | Subdued neutral surface                                              |
+| `--surface-subtle-hover`  | Subdued neutral surface on hover / for interactive neutral highlight |
+| `--surface-subtle-active` | Subdued neutral surface when pressed / active                        |
+| `--text-subtle`           | Subdued foreground text                                              |
+| `--text-placeholder`      | Placeholder-style foreground text                                    |
 
 ## Parity Contract
 
