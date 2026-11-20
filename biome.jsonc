@@ -14,7 +14,8 @@
       "!**/routeTree.gen.ts",
       "!**/*.astro",
       "!**/tailwind.css",
-      "!**/tailwind-shadcn.css"
+      "!**/tailwind-shadcn.css",
+      "!**/.changeset/*.md"
     ]
   },
   "formatter": {
